@@ -1,5 +1,5 @@
 AC_INIT(deskbar-applet, 0.4.0, mail@mail.com)
-AC_CONFIG_SRCDIR(src/__init__.py)
+AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 
 AM_INIT_AUTOMAKE
@@ -54,7 +54,7 @@ dnl * --------------------------------------------------------------------------
 dnl ****************************************************************************
 AC_OUTPUT([
 Makefile
-src/Makefile
+deskbar/Makefile
 data/Makefile
 data/art/Makefile
 po/Makefile.in

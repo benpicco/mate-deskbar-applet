@@ -1,4 +1,4 @@
-SUBDIRS = src data po
+SUBDIRS = deskbar data po
 
 DISTCLEANFILES = \
 	intltool-extract \

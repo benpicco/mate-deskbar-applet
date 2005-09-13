@@ -1,4 +1,4 @@
-libexec_SCRIPTS = deskbar-applet.py
+libexec_SCRIPTS = deskbar-applet
 
 deskbardir = $(pythondir)/deskbar
 deskbar_PYTHON = \

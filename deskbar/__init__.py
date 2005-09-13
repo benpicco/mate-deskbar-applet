@@ -2,40 +2,49 @@ import gnome
 import gtk
 import gtk.gdk
 import os
-import os.path
+import sys
+from os.path import *
 
+# Allow to use uninstalled deskbar
+def _check(path):
+	return exists(path) and isdir(path) and isfile(path+"/Makefile.am")
 
+# FIXME: Autogenerate this
 APP_NAME = "deskbar-applet"
 VERSION = "0.4"
 
 DEFAULT_WIDTH = 150
 
-# SHARED_DATA_DIR ends in a "/"
-SHARED_DATA_DIR = gnome.program_init(APP_NAME, VERSION).get_property(gnome.PARAM_GNOME_DATADIR) + "/deskbar-applet/"
-# HOME_DIR does not
-HOME_DIR = os.path.expanduser("~")
-# USER_DIR ends in a "/"
-USER_DIR = os.path.expanduser("~/.deskbar/")
+# Shared data dir is most the time /usr/share/deskbar-applet
+name = join(dirname(__file__), '..', 'data')
+if _check(name):
+	SHARED_DATA_DIR = abspath(name)
+else:
+	SHARED_DATA_DIR = gnome.program_init(APP_NAME, VERSION).get_property(gnome.PARAM_GNOME_DATADIR) + "/deskbar-applet/"
+print "Data Dir: %s" % SHARED_DATA_DIR
 
+#Path to images, icons
+ART_DATA_DIR = join(SHARED_DATA_DIR, "art")
 
-if not os.path.exists(USER_DIR):
+# HOME_DIR is the user's directory
+HOME_DIR = expanduser("~")
+# USER_DIR is where we store our infos
+USER_DIR = expanduser("~/.gnome2/deskbar-applet")
+
+if not exists(USER_DIR):
 	os.makedirs(USER_DIR)
-
 
 # This should be a string that rarely occurs naturally.
 NO_CHECK_CAN_HANDLE = "nO_cHECK_cAN_hANDLE*"
 
-
 def escape_dots(text):
 	return text.replace(".", "_dot_").replace("`", "_backtick_")
-
 
 def escape_markup(text):
 	text = text.replace("&", "&amp;")
 	text = text.replace("<", "&lt;")
 	text = text.replace(">", "&gt;")
 	return text
-
 
 def ellipsize(text, length = 80):
 	if len(text) <= length:
@@ -44,41 +53,39 @@ def ellipsize(text, length = 80):
 		x = (length / 2) - 6
 		return text[:x] + " ... " + text[-x:]
 
-
 def run_command(cmd, arg):
 	arg = arg.replace("\"", "\\\"")
 	cmd = cmd.replace("%s", arg)
 	#print "  >>", cmd
+	# Fixme: use spawn here
 	os.system(cmd + " &")
-
 
 #-------------------------------------------------------------------------------
 # Icons
 
 ICON_SIZE = 12
 
-
 def load_image(name, scale=True):
 	name = escape_dots(name)
 	
-	n = SHARED_DATA_DIR + name
-	if os.path.exists(n):
+	n = join(ART_DATA_DIR, name)
+	if exists(n):
 		return load_image_by_filename(n, scale)
-	if os.path.exists(n + ".png"):
+	if exists(n + ".png"):
 		return load_image_by_filename(n + ".png", scale)
-	if os.path.exists(n + ".ico"):
+	if exists(n + ".ico"):
 		return load_image_by_filename(n + ".ico", scale)
-	if os.path.exists(n + ".xpm"):
+	if exists(n + ".xpm"):
 		return load_image_by_filename(n + ".xpm", scale)
 	
-	n = USER_DIR + name
-	if os.path.exists(n):
+	n = join(USER_DIR, name)
+	if exists(n):
 		return load_image_by_filename(n, scale)
-	if os.path.exists(n + ".png"):
+	if exists(n + ".png"):
 		return load_image_by_filename(n + ".png", scale)
-	if os.path.exists(n + ".ico"):
+	if exists(n + ".ico"):
 		return load_image_by_filename(n + ".ico", scale)
-	if os.path.exists(n + ".xpm"):
+	if exists(n + ".xpm"):
 		return load_image_by_filename(n + ".xpm", scale)
 	
 	return GENERIC_IMAGE
@@ -96,7 +103,7 @@ def load_image_by_filename(filename, scale=True):
 		return GENERIC_IMAGE
 
 
-GENERIC_IMAGE = load_image_by_filename(SHARED_DATA_DIR + "generic.png")
+GENERIC_IMAGE = load_image_by_filename(join(ART_DATA_DIR, "generic.png"))
 
 
 DESKBAR_BIG_IMAGE     = load_image("deskbar-applet", False)

@@ -1,0 +1,79 @@
+#!/usr/bin/env python
+#
+# (C) 2005 Nigel Tao.
+# Licensed under the GNU GPL.
+
+import gtk, gnomeapplet
+import getopt, sys
+from os.path import *
+
+# Allow to use uninstalled
+def _check(path):
+	return exists(path) and isdir(path) and isfile(path+"/autogen.sh")
+
+name = join(dirname(__file__), '..')
+if _check(name):
+	print 'Running uninstalled deskbar, modifying PYTHONPATH'
+	sys.path.insert(0, abspath(name))
+else:
+	print "Running installed deskbar, using normal PYTHONPATH"
+
+# Now the path is set, import our applet
+import deskbar.applet	
+
+def applet_factory(applet, iid):
+	deskbar.applet.DeskbarApplet(applet)
+	return True
+
+# Return a standalone window that holds the applet
+def build_window():
+	win = gtk.Window(gtk.WINDOW_TOPLEVEL)
+	win.set_title("Deskbar Applet")
+	win.connect("destroy", gtk.main_quit)
+	
+	applet = gnomeapplet.Applet()
+	applet_factory(applet, None)
+	applet.reparent(win)
+	
+	win.show_all()
+	
+	return win
+		
+		
+def usage():
+	print """=== Deskbar applet: Usage
+$ deskbar-applet [OPTIONS]
+
+OPTIONS:
+	-h, --help			Print this help notice.
+	-d, --debug			Enable debug output (default=off).
+	-w, --window		Launch the applet in a standalone window for test purposes (default=no).
+	"""
+	sys.exit()
+	
+if __name__ == "__main__":
+	standalone = False
+	
+	try:
+		opts, args = getopt.getopt(sys.argv[1:], "hdw", ["help", "debug", "window"])
+	except getopt.GetoptError:
+		usage()
+	
+	for o, a in opts:
+		if o in ("-h", "--help"):
+			usage()
+		elif o in ("-d", "--debug"):
+			print "No problems so far."
+		elif o in ("-w", "--window"):
+			standalone = True
+			
+	if standalone:
+		build_window()
+		gtk.main()
+	else:
+		gnomeapplet.bonobo_factory(
+			"OAFIID:Deskbar_Applet_Factory",
+			gnomeapplet.Applet.__gtype__,
+			"deskbar-applet",
+			"0",
+			applet_factory)

@@ -4,14 +4,15 @@
 pixmapsdir = $(datadir)/pixmaps
 pixmaps_DATA = deskbar-applet.png
 
-imagesdir = $(pkgdatadir)/images
-images_DATA = \
+artdir = $(pkgdatadir)/art
+art_DATA = \
 	a.ico \
 	av.ico \
 	_backtick_.ico \
 	beagle.ico \
 	cc.ico \
 	cddb.ico \
+	deskbar-applet.png \
 	deskbar-applet-small.png \
 	dict.png \
 	dmoz.ico \
@@ -36,4 +37,4 @@ images_DATA = \
 
 EXTRA_DIST = \
 	$(pixmaps_DATA) \
-	$(images_DATA)
+	$(art_DATA)

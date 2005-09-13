@@ -1,3 +1,51 @@
+2005-09-13  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* Makefile.am:
+	* configure.ac:
+	* data/Deskbar_Applet.server.in.in:
+	* data/art/Makefile.am:
+	* deskbar/.cvsignore:
+	* deskbar/Makefile.am:
+	* deskbar/__init__.py:
+	* deskbar/about.py:
+	* deskbar/applet.py:
+	* deskbar/browser_bookmarks_epiphany.py:
+	* deskbar/browser_bookmarks_mozilla.py:
+	* deskbar/config.py:
+	* deskbar/deskbar-applet:
+	* deskbar/handler_address_book.py:
+	* deskbar/handler_browser_bookmarks.py:
+	* deskbar/handler_file_system.py:
+	* deskbar/handler_gtk_bookmarks.py:
+	* deskbar/handler_prefix.py:
+	* deskbar/handler_web_site.py:
+	* deskbar/handlers.py:
+	* deskbar/indexer.py:
+	* deskbar/preferences.py:
+	* src/.cvsignore:
+	* src/Makefile.am:
+	* src/__init__.py:
+	* src/about.py:
+	* src/applet.py:
+	* src/browser_bookmarks_epiphany.py:
+	* src/browser_bookmarks_mozilla.py:
+	* src/config.py:
+	* src/deskbar-applet.py:
+	* src/handler_address_book.py:
+	* src/handler_browser_bookmarks.py:
+	* src/handler_file_system.py:
+	* src/handler_gtk_bookmarks.py:
+	* src/handler_prefix.py:
+	* src/handler_web_site.py:
+	* src/handlers.py:
+	* src/indexer.py:
+	* src/preferences.py:
+	Move src/ to deskbar/ to match python module name, adapt autotools
+	accordingly.
+
+	Also added a possibility to launch deskbar-applet uninstalled by running
+	./deskbar/deskbar-applet -w
+
 2005-09-12  Nigel Tao  <nigel.tao@myrealbox.com>
 
 	* Version 0.4 - major re-write.
