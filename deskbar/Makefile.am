@@ -2,6 +2,8 @@ libexec_SCRIPTS = deskbar-applet
 
 deskbardir = $(pythondir)/deskbar
 deskbar_PYTHON = \
+	__init__.py \
+	defs.py \
 	about.py \
 	applet.py \
 	browser_bookmarks_epiphany.py \
@@ -17,9 +19,9 @@ deskbar_PYTHON = \
 	indexer.py \
 	preferences.py
 	
-install-data-local:
-	sed -e 's|\@DATADIR\@|$(datadir)|' __init__.py > $(deskbardir)/__init__.py
-
+DISTCLEANFILES = \
+	defs.py
+	
 EXTRA_DIST = \
-	__init__.py \
+	defs.py.in \
 	$(libexec_SCRIPTS)

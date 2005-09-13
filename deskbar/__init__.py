@@ -4,6 +4,7 @@ import gtk, gtk.gdk
 import os, sys
 from os.path import *
 
+from defs import DATA_DIR
 # Allow to use uninstalled deskbar
 def _check(path):
 	return exists(path) and isdir(path) and isfile(path+"/Makefile.am")
@@ -15,7 +16,7 @@ name = join(dirname(__file__), '..', 'data')
 if _check(name):
 	SHARED_DATA_DIR = abspath(name)
 else:
-	SHARED_DATA_DIR = join("@DATADIR@", "deskbar-applets")
+	SHARED_DATA_DIR = join(DATA_DIR, "deskbar-applets")
 print "Data Dir: %s" % SHARED_DATA_DIR
 
 #Path to images, icons
