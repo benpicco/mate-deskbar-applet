@@ -1,3 +1,5 @@
+SUBDIRS = iconentry
+
 libexec_SCRIPTS = deskbar-applet
 
 deskbardir = $(pythondir)/deskbar

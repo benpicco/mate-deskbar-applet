@@ -6,7 +6,7 @@ import gtk.glade
 import gobject
 import shutil
 import urllib
-
+import os.path
 
 def get_list_store_of_handlers():
 	store = gtk.ListStore(str, gtk.gdk.Pixbuf, str, str, str)
@@ -52,7 +52,7 @@ class PrefsDialog:
 		self.store = get_list_store_of_handlers()
 		self.is_dirty = False
 		
-		self.glade = gtk.glade.XML(deskbar.SHARED_DATA_DIR + "prefs-dialog.glade")
+		self.glade = gtk.glade.XML(os.path.join(deskbar.SHARED_DATA_DIR, "prefs-dialog.glade"))
 		self.dialog = self.glade.get_widget("preferences_dialog")
 		
 		w = self.gconf.get_int("/width", deskbar.DEFAULT_WIDTH)
@@ -96,7 +96,7 @@ class PrefsDialog:
 	def write_store_to_disk(self):
 		try:
 			sorted = []
-			f = file(deskbar.USER_DIR + "engines.txt", "w")
+			f = file(os.path.join(deskbar.USER_DIR, "engines.txt"), "w")
 			def write(s):
 				if len(s) == 0:
 					f.write(".")
@@ -223,7 +223,7 @@ class PrefsDialog:
 		
 		deskbar.handlers.set_default_handler_by_prefix(abbreviation)
 		try:
-			f = file(deskbar.USER_DIR + "default-engine.txt", "w")
+			f = file(os.path.join(deskbar.USER_DIR, "default-engine.txt"), "w")
 			f.write(abbreviation)
 			f.flush()
 			f.close()
@@ -243,7 +243,7 @@ class PrefsDialog:
 			model, selected = selection.get_selected()
 			path = model.get_path(selected)
 			abbreviation = self.store[path][2]
-			shutil.copyfile(fn, deskbar.USER_DIR + deskbar.escape_dots(abbreviation) + extension)
+			shutil.copyfile(fn, os.path.join(deskbar.USER_DIR, deskbar.escape_dots(abbreviation) + extension))
 			image = deskbar.load_image(abbreviation)
 			self.store[path][1] = image.get_pixbuf()
 
@@ -260,7 +260,7 @@ class PrefsDialog:
 			if n != -1:
 				url = url[:n]
 			urllib.urlretrieve("http://" + url + "/favicon.ico",
-				deskbar.USER_DIR + deskbar.escape_dots(abbreviation) + ".ico")
+				os.path.join(deskbar.USER_DIR, deskbar.escape_dots(abbreviation) + ".ico"))
 			image = deskbar.load_image(abbreviation)
 			self.store[path][1] = image.get_pixbuf()
 

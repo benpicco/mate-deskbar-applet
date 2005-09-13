@@ -11,7 +11,7 @@ def load_gtk_bookmarks():
 	bookmarks_index.clear()
 	try:
 		sorted_lines = []
-		for line in file(deskbar.HOME_DIR + "/.gtk-bookmarks"):
+		for line in file(os.path.join(deskbar.HOME_DIR, "/.gtk-bookmarks")):
 			line = line.replace("%20", " ").strip()
 			if gnomevfs.exists(line):
 				if line.startswith("file://"):

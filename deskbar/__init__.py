@@ -4,19 +4,25 @@ import gtk, gtk.gdk
 import os, sys
 from os.path import *
 
+try:
+	# Allows to load uninstalled .la libs
+	import ltihooks
+except ImportError:
+	pass
+
+# Autotools set the actual data_dir
 from defs import DATA_DIR
+
 # Allow to use uninstalled deskbar
 def _check(path):
 	return exists(path) and isdir(path) and isfile(path+"/Makefile.am")
-
-DEFAULT_WIDTH = 150
 
 # Shared data dir is most the time /usr/share/deskbar-applet
 name = join(dirname(__file__), '..', 'data')
 if _check(name):
 	SHARED_DATA_DIR = abspath(name)
 else:
-	SHARED_DATA_DIR = join(DATA_DIR, "deskbar-applets")
+	SHARED_DATA_DIR = join(DATA_DIR, "deskbar-applet")
 print "Data Dir: %s" % SHARED_DATA_DIR
 
 #Path to images, icons
@@ -33,15 +39,19 @@ if not exists(USER_DIR):
 # This should be a string that rarely occurs naturally.
 NO_CHECK_CAN_HANDLE = "nO_cHECK_cAN_hANDLE*"
 
+DEFAULT_WIDTH = 150
+
 def escape_dots(text):
 	return text.replace(".", "_dot_").replace("`", "_backtick_")
 
+#FIXME: use urllib for that, this is more like a hack
 def escape_markup(text):
 	text = text.replace("&", "&amp;")
 	text = text.replace("<", "&lt;")
 	text = text.replace(">", "&gt;")
 	return text
 
+#FIXME: Use pango ellipsization where available
 def ellipsize(text, length = 80):
 	if len(text) <= length:
 		return text
@@ -49,16 +59,16 @@ def ellipsize(text, length = 80):
 		x = (length / 2) - 6
 		return text[:x] + " ... " + text[-x:]
 
+# Fixme: use spawn async here
 def run_command(cmd, arg):
 	arg = arg.replace("\"", "\\\"")
 	cmd = cmd.replace("%s", arg)
 	#print "  >>", cmd
-	# Fixme: use spawn here
 	os.system(cmd + " &")
 
 #-------------------------------------------------------------------------------
 # Icons
-
+# Maybe we should register our stock icons here instead of that raw preloading ?
 ICON_SIZE = 12
 
 def load_image(name, scale=True):

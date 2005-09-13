@@ -1,0 +1,42 @@
+;; -*- scheme -*-
+; object definitions ...
+(define-object IconEntry
+  (in-module "Ephy")
+  (parent "GtkBin")
+  (c-name "EphyIconEntry")
+  (gtype-id "EPHY_TYPE_ICON_ENTRY")
+)
+
+;; Enumerations and flags ...
+
+
+;; From ephy-icon-entry.h
+
+(define-function ephy_icon_entry_get_type
+  (c-name "ephy_icon_entry_get_type")
+  (return-type "GType")
+)
+
+(define-function ephy_icon_entry_new
+  (c-name "ephy_icon_entry_new")
+  (is-constructor-of "EphyIconEntry")
+  (return-type "GtkWidget*")
+)
+
+(define-method pack_widget
+  (of-object "EphyIconEntry")
+  (c-name "ephy_icon_entry_pack_widget")
+  (return-type "none")
+  (parameters
+    '("GtkWidget*" "widget")
+    '("gboolean" "start")
+  )
+)
+
+(define-method get_entry
+  (of-object "EphyIconEntry")
+  (c-name "ephy_icon_entry_get_entry")
+  (return-type "GtkWidget*")
+)
+
+

@@ -40,18 +40,18 @@ def load_handlers():
 	
 	# set up the default config files, if they don't already exist
 	try:
-		if not os.path.exists(deskbar.USER_DIR + "engines.txt"):
-			shutil.copyfile(deskbar.SHARED_DATA_DIR + "default-engines.txt", deskbar.USER_DIR + "engines.txt")
-			shutil.copyfile(deskbar.SHARED_DATA_DIR + "default-engine-prefix.txt", deskbar.USER_DIR + "default-engine.txt")
+		if not os.path.exists(os.path.join(deskbar.USER_DIR, "engines.txt")):
+			shutil.copyfile(os.path.join(deskbar.SHARED_DATA_DIR, "default-engines.txt"), os.path.join(deskbar.USER_DIR, "engines.txt"))
+			shutil.copyfile(os.path.join(deskbar.SHARED_DATA_DIR, "default-engine-prefix.txt"), os.path.join(deskbar.USER_DIR, "default-engine.txt"))
 	except IOError:
 		pass
 	
 	# load the list of handlers out of the config file
-	load_configurable_handlers(deskbar.USER_DIR + "engines.txt")
+	load_configurable_handlers(os.path.join(deskbar.USER_DIR, "engines.txt"))
 	
 	# set default prefix handler
 	try:
-		for line in file(deskbar.USER_DIR + "default-engine.txt"):
+		for line in file(os.path.join(deskbar.USER_DIR, "default-engine.txt")):
 			line = line.strip()
 			if len(line) > 0:
 				set_default_handler_by_prefix(line)
@@ -98,7 +98,7 @@ def set_default_handler_by_prefix(prefix):
 def add_to_completions(text, completions, icon_container):
 	text = text.strip()
 	if len(text) == 0:
-		icon_container.set_icon(deskbar.DESKBAR_IMAGE)
+		icon_container.image.set_property('pixbuf', deskbar.DESKBAR_IMAGE.get_pixbuf())
 	else:
 		handler_icon = None
 		if file_system_handler.can_handle(text):
@@ -111,7 +111,7 @@ def add_to_completions(text, completions, icon_container):
 					text, completions, handler_icon, False)
 		if handler_icon == None:
 			handler_icon = deskbar.DESKBAR_IMAGE
-		icon_container.set_icon(handler_icon)
+		icon_container.image.set_property('pixbuf', handler_icon.get_pixbuf())
 
 
 def handle(text):

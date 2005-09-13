@@ -1,3 +1,44 @@
+2005-09-14  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* .cvsignore: Ignore .tar.gz files
+	* README: Update sexy dep
+	* configure.ac:
+	* data/art/deskbar-applet-small.png:
+	* deskbar/Makefile.am:
+	* deskbar/__init__.py:
+	* deskbar/applet.py:
+	* deskbar/handler_gtk_bookmarks.py:
+	* deskbar/handlers.py:
+	Fix all path concatenation by using os.path.join
+	Fix some data path for glade files and image files
+
+	* deskbar/iconentry/.cvsignore:
+	* deskbar/iconentry/Makefile.am:
+	* deskbar/iconentry/__init__.py:
+	* deskbar/iconentry/_iconentry.defs:
+	* deskbar/iconentry/_iconentry.override:
+	* deskbar/iconentry/_iconentrymodule.c: (init_iconentry):
+	* deskbar/iconentry/ephy-icon-entry.c: (entry_focus_change_cb),
+	(ephy_icon_entry_get_borders), (ephy_icon_entry_paint),
+	(ephy_icon_entry_init), (ephy_icon_entry_realize),
+	(ephy_icon_entry_size_request), (ephy_icon_entry_size_allocate),
+	(ephy_icon_entry_expose), (ephy_icon_entry_class_init),
+	(ephy_icon_entry_get_type), (ephy_icon_entry_new),
+	(ephy_icon_entry_pack_widget), (ephy_icon_entry_get_entry):
+	* deskbar/iconentry/ephy-icon-entry.h:
+	* deskbar/iconentry/gen-defs.sh:
+	* deskbar/ltihooks.py:
+	Remove the libsexy dependency by using epiphany's clean icon entry.
+	This fixes the visual glitch and bring quite intereting stuff.
+	Updated code and paths to reflect that, as well as autotools.
+	
+	* deskbar/preferences.py:
+	Use os.path.join for path concatenation
+	
+	* m4/.cvsignore:
+	* m4/python.m4:
+	Needed to generate the python bindings
+
 2005-09-13  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* README:

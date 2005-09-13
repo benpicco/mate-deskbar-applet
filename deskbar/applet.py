@@ -1,11 +1,11 @@
 import deskbar
 import deskbar.config
 import deskbar.handlers
+import deskbar.iconentry
 import gnomeapplet
 import gobject
 import gtk
 import gtk.gdk
-import sexy
 
 
 class DeskbarApplet:
@@ -25,14 +25,26 @@ class DeskbarApplet:
 
 
 	def construct_gui(self):
-		self.entry = sexy.IconEntry()
-		self.entry.connect("activate",           self.on_entry_activate)
-		self.entry.connect("button-press-event", self.on_entry_button_press)
-		self.entry.connect("changed",            self.on_entry_changed)
-		self.entry.connect("icon_clicked",       self.on_entry_icon_clicked)
-		self.entry.connect("key-press-event",    self.on_entry_key_press)
-		self.entry.set_size_request(self.config_width, self.entry.size_request()[1])
-		self.entry.set_icon(deskbar.DESKBAR_IMAGE)
+		self.iconentry = deskbar.iconentry.IconEntry()
+
+		entry = self.iconentry.get_entry()
+		entry.connect("activate",           self.on_entry_activate)
+		entry.connect("button-press-event", self.on_entry_button_press)
+		entry.connect("changed",            self.on_entry_changed)
+		entry.connect("key-press-event",    self.on_entry_key_press)
+		entry.set_size_request(self.config_width, entry.size_request()[1])
+		
+		evbox = gtk.EventBox()
+		evbox.set_property('visible-window', False)
+		self.iconentry.image = gtk.Image()
+		evbox.add(self.iconentry.image)
+		# Icon clicks are passed through to the applet, so that we can
+		# get both Fitt's Law goodness, and an Applet context menu (to
+		# remove the applet, for example).
+		evbox.connect("button-press-event", lambda box,event: self.applet.emit("button-press-event", event))
+		self.iconentry.pack_widget(evbox, True)
+		
+		self.iconentry.image.set_property('pixbuf', deskbar.DESKBAR_IMAGE.get_pixbuf())
 		
 		self.construct_completions()
 		
@@ -40,14 +52,14 @@ class DeskbarApplet:
 		width_policy = self.gconf.get_string("/width_policy", "fixed")
 		
 		self.applet.set_flags(gtk.CAN_FOCUS)
-		self.applet.add(self.entry)
+		self.applet.add(self.iconentry)
 		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
 		self.applet.connect("button-press-event", self.on_applet_button_press)
 	        self.applet.setup_menu_from_file (None, "Deskbar_Applet.xml", None,
 	        	[("About", self.on_about), ("New", self.on_new), ("Prefs", self.on_preferences)])
 
 		self.applet.show_all()
-		self.entry.grab_focus()
+		entry.grab_focus()
 
 
 	def construct_completions(self):
@@ -60,7 +72,7 @@ class DeskbarApplet:
 		completion.set_model(self.completionModel)
 		completion.connect("match-selected", self.on_completion_selected)
 		
-		self.entry.set_completion(completion)
+		self.iconentry.get_entry().set_completion(completion)
 		
 		crp = gtk.CellRendererPixbuf()
 		completion.pack_start(crp)
@@ -97,8 +109,8 @@ class DeskbarApplet:
 		self.config_width = width
 		
 		if self.entry != None:
-			esr = self.entry.size_request()
-			self.entry.set_size_request(width, esr[1])
+			esr = self.iconentry.get_entry().size_request()
+			self.iconentry.get_entry().set_size_request(width, esr[1])
 
 
 	def on_config_width_policy(self):
@@ -122,7 +134,7 @@ class DeskbarApplet:
 		# messing around with the completion and its iterator can
 		# cause crashers.
 		idle_callback = lambda entry: entry.set_text("")
-		gobject.idle_add(idle_callback, self.entry)
+		gobject.idle_add(idle_callback, self.iconentry.get_entry())
 		
 		deskbar.handlers.handle_with_specific_handler(handler_arg, handler_name)
 
@@ -135,25 +147,15 @@ class DeskbarApplet:
 
 	def on_entry_changed(self, widget):
 		self.completionModel.clear()
-		deskbar.handlers.add_to_completions(widget.get_text(), self.completionModel, self.entry)
-
-
-	def on_entry_icon_clicked(self, widget, button):
-		# Icon clicks are passed through to the applet, so that we can
-		# get both Fitt's Law goodness, and an Applet context menu (to
-		# remove the applet, for example).
-		event = gtk.gdk.Event(gtk.gdk.BUTTON_PRESS)
-		event.button = button
-		self.applet.emit("button-press-event", event)
-
+		deskbar.handlers.add_to_completions(widget.get_text(), self.completionModel, self.iconentry)
 
 	def on_applet_button_press(self, widget, event):
 		# Left-Mouse-Button should focus the GtkEntry widget (for Fitt's Law
 		# - so that a click on applet border on edge of screen activates the
 		# most important widget).
 		if event.button == 1:
-			self.entry.select_region(0, -1)
-			self.entry.grab_focus()
+			self.iconentry.get_entry().select_region(0, -1)
+			self.iconentry.get_entry().grab_focus()
 			return True
 		
 		return False
