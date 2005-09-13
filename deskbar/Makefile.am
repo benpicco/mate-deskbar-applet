@@ -18,5 +18,9 @@ deskbar_PYTHON = \
 	indexer.py \
 	preferences.py
 
+DISTCLEANFILES = \
+	__init__.py
+
 EXTRA_DIST = \
+	__init__.py.in \
 	$(libexec_SCRIPTS)

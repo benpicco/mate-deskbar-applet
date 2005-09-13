@@ -1,17 +1,12 @@
-import gnome
-import gtk
-import gtk.gdk
-import os
-import sys
+#!/usr/bin/env python
+
+import gtk, gtk.gdk
+import os, sys
 from os.path import *
 
 # Allow to use uninstalled deskbar
 def _check(path):
 	return exists(path) and isdir(path) and isfile(path+"/Makefile.am")
-
-# FIXME: Autogenerate this
-APP_NAME = "deskbar-applet"
-VERSION = "0.4"
 
 DEFAULT_WIDTH = 150
 
@@ -20,7 +15,7 @@ name = join(dirname(__file__), '..', 'data')
 if _check(name):
 	SHARED_DATA_DIR = abspath(name)
 else:
-	SHARED_DATA_DIR = gnome.program_init(APP_NAME, VERSION).get_property(gnome.PARAM_GNOME_DATADIR) + "/deskbar-applet/"
+	SHARED_DATA_DIR = join("@DATADIR@", "deskbar-applets")
 print "Data Dir: %s" % SHARED_DATA_DIR
 
 #Path to images, icons

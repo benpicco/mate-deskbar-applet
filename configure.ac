@@ -1,5 +1,5 @@
 AC_INIT(deskbar-applet, 0.4.0, mail@mail.com)
-AC_CONFIG_SRCDIR(deskbar/__init__.py)
+AC_CONFIG_SRCDIR(deskbar/__init__.py.in)
 AC_CONFIG_HEADERS(config.h)
 
 AM_INIT_AUTOMAKE
@@ -37,6 +37,8 @@ dnl ****************************************************************************
 dnl * Python 2.3
 dnl ****************************************************************************
 AM_PATH_PYTHON(2.3)
+AS_AC_EXPAND(DATADIR, $datadir)
+AC_SUBST(DATADIR)
 
 dnl ****************************************************************************
 dnl * PyGTK & co for Gnome Streamer
@@ -55,6 +57,7 @@ dnl ****************************************************************************
 AC_OUTPUT([
 Makefile
 deskbar/Makefile
+deskbar/__init__.py
 data/Makefile
 data/art/Makefile
 po/Makefile.in
