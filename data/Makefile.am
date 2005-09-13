@@ -50,7 +50,7 @@ DISTCLEANFILES = \
 	$(schema_DATA) \
 	$(ui_DATA) \
 	$(server_DATA) \
-	$(server_in_files) \
+	$(server_in_files) 
 
 EXTRA_DIST = \
 	$(schema_in_files) \
