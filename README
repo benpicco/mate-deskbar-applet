@@ -1,0 +1,33 @@
+=============
+deskbar-applet 0.4.0
+=============
+FIXME: Intro.
+
+=============
+Requirements
+=============
+You will need the following packages to build and run the deskbar applet:
+ * GTK and PyGTK 2.8
+ * Python 2.3
+ * libsexy/pysexy which are not released yet, you must use the SVN repository:
+   (and check their README files for how to install):
+      svn co http://osiris.chipx86.com/svn/osiris-misc/trunk/libsexy/
+      svn co http://osiris.chipx86.com/svn/osiris-misc/trunk/pysexy/
+
+=============
+Installation
+=============
+Execute the following steps to install deskbar-applet
+
+./configure
+make
+sudo make install (or run make install as root)
+
+Then you are able to add the applet through the gnome-panel applet manager.
+
+=============
+Known issues
+=============
+Address Book searches don't work.  I'm waiting for Python bindings for
+galago.  For those who watched the screencast, they were just
+a mock-up.  Sorry.  Everything else should work, though.  :)
