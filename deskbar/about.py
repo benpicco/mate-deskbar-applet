@@ -1,15 +1,35 @@
-import gtk
+import gtk, gnomevfs
+from gettext import gettext as _
 import deskbar
 from deskbar.defs import VERSION
 
+def on_email(about, mail):
+	gnomevfs.url_show("mailto:%s" % mail)
+
+def on_url(about, link):
+	gnomevfs.url_show(link)
+
+gtk.about_dialog_set_email_hook(on_email)
+gtk.about_dialog_set_url_hook(on_url)
+
 def show_about():
 	about = gtk.AboutDialog()
-	about.set_name("Deskbar")
-	about.set_version(VERSION)
-	about.set_comments("An all-in-one search bar.")
-	about.set_copyright("Copyright (c) 2004-2005 Nigel Tao.")
-	about.set_license("This program is licenced under the GNU GPL.")
+	infos = {
+		"name" : _("Deskbar Applet"),
+		"logo" : deskbar.DESKBAR_BIG_IMAGE.get_pixbuf(),
+		"version" : VERSION,
+		"comments" : _("An all-in-one search bar."),
+		"copyright" : "Copyright (c) 2004-2005 Nigel Tao.",
+		"website" : "http://browserbookapp.sourceforge.net/deskbar.html",
+		"website-label" : _("Deskbar Applet Website"),
+	}
+
 	about.set_authors(["Nigel Tao <nigel.tao@myrealbox.com>"])
-	about.set_website("http://browserbookapp.sourceforge.net/deskbar.html")
-	about.set_logo(deskbar.DESKBAR_BIG_IMAGE.get_pixbuf())
+#	about.set_artists([])
+#	about.set_documenters([])
+#	about.set_translator-credits([])
+	
+	for prop, val in infos.items():
+		about.set_property(prop, val)
+	
 	about.show_all()
