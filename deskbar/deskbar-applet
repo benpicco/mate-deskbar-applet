@@ -57,7 +57,10 @@ if __name__ == "__main__":
 	try:
 		opts, args = getopt.getopt(sys.argv[1:], "hdw", ["help", "debug", "window"])
 	except getopt.GetoptError:
-		usage()
+		# Unknown args were passed, we fallback to bahave as if
+		# no options were passed
+		opts = []
+		args = sys.argv[1:]
 	
 	for o, a in opts:
 		if o in ("-h", "--help"):

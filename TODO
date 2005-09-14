@@ -1,1 +1,69 @@
 * I18n, use glib _() to expand translations. Review the engine backend to allow that.
+
+Proposed enhancements:
+It would be nice to get rid of the pref dialog completely, and use sane defaults.
+The width could be still a prefs, but the whole engine selection has better be avoided
+by using smarter matching algorithms.
+
+Indexer:
+* Use Pyndex or Lupy, which are full text indexing engines in python.
+  Since we aren't indexing many things, speed is not very important.
+  
+Backends:
+	Browsers (ephy, ff, moz):
+	* Index the titles, store the url
+	* Use smart bookmarks inside the search bar as if they were deskbar engines
+	* Do it for ff and mozilla's search engines
+	* Monitor the bookmarks change with gnome vfs
+	
+	Addres Book + Gaim contacts:
+	* Use galago instead of custom parsing
+	* Index contact email, names
+	* Allow Send IM to: and Send email to:
+	
+	File-system:
+	* Use ~ and / to detect paths
+	* Use gtk bookmarks, maybe index the name by using last component
+	* Retreive stored remote locations, like the "Places" menu items
+	* Allow to open directories
+	
+	Web search engines
+	* Either work with an explicit keyword mechanism, like now (i don't like it)
+	* Or use ephy's smart bookmarks to trigger web searches
+	* Or have a predefined list of smart urls, which we show each time
+	  a word could be used to search for, remembering what engine is most used.
+	* We can also use a combination of the two items above
+	
+	Beagle
+	* We should also pass the string to beagle via some library (libbeagle or similar)
+	  and show the first matching results in the dropdown
+	
+What happens when text is typed in the entry:
+	We have a list of backends, each backend is queried for the string.
+	A backend can stop the chaining if he thinks no other backend can use the text (ie. paths)
+	The backends should have a priority:
+		First send mail & IM
+		Bookmarks
+		Web Search
+		Beagle
+		Path
+	Allow incremental searching in backend ? instead of researching for the full text, just give
+	the next typed letter or restart when a deletion happens.
+	
+Proposed API for backends:
+class Backend:
+	def get_priority(self, match=None) : int for global priority or match != None and return match relative priority
+	def get_verb(self) : string with %s to be replaced by the match ie. Send mail to %s, or Open %s
+	def get_icon(self) : return a pixbuf to be used for the icon list	
+	def query(self, query) : [(id, match)] id is a string identifying the match in the backend, match is the string to be displayed in the list
+	def action(self, id): void Do the requested action on the match with id "id"
+
+class BackendManager
+	init(self, model)
+	def query(self, query) : [(backend, id, match)]
+	
+The List model:
+	[prio, rel. prio, icon, Action text, backend, id]
+	Sorted with prio then rel. prio
+	When an entry is selected, do backend.action(id)
+	Display PixbufRendere of icon, TextRenderer with markup action text
