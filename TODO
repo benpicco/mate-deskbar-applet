@@ -17,7 +17,7 @@ Backends:
 	* Monitor the bookmarks change with gnome vfs
 	
 	Addres Book + Gaim contacts:
-	* Use galago instead of custom parsing
+	* Use galago instead of custom parsing (python bindings are coming)
 	* Index contact email, names
 	* Allow Send IM to: and Send email to:
 	
@@ -38,11 +38,17 @@ Backends:
 	* We should also pass the string to beagle via some library (libbeagle or similar)
 	  and show the first matching results in the dropdown
 	
+	Programs
+	* Index the .desktop files, title+executable
+	* Maybe maintain a cache of /usr/bin files
+	
 What happens when text is typed in the entry:
 	We have a list of backends, each backend is queried for the string.
 	A backend can stop the chaining if he thinks no other backend can use the text (ie. paths)
 	The backends should have a priority:
-		First send mail & IM
+		Launch program for exact match
+		Launch program for description match
+		Send mail & IM
 		Bookmarks
 		Web Search
 		Beagle
