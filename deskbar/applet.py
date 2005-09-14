@@ -6,7 +6,7 @@ import gnomeapplet
 import gobject
 import gtk
 import gtk.gdk
-
+import os
 
 class DeskbarApplet:
 	def __init__(self, applet):
@@ -55,8 +55,8 @@ class DeskbarApplet:
 		self.applet.add(self.iconentry)
 		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
 		self.applet.connect("button-press-event", self.on_applet_button_press)
-	        self.applet.setup_menu_from_file (None, "Deskbar_Applet.xml", None,
-	        	[("About", self.on_about), ("New", self.on_new), ("Prefs", self.on_preferences)])
+		self.applet.setup_menu_from_file (None, os.path.join(deskbar.SHARED_DATA_DIR, "Deskbar_Applet.xml"), None,
+				[("About", self.on_about), ("New", self.on_new), ("Prefs", self.on_preferences)])
 
 		self.applet.show_all()
 		entry.grab_focus()
