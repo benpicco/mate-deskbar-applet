@@ -44,6 +44,8 @@ AM_CHECK_PYTHON_HEADERS(,[AC_MSG_ERROR(could not find Python headers)])
 
 AS_AC_EXPAND(DATADIR, $datadir)
 AC_SUBST(DATADIR)
+AC_SUBST(VERSION)
+AC_SUBST(PACKAGE)
 
 dnl ****************************************************************************
 dnl * PyGTK & co for Gnome Streamer

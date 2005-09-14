@@ -1,11 +1,11 @@
 import gtk
 import deskbar
-
+from deskbar.defs import VERSION
 
 def show_about():
 	about = gtk.AboutDialog()
 	about.set_name("Deskbar")
-	about.set_version(deskbar.VERSION)
+	about.set_version(VERSION)
 	about.set_comments("An all-in-one search bar.")
 	about.set_copyright("Copyright (c) 2004-2005 Nigel Tao.")
 	about.set_license("This program is licenced under the GNU GPL.")

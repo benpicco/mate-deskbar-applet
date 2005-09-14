@@ -1,5 +1,20 @@
 2005-09-14  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* configure.ac:
+	* data/.cvsignore:
+	* data/Deskbar_Applet.xml:
+	* data/Deskbar_Applet.xml.in:
+	* data/Makefile.am:
+	* deskbar/about.py:
+	* deskbar/defs.py.in:
+	* po/POTFILES.in:
+	Fix duplicated menu item entries by removing the XML rule
+	of the xml bonobo ui definition.
+	Fix about dialog, by retreiveing version and package name
+	from configure script.
+
+2005-09-14  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* Makefile.am:
 	* TODO:
 	* deskbar/applet.py:
