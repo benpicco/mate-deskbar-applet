@@ -1,18 +1,15 @@
 <gconfschemafile>
-<schemalist>
-
-<!-- General preferences -->        
-
-<schema>
-<key>/schemas/apps/deskbar/initialized</key>
-<applyto>/apps/deskbar/initialized</applyto>
-<owner>deskbar</owner>
-<type>bool</type>
-<default>false</default>
-<locale name="C">
-	<short>The application's preferences have been initialized</short>
-</locale>
-</schema>
-
-</schemalist>
+	<schemalist>
+		<schema>
+			<key>/schemas/apps/deskbar/width</key>
+			<applyto>/apps/deskbar/width</applyto>
+			<owner>deskbar</owner>
+			<type>int</type>
+			<default>150</default>
+			<locale name="C">
+				<short>The applet entry width in pixels</short>
+				<!-- <long></long> -->
+			</locale>
+		</schema>
+	</schemalist>
 </gconfschemafile>

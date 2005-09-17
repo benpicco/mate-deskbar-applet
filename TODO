@@ -42,6 +42,9 @@ Backends:
 	* Index the .desktop files, title+executable
 	* Maybe maintain a cache of /usr/bin files
 	
+	Recently-used
+	* Either explicitely or through beagle
+	
 What happens when text is typed in the entry:
 	We have a list of backends, each backend is queried for the string.
 	A backend can stop the chaining if he thinks no other backend can use the text (ie. paths)
@@ -69,7 +72,78 @@ class BackendManager
 	def query(self, query) : [(backend, id, match)]
 	
 The List model:
-	[prio, rel. prio, icon, Action text, backend, id]
+	[prio, rel. prio, icon, Action text, match]
 	Sorted with prio then rel. prio
 	When an entry is selected, do backend.action(id)
 	Display PixbufRendere of icon, TextRenderer with markup action text
+
+
+Remove to be readded:
+prefix.Handler("?", "Search your computer (using Beagle)|Search your computer for %s (using Beagle)", "best --show-window|best --show-window \"%s\"", "beagle")
+prefix.Handler("\\", "Search for files by name|Search for files named %s", "gnome-search-tool|gnome-search-tool --named=\"%s\" --start", "gnome-searchtool")
+	
+`
+Search YubNub for %s
+http://www.yubnub.org/parser/parse?command=%s
+
+a
+Search A9 for %s
+http://www.a9.com/%s
+
+av
+Search AltaVista for %s
+http://www.altavista.com/web/results?q=%s
+
+cddb
+Search CDDB for %s
+http://www.gracenote.com/music/search.html?f=artist&f=disc&q=%s
+
+cc
+Search the Creative Commons for %s
+http://search.creativecommons.org/index.jsp?q=%s
+
+dict
+Open the dictionary|Look up %s in the dictionary
+gnome-dictionary|gnome-dictionary "%s"
+
+dmoz
+Search the Open Directory (DMOZ) for %s
+http://search.dmoz.org/cgi-bin/search?search=%s
+
+ebay
+Search Ebay for %s
+http://search.ebay.com/%s
+
+g
+Search Google for %s
+http://www.google.com/search?q=%s
+
+imdb
+Search IMDB for %s
+http://www.imdb.com/find?q=%s
+
+msn
+Search MSN for %s
+http://search.msn.com/results.aspx?q=%s
+
+stock
+Search Yahoo Stock Quotes for %s
+http://finance.yahoo.com/q?s=%s
+
+t
+Search Technorati for %s
+http://www.technorati.com/cosmos/search.html?url=%s
+
+wp
+Search Wikipedia for %s
+http://en.wikipedia.org/wiki/%s
+
+wt
+Search Wiktionary for %s
+http://en.wiktionary.org/wiki/%s
+
+y
+Search Yahoo for %s
+http://search.yahoo.com/search?p=%s
+
+-------------------------------------

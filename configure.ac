@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 0.4.0, mail@mail.com)
+AC_INIT(deskbar-applet, 0.5.0, mail@mail.com)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 
@@ -80,6 +80,7 @@ AC_OUTPUT([
 Makefile
 deskbar/Makefile
 deskbar/defs.py
+deskbar/handlers/Makefile
 deskbar/iconentry/Makefile
 data/Makefile
 data/art/Makefile
