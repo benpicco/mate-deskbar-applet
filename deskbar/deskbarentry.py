@@ -195,7 +195,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		result = []
 		if matches == None:
 			for handler in self._handlers:
-				matches = handler.query(t, 3)
+				matches = handler.query(t, 2)
 				for match in matches:
 					result.append(match)
 		else:
@@ -208,8 +208,11 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			else:
 				icon = handler.get_icon()
 			
-			verbs = {"text" : cgi.escape(t)}
-			verbs.update(res.get_name())
+			# Pass unescaped query to the matches
+			verbs = {"text" : t}
+			verbs.update(res.get_name(t))
+			# Escape the query now for display
+			verbs["text"] = cgi.escape(verbs["text"])
 			
 			self._completion_model.append([handler.get_priority(), res.get_priority(), res.get_verb() % verbs, icon, res])
 		

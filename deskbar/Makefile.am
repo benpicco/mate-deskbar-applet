@@ -10,7 +10,8 @@ deskbar_PYTHON = \
 	defs.py \
 	deskbarentry.py \
 	indexer.py \
-	ltihooks.py
+	ltihooks.py \
+	preferences.py
 
 DISTCLEANFILES = \
 	defs.py

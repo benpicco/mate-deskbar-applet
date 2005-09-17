@@ -15,11 +15,15 @@ class Match:
 		"""
 		return self._handler
 		
-	def get_name(self):
+	def get_name(self, text=None):
 		"""
-		Returns the name of this match or a tuple.
-		To be used in conjunctio with  get_verb().
-		match.get_verb() % match.get_name()
+		Returns a dictionary whose entries will be used in the Action
+		string returned by get_verb.
+		
+		The passed string is the complete query string.
+		
+		The resulting action text will be
+		match.get_verb() % match.get_name(query)
 		
 		Remember to escape pango markup if needed.
 		"""

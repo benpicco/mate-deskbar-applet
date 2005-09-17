@@ -1,23 +1,18 @@
 import os, time
-import deskbar, deskbar.deskbarentry, deskbar.about#, deskbar.preferences
+import deskbar, deskbar.deskbarentry, deskbar.about, deskbar.preferences
 import gnomeapplet, gtk, gtk.gdk, gconf
 
 class DeskbarApplet:
 	def __init__(self, applet):
 		self.applet = applet
-		
-		self.gconf = gconf.client_get_default()
-		self.gconf.add_dir(deskbar.GCONF_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
-				
-		self.entry = None
-
+						
 		self.entry = deskbar.deskbarentry.DeskbarEntry()
 		self.entry.get_evbox().connect("button-press-event", lambda box, event: self.applet.emit("button-press-event", event))
 		self.entry.get_entry().connect("button-press-event", self.on_entry_button_press)
 		
 		# Set and retreive entry width from gconf
-		self.config_width = self.gconf.get_int(deskbar.GCONF_WIDTH)
-		self.gconf.notify_add(deskbar.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
+		self.config_width = deskbar.GCONF_CLIENT.get_int(deskbar.GCONF_WIDTH)
+		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
 		self.on_config_width()
 						
 		self.applet.set_flags(gtk.CAN_FOCUS)
@@ -35,8 +30,7 @@ class DeskbarApplet:
 		deskbar.about.show_about()
 	
 	def on_preferences(self, component, verb):
-		#deskbar.preferences.show_preferences(self.gconf)
-		pass
+		deskbar.preferences.show_preferences()
 
 	def on_config_width(self, value=None):
 		if value != None and value.type == gconf.VALUE_INT:

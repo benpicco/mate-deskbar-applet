@@ -1,53 +1,73 @@
-* I18n, use glib _() to expand translations. Review the engine backend to allow that.
-
-Proposed enhancements:
-It would be nice to get rid of the pref dialog completely, and use sane defaults.
-The width could be still a prefs, but the whole engine selection has better be avoided
-by using smarter matching algorithms.
-
 Indexer:
 * Use Pyndex or Lupy, which are full text indexing engines in python.
-  Since we aren't indexing many things, speed is not very important.
+  - Since we aren't indexing many things, speed is not very important.
+  - See if it proves better than the current token-based indexer.
+  - Provides on-disk caching which may be useful
   
-Backends:
-	Browsers (ephy, ff, moz):
-	* Index the titles, store the url
-	* Use smart bookmarks inside the search bar as if they were deskbar engines
-	* Do it for ff and mozilla's search engines
-	* Monitor the bookmarks change with gnome vfs
+Backends TODOs:
+	General:
+	* Pluggable backends ? scan ~/gnome2/deskbar-applet/*.py and /usr/lib/blah 
+	  for subclasses of Handler  and add them to handlers list
+	* Use a thread to init the various handlers ?
 	
-	Addres Book + Gaim contacts:
+	
+	Browsers (ephy, ff, moz): [epiphany.py, mozilla.py]
+	* Use smart bookmarks inside the search bar (eg. google smart bookmark
+	  performs a search on google for typed word) for Mozilla+FF
+	* Monitor changes with gnome vfs
+	
+	Addres Book + Gaim contacts: [galago.py,Dummy implementation, waiting for python bindings]
 	* Use galago instead of custom parsing (python bindings are coming)
 	* Index contact email, names
 	* Allow Send IM to: and Send email to:
 	
-	File-system:
-	* Use ~ and / to detect paths
-	* Use gtk bookmarks, maybe index the name by using last component
+	File-system: (provide way to open file/dirs) [filesystem.py]
+	* ?
+	
+	Gtk Bookmarks [gtkbookmarks.py]
 	* Retreive stored remote locations, like the "Places" menu items
-	* Allow to open directories
+	* Monitor changes with gnome vfs
 	
-	Web search engines
-	* Either work with an explicit keyword mechanism, like now (i don't like it)
-	* Or use ephy's smart bookmarks to trigger web searches
-	* Or have a predefined list of smart urls, which we show each time
-	  a word could be used to search for, remembering what engine is most used.
-	* We can also use a combination of the two items above
+	Programs [programs.py]
+	* Currently we provide special special functions for certain specific programs
+	  eg. gnome-dict, gnome-search tool, is that good, how to do it better..
+	* Maybe maintain a cache of /usr/bin:$PATH files instead of rescanning each startup
+	* Use localized comments and program title in .deskto files
+	* Monitor changes with gnome vfs
 	
-	Beagle
+	Recently-used files [todo]
+	* Index and present
+	* Monitor changes with gnome vfs
+		
+	Beagle [todo]
 	* We should also pass the string to beagle via some library (libbeagle or similar)
 	  and show the first matching results in the dropdown
 	
-	Programs
-	* Index the .desktop files, title+executable
-	* Maybe maintain a cache of /usr/bin files
-	
-	Recently-used
-	* Either explicitely or through beagle
-	
+	Misc
+	These are the old provided backends:
+	?     Search your computer for %s (using Beagle)			best --show-window %s
+	`     Search YubNub for %s 								http://www.yubnub.org/parser/parse?command=%s
+	a     Search A9 for %s 									http://www.a9.com/%s
+	av    Search AltaVista for %s 							http://www.altavista.com/web/results?q=%s
+	cddb  Search CDDB for %s 								http://www.gracenote.com/music/search.html?f=artist&f=disc&q=%s
+	cc    Search the Creative Commons for %s 				http://search.creativecommons.org/index.jsp?q=%s
+	dmoz  Search the Open Directory (DMOZ) for %s 			http://search.dmoz.org/cgi-bin/search?search=%s
+	ebay  Search Ebay for %s 								http://search.ebay.com/%s
+	g     Search Google for %s 								http://www.google.com/search?q=%s
+	imdb  Search IMDB for %s 								http://www.imdb.com/find?q=%s
+	msn   Search MSN for %s 									http://search.msn.com/results.aspx?q=%s
+	stock Search Yahoo Stock Quotes for %s 					http://finance.yahoo.com/q?s=%s
+	t     Search Technorati for %s 							http://www.technorati.com/cosmos/search.html?url=%s
+	wp    Search Wikipedia for %s 							http://en.wikipedia.org/wiki/%s
+	wt    Search Wiktionary for %s 							http://en.wiktionary.org/wiki/%s
+	y     Search Yahoo for %s 								http://search.yahoo.com/search?p=%s
+
+
 What happens when text is typed in the entry:
-	We have a list of backends, each backend is queried for the string.
-	A backend can stop the chaining if he thinks no other backend can use the text (ie. paths)
+	* We have a list of backends, each backend is queried for the string.
+	* The backend retun a list of matches objects
+	??: A backend can stop the chaining if he thinks no other backend can use the text (ie. paths)
+	??: Priority system ?
 	The backends should have a priority:
 		Launch program for exact match
 		Launch program for description match
@@ -56,94 +76,6 @@ What happens when text is typed in the entry:
 		Web Search
 		Beagle
 		Path
-	Allow incremental searching in backend ? instead of researching for the full text, just give
-	the next typed letter or restart when a deletion happens.
 	
 Proposed API for backends:
-class Backend:
-	def get_priority(self, match=None) : int for global priority or match != None and return match relative priority
-	def get_verb(self) : string with %s to be replaced by the match ie. Send mail to %s, or Open %s
-	def get_icon(self) : return a pixbuf to be used for the icon list	
-	def query(self, query) : [(id, match)] id is a string identifying the match in the backend, match is the string to be displayed in the list
-	def action(self, id): void Do the requested action on the match with id "id"
-
-class BackendManager
-	init(self, model)
-	def query(self, query) : [(backend, id, match)]
-	
-The List model:
-	[prio, rel. prio, icon, Action text, match]
-	Sorted with prio then rel. prio
-	When an entry is selected, do backend.action(id)
-	Display PixbufRendere of icon, TextRenderer with markup action text
-
-
-Remove to be readded:
-prefix.Handler("?", "Search your computer (using Beagle)|Search your computer for %s (using Beagle)", "best --show-window|best --show-window \"%s\"", "beagle")
-prefix.Handler("\\", "Search for files by name|Search for files named %s", "gnome-search-tool|gnome-search-tool --named=\"%s\" --start", "gnome-searchtool")
-	
-`
-Search YubNub for %s
-http://www.yubnub.org/parser/parse?command=%s
-
-a
-Search A9 for %s
-http://www.a9.com/%s
-
-av
-Search AltaVista for %s
-http://www.altavista.com/web/results?q=%s
-
-cddb
-Search CDDB for %s
-http://www.gracenote.com/music/search.html?f=artist&f=disc&q=%s
-
-cc
-Search the Creative Commons for %s
-http://search.creativecommons.org/index.jsp?q=%s
-
-dict
-Open the dictionary|Look up %s in the dictionary
-gnome-dictionary|gnome-dictionary "%s"
-
-dmoz
-Search the Open Directory (DMOZ) for %s
-http://search.dmoz.org/cgi-bin/search?search=%s
-
-ebay
-Search Ebay for %s
-http://search.ebay.com/%s
-
-g
-Search Google for %s
-http://www.google.com/search?q=%s
-
-imdb
-Search IMDB for %s
-http://www.imdb.com/find?q=%s
-
-msn
-Search MSN for %s
-http://search.msn.com/results.aspx?q=%s
-
-stock
-Search Yahoo Stock Quotes for %s
-http://finance.yahoo.com/q?s=%s
-
-t
-Search Technorati for %s
-http://www.technorati.com/cosmos/search.html?url=%s
-
-wp
-Search Wikipedia for %s
-http://en.wikipedia.org/wiki/%s
-
-wt
-Search Wiktionary for %s
-http://en.wiktionary.org/wiki/%s
-
-y
-Search Yahoo for %s
-http://search.yahoo.com/search?p=%s
-
--------------------------------------
+See handler.py for the base classes to subclass for new backends
