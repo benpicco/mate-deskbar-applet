@@ -15,6 +15,8 @@ SPECIAL_PROGRAMS = {
 	
 	"gnome-dictionary": (_("Search <b>%(arg)s</b> in Gnome Dictionary"),
 						[]),
+	"best":				(_("Search <b>%(arg)s</b> with Beagle"),
+						["--show-window"]),
 }
 	
 class ProgramsMatch(handler.Match):
@@ -119,7 +121,7 @@ class ProgramsHandler(handler.Handler):
 		return PRIORITY
 		
 	def query(self, query, max=5):
-		query = query.split(" ", 1)[0]
+		#query = query.split(" ", 1)[0]
 		return self._indexer.look_up(query)[:5]
 		
 	def _scan_desktop_files(self):

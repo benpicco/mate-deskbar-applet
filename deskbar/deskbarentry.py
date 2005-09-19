@@ -17,6 +17,8 @@ MATCH_COL = 4
 # The sort function ids
 SORT_BY_HANDLER_MATCH_ACTION = 1
 
+MAX_RESULTS_PER_HANDLER = 3
+
 class DeskbarEntry(deskbar.iconentry.IconEntry):
 	def __init__(self):
 		deskbar.iconentry.IconEntry.__init__(self)
@@ -195,7 +197,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		result = []
 		if matches == None:
 			for handler in self._handlers:
-				matches = handler.query(t, 2)
+				matches = handler.query(t, MAX_RESULTS_PER_HANDLER)
 				for match in matches:
 					result.append(match)
 		else:

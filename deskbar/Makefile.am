@@ -11,6 +11,8 @@ deskbar_PYTHON = \
 	deskbarentry.py \
 	indexer.py \
 	ltihooks.py \
+	portstem.py \
+	tokenizer.py \
 	preferences.py
 
 DISTCLEANFILES = \

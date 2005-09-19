@@ -32,7 +32,9 @@ Backends TODOs:
 	* Currently we provide special special functions for certain specific programs
 	  eg. gnome-dict, gnome-search tool, is that good, how to do it better..
 	* Maybe maintain a cache of /usr/bin:$PATH files instead of rescanning each startup
-	* Use localized comments and program title in .deskto files
+	* Use localized comments and program title in .desktop files
+	* Detect duplicates with PATH programs
+	* Do not show items not in menu or removed by user
 	* Monitor changes with gnome vfs
 	
 	Recently-used files [todo]
@@ -45,7 +47,6 @@ Backends TODOs:
 	
 	Misc
 	These are the old provided backends:
-	?     Search your computer for %s (using Beagle)			best --show-window %s
 	`     Search YubNub for %s 								http://www.yubnub.org/parser/parse?command=%s
 	a     Search A9 for %s 									http://www.a9.com/%s
 	av    Search AltaVista for %s 							http://www.altavista.com/web/results?q=%s

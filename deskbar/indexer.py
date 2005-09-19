@@ -1,52 +1,39 @@
-import shlex
+import portstem, tokenizer
 
-
+TOKENS_REGEXP = r'\w+'
 class Index:
 	def __init__(self):
 		self.d = {}
-
-
-	def clear(self):
-		self.d.clear()
-
+		self.stemmer = portstem.PorterStemmer()
 
 	def add(self, key, obj):
-		lexer = shlex.shlex(str(key).lower())
-		lexer.whitespace = lexer.whitespace + ",.<>!@#$%^&*()[]{}-_=+\\|`~'\"/?;:"
-		tokens = set()
-		while True:
-			token = lexer.get_token()
-			if not token:
-				break
-			tokens.add(token)
-		for t in tokens:
-			if self.d.has_key(t):
-				self.d[t].append(obj)
+		for tok in tokenizer.regexp(key, TOKENS_REGEXP):
+			stemmed = self.stemmer.stem(tok)
+			
+			if tok in self.d:
+				if not obj in self.d[tok]:
+					self.d[tok].append(obj)
 			else:
-				self.d[t] = [obj]
-
-
+				self.d[tok] = [obj]
+						
 	def look_up(self, text):
-		if len(text) == 0:
-			return []
+		tokens = [self.stemmer.stem(token) for token in tokenizer.regexp(text, TOKENS_REGEXP)]
 		
-		tokens = text.lower().split()
-		
-		if len(tokens) == 1:
-			return list(self.look_up_single_token(tokens[0]))
-		elif len(tokens) == 0:
+		result = set()
+		if len(tokens) == 0:
 			return []
 		else:
-			result = self.look_up_single_token(tokens[0])
-			for t in tokens[1:]:
-				hits = self.look_up_single_token(t)
-				result = result.intersection(hits)
-			return list(result)
-
-
-	def look_up_single_token(self, token):
+			result.update(self.look_up_token(tokens[0]))
+			for token in tokens[1:]:
+				result.intersection_update(self.look_up_token(token))
+		
+		return list(result)
+	
+	def look_up_token(self, token):
 		result = set()
-		for k in self.d.keys():
-			if k.startswith(token):
-				result.update(set(self.d[k]))
+		for key in self.d.keys():
+			if key.startswith(token):
+				result.update(set(self.d[key]))
+				
 		return result
+
