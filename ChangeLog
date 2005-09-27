@@ -1,5 +1,11 @@
 2005-09-27  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/__init__.py:
+	Change the current working directory to the user's $HOME
+	This allows spawned processes to show correct open/save dialogs
+
+2005-09-27  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/handlers/programs.py:
 	* deskbar/indexer.py:
 	Small fixes, use lowercased stemmed words

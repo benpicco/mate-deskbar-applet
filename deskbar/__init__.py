@@ -1,5 +1,5 @@
 import os, sys
-from os.path import join, exists, isdir, isfile, dirname, abspath
+from os.path import join, exists, isdir, isfile, dirname, abspath, expanduser
 
 import gtk, gtk.gdk, gconf
 
@@ -25,6 +25,10 @@ else:
 	SHARED_DATA_DIR = join(DATA_DIR, "deskbar-applet")
 print "Data Dir: %s" % SHARED_DATA_DIR
 # ------------------------------------------------------------------------------
+
+# SEt the cwd to the home directory so spawned processes behave correctly
+# when presenting save/open dialogs
+os.chdir(expanduser("~"))
 
 # Path to images, icons
 ART_DATA_DIR = join(SHARED_DATA_DIR, "art")
