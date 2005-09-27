@@ -88,12 +88,15 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		from deskbar.handlers.gtkbookmarks import GtkBookmarkHandler
 		from deskbar.handlers.mozilla import MozillaHandler
 		from deskbar.handlers.galago import GalagoHandler
+		from deskbar.handlers.email_address import EmailAddressHandler
+		from deskbar.handlers.web_address import WebAddressHandler
 
 		return [
 			ProgramsHandler(), EpiphanyHandler(),
 			FileHandler(), FolderHandler(),
 			GtkBookmarkHandler(), MozillaHandler(), GalagoHandler(),
-			PathProgramsHandler()
+			PathProgramsHandler(),
+			EmailAddressHandler(), WebAddressHandler()
 		]
 			
 	def _on_sort_matches(self, treemodel, iter1, iter2):
@@ -119,7 +122,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			
 	def _on_completion_selected(self, completion, model, iterator):
 		match = model[iterator][MATCH_COL]
-		text = self.get_entry().get_text()
+		text = self.get_entry().get_text().strip()
 		
 		# Do the action, match will be either a regular selected manually match
 		# Or the match stored in the model by history navigation
@@ -187,7 +190,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			# We have a regular changed event, fill the new model, reset history
 			self._history.reset()
 
-		t = widget.get_text()
+		t = widget.get_text().strip()
 		if t == "":
 			#Reset default icon
 			self._image.set_from_pixbuf(self._default_pixbuf)

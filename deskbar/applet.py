@@ -17,7 +17,7 @@ class DeskbarApplet:
 						
 		self.applet.set_flags(gtk.CAN_FOCUS)
 		self.applet.add(self.entry)
-		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
+		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR | gnomeapplet.EXPAND_MAJOR)
 		self.applet.connect("button-press-event", self.on_applet_button_press)
 		self.applet.setup_menu_from_file (
 			None, os.path.join(deskbar.SHARED_DATA_DIR, "Deskbar_Applet.xml"),
@@ -32,13 +32,15 @@ class DeskbarApplet:
 	def on_preferences(self, component, verb):
 		deskbar.preferences.show_preferences()
 
+	# TODO - remove this (unused) method entirely
 	def on_config_width(self, value=None):
 		if value != None and value.type == gconf.VALUE_INT:
 			self.config_width = value.get_int()
 		
 		# Set the new size of the entry
-		entry = self.entry.get_entry()
-		entry.set_size_request(self.config_width, entry.size_request()[1])
+		# Commented out by Nigel Tao - the less preferences the better.
+		#entry = self.entry.get_entry()
+		#entry.set_size_request(200, entry.size_request()[1])
 
 	def on_applet_button_press(self, widget, event):
 		self.applet.request_focus(long(event.time))

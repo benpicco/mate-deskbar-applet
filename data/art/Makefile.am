@@ -14,6 +14,7 @@ art_DATA = \
 	generic.png \
 	gnome-searchtool.png \
 	mail.png \
+	web.png \
 	web-bookmark.png
 
 EXTRA_DIST = \

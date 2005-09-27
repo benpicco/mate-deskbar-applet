@@ -32,7 +32,7 @@ def show_about():
 		"website-label" : _("Deskbar Applet Website"),
 	}
 
-	about.set_authors(["Nigel Tao <nigel.tao@myrealbox.com>"])
+	about.set_authors(["Nigel Tao <nigel.tao@myrealbox.com>", "Raphaël Slinckx <raphael@slinckx.net>"])
 #	about.set_artists([])
 #	about.set_documenters([])
 #	about.set_translator-credits([])
