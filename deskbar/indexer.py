@@ -8,7 +8,7 @@ class Index:
 
 	def add(self, key, obj):
 		for tok in tokenizer.regexp(key, TOKENS_REGEXP):
-			stemmed = self.stemmer.stem(tok)
+			stemmed = self.stemmer.stem(tok).lower()
 			
 			if tok in self.d:
 				if not obj in self.d[tok]:
@@ -17,7 +17,7 @@ class Index:
 				self.d[tok] = [obj]
 						
 	def look_up(self, text):
-		tokens = [self.stemmer.stem(token) for token in tokenizer.regexp(text, TOKENS_REGEXP)]
+		tokens = [self.stemmer.stem(token).lower() for token in tokenizer.regexp(text, TOKENS_REGEXP)]
 		
 		result = set()
 		if len(tokens) == 0:
