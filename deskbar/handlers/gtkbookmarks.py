@@ -44,7 +44,10 @@ class GtkBookmarkHandler(handler.Handler):
 	def _scan_bookmarks_files(self):
 		for line in file(expanduser("~/.gtk-bookmarks")):
 			line = line.strip()
-			if gnomevfs.exists(line):
-				uri = urllib.unquote(line)
-				head, tail = split(uri)	
-				self._locations[tail.lower()] = (tail, line)
+			try:
+				if gnomevfs.exists(line):
+					uri = urllib.unquote(line)
+					head, tail = split(uri)	
+					self._locations[tail.lower()] = (tail, line)
+			except Exception, msg:
+				print 'Error:_scan_bookmarks_files:', msg
