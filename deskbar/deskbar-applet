@@ -19,13 +19,13 @@ else:
 	print "Running installed deskbar, using normal PYTHONPATH"
 
 # Init twisted
-from twisted.python import threadable
-threadable.init()
+#from twisted.python import threadable
+#threadable.init()
 
-from twisted.internet import gtk2reactor
-gtk2reactor.install()
+#from twisted.internet import gtk2reactor
+#gtk2reactor.install()
 
-from twisted.internet import reactor
+#from twisted.internet import reactor
 
 # Now the path is set, import our applet
 import deskbar.applet	
@@ -38,7 +38,8 @@ def applet_factory(applet, iid):
 def build_window():
 	win = gtk.Window(gtk.WINDOW_TOPLEVEL)
 	win.set_title("Deskbar Applet")
-	win.connect("destroy", lambda x: reactor.stop())
+	#win.connect("destroy", lambda x: reactor.stop())
+	win.connect("destroy", gtk.main_quit)
 	
 	applet = gnomeapplet.Applet()
 	applet_factory(applet, None)
@@ -89,5 +90,5 @@ if __name__ == "__main__":
 			"0",
 			applet_factory)
 
-	reactor.suggestThreadPoolSize(3)
-	reactor.run()
+	#reactor.suggestThreadPoolSize(3)
+	#reactor.run()

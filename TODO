@@ -11,6 +11,7 @@ Backends TODOs:
 	Browsers (ephy, ff, moz): [epiphany.py, mozilla.py]
 	* Use smart bookmarks inside the search bar (eg. google smart bookmark
 	  performs a search on google for typed word) for Mozilla+FF
+	* Use epiphany's history file to present history items, same for Moz if possible
 	* Monitor changes with gnome vfs
 	
 	Address Book + Gaim contacts: [galago.py,Dummy implementation, waiting for python bindings]
@@ -36,11 +37,13 @@ Backends TODOs:
 	
 	Recently-used files [todo]
 	* Index and present
+	* Wait until 2.14 bug code refactoring upstream
 	* Monitor changes with gnome vfs
 		
 	Beagle [todo]
 	* We should also pass the string to beagle via some library (libbeagle or similar)
 	  and show the first matching results in the dropdown
+	* Use beagle to retreive metadata about files, for example in recent-files ?
 	
 	Misc
 	These are the old provided backends:
