@@ -51,7 +51,6 @@ class FileHandler(handler.Handler):
 		
 	def get_priority(self):
 		if self._relative:
-			print PRIORITY/2+1
 			return PRIORITY/2+1
 		else:
 			return PRIORITY+1

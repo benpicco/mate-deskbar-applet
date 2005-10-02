@@ -46,7 +46,7 @@ class ProgramsMatch(handler.Match):
 					args.append(terms[0])
 				
 		print 'Running "%s" "%r"' % (prog, args)
-		print os.spawnvp(os.P_NOWAIT, prog, args)
+		os.spawnvp(os.P_NOWAIT, prog, args)
 	
 	def get_verb(self):
 		prog = self._program.split(" ", 1)[0]
