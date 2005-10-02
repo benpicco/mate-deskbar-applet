@@ -27,7 +27,7 @@ def show_about():
 		"logo" : deskbar_logo,
 		"version" : VERSION,
 		"comments" : _("An all-in-one search bar."),
-		"copyright" : "Copyright (c) 2004-2005 Nigel Tao.",
+		"copyright" : "Copyright (c) 2004-2005 Nigel Tao, Raphael Slinckx.",
 		"website" : "http://browserbookapp.sourceforge.net/deskbar.html",
 		"website-label" : _("Deskbar Applet Website"),
 	}

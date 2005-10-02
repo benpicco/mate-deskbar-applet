@@ -516,9 +516,8 @@ class PorterStemmer:
 
         return ret
 
-    ## --NLTK--
-    ## Define a stem() method that implements the StemmerI interface.
     def stem(self, word):
         stem = self.stem_word(string.lower(word), 0, len(word) - 1)
-        return self.adjust_case(word, stem)
+        #return self.adjust_case(word, stem)
+        return stem.lower()
 
