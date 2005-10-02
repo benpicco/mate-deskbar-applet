@@ -128,6 +128,7 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 				if host in self._cache:
 					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(self._cache[host], -1, deskbar.ICON_SIZE)
 			except Exception, msg:
+				# Most of the time we have an html page here, it could also be an unrecognized format
 				print 'Error:endElement(%s):Title:%s:%s' % (name.encode("utf8"), self.title, msg)
 			
 			bookmark = EpiphanyMatch(self.handler, self.title, self.href, pixbuf)

@@ -82,6 +82,7 @@ if __name__ == "__main__":
 			
 	if standalone:
 		build_window()
+		gtk.main()
 	else:
 		gnomeapplet.bonobo_factory(
 			"OAFIID:Deskbar_Applet_Factory",
