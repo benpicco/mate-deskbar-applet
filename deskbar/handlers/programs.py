@@ -104,6 +104,9 @@ class PathProgramsHandler(handler.Handler):
 			
 	def _scan_path(self):
 		for path in os.getenv("PATH").split(os.path.pathsep):
+			if path.strip() == "":
+				continue
+				
 			try:
 				for program in [f for f in os.listdir(path) if isfile(join(path, f))]:
 					self._programs[program] = PathProgramMatch(self, program)

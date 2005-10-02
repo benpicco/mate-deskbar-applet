@@ -9,7 +9,7 @@ from os.path import *
 
 # Allow to use uninstalled
 def _check(path):
-	return exists(path) and isdir(path) and isfile(path+"/autogen.sh")
+	return exists(path) and isdir(path) and isfile(path+"/AUTHORS")
 
 name = join(dirname(__file__), '..')
 if _check(name):
@@ -17,6 +17,15 @@ if _check(name):
 	sys.path.insert(0, abspath(name))
 else:
 	print "Running installed deskbar, using normal PYTHONPATH"
+
+# Init twisted
+from twisted.python import threadable
+threadable.init()
+
+from twisted.internet import gtk2reactor
+gtk2reactor.install()
+
+from twisted.internet import reactor
 
 # Now the path is set, import our applet
 import deskbar.applet	
@@ -29,7 +38,7 @@ def applet_factory(applet, iid):
 def build_window():
 	win = gtk.Window(gtk.WINDOW_TOPLEVEL)
 	win.set_title("Deskbar Applet")
-	win.connect("destroy", gtk.main_quit)
+	win.connect("destroy", lambda x: reactor.stop())
 	
 	applet = gnomeapplet.Applet()
 	applet_factory(applet, None)
@@ -72,7 +81,6 @@ if __name__ == "__main__":
 			
 	if standalone:
 		build_window()
-		gtk.main()
 	else:
 		gnomeapplet.bonobo_factory(
 			"OAFIID:Deskbar_Applet_Factory",
@@ -80,3 +88,6 @@ if __name__ == "__main__":
 			"deskbar-applet",
 			"0",
 			applet_factory)
+
+	reactor.suggestThreadPoolSize(3)
+	reactor.run()
