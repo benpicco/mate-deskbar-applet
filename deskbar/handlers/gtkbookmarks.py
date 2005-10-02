@@ -1,5 +1,5 @@
 import os, urllib
-from os.path import expanduser, split
+from os.path import expanduser, split, exists
 from gettext import gettext as _
 
 import gnomevfs
@@ -42,7 +42,11 @@ class GtkBookmarkHandler(handler.Handler):
 		return result[:max]
 		
 	def _scan_bookmarks_files(self):
-		for line in file(expanduser("~/.gtk-bookmarks")):
+		bmk = expanduser("~/.gtk-bookmarks")
+		if not exists(bmk):
+			return
+			
+		for line in file(bmk):
 			line = line.strip()
 			try:
 				if gnomevfs.exists(line):

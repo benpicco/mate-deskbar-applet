@@ -1,5 +1,14 @@
 2005-10-02  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/handlers/epiphany.py:
+	Add a missing .encode() in bookmarks title
+	* deskbar/handlers/gtkbookmarks.py:
+	Check for bookmark file existance first
+	* deskbar/handlers/programs.py:
+	Check for PATH paths existance first
+
+2005-10-02  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/handlers/gtkbookmarks.py:
 	Add extra check to filter out garbage from gtkbookmarks file
 

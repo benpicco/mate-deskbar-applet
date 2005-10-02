@@ -104,8 +104,11 @@ class PathProgramsHandler(handler.Handler):
 			
 	def _scan_path(self):
 		for path in os.getenv("PATH").split(os.path.pathsep):
-			for program in [f for f in os.listdir(path) if isfile(join(path, f))]:
-				self._programs[program] = PathProgramMatch(self, program)
+			try:
+				for program in [f for f in os.listdir(path) if isfile(join(path, f))]:
+					self._programs[program] = PathProgramMatch(self, program)
+			except Exception, msg:
+				print 'Error:_scan_path:', msg
 		
 class ProgramsHandler(handler.Handler):
 	def __init__(self):
