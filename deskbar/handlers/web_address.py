@@ -41,7 +41,7 @@ class WebAddressHandler(handler.Handler):
 		if query.find(" ") != -1:
 			return []
 			
-		if (query.find(".") != -1) and (not query.endswith(".")) and (not query.startswith(".")):
+		if query.find(".") != -1 and not query.endswith(".") and not query.startswith(".") and query.find("@") == -1:
 			return [WebAddressMatch(self, query)]
 		else:
 			return []

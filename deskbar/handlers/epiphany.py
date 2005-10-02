@@ -51,7 +51,7 @@ class EpiphanyHandler(handler.Handler):
 				
 	def query(self, query, max=5):
 		bmk = self._indexer.look_up(query)[:max]
-		sbmk = self._smart_bookmarks[:max]
+		sbmk = self._smart_bookmarks #[:max] We want to show all smart bookmarks
 		
 		#Merge the two sources
 		result = []
