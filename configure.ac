@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 0.5.0, mail@mail.com)
+AC_INIT(deskbar-applet, 0.6.0, mail@mail.com)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 
