@@ -1,4 +1,5 @@
 import os, ConfigParser, cgi, re
+import glob
 from os.path import join, isfile, abspath, splitext, expanduser
 from gettext import gettext as _
 
@@ -133,8 +134,7 @@ class ProgramsHandler(handler.Handler):
 		desktop_dir = abspath(join("/", "usr", "share", "applications"))
 		icon_dir = abspath(join("/", "usr", "share", "pixmaps"))
 		
-		files = [join(desktop_dir, name) for name in os.listdir(desktop_dir)]
-		for f in files:
+		for f in glob.glob(desktop_dir + '/*.desktop'):
 			try:
 				config = ConfigParser.SafeConfigParser({
 					"Comment" : "",
