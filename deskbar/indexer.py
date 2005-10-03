@@ -1,5 +1,11 @@
-import portstem, tokenizer
+import tokenizer
 
+# Check for presence of set to be compatible with python 2.3
+try:
+	set
+except NameError:
+	from sets import Set as set
+	
 TOKENS_REGEXP = r'\w+'
 STOP_WORDS = {'and': 1, 'be': 1, 'to': 1, 'that': 1, 'into': 1,
 			'it': 1, 'but': 1, 'as': 1, 'are': 1, 'they': 1,
@@ -12,24 +18,22 @@ STOP_WORDS = {'and': 1, 'be': 1, 'to': 1, 'that': 1, 'into': 1,
 class Index:
 	def __init__(self):
 		self.d = {}
-		self.stemmer = portstem.PorterStemmer()
 
 	def add(self, key, obj):
 		for tok in tokenizer.regexp(key, TOKENS_REGEXP):
 			# Filter out some words not worth indexing
 			if len(tok) <= 2 or len(tok) >= 25 or tok in STOP_WORDS:
 				continue
-			stemmed = self.stemmer.stem(tok)
+			tok = tok.lower().strip()
 			
-			if stemmed in self.d:
-				if not obj in self.d[stemmed]:
-					self.d[stemmed].append(obj)
+			if tok in self.d:
+				if not obj in self.d[tok]:
+					self.d[tok].append(obj)
 			else:
-				self.d[stemmed] = [obj]
-			#print 'Indexed words:', self.d.keys()
+				self.d[tok] = [obj]
 						
 	def look_up(self, text):
-		tokens = [self.stemmer.stem(token) for token in tokenizer.regexp(text, TOKENS_REGEXP)]
+		tokens = [token.lower().strip() for token in tokenizer.regexp(text, TOKENS_REGEXP)]
 		
 		result = set()
 		if len(tokens) == 0:
@@ -41,8 +45,11 @@ class Index:
 		
 		return list(result)
 	
-	def look_up_token(self, token):
+	def look_up_token(self, token):			
 		result = set()
+		if token == "":
+			return result
+			
 		for key in self.d.keys():
 			if (len(key) >= len(token) and key.startswith(token)) or token.startswith(key):
 				result.update(set(self.d[key]))

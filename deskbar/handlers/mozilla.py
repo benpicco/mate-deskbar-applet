@@ -6,6 +6,12 @@ import gtk, gnomevfs
 import deskbar, deskbar.indexer
 import handler
 
+# Check for presence of set to be compatible with python 2.3
+try:
+	set
+except NameError:
+	from sets import Set as set
+
 PRIORITY = 50
 
 class MozillaMatch(handler.Match):
