@@ -1,42 +1,20 @@
-2005-10-06  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+2005-10-03  Nigel Tao  <nigeltao@cvs.gnome.org>
 
-	* configure.ac:
-	* deskbar/Makefile.am:
-	* deskbar/__init__.py:
-	* deskbar/defs.py.in:
-	* deskbar/deskbarentry.py:
-	* deskbar/handler.py:
-	Moved from handlers/handler.py to here.
-	
-	* deskbar/handler_utils.py:
-	* deskbar/handlers/Makefile.am:
-	Update the autotools to use new files
-	
-	* deskbar/handlers/directories.py:
-	* deskbar/handlers/email_address.py:
-	* deskbar/handlers/epiphany.py:
-	* deskbar/handlers/files.py:
-	* deskbar/handlers/filesystem.py:
-	* deskbar/handlers/galago.py:
-	* deskbar/handlers/gtkbookmarks.py:
-	* deskbar/handlers/handler.py:
-	* deskbar/handlers/mozilla.py:
-	* deskbar/handlers/pathprograms.py:
-	* deskbar/handlers/programs.py:
-	* deskbar/handlers/web_address.py:
-	Update Handlers to be used with the new module loader
-	Split programs and filesystem handlers.
-	
-	* deskbar/iconentry/ephy-icon-entry.c:
-	(ephy_icon_entry_size_allocate):
-	Fixes the missing bottom focus ring in the entry, thanks to chpe.
-	
-	* deskbar/module_list.py:
-	First import of dynamic module handling. For the moment it just
-	loads handlers from a given location
-	
-	* po/POTFILES.in:
-	Add new translated files
+	* configure.ac
+	* deskbar/Makefile.am
+	* deskbar/keybinder/.cvsignore
+	* deskbar/keybinder/Makefile.am
+	* deskbar/keybinder/__init__.py
+	* deskbar/keybinder/_keybinder.defs
+	* deskbar/keybinder/_keybinder.override
+	* deskbar/keybinder/_keybindermodule.c
+	* deskbar/keybinder/eggaccelerators.c
+	* deskbar/keybinder/eggaccelerators.h
+	* deskbar/keybinder/gen-defs.sh
+	* deskbar/keybinder/tomboykeybinder.c
+	* deskbar/keybinder/tomboykeybinder.h
+	First draft of Tomboy's keybinding code (and Python wrapper).
+	Removed portstem.py from deskbar/Makefile.am.
 
 2005-10-03  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 

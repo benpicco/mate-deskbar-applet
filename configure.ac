@@ -84,6 +84,7 @@ deskbar/Makefile
 deskbar/defs.py
 deskbar/handlers/Makefile
 deskbar/iconentry/Makefile
+deskbar/keybinder/Makefile
 data/Makefile
 data/art/Makefile
 po/Makefile.in

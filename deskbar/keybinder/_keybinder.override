@@ -1,0 +1,74 @@
+/* -*- Mode: C; c-basic-offset: 4 -*- */
+%%
+headers
+#include <Python.h>
+
+#define NO_IMPORT_PYGOBJECT
+#include "pygobject.h"
+
+#include <tomboykeybinder.h>
+
+typedef struct _Handler_and_Args {
+	PyObject *handler;
+	PyObject *args;
+} Handler_and_Args;
+
+void handler_c_func (char *keystring, gpointer user_data)
+{
+	Handler_and_Args *ha = (Handler_and_Args *) user_data;
+	PyObject *result = PyEval_CallObject(ha->handler, ha->args);
+	Py_XDECREF(result);
+}
+
+%%
+modulename _keybinder
+%%
+%%
+ignore-glob
+	tomboy_keybinder_init
+	*_get_type
+%%
+override tomboy_keybinder_bind kwargs 
+static PyObject*
+_wrap_tomboy_keybinder_bind (PyGObject *self, PyObject *args, PyObject *kwargs) 
+{
+	guint len;
+	PyObject *first;
+	char *keystring;
+	PyObject *handler;
+	PyObject *extra_args;
+
+	len = PyTuple_Size(args);
+	if (len < 2) {
+		PyErr_SetString(PyExc_TypeError, "tomboy_keybinder_bind requires at least 2 arguments");
+		return NULL;
+	}
+	first = PySequence_GetSlice(args, 0, 2);
+	if (!PyArg_ParseTuple(first, "sO:tomboy_keybinder_bind", &keystring, &handler)) {
+		Py_XDECREF(first);
+		return NULL;
+	}
+	Py_XDECREF(first);
+
+	if (!PyCallable_Check(handler)) {
+		PyErr_SetString(PyExc_TypeError, "tomboy_keybinder_bind: 2nd argument must be callable");
+		Py_XDECREF(handler);
+		return NULL;
+	}
+
+	extra_args = PySequence_GetSlice(args, 2, len);
+	if (extra_args == NULL) {
+		Py_XDECREF(handler);
+		return NULL;
+	}
+
+	Handler_and_Args *ha;
+	ha = g_new (Handler_and_Args, 1);
+	ha->handler = handler;
+	ha->args = extra_args;
+	
+	tomboy_keybinder_bind(keystring, &handler_c_func, ha);
+
+	Py_INCREF(Py_None);
+	return Py_None;
+}
