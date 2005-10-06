@@ -1,3 +1,21 @@
+2005-10-06  Raphael Slinckx  <raphael@slinckx.net>
+
+	* data/deskbar-applet.schemas.in:
+	Add a new pref, the global shortcut key
+	* deskbar/Makefile.am:
+	* deskbar/__init__.py:
+	* deskbar/applet.py:
+	* deskbar/deskbar-applet:
+	Add a way to focus the applet with a global key shortcut.
+	The gconf default is <Alt>F3
+	
+	* deskbar/handler_utils.py:
+	Fix a little bug when the term is exactly matching a file
+	
+	* deskbar/keybinder/_keybinder.override:
+	* deskbar/keybinder/_keybindermodule.c: (init_keybinder):
+	Add unbind, and fix some leaks in the python wrapper
+
 2005-10-07  Nigel Tao  <nigeltao@cvs.gnome.org>
 
 	* configure.ac:

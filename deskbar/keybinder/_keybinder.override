@@ -34,7 +34,7 @@ _wrap_tomboy_keybinder_bind (PyGObject *self, PyObject *args, PyObject *kwargs)
 {
 	guint len;
 	PyObject *first;
-	char *keystring;
+	char *keystring = NULL;
 	PyObject *handler;
 	PyObject *extra_args;
 
@@ -53,12 +53,14 @@ _wrap_tomboy_keybinder_bind (PyGObject *self, PyObject *args, PyObject *kwargs)
 	if (!PyCallable_Check(handler)) {
 		PyErr_SetString(PyExc_TypeError, "tomboy_keybinder_bind: 2nd argument must be callable");
 		Py_XDECREF(handler);
+		g_free (keystring);
 		return NULL;
 	}
 
 	extra_args = PySequence_GetSlice(args, 2, len);
 	if (extra_args == NULL) {
 		Py_XDECREF(handler);
+		g_free (keystring);
 		return NULL;
 	}
 
@@ -68,6 +70,37 @@ _wrap_tomboy_keybinder_bind (PyGObject *self, PyObject *args, PyObject *kwargs)
 	ha->args = extra_args;
 	
 	tomboy_keybinder_bind(keystring, &handler_c_func, ha);
+
+	Py_INCREF(Py_None);
+	return Py_None;
+}
+%%
+override tomboy_keybinder_unbind kwargs 
+static PyObject*
+_wrap_tomboy_keybinder_unbind (PyGObject *self, PyObject *args, PyObject *kwargs) 
+{
+	guint len;
+	PyObject *first;
+	char *keystring = NULL;
+	PyObject *handler;
+
+	len = PyTuple_Size(args);
+	if (len != 2) {
+		PyErr_SetString(PyExc_TypeError, "tomboy_keybinder_unbind requires 2 arguments");
+		return NULL;
+	}
+	if (!PyArg_ParseTuple(args, "sO:tomboy_keybinder_unbind", &keystring, &handler)) {
+		return NULL;
+	}
+
+	if (!PyCallable_Check(handler)) {
+		PyErr_SetString(PyExc_TypeError, "tomboy_keybinder_unbind: 2nd argument must be callable");
+		Py_XDECREF(handler);
+		g_free (keystring);
+		return NULL;
+	}
+	
+	tomboy_keybinder_unbind(keystring, &handler_c_func);
 
 	Py_INCREF(Py_None);
 	return Py_None;

@@ -18,22 +18,32 @@ def filesystem_possible_completions(prefix, is_file=False):
 	# Path starting with ~test are considered in ~/test
 	if prefix.startswith("~") and not prefix.startswith("~/"):
 		prefix = join("~/", prefix[1:])
-	
+	if prefix.endswith("/"):
+		prefix = prefix[:-1]
+		
 	# Now we see if the typed name matches exactly a file/directory, or
 	# If we must take the parent directory and match the beginning of each file
 	start = None
 	path = normpath(abspath(expanduser(prefix)))		
+
+	prefix, start = split(prefix)
+	path = normpath(abspath(expanduser(prefix)))	
 	if not exists(path):
-		# We are in ~/cvs/x for example, we strop the x and remember it in "start"
-		prefix, start = split(prefix)
-		path = normpath(abspath(expanduser(prefix)))	
-		if not exists(path):
-			# The parent dir wasn't a valid file, exit
-			return ([], prefix, relative)
+		# The parent dir wasn't a valid file, exit
+		return ([], prefix, relative)
 	
 	# Now we list all files contained in path. Depending on the parameter we return all
 	# files or all directories only. If there was a "start" we also match each name
 	# to that prefix so typing ~/cvs/x will match in fact ~/cvs/x*
+	
+	# First if we have an exact file match, and we requested file matches we return it alone,
+	# else, we return the empty file set
+	if isfile(path):
+		if is_file:
+			return ([path], dirname(prefix), relative)
+		else:
+			return ([], prefix, relative)
+			
 	return ([f
 		for f in map(lambda x: join(path, x), os.listdir(path))
 		if isfile(f) == is_file and not basename(f).startswith(".") and (start == None or basename(f).startswith(start))

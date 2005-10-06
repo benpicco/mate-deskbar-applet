@@ -48,5 +48,7 @@ GCONF_CLIENT = gconf.client_get_default()
 GCONF_DIR = "/apps/deskbar"
 # GConf key to the entr width setting
 GCONF_WIDTH = GCONF_DIR + "/width"
+# GConf key for global keybinding
+GCONF_KEYBINDING = GCONF_DIR + "/keybinding"
 # Preload gconf directories
 GCONF_CLIENT.add_dir(deskbar.GCONF_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)

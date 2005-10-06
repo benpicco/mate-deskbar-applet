@@ -19,6 +19,7 @@ init_keybinder(void)
 
     /* perform any initialisation required by the library here */
 	init_pygobject();
+	tomboy_keybinder_init();
 	
     m = Py_InitModule("_keybinder", py_keybinder_functions);
     d = PyModule_GetDict(m);
@@ -28,6 +29,4 @@ init_keybinder(void)
     
     if (PyErr_Occurred())
         Py_FatalError("could not initialise module _keybinder");
-    
-    tomboy_keybinder_init();
 }
