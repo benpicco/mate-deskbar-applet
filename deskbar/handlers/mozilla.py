@@ -4,7 +4,10 @@ from gettext import gettext as _
 
 import gtk, gnomevfs
 import deskbar, deskbar.indexer
-import handler
+import deskbar.handler
+
+EXPORTED_CLASS = "MozillaHandler"
+NAME = _("Mozilla Bookmarks")
 
 # Check for presence of set to be compatible with python 2.3
 try:
@@ -14,9 +17,9 @@ except NameError:
 
 PRIORITY = 50
 
-class MozillaMatch(handler.Match):
+class MozillaMatch(deskbar.handler.Match):
 	def __init__(self, backend, name, url, icon=None):
-		handler.Match.__init__(self, backend, cgi.escape(name), icon)
+		deskbar.handler.Match.__init__(self, backend, cgi.escape(name), icon)
 		self._priority = 10
 		self._url = url
 		
@@ -27,9 +30,9 @@ class MozillaMatch(handler.Match):
 	def get_verb(self):
 		return _("Open mozilla bookmark <b>%(name)s</b>")
 
-class MozillaHandler(handler.Handler):
+class MozillaHandler(deskbar.handler.Handler):
 	def __init__(self):
-		handler.Handler.__init__(self, "web-bookmark.png")
+		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
 		
 		parser = MozillaBookmarksParser(self)
 		self._indexer = parser.get_indexer()
@@ -135,12 +138,12 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 			pixbuf = None
 			if self.icon_data != None:
 				header, content = self.icon_data.split(",", 2)
-				loader = gtk.gdk.PixbufLoader()
-				loader.set_size(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-				loader.write(base64.b64decode(content))
-				loader.close()
-				
-				pixbuf = loader.get_pixbuf()
+				if header == "data:text/html;base64":
+					loader = gtk.gdk.PixbufLoader()
+					loader.set_size(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
+					loader.write(base64.b64decode(content))
+					loader.close()
+					pixbuf = loader.get_pixbuf()
 				self.icon_data = None
 				
 			bookmark = MozillaMatch(self.handler, self.chars, self.href, pixbuf)

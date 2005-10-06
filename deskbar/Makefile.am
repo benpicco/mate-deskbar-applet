@@ -9,10 +9,12 @@ deskbar_PYTHON = \
 	applet.py \
 	defs.py \
 	deskbarentry.py \
+	handler.py \
+	handler_utils.py \
 	indexer.py \
 	ltihooks.py \
-	portstem.py \
 	tokenizer.py \
+	module_list.py \
 	preferences.py
 
 DISTCLEANFILES = \

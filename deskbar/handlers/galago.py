@@ -2,13 +2,16 @@ from gettext import gettext as _
 
 import gnomevfs
 import deskbar, deskbar.indexer
-import handler
+import deskbar.handler
+
+EXPORTED_CLASS = "GalagoHandler"
+NAME = _("Email and Address Book")
 
 PRIORITY = 150
 
-class GalagoMatch(handler.Match):
+class GalagoMatch(deskbar.handler.Match):
 	def __init__(self, backend, name, email):
-		handler.Match.__init__(self, backend, name)
+		deskbar.handler.Match.__init__(self, backend, name)
 		
 		self._email = email
 		
@@ -21,9 +24,9 @@ class GalagoMatch(handler.Match):
 		
 		
 	
-class GalagoHandler(handler.Handler):
+class GalagoHandler(deskbar.handler.Handler):
 	def __init__(self):
-		handler.Handler.__init__(self, "mail.png")
+		deskbar.handler.Handler.__init__(self, "mail.png")
 		
 		self._indexer = deskbar.indexer.Index()
 		

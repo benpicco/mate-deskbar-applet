@@ -24,9 +24,16 @@ if _check(name):
 else:
 	SHARED_DATA_DIR = join(DATA_DIR, "deskbar-applet")
 print "Data Dir: %s" % SHARED_DATA_DIR
+
+name = join(dirname(__file__), 'handlers')
+if _check(name):
+	HANDLERS_DIR = abspath(name)
+else:
+	HANDLERS_DIR = join(LIB_DIR, "deskbar-applet", "handlers")
+print "Handlers Dir: %s" % HANDLERS_DIR
 # ------------------------------------------------------------------------------
 
-# SEt the cwd to the home directory so spawned processes behave correctly
+# Set the cwd to the home directory so spawned processes behave correctly
 # when presenting save/open dialogs
 os.chdir(expanduser("~"))
 

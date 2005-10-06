@@ -1,12 +1,12 @@
-deskbar_handlersdir = $(pythondir)/deskbar/handlers
+deskbar_handlersdir = $(libdir)/deskbar-applet/handlers
 deskbar_handlers_PYTHON = \
-	__init__.py \
 	email_address.py \
 	epiphany.py \
-	filesystem.py \
+	files.py \
+	directories.py \
 	galago.py \
 	gtkbookmarks.py \
-	handler.py \
 	mozilla.py \
 	programs.py \
+	pathprograms.py \
 	web_address.py

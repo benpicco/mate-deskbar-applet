@@ -27,7 +27,9 @@
  *  $Id$
  */
 
+#ifndef COMPILING_TESTICONENTRY
 #include "config.h"
+#endif
 
 #include "ephy-icon-entry.h"
 
@@ -228,6 +230,7 @@ ephy_icon_entry_size_allocate (GtkWidget *widget,
 	GtkContainer *container = GTK_CONTAINER (widget);
 	GtkBin *bin = GTK_BIN (widget);
 	GtkAllocation child_allocation;
+	GtkRequisition requisition;
 	int xborder, yborder;
 
 	widget->allocation = *allocation;
@@ -248,10 +251,21 @@ ephy_icon_entry_size_allocate (GtkWidget *widget,
 					child_allocation.height);
 	}
   
+	gtk_widget_get_child_requisition (widget, &requisition);
+
 	child_allocation.x = container->border_width + xborder;
-	child_allocation.y = container->border_width + yborder;
+	child_allocation.y = container->border_width + yborder 
+			     + (widget->allocation.height - requisition.height) / 2;
 	child_allocation.width = MAX (allocation->width - (container->border_width + xborder) * 2, 0);
 	child_allocation.height = MAX (allocation->height - (container->border_width + yborder) * 2, 0);
+
+	/* We have to set the size requisition on the GtkEntry explicitly,
+	 * since otherwise it'll end up too tall if someone uses
+	 * gtk_widget_set_size_request on this EphyIconEntry,
+	 * because gtk_entry_size_allocate checks its size with
+	 * gtk_widget_get_child_requisition.
+	 */
+	gtk_widget_set_size_request (entry->entry, -1, child_allocation.height);
 
 	gtk_widget_size_allocate (bin->child, &child_allocation);
 }

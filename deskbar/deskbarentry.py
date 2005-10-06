@@ -2,10 +2,14 @@ from os.path import join
 import cgi
 
 import deskbar
-import deskbar.handlers
 import deskbar.iconentry
 
 import gtk, gobject
+
+from module_list import ModuleList
+from module_list import ModuleLoader
+module_dirs = [deskbar.HANDLERS_DIR, "~/.gnome2/deskbar-applet"]
+
 
 # The liststore columns
 HANDLER_PRIO_COL = 0
@@ -23,7 +27,10 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 	def __init__(self):
 		deskbar.iconentry.IconEntry.__init__(self)
 		
-		self._handlers = []
+		# Set up the Handlers
+		self._handlers = ModuleList ()
+		self._load_handlers()
+		
 		self._completion_model = None
 		self._history = History()
 		
@@ -49,9 +56,6 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			print 'Error:DeskbarEntry.__init__:', msg
 		
 		self._image.set_property('pixbuf', self._default_pixbuf)
-			
-		# Load the availble handlers
-		self._handlers = self._load_handlers()
 
 		# Create the listtore, model for the completion popup
 		self._completion_model = gtk.ListStore(gobject.TYPE_INT, gobject.TYPE_INT, gobject.TYPE_STRING, gtk.gdk.Pixbuf, object)
@@ -80,24 +84,9 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		return self._evbox
 	
 	def _load_handlers(self):
-		#FIXME: Make it dynamic
-		#Construct all our handlers
-		from deskbar.handlers.programs import ProgramsHandler, PathProgramsHandler
-		from deskbar.handlers.epiphany import EpiphanyHandler
-		from deskbar.handlers.filesystem import FileHandler, FolderHandler
-		from deskbar.handlers.gtkbookmarks import GtkBookmarkHandler
-		from deskbar.handlers.mozilla import MozillaHandler
-		from deskbar.handlers.galago import GalagoHandler
-		from deskbar.handlers.email_address import EmailAddressHandler
-		from deskbar.handlers.web_address import WebAddressHandler
-
-		return [
-			ProgramsHandler(), EpiphanyHandler(),
-			FileHandler(), FolderHandler(),
-			GtkBookmarkHandler(), MozillaHandler(), GalagoHandler(),
-			PathProgramsHandler(),
-			EmailAddressHandler(), WebAddressHandler()
-		]
+		loader = ModuleLoader (self._handlers, module_dirs, ".py")
+		loader.load_all ()
+		return 
 			
 	def _on_sort_matches(self, treemodel, iter1, iter2):
 		# First compare global handler priority
@@ -199,8 +188,8 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		# Fill the model with new matches
 		result = []
 		if matches == None:
-			for handler in self._handlers:
-				matches = handler.query(t, MAX_RESULTS_PER_HANDLER)
+			for modctx in self._handlers:
+				matches = modctx.module.query(t, MAX_RESULTS_PER_HANDLER)
 				for match in matches:
 					result.append(match)
 		else:

@@ -3,13 +3,16 @@ from os.path import expanduser, split, exists
 from gettext import gettext as _
 
 import gnomevfs
-import handler
+import deskbar.handler
+
+EXPORTED_CLASS = "GtkBookmarkHandler"
+NAME = _("Nautilus Places")
 
 PRIORITY = 150
 
-class GtkBookmarkMatch(handler.Match):
+class GtkBookmarkMatch(deskbar.handler.Match):
 	def __init__(self, backend, name, path):
-		handler.Match.__init__(self, backend, name)
+		deskbar.handler.Match.__init__(self, backend, name)
 		self._path = path
 		
 	def action(self, text=None):
@@ -20,9 +23,9 @@ class GtkBookmarkMatch(handler.Match):
 		return _("Open location <b>%(name)s</b>")
 		
 	
-class GtkBookmarkHandler(handler.Handler):
+class GtkBookmarkHandler(deskbar.handler.Handler):
 	def __init__(self):
-		handler.Handler.__init__(self, "folder-bookmark.png")
+		deskbar.handler.Handler.__init__(self, "folder-bookmark.png")
 		
 		print 'Starting .gtkbookmarks file indexation'
 		self._locations = {}

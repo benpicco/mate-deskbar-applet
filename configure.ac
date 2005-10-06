@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 0.6.0, mail@mail.com)
+AC_INIT(deskbar-applet, 0.6.0, raphael@slinckx.net)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 
@@ -43,7 +43,9 @@ AM_PATH_PYTHON(2.3)
 AM_CHECK_PYTHON_HEADERS(,[AC_MSG_ERROR(could not find Python headers)])
 
 AS_AC_EXPAND(DATADIR, $datadir)
+AS_AC_EXPAND(LIBDIR, $libdir)
 AC_SUBST(DATADIR)
+AC_SUBST(LIBDIR)
 AC_SUBST(VERSION)
 AC_SUBST(PACKAGE)
 

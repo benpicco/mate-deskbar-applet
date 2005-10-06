@@ -1,13 +1,16 @@
 from gettext import gettext as _
 
 import gnomevfs
-import handler
+import deskbar.handler
+
+EXPORTED_CLASS = "WebAddressHandler"
+NAME = _("Web Addresses")
 
 PRIORITY = 250
 
-class WebAddressMatch(handler.Match):
+class WebAddressMatch(deskbar.handler.Match):
 	def __init__(self, backend, url):
-		handler.Match.__init__(self, backend, url)
+		deskbar.handler.Match.__init__(self, backend, url)
 		
 		self._is_web_page = False
 		if url.find('://') == -1:
@@ -27,9 +30,9 @@ class WebAddressMatch(handler.Match):
 		
 		
 	
-class WebAddressHandler(handler.Handler):
+class WebAddressHandler(deskbar.handler.Handler):
 	def __init__(self):
-		handler.Handler.__init__(self, "web.png")
+		deskbar.handler.Handler.__init__(self, "web.png")
 	
 	def get_priority(self):
 		return PRIORITY

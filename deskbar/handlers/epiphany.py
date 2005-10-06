@@ -3,13 +3,16 @@ from os.path import join, expanduser, exists
 from gettext import gettext as _
 import gtk, gnomevfs
 import deskbar, deskbar.indexer
-import handler
+import deskbar.handler
+
+EXPORTED_CLASS = "EpiphanyHandler"
+NAME = _("Epiphany Bookmarks and Search Engines")
 
 PRIORITY = 50
 
-class EpiphanyMatch(handler.Match):
+class EpiphanyMatch(deskbar.handler.Match):
 	def __init__(self, backend, name, url, icon=None):
-		handler.Match.__init__(self, backend, cgi.escape(name), icon)
+		deskbar.handler.Match.__init__(self, backend, cgi.escape(name), icon)
 		self._priority = 10
 		self._url = url
 		
@@ -38,9 +41,9 @@ class EpiphanySmartMatch(EpiphanyMatch):
 	def get_verb(self):
 		return _("Search <b>%(name)s</b> for <i>%(text)s</i>")
 		
-class EpiphanyHandler(handler.Handler):
+class EpiphanyHandler(deskbar.handler.Handler):
 	def __init__(self):
-		handler.Handler.__init__(self, "web-bookmark.png")
+		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
 		
 		parser = EpiphanyBookmarksParser(self)
 		self._indexer = parser.get_indexer()
