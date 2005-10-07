@@ -11,13 +11,22 @@ headers
 typedef struct _Handler_and_Args {
 	PyObject *handler;
 	PyObject *args;
+	char *keystring;
 } Handler_and_Args;
+
+static GSList *HA_List = NULL;
 
 void handler_c_func (char *keystring, gpointer user_data)
 {
 	Handler_and_Args *ha = (Handler_and_Args *) user_data;
 	PyObject *result = PyEval_CallObject(ha->handler, ha->args);
-	Py_XDECREF(result);
+	if (result == NULL) {
+		if (PyErr_Occurred()) {
+			PyErr_Print();
+		}
+	} else {
+		Py_DECREF(result);
+	}
 }
 
 %%
@@ -37,6 +46,8 @@ _wrap_tomboy_keybinder_bind (PyGObject *self, PyObject *args, PyObject *kwargs)
 	char *keystring = NULL;
 	PyObject *handler;
 	PyObject *extra_args;
+	GSList *iter;
+	Handler_and_Args *ha;
 
 	len = PyTuple_Size(args);
 	if (len < 2) {
@@ -52,24 +63,32 @@ _wrap_tomboy_keybinder_bind (PyGObject *self, PyObject *args, PyObject *kwargs)
 
 	if (!PyCallable_Check(handler)) {
 		PyErr_SetString(PyExc_TypeError, "tomboy_keybinder_bind: 2nd argument must be callable");
-		Py_XDECREF(handler);
-		g_free (keystring);
 		return NULL;
+	}
+
+	for (iter = HA_List; iter != NULL; iter = iter->next) {
+		Handler_and_Args *ha = (Handler_and_Args *) iter->data;
+
+		if (strcmp(keystring, ha->keystring) == 0) {
+			PyErr_SetString(PyExc_KeyError, "tomboy_keybinder_bind: keystring is already bound");
+			return NULL;
+		}
 	}
 
 	extra_args = PySequence_GetSlice(args, 2, len);
 	if (extra_args == NULL) {
-		Py_XDECREF(handler);
-		g_free (keystring);
 		return NULL;
 	}
 
-	Handler_and_Args *ha;
-	ha = g_new (Handler_and_Args, 1);
+	ha = g_new(Handler_and_Args, 1);
 	ha->handler = handler;
 	ha->args = extra_args;
+	ha->keystring = g_strdup(keystring);
+	Py_XINCREF(handler);
+	Py_XINCREF(extra_args);
 	
 	tomboy_keybinder_bind(keystring, &handler_c_func, ha);
+	HA_List = g_slist_prepend(HA_List, ha);
 
 	Py_INCREF(Py_None);
 	return Py_None;
@@ -82,26 +101,33 @@ _wrap_tomboy_keybinder_unbind (PyGObject *self, PyObject *args, PyObject *kwargs
 	guint len;
 	PyObject *first;
 	char *keystring = NULL;
-	PyObject *handler;
+	GSList *iter;
 
 	len = PyTuple_Size(args);
-	if (len != 2) {
-		PyErr_SetString(PyExc_TypeError, "tomboy_keybinder_unbind requires 2 arguments");
+	if (len != 1) {
+		PyErr_SetString(PyExc_TypeError, "tomboy_keybinder_unbind requires exactly 1 argument");
 		return NULL;
 	}
-	if (!PyArg_ParseTuple(args, "sO:tomboy_keybinder_unbind", &keystring, &handler)) {
+	if (!PyArg_ParseTuple(args, "s:tomboy_keybinder_unbind", &keystring)) {
 		return NULL;
 	}
 
-	if (!PyCallable_Check(handler)) {
-		PyErr_SetString(PyExc_TypeError, "tomboy_keybinder_unbind: 2nd argument must be callable");
-		Py_XDECREF(handler);
-		g_free (keystring);
-		return NULL;
-	}
-	
-	tomboy_keybinder_unbind(keystring, &handler_c_func);
+	for (iter = HA_List; iter != NULL; iter = iter->next) {
+		Handler_and_Args *ha = (Handler_and_Args *) iter->data;
 
-	Py_INCREF(Py_None);
-	return Py_None;
+		if (strcmp(keystring, ha->keystring) == 0) {
+			tomboy_keybinder_unbind(keystring, &handler_c_func);
+			HA_List = g_slist_remove(HA_List, ha);
+			Py_XDECREF(ha->handler);
+			Py_XDECREF(ha->args);
+			g_free(ha->keystring);
+			g_free(ha);
+
+			Py_INCREF(Py_None);
+			return Py_None;
+		}
+	}
+
+	PyErr_SetString(PyExc_KeyError, "tomboy_keybinder_bind: keystring is not bound");
+	return NULL;
 }

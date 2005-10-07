@@ -1,6 +1,22 @@
 2005-10-07  Nigel Tao  <nigeltao@cvs.gnome.org>
 
 	* deskbar/applet_keybinder.py:
+	* deskbar/keybinder/_keybinder.override:
+	unbind(keystring) now only takes 1 argument.
+	(Python) exceptions in the callback will now be printed to stderr.
+	Binding collisions now throw exceptions.  Removing non-existant bindings
+	also throw exceptions.
+	Plugged some memory leaks.  I reverted (removed) the "g_free(keystring)"
+	calls added in Raphael's commits, since I don't think we own the
+	reference to the char *.  See:
+	1) http://www.python.org/doc/2.4.2/ext/parseTuple.html
+	and
+	2) function pygobject_connect in pygobject.c in the pygtk source for
+	example code.
+
+2005-10-07  Nigel Tao  <nigeltao@cvs.gnome.org>
+
+	* deskbar/applet_keybinder.py:
 	Fixed crasher when gconf entry for "/apps/deskbar/keybinder" is None.
 
 2005-10-06  Raphael Slinckx  <raphael@slinckx.net>
