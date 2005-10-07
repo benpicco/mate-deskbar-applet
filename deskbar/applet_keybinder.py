@@ -21,8 +21,10 @@ class AppletKeybinder:
 			self.bind()
 			
 	def bind(self):
-		print 'Binding Global shortcut %s to focus the deskbar' % self.keybinding
-		deskbar.keybinder.tomboy_keybinder_bind(self.keybinding, on_global_keybinding, self.applet)
+		if self.keybinding != None:
+			print 'Binding Global shortcut %s to focus the deskbar' % self.keybinding
+			deskbar.keybinder.tomboy_keybinder_bind(self.keybinding, on_global_keybinding, self.applet)
 
 	def unbind(self):
-		deskbar.keybinder.tomboy_keybinder_unbind(self.keybinding, on_global_keybinding)
+		if self.keybinding != None:
+			deskbar.keybinder.tomboy_keybinder_unbind(self.keybinding, on_global_keybinding)
