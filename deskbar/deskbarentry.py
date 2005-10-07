@@ -23,6 +23,9 @@ SORT_BY_HANDLER_MATCH_ACTION = 1
 
 MAX_RESULTS_PER_HANDLER = 3
 
+#Maximum number of history items
+MAX_HISTORY = 25
+
 class DeskbarEntry(deskbar.iconentry.IconEntry):
 	def __init__(self):
 		deskbar.iconentry.IconEntry.__init__(self)
@@ -216,7 +219,6 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			self._image.set_property('pixbuf', self._completion_model[iter][ICON_COL])
 			self._image.set_size_request(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 
-MAX_HISTORY = 25
 class History:
 	def __init__(self):
 		self._history = []

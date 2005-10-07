@@ -194,7 +194,7 @@ class EpiphanyFaviconCacheParser(xml.sax.ContentHandler):
 def get_url_host(url):
 	try:
 		#Remove http: needed by splithost
-		clean = url[5:]
+		clean = url[url.find(":")+1]
 		
 		#Remove the www part so we have more matches
 		if clean.startswith("//www."):
