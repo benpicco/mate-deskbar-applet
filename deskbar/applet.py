@@ -1,6 +1,7 @@
 import os, time
 import deskbar, deskbar.deskbarentry, deskbar.about, deskbar.preferences, deskbar.applet_keybinder
-import gnomeapplet, gtk, gtk.gdk, gconf
+# Load gnome.ui before gnomeapplet or we have a nasty warning.
+import gnome.ui, gnomeapplet, gtk, gtk.gdk, gconf
 
 class DeskbarApplet:
 	def __init__(self, applet):

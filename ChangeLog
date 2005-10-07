@@ -1,5 +1,27 @@
 2005-10-07  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/__init__.py:
+	Revert to 16 pixels icon size, some problems with non-even values seems to
+	appear
+	
+	* deskbar/applet.py:
+	Fixes the Gnome-WARNING due to gnome.ui being loaded after gnomeapplet
+	
+	* deskbar/applet_keybinder.py:
+	Use a default global keybinding for uninstalled setup
+	
+	* deskbar/deskbarentry.py:
+	Force the image widget to be the icon size, to avoid flickering of entry
+	length
+
+	* deskbar/handlers/Makefile.am:
+	Add networkplaces.py handler
+	
+	* deskbar/indexer.py:
+	bug #318241, partial word matches not cleared
+
+2005-10-07  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/handlers/mozilla.py:
 	Fixes bug #318193, Corrupted favicons in moz bookmarks crash taskbar
 	applet

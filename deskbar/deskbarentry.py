@@ -214,6 +214,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		iter = self._completion_model.get_iter_first()
 		if iter != None:
 			self._image.set_property('pixbuf', self._completion_model[iter][ICON_COL])
+			self._image.set_size_request(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 
 MAX_HISTORY = 25
 class History:

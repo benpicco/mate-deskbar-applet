@@ -7,6 +7,7 @@ deskbar_handlers_PYTHON = \
 	galago.py \
 	gtkbookmarks.py \
 	mozilla.py \
+	networkplaces.py \
 	programs.py \
 	pathprograms.py \
 	web_address.py

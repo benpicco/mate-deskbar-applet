@@ -40,13 +40,13 @@ os.chdir(expanduser("~"))
 # Path to images, icons
 ART_DATA_DIR = join(SHARED_DATA_DIR, "art")
 # Default icon size in the entry
-ICON_SIZE = 15
+ICON_SIZE = 16
 
 #Gconf client
 GCONF_CLIENT = gconf.client_get_default()
 # GConf directory for deskbar
 GCONF_DIR = "/apps/deskbar"
-# GConf key to the entr width setting
+# GConf key to the entry width setting
 GCONF_WIDTH = GCONF_DIR + "/width"
 # GConf key for global keybinding
 GCONF_KEYBINDING = GCONF_DIR + "/keybinding"

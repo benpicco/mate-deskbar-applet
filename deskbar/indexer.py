@@ -51,7 +51,9 @@ class Index:
 			return result
 			
 		for key in self.d.keys():
-			if (len(key) >= len(token) and key.startswith(token)) or token.startswith(key):
+			#if (len(key) >= len(token) and key.startswith(token)) or token.startswith(key):
+			# The above test makes refining searches harder
+			if key.startswith(token):
 				result.update(set(self.d[key]))
 		return result
 
