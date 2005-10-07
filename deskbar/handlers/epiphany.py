@@ -21,7 +21,7 @@ class EpiphanyMatch(deskbar.handler.Match):
 		gnomevfs.url_show(self._url)
 		
 	def get_verb(self):
-		return _("Open epiphany bookmark <b>%(name)s</b>")
+		return _("Open Bbookmark <b>%(name)s</b>")
 
 class EpiphanySmartMatch(EpiphanyMatch):
 	def __init__(self, bmk, name, url):

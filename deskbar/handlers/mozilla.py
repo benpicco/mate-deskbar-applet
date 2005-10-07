@@ -31,7 +31,7 @@ class MozillaMatch(deskbar.handler.Match):
 		gnomevfs.url_show(self._url)
 		
 	def get_verb(self):
-		return _("Open mozilla bookmark <b>%(name)s</b>")
+		return _("Open Bookmark <b>%(name)s</b>")
 
 class MozillaSmartMatch(MozillaMatch):
 	def __init__(self, bmk, name, url):
@@ -49,7 +49,7 @@ class MozillaSmartMatch(MozillaMatch):
 		gnomevfs.url_show(real_url)
 		
 	def get_verb(self):
-		return _("Search Moz <b>%(name)s</b> for <i>%(text)s</i>")
+		return _("Search <b>%(name)s</b> for <i>%(text)s</i>")
 		
 class MozillaHandler(deskbar.handler.Handler):
 	def __init__(self):
@@ -58,7 +58,13 @@ class MozillaHandler(deskbar.handler.Handler):
 		parser = MozillaBookmarksParser(self)
 		self._indexer = parser.get_indexer()
 		
-		parser = MozillaSmartBookmarksDirParser(self, self._indexer, [get_firefox_home_file("search"), "/usr/lib/mozilla-firefox/searchplugins"])
+		parser = MozillaSmartBookmarksDirParser(
+			self, self._indexer,
+			[	get_firefox_home_file("search"),
+				"/usr/lib/mozilla-firefox/searchplugins",
+				get_mozilla_home_file("search"),
+				"/usr/lib/mozilla/searchplugins",
+			])
 		self._smart_bookmarks = parser.get_smart_bookmarks()
 		
 	def get_priority(self):
@@ -238,6 +244,9 @@ class MozillaSmartBookmarksDirParser:
 		self._smart_bookmarks = []
 
 		for bookmarks_dir in dirs:
+			if not exists(bookmarks_dir):
+				continue
+				
 			for f in glob.glob(join(bookmarks_dir, '*.src')):
 				pixbuf = None
 				try:
