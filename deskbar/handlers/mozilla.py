@@ -137,13 +137,17 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 			
 			pixbuf = None
 			if self.icon_data != None:
-				header, content = self.icon_data.split(",", 2)
-				if header == "data:text/html;base64":
+				try:
+					# data:text/html;base64 should be the Header
+					header, content = self.icon_data.split(",", 2)
 					loader = gtk.gdk.PixbufLoader()
 					loader.set_size(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 					loader.write(base64.b64decode(content))
 					loader.close()
 					pixbuf = loader.get_pixbuf()
+				except Exception, msg:
+					print 'Error:mozilla.py:handle_endtag:', msg
+				# Reset icon data for the following icon
 				self.icon_data = None
 				
 			bookmark = MozillaMatch(self.handler, self.chars, self.href, pixbuf)

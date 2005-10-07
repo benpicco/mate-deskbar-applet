@@ -4,7 +4,7 @@ import os
 import sys
 import pydoc
 from os.path import join, basename, normpath, abspath
-from os.path import split, expanduser, exists, isfile
+from os.path import split, expanduser, exists, isfile, dirname
 
 class ModuleContext:
 	"""A generic wrapper for any object stored in a ModuleList.
@@ -220,25 +220,35 @@ class ModuleLoader:
 								
 		try:
 			mod_instance = mod_init()
-		except ArithmeticError:
+		except Exception, err:
 			print >> sys.stderr, "Error in file: %s" % filename
 			print >> sys.stderr, "There was an error initializing the class: %s" % str(mod_init)
+			print >> sys.stderr, str(err)
 			return
 
 		context = ModuleContext (None, True, mod.NAME, mod_instance, None, filename)
 		self.modlist.add(context)
 			
 if __name__ == "__main__":
-	"""A test suite for the Module* classes"""
-	l = ModuleList ()	
-	ml = ModuleLoader (l, ["~/Projects/deskbar-applet/deskbar/handlers"], ".py")
-	ml.load_all ()
+	"""A test suite for the Module* classes. Run from top level dir, 
+	ie. from deskbar-applet/ run 'python deskbar/module_list.py'."""
 	
+	name = join(dirname(__file__), '..')
+	print 'Changing PYTHONPATH'
+	sys.path.insert(0, abspath(name))
+    
+	l = ModuleList ()    
+	ml = ModuleLoader (l, ["deskbar/handlers"], ".py")
 	
+	# Load all or just the directories handler. Uncomment to your liking
+	#ml.load_all ()
+	ml.load (abspath(expanduser("deskbar/handlers/directories.py")))
+
 	lw = ModuleListView (l, [ModuleList.FILENAME_COL, ModuleList.NAME_COL, ModuleList.ENABLED_COL])
 	win = gtk.Window ()
+	win.connect ("destroy", gtk.main_quit)
 	win.add (lw)
 	win.show ()
 	lw.show ()
-	
+
 	gtk.main ()
