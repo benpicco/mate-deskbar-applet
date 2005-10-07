@@ -37,7 +37,7 @@ class ProgramsMatch(deskbar.handler.Match):
 		prog = self._program.split(" ", 1)[0]
 		
 		# The arguments found in the .desktop file
-		args = self._program.split(" ")[1:]
+		args = self._program.split(" ")[0:]
 		
 		# The special arguments for particular programs
 		if prog in SPECIAL_PROGRAMS:
