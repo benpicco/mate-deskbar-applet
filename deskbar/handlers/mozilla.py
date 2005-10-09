@@ -1,5 +1,5 @@
 import os, cgi, re, HTMLParser, base64, glob
-from os.path import join, expanduser, exists
+from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
 
 import gtk, gnomevfs
@@ -242,12 +242,22 @@ class MozillaSmartBookmarksParser:
 class MozillaSmartBookmarksDirParser:
 	def __init__(self, handler, indexer, dirs):
 		self._smart_bookmarks = []
-
+		
+		# Avoid getting duplicate search engines
+		foundbookmarks = []
+		
 		for bookmarks_dir in dirs:
 			if not exists(bookmarks_dir):
 				continue
 				
 			for f in glob.glob(join(bookmarks_dir, '*.src')):
+				# Check if we already parsed the file
+				bmname = basename(f)
+				if bmname in foundbookmarks:
+					continue
+				else:
+					foundbookmarks.append(bmname)
+					
 				pixbuf = None
 				try:
 					img = [img for img in glob.glob(join(bookmarks_dir, '%s.*' % f[:-4])) if not img.endswith(".src")][0]
