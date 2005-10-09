@@ -1,6 +1,17 @@
 <gconfschemafile>
 	<schemalist>
 		<schema>
+			<key>/schemas/apps/deskbar/expand</key>
+			<applyto>/apps/deskbar/expand</applyto>
+			<owner>deskbar</owner>
+			<type>bool</type>
+			<default>FALSE</default>
+			<locale name="C">
+				<short>Wether the applet should take all the available space in the panel. Overrides the width preference.</short>
+				<!-- <long></long> -->
+			</locale>
+		</schema>
+		<schema>
 			<key>/schemas/apps/deskbar/width</key>
 			<applyto>/apps/deskbar/width</applyto>
 			<owner>deskbar</owner>
