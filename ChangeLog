@@ -1,5 +1,14 @@
 2005-10-09  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/handlers/epiphany.py:
+	* deskbar/handlers/mozilla.py:
+	* deskbar/module_list.py:
+	We only load the module corresponding to preferred browser found in gconf.
+	If a module returns a EXPORTED_CLASS=None, we don't load it and show an
+	error message indicating why it fails.
+
+2005-10-09  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/handlers/pathprograms.py:
 	bug #318268, multiple entries shown for same application
 	Remove duplicate PATH matches for .desktop matches

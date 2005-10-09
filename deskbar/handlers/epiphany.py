@@ -1,13 +1,19 @@
 import cgi, re, xml.sax, urllib
 from os.path import join, expanduser, exists
 from gettext import gettext as _
-import gtk, gnomevfs
+import gtk, gnomevfs, gconf
 import deskbar, deskbar.indexer
 import deskbar.handler
 
-EXPORTED_CLASS = "EpiphanyHandler"
-NAME = _("Epiphany Bookmarks and Search Engines")
-
+# We import ourselves only if the user's preferred browser is mozilla
+http_handler = gconf.client_get_default().get_string("/desktop/gnome/url-handlers/http/command")
+if http_handler.startswith("epiphany ") and gconf.client_get_default().get_bool("/desktop/gnome/url-handlers/http/enabled"):
+	EXPORTED_CLASS = "EpiphanyHandler"
+	NAME = _("Epiphany Bookmarks and Search Engines")
+else:
+	EXPORTED_CLASS = None
+	NAME = "Epiphany is not your preferred browser, not using it."
+	
 PRIORITY = 50
 
 class EpiphanyMatch(deskbar.handler.Match):

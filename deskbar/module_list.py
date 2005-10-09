@@ -212,6 +212,10 @@ class ModuleLoader:
 			print >> sys.stderr, "A module must the string constants EXPORTED_CLASS and NAME."
 			return
 		
+		if mod.EXPORTED_CLASS == None:
+			print >> sys.stderr, "The file %s decided to not load itself: %s" % (mod.NAME, filename)
+			return
+					
 		try:
 			mod_init = getattr (mod, mod.EXPORTED_CLASS)
 		except AttributeError:

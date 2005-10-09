@@ -2,12 +2,23 @@ import os, cgi, re, HTMLParser, base64, glob
 from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
 
-import gtk, gnomevfs
+import gtk, gnomevfs, gconf
 import deskbar, deskbar.indexer, deskbar.handler
 
-EXPORTED_CLASS = "MozillaHandler"
-NAME = _("Mozilla Bookmarks")
-
+# Wether we will index firefox or mozilla bookmarks
+USING_FIREFOX = False
+		
+# We import ourselves only if the user's preferred browser is mozilla
+http_handler = gconf.client_get_default().get_string("/desktop/gnome/url-handlers/http/command")
+if http_handler.startswith("mozilla ") or http_handler.startswith("firefox ") and gconf.client_get_default().get_bool("/desktop/gnome/url-handlers/http/enabled"):
+	EXPORTED_CLASS = "MozillaHandler"
+	NAME = _("Mozilla Bookmarks")
+	if http_handler.startswith("firefox "):
+		USING_FIREFOX = True
+else:
+	EXPORTED_CLASS = None
+	NAME = "Mozilla or Firefox is not your preferred browser, not using it."
+	
 # Check for presence of set to be compatible with python 2.3
 try:
 	set
@@ -58,13 +69,13 @@ class MozillaHandler(deskbar.handler.Handler):
 		parser = MozillaBookmarksParser(self)
 		self._indexer = parser.get_indexer()
 		
-		parser = MozillaSmartBookmarksDirParser(
-			self, self._indexer,
-			[	get_firefox_home_file("search"),
-				"/usr/lib/mozilla-firefox/searchplugins",
-				get_mozilla_home_file("search"),
-				"/usr/lib/mozilla/searchplugins",
-			])
+		smart_dirs = None
+		if USING_FIREFOX:
+			smart_dirs = [get_firefox_home_file("search"), "/usr/lib/mozilla-firefox/searchplugins"]
+		else:
+			smart_dirs = [get_mozilla_home_file("search"), "/usr/lib/mozilla/searchplugins"]
+			
+		parser = MozillaSmartBookmarksDirParser(self, self._indexer, smart_dirs)
 		self._smart_bookmarks = parser.get_smart_bookmarks()
 		
 	def get_priority(self):
@@ -98,8 +109,10 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 		self._indexer = deskbar.indexer.Index()
 		
 		print 'Starting mozilla/ff bookmarks indexation'
-		self._index_mozilla()
-		self._index_firefox()
+		if USING_FIREFOX:
+			self._index_firefox()
+		else:
+			self._index_mozilla()
 		self.close()
 		print '\tDone !'
 		
