@@ -28,7 +28,7 @@ class ProgramsMatch(deskbar.handler.Match):
 		deskbar.handler.Match.__init__(self, backend, name, icon)
 		
 		# Strip the %U or %Whatever that have to be parameters
-		self._program = re.sub("%\w+", "", program)
+		self._program = re.sub("%\w+", "", program).strip()
 		
 	def action(self, text=None):
 		self._priority = self._priority+1
@@ -105,7 +105,7 @@ class ProgramsHandler(deskbar.handler.Handler):
 				
 				name = get_entry_locale(config, "Name")
 				comment = get_entry_locale(config, "Comment")
-												
+
 				pixbuf = None
 				try:
 					icon = config.get("Desktop Entry", "Icon", True)

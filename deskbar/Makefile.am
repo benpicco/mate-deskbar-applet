@@ -13,6 +13,7 @@ deskbar_PYTHON = \
 	handler.py \
 	handler_utils.py \
 	indexer.py \
+	locale_utils.py \
 	ltihooks.py \
 	tokenizer.py \
 	module_list.py \
