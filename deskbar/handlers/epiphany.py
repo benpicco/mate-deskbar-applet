@@ -21,7 +21,7 @@ class EpiphanyMatch(deskbar.handler.Match):
 		gnomevfs.url_show(self._url)
 		
 	def get_verb(self):
-		return _("Open Bbookmark <b>%(name)s</b>")
+		return _("Open Bookmark <b>%(name)s</b>")
 
 class EpiphanySmartMatch(EpiphanyMatch):
 	def __init__(self, bmk, name, url):
@@ -129,7 +129,7 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 			try:
 				host = get_url_host(self.href)
 				if host in self._cache:
-					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(self._cache[host], -1, deskbar.ICON_SIZE)
+					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(self._cache[host], deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 			except Exception, msg:
 				# Most of the time we have an html page here, it could also be an unrecognized format
 				print 'Error:endElement(%s):Title:%s:%s' % (name.encode("utf8"), self.title, msg)
@@ -194,7 +194,7 @@ class EpiphanyFaviconCacheParser(xml.sax.ContentHandler):
 def get_url_host(url):
 	try:
 		#Remove http: needed by splithost
-		clean = url[url.find(":")+1]
+		clean = url[url.find(":")+1:]
 		
 		#Remove the www part so we have more matches
 		if clean.startswith("//www."):

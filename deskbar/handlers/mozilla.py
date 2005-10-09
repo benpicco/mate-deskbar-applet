@@ -274,7 +274,9 @@ def get_mozilla_home_file(needed_file):
 	if exists(default_profile_dir):
 		for d in os.listdir(default_profile_dir):
 			return join(default_profile_dir, d, needed_file)
-			
+	
+	return ""
+	
 def get_firefox_home_file(needed_file):
 	firefox_dir = expanduser("~/.mozilla/firefox/")
 	path_pattern = re.compile("^Path=(.*)")
@@ -285,3 +287,5 @@ def get_firefox_home_file(needed_file):
 				return join(match_obj.group(1), needed_file)
 			else:
 				return join(firefox_dir, match_obj.group(1), needed_file)
+				
+	return ""

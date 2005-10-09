@@ -1,5 +1,13 @@
 2005-10-09  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/handlers/epiphany.py:
+	Fix the icon cache loading
+	* deskbar/handlers/mozilla.py:
+	Return the empty string if no FF/mozilla installation is found, or we have
+	trouble with exists(None)
+
+2005-10-09  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/handlers/programs.py:
 	* deskbar/locale_utils.py:
 	Add locale support for .desktop indexing.
