@@ -86,9 +86,10 @@ class DeskbarApplet:
 
 	def build_history_menu(self, event):
 		menu = gtk.Menu()
+		history = self.entry.get_history()
 		
 		i = 0
-		for text, match in self.entry.get_history().get_all_history():
+		for text, match in history.get_all_history():
 			# Recreate the action
 			verbs = {"text" : text}
 			verbs.update(match.get_name(text))
@@ -115,7 +116,15 @@ class DeskbarApplet:
 			item = gtk.MenuItem()
 			item.add(box)
 			
-			item.connect('activate', lambda x: match.action(text))
+			def on_item_selection(item):
+				match.action(text)
+				
+				# Add the item to history
+				if history.last() != (text, match):
+					history.add((text, match))
+				history.reset()
+					
+			item.connect('activate', on_item_selection)
 			menu.attach(item, 0, 1, i, i+1)
 			i = i+1
 		
