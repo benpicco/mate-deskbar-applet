@@ -4,7 +4,7 @@ from os.path import join, isfile, abspath, splitext, expanduser
 from gettext import gettext as _
 
 import gtk
-import deskbar, deskbar.indexer
+import deskbar, deskbar.indexer, deskbar.locale_utils
 import deskbar.handler
 
 EXPORTED_CLASS = "ProgramsHandler"
@@ -101,9 +101,10 @@ class ProgramsHandler(deskbar.handler.Handler):
 				if config.getboolean("Desktop Entry", "Terminal"):
 					continue
 
-				name = config.get("Desktop Entry", "Name", True)
 				program = config.get("Desktop Entry", "Exec", True)
-				comment = config.get("Desktop Entry", "Comment", True)
+				
+				name = get_entry_locale(config, "Name")
+				comment = get_entry_locale(config, "Comment")
 												
 				pixbuf = None
 				try:
@@ -125,4 +126,14 @@ class ProgramsHandler(deskbar.handler.Handler):
 			except Exception, msg:
 				print 'Error:_scan_desktop_files:File Error:%s:%s' % (f, msg)
 				continue
-			
+
+LANGS = deskbar.locale_utils.get_languages()
+def get_entry_locale(config, key):
+	for lang in LANGS:
+		locale_key = "%s[%s]" % (key, lang)
+		try:
+			return config.get("Desktop Entry", locale_key, True)
+		except:
+			pass
+	
+	return config.get("Desktop Entry", key, True)
