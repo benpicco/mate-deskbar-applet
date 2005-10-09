@@ -86,6 +86,9 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 	def get_evbox(self):
 		return self._evbox
 	
+	def get_history(self):
+		return self._history
+		
 	def _load_handlers(self):
 		loader = ModuleLoader (self._handlers, module_dirs, ".py")
 		loader.load_all ()
@@ -244,6 +247,9 @@ class History:
 		if len(self._history) == 0:
 			return None
 		return self._history[0]
+	
+	def get_all_history(self):
+		return self._history
 		
 	def get_history(self):
 		if self._index == -1:

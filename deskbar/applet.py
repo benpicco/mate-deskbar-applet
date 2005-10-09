@@ -9,7 +9,7 @@ class DeskbarApplet:
 		self.applet = applet
 						
 		self.entry = deskbar.deskbarentry.DeskbarEntry()
-		self.entry.get_evbox().connect("button-press-event", lambda box, event: self.applet.emit("button-press-event", event))
+		self.entry.get_evbox().connect("button-press-event", self.on_icon_button_press)
 		self.entry.get_entry().connect("button-press-event", self.on_entry_button_press)
 
 		self.keybinder = deskbar.applet_keybinder.AppletKeybinder(self)
@@ -69,9 +69,59 @@ class DeskbarApplet:
 			return True
 		
 		return False
+	
+	def on_icon_button_press(self, widget, event):
+		if event.button == 3:
+			self.applet.emit("button-press-event", event)
+			return True
+		elif event.button == 1:
+			self.build_history_menu(event)
+			return True
+		
+		return False
 		
 	def on_entry_button_press(self, widget, event):
 		self.applet.request_focus(long(event.time))
 		return False
 
-	
+	def build_history_menu(self, event):
+		menu = gtk.Menu()
+		
+		i = 0
+		for text, match in self.entry.get_history().get_all_history():
+			# Recreate the action
+			verbs = {"text" : text}
+			verbs.update(match.get_name(text))
+			verb = match.get_verb() % verbs
+			
+			# Retreive the icon
+			icon = None
+			handler = match.get_handler()
+			if match.get_icon() != None:
+				icon = match.get_icon()
+			else:
+				icon = handler.get_icon()
+				
+			label = gtk.Label()
+			label.set_markup(verb)
+			
+			image = gtk.Image()
+			image.set_from_pixbuf(icon)
+			
+			box = gtk.HBox(False, 6)
+			box.pack_start(image)
+			box.pack_start(label)
+			
+			item = gtk.MenuItem()
+			item.add(box)
+			
+			item.connect('activate', lambda x: match.action(text))
+			menu.attach(item, 0, 1, i, i+1)
+			i = i+1
+		
+		if i == 0:
+			item = gtk.MenuItem("No History")
+			menu.attach(item, 0, 1, 0, 1)
+
+		menu.show_all()
+		menu.popup(None, None, None, event.button, event.time)
