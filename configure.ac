@@ -58,6 +58,8 @@ PKG_CHECK_MODULES(DESKBAR,
 	pygobject-2.0			>= 2.6
 	gnome-python-2.0			>= 2.10
 	gnome-python-extras-2.0	>= 2.10
+	gnome-python-extras-2.0	>= 2.10
+	libebook-1.2
 )
 AC_SUBST(DESKBAR_CFLAGS)
 AC_SUBST(DESKBAR_LIBS)
@@ -82,6 +84,7 @@ AC_OUTPUT([
 Makefile
 deskbar/Makefile
 deskbar/defs.py
+deskbar/evolution/Makefile
 deskbar/handlers/Makefile
 deskbar/iconentry/Makefile
 deskbar/keybinder/Makefile

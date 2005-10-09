@@ -1,4 +1,4 @@
-SUBDIRS = iconentry keybinder handlers
+SUBDIRS = evolution handlers iconentry keybinder
 
 libexec_SCRIPTS = deskbar-applet
 
