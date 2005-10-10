@@ -26,6 +26,10 @@ MAX_RESULTS_PER_HANDLER = 6
 #Maximum number of history items
 MAX_HISTORY = 25
 
+#selection directions
+MOVE_UP   = -1
+MOVE_DOWN = +1
+
 class DeskbarEntry(deskbar.iconentry.IconEntry):
 	def __init__(self):
 		deskbar.iconentry.IconEntry.__init__(self)
@@ -35,6 +39,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		self._load_handlers()
 		
 		self._completion_model = None
+		self._selected_match_index = -1
 		self._history = History()
 		
 		# Connect to underlying entry signals		
@@ -175,11 +180,28 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		if event.keyval == gtk.keysyms.Escape:
 			# bind Escape to clear the GtkEntry
 			entry.set_text("")
-			
+		
+		def match_move(updown):
+			self._selected_match_index = self._selected_match_index  + updown
+			if self._selected_match_index == -2:
+				# Wrap around
+				self._selected_match_index = len(self._completion_model) - 1
+			elif self._selected_match_index == len(self._completion_model):
+				# End of list
+				self._selected_match_index = -1
+			self._update_icon()
+
+		if event.keyval == gtk.keysyms.Up:
+			match_move(MOVE_UP)
+
+		if event.keyval == gtk.keysyms.Down:
+			match_move(MOVE_DOWN)
+
 		return False
 		
 	def _on_entry_changed(self, widget, matches=None):
 		self._completion_model.clear()
+		self._selected_match_index = -1
 		
 		if matches == None:
 			# We have a regular changed event, fill the new model, reset history
@@ -188,7 +210,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		t = widget.get_text().strip()
 		if t == "":
 			#Reset default icon
-			self._image.set_from_pixbuf(self._default_pixbuf)
+			self._update_icon(icon=self._default_pixbuf)
 			return
 			
 		# Fill the model with new matches
@@ -217,11 +239,20 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			self._completion_model.append([handler.get_priority(), res.get_priority(), res.get_verb() % verbs, icon, res])
 		
 		#Set the entry icon accoring to the first match in the completion list
-		iter = self._completion_model.get_iter_first()
+		self._update_icon(iter=self._completion_model.get_iter_first())
+	
+	def _update_icon(self, iter=None, icon=None):
+		if self._selected_match_index > -1 and len(self._completion_model) > 0:
+			iter = self._selected_match_index
+
 		if iter != None:
 			self._image.set_property('pixbuf', self._completion_model[iter][ICON_COL])
-			self._image.set_size_request(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-
+		
+		if icon != None:
+			self._image.set_property('pixbuf', icon)
+		
+		self._image.set_size_request(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
+			
 class History:
 	def __init__(self):
 		self._history = []
