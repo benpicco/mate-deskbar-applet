@@ -41,7 +41,7 @@ class EpiphanySmartMatch(EpiphanyMatch):
 	def action(self, text=""):
 		self._priority = self._priority+1
 		
-		real_url = re.sub("%s", text, self._url)
+		real_url = re.sub("%s", cgi.escape(text), self._url)
 		gnomevfs.url_show(real_url)
 		
 	def get_verb(self):

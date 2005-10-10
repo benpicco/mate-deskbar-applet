@@ -21,7 +21,7 @@ MATCH_COL = 4
 # The sort function ids
 SORT_BY_HANDLER_MATCH_ACTION = 1
 
-MAX_RESULTS_PER_HANDLER = 3
+MAX_RESULTS_PER_HANDLER = 6
 
 #Maximum number of history items
 MAX_HISTORY = 25
