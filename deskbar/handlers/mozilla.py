@@ -9,11 +9,11 @@ import deskbar, deskbar.indexer, deskbar.handler
 USING_FIREFOX = False
 		
 # We import ourselves only if the user's preferred browser is mozilla
-http_handler = gconf.client_get_default().get_string("/desktop/gnome/url-handlers/http/command")
-if http_handler.startswith("mozilla ") or http_handler.startswith("firefox ") and gconf.client_get_default().get_bool("/desktop/gnome/url-handlers/http/enabled"):
+http_handler = gconf.client_get_default().get_string("/desktop/gnome/url-handlers/http/command").strip().lower()
+if http_handler.find("mozilla") != -1 or http_handler.find("firefox") != -1 and gconf.client_get_default().get_bool("/desktop/gnome/url-handlers/http/enabled"):
 	EXPORTED_CLASS = "MozillaHandler"
 	NAME = _("Mozilla Bookmarks")
-	if http_handler.startswith("firefox "):
+	if http_handler.find("firefox") != -1:
 		USING_FIREFOX = True
 else:
 	EXPORTED_CLASS = None

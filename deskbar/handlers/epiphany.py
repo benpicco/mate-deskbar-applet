@@ -6,8 +6,8 @@ import deskbar, deskbar.indexer
 import deskbar.handler
 
 # We import ourselves only if the user's preferred browser is mozilla
-http_handler = gconf.client_get_default().get_string("/desktop/gnome/url-handlers/http/command")
-if http_handler.startswith("epiphany ") and gconf.client_get_default().get_bool("/desktop/gnome/url-handlers/http/enabled"):
+http_handler = gconf.client_get_default().get_string("/desktop/gnome/url-handlers/http/command").strip().lower()
+if http_handler.find("epiphany") != -1 and gconf.client_get_default().get_bool("/desktop/gnome/url-handlers/http/enabled"):
 	EXPORTED_CLASS = "EpiphanyHandler"
 	NAME = _("Epiphany Bookmarks and Search Engines")
 else:
