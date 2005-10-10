@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-10 17:07+0900\n"
-"PO-Revision-Date: 2005-10-10 17:07+0900\n"
+"POT-Creation-Date: 2005-10-10 17:31+0900\n"
+"PO-Revision-Date: 2005-10-10 17:30+0900\n"
 "Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -24,16 +24,16 @@ msgid "Deskbar Applet"
 msgstr "Deskbar 検索アプレット"
 
 #: ../data/prefs-dialog.glade.h:1
-msgid "0"
-msgstr "0"
+msgid "<b>Applet Width</b>"
+msgstr "<b>アプレットの幅</b>"
 
 #: ../data/prefs-dialog.glade.h:2
-msgid "<b>Preferences</b>"
-msgstr "<b>設定</b>"
+msgid "Preferences"
+msgstr "設定"
 
 #: ../data/prefs-dialog.glade.h:3
-msgid "Deskbar Preferences"
-msgstr "Deskbar の設定"
+msgid "Use _all available space"
+msgstr "利用可能な全ての領域を使用する(_A)"
 
 #: ../data/prefs-dialog.glade.h:4
 msgid "_Width:"
@@ -59,16 +59,16 @@ msgstr "デスクトップに統合した検索バーです。"
 msgid "Deskbar Applet Website"
 msgstr "Deskbar アプレットのウェブサイト"
 
-#: ../deskbar/handlers/epiphany.py:9
+#: ../deskbar/handlers/epiphany.py:12
 msgid "Epiphany Bookmarks and Search Engines"
 msgstr "Epiphany ブックマークと検索エンジン"
 
-#: ../deskbar/handlers/epiphany.py:24
+#: ../deskbar/handlers/epiphany.py:30 ../deskbar/handlers/mozilla.py:45
 #, python-format
-msgid "Open Bbookmark <b>%(name)s</b>"
+msgid "Open Bookmark <b>%(name)s</b>"
 msgstr "ブックマーク <b>%(name)s</b> を開く"
 
-#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/mozilla.py:52
+#: ../deskbar/handlers/epiphany.py:48 ../deskbar/handlers/mozilla.py:63
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<b>%(name)s</b> を <i>%(text)s</i> に対して検索する"
@@ -109,14 +109,9 @@ msgstr "Nautilus で開く"
 msgid "Open location <b>%(name)s</b>"
 msgstr "場所 <b>%(name)s</b> を開く"
 
-#: ../deskbar/handlers/mozilla.py:9
+#: ../deskbar/handlers/mozilla.py:15
 msgid "Mozilla Bookmarks"
 msgstr "Mozilla のブックマーク"
-
-#: ../deskbar/handlers/mozilla.py:34
-#, python-format
-msgid "Open Bookmark <b>%(name)s</b>"
-msgstr "ブックマーク <b>%(name)s</b> を開く"
 
 #: ../deskbar/handlers/programs.py:11
 msgid "Desktop Programs"
@@ -146,7 +141,7 @@ msgstr "<b>%(name)s</b> (%(prog)s) を起動する"
 msgid "Programs in your $PATH"
 msgstr "$PATH にあるプログラム"
 
-#: ../deskbar/handlers/pathprograms.py:29
+#: ../deskbar/handlers/pathprograms.py:33
 #, python-format
 msgid "Execute <b>%(text)s</b>"
 msgstr "<b>%(text)s</b> を起動する"
