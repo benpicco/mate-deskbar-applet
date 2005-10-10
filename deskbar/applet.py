@@ -105,12 +105,13 @@ class DeskbarApplet:
 				
 			label = gtk.Label()
 			label.set_markup(verb)
+			label.set_alignment(0.0, 0.0)
 			
 			image = gtk.Image()
 			image.set_from_pixbuf(icon)
 			
 			box = gtk.HBox(False, 6)
-			box.pack_start(image)
+			box.pack_start(image, expand=False)
 			box.pack_start(label)
 			
 			item = gtk.MenuItem()
