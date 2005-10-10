@@ -161,7 +161,12 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 					header, content = self.icon_data.split(",", 2)
 					loader = gtk.gdk.PixbufLoader()
 					loader.set_size(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-					loader.write(base64.b64decode(content))
+					try:
+						# Python 2.4
+						loader.write(base64.b64decode(content))
+					except AttributeError:
+						# Python 2.3 and earlier
+						loader.write(base64.decodestring(content))
 					loader.close()
 					pixbuf = loader.get_pixbuf()
 				except Exception, msg:

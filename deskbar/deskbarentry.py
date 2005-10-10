@@ -72,10 +72,20 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		
 		# Create the completion model
 		completion = gtk.EntryCompletion()
-		completion.set_popup_set_width(False)
-		completion.set_match_func(lambda x, y, z: True)
-		completion.set_model(self._completion_model)
-		completion.set_property("text-column", ACTION_COL)
+		try:
+			# PyGTK >= 2.8
+			completion.set_popup_set_width(False)
+			completion.set_property("text-column", ACTION_COL)
+		except AttributeError:
+			pass
+			
+		try:
+			# PyGTK >= 2.4
+			completion.set_match_func(lambda x, y, z: True)
+			completion.set_model(self._completion_model)
+		except AttributeError:
+			pass
+			
 		completion.connect("match-selected", self._on_completion_selected)
 		entry.set_completion(completion)
 		

@@ -59,7 +59,12 @@ class DeskbarApplet:
 			self.applet.set_size_request(self.config_width, -1)
 			
 	def on_applet_button_press(self, widget, event):
-		self.applet.request_focus(long(event.time))
+		try:
+			# GNOME 2.12
+			self.applet.request_focus(long(event.time))
+		except AttributeError:
+			pass
+			
 		# Left-Mouse-Button should focus the GtkEntry widget (for Fitt's Law
 		# - so that a click on applet border on edge of screen activates the
 		# most important widget).
@@ -81,7 +86,12 @@ class DeskbarApplet:
 		return False
 		
 	def on_entry_button_press(self, widget, event):
-		self.applet.request_focus(long(event.time))
+		try:
+			# GNOME 2.12
+			self.applet.request_focus(long(event.time))
+		except AttributeError:
+			pass
+			
 		return False
 
 	def build_history_menu(self, event):
