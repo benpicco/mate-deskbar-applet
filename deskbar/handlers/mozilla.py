@@ -5,6 +5,12 @@ from gettext import gettext as _
 import gtk, gnomevfs, gconf
 import deskbar, deskbar.indexer, deskbar.handler
 
+# Check for presence of set to be compatible with python 2.3
+try:
+	set
+except NameError:
+	from sets import Set as set
+	
 # Wether we will index firefox or mozilla bookmarks
 USING_FIREFOX = False
 		
@@ -19,12 +25,6 @@ else:
 	EXPORTED_CLASS = None
 	NAME = "Mozilla or Firefox is not your preferred browser, not using it."
 	
-# Check for presence of set to be compatible with python 2.3
-try:
-	set
-except NameError:
-	from sets import Set as set
-
 PRIORITY = 50
 
 SEARCH_FIELD = re.compile(r'\s*(\w+)\s*=\s*"(.*)"\s*')

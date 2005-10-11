@@ -7,6 +7,12 @@ import gtk
 import deskbar, deskbar.indexer, deskbar.locale_utils
 import deskbar.handler
 
+# Check for presence of set to be compatible with python 2.3
+try:
+	set
+except NameError:
+	from sets import Set as set
+	
 EXPORTED_CLASS = "ProgramsHandler"
 NAME = _("Desktop Programs")
 
@@ -20,7 +26,7 @@ SPECIAL_PROGRAMS = {
 	"gnome-dictionary": (_("Search <b>%(arg)s</b> in Gnome Dictionary"),
 						[]),
 	"best":				(_("Search <b>%(arg)s</b> with Beagle"),
-						["--show-window"]),
+						["--no-tray", "--show-window"]),
 }
 	
 class ProgramsMatch(deskbar.handler.Match):
@@ -84,8 +90,10 @@ class ProgramsHandler(deskbar.handler.Handler):
 		return PRIORITY
 		
 	def query(self, query, max=5):
-		#query = query.split(" ", 1)[0]
-		return self._indexer.look_up(query)[:5]
+		results = set(self._indexer.look_up(query.split(" ", 1)[0])[:len(SPECIAL_PROGRAMS)])
+		results.update(set(self._indexer.look_up(query)[:5]))
+		
+		return tuple(results)
 		
 	def _scan_desktop_files(self):
 		desktop_dir = abspath(join("/", "usr", "share", "applications"))
@@ -122,7 +130,12 @@ class ProgramsHandler(deskbar.handler.Handler):
 						print 'Error:_scan_desktop_files:Icon Load Error:%s (%s)' % (msg2, msg1)
 				
 				match = ProgramsMatch(self, name, program, pixbuf)
-				self._indexer.add("%s %s %s" % (name, program, comment), match)
+				
+				#FIXME: We will also index in english, see if this is good, or not
+				engname = config.get("Desktop Entry", "Name", True)
+				engcomment = config.get("Desktop Entry", "Comment", True)
+				
+				self._indexer.add("%s %s %s %s %s" % (name, program, comment, engname, engcomment), match)
 			except Exception, msg:
 				print 'Error:_scan_desktop_files:File Error:%s:%s' % (f, msg)
 				continue
