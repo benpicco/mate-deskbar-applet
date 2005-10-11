@@ -27,12 +27,12 @@ def show_about():
 		"logo" : deskbar_logo,
 		"version" : VERSION,
 		"comments" : _("An all-in-one search bar."),
-		"copyright" : "Copyright (c) 2004-2005 Nigel Tao, Raphael Slinckx.",
+		"copyright" : "Copyright (c) 2004-2005 Nigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen.",
 		"website" : "http://browserbookapp.sourceforge.net/deskbar.html",
 		"website-label" : _("Deskbar Applet Website"),
 	}
 
-	about.set_authors(["Nigel Tao <nigel.tao@myrealbox.com>", "Raphaël Slinckx <raphael@slinckx.net>"])
+	about.set_authors(["Nigel Tao <nigel.tao@myrealbox.com>", "Raphael Slinckx <raphael@slinckx.net>", "Mikkel Kamstrup Erlandsen <kamstrup@daimi.au.dk>"])
 #	about.set_artists([])
 #	about.set_documenters([])
 #	about.set_translator-credits([])

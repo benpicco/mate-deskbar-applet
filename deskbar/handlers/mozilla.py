@@ -1,4 +1,4 @@
-import os, cgi, re, HTMLParser, base64, glob
+import os, cgi, re, HTMLParser, base64, glob, urllib
 from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
 

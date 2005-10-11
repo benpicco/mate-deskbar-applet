@@ -22,7 +22,7 @@ def get_locale(category):
 		return retval
 
 	# Next comes the name of the desired category.
-	retval = getenv (category_name)
+	retval = getenv (category)
 	if retval != None and retval != "":
 		return retval
 

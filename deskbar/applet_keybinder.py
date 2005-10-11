@@ -1,3 +1,4 @@
+import gconf
 import deskbar, deskbar.keybinder
 
 def on_global_keybinding(applet):

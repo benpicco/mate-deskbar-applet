@@ -114,7 +114,7 @@ class ProgramsHandler(deskbar.handler.Handler):
 					if splitext(icon)[1] == "":
 						icon = icon+".png"
 						
-					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(join(icon_dir, icon), -1, deskbar.ICON_SIZE)
+					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(join(icon_dir, icon), deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 				except Exception, msg1:
 					try:
 						pixbuf = icon_theme.load_icon(splitext(icon)[0], deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)

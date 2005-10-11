@@ -75,7 +75,7 @@ class Handler:
 	def __init__(self, iconfile):
 		# We load the icon file, and if it fails load an empty one
 		try:
-			self._icon = gtk.gdk.pixbuf_new_from_file_at_size(join(deskbar.ART_DATA_DIR, iconfile), -1, deskbar.ICON_SIZE)
+			self._icon = gtk.gdk.pixbuf_new_from_file_at_size(join(deskbar.ART_DATA_DIR, iconfile), deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 		except gobject.GError:
 			self._icon = None
 		

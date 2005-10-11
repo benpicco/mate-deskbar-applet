@@ -4,8 +4,12 @@ import gnomevfs
 import deskbar, deskbar.indexer
 import deskbar.handler
 
-EXPORTED_CLASS = "GalagoHandler"
-NAME = _("Email and Address Book")
+#EXPORTED_CLASS = "GalagoHandler"
+#NAME = _("Email and Address Book")
+
+# FIXME: Waiting for python bindings of galago.
+EXPORTED_CLASS = None
+NAME = "Waiting for python bindings of galago. Should allow to send IM by typing name."
 
 PRIORITY = 150
 
@@ -22,18 +26,15 @@ class GalagoMatch(deskbar.handler.Match):
 	def get_verb(self):
 		return _("Send Email to <b>%(name)s</b>")
 		
-		
-	
 class GalagoHandler(deskbar.handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "mail.png")
-		
+		deskbar.handler.Handler.__init__(self, "mail.png")	
 		self._indexer = deskbar.indexer.Index()
-		
+	
 		# FIXME: Dummy entries		
-		self._indexer.add("William Gates III <billg@microsoft.com>", GalagoMatch(self, "William Gates III", "billg@microsoft.com"))
-		self._indexer.add("Steve Ballmer <steve@microsoft.com>", GalagoMatch(self, "Steve Ballmer", "steve@microsoft.com"))
-		self._indexer.add("Bill Joy <bjoy@sun.com>", GalagoMatch(self, "Bill Joy", "bjoy@sun.com"))
+		#self._indexer.add("William Gates III <billg@microsoft.com>", GalagoMatch(self, "William Gates III", "billg@microsoft.com"))
+		#self._indexer.add("Steve Ballmer <steve@microsoft.com>", GalagoMatch(self, "Steve Ballmer", "steve@microsoft.com"))
+		#self._indexer.add("Bill Joy <bjoy@sun.com>", GalagoMatch(self, "Bill Joy", "bjoy@sun.com"))
 	
 	def get_priority(self):
 		return PRIORITY

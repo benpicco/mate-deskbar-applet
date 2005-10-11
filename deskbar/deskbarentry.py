@@ -6,8 +6,8 @@ import deskbar.iconentry
 
 import gtk, gobject
 
-from module_list import ModuleList
-from module_list import ModuleLoader
+from deskbar.module_list import ModuleList
+from deskbar.module_list import ModuleLoader
 module_dirs = [deskbar.HANDLERS_DIR, "~/.gnome2/deskbar-applet"]
 
 
@@ -59,7 +59,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		
 		self._default_pixbuf = None
 		try:
-			self._default_pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(join(deskbar.ART_DATA_DIR, "deskbar-applet-small.png"), -1, deskbar.ICON_SIZE)
+			self._default_pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(join(deskbar.ART_DATA_DIR, "deskbar-applet-small.png"), deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 		except gobject.GError, msg:
 			print 'Error:DeskbarEntry.__init__:', msg
 		
