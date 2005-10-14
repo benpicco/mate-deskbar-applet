@@ -121,8 +121,8 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			return diff
 		
 		# Finally use the Action to sort alphabetically
-		a = treemodel[iter1][ACTION_COL]
-		b = treemodel[iter2][ACTION_COL]
+		a = treemodel[iter1][ACTION_COL].strip().lower()
+		b = treemodel[iter2][ACTION_COL].strip().lower()
 		if a < b:
 			return 1
 		elif a > b:
