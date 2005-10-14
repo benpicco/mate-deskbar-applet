@@ -207,7 +207,7 @@ class MozillaSmartBookmarksParser:
 					state = "search"
 					continue
 			elif state == "search":		
-				if low == ">":
+				if low.endswith(">"):
 					state = "input"
 					continue
 				self._parse_search(line)				
