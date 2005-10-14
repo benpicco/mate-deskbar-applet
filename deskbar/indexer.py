@@ -20,11 +20,11 @@ class Index:
 		self.d = {}
 
 	def add(self, key, obj):
+		key = key.tolower()
 		for tok in deskbar.tokenizer.regexp(key, TOKENS_REGEXP):
 			# Filter out some words not worth indexing
 			if len(tok) <= 2 or len(tok) >= 25 or tok in STOP_WORDS:
 				continue
-			tok = tok.lower().strip()
 			
 			if tok in self.d:
 				if not obj in self.d[tok]:
@@ -33,7 +33,7 @@ class Index:
 				self.d[tok] = [obj]
 						
 	def look_up(self, text):
-		tokens = [token.lower().strip() for token in deskbar.tokenizer.regexp(text, TOKENS_REGEXP)]
+		tokens = [token for token in deskbar.tokenizer.regexp(text.tolower(), TOKENS_REGEXP)]
 		
 		result = set()
 		if len(tokens) == 0:
