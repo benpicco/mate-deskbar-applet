@@ -103,6 +103,10 @@ class Handler:
 		
 		Handler.initialize() is guarantied to be called before the handler
 		is queried.
+		
+		If you need to perform gtk-related function you might want to use
+		initialize_safe() instead of initialize(), the module loader will ensure
+		gtk.threads_enter/leave is called appropriately.
 		"""
 		pass
 	

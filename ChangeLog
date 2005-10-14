@@ -1,5 +1,15 @@
 2005-10-14  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/handler.py:
+	* deskbar/handlers/debug-blockinginit.py:
+	* deskbar/handlers/networkplaces.py:
+	* deskbar/module_list.py:
+	Step 2. We only synchronize threads when entering an initialize_safe
+	mehtod, so wwe don't block the UI for nothing. Network Places uses that
+	since it uses gconf to init itself.
+
+2005-10-14  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/applet.py:
 	* deskbar/deskbar-applet:
 	* deskbar/deskbarentry.py:

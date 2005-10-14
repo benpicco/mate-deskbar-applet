@@ -261,13 +261,9 @@ class ModuleLoader (gobject.GObject):
 		while True:
 			task = self.task_queue.get()
 			try:
-				gtk.threads_enter ()
-				try:
-					task ()
-				except Exception, msg:
-					print 'Error:consume_queue:Got an error while processing item:', msg
-			finally:
-				gtk.threads_leave ()
+				task ()
+			except Exception, msg:
+				print 'Error:consume_queue:Got an error while processing item:', msg
 				
 	def build_filelist (self):
 		"""Returns a list containing the filenames of all qualified modules.
@@ -315,12 +311,12 @@ class ModuleLoader (gobject.GObject):
 			print >> sys.stderr, "***"
 			return
 		
-		try:
-			if (getattr(mod, mod.EXPORTED_CLASS).initialize) : pass
-		except AttributeError:
+		if hasattr(getattr(mod, mod.EXPORTED_CLASS), "initialize") or hasattr(getattr(mod, mod.EXPORTED_CLASS), "initialize_safe"):
+			pass
+		else:
 			print >> sys.stderr, "Class %s in file %s does not have an initialize(self) method. Skipping." % (mod.EXPORTED_CLASS, filename)
 			return
-			
+		
 		return mod
 	
 	def load_all (self):
@@ -362,7 +358,17 @@ class ModuleLoader (gobject.GObject):
 		"""
 		
 		print "Initializing '%s'" % context.name
-		context.module.initialize ()
+		
+		# First we check if the module must be called in a thread safe way
+		if hasattr(context.module, "initialize_safe"):
+			gtk.threads_enter ()
+			try:
+				context.module.initialize_safe()
+			finally:
+				gtk.threads_leave ()
+		# Else we use the simple non-locked method
+		else:
+			context.module.initialize ()
 		
 		context.enabled = True
 		gobject.idle_add (self.emit, "module-initialized", context)

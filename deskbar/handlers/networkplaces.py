@@ -31,7 +31,7 @@ class NetworkPlacesHandler(deskbar.handler.Handler):
 		
 		self._indexer = deskbar.indexer.Index()
 		
-	def initialize(self):
+	def initialize_safe(self):
 		self._scan_network_places()
 		
 	def get_priority(self):
