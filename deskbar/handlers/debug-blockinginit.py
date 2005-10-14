@@ -5,7 +5,7 @@ from handler import Match
 NAME = ("Debug", "Blocking Init Module")
 EXPORTED_CLASS = "DebugBlockingInitModule"
 
-INIT_TIME = 5
+INIT_TIME = 0
 
 class DebugBlockingInitMatch(Match):
 	def __init__(self, handler, name, icon=None):

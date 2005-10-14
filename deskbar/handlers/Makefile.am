@@ -9,9 +9,9 @@ deskbar_handlers_PYTHON = \
 	galeon.py \
 	gtkbookmarks.py \
 	mozilla.py \
-	networkplaces.py \
 	programs.py \
 	pathprograms.py \
+	volumes.py \
 	web_address.py
 
 EXTRA_DIST = \
