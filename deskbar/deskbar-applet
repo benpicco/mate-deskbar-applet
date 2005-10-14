@@ -3,7 +3,11 @@
 # (C) 2005 Nigel Tao.
 # Licensed under the GNU GPL.
 
-import gtk, gnomeapplet
+import gtk
+gtk.threads_init()
+
+import gnomeapplet
+
 import getopt, sys
 from os.path import *
 
@@ -18,15 +22,6 @@ if _check(name):
 else:
 	print "Running installed deskbar, using normal PYTHONPATH"
 
-# Init twisted
-#from twisted.python import threadable
-#threadable.init()
-
-#from twisted.internet import gtk2reactor
-#gtk2reactor.install()
-
-#from twisted.internet import reactor
-
 # Now the path is set, import our applet
 import deskbar.applet	
 
@@ -36,18 +31,17 @@ def applet_factory(applet, iid):
 
 # Return a standalone window that holds the applet
 def build_window():
-	win = gtk.Window(gtk.WINDOW_TOPLEVEL)
-	win.set_title("Deskbar Applet")
-	#win.connect("destroy", lambda x: reactor.stop())
-	win.connect("destroy", gtk.main_quit)
+	app = gtk.Window(gtk.WINDOW_TOPLEVEL)
+	app.set_title("Deskbar Applet")
+	app.connect("destroy", gtk.main_quit)
 	
 	applet = gnomeapplet.Applet()
 	applet_factory(applet, None)
-	applet.reparent(win)
+	applet.reparent(app)
 		
-	win.show_all()
+	app.show_all()
 	
-	return win
+	return app
 		
 		
 def usage():
@@ -61,7 +55,7 @@ OPTIONS:
 	"""
 	sys.exit()
 	
-if __name__ == "__main__":
+if __name__ == "__main__":	
 	standalone = False
 	
 	try:
@@ -90,6 +84,3 @@ if __name__ == "__main__":
 			"deskbar-applet",
 			"0",
 			applet_factory)
-
-	#reactor.suggestThreadPoolSize(3)
-	#reactor.run()

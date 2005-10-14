@@ -5,23 +5,27 @@ import sys
 import pydoc
 from os.path import join, basename, normpath, abspath
 from os.path import split, expanduser, exists, isfile, dirname
+from threading import Thread
+import Queue
 
 class ModuleContext:
 	"""A generic wrapper for any object stored in a ModuleList.
 	settings is unused at the moment.
-	"""
-	def __init__ (self, icon, enabled, name, module, settings, filename):
+	"""	
+	
+	def __init__ (self, icon, enabled, module, settings, filename, name, exported_class):
 		"""The icon should be a gtk.gdk.Pixbuf"""
 		self.icon = icon
 		self.enabled = enabled
-		self.name = name
 		self.module = module
 		self.settings = settings
 		self.filename = filename
+		self.name = name
+		self.exported_class = exported_class
 		
 
 class ModuleListIter : 
-	"""An iter type to iterate over the modules contexts in a ModuleList object.
+	"""An iter type to iterate over the of *enabled* module contexts in a ModuleList object.
 	This object is (typically) not used directly. See the documentation for ModuleList.
 			
 	For documentation on iters see: http://docs.python.org/lib/typeiter.html
@@ -37,15 +41,12 @@ class ModuleListIter :
 		return self
 		
 	def next (self):
-		"""Return the next module in the ModuleList."""
+		"""Return the next *enabled* module in the ModuleList."""
 		try:
-			mod = ModuleContext (	self.owner.get_value (self.owner_iter, self.owner.ICON_COL), 
-						self.owner.get_value (self.owner_iter, self.owner.ENABLED_COL), 
-						self.owner.get_value (self.owner_iter, self.owner.NAME_COL), 
-						self.owner.get_value (self.owner_iter, self.owner.MODULE_COL), 
-						self.owner.get_value (self.owner_iter, self.owner.SETTINGS_COL), 
-						self.owner.get_value (self.owner_iter, self.owner.FILENAME_COL))
+			mod = self.owner.get_context_from_iter (self.owner_iter)
 			self.owner_iter = self.owner.iter_next (self.owner_iter)
+			if not mod.enabled: 
+				return self.next()
 		except TypeError:
 			raise StopIteration
 		return mod
@@ -58,7 +59,7 @@ class ModuleList (gtk.ListStore):
 		for modctx in modlist:
 			do_something (modctx)
 	
-	From this perspective the ModuleList stores ModuleContext (it actually doesnt),
+	From this perspective the ModuleList stores ModuleContexts (it actually doesnt),
 	so to utilize the modules you'll have to acces modctx.module.
 	
 	Note that the gtk.ListView extends the following classes:
@@ -68,32 +69,93 @@ class ModuleList (gtk.ListStore):
 		http://www.pygtk.org/pygtk2reference/class-gtkliststore.html
 	Note that
 	"""
+	
 	ICON_COL = 0
 	ENABLED_COL = 1
-	NAME_COL = 2
-	MODULE_COL = 3
-	SETTINGS_COL = 4
-	FILENAME_COL = 5
+	MODULE_COL = 2
+	SETTINGS_COL = 3
+	FILENAME_COL = 4
+	NAME_COL = 5
+	EXP_CLASS_COL = 6
 	
 	def __init__ (self):
 		gtk.ListStore.__init__ (self, 	gtk.gdk.Pixbuf, 
 						bool, 
+						gobject.TYPE_PYOBJECT, 
+						gobject.TYPE_PYOBJECT, 
 						gobject.TYPE_STRING, 
-						gobject.TYPE_PYOBJECT, 
-						gobject.TYPE_PYOBJECT, 
+						gobject.TYPE_STRING,
 						gobject.TYPE_STRING)
 		
 	def __iter__ (self):
 		return ModuleListIter (self)
 	
-	def add (self, mod_context):
-		it = self.append ()
-		self.set (it, self.ICON_COL, mod_context.icon)
-		self.set (it, self.ENABLED_COL, mod_context.enabled)
-		self.set (it, self.NAME_COL, mod_context.name)
-		self.set (it, self.MODULE_COL, mod_context.module)
-		self.set (it, self.SETTINGS_COL, mod_context.settings)
-		self.set (it, self.FILENAME_COL, mod_context.filename)
+	def add (self, context):
+		"""Appends the module context to the list."""
+		self.update_row (context, iter)
+
+
+	def get_iter_from_context (self, modctx):
+		"""Returns a gtk.TreeIter pointing to the row containing the filename
+		modctx.filename. This should be uniqualy determined by the context.
+		
+		If the filename is not found return None.
+		
+		INVARIANT: ModuleContexts are uniquely determined by their .filename
+		"""
+	
+		iter = self.get_iter_first ()
+		while (iter is not None):
+			if self.get_value (iter, self.FILENAME_COL) == modctx.filename:
+				break
+			iter = self.iter_next (iter)
+		return iter
+
+	def get_context_from_iter (self, iter):
+		"""Return a ModuleContext representing the row pointed to by iter."""
+		modctx = ModuleContext (	self.get_value (iter, self.ICON_COL), 
+						self.get_value (iter, self.ENABLED_COL), 
+						self.get_value (iter, self.MODULE_COL), 
+						self.get_value (iter, self.SETTINGS_COL), 
+						self.get_value (iter, self.FILENAME_COL), 
+						self.get_value (iter, self.NAME_COL), 
+						self.get_value (iter, self.EXP_CLASS_COL))
+		return modctx
+
+	def update_row (self, context, iter=None):
+		"""If iter is set this method updates the row pointed to by iter with the 
+		values of context. 
+		
+		If iter is not set it will try to obtain an iter pointing
+		to the row containg context.filename. If there's no such row, it will append it.
+		"""
+		
+		if (iter is None):
+			iter = self.get_iter_from_context (context)
+		if (iter is None):
+			iter = self.append ()
+		
+		self.set_value(iter, self.ICON_COL, context.icon)
+		self.set_value(iter, self.ENABLED_COL, context.enabled)
+		self.set_value(iter, self.MODULE_COL, context.module)
+		self.set_value(iter, self.SETTINGS_COL, context.settings)
+		self.set_value(iter, self.FILENAME_COL, context.filename)
+		self.set_value(iter, self.NAME_COL, context.name)
+		self.set_value(iter, self.EXP_CLASS_COL, context.exported_class)
+		
+	def update_row_cb (self, sender, context, iter=None):
+		"""
+		Callback for updating the row containing context.
+		If iter is set the row to which it points to will be
+		updated with the context.
+		"""
+		self.update_row (context, iter)
+	
+	def module_toggled_cb (self, sender, context):
+		"""
+		Callback to toggle the enabled state of the context.
+		"""
+		self.set_value(self.get_iter_from_context (context), self.ENABLED_COL, context.enabled)
 		
 class ModuleListView (gtk.TreeView):
 	"""A versatile list widget that displays the contents of a ModuleList.
@@ -107,6 +169,11 @@ class ModuleListView (gtk.TreeView):
 	This will construct a list showing the module names and a checkbox on whether or
 	not they are enabled.
 	"""
+	
+	__gsignals__ = {
+		"row-toggled" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT])
+	}
+	
 	def __init__ (self, model, columns):
 		gtk.TreeView.__init__ (self, model)
 		
@@ -119,7 +186,7 @@ class ModuleListView (gtk.TreeView):
 		if (model.ENABLED_COL in columns):
 			cell_enabled = gtk.CellRendererToggle ()
 			cell_enabled.set_property ("activatable", True)
-			cell_enabled.connect('toggled', self.toggle_enable, model)
+			cell_enabled.connect('toggled', self.emit_row_toggled, model)
 			self.column_enabled = gtk.TreeViewColumn ("Enabled", cell_enabled, active=model.ENABLED_COL)
 	
 		if (model.NAME_COL in columns):
@@ -139,30 +206,69 @@ class ModuleListView (gtk.TreeView):
 				
 		self.set_headers_visible(True)
 		
-	def toggle_enable (self, cell, path, model):
-		iter = model.get_iter(path)
-		model.set_value(iter, model.ENABLED_COL, not cell.get_active())
-		for mod in model:
-			print mod.name +" is enabled: " + str(mod.enabled)
-			
-class ModuleLoader:
+	def emit_row_toggled (self, cell, path, model):
+		"""Callback for the toggle buttons in the ModuleList.ENABLED_COL.
+		Emits a 'row-toggled' signal passing the context in the row as argument."""
+		self.emit ("row-toggled", model.get_context_from_iter (model.get_iter(path)))
+		
+class ModuleLoader (gobject.GObject):
 	"""An auxilary class to ModuleList. Create an instance of ModuleLoader by
 	specifying the which directories to search and what extension to accept.
 	The load_all() method will load all qualified modules into the ModuleList
 	specified in the constructor.
+	
+	Most methods have a _async variant. These methods emits signals that is handled
+	by the *main* thread. This ensures that locking mechanisms are unlikely to be 
+	needed.
+		
+	Hint: If you pass None as the dirs argument the ModuleLoader will not search
+	for modules at all. This is useful if you want to reload a single module for
+	which you know the path.
+	
+	Important: Remember to do gtk.gdk.threads_init() or gobject.threads_init() before
+	using any of the _async methods or else it WON'T WORK. Caveat emptor!
 	"""
-	def __init__ (self, modlist, dirs, extension=".py"):
-		"""modlist: The ModuleList to store all succesfully loaded modules
+	
+	__gsignals__ = {
+		"module-loaded" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+		"module-initialized" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+		"module-stopped" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT])
+	}
+	
+	def __init__ (self, dirs, extension=".py"):
+		"""
 		dirs: A list of directories to search. Relative pathnames and paths
-			  containing ~ will be expanded.
+			  containing ~ will be expanded. If dirs is None the 
+			  ModuleLoader will not search for modules.
 		extension: What extension should this ModuleLoader accept (string).
 		"""
-		self.modlist = modlist
-		self.dirs = map (lambda s: abspath(expanduser(s)), dirs)
+		gobject.GObject.__init__ (self)
 		self.ext = extension
-		self.filelist = self.build_filelist ()
+		if (dirs):
+			self.dirs = map (lambda s: abspath(expanduser(s)), dirs)
+			self.filelist = self.build_filelist ()
+		else:
+			self.dirs = None
+			self.filelist = []
 		
-			
+		self.task_queue = Queue.Queue(0)
+		thread = Thread(None, self.consume_queue)
+		# WE don't want the queue thread to prevent us from exiting
+		thread.setDaemon(True)
+		thread.start()
+	
+	def consume_queue(self):
+		while True:
+			task = self.task_queue.get()
+			try:
+				gtk.threads_enter ()
+				try:
+					task ()
+				except Exception, msg:
+					print 'Error:consume_queue:Got an error while processing item:', msg
+			finally:
+				gtk.threads_leave ()
+				
 	def build_filelist (self):
 		"""Returns a list containing the filenames of all qualified modules.
 		This method is automatically invoked by the constructor.
@@ -179,21 +285,12 @@ class ModuleLoader:
 			
 	def is_module (self, filename):
 		"""Tests whether the filename has the appropriate extension."""
-		if (filename[-len(self.ext):] == self.ext):
-			return True
-		return False
-			
-	def load_all (self):
-		"""Tries to load all qualified modules detected by the ModuleLoader.
-		All succesfully loaded modules are stored in the ModuleList.
-		"""
-		for f in self.filelist:
-			self.load (f)
-	
-	def load (self, filename):
-		"""Tries to load the specified file as a module and stores it in the ModuleList."""
+		return (filename[-len(self.ext):] == self.ext)
+				
+	def import_module (self, filename):
+		"""Tries to import the specified file. Returns the python module on succes.
+		Primarily for internal use."""
 		try:
-			print "Importing %s" % filename
 			mod = pydoc.importfile (filename)
 		except IOError, err:
 			print >> sys.stderr, "Error loading the file: %s\nThe file probably doesn't exist." % filename
@@ -203,7 +300,7 @@ class ModuleLoader:
 			print >> sys.stderr, "Unknown error loading the file: %s." % filename
 			print >> sys.stderr, str(err)
 			return
-				
+		
 		try:
 			if (mod.EXPORTED_CLASS): pass
 			if (mod.NAME): pass
@@ -213,46 +310,139 @@ class ModuleLoader:
 			return
 		
 		if mod.EXPORTED_CLASS == None:
-			print >> sys.stderr, "The file %s decided to not load itself: %s" % (mod.NAME, filename)
+			print >> sys.stderr, "***"
+			print >> sys.stderr, "*** The file %s decided to not load itself: %s" % (mod.NAME, filename)
+			print >> sys.stderr, "***"
 			return
-					
+		
 		try:
-			mod_init = getattr (mod, mod.EXPORTED_CLASS)
+			if (getattr(mod, mod.EXPORTED_CLASS).initialize) : pass
 		except AttributeError:
-			print >> sys.stderr, "Class %s not found in file %s. Skipping." % (mod.EXPORTED_CLASS, filename)
+			print >> sys.stderr, "Class %s in file %s does not have an initialize(self) method. Skipping." % (mod.EXPORTED_CLASS, filename)
 			return
-								
-		try:
-			mod_instance = mod_init()
-		except Exception, err:
-			print >> sys.stderr, "Error in file: %s" % filename
-			print >> sys.stderr, "There was an error initializing the class: %s" % str(mod_init)
-			print >> sys.stderr, str(err)
-			return
-
-		context = ModuleContext (None, True, mod.NAME, mod_instance, None, filename)
-		self.modlist.add(context)
 			
+		return mod
+	
+	def load_all (self):
+		"""Tries to load all qualified modules detected by the ModuleLoader.
+		Each time a module is loaded it will emit a 'module-loaded' signal
+		passing a corresponding module context.
+		"""
+		if self.dirs is None:
+			print >> sys.stderr, "The ModuleLoader at %s has no filelist!" % str(id(self))
+			print >> sys.stderr, "It was probably initialized with dirs=None."
+			return
+			
+		for f in self.filelist:
+			self.load (f)
+	
+	def load (self, filename):
+		"""Loads the given file as a module and emits a 'module-loaded' signal
+		passing a corresponding ModuleContext as argument. 
+		
+		Returns the context as added to the list.
+		"""
+		mod = self.import_module (filename)
+		if mod is None:
+			return
+		
+		print "Loading module '%s' from file %s." % (mod.NAME, filename)
+		mod_instance = getattr (mod, mod.EXPORTED_CLASS) ()
+		context = ModuleContext (mod_instance.get_icon(), False, mod_instance, 
+					None, filename, mod.NAME, mod.EXPORTED_CLASS)
+					
+		gobject.idle_add (self.emit, "module-loaded", context)
+		
+		return context
+							
+	def initialize_module (self, context):
+		"""
+		Initializes the module in the given context. Emits a 'module-initialized' signal
+		when done, passing the (now enabled) contextas argument.
+		"""
+		
+		print "Initializing '%s'" % context.name
+		context.module.initialize ()
+		
+		context.enabled = True
+		gobject.idle_add (self.emit, "module-initialized", context)
+	
+	def stop_module (self, context):
+		"""
+		Stops the module an sets context.enabled = False. Furthermore the context.module
+		instance is also set to None. Emits a 'context-stopped' signal when done passing
+		the stopped context as argument.
+		"""
+		
+		print "Stopping '%s'" % context.name
+		context.module.stop ()
+		
+		context.enabled = False
+		context.module = None
+		gobject.idle_add (self.emit, "module-stopped", context)
+			
+	def load_all_async (self):
+		"""
+		Same as load_all() except the loading is done in a separate thread.
+		"""
+		self.task_queue.put(self.load_all)
+	
+	def load_async (self, filename):
+		"""
+		Invokes load() in a new thread.
+		"""
+		self.task_queue.put( lambda: self.load(filename) )
+		
+	def initialize_module_async (self, context):
+		"""
+		Invokes initialize_module in a new thread.
+		"""
+		self.task_queue.put( lambda: self.initialize_module(context) )
+		
+	def stop_module_async (self, context):
+		"""
+		Invokes stop_module in a new thread.
+		"""
+		self.task_queue.put( lambda: self.stop_module(context) )
+
+def toggle_module (sender, context, ml):
+	"""Test function"""
+	if (context.enabled):
+		ml.stop_module_async (context)
+	else:
+		ml.initialize_module_async (context)
+
 if __name__ == "__main__":
-	"""A test suite for the Module* classes. Run from top level dir, 
+
+	"""A test suite for the Module* classes. Run from top level dir,
 	ie. from deskbar-applet/ run 'python deskbar/module_list.py'."""
+	
+	gtk.threads_init()
 	
 	name = join(dirname(__file__), '..')
 	print 'Changing PYTHONPATH'
 	sys.path.insert(0, abspath(name))
     
 	l = ModuleList ()    
-	ml = ModuleLoader (l, ["deskbar/handlers"], ".py")
+	ml = ModuleLoader (["deskbar/handlers"], ".py")
+	ml.connect ("module-loaded", l.update_row_cb)
+	ml.connect ("module-initialized", l.module_toggled_cb)
+	ml.connect ("module-stopped", l.module_toggled_cb)
 	
 	# Load all or just the directories handler. Uncomment to your liking
-	#ml.load_all ()
-	ml.load (abspath(expanduser("deskbar/handlers/directories.py")))
+	ml.load_all_async ()
+	#ml.load_async (abspath(expanduser("deskbar/testmod.py")))
+
 
 	lw = ModuleListView (l, [ModuleList.FILENAME_COL, ModuleList.NAME_COL, ModuleList.ENABLED_COL])
+	lw.connect ("row-toggled", toggle_module, ml)
+	
 	win = gtk.Window ()
 	win.connect ("destroy", gtk.main_quit)
 	win.add (lw)
 	win.show ()
 	lw.show ()
-
+	
+	gtk.threads_enter()
 	gtk.main ()
+	gtk.threads_leave()

@@ -27,10 +27,10 @@ class GtkBookmarkHandler(deskbar.handler.Handler):
 	def __init__(self):
 		deskbar.handler.Handler.__init__(self, "folder-bookmark.png")
 		
-		print 'Starting .gtkbookmarks file indexation'
 		self._locations = {}
+		
+	def initialize(self):
 		self._scan_bookmarks_files()
-		print '\tDone !'
 		
 	def get_priority(self):
 		return PRIORITY

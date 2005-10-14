@@ -50,7 +50,8 @@ class EpiphanySmartMatch(EpiphanyMatch):
 class EpiphanyHandler(deskbar.handler.Handler):
 	def __init__(self):
 		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
-		
+	
+	def initialize(self):
 		parser = EpiphanyBookmarksParser(self)
 		self._indexer = parser.get_indexer()
 		self._smart_bookmarks = parser.get_smart_bookmarks()

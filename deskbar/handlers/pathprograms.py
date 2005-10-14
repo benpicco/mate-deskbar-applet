@@ -37,10 +37,10 @@ class PathProgramsHandler(deskbar.handler.Handler):
 		deskbar.handler.Handler.__init__(self, "generic.png")
 		
 		self._programs = {}
-		print 'Starting PATH programs indexation'
+		
+	def initialize(self):
 		self._desktop_programs = self._scan_desktop_files()
 		self._scan_path()
-		print '\tDone !'
 	
 	def get_priority(self):
 		return PRIORITY

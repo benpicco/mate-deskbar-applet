@@ -73,10 +73,14 @@ class Match:
 		
 class Handler:
 	def __init__(self, iconfile):
+		"""
+		The constructor of the Handler should generally not block. 
+		Heavy duty tasks such as indexing should be done in the initialize() method.
+		"""
 		# We load the icon file, and if it fails load an empty one
 		try:
 			self._icon = gtk.gdk.pixbuf_new_from_file_at_size(join(deskbar.ART_DATA_DIR, iconfile), deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-		except gobject.GError:
+		except Exception:
 			self._icon = None
 		
 	def get_priority(self):
@@ -91,6 +95,25 @@ class Handler:
 		Returns None if there is no associated icon.
 		"""
 		return self._icon
+	
+	def initialize(self):
+		"""
+		The constructor of the Handler should generally not block. 
+		Heavy duty tasks such as indexing should be done in this method.
+		
+		Handler.initialize() is guarantied to be called before the handler
+		is queried.
+		"""
+		pass
+	
+	def stop(self):
+		"""
+		If the handler needs any cleaning up before it is unloaded, do it here.
+		
+		Handler.stop() is guarantied to be called before the handler is 
+		unloaded.
+		"""
+		pass
 		
 	def query(self, query, max=5):
 		"""

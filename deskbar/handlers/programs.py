@@ -82,9 +82,9 @@ class ProgramsHandler(deskbar.handler.Handler):
 		deskbar.handler.Handler.__init__(self, "generic.png")
 		
 		self._indexer = deskbar.indexer.Index()
-		print 'Starting .desktop file indexation'
+		
+	def initialize(self):
 		self._scan_desktop_files()
-		print '\tDone !'
 		
 	def get_priority(self):
 		return PRIORITY

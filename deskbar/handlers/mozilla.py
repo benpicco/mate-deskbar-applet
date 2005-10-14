@@ -66,6 +66,10 @@ class MozillaHandler(deskbar.handler.Handler):
 	def __init__(self):
 		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
 		
+		self._indexer = None
+		self._smart_bookmarks = None
+	
+	def initialize(self):
 		parser = MozillaBookmarksParser(self)
 		self._indexer = parser.get_indexer()
 		
@@ -108,13 +112,11 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 		
 		self._indexer = deskbar.indexer.Index()
 		
-		print 'Starting mozilla/ff bookmarks indexation'
 		if USING_FIREFOX:
 			self._index_firefox()
 		else:
 			self._index_mozilla()
 		self.close()
-		print '\tDone !'
 		
 	def get_indexer(self):
 		"""

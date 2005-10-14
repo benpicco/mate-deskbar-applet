@@ -8,7 +8,6 @@ NAME = _("Network Places")
 
 PRIORITY = 150
 
-GCONF_CLIENT = gconf.client_get_default()
 NETWORK_PLACES_GCONF = '/desktop/gnome/connected_servers'
 
 icon_theme = gtk.icon_theme_get_default()
@@ -30,10 +29,10 @@ class NetworkPlacesHandler(deskbar.handler.Handler):
 	def __init__(self):
 		deskbar.handler.Handler.__init__(self, "folder-bookmark.png")
 		
-		print 'Starting Network places file indexation'
 		self._indexer = deskbar.indexer.Index()
+		
+	def initialize(self):
 		self._scan_network_places()
-		print '\tDone !'
 		
 	def get_priority(self):
 		return PRIORITY
@@ -42,18 +41,19 @@ class NetworkPlacesHandler(deskbar.handler.Handler):
 		return self._indexer.look_up(query)[:max]
 		
 	def _scan_network_places(self):
-		if not GCONF_CLIENT.dir_exists(NETWORK_PLACES_GCONF):
+		client = gconf.client_get_default()
+		if not client.dir_exists(NETWORK_PLACES_GCONF):
 			return
-			
-		dirs = GCONF_CLIENT.all_dirs(NETWORK_PLACES_GCONF)
+		
+		dirs = client.all_dirs(NETWORK_PLACES_GCONF)
 		for place in dirs:
 			try:
-				name = GCONF_CLIENT.get_string(place+"/display_name")
-				uri = GCONF_CLIENT.get_string(place+"/uri")
+				name = client.get_string(place+"/display_name")
+				uri = client.get_string(place+"/uri")
 				
 				pixbuf = None
 				try:
-					icon = GCONF_CLIENT.get_string(place+"/icon")
+					icon = client.get_string(place+"/icon")
 					pixbuf = icon_theme.load_icon(icon, deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
 				except Exception, msg:
 					print 'Error:_scan_network_places:Cannot retreive icon:', msg

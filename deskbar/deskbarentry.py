@@ -3,13 +3,13 @@ import cgi
 
 import deskbar
 import deskbar.iconentry
+from deskbar.module_list import ModuleList
 
 import gtk, gobject
 
 from deskbar.module_list import ModuleList
 from deskbar.module_list import ModuleLoader
 module_dirs = [deskbar.HANDLERS_DIR, "~/.gnome2/deskbar-applet"]
-
 
 # The liststore columns
 HANDLER_PRIO_COL = 0
@@ -31,12 +31,13 @@ MOVE_UP   = -1
 MOVE_DOWN = +1
 
 class DeskbarEntry(deskbar.iconentry.IconEntry):
-	def __init__(self):
+	def __init__(self, loader):
 		deskbar.iconentry.IconEntry.__init__(self)
 		
 		# Set up the Handlers
 		self._handlers = ModuleList ()
-		self._load_handlers()
+		loader.connect ("module-loaded", self._handlers.update_row_cb)
+		loader.connect ("module-initialized", self._handlers.module_toggled_cb)
 		
 		self._completion_model = None
 		self._selected_match_index = -1
@@ -103,12 +104,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 	
 	def get_history(self):
 		return self._history
-		
-	def _load_handlers(self):
-		loader = ModuleLoader (self._handlers, module_dirs, ".py")
-		loader.load_all ()
-		return 
-			
+					
 	def _on_sort_matches(self, treemodel, iter1, iter2):
 		# First compare global handler priority
 		diff = treemodel[iter1][HANDLER_PRIO_COL] - treemodel[iter2][HANDLER_PRIO_COL]
@@ -121,8 +117,13 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			return diff
 		
 		# Finally use the Action to sort alphabetically
-		a = treemodel[iter1][ACTION_COL].strip().lower()
-		b = treemodel[iter2][ACTION_COL].strip().lower()
+		a = treemodel[iter1][ACTION_COL]
+		b = treemodel[iter2][ACTION_COL]
+		if a != None:
+			a = a.strip().lower()
+		if b != None:
+			b = b.strip().lower()
+			
 		if a < b:
 			return 1
 		elif a > b:

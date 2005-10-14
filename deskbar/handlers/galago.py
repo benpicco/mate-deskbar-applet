@@ -31,10 +31,12 @@ class GalagoHandler(deskbar.handler.Handler):
 		deskbar.handler.Handler.__init__(self, "mail.png")	
 		self._indexer = deskbar.indexer.Index()
 	
+	def initialize(self):
 		# FIXME: Dummy entries		
 		#self._indexer.add("William Gates III <billg@microsoft.com>", GalagoMatch(self, "William Gates III", "billg@microsoft.com"))
 		#self._indexer.add("Steve Ballmer <steve@microsoft.com>", GalagoMatch(self, "Steve Ballmer", "steve@microsoft.com"))
 		#self._indexer.add("Bill Joy <bjoy@sun.com>", GalagoMatch(self, "Bill Joy", "bjoy@sun.com"))
+		pass
 	
 	def get_priority(self):
 		return PRIORITY

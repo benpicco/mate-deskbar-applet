@@ -1,14 +1,21 @@
 import os, time
 import deskbar, deskbar.deskbarentry, deskbar.about, deskbar.preferences, deskbar.applet_keybinder
+from deskbar.module_list import ModuleLoader
 # WARNING: Load gnome.ui before gnomeapplet or we have a nasty warning.
 import gnome.ui
 import gnomeapplet, gtk, gtk.gdk, gconf
 
+module_dirs = [deskbar.HANDLERS_DIR, "~/.gnome2/deskbar-applet"]
+
 class DeskbarApplet:
 	def __init__(self, applet):
 		self.applet = applet
-						
-		self.entry = deskbar.deskbarentry.DeskbarEntry()
+		
+		self.loader = ModuleLoader (module_dirs)
+		self.loader.connect ("module-loaded", lambda l, mod: self.loader.initialize_module_async(mod))
+		self.loader.load_all_async ()
+		
+		self.entry = deskbar.deskbarentry.DeskbarEntry(self.loader)
 		self.entry.get_evbox().connect("button-press-event", self.on_icon_button_press)
 		self.entry.get_entry().connect("button-press-event", self.on_entry_button_press)
 

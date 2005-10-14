@@ -12,3 +12,6 @@ deskbar_handlers_PYTHON = \
 	programs.py \
 	pathprograms.py \
 	web_address.py
+
+EXTRA_DIST = \
+	debug-blockinginit.py
