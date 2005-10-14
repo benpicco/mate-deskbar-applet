@@ -97,12 +97,11 @@ class ProgramsHandler(deskbar.handler.Handler):
 		
 	def _scan_desktop_files(self):
 		desktop_dir = abspath(join("/", "usr", "share", "applications"))
-		icon_dir = abspath(join("/", "usr", "share", "pixmaps"))
-		
 		for f in glob.glob(desktop_dir + '/*.desktop'):
 			try:
 				config = ConfigParser.SafeConfigParser({
 					"Comment" : "",
+					"Icon": "",
 					"Terminal" : "no",
 				})
 				config.read(f)
@@ -115,19 +114,18 @@ class ProgramsHandler(deskbar.handler.Handler):
 				comment = get_entry_locale(config, "Comment")
 
 				pixbuf = None
-				try:
-					icon = config.get("Desktop Entry", "Icon", True)
-						
-					# FIXME: Maybe we want to do a matching for extension
-					if splitext(icon)[1] == "":
-						icon = icon+".png"
-						
-					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(join(icon_dir, icon), deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-				except Exception, msg1:
+				icon = config.get("Desktop Entry", "Icon", True)
+				if icon != "":
 					try:
-						pixbuf = icon_theme.load_icon(splitext(icon)[0], deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
-					except Exception, msg2:
-						print 'Error:_scan_desktop_files:Icon Load Error:%s (%s)' % (msg2, msg1)
+						if icon.startswith("/"):
+							pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(icon, deskbar.ICON_SIZE, deskbar.ICON_SIZE)
+						else:
+							pixbuf = icon_theme.load_icon(splitext(icon)[0], deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
+					except Exception, msg1:
+						try:
+							pixbuf = icon_theme.load_icon(icon, deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
+						except Exception, msg2:
+							print 'Error:_scan_desktop_files:Icon Load Error:%s (%s)' % (msg1, msg2)
 				
 				match = ProgramsMatch(self, name, program, pixbuf)
 				
