@@ -1,13 +1,13 @@
-import os, sys
+import os, sys, cgi
 import ConfigParser
-import gnomevfs
+from os.path import join
+from gettext import gettext as _
+
 import deskbar
 from deskbar.handler import Handler
 from deskbar.handler import Match
-from gettext import gettext as _
-import cgi
-import gtk
-from os.path import join
+
+import gtk, gnome, gnomevfs
 
 EXPORTED_CLASS = "VolumeHandler"
 NAME = (_("Search for Volumes"), _("Open drives and volumes by their name"))
@@ -50,13 +50,17 @@ class VolumeHandler (Handler):
 	def query(self, query, max=5):
 		result = []
 		query = query.lower()
-				
+		
+		# We search both mounted_volumes() and connected_drives.
+		# This way an audio cd in the cd drive will show up both
+		# on "au" and "cd".
+		# Drives returned by mounted_volumes() and connected_drives()
+		# does not have the same display_name() strings.
 		for drive in gnomevfs.VolumeMonitor().get_mounted_volumes() + gnomevfs.VolumeMonitor().get_connected_drives():
 			if not drive.is_user_visible() : continue
 			if not drive.is_mounted () : continue
 			if not drive.get_display_name().lower().startswith(query): continue
 			
-			#iconfile = join(deskbar.ART_DATA_DIR, drive.get_icon()) + ".png"
 			icon = None
 			try:
 				icon = icon_theme.load_icon(drive.get_icon(), deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)

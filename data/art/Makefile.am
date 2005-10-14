@@ -12,6 +12,7 @@ art_DATA = \
 	folder.png \
 	folder-bookmark.png \
 	generic.png \
+	gnome-dev-harddisk.png \
 	gnome-searchtool.png \
 	mail.png \
 	web.png \
