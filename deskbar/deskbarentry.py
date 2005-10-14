@@ -7,10 +7,6 @@ from deskbar.module_list import ModuleList
 
 import gtk, gobject
 
-from deskbar.module_list import ModuleList
-from deskbar.module_list import ModuleLoader
-module_dirs = [deskbar.HANDLERS_DIR, "~/.gnome2/deskbar-applet"]
-
 # The liststore columns
 HANDLER_PRIO_COL = 0
 MATCH_PRIO_COL = 1
@@ -31,13 +27,11 @@ MOVE_UP   = -1
 MOVE_DOWN = +1
 
 class DeskbarEntry(deskbar.iconentry.IconEntry):
-	def __init__(self, loader):
+	def __init__(self, module_list):
 		deskbar.iconentry.IconEntry.__init__(self)
 		
 		# Set up the Handlers
-		self._handlers = ModuleList ()
-		loader.connect ("module-loaded", self._handlers.update_row_cb)
-		loader.connect ("module-initialized", self._handlers.module_toggled_cb)
+		self._handlers = module_list
 		
 		self._completion_model = None
 		self._selected_match_index = -1

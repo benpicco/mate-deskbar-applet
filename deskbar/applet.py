@@ -5,6 +5,9 @@ from deskbar.module_list import ModuleLoader
 import gnome.ui
 import gnomeapplet, gtk, gtk.gdk, gconf
 
+from deskbar.module_list import ModuleList
+from deskbar.module_list import ModuleLoader
+
 class DeskbarApplet:
 	def __init__(self, applet):
 		self.applet = applet
@@ -12,6 +15,10 @@ class DeskbarApplet:
 		self.loader = ModuleLoader (deskbar.MODULES_DIRS)
 		self.loader.connect ("module-loaded", lambda l, mod: self.loader.initialize_module_async(mod))
 		self.loader.load_all_async ()
+		
+		self.module_list = ModuleList ()
+		self.loader.connect ("module-loaded", self.module_list.update_row_cb)
+		self.loader.connect ("module-initialized", self.module_list.module_toggled_cb)
 		
 		self.entry = deskbar.deskbarentry.DeskbarEntry(self.loader)
 		self.entry.get_evbox().connect("button-press-event", self.on_icon_button_press)
@@ -42,7 +49,7 @@ class DeskbarApplet:
 		deskbar.about.show_about()
 	
 	def on_preferences(self, component, verb):
-		deskbar.preferences.show_preferences()
+		deskbar.preferences.show_preferences(self.loader, self.module_list)
 
 	def on_config_width(self, value=None):
 		if value != None and value.type == gconf.VALUE_INT:

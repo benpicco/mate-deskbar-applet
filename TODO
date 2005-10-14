@@ -10,27 +10,19 @@ Preferences:
 
 Backends TODOs:
 	General:
-	* Pluggable backends ? scan ~/gnome2/deskbar-applet/*.py and /usr/lib/blah 
-	  for subclasses of Handler  and add them to handlers list
-	* Use a thread to init the various handlers ?
 	* Do something about hardcoded path, for example /usr/share/applications
 	* Remove uneccesary markup for i18n
 	* Some icons (.desktop one notably) do not scale down, that's ugly
-	* Asyncronous operations to be more responsive (twisted?)
-	* Launch & show a CLI program
+	* Launch & show a CLI program in a window (output/err)
 	* Pkg-config for ext handlers
 	
 	Web Address, Email Address: [web_address.py, email_address.py]:
 	* Change regex for URI, currently it doesn't allow user@host
 		
 	Browsers (ephy, ff, moz): [epiphany.py, mozilla.py]
-	* Use smart bookmarks inside the search bar (eg. google smart bookmark
-	  performs a search on google for typed word) for Mozilla+FF
 	* Use epiphany's history file to present history items, same for Moz if possible
-	* Only show preferred browser's bookmarks
 	* Monitor changes with gnome vfs
-	* Index history
-	* Search "Search Google" for key, find somthing..
+	* 'Search "Search Google" for key', is no good grammar, find somthing..
 	
 	Address Book + Gaim contacts: [galago.py,Dummy implementation, waiting for python bindings]
 	* Use galago instead of custom parsing (python bindings are coming)
@@ -43,15 +35,11 @@ Backends TODOs:
 	* ?
 	
 	Gtk Bookmarks [gtkbookmarks.py]
-	* Retreive stored remote locations, like the "Places" menu items
 	* Monitor changes with gnome vfs
 	
 	Programs [programs.py]
 	* Currently we provide special special functions for certain specific programs
 	  eg. gnome-dict, gnome-search tool, is that good, how to do it better..
-	* Maybe maintain a cache of /usr/bin:$PATH files instead of rescanning each startup
-	* Use localized comments and program title in .desktop files
-	* Detect duplicates with PATH programs
 	* Do not show items not in menu or removed by user
 	* Monitor changes with gnome vfs
 	
@@ -88,8 +76,7 @@ Backends TODOs:
 What happens when text is typed in the entry:
 	* We have a list of backends, each backend is queried for the string.
 	* The backend retun a list of matches objects
-	??: A backend can stop the chaining if he thinks no other backend can use the text (ie. paths)
-	??: Priority system ?
+	* Priority system
 	The backends should have a priority:
 		Launch program for exact match
 		Launch program for description match
@@ -99,5 +86,3 @@ What happens when text is typed in the entry:
 		Beagle
 		Path
 	
-Proposed API for backends:
-See handler.py for the base classes to subclass for new backends

@@ -179,7 +179,7 @@ class ModuleListView (gtk.TreeView):
 		
 		if (model.ICON_COL in columns):
 			cell_icon = gtk.CellRendererPixbuf ()
-			self.column_icon = gtk.TreeViewColumn ("", cell_icon)
+			self.column_icon = gtk.TreeViewColumn ("Icon", cell_icon)
 			self.column_icon.set_attributes (cell_icon, pixbuf=model.ICON_COL)
 			self.column_icon.set_max_width (36)
 		
@@ -197,15 +197,14 @@ class ModuleListView (gtk.TreeView):
 			cell_filename = gtk.CellRendererText ()
 			self.column_filename = gtk.TreeViewColumn ("Filename", cell_filename, markup=model.FILENAME_COL)
 		
-		
 		for col in columns:
 			if col==model.ICON_COL : self.append_column(self.column_icon)
 			if col==model.ENABLED_COL : self.append_column(self.column_enabled)
 			if col==model.NAME_COL : self.append_column(self.column_module_name)
 			if col==model.FILENAME_COL : self.append_column(self.column_filename)
-				
-		self.set_headers_visible(True)
 		
+		self.set_property("headers-visible", False)
+			
 	def emit_row_toggled (self, cell, path, model):
 		"""Callback for the toggle buttons in the ModuleList.ENABLED_COL.
 		Emits a 'row-toggled' signal passing the context in the row as argument."""

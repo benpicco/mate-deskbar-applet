@@ -1,10 +1,10 @@
 from os.path import join
 import gtk, gtk.glade, gobject, gconf
 import deskbar
-
+from deskbar.module_list import ModuleListView
 
 class PrefsDialog:
-	def __init__(self):
+	def __init__(self, module_loader, module_list):
 		self.glade = gtk.glade.XML(join(deskbar.SHARED_DATA_DIR, "prefs-dialog.glade"))
 
 		self.dialog = self.glade.get_widget("preferences")
@@ -25,9 +25,14 @@ class PrefsDialog:
 		self.expand_toggle = self.glade.get_widget("expand")
 		self.expand_toggle.connect('toggled', self.on_expand_toggle)
 		self.expand_notify_id = deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
+			
+		container = self.glade.get_widget("handlers")
+		self.moduleview = ModuleListView(module_list, [module_list.ICON_COL, module_list.ENABLED_COL, module_list.NAME_COL])
+		self.moduleview.connect ("row-toggled", self.on_module_toggled, module_loader)
+		container.add(self.moduleview)
 		
 		self.sync_ui()
-	
+		
 	def show_run_hide(self):
 		self.dialog.show_all()
 		self.dialog.run()
@@ -55,6 +60,13 @@ class PrefsDialog:
 		
 	def on_spin_width_change(self, spinner):
 		deskbar.GCONF_CLIENT.set_int(deskbar.GCONF_WIDTH, int(spinner.get_value()))
+	
+	def on_module_toggled(self, moduleview, context, loader):
+		return
+		if (context.enabled):
+			loader.stop_module_async (context)
+		else:
+			loader.initialize_module_async (context)
 
-def show_preferences():
-	PrefsDialog().show_run_hide()
+def show_preferences(loader, model):
+	PrefsDialog(loader, model).show_run_hide()
