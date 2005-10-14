@@ -1,7 +1,6 @@
 AC_INIT(deskbar-applet, 0.7.0, raphael@slinckx.net)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
-
 AC_CONFIG_MACRO_DIR([m4])
 
 AM_INIT_AUTOMAKE
@@ -10,6 +9,7 @@ GNOME_COMMON_INIT
 AM_MAINTAINER_MODE
 AM_DISABLE_STATIC
 AM_PROG_LIBTOOL
+AC_SUBST(ACLOCAL_AMFLAGS, "$ACLOCAL_FLAGS -I m4")
 AC_PROG_CC
 
 dnl ****************************************************************************
