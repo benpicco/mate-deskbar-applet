@@ -5,15 +5,17 @@ try:
 	set
 except NameError:
 	from sets import Set as set
-	
-TOKENS_REGEXP = r'\w+'
-STOP_WORDS = {'and': 1, 'be': 1, 'to': 1, 'that': 1, 'into': 1,
-			'it': 1, 'but': 1, 'as': 1, 'are': 1, 'they': 1,
-			'in': 1, 'not': 1, 'such': 1, 'with': 1, 'by': 1,
-			'is': 1, 'if': 1, 'a': 1, 'on': 1, 'for': 1,
-			'no': 1, 'these': 1, 'of': 1, 'there': 1,
-			'this': 1, 'will': 1, 'their': 1, 's': 1, 't': 1,
-			'then': 1, 'the': 1, 'was': 1, 'or': 1, 'at': 1}
+
+# FIXME: This is a test, i'm tokenizing with spaces, see how it feels.
+#  it is faster to load
+#TOKENS_REGEXP = r'\w+'
+#STOP_WORDS = {'and': 1, 'be': 1, 'to': 1, 'that': 1, 'into': 1,
+#			'it': 1, 'but': 1, 'as': 1, 'are': 1, 'they': 1,
+#			'in': 1, 'not': 1, 'such': 1, 'with': 1, 'by': 1,
+#			'is': 1, 'if': 1, 'a': 1, 'on': 1, 'for': 1,
+#			'no': 1, 'these': 1, 'of': 1, 'there': 1,
+#			'this': 1, 'will': 1, 'their': 1, 's': 1, 't': 1,
+#			'then': 1, 'the': 1, 'was': 1, 'or': 1, 'at': 1}
                  
 class Index:
 	def __init__(self):
@@ -21,9 +23,10 @@ class Index:
 
 	def add(self, key, obj):
 		key = key.lower()
-		for tok in deskbar.tokenizer.regexp(key, TOKENS_REGEXP):
+		#for tok in deskbar.tokenizer.regexp(key, TOKENS_REGEXP):
+		for tok in key.split():
 			# Filter out some words not worth indexing
-			if len(tok) <= 2 or len(tok) >= 25 or tok in STOP_WORDS:
+			if len(tok) <= 2 or len(tok) >= 25: #or tok in STOP_WORDS:
 				continue
 			
 			if tok in self.d:
@@ -33,7 +36,8 @@ class Index:
 				self.d[tok] = [obj]
 						
 	def look_up(self, text):
-		tokens = [token for token in deskbar.tokenizer.regexp(text.lower(), TOKENS_REGEXP)]
+		#tokens = [token for token in deskbar.tokenizer.regexp(text.lower(), TOKENS_REGEXP)]
+		tokens = [token for token in text.lower().split()]
 		
 		result = set()
 		if len(tokens) == 0:
