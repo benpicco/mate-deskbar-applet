@@ -20,7 +20,7 @@ class DeskbarApplet:
 		self.loader.connect ("module-loaded", self.module_list.update_row_cb)
 		self.loader.connect ("module-initialized", self.module_list.module_toggled_cb)
 		
-		self.entry = deskbar.deskbarentry.DeskbarEntry(self.loader)
+		self.entry = deskbar.deskbarentry.DeskbarEntry(self.module_list)
 		self.entry.get_evbox().connect("button-press-event", self.on_icon_button_press)
 		self.entry.get_entry().connect("button-press-event", self.on_entry_button_press)
 

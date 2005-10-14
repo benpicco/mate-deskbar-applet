@@ -16,7 +16,7 @@ from deskbar.handlers_browsers import BrowserHandler, BrowserSmartMatch, Browser
 
 EXPORTED_CLASS, NAME, matched = is_preferred_browser(["firefox", "mozilla"],
 							"MozillaHandler",
-							_("Mozilla/Firefox Bookmarks and Search Engines"),
+							(_("Mozilla/Firefox"), _("Index your bookmarks and search engines")),
 							"Mozilla/Firefox is not your preferred browser, not using it.")
 							
 # Wether we will index firefox or mozilla bookmarks

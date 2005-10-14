@@ -4,7 +4,7 @@ import gnomevfs
 import deskbar.handler
 
 EXPORTED_CLASS = "WebAddressHandler"
-NAME = _("Web Addresses")
+NAME = (_("Web Addresses"), _("Open webpages by typing their address."))
 
 PRIORITY = 250
 

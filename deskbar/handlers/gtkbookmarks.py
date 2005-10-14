@@ -6,7 +6,7 @@ import gnomevfs
 import deskbar.handler
 
 EXPORTED_CLASS = "GtkBookmarkHandler"
-NAME = _("Nautilus Places")
+NAME = (_("Nautilus Places"), _("Open your nautilus favorite places by name."))
 
 PRIORITY = 150
 

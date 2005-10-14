@@ -4,7 +4,7 @@ import gconf, gtk
 import deskbar.handler, deskbar.indexer
 
 EXPORTED_CLASS = "NetworkPlacesHandler"
-NAME = _("Network Places")
+NAME = (_("Network Places"), "Network Places")
 
 PRIORITY = 150
 

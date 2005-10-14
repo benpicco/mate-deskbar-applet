@@ -8,7 +8,7 @@ import deskbar, deskbar.indexer
 import deskbar.handler
 
 EXPORTED_CLASS = "PathProgramsHandler"
-NAME = _("Programs in your $PATH")
+NAME = (_("Command line programs"), _("Allow to launch any program present in your $PATH"))
 
 PRIORITY = 100
 		

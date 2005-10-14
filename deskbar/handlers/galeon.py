@@ -9,7 +9,7 @@ from deskbar.handlers_browsers import BrowserHandler, BrowserSmartMatch, Browser
 
 EXPORTED_CLASS, NAME, matched = is_preferred_browser(["galeon"],
 							"GaleonHandler",
-							_("Galeon Bookmarks and Search Engines"),
+							(_("Galeon"), _("Index your bookmarks and search engines")),
 							"Galeon is not your preferred browser, not using it.")
 
 class GaleonHandler(BrowserHandler):

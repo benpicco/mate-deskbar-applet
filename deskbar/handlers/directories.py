@@ -11,7 +11,7 @@ import deskbar.handler
 from deskbar.handler_utils import filesystem_possible_completions
 
 EXPORTED_CLASS = "FolderHandler"
-NAME = _("Folder Names")
+NAME = (_("Folders"),  _("Open folders by their names."))
 
 PRIORITY = 150
 

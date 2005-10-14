@@ -7,7 +7,7 @@ import deskbar.handler
 #FIXME: better way to detect beagle ?
 if exists("/usr/share/applications/best.desktop"):
 	EXPORTED_CLASS = "BeagleHandler"
-	NAME = _("Use Beagle to search for documents")
+	NAME = (_("Beagle"), _("Use Beagle to search for documents"))
 else:
 	EXPORTED_CLASS = None
 	NAME = "Beagle was not detected on your system"

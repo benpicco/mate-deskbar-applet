@@ -9,7 +9,7 @@ from deskbar.handlers_browsers import BrowserHandler, BrowserSmartMatch, Browser
 
 EXPORTED_CLASS, NAME, matched = is_preferred_browser(["epiphany"],
 							"EpiphanyHandler",
-							_("Epiphany Bookmarks and Search Engines"),
+							(_("Epiphany"), _("Index your bookmarks and search engines")),
 							"Epiphany is not your preferred browser, not using it.")
 	
 class EpiphanyHandler(BrowserHandler):

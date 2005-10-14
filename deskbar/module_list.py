@@ -140,7 +140,7 @@ class ModuleList (gtk.ListStore):
 		self.set_value(iter, self.MODULE_COL, context.module)
 		self.set_value(iter, self.SETTINGS_COL, context.settings)
 		self.set_value(iter, self.FILENAME_COL, context.filename)
-		self.set_value(iter, self.NAME_COL, context.name)
+		self.set_value(iter, self.NAME_COL, "<b>%s</b>\n%s" % context.name)
 		self.set_value(iter, self.EXP_CLASS_COL, context.exported_class)
 		
 	def update_row_cb (self, sender, context, iter=None):
@@ -306,7 +306,7 @@ class ModuleLoader (gobject.GObject):
 		
 		if mod.EXPORTED_CLASS == None:
 			print >> sys.stderr, "***"
-			print >> sys.stderr, "*** The file %s decided to not load itself: %s" % (mod.NAME, filename)
+			print >> sys.stderr, "*** The file %s decided to not load itself: %s" % (filename, mod.NAME)
 			print >> sys.stderr, "***"
 			return
 		
@@ -356,7 +356,7 @@ class ModuleLoader (gobject.GObject):
 		when done, passing the (now enabled) contextas argument.
 		"""
 		
-		print "Initializing '%s'" % context.name
+		print "Initializing %r" % (context.name,)
 		
 		# First we check if the module must be called in a thread safe way
 		if hasattr(context.module, "initialize_safe"):
@@ -379,7 +379,7 @@ class ModuleLoader (gobject.GObject):
 		the stopped context as argument.
 		"""
 		
-		print "Stopping '%s'" % context.name
+		print "Stopping %r" % (context.name,)
 		context.module.stop ()
 		
 		context.enabled = False

@@ -11,7 +11,7 @@ import deskbar.handler
 from deskbar.handler_utils import filesystem_possible_completions
 
 EXPORTED_CLASS = "FileHandler"
-NAME = _("File Names")
+NAME = (_("Files"), _("Open files by typing their names."))
 
 PRIORITY = 150
 

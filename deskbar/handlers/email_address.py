@@ -5,7 +5,7 @@ import deskbar.handler
 import re
 
 EXPORTED_CLASS = "EmailAddressHandler"
-NAME = _("Email Addresses")
+NAME = (_("Email Addresses"), _("Send mails to people in your address book."))
 
 PRIORITY = 250
 REGEX = re.compile(r'[\w\-][\w\-\.]*@[\w\-][\w\-\.]*[\w]')

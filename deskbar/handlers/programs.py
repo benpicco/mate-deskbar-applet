@@ -14,7 +14,7 @@ except NameError:
 	from sets import Set as set
 	
 EXPORTED_CLASS = "ProgramsHandler"
-NAME = _("Desktop Programs")
+NAME = (_("Desktop Programs"), _("Index the program names and descriptions."))
 
 PRIORITY = 100
 icon_theme = gtk.icon_theme_get_default()
