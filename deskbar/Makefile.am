@@ -12,6 +12,7 @@ deskbar_PYTHON = \
 	deskbarentry.py \
 	handler.py \
 	handler_utils.py \
+	handler_browsers.py \
 	indexer.py \
 	locale_utils.py \
 	ltihooks.py \

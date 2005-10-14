@@ -5,13 +5,11 @@ from deskbar.module_list import ModuleLoader
 import gnome.ui
 import gnomeapplet, gtk, gtk.gdk, gconf
 
-module_dirs = [deskbar.HANDLERS_DIR, "~/.gnome2/deskbar-applet"]
-
 class DeskbarApplet:
 	def __init__(self, applet):
 		self.applet = applet
 		
-		self.loader = ModuleLoader (module_dirs)
+		self.loader = ModuleLoader (deskbar.MODULES_DIRS)
 		self.loader.connect ("module-loaded", lambda l, mod: self.loader.initialize_module_async(mod))
 		self.loader.load_all_async ()
 		

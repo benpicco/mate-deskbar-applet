@@ -1,77 +1,39 @@
-import os, cgi, re, HTMLParser, base64, glob, urllib
+import os, re, HTMLParser, base64, glob
 from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
 
-import gtk, gnomevfs, gconf
-import deskbar, deskbar.indexer, deskbar.handler
+import gtk
+import deskbar, deskbar.indexer
 
 # Check for presence of set to be compatible with python 2.3
 try:
 	set
 except NameError:
 	from sets import Set as set
-	
+
+from deskbar.handlers_browsers import is_preferred_browser
+from deskbar.handlers_browsers import BrowserHandler, BrowserSmartMatch, BrowserMatch
+
+EXPORTED_CLASS, NAME, matched = is_preferred_browser(["firefox", "mozilla"],
+							"MozillaHandler",
+							_("Mozilla/Firefox Bookmarks and Search Engines"),
+							"Mozilla/Firefox is not your preferred browser, not using it.")
+							
 # Wether we will index firefox or mozilla bookmarks
 USING_FIREFOX = False
-		
-# We import ourselves only if the user's preferred browser is mozilla
-http_handler = gconf.client_get_default().get_string("/desktop/gnome/url-handlers/http/command").strip().lower()
-if http_handler.find("mozilla") != -1 or http_handler.find("firefox") != -1 and gconf.client_get_default().get_bool("/desktop/gnome/url-handlers/http/enabled"):
-	EXPORTED_CLASS = "MozillaHandler"
-	NAME = _("Mozilla Bookmarks")
-	if http_handler.find("firefox") != -1:
-		USING_FIREFOX = True
-else:
-	EXPORTED_CLASS = None
-	NAME = "Mozilla or Firefox is not your preferred browser, not using it."
-	
-PRIORITY = 50
-
+if matched == "firefox":
+	USING_FIREFOX = True
+			
 SEARCH_FIELD = re.compile(r'\s*(\w+)\s*=\s*"(.*)"\s*')
 INPUT_VALUE = re.compile(r'<input\s+name="(.*?)"\s+value="(.*?)"\s*.*>', re.IGNORECASE)
 INPUT_USER = re.compile(r'<input\s+name="(.*?)"\s+user.*>', re.IGNORECASE)
 
-class MozillaMatch(deskbar.handler.Match):
-	def __init__(self, backend, name, url, icon=None):
-		deskbar.handler.Match.__init__(self, backend, cgi.escape(name), icon)
-		self._priority = 10
-		self._url = url
-		
-	def action(self, text=None):
-		self._priority = self._priority+1
-		gnomevfs.url_show(self._url)
-		
-	def get_verb(self):
-		return _("Open Bookmark <b>%(name)s</b>")
-
-class MozillaSmartMatch(MozillaMatch):
-	def __init__(self, bmk, name, url):
-		MozillaMatch.__init__(self, bmk.get_handler(), name, url, bmk.get_icon())
-		self._priority = 0
-		self._bookmark = bmk
-		
-	def get_bookmark(self):
-		return self._bookmark
-		
-	def action(self, text=""):
-		self._priority = self._priority+1
-
-		real_url = re.sub("%s", urllib.quote_plus(text), self._url)
-		gnomevfs.url_show(real_url)
-		
-	def get_verb(self):
-		return _("Search <b>%(name)s</b> for <i>%(text)s</i>")
-		
-class MozillaHandler(deskbar.handler.Handler):
+class MozillaHandler(BrowserHandler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
-		
-		self._indexer = None
-		self._smart_bookmarks = None
+		BrowserHandler.__init__(self)
 	
-	def initialize(self):
-		parser = MozillaBookmarksParser(self)
-		self._indexer = parser.get_indexer()
+	def _parse_bookmarks(self):
+		indexed = MozillaBookmarksParser(self)
 		
 		smart_dirs = None
 		if USING_FIREFOX:
@@ -79,26 +41,10 @@ class MozillaHandler(deskbar.handler.Handler):
 		else:
 			smart_dirs = [get_mozilla_home_file("search"), "/usr/lib/mozilla/searchplugins"]
 			
-		parser = MozillaSmartBookmarksDirParser(self, self._indexer, smart_dirs)
-		self._smart_bookmarks = parser.get_smart_bookmarks()
+		parser = MozillaSmartBookmarksDirParser(self, indexed, smart_dirs)
 		
-	def get_priority(self):
-		return PRIORITY
+		return (indexed.get_indexer(), parser.get_smart_bookmarks())
 				
-	def query(self, query, max=5):
-		bmk = self._indexer.look_up(query)[:max]
-		sbmk = self._smart_bookmarks
-		
-		#Merge the two sources
-		result = []
-		for b in bmk:
-			result.append(b)
-		for b in sbmk:
-			if not b.get_bookmark() in bmk:
-				result.append(b)
-		
-		return result
-		
 class MozillaBookmarksParser(HTMLParser.HTMLParser):
 	def __init__(self, handler):
 		HTMLParser.HTMLParser.__init__(self)
@@ -176,7 +122,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 				# Reset icon data for the following icon
 				self.icon_data = None
 				
-			bookmark = MozillaMatch(self.handler, self.chars, self.href, pixbuf)
+			bookmark = BrowserMatch(self.handler, self.chars, self.href, pixbuf)
 			self._indexer.add("%s %s" % (self.chars, self.href), bookmark)
 
 	def handle_data(self, chars):
@@ -286,10 +232,10 @@ class MozillaSmartBookmarksDirParser:
 					print 'Error:MozillaSmartBookmarksDirParser:Cannot load image:%s' % msg
 				
 				parser = MozillaSmartBookmarksParser(f)
-				bookmark = MozillaMatch(handler, parser.name, parser.url, pixbuf)
+				bookmark = BrowserMatch(handler, parser.name, parser.url, pixbuf)
 				indexer.add("%s %s %s" % (parser.name, parser.url, parser.description), bookmark)
 
-				bookmark = MozillaSmartMatch(bookmark, parser.name, parser.action)
+				bookmark = BrowserSmartMatch(bookmark, parser.name, parser.action)
 				self._smart_bookmarks.append(bookmark)
 	
 	def get_smart_bookmarks(self):

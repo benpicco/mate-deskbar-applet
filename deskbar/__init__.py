@@ -31,6 +31,8 @@ if _check(name):
 else:
 	HANDLERS_DIR = join(LIB_DIR, "deskbar-applet", "handlers")
 print "Handlers Dir: %s" % HANDLERS_DIR
+
+MODULES_DIRS = [HANDLERS_DIR, expanduser("~/.gnome2/deskbar-applet/handlers")]
 # ------------------------------------------------------------------------------
 
 # Set the cwd to the home directory so spawned processes behave correctly
