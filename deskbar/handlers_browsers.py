@@ -1,4 +1,4 @@
-import cgi, urllib
+import re,cgi, urllib
 from gettext import gettext as _
 import gnomevfs, gconf
 import deskbar, deskbar.handler
