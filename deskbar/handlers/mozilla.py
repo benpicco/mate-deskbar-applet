@@ -42,7 +42,7 @@ class MozillaHandler(BrowserHandler):
 		else:
 			smart_dirs = [get_mozilla_home_file("search"), "/usr/lib/mozilla/searchplugins"]
 			
-		parser = MozillaSmartBookmarksDirParser(self, indexed, smart_dirs)
+		parser = MozillaSmartBookmarksDirParser(self, indexed.get_indexer(), smart_dirs)
 		
 		return (indexed.get_indexer(), parser.get_smart_bookmarks())
 
