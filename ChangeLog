@@ -1,3 +1,13 @@
+2005-10-16  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/applet.py:
+	* deskbar/deskbar-applet:
+	* deskbar/handler.py:
+	* deskbar/module_list.py:
+	Remove the threads, they suck too much. We will try that way with simple
+	idle priority calls in the mainloop. The UI appears fast then blocks for a
+	while.
+
 2005-10-15  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/handlers_browsers.py:

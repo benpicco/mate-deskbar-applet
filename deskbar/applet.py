@@ -3,7 +3,7 @@ import deskbar, deskbar.deskbarentry, deskbar.about, deskbar.preferences, deskba
 from deskbar.module_list import ModuleLoader
 # WARNING: Load gnome.ui before gnomeapplet or we have a nasty warning.
 import gnome.ui
-import gnomeapplet, gtk, gtk.gdk, gconf
+import gnomeapplet, gtk, gtk.gdk, gconf, gobject
 
 from deskbar.module_list import ModuleList
 from deskbar.module_list import ModuleLoader
@@ -14,7 +14,7 @@ class DeskbarApplet:
 		
 		self.loader = ModuleLoader (deskbar.MODULES_DIRS)
 		self.loader.connect ("module-loaded", lambda l, mod: self.loader.initialize_module_async(mod))
-		self.loader.load_all_async ()
+		self.loader.load_all_async()
 		
 		self.module_list = ModuleList ()
 		self.loader.connect ("module-loaded", self.module_list.update_row_cb)

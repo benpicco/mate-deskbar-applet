@@ -5,8 +5,7 @@ import sys
 import pydoc
 from os.path import join, basename, normpath, abspath
 from os.path import split, expanduser, exists, isfile, dirname
-from threading import Thread
-import Queue
+import gobject
 
 class ModuleContext:
 	"""A generic wrapper for any object stored in a ModuleList.
@@ -218,15 +217,11 @@ class ModuleLoader (gobject.GObject):
 	specified in the constructor.
 	
 	Most methods have a _async variant. These methods emits signals that is handled
-	by the *main* thread. This ensures that locking mechanisms are unlikely to be 
-	needed.
-		
+	by the mainloop.
+			
 	Hint: If you pass None as the dirs argument the ModuleLoader will not search
 	for modules at all. This is useful if you want to reload a single module for
 	which you know the path.
-	
-	Important: Remember to do gtk.gdk.threads_init() or gobject.threads_init() before
-	using any of the _async methods or else it WON'T WORK. Caveat emptor!
 	"""
 	
 	__gsignals__ = {
@@ -250,21 +245,7 @@ class ModuleLoader (gobject.GObject):
 		else:
 			self.dirs = None
 			self.filelist = []
-		
-		self.task_queue = Queue.Queue(0)
-		thread = Thread(None, self.consume_queue)
-		# WE don't want the queue thread to prevent us from exiting
-		thread.setDaemon(True)
-		thread.start()
-	
-	def consume_queue(self):
-		while True:
-			task = self.task_queue.get()
-			try:
-				task ()
-			except Exception, msg:
-				print 'Error:consume_queue:Got an error while processing item:', msg
-				
+						
 	def build_filelist (self):
 		"""Returns a list containing the filenames of all qualified modules.
 		This method is automatically invoked by the constructor.
@@ -358,17 +339,7 @@ class ModuleLoader (gobject.GObject):
 		"""
 		
 		print "Initializing %r" % (context.name,)
-		
-		# First we check if the module must be called in a thread safe way
-		if hasattr(context.module, "initialize_safe"):
-			gtk.threads_enter ()
-			try:
-				context.module.initialize_safe()
-			finally:
-				gtk.threads_leave ()
-		# Else we use the simple non-locked method
-		else:
-			context.module.initialize ()
+		context.module.initialize ()
 		
 		context.enabled = True
 		gobject.idle_add (self.emit, "module-initialized", context)
@@ -389,27 +360,27 @@ class ModuleLoader (gobject.GObject):
 			
 	def load_all_async (self):
 		"""
-		Same as load_all() except the loading is done in a separate thread.
+		Same as load_all() except the loading is done in an idle mainloop call.
 		"""
-		self.task_queue.put(self.load_all)
+		gobject.idle_add(self.load_all)
 	
 	def load_async (self, filename):
 		"""
-		Invokes load() in a new thread.
+		Invokes load() in an idle mainloop call.
 		"""
-		self.task_queue.put( lambda: self.load(filename) )
+		gobject.idle_add(self.load, filename)
 		
 	def initialize_module_async (self, context):
 		"""
-		Invokes initialize_module in a new thread.
+		Invokes initialize_module in an idle mainloop call.
 		"""
-		self.task_queue.put( lambda: self.initialize_module(context) )
+		gobject.idle_add(self.initialize_module, context)
 		
 	def stop_module_async (self, context):
 		"""
-		Invokes stop_module in a new thread.
+		Invokes stop_module in an idle mainloop call.
 		"""
-		self.task_queue.put( lambda: self.stop_module(context) )
+		gobject.idle_add(self.stop_module, context)
 
 def toggle_module (sender, context, ml):
 	"""Test function"""
@@ -422,9 +393,7 @@ if __name__ == "__main__":
 
 	"""A test suite for the Module* classes. Run from top level dir,
 	ie. from deskbar-applet/ run 'python deskbar/module_list.py'."""
-	
-	gtk.threads_init()
-	
+		
 	name = join(dirname(__file__), '..')
 	print 'Changing PYTHONPATH'
 	sys.path.insert(0, abspath(name))
@@ -449,6 +418,4 @@ if __name__ == "__main__":
 	win.show ()
 	lw.show ()
 	
-	gtk.threads_enter()
 	gtk.main ()
-	gtk.threads_leave()

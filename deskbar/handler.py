@@ -74,7 +74,7 @@ class Match:
 class Handler:
 	def __init__(self, iconfile):
 		"""
-		The constructor of the Handler should generally not block. 
+		The constructor of the Handler should not block. 
 		Heavy duty tasks such as indexing should be done in the initialize() method.
 		"""
 		# We load the icon file, and if it fails load an empty one
@@ -98,15 +98,12 @@ class Handler:
 	
 	def initialize(self):
 		"""
-		The constructor of the Handler should generally not block. 
-		Heavy duty tasks such as indexing should be done in this method.
+		The initialize of the Handler should not block. 
+		Heavy duty tasks such as indexing should be done in this method, it 
+		will be called with a low priority in the mainloop.
 		
 		Handler.initialize() is guarantied to be called before the handler
 		is queried.
-		
-		If you need to perform gtk-related function you might want to use
-		initialize_safe() instead of initialize(), the module loader will ensure
-		gtk.threads_enter/leave is called appropriately.
 		"""
 		pass
 	
