@@ -204,6 +204,7 @@ class ModuleListView (gtk.TreeView):
 			if col==model.FILENAME_COL : self.append_column(self.column_filename)
 		
 		self.set_property("headers-visible", False)
+		self.set_reorderable(True)
 			
 	def emit_row_toggled (self, cell, path, model):
 		"""Callback for the toggle buttons in the ModuleList.ENABLED_COL.
