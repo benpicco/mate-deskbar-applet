@@ -15,14 +15,19 @@ EXPORTED_CLASS, NAME, matched = is_preferred_browser(["epiphany"],
 class EpiphanyHandler(BrowserHandler):
 	def __init__(self):
 		BrowserHandler.__init__(self)
+		self._cache = EpiphanyFaviconCacheParser().get_cache()
 	
 	def _parse_bookmarks(self):
-		parser = EpiphanyBookmarksParser(self)
+		parser = EpiphanyBookmarksParser(self, self._cache)
 		return (parser.get_indexer(), parser.get_smart_bookmarks())
 
+	def _parse_history(self):
+		parser = EpiphanyHistoryParser(self, self._cache)
+		return parser.get_indexer()
 		
+
 class EpiphanyBookmarksParser(xml.sax.ContentHandler):
-	def __init__(self, handler):
+	def __init__(self, handler, cache):
 		xml.sax.ContentHandler.__init__(self)
 		
 		self.handler = handler
@@ -34,8 +39,8 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 		
 		self._indexer = deskbar.indexer.Index()
 		self._smart_bookmarks = []
+		self._cache = cache;
 		
-		self._cache = EpiphanyFaviconCacheParser().get_cache()
 		self._index_bookmarks()
 	
 	def get_indexer(self):
@@ -144,3 +149,68 @@ class EpiphanyFaviconCacheParser(xml.sax.ContentHandler):
 			host = get_url_host(self.url)
 			self.cache[host] = join(self.ephy_dir, "favicon_cache", self.name.encode('utf8'))
 
+
+
+class EpiphanyHistoryParser(xml.sax.ContentHandler):
+	def __init__(self, handler, cache):
+		xml.sax.ContentHandler.__init__(self)
+
+		self.handler = handler;
+		self._cache = cache;
+		
+		self.url = None
+		self.title = None
+		self.icon = None
+		self._id = None;
+	
+		self._indexer = deskbar.indexer.Index()
+
+		self._index_history();
+
+	def get_indexer(self):
+		"""
+		Returns a completed indexer with the contents of the history file
+		"""
+		return self._indexer;
+
+	def _index_history(self):
+		history_file_name = expanduser("~/.gnome2/epiphany/ephy-history.xml")
+		if exists(history_file_name):
+			parser = xml.sax.make_parser()
+			parser.setContentHandler(self)
+			parser.parse(history_file_name)
+
+	
+	def characters(self, chars):
+		self.chars = self.chars + chars
+		
+	def startElement(self, name, attrs):
+		self.chars = ""
+		if name == "property":
+			self._id = attrs['id']
+
+		if name == "node":
+			self.title = None
+			self.url = None
+			self.icon = None
+
+	def endElement(self, name):
+		if name == "property":
+			if self._id == "2":
+				self.title = self.chars.encode('utf8')
+			elif self._id == "3":
+				self.url = self.chars.encode('utf8')
+			elif self._id == "9":
+				self.icon = self.chars.encode('utf8')
+		elif name == "node":
+			pixbuf = None
+			try:
+				if self.icon in self._cache:
+					pixbuf = dk.pixbuf_new_from_file_at_size(self._cache[self.icon], deskbar.ICON_SIZE, deskbar.ICON_SIZE)
+				
+			except Exception, msg:
+				# Most of the time we have an html page here, it could also be an unrecognized format
+				print 'Error:endElement(%s):Title:%s:%s' % (name.encode("utf8"), self.title, msg)
+
+			item = BrowserMatch(self.handler, self.title, self.url, pixbuf, True)
+			self._indexer.add("%s %s" % (self.title, self.url), item)

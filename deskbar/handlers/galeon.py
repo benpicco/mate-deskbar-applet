@@ -15,13 +15,18 @@ EXPORTED_CLASS, NAME, matched = is_preferred_browser(["galeon"],
 class GaleonHandler(BrowserHandler):
 	def __init__(self):
 		BrowserHandler.__init__(self)
-	
+		self._cache = GaleonFaviconCacheParser().get_cache();
+
 	def _parse_bookmarks(self):
-		parser = GaleonBookmarksParser(self)
+		parser = GaleonBookmarksParser(self, self._cache)
 		return (parser.get_indexer(), parser.get_smart_bookmarks())
 
+	def _parse_history(self):
+		history = GaleonHistoryParser(self, self._cache)
+		return history.get_indexer()
+
 class GaleonBookmarksParser(xml.sax.ContentHandler):
-	def __init__(self, handler):
+	def __init__(self, handler, cache):
 		xml.sax.ContentHandler.__init__(self)
 		
 		self.handler = handler
@@ -34,7 +39,7 @@ class GaleonBookmarksParser(xml.sax.ContentHandler):
 		self._indexer = deskbar.indexer.Index()
 		self._smart_bookmarks = []
 		
-		self._cache = GaleonFaviconCacheParser().get_cache()
+		self._cache = cache
 		self._index_bookmarks()
 	
 	def get_indexer(self):
@@ -134,3 +139,52 @@ class GaleonFaviconCacheParser(xml.sax.ContentHandler):
 			# Splithost requires //xxxx[:port]/xxxx, so we remove "http:"
 			host = get_url_host(self.url)
 			self.cache[host] = join(self.galeon_dir, "favicon_cache", self.name.encode('utf8'))
+
+
+class GaleonHistoryParser(xml.sax.ContentHandler):
+	def __init__(self, handler, cache):
+		xml.sax.ContentHandler.__init__(self)
+
+		self.handler = handler;
+		self._cache = cache;
+
+		self._indexer = deskbar.indexer.Index()
+
+		self._index_history();
+
+	def get_indexer(self):
+		"""
+		Returns a completed indexer with the contents of the history file
+		"""
+		return self._indexer;
+
+	def _index_history(self):
+		history_file_name = expanduser("~/.galeon/history.xml")
+		if exists(history_file_name):
+			parser = xml.sax.make_parser()
+			parser.setContentHandler(self)
+			parser.parse(history_file_name)
+
+	def startElement(self, name, attrs):
+		self.chars = ""
+		if name == "item":
+			url   = attrs['url'].encode('utf8')
+			title = attrs['title'].encode('utf8')
+
+			pixbuf = None
+			try:
+				host = get_url_host(url)
+				if host in self._cache:
+					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(self._cache[host], deskbar.ICON_SIZE, deskbar.ICON_SIZE)
+			except Exception, msg:
+				# Most of the time we have an html page here, it could also be an unrecognized format
+				print 'Error:endElement(%s):Title:%s:%s' % (name.encode("utf8"), title, msg)
+
+			item = BrowserMatch(self.handler, title, url, pixbuf, True)
+			self._indexer.add("%s %s" % (title, url), item)
+
+	def characters(self, chars):
+		None
+	
+	def endElement(self, name):
+		None

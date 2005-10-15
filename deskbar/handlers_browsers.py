@@ -18,17 +18,21 @@ def is_preferred_browser(tests, handler_class, description, failure):
 	return (None, failure, None)
 		
 class BrowserMatch(deskbar.handler.Match):
-	def __init__(self, backend, name, url, icon=None):
+	def __init__(self, backend, name, url, icon=None, history=False):
 		deskbar.handler.Match.__init__(self, backend, cgi.escape(name), icon)
 		self._priority = 10
 		self._url = url
+		self._is_history = history
 		
 	def action(self, text=None):
 		self._priority = self._priority+1
 		gnomevfs.url_show(self._url)
 		
 	def get_verb(self):
-		return _("Open Bookmark <b>%(name)s</b>")
+		if self._is_history:
+			return _("Open History Item <b>%(name)s</b>")
+		else:
+			return _("Open Bookmark <b>%(name)s</b>")
 
 class BrowserSmartMatch(BrowserMatch):
 	def __init__(self, bmk, name, url):
@@ -53,15 +57,23 @@ class BrowserHandler(deskbar.handler.Handler):
 		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
 		self._indexer = None
 		self._smart_bookmarks = []
+		self._history = []
 	
 	def _parse_bookmarks(self):
 		"""
 		Returns a tuple (indexer, smart bookmarks list)
 		"""
 		raise NotImplementedError
-		
+
+	def _parse_history(self):
+		"""
+		Returns the history (indexer)
+		"""
+		raise NotImplementedError
+
 	def initialize(self):
 		self._indexer, self._smart_bookmarks = self._parse_bookmarks()
+		self._history = self._parse_history()
 		
 	def get_priority(self):
 		return PRIORITY
@@ -69,10 +81,13 @@ class BrowserHandler(deskbar.handler.Handler):
 	def query(self, query, max=5):
 		bmk = self._indexer.look_up(query)[:max]
 		sbmk = self._smart_bookmarks
+		hist = self._history.look_up(query)[:max]
 		
 		#Merge the two sources
 		result = []
 		for b in bmk:
+			result.append(b)
+		for b in hist:
 			result.append(b)
 		for b in sbmk:
 			if not b.get_bookmark() in bmk:

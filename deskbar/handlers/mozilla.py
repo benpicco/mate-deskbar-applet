@@ -31,6 +31,7 @@ INPUT_USER = re.compile(r'<input\s+name="(.*?)"\s+user.*>', re.IGNORECASE)
 class MozillaHandler(BrowserHandler):
 	def __init__(self):
 		BrowserHandler.__init__(self)
+		self._history = deskbar.indexer.Index()
 	
 	def _parse_bookmarks(self):
 		indexed = MozillaBookmarksParser(self)
@@ -44,7 +45,11 @@ class MozillaHandler(BrowserHandler):
 		parser = MozillaSmartBookmarksDirParser(self, indexed, smart_dirs)
 		
 		return (indexed.get_indexer(), parser.get_smart_bookmarks())
-				
+
+	def _parse_history(self):
+		# Dummy function
+		return self._history;
+
 class MozillaBookmarksParser(HTMLParser.HTMLParser):
 	def __init__(self, handler):
 		HTMLParser.HTMLParser.__init__(self)
