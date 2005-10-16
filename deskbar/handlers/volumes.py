@@ -12,7 +12,6 @@ import gtk, gnome, gnomevfs
 EXPORTED_CLASS = "VolumeHandler"
 NAME = (_("Search for Volumes"), _("Open drives and volumes by their name"))
 
-PRIORITY = 150
 icon_theme = gtk.icon_theme_get_default()
 
 NETWORK_URIS = ["http", "ftp", "smb", "sftp"]
@@ -40,12 +39,6 @@ class VolumeHandler (Handler):
 	def __init__(self):
 		deskbar.handler.Handler.__init__(self, "gnome-dev-harddisk.png")
 		self.__locations = []
-		
-	def initialize(self):
-		pass
-		
-	def get_priority(self):
-		return PRIORITY
 		
 	def query(self, query, max=5):
 		result = []

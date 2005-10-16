@@ -82,12 +82,15 @@ class Handler:
 			self._icon = gtk.gdk.pixbuf_new_from_file_at_size(join(deskbar.ART_DATA_DIR, iconfile), deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 		except Exception:
 			self._icon = None
+	
+	def set_priority(self, prio):
+		self._priority = prio
 		
 	def get_priority(self):
 		"""
-		Returns the global priority of this handler as int
+		Returns the global priority (against other handlers) of this handler as int
 		"""
-		raise NotImplementedError
+		return self._priority
 		
 	def get_icon(self):
 		"""

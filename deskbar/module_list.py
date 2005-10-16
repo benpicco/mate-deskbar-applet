@@ -44,8 +44,8 @@ class ModuleListIter :
 		try:
 			mod = self.owner.get_context_from_iter (self.owner_iter)
 			self.owner_iter = self.owner.iter_next (self.owner_iter)
-			if not mod.enabled: 
-				return self.next()
+#			if not mod.enabled: 
+#				return self.next()
 		except TypeError:
 			raise StopIteration
 		return mod
@@ -120,7 +120,31 @@ class ModuleList (gtk.ListStore):
 						self.get_value (iter, self.NAME_COL), 
 						self.get_value (iter, self.EXP_CLASS_COL))
 		return modctx
-
+	
+	def get_index_from_classname(self, name):
+		iter = self.get_iter_first()
+		i = 0
+		while (iter is not None):
+			if self.get_value(iter, self.EXP_CLASS_COL) == name:
+				return i
+				
+			iter = self.iter_next(iter)
+			i = i + 1
+		
+		# The passed classname isn't founf in any handler, we return 0..
+		return 0
+	
+	def reorder_with_priority(self, enabled_modules):
+		new_order = []
+		for classname in enabled_modules:
+			new_order.append(self.get_index_from_classname(classname))
+		
+		for modctx in [modctx for modctx in self if modctx.exported_class not in enabled_modules]:
+			new_order.append(self.get_index_from_classname(modctx.exported_class))
+		
+		self.reorder(new_order)
+		
+	
 	def update_row (self, context, iter=None):
 		"""If iter is set this method updates the row pointed to by iter with the 
 		values of context. 
@@ -226,8 +250,9 @@ class ModuleLoader (gobject.GObject):
 	
 	__gsignals__ = {
 		"module-loaded" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+		"modules-loaded" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
 		"module-initialized" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
-		"module-stopped" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT])
+		"module-stopped" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
 	}
 	
 	def __init__ (self, dirs, extension=".py"):
@@ -312,7 +337,9 @@ class ModuleLoader (gobject.GObject):
 			
 		for f in self.filelist:
 			self.load (f)
-	
+		
+		self.emit('modules-loaded')
+		
 	def load (self, filename):
 		"""Loads the given file as a module and emits a 'module-loaded' signal
 		passing a corresponding ModuleContext as argument. 
@@ -328,7 +355,7 @@ class ModuleLoader (gobject.GObject):
 		context = ModuleContext (mod_instance.get_icon(), False, mod_instance, 
 					None, filename, mod.NAME, mod.EXPORTED_CLASS)
 					
-		gobject.idle_add (self.emit, "module-loaded", context)
+		self.emit("module-loaded", context)
 		
 		return context
 							
@@ -342,7 +369,7 @@ class ModuleLoader (gobject.GObject):
 		context.module.initialize ()
 		
 		context.enabled = True
-		gobject.idle_add (self.emit, "module-initialized", context)
+		self.emit("module-initialized", context)
 	
 	def stop_module (self, context):
 		"""
@@ -356,7 +383,7 @@ class ModuleLoader (gobject.GObject):
 		
 		context.enabled = False
 		context.module = None
-		gobject.idle_add (self.emit, "module-stopped", context)
+		self.emit("module-stopped", context)
 			
 	def load_all_async (self):
 		"""

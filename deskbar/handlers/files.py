@@ -13,8 +13,6 @@ from deskbar.handler_utils import filesystem_possible_completions
 EXPORTED_CLASS = "FileHandler"
 NAME = (_("Files"), _("Open files by typing their names."))
 
-PRIORITY = 150
-
 factory = gnome.ui.ThumbnailFactory(gnome.ui.THUMBNAIL_SIZE_NORMAL)
 icon_theme = gtk.icon_theme_get_default()
 
@@ -43,9 +41,9 @@ class FileHandler(deskbar.handler.Handler):
 		
 	def get_priority(self):
 		if self._relative:
-			return PRIORITY/2+1
+			return self._priority
 		else:
-			return PRIORITY+1
+			return self._priority+1
 		
 	def query(self, query, max=5):
 		completions, prefix, self._relative = filesystem_possible_completions(query, True)

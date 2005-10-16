@@ -11,8 +11,6 @@ import deskbar.handler
 EXPORTED_CLASS = None
 NAME = "Waiting for python bindings of galago. Should allow to send IM by typing name."
 
-PRIORITY = 150
-
 class GalagoMatch(deskbar.handler.Match):
 	def __init__(self, backend, name, email):
 		deskbar.handler.Match.__init__(self, backend, name)
@@ -37,9 +35,6 @@ class GalagoHandler(deskbar.handler.Handler):
 		#self._indexer.add("Steve Ballmer <steve@microsoft.com>", GalagoMatch(self, "Steve Ballmer", "steve@microsoft.com"))
 		#self._indexer.add("Bill Joy <bjoy@sun.com>", GalagoMatch(self, "Bill Joy", "bjoy@sun.com"))
 		pass
-	
-	def get_priority(self):
-		return PRIORITY
 		
 	def query(self, query, max=5):
 		return self._indexer.look_up(query)[:5]

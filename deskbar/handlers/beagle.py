@@ -12,8 +12,6 @@ else:
 	EXPORTED_CLASS = None
 	NAME = "Beagle was not detected on your system"
 
-PRIORITY = 49
-
 class BeagleMatch(deskbar.handler.Match):
 	def __init__(self, backend, name):
 		deskbar.handler.Match.__init__(self, backend, name)
@@ -28,9 +26,6 @@ class BeagleMatch(deskbar.handler.Match):
 class BeagleHandler(deskbar.handler.Handler):
 	def __init__(self):
 		deskbar.handler.Handler.__init__(self, "/usr/share/pixmaps/best.png")
-		
-	def get_priority(self):
-		return PRIORITY
-		
+				
 	def query(self, query, max=5):
 		return [BeagleMatch(self, query)]

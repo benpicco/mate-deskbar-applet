@@ -16,7 +16,6 @@ except NameError:
 EXPORTED_CLASS = "ProgramsHandler"
 NAME = (_("Desktop Programs"), _("Index the program names and descriptions."))
 
-PRIORITY = 100
 icon_theme = gtk.icon_theme_get_default()
 
 SPECIAL_PROGRAMS = {
@@ -85,9 +84,6 @@ class ProgramsHandler(deskbar.handler.Handler):
 		
 	def initialize(self):
 		self._scan_desktop_files()
-		
-	def get_priority(self):
-		return PRIORITY
 		
 	def query(self, query, max=5):
 		results = set(self._indexer.look_up(query.split(" ", 1)[0])[:len(SPECIAL_PROGRAMS)])

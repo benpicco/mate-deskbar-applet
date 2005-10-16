@@ -10,8 +10,6 @@ import deskbar.handler
 EXPORTED_CLASS = "PathProgramsHandler"
 NAME = (_("Command line programs"), _("Allow to launch any program present in your $PATH"))
 
-PRIORITY = 100
-		
 class PathProgramMatch(deskbar.handler.Match):
 	def __init__(self, backend, name, duplicate=False):
 		deskbar.handler.Match.__init__(self, backend, name)
@@ -41,9 +39,6 @@ class PathProgramsHandler(deskbar.handler.Handler):
 	def initialize(self):
 		self._desktop_programs = self._scan_desktop_files()
 		self._scan_path()
-	
-	def get_priority(self):
-		return PRIORITY
 		
 	def query(self, query, max=5):
 		args = query.split(" ")

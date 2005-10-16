@@ -1,28 +1,33 @@
 import os, time
-import deskbar, deskbar.deskbarentry, deskbar.about, deskbar.preferences, deskbar.applet_keybinder
-from deskbar.module_list import ModuleLoader
 # WARNING: Load gnome.ui before gnomeapplet or we have a nasty warning.
 import gnome.ui
 import gnomeapplet, gtk, gtk.gdk, gconf, gobject
 
-from deskbar.module_list import ModuleList
-from deskbar.module_list import ModuleLoader
+import deskbar, deskbar.deskbarentry, deskbar.about, deskbar.preferences, deskbar.applet_keybinder
+from deskbar.module_list import ModuleLoader, ModuleList, ModuleLoader
+from deskbar.preferences import update_modules_priority
 
 class DeskbarApplet:
 	def __init__(self, applet):
 		self.applet = applet
 		
+		self._inited_modules = 0
+		self._loaded_modules = 0
+		
 		self.loader = ModuleLoader (deskbar.MODULES_DIRS)
-		self.loader.connect ("module-loaded", lambda l, mod: self.loader.initialize_module_async(mod))
+		self.loader.connect ("modules-loaded", self.on_modules_loaded)
 		self.loader.load_all_async()
 		
 		self.module_list = ModuleList ()
 		self.loader.connect ("module-loaded", self.module_list.update_row_cb)
 		self.loader.connect ("module-initialized", self.module_list.module_toggled_cb)
+		self.loader.connect ("module-initialized", self.on_module_initialized)
+		self.loader.connect ("module-stopped", self.module_list.module_toggled_cb)
 		
 		self.entry = deskbar.deskbarentry.DeskbarEntry(self.module_list)
 		self.entry.get_evbox().connect("button-press-event", self.on_icon_button_press)
 		self.entry.get_entry().connect("button-press-event", self.on_entry_button_press)
+		self.on_applet_sensivity_update(False)
 
 		self.keybinder = deskbar.applet_keybinder.AppletKeybinder(self)
 
@@ -69,7 +74,29 @@ class DeskbarApplet:
 			
 			# Set the new size of the entry
 			self.applet.set_size_request(self.config_width, -1)
-			
+	
+	def on_modules_loaded(self, loader):
+		# Fetch the sorted handlers list from gconf
+		enabled_list = deskbar.GCONF_CLIENT.get_list(deskbar.GCONF_ENABLED_HANDLERS, gconf.VALUE_STRING)
+		
+		def foreach_enabled(modctx):
+			self.loader.initialize_module_async(	modctx)
+			self._loaded_modules = self._loaded_modules + 1
+		
+		# Update live priorities
+		update_modules_priority(self.module_list, enabled_list, foreach_enabled)
+		# Update the model to reflect new order
+		self.module_list.reorder_with_priority(enabled_list)
+		
+	def on_module_initialized(self, loader, modctx):
+		self._inited_modules = self._inited_modules + 1
+		if self._inited_modules == self._loaded_modules:
+			self.on_applet_sensivity_update(True)
+	
+	def on_applet_sensivity_update(self, active):
+		self.entry.get_entry().set_sensitive(active)
+		self.entry.get_evbox().set_sensitive(active)
+		
 	def on_applet_button_press(self, widget, event):
 		try:
 			# GNOME 2.12

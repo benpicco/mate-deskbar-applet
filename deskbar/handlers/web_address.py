@@ -6,8 +6,6 @@ import deskbar.handler
 EXPORTED_CLASS = "WebAddressHandler"
 NAME = (_("Web Addresses"), _("Open webpages by typing their address."))
 
-PRIORITY = 250
-
 class WebAddressMatch(deskbar.handler.Match):
 	def __init__(self, backend, url):
 		deskbar.handler.Match.__init__(self, backend, url)
@@ -33,9 +31,6 @@ class WebAddressMatch(deskbar.handler.Match):
 class WebAddressHandler(deskbar.handler.Handler):
 	def __init__(self):
 		deskbar.handler.Handler.__init__(self, "web.png")
-	
-	def get_priority(self):
-		return PRIORITY
 		
 	def query(self, query, max=5):
 		if len(query) == 0:

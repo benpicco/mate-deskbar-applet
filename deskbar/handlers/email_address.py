@@ -7,7 +7,6 @@ import re
 EXPORTED_CLASS = "EmailAddressHandler"
 NAME = (_("Email Addresses"), _("Send mails to people in your address book."))
 
-PRIORITY = 250
 REGEX = re.compile(r'[\w\-][\w\-\.]*@[\w\-][\w\-\.]*[\w]')
 
 class EmailAddressMatch(deskbar.handler.Match):
@@ -27,9 +26,6 @@ class EmailAddressMatch(deskbar.handler.Match):
 class EmailAddressHandler(deskbar.handler.Handler):
 	def __init__(self):
 		deskbar.handler.Handler.__init__(self, "mail.png")
-	
-	def get_priority(self):
-		return PRIORITY
 		
 	def query(self, query, max=5):
 		return [EmailAddressMatch(self, m) for m in REGEX.findall(query)]

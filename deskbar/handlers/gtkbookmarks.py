@@ -8,8 +8,6 @@ import deskbar.handler
 EXPORTED_CLASS = "GtkBookmarkHandler"
 NAME = (_("Nautilus Places"), _("Open your nautilus favorite places by name."))
 
-PRIORITY = 150
-
 class GtkBookmarkMatch(deskbar.handler.Match):
 	def __init__(self, backend, name, path):
 		deskbar.handler.Match.__init__(self, backend, name)
@@ -31,9 +29,6 @@ class GtkBookmarkHandler(deskbar.handler.Handler):
 		
 	def initialize(self):
 		self._scan_bookmarks_files()
-		
-	def get_priority(self):
-		return PRIORITY
 		
 	def query(self, query, max=5):
 		result = []

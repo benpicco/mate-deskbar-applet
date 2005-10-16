@@ -3,8 +3,6 @@ from gettext import gettext as _
 import gnomevfs, gconf
 import deskbar, deskbar.handler
 
-PRIORITY = 50
-
 def is_preferred_browser(tests, handler_class, description, failure):
 	# We will import only if the user's preferred browser is mozilla
 	http_handler = gconf.client_get_default().get_string("/desktop/gnome/url-handlers/http/command").strip().lower()
@@ -74,9 +72,6 @@ class BrowserHandler(deskbar.handler.Handler):
 	def initialize(self):
 		self._indexer, self._smart_bookmarks = self._parse_bookmarks()
 		self._history = self._parse_history()
-		
-	def get_priority(self):
-		return PRIORITY
 				
 	def query(self, query, max=5):
 		bmk = self._indexer.look_up(query)[:max]

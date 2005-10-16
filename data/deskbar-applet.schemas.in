@@ -33,5 +33,17 @@
 				<!-- <long></long> -->
 			</locale>
 		</schema>
+		<schema>
+			<key>/schemas/apps/deskbar/enabled_handlers</key>
+			<applyto>/apps/deskbar/enabled_handlers</applyto>
+			<owner>deskbar</owner>
+			<type>list</type>
+        	<list_type>string</list_type>
+        	<default>[BeagleHandler,FolderHandler,EmailAddressHandler,FileHandler,GaleonHandler,GtkBookmarkHandler,MozillaHandler,PathProgramsHandler,EpiphanyHandler,ProgramsHandler,VolumeHandler,WebAddressHandler]</default>
+			<locale name="C">
+				<short>The list of exported class names of the enabled handlers</short>
+				<!-- <long></long> -->
+			</locale>
+		</schema>
 	</schemalist>
 </gconfschemafile>

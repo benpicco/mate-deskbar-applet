@@ -31,8 +31,4 @@ class DebugBlockingInitModule(Handler):
 		if max > 0:
 			return [DebugBlockingInitMatch(self, "TestMatch")]
 		else:
-			return []
-		
-	def get_priority(self):
-		return 0
-	
+			return []	

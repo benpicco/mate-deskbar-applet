@@ -222,6 +222,9 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		result = []
 		if matches == None:
 			for modctx in self._handlers:
+				if not modctx.enabled:
+					continue
+					
 				matches = modctx.module.query(t, MAX_RESULTS_PER_HANDLER)
 				for match in matches:
 					result.append(match)
