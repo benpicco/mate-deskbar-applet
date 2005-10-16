@@ -1,5 +1,14 @@
 2005-10-16  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/applet.py:
+	When we are insensitive, we *really* don't want the menu or history to
+	appear.
+
+	When no modules are loaded, render the bar sensitive again to allow
+	enabling them.
+
+2005-10-16  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* data/prefs-dialog.glade:
 	* deskbar/handlers/beagle.py:
 	* deskbar/handlers/debug-blockinginit.py:

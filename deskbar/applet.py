@@ -88,6 +88,9 @@ class DeskbarApplet:
 		# Update the model to reflect new order
 		self.module_list.reorder_with_priority(enabled_list)
 		
+		if self._loaded_modules == 0:
+			self.on_applet_sensivity_update(True)
+		
 	def on_module_initialized(self, loader, modctx):
 		self._inited_modules = self._inited_modules + 1
 		if self._inited_modules == self._loaded_modules:
@@ -98,6 +101,9 @@ class DeskbarApplet:
 		self.entry.get_evbox().set_sensitive(active)
 		
 	def on_applet_button_press(self, widget, event):
+		if not self.entry.get_evbox().get_property('sensitive'):
+			return False
+			
 		try:
 			# GNOME 2.12
 			self.applet.request_focus(long(event.time))
@@ -115,6 +121,9 @@ class DeskbarApplet:
 		return False
 	
 	def on_icon_button_press(self, widget, event):
+		if not self.entry.get_evbox().get_property('sensitive'):
+			return False
+			
 		if event.button == 3:
 			self.applet.emit("button-press-event", event)
 			return True
