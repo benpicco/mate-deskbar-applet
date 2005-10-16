@@ -23,6 +23,9 @@ class PrefsDialog:
 		self.width_spin.connect('value-changed', self.on_spin_width_change)
 		self.width_notify_id = deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
 
+		self.width_label = self.glade.get_widget("width_label")
+		self.width_units = self.glade.get_widget("width_units")
+
 		self.expand_toggle = self.glade.get_widget("expand")
 		self.expand_toggle.connect('toggled', self.on_expand_toggle)
 		self.expand_notify_id = deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
@@ -49,6 +52,8 @@ class PrefsDialog:
 	
 	def sync_ui(self):
 		self.width_spin.set_sensitive(not self.expand)
+		self.width_label.set_sensitive(not self.expand)
+		self.width_units.set_sensitive(not self.expand)
 		self.width_spin.set_value(self.width)
 		self.expand_toggle.set_property('active', self.expand)
 		

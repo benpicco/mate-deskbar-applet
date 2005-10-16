@@ -23,7 +23,7 @@ except gobject.GError, msg:
 def show_about():
 	about = gtk.AboutDialog()
 	infos = {
-		"name" : _("Deskbar Applet"),
+		"name" : _("Deskbar"),
 		"logo" : deskbar_logo,
 		"version" : VERSION,
 		"comments" : _("An all-in-one search bar."),
