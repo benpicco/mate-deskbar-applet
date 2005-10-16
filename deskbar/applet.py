@@ -73,7 +73,8 @@ class DeskbarApplet:
 			self.applet.set_applet_flags(0)
 			
 			# Set the new size of the entry
-			self.applet.set_size_request(self.config_width, -1)
+			self.entry.get_entry().set_width_chars(self.config_width)
+			
 	
 	def on_modules_loaded(self, loader):
 		# Fetch the sorted handlers list from gconf
