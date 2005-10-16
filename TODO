@@ -7,9 +7,6 @@ Ideas from the Net:
 Indexer:
   - Provides on-disk caching which may be useful
 
-Preferences:
-	* Pref panel for backend custom ordering
-
 Backends TODOs:
 	General:
 	* Do something about hardcoded path, for example /usr/share/applications
@@ -22,9 +19,9 @@ Backends TODOs:
 	* Change regex for URI, currently it doesn't allow user@host
 		
 	Browsers (ephy, ff, moz): [epiphany.py, mozilla.py]
-	* Use epiphany's history file to present history items, same for Moz if possible
+	* Use Mozilla/FF's history file to present history items
 	* Monitor changes with gnome vfs
-	* 'Search "Search Google" for key', is no good grammar, find somthing..
+	* 'Search "Search Google" for key', is no good grammar, find something..
 	
 	Address Book + Gaim contacts: [galago.py,Dummy implementation, waiting for python bindings]
 	* Use galago instead of custom parsing (python bindings are coming)
@@ -73,18 +70,3 @@ Backends TODOs:
 	wp    Search Wikipedia for %s 							http://en.wikipedia.org/wiki/%s
 	wt    Search Wiktionary for %s 							http://en.wiktionary.org/wiki/%s
 	y     Search Yahoo for %s 								http://search.yahoo.com/search?p=%s
-
-
-What happens when text is typed in the entry:
-	* We have a list of backends, each backend is queried for the string.
-	* The backend retun a list of matches objects
-	* Priority system
-	The backends should have a priority:
-		Launch program for exact match
-		Launch program for description match
-		Send mail & IM
-		Bookmarks
-		Web Search
-		Beagle
-		Path
-	

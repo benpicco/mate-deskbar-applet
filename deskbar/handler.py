@@ -126,3 +126,185 @@ class Handler:
 		"max".
 		"""
 		raise NotImplementedError
+
+	def is_async (self):
+		"""
+		AsyncHandler overwrites this method and returns True.
+		It is used to determine whether we should call some async specific methods/signals.
+		"""
+		return False
+
+class SignallingHandler (Handler, gobject.GObject):
+	"""
+	This handler is an asynchronous handler using natural glib libraries, like
+	libebook, or galago, or twisted.
+	"""
+	__gsignals__ = {
+		"query-ready" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT])
+	}
+
+	def __init__ (self, iconfile=None):
+		Handler.__init__ (self, iconfile)
+		gobject.GObject.__init__ (self)
+		self.__last_query = ""
+
+	def query_async (self, qstring, max=5):
+		self.__last_query = qstring
+		self.query (qstring, max)
+
+	def emit_query_ready (self, matches, qstring):
+		if qstring == self.__last_query:
+			self.emit ("query-ready", matches)
+
+	def stop_query (self):
+		pass
+		
+	def is_async (self):
+		return True
+
+# Here begins the Nastyness
+from Queue import Queue
+from Queue import Empty
+from threading import Thread
+
+class NoArgs :
+	pass
+
+class QueryStopped (Exception):
+	pass	
+
+class QueryChanged (Exception):
+	pass
+				
+class AsyncHandler (Handler, gobject.GObject):
+	"""
+	This class can do asynchronous queries. To implement an AsyncHandler just write
+	would do for an ordinary (sync) Handler. Ie. you main concern is to implement a
+	query() method.
+	
+	In doing this you should regularly call check_query_changed() which will restart
+	the query if the query string has changed.
+	
+	To return a list of Matches either just return it normally from query(), or use
+	emit_query_ready(matches) to emit partial results.
+	
+	There will at all times only be at maximum one thread per AsyncHandler.
+	"""
+
+	__gsignals__ = {
+		"query-ready" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+	}
+
+	QUERY_PRIORITY = gobject.PRIORITY_DEFAULT_IDLE
+
+	def __init__ (self, iconfile=None):
+		Handler.__init__ (self, iconfile)
+		gobject.GObject.__init__ (self)
+		self.__query_queue = Queue ()
+		self.is_running = False
+	
+	def query_async (self, qstring, max=5):
+		"""
+		This method is the one to be called by the object wanting to start a new query.
+		If there's an already running query taht one will be cancelled if possible.
+		
+		Each time there is matches ready there will be a "query-ready" signal emitted
+		which will be handled in the main thread. A list of Match objects will be passed
+		argument to this signal.
+		
+		Note: An AsyncHandler may signal on partial results. The thread need not have
+		exited because there's a 'query-ready' signal emitted. Read: Don't assume that the
+		handler only return Matches one time.
+		"""
+		if not self.is_running:
+			self.is_running = True
+			Thread (None, self.__query_async, args=(qstring, max)).start ()
+			print "AsyncHandler: Thread created for %s" % self.__class__
+		else:
+			self.__query_queue.put (qstring, False)
+	
+	def stop_query (self):
+		"""
+		Instructs the handler to stop the query the next time it does check_query_changed().
+		"""
+		self.__query_queue.put (QueryStopped)
+	
+	def emit_query_ready (self, matches):
+		"""
+		Use this method to emit partial results. matches should be a list of Match objects.
+		
+		Note: returning a list of Match objects from the query() method automatically
+		emits a 'query-ready' signal for this list. 
+		"""
+		gobject.idle_add (self.__emit_query_ready, matches)
+		
+	def check_query_changed (self, clean_up=None, args=NoArgs):
+		"""
+		Checks if the query has changed. If it has it will execute clean_up(args)
+		and raise a QueryChanged exception. DO NOT catch this exception. This should
+		only be done by __async_query()
+		"""
+		if not self.__query_queue.empty():
+			# There's a query queued
+			# cancel the current query.
+			if clean_up:
+				if args == NoArgs:
+					clean_up ()
+				else:
+					clean_up (args)
+			raise QueryChanged ()
+		
+	def __emit_query_ready (self, matches):
+		"""Idle handler to emit a 'query-ready' signal to the main loop."""
+		self.emit ("query-ready", matches)
+		return False
+
+	def __query_async (self, qstring, max=5):
+		"""
+		The magic happens here.
+		"""
+		try:
+			print "%s querying for '%s'" % (self.__class__, qstring)
+			res = self.query (qstring, max)
+			if (res and res != []):
+				self.emit_query_ready (res)
+			self.is_running = False
+			
+		except QueryChanged:
+			try:
+				qstring = self.__get_last_query ()
+				self.__query_async (qstring, max)
+			except QueryStopped:
+				self.is_running = False
+				print "AsyncHandler: %s thread terminated." % str(self.__class__)
+				
+		except QueryStopped:
+			self.is_running = False
+			print "AsyncHandler: %s thread terminated." % str(self.__class__)
+
+	def __get_last_query (self):
+		"""
+		Returns the query to be put on the query queue. We don't wan't to
+		do all the intermediate ones... They're obsolete.
+		
+		If there's a QueryStopped class somewhere in the queue 
+		(put there by stop_query()) raise a QueryStopped exeption.
+		This exception will be caught by __query_async()
+		"""
+		tmp = None
+		last_query = None
+		try:
+			while True:
+				# Get a query without blocking
+				# This call raises an Empty exception
+				# if there's no element to get()
+				tmp = self.__query_queue.get (False)
+				last_query = tmp
+				if last_query == QueryStopped:
+					raise QueryStopped ()
+		except Empty:
+			return last_query
+
+	def is_async (self):
+		"""Well what do you think?"""
+		return True

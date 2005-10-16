@@ -1,11 +1,11 @@
 from os.path import join
 import cgi
 
-import deskbar
-import deskbar.iconentry
-from deskbar.module_list import ModuleList
-
 import gtk, gobject
+
+import deskbar, deskbar.iconentry
+from deskbar.module_list import ModuleList
+from deskbar.handler import *
 
 # The liststore columns
 HANDLER_PRIO_COL = 0
@@ -42,6 +42,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		entry.connect("activate", self._on_entry_activate)
 		self._on_entry_changed_id = entry.connect("changed", self._on_entry_changed)
 		entry.connect("key-press-event", self._on_entry_key_press)
+		entry.connect("destroy", self._stop_async_handlers)
 		
 		# The image showing the matches' icon
 		self._image = gtk.Image()
@@ -84,7 +85,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		completion.connect("match-selected", self._on_completion_selected)
 		entry.set_completion(completion)
 		
-		# Pain it accordingly		
+		# Paint  it accordingly		
 		renderer = gtk.CellRendererPixbuf()
 		completion.pack_start(renderer)
 		completion.add_attribute(renderer, "pixbuf", ICON_COL)
@@ -212,8 +213,8 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			# We have a regular changed event, fill the new model, reset history
 			self._history.reset()
 
-		t = widget.get_text().strip()
-		if t == "":
+		qstring = widget.get_text().strip()
+		if  qstring == "":
 			#Reset default icon
 			self._update_icon(icon=self._default_pixbuf)
 			return
@@ -224,27 +225,38 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			for modctx in self._handlers:
 				if not modctx.enabled:
 					continue
+				if modctx.module.is_async():
+					modctx.module.query_async(qstring, MAX_RESULTS_PER_HANDLER)
+				else:
+					matches = modctx.module.query(qstring, MAX_RESULTS_PER_HANDLER)
+					for match in matches:
+						result.append(match)
 					
-				matches = modctx.module.query(t, MAX_RESULTS_PER_HANDLER)
-				for match in matches:
-					result.append(match)
+			self._append_matches (result)
 		else:
-			result = matches
-				
-		for res in result:
-			handler = res.get_handler()
-			if res.get_icon() != None:
-				icon = res.get_icon()
+			self._append_matches (matches)
+	
+	def _append_matches (self, matches):
+		"""
+		Appends the list of Match objects to the list of query matches
+		"""
+		
+		t = self.get_entry().get_text().strip()
+		
+		for match in matches:
+			handler = match.get_handler()
+			if match.get_icon() != None:
+				icon = match.get_icon()
 			else:
 				icon = handler.get_icon()
 			
 			# Pass unescaped query to the matches
 			verbs = {"text" : t}
-			verbs.update(res.get_name(t))
+			verbs.update(match.get_name(t))
 			# Escape the query now for display
 			verbs["text"] = cgi.escape(verbs["text"])
 			
-			self._completion_model.append([handler.get_priority(), res.get_priority(), res.get_verb() % verbs, icon, res])
+			self._completion_model.append([handler.get_priority(), match.get_priority(), match.get_verb() % verbs, icon, match])
 		
 		#Set the entry icon accoring to the first match in the completion list
 		self._update_icon(iter=self._completion_model.get_iter_first())
@@ -260,7 +272,16 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			self._image.set_property('pixbuf', icon)
 		
 		self._image.set_size_request(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-			
+	
+	def _stop_async_handlers (self, sender=None):
+		for modctx in self._handlers:
+			if modctx.module.is_async():
+				modctx.module.stop_query()
+	
+	def _connect_if_async (self, sender, context):
+		if context.module.is_async():
+			context.module.connect('query-ready', lambda sender, matches: self._append_matches(matches))
+
 class History:
 	def __init__(self):
 		self._history = []

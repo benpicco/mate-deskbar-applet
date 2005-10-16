@@ -27,6 +27,7 @@ class DeskbarApplet:
 		self.entry = deskbar.deskbarentry.DeskbarEntry(self.module_list)
 		self.entry.get_evbox().connect("button-press-event", self.on_icon_button_press)
 		self.entry.get_entry().connect("button-press-event", self.on_entry_button_press)
+		self.loader.connect ("module-initialized", self.entry._connect_if_async)
 		self.on_applet_sensivity_update(False)
 
 		self.keybinder = deskbar.applet_keybinder.AppletKeybinder(self)

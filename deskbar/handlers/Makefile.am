@@ -15,4 +15,7 @@ deskbar_handlers_PYTHON = \
 	web_address.py
 
 EXTRA_DIST = \
-	debug-blockinginit.py
+	debug-blockinginit.py \
+	debug-async_handler.py \
+	debug-signal_handler.py
+
