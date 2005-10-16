@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-10 17:31+0900\n"
-"PO-Revision-Date: 2005-10-10 17:30+0900\n"
+"POT-Creation-Date: 2005-10-16 15:32+0900\n"
+"PO-Revision-Date: 2005-10-16 15:26+0900\n"
 "Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -24,22 +24,26 @@ msgid "Deskbar Applet"
 msgstr "Deskbar 検索アプレット"
 
 #: ../data/prefs-dialog.glade.h:1
+msgid "<b>Active Handlers</b>"
+msgstr "<b>利用可能なハンドラ</b>"
+
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Applet Width</b>"
 msgstr "<b>アプレットの幅</b>"
 
-#: ../data/prefs-dialog.glade.h:2
+#: ../data/prefs-dialog.glade.h:3
 msgid "Preferences"
 msgstr "設定"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
 msgid "Use _all available space"
 msgstr "利用可能な全ての領域を使用する(_A)"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:5
 msgid "_Width:"
 msgstr "幅(_W):"
 
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:6
 msgid "pixels"
 msgstr "ピクセル"
 
@@ -60,22 +64,20 @@ msgid "Deskbar Applet Website"
 msgstr "Deskbar アプレットのウェブサイト"
 
 #: ../deskbar/handlers/epiphany.py:12
-msgid "Epiphany Bookmarks and Search Engines"
-msgstr "Epiphany ブックマークと検索エンジン"
+msgid "Epiphany"
+msgstr "Epiphany"
 
-#: ../deskbar/handlers/epiphany.py:30 ../deskbar/handlers/mozilla.py:45
-#, python-format
-msgid "Open Bookmark <b>%(name)s</b>"
-msgstr "ブックマーク <b>%(name)s</b> を開く"
-
-#: ../deskbar/handlers/epiphany.py:48 ../deskbar/handlers/mozilla.py:63
-#, python-format
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "<b>%(name)s</b> を <i>%(text)s</i> に対して検索する"
+#: ../deskbar/handlers/epiphany.py:12 ../deskbar/handlers/mozilla.py:19
+msgid "Index your bookmarks and search engines"
+msgstr "ブックマークの内容を検索します"
 
 #: ../deskbar/handlers/files.py:14
-msgid "File Names"
-msgstr "ファイル名"
+msgid "Files"
+msgstr "ファイル"
+
+#: ../deskbar/handlers/files.py:14
+msgid "Open files by typing their names."
+msgstr "ファイル名を入力しながら検索します"
 
 #: ../deskbar/handlers/files.py:37
 #, python-format
@@ -83,19 +85,19 @@ msgid "Open <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> を開く"
 
 #: ../deskbar/handlers/directories.py:14
-msgid "Folder Names"
-msgstr "フォルダ名"
+msgid "Folders"
+msgstr "フォルダ"
+
+#: ../deskbar/handlers/directories.py:14
+msgid "Open folders by their names."
+msgstr "フォルダ名を入力しながら検索します"
 
 #: ../deskbar/handlers/directories.py:29
 #, python-format
 msgid "Open folder <b>%(name)s</b>"
 msgstr "フォルダ <b>%(name)s</b> を開く"
 
-#: ../deskbar/handlers/galago.py:8
-msgid "Email and Address Book"
-msgstr "E-メールとアドレス帳"
-
-#: ../deskbar/handlers/galago.py:23
+#: ../deskbar/handlers/galago.py:27
 #, python-format
 msgid "Send Email to <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> へ E-メールを送信する"
@@ -104,42 +106,54 @@ msgstr "<b>%(name)s</b> へ E-メールを送信する"
 msgid "Nautilus Places"
 msgstr "Nautilus で開く"
 
+#: ../deskbar/handlers/gtkbookmarks.py:9
+msgid "Open your nautilus favorite places by name."
+msgstr "指定した場所を Nautilus で開きます"
+
 #: ../deskbar/handlers/gtkbookmarks.py:23
 #, python-format
 msgid "Open location <b>%(name)s</b>"
 msgstr "場所 <b>%(name)s</b> を開く"
 
-#: ../deskbar/handlers/mozilla.py:15
-msgid "Mozilla Bookmarks"
-msgstr "Mozilla のブックマーク"
+#: ../deskbar/handlers/mozilla.py:19
+msgid "Mozilla/Firefox"
+msgstr "Mozilla/Firefox"
 
-#: ../deskbar/handlers/programs.py:11
+#: ../deskbar/handlers/programs.py:17
 msgid "Desktop Programs"
 msgstr "デスクトップ・アプリ"
 
 #: ../deskbar/handlers/programs.py:17
+msgid "Index the program names and descriptions."
+msgstr "アプリの名前とその概要を検索します"
+
+#: ../deskbar/handlers/programs.py:23
 #, python-format
 msgid "Search for file names like <b>%(arg)s</b>"
 msgstr "<b>%(arg)s</b> に似たファイル名を検索する"
 
-#: ../deskbar/handlers/programs.py:20
+#: ../deskbar/handlers/programs.py:26
 #, python-format
 msgid "Search <b>%(arg)s</b> in Gnome Dictionary"
 msgstr "GNOME ディレクトリから <b>%(arg)s</b> を検索する"
 
-#: ../deskbar/handlers/programs.py:22
+#: ../deskbar/handlers/programs.py:28
 #, python-format
 msgid "Search <b>%(arg)s</b> with Beagle"
 msgstr "Beagle で <b>%(arg)s</b> を検索する"
 
-#: ../deskbar/handlers/programs.py:60
+#: ../deskbar/handlers/programs.py:66
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) を起動する"
 
 #: ../deskbar/handlers/pathprograms.py:11
-msgid "Programs in your $PATH"
-msgstr "$PATH にあるプログラム"
+msgid "Command line programs"
+msgstr "コマンド・ライン"
+
+#: ../deskbar/handlers/pathprograms.py:11
+msgid "Allow to launch any program present in your $PATH"
+msgstr "環境変数 $PATH からプログラムを検索して起動します"
 
 #: ../deskbar/handlers/pathprograms.py:33
 #, python-format
