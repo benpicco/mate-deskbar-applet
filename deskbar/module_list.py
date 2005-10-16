@@ -174,7 +174,6 @@ class ModuleLoader (gobject.GObject):
 		context.module.stop ()
 		
 		context.enabled = False
-		context.module = None
 		self.emit("module-stopped", context)
 			
 	def load_all_async (self):

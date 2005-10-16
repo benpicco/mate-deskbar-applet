@@ -27,7 +27,8 @@ class VolumeMatch (Match):
 		self.__drive = drive
 	
 	def action(self, text=None):
-		os.spawnlp(os.P_NOWAIT, "gnome-open", "gnome-open", self.__drive.get_activation_uri())
+		self._priority = self._priority+1
+		os.spawnlp(os.P_NOWAIT, "nautilus", "nautilus", self.__drive.get_activation_uri())
 	 
 	def get_verb(self):
 		uri_scheme = gnomevfs.get_uri_scheme(self.__drive.get_activation_uri()) 
