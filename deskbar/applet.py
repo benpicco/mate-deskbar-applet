@@ -33,8 +33,12 @@ class DeskbarApplet:
 
 		# Set and retreive entry width from gconf
 		self.config_width = deskbar.GCONF_CLIENT.get_int(deskbar.GCONF_WIDTH)
+		if self.config_width == None:
+			self.config_width = 20
 		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
 		self.config_expand = deskbar.GCONF_CLIENT.get_bool(deskbar.GCONF_EXPAND)
+		if self.config_expand == None:
+			self.config_expand = False
 		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
 				
 		self.applet.set_flags(gtk.CAN_FOCUS)
