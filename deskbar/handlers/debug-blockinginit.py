@@ -2,9 +2,12 @@ from time import sleep
 from handler import Handler
 from handler import Match
 
-NAME = ("Debug", "Blocking Init Module")
-EXPORTED_CLASS = "DebugBlockingInitModule"
-
+HANDLERS = {
+	"DebugBlockingInitModule" : {
+		"name": "Debug/Blocking Init",
+		"description": "Blocking Init Module",
+	}
+}
 INIT_TIME = 0
 
 class DebugBlockingInitMatch(Match):
@@ -22,7 +25,7 @@ class DebugBlockingInitModule(Handler):
 		Handler.__init__ (self, None)
 		
 	def initialize (self):
-		print "%s initializing ... This will block for %s seconds." % (NAME, INIT_TIME)
+		print "DebugBlockingInitModule initializing ... This will block for %s seconds." % INIT_TIME
 		for i in range(INIT_TIME):
 			print (i+1)*"."
 			sleep (1)

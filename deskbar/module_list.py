@@ -9,231 +9,16 @@ import gobject
 
 class ModuleContext:
 	"""A generic wrapper for any object stored in a ModuleList.
-	settings is unused at the moment.
 	"""	
-	
-	def __init__ (self, icon, enabled, module, settings, filename, name, exported_class):
+	def __init__ (self, icon, enabled, module, filename, handler, infos):
 		"""The icon should be a gtk.gdk.Pixbuf"""
 		self.icon = icon
 		self.enabled = enabled
 		self.module = module
-		self.settings = settings
 		self.filename = filename
-		self.name = name
-		self.exported_class = exported_class
-		
+		self.handler = handler
+		self.infos = infos
 
-class ModuleListIter : 
-	"""An iter type to iterate over the of *enabled* module contexts in a ModuleList object.
-	This object is (typically) not used directly. See the documentation for ModuleList.
-			
-	For documentation on iters see: http://docs.python.org/lib/typeiter.html
-	"""
-	def __init__ (self, owner):
-		"""Constructor for ModuleListIter.
-		owner is the ModuleList which this iterator will iterate over.
-		"""
-		self.owner = owner
-		self.owner_iter = owner.get_iter_first ()
-		
-	def __iter__ (self):
-		return self
-		
-	def next (self):
-		"""Return the next *enabled* module in the ModuleList."""
-		try:
-			mod = self.owner.get_context_from_iter (self.owner_iter)
-			self.owner_iter = self.owner.iter_next (self.owner_iter)
-#			if not mod.enabled: 
-#				return self.next()
-		except TypeError:
-			raise StopIteration
-		return mod
-
-class ModuleList (gtk.ListStore):
-	"""Mostly generic implementation of a dynamic module handler.
-	Use a ModuleListView object to display the contents of a ModuleList. 
-	You can iterate over the list with
-	
-		for modctx in modlist:
-			do_something (modctx)
-	
-	From this perspective the ModuleList stores ModuleContexts (it actually doesnt),
-	so to utilize the modules you'll have to acces modctx.module.
-	
-	Note that the gtk.ListView extends the following classes:
-		gobject.GObject, gtk.TreeModel, gtk.TreeDragSource, gtk.TreeDragDest,
-		gtk.TreeSortable
-	More documentation:
-		http://www.pygtk.org/pygtk2reference/class-gtkliststore.html
-	Note that
-	"""
-	
-	ICON_COL = 0
-	ENABLED_COL = 1
-	MODULE_COL = 2
-	SETTINGS_COL = 3
-	FILENAME_COL = 4
-	NAME_COL = 5
-	EXP_CLASS_COL = 6
-	
-	def __init__ (self):
-		gtk.ListStore.__init__ (self, 	gtk.gdk.Pixbuf, 
-						bool, 
-						gobject.TYPE_PYOBJECT, 
-						gobject.TYPE_PYOBJECT, 
-						gobject.TYPE_STRING, 
-						gobject.TYPE_STRING,
-						gobject.TYPE_STRING)
-		
-	def __iter__ (self):
-		return ModuleListIter (self)
-	
-	def add (self, context):
-		"""Appends the module context to the list."""
-		self.update_row (context, iter)
-
-
-	def get_iter_from_context (self, modctx):
-		"""Returns a gtk.TreeIter pointing to the row containing the filename
-		modctx.filename. This should be uniqualy determined by the context.
-		
-		If the filename is not found return None.
-		
-		INVARIANT: ModuleContexts are uniquely determined by their .filename
-		"""
-	
-		iter = self.get_iter_first ()
-		while (iter is not None):
-			if self.get_value (iter, self.FILENAME_COL) == modctx.filename:
-				break
-			iter = self.iter_next (iter)
-		return iter
-
-	def get_context_from_iter (self, iter):
-		"""Return a ModuleContext representing the row pointed to by iter."""
-		modctx = ModuleContext (	self.get_value (iter, self.ICON_COL), 
-						self.get_value (iter, self.ENABLED_COL), 
-						self.get_value (iter, self.MODULE_COL), 
-						self.get_value (iter, self.SETTINGS_COL), 
-						self.get_value (iter, self.FILENAME_COL), 
-						self.get_value (iter, self.NAME_COL), 
-						self.get_value (iter, self.EXP_CLASS_COL))
-		return modctx
-	
-	def get_index_from_classname(self, name):
-		iter = self.get_iter_first()
-		i = 0
-		while (iter is not None):
-			if self.get_value(iter, self.EXP_CLASS_COL) == name:
-				return i
-				
-			iter = self.iter_next(iter)
-			i = i + 1
-		
-		# The passed classname isn't founf in any handler, we return 0..
-		return 0
-	
-	def reorder_with_priority(self, enabled_modules):
-		new_order = []
-		for classname in enabled_modules:
-			new_order.append(self.get_index_from_classname(classname))
-		
-		for modctx in [modctx for modctx in self if modctx.exported_class not in enabled_modules]:
-			new_order.append(self.get_index_from_classname(modctx.exported_class))
-		
-		self.reorder(new_order)
-		
-	
-	def update_row (self, context, iter=None):
-		"""If iter is set this method updates the row pointed to by iter with the 
-		values of context. 
-		
-		If iter is not set it will try to obtain an iter pointing
-		to the row containg context.filename. If there's no such row, it will append it.
-		"""
-		
-		if (iter is None):
-			iter = self.get_iter_from_context (context)
-		if (iter is None):
-			iter = self.append ()
-		
-		self.set_value(iter, self.ICON_COL, context.icon)
-		self.set_value(iter, self.ENABLED_COL, context.enabled)
-		self.set_value(iter, self.MODULE_COL, context.module)
-		self.set_value(iter, self.SETTINGS_COL, context.settings)
-		self.set_value(iter, self.FILENAME_COL, context.filename)
-		self.set_value(iter, self.NAME_COL, "<b>%s</b>\n%s" % context.name)
-		self.set_value(iter, self.EXP_CLASS_COL, context.exported_class)
-		
-	def update_row_cb (self, sender, context, iter=None):
-		"""
-		Callback for updating the row containing context.
-		If iter is set the row to which it points to will be
-		updated with the context.
-		"""
-		self.update_row (context, iter)
-	
-	def module_toggled_cb (self, sender, context):
-		"""
-		Callback to toggle the enabled state of the context.
-		"""
-		self.set_value(self.get_iter_from_context (context), self.ENABLED_COL, context.enabled)
-		
-class ModuleListView (gtk.TreeView):
-	"""A versatile list widget that displays the contents of a ModuleList.
-	model: ModuleList
-	columns: List specifying columns to display. See ModuleList for options.
-	
-	Example:
-		model = ModuleList ()
-		view = ModuleListView (model, [ModuleList.NAME_COL, ModuleList.ENABLED_COL])
-	
-	This will construct a list showing the module names and a checkbox on whether or
-	not they are enabled.
-	"""
-	
-	__gsignals__ = {
-		"row-toggled" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT])
-	}
-	
-	def __init__ (self, model, columns):
-		gtk.TreeView.__init__ (self, model)
-		
-		if (model.ICON_COL in columns):
-			cell_icon = gtk.CellRendererPixbuf ()
-			self.column_icon = gtk.TreeViewColumn ("Icon", cell_icon)
-			self.column_icon.set_attributes (cell_icon, pixbuf=model.ICON_COL)
-			self.column_icon.set_max_width (36)
-		
-		if (model.ENABLED_COL in columns):
-			cell_enabled = gtk.CellRendererToggle ()
-			cell_enabled.set_property ("activatable", True)
-			cell_enabled.connect('toggled', self.emit_row_toggled, model)
-			self.column_enabled = gtk.TreeViewColumn ("Enabled", cell_enabled, active=model.ENABLED_COL)
-	
-		if (model.NAME_COL in columns):
-			cell_module_name = gtk.CellRendererText ()
-			self.column_module_name = gtk.TreeViewColumn ("Module", cell_module_name, markup=model.NAME_COL)
-		
-		if (model.FILENAME_COL in columns):
-			cell_filename = gtk.CellRendererText ()
-			self.column_filename = gtk.TreeViewColumn ("Filename", cell_filename, markup=model.FILENAME_COL)
-		
-		for col in columns:
-			if col==model.ICON_COL : self.append_column(self.column_icon)
-			if col==model.ENABLED_COL : self.append_column(self.column_enabled)
-			if col==model.NAME_COL : self.append_column(self.column_module_name)
-			if col==model.FILENAME_COL : self.append_column(self.column_filename)
-		
-		self.set_property("headers-visible", False)
-		self.set_reorderable(True)
-			
-	def emit_row_toggled (self, cell, path, model):
-		"""Callback for the toggle buttons in the ModuleList.ENABLED_COL.
-		Emits a 'row-toggled' signal passing the context in the row as argument."""
-		self.emit ("row-toggled", model.get_context_from_iter (model.get_iter(path)))
-		
 class ModuleLoader (gobject.GObject):
 	"""An auxilary class to ModuleList. Create an instance of ModuleLoader by
 	specifying the which directories to search and what extension to accept.
@@ -304,26 +89,52 @@ class ModuleLoader (gobject.GObject):
 			return
 		
 		try:
-			if (mod.EXPORTED_CLASS): pass
-			if (mod.NAME): pass
+			if (mod.HANDLERS): pass
 		except AttributeError:
 			print >> sys.stderr, "The file %s is not a valid module. Skipping." %filename
-			print >> sys.stderr, "A module must the string constants EXPORTED_CLASS and NAME."
+			print >> sys.stderr, "A module must have the variable HANDLERS defined as a dictionary."
 			return
 		
-		if mod.EXPORTED_CLASS == None:
+		if mod.HANDLERS == None:
+			if not hasattr(mod, "ERROR"):
+				mod.ERROR = "Unspecified Reason"
+				
 			print >> sys.stderr, "***"
-			print >> sys.stderr, "*** The file %s decided to not load itself: %s" % (filename, mod.NAME)
+			print >> sys.stderr, "*** The file %s decided to not load itself: %s" % (filename, mod.ERROR)
 			print >> sys.stderr, "***"
 			return
 		
-		if hasattr(getattr(mod, mod.EXPORTED_CLASS), "initialize") or hasattr(getattr(mod, mod.EXPORTED_CLASS), "initialize_safe"):
-			pass
-		else:
-			print >> sys.stderr, "Class %s in file %s does not have an initialize(self) method. Skipping." % (mod.EXPORTED_CLASS, filename)
-			return
+		for handler, infos in mod.HANDLERS.items():
+			if hasattr(getattr(mod, handler), "initialize") and "name" in infos:
+				pass				
+			else:
+				print >> sys.stderr, "Class %s in file %s does not have an initialize(self) method or does not define a 'name' attribute. Skipping." % (handler, filename)
+				return
+			
+			if "requirements" in infos:
+				ok, msg = infos["requirements"]()
+				if not ok:
+					print >> sys.stderr, "***"
+					print >> sys.stderr, "*** The file %s (%s) decided to not load itself: %s" % (filename, handler, msg)
+					print >> sys.stderr, "***"
+					return
 		
 		return mod
+			
+	def load (self, filename):
+		"""Loads the given file as a module and emits a 'module-loaded' signal
+		passing a corresponding ModuleContext as argument.
+		"""
+		mod = self.import_module (filename)
+		if mod is None:
+			return
+		
+		for handler, infos in mod.HANDLERS.items():
+			print "Loading module '%s' from file %s." % (infos["name"], filename)
+			mod_instance = getattr (mod, handler) ()
+			context = ModuleContext (mod_instance.get_icon(), False, mod_instance, filename, handler, infos)
+					
+			self.emit("module-loaded", context)
 	
 	def load_all (self):
 		"""Tries to load all qualified modules detected by the ModuleLoader.
@@ -339,33 +150,14 @@ class ModuleLoader (gobject.GObject):
 			self.load (f)
 		
 		self.emit('modules-loaded')
-		
-	def load (self, filename):
-		"""Loads the given file as a module and emits a 'module-loaded' signal
-		passing a corresponding ModuleContext as argument. 
-		
-		Returns the context as added to the list.
-		"""
-		mod = self.import_module (filename)
-		if mod is None:
-			return
-		
-		print "Loading module '%s' from file %s." % (mod.NAME, filename)
-		mod_instance = getattr (mod, mod.EXPORTED_CLASS) ()
-		context = ModuleContext (mod_instance.get_icon(), False, mod_instance, 
-					None, filename, mod.NAME, mod.EXPORTED_CLASS)
 					
-		self.emit("module-loaded", context)
-		
-		return context
-							
 	def initialize_module (self, context):
 		"""
 		Initializes the module in the given context. Emits a 'module-initialized' signal
 		when done, passing the (now enabled) contextas argument.
 		"""
 		
-		print "Initializing %r" % (context.name,)
+		print "Initializing %s" % context.infos["name"]
 		context.module.initialize ()
 		
 		context.enabled = True
@@ -378,7 +170,7 @@ class ModuleLoader (gobject.GObject):
 		the stopped context as argument.
 		"""
 		
-		print "Stopping %r" % (context.name,)
+		print "Stopping %s" % context.infos["name"]
 		context.module.stop ()
 		
 		context.enabled = False
@@ -390,12 +182,6 @@ class ModuleLoader (gobject.GObject):
 		Same as load_all() except the loading is done in an idle mainloop call.
 		"""
 		gobject.idle_add(self.load_all)
-	
-	def load_async (self, filename):
-		"""
-		Invokes load() in an idle mainloop call.
-		"""
-		gobject.idle_add(self.load, filename)
 		
 	def initialize_module_async (self, context):
 		"""
@@ -408,7 +194,182 @@ class ModuleLoader (gobject.GObject):
 		Invokes stop_module in an idle mainloop call.
 		"""
 		gobject.idle_add(self.stop_module, context)
+		
+class ModuleListIter : 
+	"""An iter type to iterate over the of *enabled* module contexts in a ModuleList object.
+	This object is (typically) not used directly. See the documentation for ModuleList.
+			
+	For documentation on iters see: http://docs.python.org/lib/typeiter.html
+	"""
+	def __init__ (self, owner):
+		"""Constructor for ModuleListIter.
+		owner is the ModuleList which this iterator will iterate over.
+		"""
+		self.owner = owner
+		self.owner_iter = owner.get_iter_first ()
+		
+	def __iter__ (self):
+		return self
+		
+	def next (self):
+		"""Return the next *enabled* module in the ModuleList."""
+		try:
+			mod = self.owner[self.owner_iter][self.owner.MODULE_CTX_COL]
+			self.owner_iter = self.owner.iter_next (self.owner_iter)
+		except TypeError:
+			raise StopIteration
+		return mod
 
+class ModuleList (gtk.ListStore):
+	"""Mostly generic implementation of a dynamic module handler.
+	Use a ModuleListView object to display the contents of a ModuleList. 
+	You can iterate over the list with
+	
+		for modctx in modlist:
+			do_something (modctx)
+	
+	From this perspective the ModuleList stores ModuleContexts (it actually doesnt),
+	so to utilize the modules you'll have to acces modctx.module.
+	
+	Note that the gtk.ListView extends the following classes:
+		gobject.GObject, gtk.TreeModel, gtk.TreeDragSource, gtk.TreeDragDest,
+		gtk.TreeSortable
+	More documentation:
+		http://www.pygtk.org/pygtk2reference/class-gtkliststore.html
+	Note that
+	"""
+	
+	ICON_COL = 0
+	ENABLED_COL = 1
+	MODULE_CTX_COL = 2
+	
+	def __init__ (self):
+		gtk.ListStore.__init__ (self,
+						gtk.gdk.Pixbuf, 
+						bool, 
+						gobject.TYPE_PYOBJECT)
+		
+	def __iter__ (self):
+		return ModuleListIter (self)
+	
+	def get_position_from_context (self, attr, value=None):
+		"""Returns a tuple (iter, index)
+		
+		iter is a gtk.TreeIter pointing to the row containing the given module context.
+		index is the index of the module in the list.
+		
+		If the module context is not found return (None, None).
+		"""
+		i = 0
+		iter = self.get_iter_first ()
+		while (iter is not None):
+			if value == None:
+				if self[iter][self.MODULE_CTX_COL] == attr:
+					return (iter, i)
+			else:
+				if getattr(self[iter][self.MODULE_CTX_COL], attr) == value:
+					return (iter, i)
+			
+			iter = self.iter_next (iter)
+			i = i+1
+		
+		return (None, 0)
+		
+	def reorder_with_priority(self, enabled_modules):
+		new_order = []
+		for classname in enabled_modules:
+			new_order.append(self.get_position_from_context("handler", classname)[1])
+		
+		for modctx in [modctx for modctx in self if modctx.handler not in enabled_modules]:
+			new_order.append(self.get_position_from_context("handler", modctx.handler)[1])
+		
+		self.reorder(new_order)
+		
+	def add (self, context, iter=None):
+		"""If iter is set this method updates the row pointed to by iter with the 
+		values of context. 
+		
+		If iter is not set it will try to obtain an iter pointing
+		to the row containg the context. If there's no such row, it will append it.
+		"""
+		
+		if iter is None:
+			res = self.get_position_from_context(context)
+		if res is None or res[0] is None:
+			iter = self.append ()
+		
+		self.set_value(iter, self.ICON_COL, context.icon)
+		self.set_value(iter, self.ENABLED_COL, context.enabled)
+		self.set_value(iter, self.MODULE_CTX_COL, context)
+		
+	def update_row_cb (self, sender, context, iter=None):
+		"""
+		Callback for updating the row containing context.
+		If iter is set the row to which it points to will be
+		updated with the context.
+		"""
+		self.add(context, iter)
+	
+	def module_toggled_cb (self, sender, context):
+		"""
+		Callback to toggle the enabled state of the context.
+		"""
+		self[self.get_position_from_context(context)[0]][self.ENABLED_COL] = context.enabled
+		
+class ModuleListView (gtk.TreeView):
+	"""A versatile list widget that displays the contents of a ModuleList.
+	model: ModuleList
+	
+	Example:
+		model = ModuleList ()
+		view = ModuleListView (model)
+	
+	This will construct a list showing the module icon, a checkbox on whether or
+	not they are enabled, and a pango markup-formatted description.
+	"""
+	
+	__gsignals__ = {
+		"row-toggled" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT])
+	}
+	
+	def __init__ (self, model):
+		gtk.TreeView.__init__ (self, model)
+		
+		self.set_property("headers-visible", False)
+		self.set_reorderable(True)
+		
+		cell_icon = gtk.CellRendererPixbuf ()
+		self.column_icon = gtk.TreeViewColumn ("Icon", cell_icon)
+		self.column_icon.set_attributes (cell_icon, pixbuf=model.ICON_COL)
+		self.column_icon.set_max_width (36)
+		
+		cell_enabled = gtk.CellRendererToggle ()
+		cell_enabled.set_property ("activatable", True)
+		cell_enabled.connect('toggled', self.emit_row_toggled, model)
+		self.column_enabled = gtk.TreeViewColumn ("Enabled", cell_enabled, active=model.ENABLED_COL)
+
+		cell_description = gtk.CellRendererText ()
+		self.column_description = gtk.TreeViewColumn ("Description", cell_description)
+		self.column_description.set_cell_data_func(cell_description, self.get_description_data)
+		
+		self.append_column(self.column_icon)
+		self.append_column(self.column_enabled)
+		self.append_column(self.column_description)
+	
+	def get_description_data(self, column, cell, model, iter, data=None):
+		modctx = model[iter][model.MODULE_CTX_COL]
+		name = modctx.infos["name"]
+		description = ""
+		if "description" in modctx.infos:	
+			description = modctx.infos["description"]
+			
+		cell.set_property ("markup", "<b>%s</b>\n%s" % (name, description))
+		
+	def emit_row_toggled (self, cell, path, model):
+		"""Callback for the toggle buttons in the ModuleList.ENABLED_COL.
+		Emits a 'row-toggled' signal passing the context in the row as argument."""
+		self.emit ("row-toggled", model[model.get_iter(path)][model.MODULE_CTX_COL])
+		
 def toggle_module (sender, context, ml):
 	"""Test function"""
 	if (context.enabled):
@@ -426,7 +387,7 @@ if __name__ == "__main__":
 	sys.path.insert(0, abspath(name))
     
 	l = ModuleList ()    
-	ml = ModuleLoader (["deskbar/handlers"], ".py")
+	ml = ModuleLoader (["deskbar/handlers"])
 	ml.connect ("module-loaded", l.update_row_cb)
 	ml.connect ("module-initialized", l.module_toggled_cb)
 	ml.connect ("module-stopped", l.module_toggled_cb)
@@ -436,7 +397,7 @@ if __name__ == "__main__":
 	#ml.load_async (abspath(expanduser("deskbar/testmod.py")))
 
 
-	lw = ModuleListView (l, [ModuleList.FILENAME_COL, ModuleList.NAME_COL, ModuleList.ENABLED_COL])
+	lw = ModuleListView (l)
 	lw.connect ("row-toggled", toggle_module, ml)
 	
 	win = gtk.Window ()

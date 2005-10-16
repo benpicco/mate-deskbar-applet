@@ -3,17 +3,16 @@ from gettext import gettext as _
 import gnomevfs, gconf
 import deskbar, deskbar.handler
 
-def is_preferred_browser(tests, handler_class, description, failure):
+def is_preferred_browser(test):
 	# We will import only if the user's preferred browser is mozilla
 	http_handler = gconf.client_get_default().get_string("/desktop/gnome/url-handlers/http/command").strip().lower()
 	if not gconf.client_get_default().get_bool("/desktop/gnome/url-handlers/http/enabled"):
-		return (None, "Http Handler Disabled, skipping browser integration", None)
+		return False
 	
-	for test in tests:
-		if http_handler.find(test) != -1:
-			return (handler_class, description, test)
+	if http_handler.find(test) != -1:
+		return True
 	
-	return (None, failure, None)
+	return False
 		
 class BrowserMatch(deskbar.handler.Match):
 	def __init__(self, backend, name, url, icon=None, history=False):
@@ -49,47 +48,7 @@ class BrowserSmartMatch(BrowserMatch):
 		
 	def get_verb(self):
 		return _("Search <b>%(name)s</b> for <i>%(text)s</i>")
-		
-class BrowserHandler(deskbar.handler.Handler):
-	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
-		self._indexer = None
-		self._smart_bookmarks = []
-		self._history = []
-	
-	def _parse_bookmarks(self):
-		"""
-		Returns a tuple (indexer, smart bookmarks list)
-		"""
-		raise NotImplementedError
-
-	def _parse_history(self):
-		"""
-		Returns the history (indexer)
-		"""
-		raise NotImplementedError
-
-	def initialize(self):
-		self._indexer, self._smart_bookmarks = self._parse_bookmarks()
-		self._history = self._parse_history()
 				
-	def query(self, query, max=5):
-		bmk = self._indexer.look_up(query)[:max]
-		sbmk = self._smart_bookmarks
-		hist = self._history.look_up(query)[:max]
-		
-		#Merge the two sources
-		result = []
-		for b in bmk:
-			result.append(b)
-		for b in hist:
-			result.append(b)
-		for b in sbmk:
-			if not b.get_bookmark() in bmk:
-				result.append(b)
-		
-		return result
-		
 def get_url_host(url):
 	try:
 		#Remove http: needed by splithost

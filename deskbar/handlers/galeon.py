@@ -2,28 +2,85 @@ import xml.sax
 from os.path import join, expanduser, exists
 from gettext import gettext as _
 import gtk
-import deskbar, deskbar.indexer
+import deskbar, deskbar.indexer, deskbar.handler
 
 from deskbar.handlers_browsers import get_url_host, is_preferred_browser
-from deskbar.handlers_browsers import BrowserHandler, BrowserSmartMatch, BrowserMatch
+from deskbar.handlers_browsers import BrowserSmartMatch, BrowserMatch
 
-EXPORTED_CLASS, NAME, matched = is_preferred_browser(["galeon"],
-							"GaleonHandler",
-							(_("Galeon"), _("Index your bookmarks and search engines")),
-							"Galeon is not your preferred browser, not using it.")
+def _check_requirements():
+	if is_preferred_browser("galeon"):
+		return (True, None)
+	else:
+		return (False, "Galeon is not your preferred browser, not using it.")
+		
+HANDLERS = {
+	"GaleonBookmarksHandler" : {
+		"name": _("Galeon Bookmarks"),
+		"description": _("Index your bookmarks"),
+		"requirements": _check_requirements,
+	},
+	"GaleonHistoryHandler" : {
+		"name": _("Galeon History"),
+		"description": _("Index your history"),
+		"requirements": _check_requirements,
+	},
+	"GaleonSearchHandler" : {
+		"name": _("Galeon Smart Bookmarks"),
+		"description": _("Index your search engines"),
+		"requirements": _check_requirements,
+	}
+}
 
-class GaleonHandler(BrowserHandler):
+favicon_cache = None
+bookmarks = None
+smart_bookmarks = None
+
+class GaleonHandler(deskbar.handler.Handler):
 	def __init__(self):
-		BrowserHandler.__init__(self)
-		self._cache = GaleonFaviconCacheParser().get_cache();
+		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
+		
+	def initialize(self):
+		global favicon_cache
+		if favicon_cache == None:
+			favicon_cache = GaleonFaviconCacheParser().get_cache()
+		
+class GaleonBookmarksHandler(GaleonHandler):
+	def __init__(self):
+		GaleonHandler.__init__(self)
+	
+	def initialize(self):
+		global favicon_cache, bookmarks, smart_bookmarks
+		GaleonHandler.initialize(self)
+		
+		if bookmarks == None:
+			parser = GaleonBookmarksParser(self, favicon_cache)
+			bookmarks = parser.get_indexer()
+			smart_bookmarks = parser.get_smart_bookmarks()
+	
+	def query(self, query, max=5):
+		global bookmarks
+		return bookmarks.look_up(query)[:max]
 
-	def _parse_bookmarks(self):
-		parser = GaleonBookmarksParser(self, self._cache)
-		return (parser.get_indexer(), parser.get_smart_bookmarks())
-
-	def _parse_history(self):
-		history = GaleonHistoryParser(self, self._cache)
-		return history.get_indexer()
+class GaleonSearchHandler(GaleonBookmarksHandler):
+	def __init__(self):
+		GaleonBookmarksHandler.__init__(self)
+	
+	def query(self, query, max=5):
+		global smart_bookmarks
+		return smart_bookmarks
+		
+class GaleonHistoryHandler(GaleonHandler):
+	def __init__(self):
+		GaleonHandler.__init__(self)
+		self._history = None
+		
+	def initialize(self):
+		global favicon_cache
+		GaleonHandler.initialize(self)
+		self._history = GaleonHistoryParser(self, favicon_cache).get_indexer()
+			
+	def query(self, query, max=5):
+		return self._history.look_up(query)[:max]
 
 class GaleonBookmarksParser(xml.sax.ContentHandler):
 	def __init__(self, handler, cache):

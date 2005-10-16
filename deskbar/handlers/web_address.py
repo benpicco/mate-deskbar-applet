@@ -3,8 +3,12 @@ from gettext import gettext as _
 import gnomevfs
 import deskbar.handler
 
-EXPORTED_CLASS = "WebAddressHandler"
-NAME = (_("Web Addresses"), _("Open webpages by typing their address."))
+HANDLERS = {
+	"WebAddressHandler" : {
+		"name": _("Web Addresses"),
+		"description": _("Open webpages by typing their address."),
+	}
+}
 
 class WebAddressMatch(deskbar.handler.Match):
 	def __init__(self, backend, url):

@@ -5,8 +5,12 @@ from gettext import gettext as _
 import gnomevfs
 import deskbar.handler
 
-EXPORTED_CLASS = "GtkBookmarkHandler"
-NAME = (_("Nautilus Places"), _("Open your nautilus favorite places by name."))
+HANDLERS = {
+	"GtkBookmarkHandler" : {
+		"name": _("Nautilus Places"),
+		"description": _("Open your nautilus favorite places by name."),
+	}
+}
 
 class GtkBookmarkMatch(deskbar.handler.Match):
 	def __init__(self, backend, name, path):

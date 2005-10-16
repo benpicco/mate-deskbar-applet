@@ -13,8 +13,12 @@ try:
 except NameError:
 	from sets import Set as set
 	
-EXPORTED_CLASS = "ProgramsHandler"
-NAME = (_("Desktop Programs"), _("Index the program names and descriptions."))
+HANDLERS = {
+	"ProgramsHandler" : {
+		"name": _("Desktop Programs"),
+		"description": _("Index the program names and descriptions."),
+	}
+}
 
 icon_theme = gtk.icon_theme_get_default()
 

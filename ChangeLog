@@ -1,5 +1,36 @@
 2005-10-16  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* data/prefs-dialog.glade:
+	* deskbar/handlers/beagle.py:
+	* deskbar/handlers/debug-blockinginit.py:
+	* deskbar/handlers/directories.py:
+	* deskbar/handlers/email_address.py:
+	* deskbar/handlers/epiphany.py:
+	* deskbar/handlers/files.py:
+	* deskbar/handlers/galago.py:
+	* deskbar/handlers/galeon.py:
+	* deskbar/handlers/gtkbookmarks.py:
+	* deskbar/handlers/mozilla.py:
+	* deskbar/handlers/pathprograms.py:
+	* deskbar/handlers/programs.py:
+	* deskbar/handlers/volumes.py:
+	* deskbar/handlers/web_address.py:
+	* deskbar/handlers_browsers.py:
+	* deskbar/module_list.py:
+	* deskbar/preferences.py:
+	Handlers API rework, now a single file can have multiple handlers.
+	HANDLER variable is exported containing the class name, and an info
+	dictionary with name, description, and an optional requirements function,
+	allowing to check if the handler can be loaded.
+	
+	As a side effect, browser handlers are now more fine grained, allowing to
+	order independently bookmarks, history and search engines.
+
+	The preference dialog is a bit bigger and has an extra blurb to hint the
+	reordering prioritization.
+
+2005-10-16  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* data/deskbar-applet.schemas.in:
 	* deskbar/__init__.py:
 	* deskbar/applet.py:

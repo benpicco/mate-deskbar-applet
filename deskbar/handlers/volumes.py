@@ -9,8 +9,12 @@ from deskbar.handler import Match
 
 import gtk, gnome, gnomevfs
 
-EXPORTED_CLASS = "VolumeHandler"
-NAME = (_("Search for Volumes"), _("Open drives and volumes by their name"))
+HANDLERS = {
+	"VolumeHandler" : {
+		"name": _("Search for Volumes"),
+		"description": _("Open drives and volumes by their name"),
+	}
+}
 
 icon_theme = gtk.icon_theme_get_default()
 

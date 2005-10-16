@@ -5,12 +5,13 @@ from gettext import gettext as _
 import deskbar.handler
 
 #FIXME: better way to detect beagle ?
-if exists("/usr/share/applications/best.desktop"):
-	EXPORTED_CLASS = "BeagleHandler"
-	NAME = (_("Beagle"), _("Use Beagle to search for documents"))
-else:
-	EXPORTED_CLASS = None
-	NAME = "Beagle was not detected on your system"
+HANDLERS = {
+	"BeagleHandler" : {
+		"name": _("Beagle"),
+		"description": _("Use Beagle to search for documents"),
+		"requirements": lambda: (exists("/usr/share/applications/best.desktop"), "Beagle was not detected on your system"),
+	}
+}
 
 class BeagleMatch(deskbar.handler.Match):
 	def __init__(self, backend, name):

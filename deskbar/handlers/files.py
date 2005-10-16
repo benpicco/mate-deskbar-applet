@@ -10,8 +10,12 @@ import deskbar.handler
 
 from deskbar.handler_utils import filesystem_possible_completions
 
-EXPORTED_CLASS = "FileHandler"
-NAME = (_("Files"), _("Open files by typing their names."))
+HANDLERS = {
+	"FileHandler" : {
+		"name": _("Files"),
+		"description": _("Open files by typing their names."),
+	}
+}
 
 factory = gnome.ui.ThumbnailFactory(gnome.ui.THUMBNAIL_SIZE_NORMAL)
 icon_theme = gtk.icon_theme_get_default()

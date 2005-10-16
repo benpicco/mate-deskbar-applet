@@ -4,8 +4,12 @@ import gnomevfs
 import deskbar.handler
 import re
 
-EXPORTED_CLASS = "EmailAddressHandler"
-NAME = (_("Email Addresses"), _("Send mails to people in your address book."))
+HANDLERS = {
+	"EmailAddressHandler" : {
+		"name": _("Email Addresses"),
+		"description": _("Send mails to people in your address book."),
+	}
+}
 
 REGEX = re.compile(r'[\w\-][\w\-\.]*@[\w\-][\w\-\.]*[\w]')
 

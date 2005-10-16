@@ -28,7 +28,7 @@ class PrefsDialog:
 		self.expand_notify_id = deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
 			
 		container = self.glade.get_widget("handlers")
-		self.moduleview = ModuleListView(module_list, [module_list.ICON_COL, module_list.ENABLED_COL, module_list.NAME_COL])
+		self.moduleview = ModuleListView(module_list)
 		self.moduleview.connect ("row-toggled", self.on_module_toggled, module_loader)
 		container.add(self.moduleview)
 				
@@ -40,7 +40,7 @@ class PrefsDialog:
 		self.dialog.destroy()
 		
 		# Update the gconf enabled modules settings, and recompute priorities
-		enabled_modules = [ctx.exported_class for ctx in self.module_list if ctx.enabled]
+		enabled_modules = [ctx.handler for ctx in self.module_list if ctx.enabled]
 		update_modules_priority(self.module_list, enabled_modules)
 		deskbar.GCONF_CLIENT.set_list(deskbar.GCONF_ENABLED_HANDLERS, gconf.VALUE_STRING, enabled_modules)
 		
@@ -91,7 +91,7 @@ def update_modules_priority(module_list, enabled_modules, callback=None):
 	
 	# Now we enable each gconf-enabled handler, and set it's priority according to gconf ordering
 	for i, mod in enumerate(enabled_modules):
-		modctx = [modctx for modctx in module_list if modctx.exported_class == mod]
+		modctx = [modctx for modctx in module_list if modctx.handler == mod]
 		if len(modctx) != 1:
 			# We have a gconf handler not on disk anymore..
 			continue

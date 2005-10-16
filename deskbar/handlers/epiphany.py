@@ -2,30 +2,86 @@ import xml.sax
 from os.path import join, expanduser, exists
 from gettext import gettext as _
 import gtk
-import deskbar, deskbar.indexer
+import deskbar, deskbar.indexer, deskbar.handler
 
 from deskbar.handlers_browsers import get_url_host, is_preferred_browser
-from deskbar.handlers_browsers import BrowserHandler, BrowserSmartMatch, BrowserMatch
+from deskbar.handlers_browsers import BrowserSmartMatch, BrowserMatch
 
-EXPORTED_CLASS, NAME, matched = is_preferred_browser(["epiphany"],
-							"EpiphanyHandler",
-							(_("Epiphany"), _("Index your bookmarks and search engines")),
-							"Epiphany is not your preferred browser, not using it.")
+def _check_requirements():
+	if is_preferred_browser("epiphany"):
+		return (True, None)
+	else:
+		return (False, "Epiphany is not your preferred browser, not using it.")
 	
-class EpiphanyHandler(BrowserHandler):
+HANDLERS = {
+	"EpiphanyBookmarksHandler": {
+		"name": _("Epiphany Bookmarks"),
+		"description": _("Index your bookmarks"),
+		"requirements": _check_requirements
+	},
+	"EpiphanyHistoryHandler": {
+		"name": _("Epiphany History"),
+		"description": _("Index your search history"),
+		"requirements": _check_requirements
+	},
+	"EpiphanySearchHandler": {
+		"name": _("Epiphany Smart Bookmarks"),
+		"description": _("Index your smart bookmarks"),
+		"requirements": _check_requirements
+	},
+}
+
+favicon_cache = None
+bookmarks = None
+smart_bookmarks = None
+
+class EpiphanyHandler(deskbar.handler.Handler):
 	def __init__(self):
-		BrowserHandler.__init__(self)
-		self._cache = EpiphanyFaviconCacheParser().get_cache()
-	
-	def _parse_bookmarks(self):
-		parser = EpiphanyBookmarksParser(self, self._cache)
-		return (parser.get_indexer(), parser.get_smart_bookmarks())
-
-	def _parse_history(self):
-		parser = EpiphanyHistoryParser(self, self._cache)
-		return parser.get_indexer()
+		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
 		
+	def initialize(self):
+		global favicon_cache
+		if favicon_cache == None:
+			favicon_cache = EpiphanyFaviconCacheParser().get_cache()
+		
+class EpiphanyBookmarksHandler(EpiphanyHandler):
+	def __init__(self):
+		EpiphanyHandler.__init__(self)
+	
+	def initialize(self):
+		global favicon_cache, bookmarks, smart_bookmarks
+		EpiphanyHandler.initialize(self)
+		
+		if bookmarks == None:
+			parser = EpiphanyBookmarksParser(self, favicon_cache)
+			bookmarks = parser.get_indexer()
+			smart_bookmarks = parser.get_smart_bookmarks()
+	
+	def query(self, query, max=5):
+		global bookmarks
+		return bookmarks.look_up(query)[:max]
 
+class EpiphanySearchHandler(EpiphanyBookmarksHandler):
+	def __init__(self):
+		EpiphanyBookmarksHandler.__init__(self)
+	
+	def query(self, query, max=5):
+		global smart_bookmarks
+		return smart_bookmarks
+		
+class EpiphanyHistoryHandler(EpiphanyHandler):
+	def __init__(self):
+		EpiphanyHandler.__init__(self)
+		self._history = None
+		
+	def initialize(self):
+		global favicon_cache
+		EpiphanyHandler.initialize(self)
+		self._history = EpiphanyHistoryParser(self, favicon_cache).get_indexer()
+			
+	def query(self, query, max=5):
+		return self._history.look_up(query)[:max]
+		
 class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 	def __init__(self, handler, cache):
 		xml.sax.ContentHandler.__init__(self)
@@ -206,8 +262,7 @@ class EpiphanyHistoryParser(xml.sax.ContentHandler):
 			pixbuf = None
 			try:
 				if self.icon in self._cache:
-					pixbuf = dk.pixbuf_new_from_file_at_size(self._cache[self.icon], deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-				
+					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(self._cache[self.icon], deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 			except Exception, msg:
 				# Most of the time we have an html page here, it could also be an unrecognized format
 				print 'Error:endElement(%s):Title:%s:%s' % (name.encode("utf8"), self.title, msg)

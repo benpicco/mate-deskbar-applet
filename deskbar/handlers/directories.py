@@ -10,9 +10,12 @@ import deskbar.handler
 
 from deskbar.handler_utils import filesystem_possible_completions
 
-EXPORTED_CLASS = "FolderHandler"
-NAME = (_("Folders"),  _("Open folders by their names."))
-
+HANDLERS = {
+	"FolderHandler" : {
+		"name": _("Folders"),
+		"description": _("Open folders by their names."),
+	}
+}
 class FolderMatch(deskbar.handler.Match):
 	def __init__(self, backend, prefix, absname):
 		name = join(prefix, basename(absname))

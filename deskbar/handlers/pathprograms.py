@@ -7,8 +7,12 @@ import gtk
 import deskbar, deskbar.indexer
 import deskbar.handler
 
-EXPORTED_CLASS = "PathProgramsHandler"
-NAME = (_("Command line programs"), _("Allow to launch any program present in your $PATH"))
+HANDLERS = {
+	"PathProgramsHandler" : {
+		"name": _("Command line programs"),
+		"description": _("Allow to launch any program present in your $PATH"),
+	}
+}
 
 class PathProgramMatch(deskbar.handler.Match):
 	def __init__(self, backend, name, duplicate=False):

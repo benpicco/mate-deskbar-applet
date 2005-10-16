@@ -3,7 +3,7 @@ from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
 
 import gtk
-import deskbar, deskbar.indexer
+import deskbar, deskbar.indexer, deskbar.handler
 
 # Check for presence of set to be compatible with python 2.3
 try:
@@ -12,44 +12,64 @@ except NameError:
 	from sets import Set as set
 
 from deskbar.handlers_browsers import is_preferred_browser
-from deskbar.handlers_browsers import BrowserHandler, BrowserSmartMatch, BrowserMatch
+from deskbar.handlers_browsers import BrowserSmartMatch, BrowserMatch
 
-EXPORTED_CLASS, NAME, matched = is_preferred_browser(["firefox", "mozilla"],
-							"MozillaHandler",
-							(_("Mozilla/Firefox"), _("Index your bookmarks and search engines")),
-							"Mozilla/Firefox is not your preferred browser, not using it.")
-							
+def _check_requirements():
+	if is_preferred_browser("firefox") or is_preferred_browser("mozilla"):
+		return (True, None)
+	else:
+		return (False, "Mozilla/Firefox is not your preferred browser, not using it.")
+		
+HANDLERS = {
+	"MozillaBookmarksHandler" : {
+		"name": _("Mozilla/Firefox Bookmarks"),
+		"description": _("Index your bookmarks"),
+		"requirements": _check_requirements,
+	},
+	"MozillaSearchHandler" : {
+		"name": _("Mozilla/Firefox Search Engines"),
+		"description": _("Index your search engines"),
+		"requirements": _check_requirements,
+	}
+}
+
 # Wether we will index firefox or mozilla bookmarks
 USING_FIREFOX = False
-if matched == "firefox":
+if is_preferred_browser("firefox"):
 	USING_FIREFOX = True
 			
 SEARCH_FIELD = re.compile(r'\s*(\w+)\s*=\s*"(.*)"\s*')
 INPUT_VALUE = re.compile(r'<input\s+name="(.*?)"\s+value="(.*?)"\s*.*>', re.IGNORECASE)
 INPUT_USER = re.compile(r'<input\s+name="(.*?)"\s+user.*>', re.IGNORECASE)
 
-class MozillaHandler(BrowserHandler):
+class MozillaBookmarksHandler(deskbar.handler.Handler):
 	def __init__(self):
-		BrowserHandler.__init__(self)
-		self._history = deskbar.indexer.Index()
+		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
+		self._bookmarks = None
 	
-	def _parse_bookmarks(self):
-		indexed = MozillaBookmarksParser(self)
-		
+	def initialize(self):
+		self._bookmarks = MozillaBookmarksParser(self).get_indexer()
+	
+	def query(self, query, max=5):
+		return self._bookmarks.look_up(query)[:max]
+
+class MozillaSearchHandler(deskbar.handler.Handler):
+	def __init__(self):
+		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
+		self._smart_bookmarks = None
+	
+	def initialize(self):
 		smart_dirs = None
 		if USING_FIREFOX:
 			smart_dirs = [get_firefox_home_file("search"), "/usr/lib/mozilla-firefox/searchplugins"]
 		else:
 			smart_dirs = [get_mozilla_home_file("search"), "/usr/lib/mozilla/searchplugins"]
 			
-		parser = MozillaSmartBookmarksDirParser(self, indexed.get_indexer(), smart_dirs)
+		self._smart_bookmarks = MozillaSmartBookmarksDirParser(self, smart_dirs).get_smart_bookmarks()
+
+	def query(self, query, max=5):
+		return self._smart_bookmarks
 		
-		return (indexed.get_indexer(), parser.get_smart_bookmarks())
-
-	def _parse_history(self):
-		# Dummy function
-		return self._history;
-
 class MozillaBookmarksParser(HTMLParser.HTMLParser):
 	def __init__(self, handler):
 		HTMLParser.HTMLParser.__init__(self)
@@ -211,7 +231,7 @@ class MozillaSmartBookmarksParser:
 		print 'Error:_parse_input:Cannot extract <input> tag:',line
 
 class MozillaSmartBookmarksDirParser:
-	def __init__(self, handler, indexer, dirs):
+	def __init__(self, handler, dirs):
 		self._smart_bookmarks = []
 		
 		# Avoid getting duplicate search engines
@@ -238,8 +258,6 @@ class MozillaSmartBookmarksDirParser:
 				
 				parser = MozillaSmartBookmarksParser(f)
 				bookmark = BrowserMatch(handler, parser.name, parser.url, pixbuf)
-				indexer.add("%s %s %s" % (parser.name, parser.url, parser.description), bookmark)
-
 				bookmark = BrowserSmartMatch(bookmark, parser.name, parser.action)
 				self._smart_bookmarks.append(bookmark)
 	

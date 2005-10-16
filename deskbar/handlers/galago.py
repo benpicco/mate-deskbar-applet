@@ -4,12 +4,14 @@ import gnomevfs
 import deskbar, deskbar.indexer
 import deskbar.handler
 
-#EXPORTED_CLASS = "GalagoHandler"
-#NAME = _("Email and Address Book")
-
 # FIXME: Waiting for python bindings of galago.
-EXPORTED_CLASS = None
-NAME = "Waiting for python bindings of galago. Should allow to send IM by typing name."
+HANDLERS = {
+	"GalagoHandler" : {
+		"name": "IM Buddies",
+		"description": "Send messages to your buddies by typing their name",
+		"requirements": lambda: (False, "Waiting for python bindings of galago. Should allow to send IM by typing name."),
+	}
+}
 
 class GalagoMatch(deskbar.handler.Match):
 	def __init__(self, backend, name, email):
