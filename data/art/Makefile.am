@@ -14,6 +14,7 @@ art_DATA = \
 	generic.png \
 	gnome-dev-harddisk.png \
 	gnome-searchtool.png \
+	google.png \
 	mail.png \
 	web.png \
 	web-bookmark.png

@@ -1,5 +1,17 @@
 2005-10-18  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* data/art/Makefile.am:
+	* data/art/google.png:
+	* deskbar/handlers/Makefile.am:
+	* deskbar/handlers/google-live-help.txt:
+	* deskbar/handlers/google-live.py:
+	Add the Google Live Async handler, it has a little more requirements than
+	other plugins and as such an UI to see error messages will be introduced,
+	in the meantime it prints help file on stdout in the terminal, when an
+	error occurs because of misconfiguration
+
+2005-10-18  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/keybinder/_keybinder.override:
 	Remove a bit of the GIL sprinkling, still seems to work.
 
