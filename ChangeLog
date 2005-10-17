@@ -1,3 +1,9 @@
+2005-10-17  Nigel Tao  <nigeltao@cvs.gnome.org>
+
+	* deskbar/deskbar-applet:
+	Removed the gtk.threads_init() call, since we no longer use threads
+	(and this seems to fix bug #318884).
+
 2005-10-16  Dennis Cranston  <dennis_cranston@yahoo.com>
 
 	* data/Deskbar_Applet.server.in.in: Do not expose "Applet" terminology 
