@@ -18,7 +18,11 @@ static GSList *HA_List = NULL;
 
 void handler_c_func (char *keystring, gpointer user_data)
 {
+	PyGILState_STATE gstate;
 	Handler_and_Args *ha = (Handler_and_Args *) user_data;
+	
+	gstate = PyGILState_Ensure();
+	
 	PyObject *result = PyEval_CallObject(ha->handler, ha->args);
 	if (result == NULL) {
 		if (PyErr_Occurred()) {
@@ -27,6 +31,8 @@ void handler_c_func (char *keystring, gpointer user_data)
 	} else {
 		Py_DECREF(result);
 	}
+	
+	PyGILState_Release(gstate);
 }
 
 %%
@@ -48,7 +54,10 @@ _wrap_tomboy_keybinder_bind (PyGObject *self, PyObject *args, PyObject *kwargs)
 	PyObject *extra_args;
 	GSList *iter;
 	Handler_and_Args *ha;
-
+	
+	PyGILState_STATE gstate;
+	gstate = PyGILState_Ensure();
+	
 	len = PyTuple_Size(args);
 	if (len < 2) {
 		PyErr_SetString(PyExc_TypeError, "tomboy_keybinder_bind requires at least 2 arguments");
@@ -91,6 +100,7 @@ _wrap_tomboy_keybinder_bind (PyGObject *self, PyObject *args, PyObject *kwargs)
 	HA_List = g_slist_prepend(HA_List, ha);
 
 	Py_INCREF(Py_None);
+	PyGILState_Release(gstate);
 	return Py_None;
 }
 %%
@@ -102,7 +112,9 @@ _wrap_tomboy_keybinder_unbind (PyGObject *self, PyObject *args, PyObject *kwargs
 	PyObject *first;
 	char *keystring = NULL;
 	GSList *iter;
-
+	PyGILState_STATE gstate;
+	gstate = PyGILState_Ensure();
+	
 	len = PyTuple_Size(args);
 	if (len != 1) {
 		PyErr_SetString(PyExc_TypeError, "tomboy_keybinder_unbind requires exactly 1 argument");
@@ -129,5 +141,6 @@ _wrap_tomboy_keybinder_unbind (PyGObject *self, PyObject *args, PyObject *kwargs
 	}
 
 	PyErr_SetString(PyExc_KeyError, "tomboy_keybinder_bind: keystring is not bound");
+	PyGILState_Release(gstate);
 	return NULL;
 }
