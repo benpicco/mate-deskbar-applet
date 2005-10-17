@@ -174,16 +174,18 @@ class QueryStopped (Exception):
 	pass	
 
 class QueryChanged (Exception):
-	pass
+	def __init__ (self, new_query):
+		self.new_query = new_query
 				
 class AsyncHandler (Handler, gobject.GObject):
 	"""
-	This class can do asynchronous queries. To implement an AsyncHandler just write
-	would do for an ordinary (sync) Handler. Ie. you main concern is to implement a
+	This class can do asynchronous queries. To implement an AsyncHandler just write it
+	like you would an ordinary (sync) Handler. Ie. you main concern is to implement a
 	query() method.
 	
 	In doing this you should regularly call check_query_changed() which will restart
-	the query if the query string has changed.
+	the query if the query string has changed. This method can handle clean up methods
+	and timeouts/delays if you want to check for rapidly changing queries.
 	
 	To return a list of Matches either just return it normally from query(), or use
 	emit_query_ready(matches) to emit partial results.
@@ -206,7 +208,7 @@ class AsyncHandler (Handler, gobject.GObject):
 	def query_async (self, qstring, max=5):
 		"""
 		This method is the one to be called by the object wanting to start a new query.
-		If there's an already running query taht one will be cancelled if possible.
+		If there's an already running query that one will be cancelled if possible.
 		
 		Each time there is matches ready there will be a "query-ready" signal emitted
 		which will be handled in the main thread. A list of Match objects will be passed
@@ -238,13 +240,17 @@ class AsyncHandler (Handler, gobject.GObject):
 		"""
 		gobject.idle_add (self.__emit_query_ready, matches)
 		
-	def check_query_changed (self, clean_up=None, args=NoArgs):
+	def check_query_changed (self, clean_up=None, args=NoArgs, timeout=None):
 		"""
 		Checks if the query has changed. If it has it will execute clean_up(args)
 		and raise a QueryChanged exception. DO NOT catch this exception. This should
-		only be done by __async_query()
+		only be done by __async_query().
+		
+		If you pass a timeout argument this call will not return before the query
+		has been unchanged for timeout seconds.
 		"""
-		if not self.__query_queue.empty():
+		qstring = self.__get_last_query (timeout)
+		if qstring:
 			# There's a query queued
 			# cancel the current query.
 			if clean_up:
@@ -252,7 +258,7 @@ class AsyncHandler (Handler, gobject.GObject):
 					clean_up ()
 				else:
 					clean_up (args)
-			raise QueryChanged ()
+			raise QueryChanged (qstring)
 		
 	def __emit_query_ready (self, matches):
 		"""Idle handler to emit a 'query-ready' signal to the main loop."""
@@ -264,16 +270,14 @@ class AsyncHandler (Handler, gobject.GObject):
 		The magic happens here.
 		"""
 		try:
-			print "%s querying for '%s'" % (self.__class__, qstring)
 			res = self.query (qstring, max)
 			if (res and res != []):
 				self.emit_query_ready (res)
 			self.is_running = False
 			
-		except QueryChanged:
+		except QueryChanged, query_change:
 			try:
-				qstring = self.__get_last_query ()
-				self.__query_async (qstring, max)
+				self.__query_async (query_change.new_query, max)
 			except QueryStopped:
 				self.is_running = False
 				print "AsyncHandler: %s thread terminated." % str(self.__class__)
@@ -282,7 +286,7 @@ class AsyncHandler (Handler, gobject.GObject):
 			self.is_running = False
 			print "AsyncHandler: %s thread terminated." % str(self.__class__)
 
-	def __get_last_query (self):
+	def __get_last_query (self, timeout=None):
 		"""
 		Returns the query to be put on the query queue. We don't wan't to
 		do all the intermediate ones... They're obsolete.
@@ -290,15 +294,22 @@ class AsyncHandler (Handler, gobject.GObject):
 		If there's a QueryStopped class somewhere in the queue 
 		(put there by stop_query()) raise a QueryStopped exeption.
 		This exception will be caught by __query_async()
+		
+		If timeout is passed then wait timeout seconds to see if new queries
+		are put on the queue.
 		"""
 		tmp = None
 		last_query = None
 		try:
 			while True:
-				# Get a query without blocking
-				# This call raises an Empty exception
+				# Get a query without blocking (or only block
+				# timeout seconds).
+				# The get() call raises an Empty exception
 				# if there's no element to get()
-				tmp = self.__query_queue.get (False)
+				if timeout:
+					tmp = self.__query_queue.get (True, timeout)
+				else:
+					tmp = self.__query_queue.get (False)
 				last_query = tmp
 				if last_query == QueryStopped:
 					raise QueryStopped ()
