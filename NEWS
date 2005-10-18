@@ -1,3 +1,46 @@
-=============
-Version 0.4.0
-=============
+==============
+Deskbar Applet 0.7.0
+==============
+
+Changes:
+	* Apply some cleanup patches to async threaded handler, fixing stopping queries
+	* Add the Google Live Async handler, it has a little more requirements than other plugins and as such an UI to see error messages will be introduced, in the meantime it prints help file on stdout in the terminal, when an error occurs because of misconfiguration
+	* Remove a bit of the GIL sprinkling, still seems to work.
+	* Mess around with The Big Sucking Python Lock, hopefully fixes all the problems in the world, universe, and everything
+	* Add timeout support for threaded async handlers
+	* Removed the gtk.threads_init() call, since we no longer use threads (and this seems to fix bug #318884).
+	* Do not expose "Applet" terminology to user.
+	* GNOME HIG changes: fix typo; fix border width; rephrase and move handler comment; fix a broken mnemonic.
+	* Do not expose "Applet" terminology to user.
+	* Toggle sensitivity of the width label, spinner, and units.
+	* Merge the esync handler patch, allows handlers to return results asynchronously. Clean TODO list
+	* Add new files for translation, and use caracters instead of pixels for entry width
+	* Fix the volume handler, by using nautilus instead of gnome-open Fix the crash when disableing/reenabling a handler in the pref panel
+	* When we are insensitive, we *really* don't want the menu or history to appear. When no modules are loaded, render the bar sensitive again to allow enabling them.
+	* Handlers API rework, now a single file can have multiple handlers. HANDLER variable is exported containing the class name, and an info dictionary with name, description, and an optional requirements function, allowing to check if the handler can be loaded. As a side effect, browser handlers are now more fine grained, allowing to order independently bookmarks, history and search engines. The preference dialog is a bit bigger and has an extra blurb to hint the reordering prioritization.
+	* Introduce real gconf handlers management, and priority ranking of the handlers with drag and drop reordering of the handlers list. Render the entry insensitive when loading.
+	* Remove the threads, they suck too much. We will try that way with simple idle priority calls in the mainloop. The UI appears fast then blocks for a while.
+	* 2005-10-15 Raphael Slinckx <rslinckx@cvs.gnome.org>
+	* Fix mozilla smart bookmarks parser
+	* Set the handlers list view reorderable to allow future priority system
+	* Add history parser for epiphany and galeon, in their respective handlers. Thanks to Crispin Flowerday <gnome@flowerday.cx>
+	* Some performance tweaks, may be good or not..
+	* Add volumes.py that replaces networkplaces, it is more generic, allows to open network places and various drives/volumes on the system
+	* Fix the .desktop icon parsing
+	* Update name and description for each handler. Repair the previous breakage of iteration over non-sequence
+	* Spring Cleanup, lost of things have been removed
+	* Fix the file inclusion
+	* First look at the preference dialog, it shows the loaded modules, but i can't have it to uncheck the boxes..
+	* Refactor the browser handlers implementation, the matches are now in deskbar itself and classes implement only parsing
+	* Fixes bug #318869, add support for Galeon bookmarks.
+	* Fixes macro `AM_CHECK_PYTHON_HEADERS' not found in library
+	* Fixes bug #318720, mozilla smart bookmarks parser
+	* Fix history menu, the item was always the first displayed. Fixes bug #318627
+	* Step 2. We only synchronize threads when entering an initialize_safe mehtod, so wwe don't block the UI for nothing. Network Places uses that since it uses gconf to init itself.
+	* Step 1. Threaded Module loading, with no Dead beef, hopefully. Convert all plugins to use the new API
+	* Fix case insensitive sorting
+	* Added Simplified Chinese translation.
+	* Version bump to 0.7.0.
+
+Contributors to this release: Dennis Cranston, Raphael Slinckx, Philip Langdale, Nigel Tao, Funda Wang
+
