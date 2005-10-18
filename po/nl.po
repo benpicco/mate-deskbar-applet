@@ -1,14 +1,14 @@
 # Dutch translation of deskbar-applet
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the deskbar-applet package.
 # Reinout van Schouwen <reinout@cs.vu.nl>, 2005
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-16 01:49+0200\n"
-"PO-Revision-Date: 2005-10-16 01:52+0200\n"
+"POT-Creation-Date: 2005-10-19 00:42+0200\n"
+"PO-Revision-Date: 2005-10-19 01:00+0200\n"
 "Last-Translator: Reinout van Schouwen <reinout@cs.vu.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,8 +20,8 @@ msgid "An all-in-one search bar"
 msgstr "Een alles-in-één zoekbalk"
 
 #: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:26
-msgid "Deskbar Applet"
-msgstr "Deskbar-applet"
+msgid "Deskbar"
+msgstr "Deskbar"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Active Handlers</b>"
@@ -32,20 +32,28 @@ msgid "<b>Applet Width</b>"
 msgstr "<b>Appletbreedte</b>"
 
 #: ../data/prefs-dialog.glade.h:3
-msgid "Preferences"
-msgstr "Voorkeuren"
+msgid ""
+"<i><small><b>Note:</b> Drag and drop a handler to change its priority.</"
+"small></i>"
+msgstr ""
+"<i><small><b>Opmerking:</b> U kunt een element slepen en laten vallen "
+"om zijn prioriteit te wijzigen.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:4
-msgid "Use _all available space"
-msgstr "Alle _beschikbare ruimte gebruiken"
+msgid "Deskbar Preferences"
+msgstr "Deskbar-voorkeuren"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid "Use _all available space"
+msgstr "_Alle beschikbare ruimte gebruiken"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "_Width:"
 msgstr "_Breedte:"
 
-#: ../data/prefs-dialog.glade.h:6
-msgid "pixels"
-msgstr "beeldpunten"
+#: ../data/prefs-dialog.glade.h:7
+msgid "characters"
+msgstr "tekens"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -63,118 +71,213 @@ msgstr "Een alles-in-één zoekbalk."
 msgid "Deskbar Applet Website"
 msgstr "Deskbar-applet webpagina"
 
-#: ../deskbar/handlers/epiphany.py:12
-msgid "Epiphany"
-msgstr "Epiphany"
+#: ../deskbar/handlers/epiphany.py:18
+msgid "Epiphany Bookmarks"
+msgstr "Epiphany-bladwijzers"
 
-#: ../deskbar/handlers/epiphany.py:12 ../deskbar/handlers/mozilla.py:19
-msgid "Index your bookmarks and search engines"
-msgstr "Uw bladwijzers en zoekmachines indexeren"
+#: ../deskbar/handlers/epiphany.py:19 ../deskbar/handlers/mozilla.py:26
+#: ../deskbar/handlers/galeon.py:19
+msgid "Index your bookmarks"
+msgstr "Uw bladwijzers indexeren"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/epiphany.py:23
+msgid "Epiphany History"
+msgstr "Epiphany-geschiedenis"
+
+#: ../deskbar/handlers/epiphany.py:24
+msgid "Index your search history"
+msgstr "Uw zoekgeschiedenis indexeren"
+
+#: ../deskbar/handlers/epiphany.py:28
+msgid "Epiphany Smart Bookmarks"
+msgstr "Slimme Epiphany-bladwijzers"
+
+#: ../deskbar/handlers/epiphany.py:29
+msgid "Index your smart bookmarks"
+msgstr "Uw slimme bladwijzers indexeren"
+
+#: ../deskbar/handlers/files.py:15
 msgid "Files"
 msgstr "Bestanden"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Open files by typing their names."
 msgstr "Bestanden openen door hun namen in te typen."
 
-#: ../deskbar/handlers/files.py:37
+#: ../deskbar/handlers/files.py:39
 #, python-format
 msgid "Open <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> openen"
 
-#: ../deskbar/handlers/directories.py:14
+#: ../deskbar/handlers/directories.py:15
 msgid "Folders"
 msgstr "Mappen"
 
-#: ../deskbar/handlers/directories.py:14
+#: ../deskbar/handlers/directories.py:16
 msgid "Open folders by their names."
 msgstr "Mappen openen op naam."
 
-#: ../deskbar/handlers/directories.py:29
+#: ../deskbar/handlers/directories.py:30
 #, python-format
 msgid "Open folder <b>%(name)s</b>"
 msgstr "Map <b>%(name)s</b> openen"
 
-#: ../deskbar/handlers/galago.py:27
+#: ../deskbar/handlers/galago.py:27 ../deskbar/handlers/email_address.py:26
 #, python-format
 msgid "Send Email to <b>%(name)s</b>"
 msgstr "E-mail versturen naar <b>%(name)s</b>"
 
-#: ../deskbar/handlers/gtkbookmarks.py:9
+#: ../deskbar/handlers/gtkbookmarks.py:10
 msgid "Nautilus Places"
 msgstr "Nautilus-locaties"
 
-#: ../deskbar/handlers/gtkbookmarks.py:9
+#: ../deskbar/handlers/gtkbookmarks.py:11
 msgid "Open your nautilus favorite places by name."
 msgstr "Uw favoriete locaties in nautilus op naam openen."
 
-#: ../deskbar/handlers/gtkbookmarks.py:23
+#: ../deskbar/handlers/gtkbookmarks.py:25 ../deskbar/handlers/volumes.py:40
 #, python-format
 msgid "Open location <b>%(name)s</b>"
 msgstr "Locatie <b>%(name)s</b> openen"
 
-#: ../deskbar/handlers/mozilla.py:19
-msgid "Mozilla/Firefox"
-msgstr "Mozilla/Firefox"
+#: ../deskbar/handlers/mozilla.py:25
+msgid "Mozilla/Firefox Bookmarks"
+msgstr "Mozilla/Firefox-bladwijzers"
 
-#: ../deskbar/handlers/programs.py:17
+#: ../deskbar/handlers/mozilla.py:30
+msgid "Mozilla/Firefox Search Engines"
+msgstr "Mozilla/Firefox-zoekmachines"
+
+#: ../deskbar/handlers/mozilla.py:31 ../deskbar/handlers/galeon.py:29
+msgid "Index your search engines"
+msgstr "Uw zoekmachines indexeren"
+
+#: ../deskbar/handlers/programs.py:18
 msgid "Desktop Programs"
 msgstr "Bureaubladprogramma's"
 
-#: ../deskbar/handlers/programs.py:17
+#: ../deskbar/handlers/programs.py:19
 msgid "Index the program names and descriptions."
 msgstr "Programmanamen en -beshchrijvingen indexeren."
 
-#: ../deskbar/handlers/programs.py:23
+#: ../deskbar/handlers/programs.py:26
 #, python-format
 msgid "Search for file names like <b>%(arg)s</b>"
 msgstr "Zoeken naar bestandsnamen zoals <b>%(arg)s</b>"
 
-#: ../deskbar/handlers/programs.py:26
+#: ../deskbar/handlers/programs.py:29
 #, python-format
 msgid "Search <b>%(arg)s</b> in Gnome Dictionary"
 msgstr "<b>%(arg)s</b> opzoeken in GNOME-woordenboek"
 
-#: ../deskbar/handlers/programs.py:28
+#: ../deskbar/handlers/programs.py:31
 #, python-format
 msgid "Search <b>%(arg)s</b> with Beagle"
 msgstr "Zoeken naar <b>%(arg)s</b> met Beagle"
 
-#: ../deskbar/handlers/programs.py:66
+#: ../deskbar/handlers/programs.py:69
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) opstarten"
 
-#: ../deskbar/handlers/pathprograms.py:11
+#: ../deskbar/handlers/pathprograms.py:12
 msgid "Command line programs"
 msgstr "Opdrachtregel-programma's"
 
-#: ../deskbar/handlers/pathprograms.py:11
+#: ../deskbar/handlers/pathprograms.py:13
 msgid "Allow to launch any program present in your $PATH"
 msgstr "Stelt u in staat elk programma aanwezig in uw $PATH te starten"
 
-#: ../deskbar/handlers/pathprograms.py:33
+#: ../deskbar/handlers/pathprograms.py:35
 #, python-format
 msgid "Execute <b>%(text)s</b>"
 msgstr "<b>%(text)s</b> uitvoeren"
 
-#~ msgid "0"
-#~ msgstr "0"
+#: ../deskbar/handlers/beagle.py:10
+msgid "Beagle"
+msgstr "Beagle"
 
-#~ msgid "<b>Preferences</b>"
-#~ msgstr "<b>Voorkeuren</b>"
+#: ../deskbar/handlers/beagle.py:11
+msgid "Use Beagle to search for documents"
+msgstr "Beagle gebruiken om te zoeken naar documenten"
 
-#~ msgid "Deskbar Preferences"
-#~ msgstr "Deskbar-voorkeuren"
+#: ../deskbar/handlers/beagle.py:24
+#, python-format
+msgid "Search <b>%(name)s</b> with Beagle"
+msgstr "Zoeken naar <b>%(name)s</b> met Beagle"
 
-#~ msgid "Open epiphany bookmark <b>%(name)s</b>"
-#~ msgstr "Epiphany-bladwijzer <b>%(name)s</b> openen"
+#: ../deskbar/handlers/email_address.py:9
+msgid "Email Addresses"
+msgstr "E-mailadressen"
 
-# %(text)s moet dit hier vertaald worden?
-#~ msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-#~ msgstr "<b>%(name)s</b> doorzoeken op <i>%(text)s</i>"
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mails to people in your address book."
+msgstr "E-mails versturen naar personen in uw adresboek."
 
-#~ msgid "Open mozilla bookmark <b>%(name)s</b>"
-#~ msgstr "Mozilla-bladwijzer <b>%(name)s</b> openen"
+#: ../deskbar/handlers/galeon.py:18
+msgid "Galeon Bookmarks"
+msgstr "Galeon-bladwijzers"
+
+#: ../deskbar/handlers/galeon.py:23
+msgid "Galeon History"
+msgstr "Galeon-geschiedenis"
+
+#: ../deskbar/handlers/galeon.py:24
+msgid "Index your history"
+msgstr "Uw geschiedenis indexeren"
+
+#: ../deskbar/handlers/galeon.py:28
+msgid "Galeon Smart Bookmarks"
+msgstr "Slimme Galeon-bladwijzers"
+
+#: ../deskbar/handlers/volumes.py:14
+msgid "Search for Volumes"
+msgstr "Zoeken naar schijven en stations"
+
+#: ../deskbar/handlers/volumes.py:15
+msgid "Open drives and volumes by their name"
+msgstr "Schijven en stations openen op naam"
+
+#: ../deskbar/handlers/volumes.py:36
+#, python-format
+msgid "Open network place <b>%(name)s</b>"
+msgstr "Netwerklocatie <b>%(name)s</b> openen"
+
+#: ../deskbar/handlers/volumes.py:38
+#, python-format
+msgid "Open audio disk <b>%(name)s</b>"
+msgstr "Audioschijf <b>%(name)s</b> openen"
+
+#: ../deskbar/handlers/web_address.py:8
+msgid "Web Addresses"
+msgstr "Webadressen"
+
+#: ../deskbar/handlers/web_address.py:9
+msgid "Open webpages by typing their address."
+msgstr "Webpagina's openen door hun adres in te typen."
+
+#: ../deskbar/handlers/web_address.py:29
+#, python-format
+msgid "Open the web page <b>%(name)s</b>"
+msgstr "De webpagina <b>%(name)s</b> openen"
+
+#: ../deskbar/handlers/web_address.py:31
+#, python-format
+msgid "Open the location <b>%(name)s</b>"
+msgstr "De locatie <b>%(name)s</b> openen"
+
+#: ../deskbar/handlers_browsers.py:30
+#, python-format
+msgid "Open History Item <b>%(name)s</b>"
+msgstr "Geschiedenis-item <b>%(name)s</b> openen"
+
+#: ../deskbar/handlers_browsers.py:32
+#, python-format
+msgid "Open Bookmark <b>%(name)s</b>"
+msgstr "Bladwijzer <b>%(name)s</b> openen"
+
+#: ../deskbar/handlers_browsers.py:50
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "<b>%(name)s</b> doorzoeken op <i>%(text)s</i>"
+
