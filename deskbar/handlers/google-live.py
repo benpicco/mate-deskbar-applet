@@ -41,8 +41,8 @@ def _check_requirements():
 		
 HANDLERS = {
 	"GoogleLiveHandler" : {
-		"name": _("Live Google Queries"),
-		"description": _("Query Google automatically as you type."),
+		"name": _("Live Google search"),
+		"description": _("Search the words you type with Google and display the results in the list."),
 		"requirements" : _check_requirements
 	}
 }
@@ -50,7 +50,7 @@ HANDLERS = {
 
 class GoogleMatch (Match):
 	def __init__(self, handler, name, url, icon=None):
-		Match.__init__ (self, handler, name, icon)
+		Match.__init__ (self, handler, "Google: "+name, icon)
 		self.__url = url
 	
 	def get_verb(self):

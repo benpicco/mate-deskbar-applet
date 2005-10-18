@@ -11,7 +11,7 @@ import gtk, gnome, gnomevfs
 
 HANDLERS = {
 	"VolumeHandler" : {
-		"name": _("Search for Volumes"),
+		"name": _("Search for disks and network places"),
 		"description": _("Open drives and volumes by their name"),
 	}
 }

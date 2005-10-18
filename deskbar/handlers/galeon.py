@@ -15,17 +15,17 @@ def _check_requirements():
 		
 HANDLERS = {
 	"GaleonBookmarksHandler" : {
-		"name": _("Galeon Bookmarks"),
+		"name": _("Bookmarks"),
 		"description": _("Index your bookmarks"),
 		"requirements": _check_requirements,
 	},
 	"GaleonHistoryHandler" : {
-		"name": _("Galeon History"),
+		"name": _("History"),
 		"description": _("Index your history"),
 		"requirements": _check_requirements,
 	},
 	"GaleonSearchHandler" : {
-		"name": _("Galeon Smart Bookmarks"),
+		"name": _("Smart Bookmarks"),
 		"description": _("Index your search engines"),
 		"requirements": _check_requirements,
 	}

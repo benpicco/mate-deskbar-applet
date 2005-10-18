@@ -22,12 +22,12 @@ def _check_requirements():
 		
 HANDLERS = {
 	"MozillaBookmarksHandler" : {
-		"name": _("Mozilla/Firefox Bookmarks"),
+		"name": _("Bookmarks"),
 		"description": _("Index your bookmarks"),
 		"requirements": _check_requirements,
 	},
 	"MozillaSearchHandler" : {
-		"name": _("Mozilla/Firefox Search Engines"),
+		"name": _("Search Engines"),
 		"description": _("Index your search engines"),
 		"requirements": _check_requirements,
 	}

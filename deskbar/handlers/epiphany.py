@@ -15,17 +15,17 @@ def _check_requirements():
 	
 HANDLERS = {
 	"EpiphanyBookmarksHandler": {
-		"name": _("Epiphany Bookmarks"),
+		"name": _("Bookmarks"),
 		"description": _("Index your bookmarks"),
 		"requirements": _check_requirements
 	},
 	"EpiphanyHistoryHandler": {
-		"name": _("Epiphany History"),
+		"name": _("History"),
 		"description": _("Index your search history"),
 		"requirements": _check_requirements
 	},
 	"EpiphanySearchHandler": {
-		"name": _("Epiphany Smart Bookmarks"),
+		"name": _("Smart Bookmarks"),
 		"description": _("Index your smart bookmarks"),
 		"requirements": _check_requirements
 	},

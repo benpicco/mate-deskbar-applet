@@ -2,6 +2,7 @@ import os, time
 # WARNING: Load gnome.ui before gnomeapplet or we have a nasty warning.
 import gnome.ui
 import gnomeapplet, gtk, gtk.gdk, gconf, gobject
+from gettext import gettext as _
 
 import deskbar, deskbar.deskbarentry, deskbar.about, deskbar.preferences, deskbar.applet_keybinder
 from deskbar.module_list import ModuleLoader, ModuleList, ModuleLoader
@@ -188,7 +189,7 @@ class DeskbarApplet:
 			i = i+1
 		
 		if i == 0:
-			item = gtk.MenuItem("No History")
+			item = gtk.MenuItem(_("No History"))
 			menu.attach(item, 0, 1, 0, 1)
 
 		menu.show_all()

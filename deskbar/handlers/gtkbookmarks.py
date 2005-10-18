@@ -7,8 +7,8 @@ import deskbar.handler
 
 HANDLERS = {
 	"GtkBookmarkHandler" : {
-		"name": _("Nautilus Places"),
-		"description": _("Open your nautilus favorite places by name."),
+		"name": _("File Manager bookmarks"),
+		"description": _("Open your file manager's bookmarks by name."),
 	}
 }
 

@@ -5,8 +5,8 @@ import deskbar, deskbar.indexer, deskbar.handler, deskbar.evolution
 
 HANDLERS = {
 	"EvolutionHandler" : {
-		"name": "Evolution Address Book",
-		"description": "Send emails to your contacts by typing their name or email address",
+		"name": _("Address Book"),
+		"description": _("Send emails to your contacts by typing their name or email address"),
 	}
 }
 
