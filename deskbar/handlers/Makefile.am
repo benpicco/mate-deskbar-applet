@@ -3,6 +3,7 @@ deskbar_handlers_PYTHON = \
 	beagle.py \
 	email_address.py \
 	epiphany.py \
+	evolution.py \
 	files.py \
 	directories.py \
 	galago.py \

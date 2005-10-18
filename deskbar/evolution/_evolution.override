@@ -26,9 +26,20 @@ hits_as_python_object (GList *hits)
 	for (; hits != NULL; hits = hits->next) {
 		Hit *hit = (Hit *) hits->data;
 		PyObject *t = PyTuple_New (3);
-		PyTuple_SET_ITEM (t, 0, PyString_FromString(hit->text));
-		PyTuple_SET_ITEM (t, 1, PyString_FromString(hit->email));
-		PyTuple_SET_ITEM (t, 2, pygobject_new ((GObject*) hit->pixbuf));
+		if (hit->text == NULL)
+			PyTuple_SET_ITEM (t, 0, Py_None);
+		else
+			PyTuple_SET_ITEM (t, 0, PyString_FromString(hit->text));
+		
+		if (hit->email == NULL)
+			PyTuple_SET_ITEM (t, 1, Py_None);
+		else
+			PyTuple_SET_ITEM (t, 1, PyString_FromString(hit->email));
+		
+		if (hit->pixbuf == NULL)
+			PyTuple_SET_ITEM (t, 2, Py_None);
+		else
+			PyTuple_SET_ITEM (t, 2, pygobject_new ((GObject*) hit->pixbuf));
 
 		PyList_SET_ITEM (result, i, t);
 		i++;
@@ -42,7 +53,10 @@ handler_c_func (GList *hits, gpointer user_data)
 	int args_length;
 	PyObject *hits_and_args;
 	int i;
+	PyGILState_STATE gstate;
 	Search_Handler_User_Data *ud = (Search_Handler_User_Data *) user_data;
+
+	gstate = PyGILState_Ensure();
 
 	args_length = PyTuple_Size (ud->args);
 	hits_and_args = PyTuple_New (1 + args_length);
@@ -66,6 +80,7 @@ handler_c_func (GList *hits, gpointer user_data)
 	}
 	Py_XDECREF (ud->handler);
 	g_free (ud);
+	PyGILState_Release(gstate);
 }
 
 %%

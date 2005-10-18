@@ -149,15 +149,29 @@ class SignallingHandler (Handler, gobject.GObject):
 		self.__last_query = ""
 
 	def query_async (self, qstring, max=5):
+		"""
+		When we receive an async call, we first register the most current search string.
+		Then we call with a little delay the actual query() method, implemented by the handler.
+		
+		This is to avoid searching too many times, the delay can be slow like 150ms.
+		"""
 		self.__last_query = qstring
-		self.query (qstring, max)
+		gobject.timeout_add(150, self.__query_if_valid, qstring, max)
+	
+	def __query_if_valid(self, qstring, max):
+		"""
+		This is called from a glib's timeout, we check if the string still is valid, then
+		proceed to calling query(). We return None, meaning that the timer expires.
+		"""
+		if self.__last_query == qstring:
+			self.query (qstring, max)
 
 	def emit_query_ready (self, matches, qstring):
 		if qstring == self.__last_query:
 			self.emit ("query-ready", matches)
 
 	def stop_query (self):
-		pass
+		self.__last_query = None
 		
 	def is_async (self):
 		return True
