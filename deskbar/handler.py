@@ -249,7 +249,16 @@ class AsyncHandler (Handler, gobject.GObject):
 		If you pass a timeout argument this call will not return before the query
 		has been unchanged for timeout seconds.
 		"""
-		qstring = self.__get_last_query (timeout)
+		qstring = None
+		try:
+			qstring = self.__get_last_query (timeout)
+		except QueryStopped:
+			if clean_up:
+				if args == NoArgs:
+					clean_up ()
+				else:
+					clean_up (args)
+			raise QueryStopped()
 		if qstring:
 			# There's a query queued
 			# cancel the current query.

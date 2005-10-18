@@ -141,6 +141,9 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 						
 		#Clear the entry in a idle call or we segfault
 		gobject.idle_add(lambda: self.get_entry().set_text(""))
+		
+		# Tell the async handlers to stop
+		self._stop_async_handlers()
 
 	def _on_entry_activate(self, widget):
 		# When the user hits enter on the entry, we use the first match to do the action
@@ -185,6 +188,9 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			
 		if event.keyval == gtk.keysyms.Escape:
 			# bind Escape to clear the GtkEntry
+			if not entry.get_text().strip() == "":
+				# If we cleared some text, tell async handlers to stop.
+				self._stop_async_handlers()
 			entry.set_text("")
 		
 		def match_move(updown):
