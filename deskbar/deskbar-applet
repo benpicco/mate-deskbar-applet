@@ -22,13 +22,13 @@ else:
 	print "Running installed deskbar, using normal PYTHONPATH"
 
 # Now the path is set, import our applet
-import defs, deskbar, deskbar.applet	
+import deskbar, deskbar.applet, deskbar.defs
 
 import gettext, locale
-gettext.bindtextdomain('deskbar-applet', abspath(join(defs.DATA_DIR, "locale")))
+gettext.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))
 gettext.textdomain('deskbar-applet')
 
-locale.bindtextdomain('deskbar-applet', abspath(join(defs.DATA_DIR, "locale")))
+locale.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))
 locale.textdomain('deskbar-applet')
     
 def applet_factory(applet, iid):
