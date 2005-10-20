@@ -1,6 +1,6 @@
 import os, ConfigParser, cgi, re
 import glob
-from os.path import join, isfile, abspath, splitext, expanduser
+from os.path import join, isfile, abspath, splitext, expanduser, exists, isdir
 from gettext import gettext as _
 
 import gtk
@@ -38,48 +38,34 @@ class PathProgramsHandler(deskbar.handler.Handler):
 	def __init__(self):
 		deskbar.handler.Handler.__init__(self, "generic.png")
 		
-		self._programs = {}
-		
 	def initialize(self):
+		self._path = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip() != "" and exists(path) and isdir(path)]
 		self._desktop_programs = self._scan_desktop_files()
-		self._scan_path()
 		
 	def query(self, query, max=5):
 		args = query.split(" ")
-		if args[0] in self._programs:
+		match = self._check_program(args[0])
+		if match != None and ( (match.is_duplicate() and len(args) > 1) or (not match.is_duplicate()) ):
 			# Either we have a duplicate program and we don't show it, unless the args exists
-			if (self._programs[args[0]].is_duplicate() and len(args) > 1) or (not self._programs[args[0]].is_duplicate()):
-				return [self._programs[args[0]]]		
-		
-		return []
+			return [match]
+		else:
+			return []
 	
 	def _scan_desktop_files(self):
-		desktop_dir = abspath(join("/", "usr", "share", "applications"))
-		
 		desktop_programs = []
-		for f in glob.glob(desktop_dir + '/*.desktop'):
+		for f in glob.glob('/usr/share/applications/*.desktop'):
 			try:
 				config = ConfigParser.SafeConfigParser()
 				config.read(f)
-
 				desktop_programs.append(config.get("Desktop Entry", "Exec", True).split(' ', 1)[0])
-			except Exception, msg:
-				print 'Error:_scan_desktop_files(pathprograms.py):File Error:%s:%s' % (f, msg)
+			except:
 				continue
 		
 		return desktop_programs
-				
-	def _scan_path(self):
-		for path in os.getenv("PATH").split(os.path.pathsep):
-			if path.strip() == "":
-				continue
-				
-			try:
-				for program in [f for f in os.listdir(path) if isfile(join(path, f))]:
-					if program in self._desktop_programs:
-						self._programs[program] = PathProgramMatch(self, program, True)
-					else:
-						self._programs[program] = PathProgramMatch(self, program)
-			except Exception, msg:
-				print 'Error:_scan_path:', msg
-		
+	
+	def _check_program(self, program):
+		for path in self._path:
+			prog_path = join(path, program)
+			if exists(prog_path) and isfile(prog_path):
+				return PathProgramMatch(self, program, (program in self._desktop_programs))	
+								

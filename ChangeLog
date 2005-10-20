@@ -1,5 +1,12 @@
 2005-10-21  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/handlers/pathprograms.py:
+	Speed-up the loading of the module by not loading the list of executables.
+	Executables are instead "probed" at each query. Side effect, is that we
+	don't need to reindex the $PATH when a new program is installed
+
+2005-10-21  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/handlers/beagle-live.py:
 	Add a calendar type, and fix some details, like None strings
 
