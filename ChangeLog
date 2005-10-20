@@ -1,5 +1,19 @@
 2005-10-20  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/Makefile.am:
+	* deskbar/__init__.py:
+	* deskbar/handlers/beagle-live.py:
+	* po/POTFILES.in:
+	Fix the previous fix to pass distcheck.
+	
+	Add some new strings to translation in beagle-live
+	
+	Allow to use a development deskbar-applet with its own set of enabled
+	handlers and priority, to not interfere with stable one. (Useful only for
+	developpers)
+
+2005-10-20  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* data/Makefile.am:
 	* deskbar/Makefile.am:
 	Change the location of deskbar-applet launcher script, using /usr/libexec

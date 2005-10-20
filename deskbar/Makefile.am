@@ -34,4 +34,4 @@ DISTCLEANFILES = \
 	
 EXTRA_DIST = \
 	defs.py.in \
-	$(libexec_SCRIPTS)
+	$(deskbarbin_SCRIPTS)

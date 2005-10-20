@@ -32,7 +32,7 @@ TYPES = {
 		"name"	: "fixme:FileAs",
 		"action": "evolution",
 		"icon"	: "stock_contact",
-		"description": "Contact: %(name)s"
+		"description": _("Addressbook entry for <b>%(name)s</b>")
 		},
 	
 	"MailMessage" 	: {
@@ -40,32 +40,32 @@ TYPES = {
 		"action": "evolution",
 		"icon"	: "stock_mail",
 		"extra": {"sender":"from_name"},
-		"description": "Email from %(sender)s: %(name)s"
+		"description": _("View email from <i>%(sender)s</i>: <b>%(name)s</b>")
 		},
 	"File" 		: {
 		"name"	: "beagle:ExactFilename", 
 		"action": "gnome-open",
 		"icon"	: None,
-		"description": "%(name)s"
+		"description": _("Open <b>%(name)s</b>")
 		},
 	"FeedItem"	: {
 		"name"	:"dc:title",
 		"action": "gnome-open",
 		"icon"	: "stock_news",
-		"description": "News: %(name)s",# There don't seem to be a good "sender" template :(
+		"description": _("Open news item <b>%(name)s</b>"),# There don't seem to be a good "sender" template :(
 		},
 	"Note"		: {
 		"name"	: "dc:title",
 		"action": "tomboy",
 		"action_args": "--open-note",
 		"icon"	:"stock_notes",
-		"description": "Note: %(name)s"
+		"description": _("Open note <b>%(name)s</b>")
 		},
 	"IMLog"		: {
 		"name"	: "fixme:speakingto",
 		"action": "beagle-imlogviewer",
 		"icon"	: "im",
-		"description": "Conversation with %(name)s"
+		"description": _("View conversation with <b>%(name)s</b>")
 		}
 }
 

@@ -54,7 +54,12 @@ GCONF_WIDTH = GCONF_DIR + "/width"
 GCONF_EXPAND = GCONF_DIR + "/expand"
 # GConf key for global keybinding
 GCONF_KEYBINDING = GCONF_DIR + "/keybinding"
-# GConf key for list of enabled handlers
-GCONF_ENABLED_HANDLERS = GCONF_DIR + "/enabled_handlers"
+# GConf key for list of enabled handlers, when uninstalled, use a debug key to not conflict
+# with development version
+name = join(dirname(__file__), 'handlers')
+if _check(name):
+	GCONF_ENABLED_HANDLERS = GCONF_DIR + "/enabled_handlers_debug"
+else:
+	GCONF_ENABLED_HANDLERS = GCONF_DIR + "/enabled_handlers"
 # Preload gconf directories
 GCONF_CLIENT.add_dir(deskbar.GCONF_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
