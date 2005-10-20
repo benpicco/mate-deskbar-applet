@@ -17,7 +17,7 @@ HANDLERS = {
 	}
 }
 
-factory = gnome.ui.ThumbnailFactory(gnome.ui.THUMBNAIL_SIZE_NORMAL)
+factory = gnome.ui.ThumbnailFactory(deskbar.ICON_SIZE)
 icon_theme = gtk.icon_theme_get_default()
 
 class FileMatch(deskbar.handler.Match):

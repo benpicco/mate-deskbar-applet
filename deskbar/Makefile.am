@@ -1,5 +1,13 @@
-SUBDIRS = evolution handlers iconentry keybinder
+SUBDIRS = handlers iconentry keybinder
 
+if ENABLE_BEAGLE
+SUBDIRS += beagle
+endif
+
+if ENABLE_EVOLUTION
+SUBDIRS += evolution
+endif
+	
 libexec_SCRIPTS = deskbar-applet
 
 deskbardir = $(pythondir)/deskbar

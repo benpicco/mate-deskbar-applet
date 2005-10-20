@@ -3,7 +3,6 @@ deskbar_handlers_PYTHON = \
 	beagle.py \
 	email_address.py \
 	epiphany.py \
-	evolution.py \
 	files.py \
 	directories.py \
 	galago.py \
@@ -15,6 +14,14 @@ deskbar_handlers_PYTHON = \
 	pathprograms.py \
 	volumes.py \
 	web_address.py
+
+if ENABLE_BEAGLE
+deskbar_handlers_PYTHON += beagle-live.py
+endif
+
+if ENABLE_BEAGLE
+deskbar_handlers_PYTHON += evolution.py
+endif
 
 deskbar_handlers_DATA = \
 	google-live-help.txt

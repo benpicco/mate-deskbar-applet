@@ -1,9 +1,9 @@
-INCLUDES = $(PYTHON_INCLUDES) $(DESKBAR_CFLAGS)
+INCLUDES = $(PYTHON_INCLUDES) $(EVOLUTION_CFLAGS)
 
 _evolutiondir = $(pythondir)/deskbar/evolution
 _evolution_LTLIBRARIES = _evolution.la
 _evolution_la_LDFLAGS = -module -avoid-version -export-symbols-regex init_evolution
-_evolution_la_LIBADD = $(DESKBAR_LIBS)
+_evolution_la_LIBADD = $(EVOLUTION_LIBS)
 _evolution_la_SOURCES = \
 	_evolutionmodule.c \
 	evolution.c \

@@ -59,10 +59,74 @@ PKG_CHECK_MODULES(DESKBAR,
 	gnome-python-2.0			>= 2.10
 	gnome-python-extras-2.0	>= 2.10
 	gnome-python-extras-2.0	>= 2.10
-	libebook-1.2
 )
 AC_SUBST(DESKBAR_CFLAGS)
 AC_SUBST(DESKBAR_LIBS)
+
+dnl ****************************************************************************
+dnl * Check for libbeagle to build the beagle handler
+dnl ****************************************************************************
+AC_ARG_ENABLE(beagle,
+	AC_HELP_STRING([--disable-beagle], [Disable libbeagle support (default auto)]),
+	enable_libbeagle=$enableval,
+	enable_libbeagle=auto)
+
+PKG_CHECK_MODULES(BEAGLE,
+	libbeagle-0.0
+	pygtk-2.0				>= 2.6
+	pygobject-2.0			>= 2.6,
+	have_libbeagle_dependencies=yes,
+	have_libbeagle_dependencies=no)
+
+if test "x$have_libbeagle_dependencies" = "xno"; then
+	dnl error out if user has explicitly requested libbeagle
+	if test "x$enable_libbeagle" = "xyes"; then
+		AC_MSG_ERROR([Could not find libbeagle])
+	fi
+	enable_libbeagle="no (missing dependencies)"
+else
+	if test "x$enable_libbeagle" != "xno"; then
+		enable_libbeagle="yes"
+	else
+		enable_libbeagle="no (disabled)"
+	fi
+fi
+AM_CONDITIONAL(ENABLE_BEAGLE, test "x$enable_libbeagle" = "xyes")
+AC_SUBST(BEAGLE_LIBS)
+AC_SUBST(BEAGLE_CFLAGS)
+
+dnl ****************************************************************************
+dnl * Check for evolution's libebook to build the evolution handler
+dnl ****************************************************************************
+AC_ARG_ENABLE(evolution,
+	AC_HELP_STRING([--disable-evolution], [Disable evolution's libebook support (default auto)]),
+	enable_libebook=$enableval,
+	enable_libebook=auto)
+
+PKG_CHECK_MODULES(EVOLUTION,
+	libebook-1.2
+	gtk+-2.0				>= 2.6
+	pygtk-2.0				>= 2.6
+	pygobject-2.0			>= 2.6,
+	have_libebook_dependencies=yes,
+	have_libebook_dependencies=no)
+
+if test "x$have_libebook_dependencies" = "xno"; then
+	dnl error out if user has explicitly requested libebook
+	if test "x$enable_libebook" = "xyes"; then
+		AC_MSG_ERROR([Could not find evolution's libebook])
+	fi
+	enable_libebook="no (missing dependencies)"
+else
+	if test "x$enable_libebook" != "xno"; then
+		enable_libebook="yes"
+	else
+		enable_libebook="no (disabled)"
+	fi
+fi
+AM_CONDITIONAL(ENABLE_EVOLUTION, test "x$enable_libebook" = "xyes")
+AC_SUBST(EVOLUTION_LIBS)
+AC_SUBST(EVOLUTION_CFLAGS)
 
 dnl ****************************************************************************
 dnl * PyGTK Codegen and defs files
@@ -88,6 +152,7 @@ deskbar/evolution/Makefile
 deskbar/handlers/Makefile
 deskbar/iconentry/Makefile
 deskbar/keybinder/Makefile
+deskbar/beagle/Makefile
 data/Makefile
 data/art/Makefile
 po/Makefile.in
@@ -98,6 +163,8 @@ echo $PACKAGE v$VERSION
 echo
 
 echo Prefix............... : $prefix
+echo Evolution Support.... : $enable_libebook
+echo Beagle Support ...... : $enable_libbeagle
 
 echo
 echo "Now type make to compile"
