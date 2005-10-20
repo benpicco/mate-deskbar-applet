@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, cgi
 import gtk, gnome.ui
 import deskbar, deskbar.handler, deskbar.beagle, deskbar.handler_utils
 from gettext import gettext as _
@@ -52,7 +52,7 @@ TYPES = {
 		"name"	:"dc:title",
 		"action": "gnome-open",
 		"icon"	: "stock_news",
-		"description": _("Open news item <b>%(name)s</b>"),# There don't seem to be a good "sender" template :(
+		"description": _("Open news item <b>%(name)s</b>"),
 		},
 	"Note"		: {
 		"name"	: "dc:title",
@@ -66,7 +66,13 @@ TYPES = {
 		"action": "beagle-imlogviewer",
 		"icon"	: "im",
 		"description": _("View conversation with <b>%(name)s</b>")
-		}
+		},
+	"Calendar"	: {
+		"name"	: "fixme:summary",
+		"action": "evolution",
+		"icon"	: "stock_calendar",
+		"description": _("View calendar <b>%s(name)</b>")
+		},
 }
 
 class BeagleLiveMatch (deskbar.handler.Match):
@@ -165,10 +171,18 @@ class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 				"uri":  hit.get_uri(),
 				"type": hit.get_type(),
 			}
-			
+			if result["name"] != None:
+				result["name"] = cgi.escape(result["name"])
+			else
+				result["name"] = _("?")
+				
 			if "extra" in hit_type:
 				for prop, key in hit_type["extra"].items():
-					result[prop] = hit.get_property(key)
+					val = hit.get_property(key)
+					if val != None:
+						result[prop] = cgi.escape(val)
+					else:
+						result[prop] = val
 			
 			hit_matches.append(BeagleLiveMatch(self, result))
 			
