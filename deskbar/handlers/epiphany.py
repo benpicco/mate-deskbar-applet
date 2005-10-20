@@ -37,7 +37,7 @@ smart_bookmarks = None
 
 class EpiphanyHandler(deskbar.handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
+		deskbar.handler.Handler.__init__(self, "web-browser.png")
 		
 	def initialize(self):
 		global favicon_cache

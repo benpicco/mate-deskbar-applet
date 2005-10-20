@@ -34,7 +34,7 @@ class WebAddressMatch(deskbar.handler.Match):
 	
 class WebAddressHandler(deskbar.handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "web.png")
+		deskbar.handler.Handler.__init__(self, "stock_internet")
 		
 	def query(self, query, max=5):
 		if len(query) == 0:

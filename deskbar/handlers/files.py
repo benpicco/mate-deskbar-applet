@@ -17,16 +17,9 @@ HANDLERS = {
 	}
 }
 
-factory = gnome.ui.ThumbnailFactory(deskbar.ICON_SIZE)
-icon_theme = gtk.icon_theme_get_default()
-
 class FileMatch(deskbar.handler.Match):
 	def __init__(self, backend, prefix, absname):
-		icon_name, flags = gnome.ui.icon_lookup(icon_theme, factory,
-				absname, "",
-				gnome.ui.ICON_LOOKUP_FLAGS_SHOW_SMALL_IMAGES_AS_THEMSELVES)
-		
-		pixbuf = icon_theme.load_icon(icon_name, deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
+		pixbuf = deskbar.handler_utils.load_icon_from_file(absname)
 		name = join(prefix, basename(absname))
 		deskbar.handler.Match.__init__(self, backend, name, pixbuf)
 		
@@ -40,7 +33,7 @@ class FileMatch(deskbar.handler.Match):
 				
 class FileHandler(deskbar.handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "file.png")
+		deskbar.handler.Handler.__init__(self, "stock_new-text")
 		self._relative = True
 		
 	def get_priority(self):

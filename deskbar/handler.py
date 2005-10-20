@@ -77,11 +77,7 @@ class Handler:
 		The constructor of the Handler should not block. 
 		Heavy duty tasks such as indexing should be done in the initialize() method.
 		"""
-		# We load the icon file, and if it fails load an empty one
-		try:
-			self._icon = gtk.gdk.pixbuf_new_from_file_at_size(join(deskbar.ART_DATA_DIR, iconfile), deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-		except Exception:
-			self._icon = None
+		self._icon = deskbar.handler_utils.load_icon(iconfile)
 	
 	def set_priority(self, prio):
 		self._priority = prio

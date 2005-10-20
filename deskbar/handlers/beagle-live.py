@@ -1,6 +1,6 @@
-import os
+import os, sys
 import gtk, gnome.ui
-import deskbar, deskbar.handler, deskbar.beagle
+import deskbar, deskbar.handler, deskbar.beagle, deskbar.handler_utils
 from gettext import gettext as _
 from os.path import exists
 
@@ -10,12 +10,10 @@ HANDLERS = {
 	"BeagleLiveHandler" : {
 		"name": _("Live Beagle Queries"),
 		"description": _("Query Beagle automatically as you type."),
+		# Better detection here ?
 		"requirements" : lambda: (exists("/usr/share/applications/best.desktop"), "Beagle was not detected on your system"),
 	}
 }
-
-icon_theme = gtk.icon_theme_get_default()
-thumb_factory = gnome.ui.ThumbnailFactory(deskbar.ICON_SIZE)
 
 # The TYPES dict contains Beagle HitTypes as keys with
 # templates for the valid fields.
@@ -31,44 +29,44 @@ thumb_factory = gnome.ui.ThumbnailFactory(deskbar.ICON_SIZE)
 
 TYPES = {
 	"Contact"	: {
-			"name"	: "fixme:FileAs",
-			"action": "evolution",
-			"icon"	: "stock_contact",
-			"description": "Contact: %(name)s"
-			},
+		"name"	: "fixme:FileAs",
+		"action": "evolution",
+		"icon"	: "stock_contact",
+		"description": "Contact: %(name)s"
+		},
 	
 	"MailMessage" 	: {
-			"name"	:"dc:title",
-			"action": "evolution",
-			"icon"	: "stock_mail",
-			"extra": {"sender":"from_name"},
-			"description": "Email from %(sender)s: %(name)s"
-			},
+		"name"	:"dc:title",
+		"action": "evolution",
+		"icon"	: "stock_mail",
+		"extra": {"sender":"from_name"},
+		"description": "Email from %(sender)s: %(name)s"
+		},
 	"File" 		: {
-			"name"	: "beagle:ExactFilename", 
-			"action": "gnome-open",
-			"icon"	: None,
-			"description": "%(name)s"
-			},
+		"name"	: "beagle:ExactFilename", 
+		"action": "gnome-open",
+		"icon"	: None,
+		"description": "%(name)s"
+		},
 	"FeedItem"	: {
-			"name"	:"dc:title",
-			"action": "gnome-open",
-			"icon"	: "stock_news",
-			"description": "News: %(name)s",# There don't seem to be a good "sender" template :(
-			},
+		"name"	:"dc:title",
+		"action": "gnome-open",
+		"icon"	: "stock_news",
+		"description": "News: %(name)s",# There don't seem to be a good "sender" template :(
+		},
 	"Note"		: {
-			"name"	: "dc:title",
-			"action": "tomboy",
-			"action_args": "--open-note",
-			"icon"	:"stock_notes",
-			"description": "Note: %(name)s"
-			},
+		"name"	: "dc:title",
+		"action": "tomboy",
+		"action_args": "--open-note",
+		"icon"	:"stock_notes",
+		"description": "Note: %(name)s"
+		},
 	"IMLog"		: {
-			"name"	: "fixme:speakingto",
-			"action": "beagle-imlogviewer",
-			"icon"	: "im",
-			"description": "Conversation with %(name)s"
-			}
+		"name"	: "fixme:speakingto",
+		"action": "beagle-imlogviewer",
+		"icon"	: "im",
+		"description": "Conversation with %(name)s"
+		}
 }
 
 class BeagleLiveMatch (deskbar.handler.Match):
@@ -84,8 +82,7 @@ class BeagleLiveMatch (deskbar.handler.Match):
 		"""
 		if result["type"] == "File":
 			try:
-				icon_name, num = gnome.ui.icon_lookup(icon_theme, thumb_factory,  file_uri=result["uri"], custom_icon="")
-				icon = icon_theme.load_icon(icon_name, deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
+				icon = deskbar.handler_utils.load_icon_for_file(result["uri"])
 				if icon:
 					deskbar.handler.Match.__init__ (self, handler, result["name"], icon)
 				else:
@@ -131,7 +128,7 @@ class BeagleLiveMatch (deskbar.handler.Match):
 		
 class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 	def __init__(self):
-		deskbar.handler.SignallingHandler.__init__(self, "/usr/share/pixmaps/best.png")
+		deskbar.handler.SignallingHandler.__init__(self, "best")
 		self.counter = {}
 		
 	def initialize (self):
@@ -143,11 +140,7 @@ class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 		for t in TYPES.iterkeys():
 			icon_file = TYPES[t]["icon"]
 			if not icon_file: continue
-			try:
-				res[t] = icon_theme.load_icon(icon_file, deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
-			except Exception:
-				res[t] = None
-				print >> sys.stderr, "BeagleLive: Unable to load icon for %s" % t
+			res[t] = deskbar.handler_utils.load_icon(icon_file)
 		return res
 		
 	def query (self, qstring, qmax=5):

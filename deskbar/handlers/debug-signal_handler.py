@@ -21,6 +21,9 @@ class SignallingDebugMatch (Match):
 
 
 class SignallingDebugHandler(SignallingHandler):
+	def __init__(self):
+		SignallingHandler.__init__(self, "stock_script")
+		
 	def query(self, qstring, max):
 		# gobject.timeout_add represents an async lib call
 		self.sig = gobject.timeout_add(SIGNAL_DELAY, lambda : self.__callback(qstring))

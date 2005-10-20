@@ -26,7 +26,7 @@ class AsyncDebugMatch (Match):
 class AsyncDebugHandler (AsyncHandler): 
 
 	def __init__ (self):
-		AsyncHandler.__init__ (self, None)
+		AsyncHandler.__init__ (self, "stock_script")
 		
 	def query (self, qstring, max=5):
 		

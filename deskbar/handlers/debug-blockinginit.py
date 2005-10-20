@@ -22,7 +22,7 @@ class DebugBlockingInitMatch(Match):
 
 class DebugBlockingInitModule(Handler):
 	def __init__ (self):
-		Handler.__init__ (self, None)
+		Handler.__init__ (self, "stock_script")
 		
 	def initialize (self):
 		print "DebugBlockingInitModule initializing ... This will block for %s seconds." % INIT_TIME

@@ -31,7 +31,7 @@ class FolderMatch(deskbar.handler.Match):
 				
 class FolderHandler(deskbar.handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "folder.png")
+		deskbar.handler.Handler.__init__(self, "stock_folder")
 		self._relative = True
 		
 	def get_priority(self):

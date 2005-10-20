@@ -16,8 +16,6 @@ HANDLERS = {
 	}
 }
 
-icon_theme = gtk.icon_theme_get_default()
-
 NETWORK_URIS = ["http", "ftp", "smb", "sftp"]
 AUDIO_URIS = ["cdda"]
 
@@ -42,7 +40,7 @@ class VolumeMatch (Match):
 class VolumeHandler (Handler):
 	
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "gnome-dev-harddisk.png")
+		deskbar.handler.Handler.__init__(self, "gnome-dev-harddisk")
 		self.__locations = []
 		
 	def query(self, query, max=5):
@@ -59,12 +57,7 @@ class VolumeHandler (Handler):
 			if not drive.is_mounted () : continue
 			if not drive.get_display_name().lower().startswith(query): continue
 			
-			icon = None
-			try:
-				icon = icon_theme.load_icon(drive.get_icon(), deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
-			except Exception, msg:
-				print "Error:volumes.py:%s" % msg
-
+			icon = deskbar.handler_utils.load_icon(drive.get_icon())
 			result.append (VolumeMatch (self, drive, icon))
 		
 		return result[:max]

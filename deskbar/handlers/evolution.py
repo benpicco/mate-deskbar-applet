@@ -32,7 +32,7 @@ class EvolutionMatch(deskbar.handler.Match):
 		
 class EvolutionHandler(deskbar.handler.SignallingHandler):
 	def __init__(self):
-		deskbar.handler.SignallingHandler.__init__(self, "mail.png")	
+		deskbar.handler.SignallingHandler.__init__(self, "stock_addressbook")	
 	
 	def initialize(self):
 		deskbar.evolution.set_pixbuf_size(deskbar.ICON_SIZE)

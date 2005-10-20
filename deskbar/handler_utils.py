@@ -1,6 +1,39 @@
 import os
 from os.path import *
+import deskbar
+import gtk, gnome.ui
 
+icon_theme = gtk.icon_theme_get_default()
+factory = gnome.ui.ThumbnailFactory(deskbar.ICON_SIZE)
+
+def load_icon_for_file(f):
+	icon_name, flags = gnome.ui.icon_lookup(icon_theme, factory,
+				f, "",
+				gnome.ui.ICON_LOOKUP_FLAGS_SHOW_SMALL_IMAGES_AS_THEMSELVES)
+		
+	return load_icon(icon_name)
+	
+# We load the icon file, and if it fails load an empty one
+# If the iconfile is a path starting with /, load the file
+# else try to load a stock or named icon name
+def load_icon(icon):
+	pixbuf = None
+	if icon != None and icon != "":
+		try:
+			our_icon = join(deskbar.ART_DATA_DIR, icon)
+			if exists(our_icon):
+				pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(our_icon, deskbar.ICON_SIZE, deskbar.ICON_SIZE)
+			elif icon.startswith("/"):
+				pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(icon, deskbar.ICON_SIZE, deskbar.ICON_SIZE)
+			else:
+				pixbuf = icon_theme.load_icon(splitext(icon)[0], deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
+		except Exception, msg1:
+			try:
+				pixbuf = icon_theme.load_icon(icon, deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
+			except Exception, msg2:
+				print 'Error:load_icon:Icon Load Error:%s (%s)' % (msg1, msg2)
+	return pixbuf
+	
 def filesystem_possible_completions(prefix, is_file=False):
 	"""
 	Given an path prefix, retreive the file/folders in it.

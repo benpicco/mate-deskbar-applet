@@ -4,40 +4,31 @@ from os.path import join, isfile, abspath, splitext, expanduser
 from gettext import gettext as _
 
 import gtk
-import deskbar, deskbar.indexer, deskbar.locale_utils
+import deskbar, deskbar.indexer, deskbar.locale_utils, deskbar.handler_utils
 import deskbar.handler
 
-# Check for presence of set to be compatible with python 2.3
-try:
-	set
-except NameError:
-	from sets import Set as set
-	
 HANDLERS = {
 	"ProgramsHandler" : {
 		"name": _("Desktop Programs"),
 		"description": _("Index the program names and descriptions."),
-	}
+	},
+	"GnomeDictHandler" : {
+		"name": _("Dictionary Lookup"),
+		"description": _("Type a word and lookup the definition in the dictionary"),
+	},
+	"GnomeSearchHandler" : {
+		"name": _("File Search"),
+		"description": _("Type a filename pattern and find matching files on your disk."),
+	},
 }
 
-icon_theme = gtk.icon_theme_get_default()
-
-SPECIAL_PROGRAMS = {
-	"gnome-search-tool": (_("Search for file names like <b>%(arg)s</b>"),
-						["--start", "--path", expanduser("~"), "--named"]),
-	
-	"gnome-dictionary": (_("Search <b>%(arg)s</b> in Gnome Dictionary"),
-						[]),
-	"best":				(_("Search <b>%(arg)s</b> with Beagle"),
-						["--no-tray", "--show-window"]),
-}
-	
-class ProgramsMatch(deskbar.handler.Match):
-	def __init__(self, backend, name, program, icon=None):
+class GenericProgramMatch(deskbar.handler.Match):
+	def __init__(self, backend, name, program, icon=None, use_arg=False):
 		deskbar.handler.Match.__init__(self, backend, name, icon)
 		
 		# Strip the %U or %Whatever that have to be parameters
 		self._program = re.sub("%\w+", "", program).strip()
+		self._use_arg = use_arg
 		
 	def action(self, text=None):
 		self._priority = self._priority+1
@@ -48,96 +39,117 @@ class ProgramsMatch(deskbar.handler.Match):
 		# The arguments found in the .desktop file
 		args = self._program.split(" ")[0:]
 		
-		# The special arguments for particular programs
-		if prog in SPECIAL_PROGRAMS:
-			for arg in SPECIAL_PROGRAMS[prog][1]:
-				args.append(arg)
-			# Also contract the whole query in one argument
-			if text != None:
-				terms = text.split(" ", 1)[1:]
-				if len(terms) > 0 and terms[0] != "":
-					args.append(terms[0])
-				
+		if self._use_arg and text != None:
+			args.append(text)
+			
 		print 'Running "%s" "%r"' % (prog, args)
 		os.spawnvp(os.P_NOWAIT, prog, args)
 	
 	def get_verb(self):
-		prog = self._program.split(" ", 1)[0]
-		if prog in SPECIAL_PROGRAMS:
-			return SPECIAL_PROGRAMS[prog][0]
-		else:
-			return _("Launch <b>%(name)s</b> (%(prog)s)")
+		return _("Launch <b>%(name)s</b> (%(prog)s)")
 		
 	def get_name(self, text=None):
-		args = ""
-		if text != None:
-			terms = text.split(" ", 1)[1:]
-			if len(terms) > 0 and terms[0] != "":
-				args = terms[0]
 		return {
 			"name": cgi.escape(self._name),
-			"prog": self._program.split(" ", 1)[0],
-			"arg": args,
+			"prog": self._program,
 		}
+		
+class GnomeDictMatch(GenericProgramMatch):
+	def __init__(self, backend, name, program, icon=None):
+		GenericProgramMatch.__init__(self, backend, name, program, icon, True)
+	
+	def get_verb(self):
+		return _("Lookup <b>%(text)s</b> in dictionary")
+
+class GnomeSearchMatch(GenericProgramMatch):
+	def __init__(self, backend, name, program, icon=None):
+		program = program + " --start --path %s --named" % expanduser("~")
+		GenericProgramMatch.__init__(self, backend, name, program, icon, True)
+	
+	def get_verb(self):
+		return _("Search for file names like <b>%(text)s</b>")
+
+class SpecialProgramHandler(deskbar.handler.Handler):
+	def __init__(self, desktop, icon="generic.png"):
+		deskbar.handler.Handler.__init__(self, icon)
+		self._desktop = desktop
+		
+	def initialize(self):
+		result = parse_desktop_file(self._desktop)
+		self._match = self.create_match(result["name"], result["program"], result["pixbuf"])
+	
+	def create_match(self, name, program, icon):
+		raise NotImplementedError
+		
+	def query(self, qstring, qmax):
+		return [self._match]
+		
+class GnomeDictHandler(SpecialProgramHandler):
+	def __init__(self):
+		SpecialProgramHandler.__init__(self, "/usr/share/applications/gnome-dictionary.desktop", "gdict")
+	
+	def create_match(self, name, program, icon):
+		return GnomeDictMatch(self, name, program, icon)
+
+class GnomeSearchHandler(SpecialProgramHandler):
+	def __init__(self):
+		SpecialProgramHandler.__init__(self, "/usr/share/applications/gnome-search-tool.desktop", "gnome-searchtool")
+	
+	def create_match(self, name, program, icon):
+		return GnomeSearchMatch(self, name, program, icon)
 		
 class ProgramsHandler(deskbar.handler.Handler):
 	def __init__(self):
 		deskbar.handler.Handler.__init__(self, "generic.png")
-		
 		self._indexer = deskbar.indexer.Index()
 		
 	def initialize(self):
 		self._scan_desktop_files()
 		
 	def query(self, query, max=5):
-		results = set(self._indexer.look_up(query.split(" ", 1)[0])[:len(SPECIAL_PROGRAMS)])
-		results.update(set(self._indexer.look_up(query)[:5]))
-		
-		return tuple(results)
+		return self._indexer.look_up(query)[:max]
 		
 	def _scan_desktop_files(self):
-		desktop_dir = abspath(join("/", "usr", "share", "applications"))
-		for f in glob.glob(desktop_dir + '/*.desktop'):
-			try:
-				config = ConfigParser.SafeConfigParser({
-					"Comment" : "",
-					"Icon": "",
-					"Terminal" : "no",
-				})
-				config.read(f)
-				if config.getboolean("Desktop Entry", "Terminal"):
-					continue
+		for f in glob.glob("/usr/share/applications/*.desktop"):
+			result = parse_desktop_file(f)
+			match = GenericProgramMatch(self, result["name"], result["program"], result["pixbuf"])
+			self._indexer.add("%s %s %s %s %s" % (result["name"], result["program"], result["comment"], result["engname"], result["engcomment"]), match)
 
-				program = config.get("Desktop Entry", "Exec", True)
-				
-				name = get_entry_locale(config, "Name")
-				comment = get_entry_locale(config, "Comment")
+def parse_desktop_file(desktop):
+	try:
+		config = ConfigParser.SafeConfigParser({
+			"Comment" : "",
+			"Icon": "",
+			"Terminal" : "no",
+		})
+		config.read(desktop)
+		if config.getboolean("Desktop Entry", "Terminal"):
+			return None
 
-				pixbuf = None
-				icon = config.get("Desktop Entry", "Icon", True)
-				if icon != "":
-					try:
-						if icon.startswith("/"):
-							pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(icon, deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-						else:
-							pixbuf = icon_theme.load_icon(splitext(icon)[0], deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
-					except Exception, msg1:
-						try:
-							pixbuf = icon_theme.load_icon(icon, deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
-						except Exception, msg2:
-							print 'Error:_scan_desktop_files:Icon Load Error:%s (%s)' % (msg1, msg2)
-				
-				match = ProgramsMatch(self, name, program, pixbuf)
-				
-				#FIXME: We will also index in english, see if this is good, or not
-				engname = config.get("Desktop Entry", "Name", True)
-				engcomment = config.get("Desktop Entry", "Comment", True)
-				
-				self._indexer.add("%s %s %s %s %s" % (name, program, comment, engname, engcomment), match)
-			except Exception, msg:
-				print 'Error:_scan_desktop_files:File Error:%s:%s' % (f, msg)
-				continue
+		program = config.get("Desktop Entry", "Exec", True)
+		
+		name = get_entry_locale(config, "Name")
+		comment = get_entry_locale(config, "Comment")
 
+		pixbuf = deskbar.handler_utils.load_icon(config.get("Desktop Entry", "Icon", True))
+		
+		#FIXME: We will also index in english, see if this is good, or not
+		engname = config.get("Desktop Entry", "Name", True)
+		engcomment = config.get("Desktop Entry", "Comment", True)
+		
+		return {
+			"program":    program,
+			"name":       name,
+			"comment":    comment,
+			"pixbuf":     pixbuf,
+			"engname":    engname,
+			"engcomment": engcomment,
+		}
+		
+	except Exception, msg:
+		print 'Error:_scan_desktop_files:File Error:%s:%s' % (desktop, msg)
+		return None
+		
 LANGS = deskbar.locale_utils.get_languages()
 def get_entry_locale(config, key):
 	for lang in LANGS:
