@@ -23,6 +23,7 @@ resources_DATA = \
 	Deskbar_Applet.xml \
 	prefs-dialog.glade
 
+deskbarbindir = $(libdir)/deskbar-applet
 
 # ******************************************************************************
 # Build rules
@@ -31,7 +32,7 @@ resources_DATA = \
 @INTLTOOL_SCHEMAS_RULE@
 
 $(server_in_files): $(server_in_files:.server.in=.server.in.in)
-	sed -e "s|\@LIBEXECDIR\@|$(libexecdir)|" $< > $@
+	sed -e "s|\@LIBEXECDIR\@|$(deskbarbindir)|" $< > $@
 
 install-data-local:
         GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) \

@@ -8,8 +8,9 @@ if ENABLE_EVOLUTION
 SUBDIRS += evolution
 endif
 	
-libexec_SCRIPTS = deskbar-applet
-
+deskbarbindir = $(libdir)/deskbar-applet
+deskbarbin_SCRIPTS = deskbar-applet
+ 
 deskbardir = $(pythondir)/deskbar
 deskbar_PYTHON = \
 	__init__.py \
