@@ -1,6 +1,6 @@
 from os.path import join
 import gtk, gobject
-import deskbar
+import deskbar, deskbar.handler_utils
 
 class Match:
 	def __init__(self, handler, name, icon=None):

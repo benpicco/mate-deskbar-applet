@@ -13,21 +13,24 @@ except ImportError:
 	pass
 
 # Allow to use uninstalled deskbar ---------------------------------------------
-# Sets SHARED_DATA_DIR to local copy, or the system location
+UNINSTALLED_DESKBAR = False
 def _check(path):
-	return exists(path) and isdir(path) and isfile(path+"/Makefile.am")
-
-# Shared data dir is most the time /usr/share/deskbar-applet
-name = join(dirname(__file__), '..', 'data')
+	return exists(path) and isdir(path) and isfile(path+"/AUTHORS")
+	
+name = join(dirname(__file__), '..')
 if _check(name):
-	SHARED_DATA_DIR = abspath(name)
+	UNINSTALLED_DESKBAR = True
+	
+# Sets SHARED_DATA_DIR to local copy, or the system location
+# Shared data dir is most the time /usr/share/deskbar-applet
+if UNINSTALLED_DESKBAR:
+	SHARED_DATA_DIR = abspath(join(dirname(__file__), '..', 'data'))
 else:
 	SHARED_DATA_DIR = join(DATA_DIR, "deskbar-applet")
 print "Data Dir: %s" % SHARED_DATA_DIR
 
-name = join(dirname(__file__), 'handlers')
-if _check(name):
-	HANDLERS_DIR = abspath(name)
+if UNINSTALLED_DESKBAR:
+	HANDLERS_DIR = abspath(join(dirname(__file__), 'handlers'))
 else:
 	HANDLERS_DIR = join(LIB_DIR, "deskbar-applet", "handlers")
 print "Handlers Dir: %s" % HANDLERS_DIR
@@ -56,8 +59,7 @@ GCONF_EXPAND = GCONF_DIR + "/expand"
 GCONF_KEYBINDING = GCONF_DIR + "/keybinding"
 # GConf key for list of enabled handlers, when uninstalled, use a debug key to not conflict
 # with development version
-name = join(dirname(__file__), 'handlers')
-if _check(name):
+if UNINSTALLED_DESKBAR:
 	GCONF_ENABLED_HANDLERS = GCONF_DIR + "/enabled_handlers_debug"
 else:
 	GCONF_ENABLED_HANDLERS = GCONF_DIR + "/enabled_handlers"

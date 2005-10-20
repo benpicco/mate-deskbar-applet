@@ -1,4 +1,4 @@
-from handler import AsyncHandler, Match
+from deskbar.handler import AsyncHandler, Match
 from deskbar import MODULES_DIRS
 
 import os

@@ -93,7 +93,8 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		renderer = gtk.CellRendererText()
 		completion.pack_start(renderer)
 		completion.add_attribute(renderer, "markup", ACTION_COL)
-	
+		self.show_all()
+		
 	def get_evbox(self):
 		return self._evbox
 	
