@@ -173,7 +173,7 @@ class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 			}
 			if result["name"] != None:
 				result["name"] = cgi.escape(result["name"])
-			else
+			else:
 				result["name"] = _("?")
 				
 			if "extra" in hit_type:
