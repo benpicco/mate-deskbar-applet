@@ -3,7 +3,7 @@ from os.path import join, expanduser, exists
 from gettext import gettext as _
 import gtk
 import deskbar, deskbar.indexer, deskbar.handler
-
+from deskbar.filewatcher import FileWatcher
 from deskbar.handlers_browsers import get_url_host, is_preferred_browser
 from deskbar.handlers_browsers import BrowserSmartMatch, BrowserMatch
 
@@ -31,32 +31,48 @@ HANDLERS = {
 	},
 }
 
+EPHY_BOOKMARKS_FILE = expanduser("~/.gnome2/epiphany/bookmarks.rdf")
+EPHY_HISTORY_FILE   = expanduser("~/.gnome2/epiphany/ephy-history.xml")
+
 favicon_cache = None
 bookmarks = None
 smart_bookmarks = None
 
 class EpiphanyHandler(deskbar.handler.Handler):
-	def __init__(self):
+	def __init__(self, watched_file, callback):
 		deskbar.handler.Handler.__init__(self, "web-browser.png")
+		self.watched_file = watched_file
+		self.watch_callback = callback
 		
 	def initialize(self):
 		global favicon_cache
+		if not hasattr(self, 'watcher'):
+			self.watcher = FileWatcher()
+			self.watcher.connect('changed', lambda watcher, f: self.watch_callback())
+			
+		self.watcher.add(self.watched_file)
+		
 		if favicon_cache == None:
 			favicon_cache = EpiphanyFaviconCacheParser().get_cache()
+	
+	def stop(self):
+		self.watcher.remove(self.watched_file)
 		
 class EpiphanyBookmarksHandler(EpiphanyHandler):
 	def __init__(self):
-		EpiphanyHandler.__init__(self)
-	
+		EpiphanyHandler.__init__(self, EPHY_BOOKMARKS_FILE, lambda: self._parse_bookmarks(True))
+				
 	def initialize(self):
-		global favicon_cache, bookmarks, smart_bookmarks
 		EpiphanyHandler.initialize(self)
+		self._parse_bookmarks()
 		
-		if bookmarks == None:
+	def _parse_bookmarks(self, force=False):
+		global favicon_cache, bookmarks, smart_bookmarks
+		if force or bookmarks == None:
 			parser = EpiphanyBookmarksParser(self, favicon_cache)
 			bookmarks = parser.get_indexer()
 			smart_bookmarks = parser.get_smart_bookmarks()
-	
+		
 	def query(self, query, max=5):
 		global bookmarks
 		return bookmarks.look_up(query)[:max]
@@ -71,12 +87,15 @@ class EpiphanySearchHandler(EpiphanyBookmarksHandler):
 		
 class EpiphanyHistoryHandler(EpiphanyHandler):
 	def __init__(self):
-		EpiphanyHandler.__init__(self)
+		EpiphanyHandler.__init__(self, EPHY_HISTORY_FILE, self._parse_history)
 		self._history = None
 		
 	def initialize(self):
-		global favicon_cache
 		EpiphanyHandler.initialize(self)
+		self._parse_history()
+		
+	def _parse_history(self):
+		global favicon_cache
 		self._history = EpiphanyHistoryParser(self, favicon_cache).get_indexer()
 			
 	def query(self, query, max=5):
@@ -112,11 +131,10 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 		return self._smart_bookmarks
 		
 	def _index_bookmarks(self):
-		bookmarks_file_name = expanduser("~/.gnome2/epiphany/bookmarks.rdf")
-		if exists(bookmarks_file_name):
+		if exists(EPHY_BOOKMARKS_FILE):
 			parser = xml.sax.make_parser()
 			parser.setContentHandler(self)
-			parser.parse(bookmarks_file_name)
+			parser.parse(EPHY_BOOKMARKS_FILE)
 	
 	def characters(self, chars):
 		self.chars = self.chars + chars
@@ -230,11 +248,10 @@ class EpiphanyHistoryParser(xml.sax.ContentHandler):
 		return self._indexer;
 
 	def _index_history(self):
-		history_file_name = expanduser("~/.gnome2/epiphany/ephy-history.xml")
-		if exists(history_file_name):
+		if exists(EPHY_HISTORY_FILE):
 			parser = xml.sax.make_parser()
 			parser.setContentHandler(self)
-			parser.parse(history_file_name)
+			parser.parse(EPHY_HISTORY_FILE)
 
 	
 	def characters(self, chars):

@@ -1,3 +1,19 @@
+2005-10-22  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* TODO:
+	* deskbar/Makefile.am:
+	* deskbar/filewatcher.py:
+	* deskbar/handlers/debug-signal_handler.py:
+	* deskbar/handlers/epiphany.py:
+	* deskbar/handlers/galeon.py:
+	* deskbar/handlers/gtkbookmarks.py:
+	* deskbar/handlers/mozilla.py:
+	Add gnomevfs file monitoring to handlers that need it. Epiphany, Galeon,
+	mozilla now reload on bookmark, history, search engines addition/removal.
+
+	The gtkBookmarks are also reloaded when needed. Other handlers do not need
+	this functionality
+
 2005-10-22  Nigel Tao  <nigeltao@cvs.gnome.org>
 
 	* deskbar/evolution/_evolution.override:

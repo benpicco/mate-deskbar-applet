@@ -1,5 +1,6 @@
 from handler import *
 from time import sleep
+import gobject
 
 HANDLERS = {
 	"SignallingDebugHandler" : {

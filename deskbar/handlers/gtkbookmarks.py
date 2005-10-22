@@ -4,6 +4,7 @@ from gettext import gettext as _
 
 import gnomevfs
 import deskbar.handler
+from deskbar.filewatcher import FileWatcher
 
 HANDLERS = {
 	"GtkBookmarkHandler" : {
@@ -11,6 +12,8 @@ HANDLERS = {
 		"description": _("Open your file manager's bookmarks by name."),
 	}
 }
+
+GTK_BOOKMARKS_FILE = expanduser("~/.gtk-bookmarks")
 
 class GtkBookmarkMatch(deskbar.handler.Match):
 	def __init__(self, backend, name, path):
@@ -28,10 +31,14 @@ class GtkBookmarkMatch(deskbar.handler.Match):
 class GtkBookmarkHandler(deskbar.handler.Handler):
 	def __init__(self):
 		deskbar.handler.Handler.__init__(self, "folder-bookmark.png")
-		
 		self._locations = {}
 		
 	def initialize(self):
+		if not hasattr(self, 'watcher'):
+			self.watcher = FileWatcher()
+			self.watcher.connect('changed', lambda watcher, f: self._scan_bookmarks_files())
+		
+		self.watcher.add(GTK_BOOKMARKS_FILE)
 		self._scan_bookmarks_files()
 		
 	def query(self, query, max=5):
@@ -42,13 +49,15 @@ class GtkBookmarkHandler(deskbar.handler.Handler):
 				result.append(GtkBookmarkMatch(self, name, loc))
 		
 		return result[:max]
+	
+	def stop(self):
+		self.watcher.remove(GTK_BOOKMARKS_FILE)
 		
 	def _scan_bookmarks_files(self):
-		bmk = expanduser("~/.gtk-bookmarks")
-		if not exists(bmk):
+		if not exists(GTK_BOOKMARKS_FILE):
 			return
 			
-		for line in file(bmk):
+		for line in file(GTK_BOOKMARKS_FILE):
 			line = line.strip()
 			try:
 				if gnomevfs.exists(line):

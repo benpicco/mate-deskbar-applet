@@ -19,6 +19,7 @@ deskbar_PYTHON = \
 	applet_keybinder.py \
 	defs.py \
 	deskbarentry.py \
+	filewatcher.py \
 	handler.py \
 	handler_utils.py \
 	handlers_browsers.py \

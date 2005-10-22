@@ -3,6 +3,7 @@ from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
 
 import gtk
+from deskbar.filewatcher import FileWatcher, DirectoryWatcher
 import deskbar, deskbar.indexer, deskbar.handler
 
 # Check for presence of set to be compatible with python 2.3
@@ -48,8 +49,22 @@ class MozillaBookmarksHandler(deskbar.handler.Handler):
 		self._bookmarks = None
 	
 	def initialize(self):
-		self._bookmarks = MozillaBookmarksParser(self).get_indexer()
+		if not hasattr(self, 'watcher'):
+			self.watcher = FileWatcher()
+			self.watcher.connect('changed', lambda watcher, f: self._parse_bookmarks())
+		
+		# We do some gym to get the effectively parsed files
+		parsed_file = self._parse_bookmarks(self)
+		if parsed_file != None:
+			self.watcher.add(parsed_file)
+		
+	def _parse_bookmarks(self):
+		self._bookmarks, parsed_file = MozillaBookmarksParser(self).get_indexer()
+		return parsed_file
 	
+	def stop(self):
+		self.watcher.remove_all()
+		
 	def query(self, query, max=5):
 		return self._bookmarks.look_up(query)[:max]
 
@@ -64,9 +79,20 @@ class MozillaSearchHandler(deskbar.handler.Handler):
 			smart_dirs = [get_firefox_home_file("search"), "/usr/lib/mozilla-firefox/searchplugins"]
 		else:
 			smart_dirs = [get_mozilla_home_file("search"), "/usr/lib/mozilla/searchplugins"]
-			
+		
+		if not hasattr(self, 'watcher'):
+			self.watcher = DirectoryWatcher()
+			self.watcher.connect('changed', lambda watcher, f: self._parse_search_engines(smart_dirs))
+		
+		self.watcher.add(smart_dirs)
+		self._parse_search_engines(smart_dirs)
+		
+	def _parse_search_engines(self, smart_dirs):		
 		self._smart_bookmarks = MozillaSmartBookmarksDirParser(self, smart_dirs).get_smart_bookmarks()
 
+	def stop(self):
+		self.watcher.remove_all()
+		
 	def query(self, query, max=5):
 		return self._smart_bookmarks
 		
@@ -84,22 +110,24 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 		self._indexer = deskbar.indexer.Index()
 		
 		if USING_FIREFOX:
-			self._index_firefox()
+			self.indexed_file = self._index_firefox()
 		else:
-			self._index_mozilla()
+			self.indexed_file = self._index_mozilla()
 		self.close()
 		
 	def get_indexer(self):
 		"""
 		Returns a completed indexer with the contents of bookmark file
+		and the name of the indexed file
 		"""
-		return self._indexer
+		return (self._indexer, self.indexed_file)
 		
 	def _index_mozilla(self):
 		try:
 			bookmarks_file = get_mozilla_home_file("bookmarks.html")
 			if exists(bookmarks_file):
 				self.feed(file(bookmarks_file).read())
+				return bookmarks_file
 		except Exception, msg:
 			print 'Error retreiving Mozilla Bookmarks:', msg
 		
@@ -108,6 +136,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 			bookmarks_file = get_firefox_home_file("bookmarks.html")
 			if exists(bookmarks_file):
 				self.feed(file(bookmarks_file).read())
+				return bookmarks_file
 		except Exception, msg:
 			print 'Error retreiving Mozilla Bookmarks:', msg
 	
