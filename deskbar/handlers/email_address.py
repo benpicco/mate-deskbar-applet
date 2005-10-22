@@ -11,7 +11,7 @@ HANDLERS = {
 	}
 }
 
-REGEX = re.compile(r'[\w\-][\w\-\.]*@[\w\-][\w\-\.]*[\w]')
+REGEX = re.compile(r'^([\w\-]+\.)*[\w\-]+@([\w\-]+\.)*[\w\-]+$')
 
 class EmailAddressMatch(deskbar.handler.Match):
 	def __init__(self, backend, email):
@@ -32,4 +32,7 @@ class EmailAddressHandler(deskbar.handler.Handler):
 		deskbar.handler.Handler.__init__(self, "stock_mail")
 		
 	def query(self, query, max=5):
-		return [EmailAddressMatch(self, m) for m in REGEX.findall(query)]
+		if REGEX.match(query) != None:
+			return [EmailAddressMatch(self, query)]
+		else:
+			return []

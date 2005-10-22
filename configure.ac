@@ -154,6 +154,7 @@ deskbar/iconentry/Makefile
 deskbar/keybinder/Makefile
 deskbar/beagle/Makefile
 data/Makefile
+data/deskbar-applet.pc
 data/art/Makefile
 po/Makefile.in
 ])

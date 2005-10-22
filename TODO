@@ -1,57 +1,44 @@
 Ideas from the Net:
 	* Tab completions, where applicable, if it doesn't clash with usability
 
-* Truncate strings in the completion view
-* Reload handlers on change via gnomevfs ?
-
-Indexer:
-  - Provides on-disk caching which may be useful
+UI TODOs:
+	* Truncate strings in the completion view
 
 Backends TODOs:
 	General:
 	* Do something about hardcoded path, for example /usr/share/applications
-	* Remove uneccesary markup for i18n
 	* Some icons (.desktop one notably) do not scale down, that's ugly
 	* Launch & show a CLI program in a window (output/err)
-	* Pkg-config for ext handlers
-	
-	Web Address, Email Address: [web_address.py, email_address.py]:
-	* Change regex for URI, currently it doesn't allow user@host
-		
+			
 	Browsers (ephy, ff, moz): [epiphany.py, mozilla.py]
 	* Use Mozilla/FF's history file to present history items
-	* Monitor changes with gnome vfs
-	* 'Search "Search Google" for key', is no good grammar, find something..
 	
-	Address Book + Gaim contacts: [galago.py,Dummy implementation, waiting for python bindings]
-	* Use galago instead of custom parsing (python bindings are coming)
-	* Allow Send IM to: and Send email to:
+	Address Books [evolution.py]
 	* Index Thunderbird address book
 
-	File-system: (provide way to open file/dirs) [filesystem.py]
-	* ?
-	
-	Gtk Bookmarks [gtkbookmarks.py]
-	* Monitor changes with gnome vfs
-	
-	Programs [programs.py]
-	* Currently we provide special special functions for certain specific programs
-	  eg. gnome-dict, gnome-search tool, is that good, how to do it better..
+	Programs [programs.py, pathprograms.py]
 	* Do not show items not in menu or removed by user
 	* Monitor changes with gnome vfs
 	
+	Beagle [beagle.py, beagle-live.py]
+	* Use beagle to retreive metadata about files, for example in recent-files ?
+			
 	Recently-used files [todo]
 	* Index and present
 	* Wait until 2.14 bug code refactoring upstream
-	* Monitor changes with gnome vfs
-		
-	Beagle [todo]
-	* We should also pass the string to beagle via some library (libbeagle or similar)
-	  and show the first matching results in the dropdown
-	* Use beagle to retreive metadata about files, for example in recent-files ?
+	* Monitor changes with gnome vfs	
+	
+	Gaim contacts: [galago.py]
+	* Use galago instead of custom parsing (python bindings are coming)
+	* Allow Send IM to: and Send email to:
+	
+	File-system: (provide way to open file/dirs) [filesystem.py]
+	
+	Gtk Bookmarks [gtkbookmarks.py]
+	
+	Web Address, Email Address: [web_address.py, email_address.py]:
 	
 	Misc
-	* Put some hardwired backends if really needed.
 	These are the old provided backends:
 	`     Search YubNub for %s 								http://www.yubnub.org/parser/parse?command=%s
 	a     Search A9 for %s 									http://www.a9.com/%s
