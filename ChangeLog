@@ -1,5 +1,21 @@
 2005-10-22  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/__init__.py:
+	* deskbar/filewatcher.py:
+	* deskbar/handlers/mozilla.py:
+	* deskbar/module_list.py:
+	Add gnomevfs monitoring for module loader. That means drag and dropped
+	handlers in the user or system handlers directory will be loaded, and
+	automagically show in the prefs dialog, unenabled by default.
+
+	We do not do anything on modification, because it would only be useful for
+	developpers, and then developpers don't want handlers to autoupdate.
+
+	When removing a handler we do nothing, since it's always in memory until
+	next restart, and that's good
+
+2005-10-22  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* TODO:
 	* deskbar/Makefile.am:
 	* deskbar/filewatcher.py:

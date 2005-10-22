@@ -6,6 +6,7 @@ import pydoc
 from os.path import join, basename, normpath, abspath
 from os.path import split, expanduser, exists, isfile, dirname
 import gobject
+from deskbar.filewatcher import DirWatcher
 
 class ModuleContext:
 	"""A generic wrapper for any object stored in a ModuleList.
@@ -49,13 +50,24 @@ class ModuleLoader (gobject.GObject):
 		"""
 		gobject.GObject.__init__ (self)
 		self.ext = extension
+		self.watcher = DirWatcher()
+		self.watcher.connect('changed', self._on_handler_file_changed)
+		
 		if (dirs):
 			self.dirs = map (lambda s: abspath(expanduser(s)), dirs)
 			self.filelist = self.build_filelist ()
+			self.watcher.add(self.dirs)
 		else:
 			self.dirs = None
 			self.filelist = []
-						
+	
+	def _on_handler_file_changed(self, watcher, f):
+		if f in self.filelist or not self.is_module(f):
+			return
+		
+		self.load(f)
+		self.filelist.append(f)
+		
 	def build_filelist (self):
 		"""Returns a list containing the filenames of all qualified modules.
 		This method is automatically invoked by the constructor.

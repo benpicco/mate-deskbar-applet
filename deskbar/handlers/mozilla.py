@@ -3,7 +3,7 @@ from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
 
 import gtk
-from deskbar.filewatcher import FileWatcher, DirectoryWatcher
+from deskbar.filewatcher import FileWatcher, DirWatcher
 import deskbar, deskbar.indexer, deskbar.handler
 
 # Check for presence of set to be compatible with python 2.3
@@ -81,7 +81,7 @@ class MozillaSearchHandler(deskbar.handler.Handler):
 			smart_dirs = [get_mozilla_home_file("search"), "/usr/lib/mozilla/searchplugins"]
 		
 		if not hasattr(self, 'watcher'):
-			self.watcher = DirectoryWatcher()
+			self.watcher = DirWatcher()
 			self.watcher.connect('changed', lambda watcher, f: self._parse_search_engines(smart_dirs))
 		
 		self.watcher.add(smart_dirs)

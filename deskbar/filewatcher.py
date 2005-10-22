@@ -31,8 +31,8 @@ class Watcher(gobject.GObject):
 		self.remove(self.watched.keys())
 				
 	def _on_change(self, monitor, changed, event):
-		if event == gnomevfs.MONITOR_EVENT_CHANGED or event == gnomevfs.MONITOR_EVENT_DELETED or event == gnomevfs.MONITOR_EVENT_CREATED:
-			self.emit('changed', changed)
+		if event == gnomevfs.MONITOR_EVENT_CHANGED or event == gnomevfs.MONITOR_EVENT_CREATED:
+			self.emit('changed', gnomevfs.get_local_path_from_uri(changed))
 		
 class FileWatcher(Watcher):
 	def __init__(self):

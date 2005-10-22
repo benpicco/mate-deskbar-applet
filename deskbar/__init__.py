@@ -35,7 +35,14 @@ else:
 	HANDLERS_DIR = join(LIB_DIR, "deskbar-applet", "handlers")
 print "Handlers Dir: %s" % HANDLERS_DIR
 
-MODULES_DIRS = [HANDLERS_DIR, expanduser("~/.gnome2/deskbar-applet/handlers")]
+USER_HANDLERS_DIR = expanduser("~/.gnome2/deskbar-applet/handlers")
+if not exists(USER_HANDLERS_DIR):
+	try:
+		os.makedirs(USER_HANDLERS_DIR, 0744)
+	except Exception , msg:
+		print 'Error:could not create user handlers dir (%s): %s' % (USER_HANDLERS_DIR, msg)
+
+MODULES_DIRS = [HANDLERS_DIR, USER_HANDLERS_DIR]
 # ------------------------------------------------------------------------------
 
 # Set the cwd to the home directory so spawned processes behave correctly
