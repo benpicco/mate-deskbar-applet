@@ -26,6 +26,7 @@ HANDLERS = {
 #
 # Optionally:
 #	"extra"	: A dict containing key:template pairs to search for. You can use %(key)s in "description".
+#             the template is a tuple of strings which should be tested in order to retreive the value
 
 TYPES = {
 	"Contact"	: {
@@ -39,7 +40,7 @@ TYPES = {
 		"name"	:"dc:title",
 		"action": "evolution",
 		"icon"	: "stock_mail",
-		"extra": {"sender":"from_name"},
+		"extra": {"sender":("fixme:from_name", "parent:fixme:from_name")},
 		"description": _("View email from <i>%(sender)s</i>: <b>%(name)s</b>")
 		},
 	"File" 		: {
@@ -182,12 +183,14 @@ class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 				result["name"] = _("?")
 				
 			if "extra" in hit_type:
-				for prop, key in hit_type["extra"].items():
-					val = hit.get_property(key)
-					if val != None:
-						result[prop] = cgi.escape(val)
+				for prop, keys in hit_type["extra"].items():
+					for key in keys:
+						val = hit.get_property(key)
+						if val != None:
+							result[prop] = cgi.escape(val)
+							break
 					else:
-						result[prop] = val
+						result[prop] = None
 			
 			hit_matches.append(BeagleLiveMatch(self, result))
 			
