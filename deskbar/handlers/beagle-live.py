@@ -32,7 +32,7 @@ HANDLERS = {
 
 TYPES = {
 	"Contact"	: {
-		"name"	: ("fixme:FileAs"),
+		"name"	: ("fixme:FileAs",),
 		"action": "evolution",
 		"icon"	: "stock_contact",
 		"description": _("Addressbook entry for <b>%(name)s</b>")
@@ -46,32 +46,32 @@ TYPES = {
 		"description": _("View email from <i>%(sender)s</i>: <b>%(name)s</b>")
 		},
 	"File" 		: {
-		"name"	: ("beagle:ExactFilename"), 
+		"name"	: ("beagle:ExactFilename",), 
 		"action": "gnome-open",
 		"icon"	: "stock_new",
 		"description": _("Open <b>%(name)s</b>")
 		},
 	"FeedItem"	: {
-		"name"	: ("dc:title"),
+		"name"	: ("dc:title",),
 		"action": "gnome-open",
 		"icon"	: "stock_news",
 		"description": _("Open news item <b>%(name)s</b>"),
 		},
 	"Note"		: {
-		"name"	: ("dc:title"),
+		"name"	: ("dc:title",),
 		"action": "tomboy",
 		"action_args": "--open-note",
 		"icon"	:"stock_notes",
 		"description": _("Open note <b>%(name)s</b>")
 		},
 	"IMLog"		: {
-		"name"	: ("fixme:speakingto"),
+		"name"	: ("fixme:speakingto",),
 		"action": "beagle-imlogviewer",
 		"icon"	: "im",
 		"description": _("View conversation with <b>%(name)s</b>")
 		},
 	"Calendar"	: {
-		"name"	: ("fixme:summary"),
+		"name"	: ("fixme:summary",),
 		"action": "evolution",
 		"icon"	: "stock_calendar",
 		"description": _("View calendar <b>%s(name)</b>")
