@@ -46,6 +46,6 @@ class WebAddressHandler(deskbar.handler.Handler):
 		
 		match = HTTP_REGEX.match(query)
 		if match != None:
-			return [WebAddressMatch(self, query, (match.group('method') != ""))]
+			return [WebAddressMatch(self, query, (match.group('method') != None))]
 	
 		return []

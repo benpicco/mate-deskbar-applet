@@ -1,25 +1,85 @@
 =============
-deskbar-applet 0.4.0
+deskbar-applet
 =============
-FIXME: Intro.
 
 =============
-Requirements
+Known issues
 =============
-You will need the following packages to build and run the deskbar applet:
- * GTK and PyGTK 2.8
- * Python 2.3
- * gnome-python 2.10
- * gnome-python-extras 2.10
+* Beagle
+* Google
 
- Beagle is recommended, as well as a browser like epiphany or firefox
+================================================================================
+== Buzzwords-laden Overview ==
+The deskbar is an applet a little like the mini-commander: An entry where
+you can type queries. While you type, these words are then passed to a
+list of pluggable backends which produce results, shown in a list.
+Selecting a result with the keyboard or mouse triggers the associated action.
+
+We offer a broad range of builtin backends, see the section Features here under.
+
+Deskbar by itself could improve the experience of the alt-f2 dialog
+and mini-commander, instead of proposing only programs, you could have
+all the power of the backends at your fingertips.
+
+
+== Features ==
+Generic:
+ * Sits in the panel waiting for input
+ * Global configurable hotkey to directly focus the entry and start typing
+ * Pluggable backend architecture, allows to add custom backends in home/system dir. Allows third parties to add a backend, ie. tomboy can add a tomboy backend by installing a python script in a specified folder.
+ * Sorting of backend results order is adaptable easily.
+ * Ability to choose a fixed width or to expand in the panel to fill all available room
+ * Intuitive history menu, to repeat frequent actions
+ * Fully i18n-ed
+ * Use themed icons associated with actions, to have a visual feedback
+
+Backends:
+ * Simple API for backends implementors, either blocking or non-blocking.
+ * Simple static backends like 'Search xx with yy' where yy can be beagle, gnome-dict, gnome-search-tool,..
+ * Index .desktop files in english and locale, and allow to launch a program by typing some descriptive words, for example typing 'text' returns gedit, gvim, ... but you can also type 'editeur' in french and get the same results.
+ * Launch command line applications with any arguments: 'killall evolution', 'sitecopy -uo mysite'
+ * Open directories/files by typing a full path, or relative to home dir
+ * Open nautilus bookmarks and computer volumes (with network places) by name
+ * Send mail by typing an email address, open a webpage by typing an address
+ * With evolution-data-server, type an name or address and send mails to your addressbook contacts
+ * With libbeagle, show a small selection of beagle result for typed word
+ * Perform google queries with typed word, and show the results in the list
+ * Browser integration (epiphany, galeon, and mozilla/firefox): index the bookmarks title and url, also index the history, and smart bookmarks/search engines.
+ * Gnomevfs monitoring where applicable:
+  * dynamic handler installation with drag and drop, reload on modification
+  * watch indexed files to detect changes, like new program installation, or new bookmarks
+ * Pkg-config file to allow apps to easily install handlers to system location
+
+== Planned Features ==
+ * UI Rework to have a better suited widget than a flat list out of CompletionPopup, in progress
+ * Mozilla/Firefox history indexation
+ * When ready, python bindings for galago, allowing integration with gaim contacts
+ * Thunderbird addressbook, similar to evolution support
+ * When framework is complete, support for recently used files
+ 
+== Requirements ==
+Required dependencies:
+ * Python 2.3 or above
+ * pygtk-2.6 (modules: gtk, gtk.gdk, gtk.glade, gobject)
+ * gnome-python-2.10 (modules: gconf, gnome, gnome.ui, gnomevfs)
+ * gnome-python-extras-2.10 (module: gnomeapplet)
+ * gtk+-2.6 to compile global hotkey and icon entry
+
+Optional dependencies:
+ * Compile time:
+  * evolution-data-server-1.2, for libebook-1.2
+  * beagle-1.1, python bindings for libbeagle, currently shipped, and on their way upstream
+ * Run time:
+  * Running beagle daemon
+  * Running evolution-data-server
+  * SOAPpy package to search with google soap API
 
 =============
 Installation
 =============
 Execute the following steps to install deskbar-applet
 
-./configure
+./configure --prefix /usr
 make
 
 Now you can either install it on your system:
@@ -29,10 +89,3 @@ Then you are able to add the applet through the gnome-panel applet manager.
 
 Or you can try it without installation, by running
 ./deskbar/deskbar-applet -w
-
-=============
-Known issues
-=============
-Address Book searches don't work.  I'm waiting for Python bindings for
-galago.  For those who watched the screencast, they were just
-a mock-up.  Sorry.  Everything else should work, though.  :)
