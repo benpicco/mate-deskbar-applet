@@ -45,7 +45,7 @@ TYPES = {
 	"File" 		: {
 		"name"	: "beagle:ExactFilename", 
 		"action": "gnome-open",
-		"icon"	: None,
+		"icon"	: "stock_new",
 		"description": _("Open <b>%(name)s</b>")
 		},
 	"FeedItem"	: {
@@ -86,20 +86,25 @@ class BeagleLiveMatch (deskbar.handler.Match):
 		-- and optionally extra fields as provided by the corresponding entry in TYPES.
 		Fx. "MailMessage". has an extra "sender" entry.
 		"""
-		if result["type"] == "File":
-			try:
-				icon = deskbar.handler_utils.load_icon_for_file(result["uri"])
-				if icon:
-					deskbar.handler.Match.__init__ (self, handler, result["name"], icon)
-				else:
-					raise Exception()
-			except Exception:
-				deskbar.handler.Match.__init__ (self, handler, result["name"], handler.ICONS["File"])
-				print >> sys.stderr, "BeagleLive: Failed to load icon for file %s" % result["uri"]
-
-		else:
-			# We are not a file. Just use an icon from the ICON table
-			deskbar.handler.Match.__init__ (self, handler, result["name"], handler.ICONS[result["type"]])
+		#
+		# There's a nasty bug in gnome.ui forcing us to leave out file thumbnailing atm.
+		# http://bugzilla.gnome.org/show_bug.cgi?id=319549
+		#
+		
+		#if result["type"] == "File":
+		#	try:
+		#		icon = deskbar.handler_utils.load_icon_for_file(result["uri"])
+		#		if icon:
+		#			deskbar.handler.Match.__init__ (self, handler, result["name"], icon)
+		#		else:
+		#			raise Exception()
+		#	except Exception:
+		#		deskbar.handler.Match.__init__ (self, handler, result["name"], handler.ICONS["File"])
+		#		print >> sys.stderr, "BeagleLive: Failed to load icon for file %s" % result["uri"]
+		#
+		#else:
+		#	# We are not a file. Just use an icon from the ICON table
+		deskbar.handler.Match.__init__ (self, handler, result["name"], handler.ICONS[result["type"]])
 		
 		self.__result = result
 	

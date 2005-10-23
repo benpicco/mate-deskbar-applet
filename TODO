@@ -5,7 +5,10 @@ UI TODOs:
 	* Truncate strings in the completion view
 	* Enable drag-n-drop along with cuemiac, for example dragging file hits to desktop/nautilus
 	* An UI for errors/infos happening during module load/init
-	
+
+kikidonk: parsing $XDG_DATA_DIRS/applications and falling back to $PREFIX/share/applications seems like the solution :)
+bitbull (I know that at least SuSE also does the /opt/gnome trick, I'm not sure if they utilize $XDG_DATA_DIRS yet, but if they don't the fallback will save them)
+
 Backends TODOs:
 	General:
 	* Do something about hardcoded path, for example /usr/share/applications
