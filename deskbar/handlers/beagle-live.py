@@ -1,5 +1,5 @@
 import os, sys, cgi
-import gtk, gnome.ui
+import gtk, gnome.ui, gnomevfs
 import deskbar, deskbar.handler, deskbar.beagle, deskbar.handler_utils
 from gettext import gettext as _
 from os.path import exists
@@ -26,50 +26,52 @@ HANDLERS = {
 #
 # Optionally:
 #	"extra"	: A dict containing key:template pairs to search for. You can use %(key)s in "description".
-#             the template is a tuple of strings which should be tested in order to retreive the value
+#
+# Note:
+#  The templates are a tuple of strings which should be tested in order to retreive the beagle property
 
 TYPES = {
 	"Contact"	: {
-		"name"	: "fixme:FileAs",
+		"name"	: ("fixme:FileAs"),
 		"action": "evolution",
 		"icon"	: "stock_contact",
 		"description": _("Addressbook entry for <b>%(name)s</b>")
 		},
 	
 	"MailMessage" 	: {
-		"name"	:"dc:title",
+		"name"	:("dc:title", "parent:dc:title"),
 		"action": "evolution",
 		"icon"	: "stock_mail",
 		"extra": {"sender":("fixme:from_name", "parent:fixme:from_name")},
 		"description": _("View email from <i>%(sender)s</i>: <b>%(name)s</b>")
 		},
 	"File" 		: {
-		"name"	: "beagle:ExactFilename", 
+		"name"	: ("beagle:ExactFilename"), 
 		"action": "gnome-open",
 		"icon"	: "stock_new",
 		"description": _("Open <b>%(name)s</b>")
 		},
 	"FeedItem"	: {
-		"name"	:"dc:title",
+		"name"	: ("dc:title"),
 		"action": "gnome-open",
 		"icon"	: "stock_news",
 		"description": _("Open news item <b>%(name)s</b>"),
 		},
 	"Note"		: {
-		"name"	: "dc:title",
+		"name"	: ("dc:title"),
 		"action": "tomboy",
 		"action_args": "--open-note",
 		"icon"	:"stock_notes",
 		"description": _("Open note <b>%(name)s</b>")
 		},
 	"IMLog"		: {
-		"name"	: "fixme:speakingto",
+		"name"	: ("fixme:speakingto"),
 		"action": "beagle-imlogviewer",
 		"icon"	: "im",
 		"description": _("View conversation with <b>%(name)s</b>")
 		},
 	"Calendar"	: {
-		"name"	: "fixme:summary",
+		"name"	: ("fixme:summary"),
 		"action": "evolution",
 		"icon"	: "stock_calendar",
 		"description": _("View calendar <b>%s(name)</b>")
@@ -128,10 +130,9 @@ class BeagleLiveMatch (deskbar.handler.Match):
 		if TYPES[self.__result["type"]].has_key ("action_args"):
 			args.append(TYPES[self.__result["type"]]["action_args"])
 		
-		# Gross hack, imlogviewer doesn't take URI as args, but a filename
 		if action == "beagle-imlogviewer":
-			# Strip the file://
-			args.append (self.__result["uri"][7:])
+			# Strip the uti descriptor, because imlogviewer takes a local path
+			args.append (gnomevfs.get_local_path_from_uri(self.__result["uri"]))
 		else:
 			args.append (self.__result["uri"])
 
@@ -173,12 +174,14 @@ class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 				
 			hit_type = TYPES[hit.get_type()]
 			result = {
-				"name": hit.get_property(hit_type["name"]),
 				"uri":  hit.get_uri(),
 				"type": hit.get_type(),
 			}
-			if result["name"] != None:
-				result["name"] = cgi.escape(result["name"])
+			for prop in hit_type["name"]:
+				name = hit.get_property(prop)
+				if name != None:
+					result["name"] = cgi.escape(name)
+					break
 			else:
 				result["name"] = _("?")
 				
