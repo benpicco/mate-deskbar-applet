@@ -154,6 +154,8 @@ class DeskbarApplet:
 		
 	def build_history_menu(self, event):
 		menu = gtk.Menu()
+		menu.attach_to_widget(self.entry.get_evbox(), lambda: None)
+		
 		history = self.entry.get_history()
 		
 		i = 0
