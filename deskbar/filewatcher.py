@@ -13,8 +13,11 @@ class Watcher(gobject.GObject):
 	def add(self, args):
 		if not type(args) is list:
 			args = [args]
-			
+
 		for name in args:
+			if name == "":
+				continue
+				
 			if not name in self.watched:
 				self.watched[name] = gnomevfs.monitor_add(name, self.monitor_type, self._on_change)
 	

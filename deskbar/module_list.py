@@ -35,9 +35,15 @@ class ModuleLoader (gobject.GObject):
 	"""
 	
 	__gsignals__ = {
+		# Fired when the passed module context is loaded, that is the module's __init__ method has been called
 		"module-loaded" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+		# Fired when load_all has loaded every available modules
 		"modules-loaded" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
+		# Fired when the passed module context has successfully run the initialize() method, and is thus ready to be queried
 		"module-initialized" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+		# Fired when the passed module context has not run initialize() without errors. The module is no usable anymore
+		"module-not-initialized" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+		# Fired when the passed module context has run the stop() method successfully. The module is not usable anymore
 		"module-stopped" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
 	}
 	
@@ -170,7 +176,13 @@ class ModuleLoader (gobject.GObject):
 		"""
 		
 		print "Initializing %s" % context.infos["name"]
-		context.module.initialize ()
+		try:
+			context.module.initialize ()
+		except Exception, msg:
+			print "Error while initializing %s" % context.infos["name"]
+			context.enabled = False
+			self.emit("module-not-initialized", context)
+			return
 		
 		context.enabled = True
 		self.emit("module-initialized", context)

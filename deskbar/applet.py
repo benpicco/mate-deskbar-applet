@@ -23,6 +23,7 @@ class DeskbarApplet:
 		self.loader.connect ("module-loaded", self.module_list.update_row_cb)
 		self.loader.connect ("module-initialized", self.module_list.module_toggled_cb)
 		self.loader.connect ("module-initialized", self.on_module_initialized)
+		self.loader.connect ("module-not-initialized", self.on_module_initialized)
 		self.loader.connect ("module-stopped", self.module_list.module_toggled_cb)
 		
 		self.entry = deskbar.deskbarentry.DeskbarEntry(self.module_list)
@@ -102,7 +103,7 @@ class DeskbarApplet:
 		self._inited_modules = self._inited_modules + 1
 		if self._inited_modules == self._loaded_modules:
 			self.on_applet_sensivity_update(True)
-	
+		
 	def on_applet_sensivity_update(self, active):
 		self.entry.get_entry().set_sensitive(active)
 		self.entry.get_evbox().set_sensitive(active)

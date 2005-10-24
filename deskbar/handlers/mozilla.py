@@ -25,12 +25,12 @@ HANDLERS = {
 	"MozillaBookmarksHandler" : {
 		"name": _("Bookmarks"),
 		"description": _("Index your bookmarks"),
-		"requirements": _check_requirements,
+		#"requirements": _check_requirements,
 	},
 	"MozillaSearchHandler" : {
 		"name": _("Search Engines"),
 		"description": _("Index your search engines"),
-		"requirements": _check_requirements,
+		#"requirements": _check_requirements,
 	}
 }
 
@@ -54,7 +54,7 @@ class MozillaBookmarksHandler(deskbar.handler.Handler):
 			self.watcher.connect('changed', lambda watcher, f: self._parse_bookmarks())
 		
 		# We do some gym to get the effectively parsed files
-		parsed_file = self._parse_bookmarks(self)
+		parsed_file = self._parse_bookmarks()
 		if parsed_file != None:
 			self.watcher.add(parsed_file)
 		

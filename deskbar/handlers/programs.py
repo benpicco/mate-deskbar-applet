@@ -73,16 +73,19 @@ class SpecialProgramHandler(deskbar.handler.Handler):
 	def __init__(self, desktop, icon="generic.png"):
 		deskbar.handler.Handler.__init__(self, icon)
 		self._desktop = desktop
+		self._match = None
 		
 	def initialize(self):
 		result = parse_desktop_file(self._desktop)
-		self._match = self.create_match(result["name"], result["program"], result["pixbuf"])
+		if result != None:
+			self._match = self.create_match(result["name"], result["program"], result["pixbuf"])
 	
 	def create_match(self, name, program, icon):
 		raise NotImplementedError
 		
 	def query(self, qstring, qmax):
-		return [self._match]
+		if self._match != None:
+			return [self._match]
 		
 class GnomeDictHandler(SpecialProgramHandler):
 	def __init__(self):
@@ -112,8 +115,9 @@ class ProgramsHandler(deskbar.handler.Handler):
 	def _scan_desktop_files(self):
 		for f in glob.glob("/usr/share/applications/*.desktop"):
 			result = parse_desktop_file(f)
-			match = GenericProgramMatch(self, result["name"], result["program"], result["pixbuf"])
-			self._indexer.add("%s %s %s %s %s" % (result["name"], result["program"], result["comment"], result["engname"], result["engcomment"]), match)
+			if result != None:
+				match = GenericProgramMatch(self, result["name"], result["program"], result["pixbuf"])
+				self._indexer.add("%s %s %s %s %s" % (result["name"], result["program"], result["comment"], result["engname"], result["engcomment"]), match)
 
 def parse_desktop_file(desktop):
 	try:

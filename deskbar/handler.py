@@ -76,6 +76,7 @@ class Handler:
 		"""
 		The constructor of the Handler should not block. 
 		Heavy duty tasks such as indexing should be done in the initialize() method.
+		Under all circumstances, the constructor should not raise ANY exception
 		"""
 		self._icon = deskbar.handler_utils.load_icon(iconfile)
 	
@@ -103,6 +104,9 @@ class Handler:
 		
 		Handler.initialize() is guarantied to be called before the handler
 		is queried.
+		
+		If an exception is thrown in this method, the module will be ignored and will
+		not receive any query.
 		"""
 		pass
 	
