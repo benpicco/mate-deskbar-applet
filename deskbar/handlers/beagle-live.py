@@ -74,7 +74,7 @@ TYPES = {
 		"name"	: ("fixme:summary",),
 		"action": "evolution",
 		"icon"	: "stock_calendar",
-		"description": _("View calendar <b>%s(name)</b>")
+		"description": _("View calendar <b>%(name)s</b>")
 		},
 }
 
