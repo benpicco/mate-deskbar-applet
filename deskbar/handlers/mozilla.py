@@ -25,12 +25,12 @@ HANDLERS = {
 	"MozillaBookmarksHandler" : {
 		"name": _("Bookmarks"),
 		"description": _("Index your bookmarks"),
-		#"requirements": _check_requirements,
+		"requirements": _check_requirements,
 	},
 	"MozillaSearchHandler" : {
 		"name": _("Search Engines"),
 		"description": _("Index your search engines"),
-		#"requirements": _check_requirements,
+		"requirements": _check_requirements,
 	}
 }
 

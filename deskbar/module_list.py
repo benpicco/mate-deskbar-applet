@@ -179,7 +179,7 @@ class ModuleLoader (gobject.GObject):
 		try:
 			context.module.initialize ()
 		except Exception, msg:
-			print "Error while initializing %s" % context.infos["name"]
+			print "Error while initializing %s: %s" % (context.infos["name"],msg)
 			context.enabled = False
 			self.emit("module-not-initialized", context)
 			return
