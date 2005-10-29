@@ -19,7 +19,11 @@ class Watcher(gobject.GObject):
 				continue
 				
 			if not name in self.watched:
-				self.watched[name] = gnomevfs.monitor_add(name, self.monitor_type, self._on_change)
+				try:
+					self.watched[name] = gnomevfs.monitor_add(name, self.monitor_type, self._on_change)
+				except Exception, msg:
+					print 'Error:add_watched_file:', msg
+					self.watched[name] = 0
 	
 	def remove(self, args):
 		if not type(args) is list:
@@ -27,7 +31,8 @@ class Watcher(gobject.GObject):
 			
 		for name in args:
 			if name in self.watched:
-				gnomevfs.monitor_cancel(self.watched[name])
+				if self.watched[name] != 0:
+					gnomevfs.monitor_cancel(self.watched[name])
 				del self.watched[name]
 	
 	def remove_all(self):
