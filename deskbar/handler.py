@@ -175,7 +175,10 @@ class SignallingHandler (Handler, gobject.GObject):
 		
 	def is_async (self):
 		return True
-
+		
+if gtk.gtk_version < (2,8,0):
+	gobject.type_register(SignallingHandler)
+	
 # Here begins the Nastyness
 from Queue import Queue
 from Queue import Empty
@@ -342,3 +345,6 @@ class AsyncHandler (Handler, gobject.GObject):
 	def is_async (self):
 		"""Well what do you think?"""
 		return True
+
+if gtk.gtk_version < (2,8,0):
+	gobject.type_register(AsyncHandler)

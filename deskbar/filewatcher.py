@@ -1,5 +1,5 @@
 import gnomevfs
-import gobject
+import gobject, gtk
 
 class Watcher(gobject.GObject):
 	__gsignals__ = {
@@ -36,7 +36,10 @@ class Watcher(gobject.GObject):
 	def _on_change(self, monitor, changed, event):
 		if event == gnomevfs.MONITOR_EVENT_CHANGED or event == gnomevfs.MONITOR_EVENT_CREATED:
 			self.emit('changed', gnomevfs.get_local_path_from_uri(changed))
-		
+
+if gtk.gtk_version < (2,8,0):
+	gobject.type_register(Watcher)
+	
 class FileWatcher(Watcher):
 	def __init__(self):
 		Watcher.__init__(self)
