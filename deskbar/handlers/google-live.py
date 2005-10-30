@@ -57,7 +57,7 @@ class GoogleMatch (Match):
 		return "%(name)s"
 		
 	def action(self, text=None):
-		os.spawnlp(os.P_NOWAIT, "gnome-open", "gnome-open", self.__url)
+		gobject.spawn_async(["gnome-open", self.__url], flags=gobject.SPAWN_SEARCH_PATH)
 
 class GoogleLiveHandler (AsyncHandler):
 	"""

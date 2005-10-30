@@ -4,6 +4,7 @@ from os.path import split, expanduser, exists, isfile
 
 from gettext import gettext as _
 
+import gobject
 import gtk, gnome.ui
 import deskbar, deskbar.indexer
 import deskbar.handler
@@ -24,7 +25,7 @@ class FolderMatch(deskbar.handler.Match):
 		self._filename = absname
 		
 	def action(self, text=None):
-		os.spawnlp(os.P_NOWAIT, "nautilus", "nautilus", self._filename)
+		gobject.spawn_async(["nautilus", self._filename], flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):
 		return _("Open folder <b>%(name)s</b>")

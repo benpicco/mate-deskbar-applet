@@ -1,5 +1,6 @@
 from gettext import gettext as _
 import re, os
+import gobject
 import gnomevfs
 import deskbar.handler
 
@@ -27,7 +28,7 @@ class WebAddressMatch(deskbar.handler.Match):
 		if self._url.startswith("http"):
 			gnomevfs.url_show(self._url)
 		else:
-			os.spawnlp(os.P_NOWAIT, "nautilus", "nautilus", self._url)
+			gobject.spawn_async(["nautilus", self._url], flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):
 		if not self._has_method:

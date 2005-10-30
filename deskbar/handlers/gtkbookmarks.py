@@ -2,6 +2,7 @@ import os, urllib
 from os.path import expanduser, split, exists
 from gettext import gettext as _
 
+import gobject
 import gnomevfs
 import deskbar.handler
 from deskbar.filewatcher import FileWatcher
@@ -22,7 +23,7 @@ class GtkBookmarkMatch(deskbar.handler.Match):
 		
 	def action(self, text=None):
 		self._priority = self._priority+1
-		os.spawnlp(os.P_NOWAIT, "nautilus", "nautilus", self._path)
+		gobject.spawn_async(["nautilus", self._path], flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):
 		return _("Open location <b>%(name)s</b>")

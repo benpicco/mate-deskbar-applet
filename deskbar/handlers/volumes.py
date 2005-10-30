@@ -3,6 +3,8 @@ import ConfigParser
 from os.path import join
 from gettext import gettext as _
 
+import gobject
+
 import deskbar
 from deskbar.handler import Handler
 from deskbar.handler import Match
@@ -26,7 +28,7 @@ class VolumeMatch (Match):
 	
 	def action(self, text=None):
 		self._priority = self._priority+1
-		os.spawnlp(os.P_NOWAIT, "nautilus", "nautilus", self.__drive.get_activation_uri())
+		gobject.spawn_async(["nautilus", self.__drive.get_activation_uri()], flags=gobject.SPAWN_SEARCH_PATH)
 	 
 	def get_verb(self):
 		uri_scheme = gnomevfs.get_uri_scheme(self.__drive.get_activation_uri()) 

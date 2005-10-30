@@ -3,6 +3,7 @@ import glob
 from os.path import join, isfile, abspath, splitext, expanduser, exists, isdir
 from gettext import gettext as _
 
+import gobject
 import gtk
 import deskbar, deskbar.indexer
 import deskbar.handler
@@ -25,11 +26,11 @@ class PathProgramMatch(deskbar.handler.Match):
 	def action(self, text=None):
 		self._priority = self._priority+1
 		if text == None:
-			os.spawnlp(os.P_NOWAIT, self._name, self._name)
+			gobject.spawn_async([self._name], flags=gobject.SPAWN_SEARCH_PATH)
 		else:
 			args = text.split(" ")[1:]
 			args.insert(0, self._name)
-			os.spawnvp(os.P_NOWAIT, self._name, args)
+			gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):
 		return _("Execute <b>%(text)s</b>")

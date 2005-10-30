@@ -3,6 +3,7 @@ import glob
 from os.path import join, isfile, abspath, splitext, expanduser
 from gettext import gettext as _
 
+import gobject
 import gtk
 import deskbar, deskbar.indexer, deskbar.locale_utils, deskbar.handler_utils
 import deskbar.handler
@@ -43,7 +44,7 @@ class GenericProgramMatch(deskbar.handler.Match):
 			args.append(text)
 			
 		print 'Running "%s" "%r"' % (prog, args)
-		os.spawnvp(os.P_NOWAIT, prog, args)
+		gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):
 		return _("Launch <b>%(name)s</b> (%(prog)s)")

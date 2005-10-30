@@ -2,6 +2,7 @@ import os
 from os.path import exists
 from gettext import gettext as _
 
+import gobject
 import deskbar.handler, deskbar.handler_utils
 
 #FIXME: better way to detect beagle ?
@@ -19,7 +20,7 @@ class BeagleMatch(deskbar.handler.Match):
 		deskbar.handler.Match.__init__(self, backend, name)
 		
 	def action(self, text=None):
-		os.spawnvp(os.P_NOWAIT, "best", ['best', '--no-tray', '--show-window', self._name])
+		gobject.spawn_async(["best", '--no-tray', '--show-window', self._name], flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):
 		return _("Search <b>%(name)s</b> with Beagle")

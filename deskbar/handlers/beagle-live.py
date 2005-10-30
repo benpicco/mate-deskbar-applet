@@ -1,5 +1,5 @@
 import os, sys, cgi
-import gtk, gnome.ui, gnomevfs
+import gobject,gtk, gnome.ui, gnomevfs
 import deskbar, deskbar.handler, deskbar.beagle, deskbar.handler_utils
 from gettext import gettext as _
 from os.path import exists
@@ -137,7 +137,7 @@ class BeagleLiveMatch (deskbar.handler.Match):
 			args.append (self.__result["uri"])
 
 		print "BeagleLive spawning:", action, args
-		os.spawnvp(os.P_NOWAIT, action, args)
+		gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
 		
 class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 	def __init__(self):
