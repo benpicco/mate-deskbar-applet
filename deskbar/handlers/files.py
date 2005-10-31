@@ -20,7 +20,7 @@ HANDLERS = {
 
 class FileMatch(deskbar.handler.Match):
 	def __init__(self, backend, prefix, absname):
-		pixbuf = deskbar.handler_utils.load_icon_from_file(absname)
+		pixbuf = deskbar.handler_utils.load_icon_for_file(absname)
 		name = join(prefix, basename(absname))
 		deskbar.handler.Match.__init__(self, backend, name, pixbuf)
 		

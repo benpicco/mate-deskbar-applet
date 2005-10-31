@@ -31,7 +31,12 @@ class VolumeMatch (Match):
 		gobject.spawn_async(["nautilus", self.__drive.get_activation_uri()], flags=gobject.SPAWN_SEARCH_PATH)
 	 
 	def get_verb(self):
-		uri_scheme = gnomevfs.get_uri_scheme(self.__drive.get_activation_uri()) 
+		activation = self.__drive.get_activation_uri()
+		if activation == None:
+			uri_scheme = None
+		else:
+			uri_scheme = gnomevfs.get_uri_scheme(activation) 
+			
 		if uri_scheme in NETWORK_URIS:
 			return _("Open network place <b>%(name)s</b>")
 		elif uri_scheme in AUDIO_URIS:

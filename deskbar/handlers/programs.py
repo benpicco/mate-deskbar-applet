@@ -1,12 +1,13 @@
 import os, ConfigParser, cgi, re
 import glob
-from os.path import join, isfile, abspath, splitext, expanduser
+from os.path import join, isfile, abspath, splitext, expanduser, exists
 from gettext import gettext as _
 
 import gobject
 import gtk
 import deskbar, deskbar.indexer, deskbar.locale_utils, deskbar.handler_utils
 import deskbar.handler
+from deskbar.handler_utils import get_xdg_data_dirs
 
 HANDLERS = {
 	"ProgramsHandler" : {
@@ -77,7 +78,7 @@ class SpecialProgramHandler(deskbar.handler.Handler):
 		self._match = None
 		
 	def initialize(self):
-		result = parse_desktop_file(self._desktop)
+		result = parse_desktop_filename(self._desktop)
 		if result != None:
 			self._match = self.create_match(result["name"], result["program"], result["pixbuf"])
 	
@@ -87,17 +88,19 @@ class SpecialProgramHandler(deskbar.handler.Handler):
 	def query(self, qstring, qmax):
 		if self._match != None:
 			return [self._match]
+		else:
+			return []
 		
 class GnomeDictHandler(SpecialProgramHandler):
 	def __init__(self):
-		SpecialProgramHandler.__init__(self, "/usr/share/applications/gnome-dictionary.desktop", "gdict")
+		SpecialProgramHandler.__init__(self, "gnome-dictionary.desktop", "gdict")
 	
 	def create_match(self, name, program, icon):
 		return GnomeDictMatch(self, name, program, icon)
 
 class GnomeSearchHandler(SpecialProgramHandler):
 	def __init__(self):
-		SpecialProgramHandler.__init__(self, "/usr/share/applications/gnome-search-tool.desktop", "gnome-searchtool")
+		SpecialProgramHandler.__init__(self, "gnome-search-tool.desktop", "gnome-searchtool")
 	
 	def create_match(self, name, program, icon):
 		return GnomeSearchMatch(self, name, program, icon)
@@ -114,12 +117,20 @@ class ProgramsHandler(deskbar.handler.Handler):
 		return self._indexer.look_up(query)[:max]
 		
 	def _scan_desktop_files(self):
-		for f in glob.glob("/usr/share/applications/*.desktop"):
-			result = parse_desktop_file(f)
-			if result != None:
-				match = GenericProgramMatch(self, result["name"], result["program"], result["pixbuf"])
-				self._indexer.add("%s %s %s %s %s" % (result["name"], result["program"], result["comment"], result["engname"], result["engcomment"]), match)
+		for dir in get_xdg_data_dirs():
+			for f in glob.glob(join(dir, "applications", "*.desktop")):
+				result = parse_desktop_file(f)
+				if result != None:
+					match = GenericProgramMatch(self, result["name"], result["program"], result["pixbuf"])
+					self._indexer.add("%s %s %s %s %s" % (result["name"], result["program"], result["comment"], result["engname"], result["engcomment"]), match)
 
+def parse_desktop_filename(desktop):
+	for dir in get_xdg_data_dirs():
+		if exists(join(dir, desktop)):
+			return parse_desktop_file(join(dir, desktop))
+	
+	return None
+	
 def parse_desktop_file(desktop):
 	try:
 		config = ConfigParser.SafeConfigParser({

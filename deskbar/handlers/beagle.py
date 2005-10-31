@@ -1,17 +1,24 @@
 import os
-from os.path import exists
+from os.path import exists, join
 from gettext import gettext as _
 
 import gobject
 import deskbar.handler, deskbar.handler_utils
+from deskbar.handler_utils import get_xdg_data_dirs
 
 #FIXME: better way to detect beagle ?
+def _check_requirements():
+	for dir in get_xdg_data_dirs():
+		if exists(join(dir, "best.desktop")):
+			return (True, None)
+	
+	return (False, "Beagle does not seems to be installed, skipping")
+
 HANDLERS = {
 	"BeagleHandler" : {
 		"name": _("Beagle"),
 		"description": _("Use Beagle to search for documents"),
-		# Better Way to detect ?
-		"requirements": lambda: (exists("/usr/share/applications/best.desktop"), "Beagle was not detected on your system"),
+		"requirements": _check_requirements,
 	}
 }
 

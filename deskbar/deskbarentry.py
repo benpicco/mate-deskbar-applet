@@ -236,6 +236,8 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 					modctx.module.query_async(qstring, MAX_RESULTS_PER_HANDLER)
 				else:
 					matches = modctx.module.query(qstring, MAX_RESULTS_PER_HANDLER)
+					if matches == None:
+						print modctx.module
 					for match in matches:
 						result.append(match)
 					

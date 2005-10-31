@@ -1,3 +1,18 @@
+2005-10-31  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/deskbarentry.py:
+	* deskbar/handler_utils.py:
+	* deskbar/handlers/beagle-live.py:
+	* deskbar/handlers/beagle.py:
+	* deskbar/handlers/files.py:
+	* deskbar/handlers/programs.py:
+	* deskbar/handlers/volumes.py:
+	Add support for XDG_DATA_DIR set of configuration, allowing people with
+	/opt install to use deskbar properly.
+
+	Fixed bugs when iterating over empty sequence, as a result of not finding
+	the .desktop file, and some misc bugs in handlers.
+
 2005-10-30  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* NEWS:

@@ -1,17 +1,25 @@
 import os, sys, cgi
 import gobject,gtk, gnome.ui, gnomevfs
-import deskbar, deskbar.handler, deskbar.beagle, deskbar.handler_utils
+import deskbar, deskbar.handler, deskbar.handler_utils
 from gettext import gettext as _
 from os.path import exists
 
 MAX_RESULTS = 2 # per handler
 
+def _check_requirements():
+	try:
+		import deskbar.beagle
+		return (True, None)
+	except:
+		return (False, "Could not load deskbar.beagle, deskbar has been compiled without beagle support")
+	
 HANDLERS = {
 	"BeagleLiveHandler" : {
 		"name": _("Live Beagle Queries"),
 		"description": _("Query Beagle automatically as you type."),
-		# Better detection here ?
-		"requirements" : lambda: (exists("/usr/share/applications/best.desktop"), "Beagle was not detected on your system"),
+		# We must see how to detect properly beagle, for now it will fail on creating a new client
+		# when beagle is not available.
+		"requirements" : _check_requirements,
 	}
 }
 
@@ -145,6 +153,7 @@ class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 		self.counter = {}
 		
 	def initialize (self):
+		import deskbar.beagle
 		self.beagle = deskbar.beagle.Client()
 		self.ICONS = self.__load_icons()
 	
@@ -157,6 +166,7 @@ class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 		return res
 		
 	def query (self, qstring, qmax=5):
+		import deskbar.beagle
 		beagle_query = deskbar.beagle.Query()
 		beagle_query.add_text(qstring)
 		beagle_query.connect("hits-added", self.hits_added, qstring, MAX_RESULTS)

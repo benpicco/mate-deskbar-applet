@@ -3,6 +3,18 @@ from os.path import *
 import deskbar
 import gtk, gnome.ui
 
+def get_xdg_data_dirs():
+	dirs = os.getenv("XDG_DATA_HOME")
+	if dirs == None:
+		dirs = expanduser("~/.local/share")
+	
+	sysdirs = os.getenv("XDG_DATA_DIRS")
+	if sysdirs == None:
+		sysdirs = "/usr/local/share:/usr/share"
+	
+	dirs = "%s:%s" % (dirs, sysdirs)
+	return [join(dir, "applications") for dir in dirs.split(":") if dir.strip() != "" and exists(join(dir, "applications"))]
+
 icon_theme = gtk.icon_theme_get_default()
 factory = gnome.ui.ThumbnailFactory(deskbar.ICON_SIZE)
 
