@@ -42,7 +42,7 @@ $(server_in_files): $(server_in_files:.server.in=.server.in.in)
 	sed -e "s|\@LIBEXECDIR\@|$(deskbarbindir)|" $< > $@
 
 install-data-local:
-        GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) \
+	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) \
                 gconftool-2 --makefile-install-rule $(schema_DATA)
 
 DISTCLEANFILES = \
