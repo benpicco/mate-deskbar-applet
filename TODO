@@ -5,13 +5,22 @@ UI TODOs:
 	* Truncate strings in the completion view
 	* Enable drag-n-drop along with cuemiac, for example dragging file hits to desktop/nautilus
 	* An UI for errors/infos happening during module load/init
+	* Translucency handling in applet mode, see mini-commander patch in bugzilla
+	* Deskbar history matches, history items are matched first
 
-kikidonk: parsing $XDG_DATA_DIRS/applications and falling back to $PREFIX/share/applications seems like the solution :)
-bitbull (I know that at least SuSE also does the /opt/gnome trick, I'm not sure if they utilize $XDG_DATA_DIRS yet, but if they don't the fallback will save them)
-
+* PYTHONPATH in unusual prefixes, handle that !
+* Handle bonobo xml file correctly
 * Cache/Pickle indexes
 * Move indexing in a bonobo factory whatever that means
 * Hidden key for alt-f2
+
+
+panel_applet_setup_menu_from_file (PANEL_APPLET (battstat->applet),
+		DATADIR, /* defined in configure.in */
+		"GNOME_BattstatApplet.xml",
+		NULL,
+		battstat_menu_verbs,
+		battstat);
 
 Backends TODOs:
 	General:
