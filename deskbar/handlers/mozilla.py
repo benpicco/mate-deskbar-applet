@@ -209,6 +209,8 @@ class MozillaSmartBookmarksParser:
 			elif state == "search":		
 				if low.endswith(">"):
 					state = "input"
+					if SEARCH_FIELD.match(low):
+						self._parse_search(low)
 					continue
 				self._parse_search(line)				
 			elif state == "input":
@@ -222,6 +224,9 @@ class MozillaSmartBookmarksParser:
 		if self.args.endswith("&"):
 			self.args = self.args[:-1]
 		
+		if self.action == None:
+			print "Error: _parse_file: No action in search engine ", self.name
+			return 
 		# FIXME: If we don't have a real fallback url, doing this will most probably
 		# result in some error. Ideally, we should use gnomevfs to extract the
 		# simple hostname, for example: https://www.amazon.com/obidos/blah/q=%s&ie=7753829
@@ -286,6 +291,8 @@ class MozillaSmartBookmarksDirParser:
 					print 'Error:MozillaSmartBookmarksDirParser:Cannot load image:%s' % msg
 				
 				parser = MozillaSmartBookmarksParser(f)
+				if parser.action == None:
+					continue
 				bookmark = BrowserMatch(handler, parser.name, parser.url, pixbuf)
 				bookmark = BrowserSmartMatch(bookmark, parser.name, parser.action)
 				self._smart_bookmarks.append(bookmark)

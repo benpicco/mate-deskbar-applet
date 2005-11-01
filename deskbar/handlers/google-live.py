@@ -2,6 +2,7 @@ from deskbar.handler import AsyncHandler, Match
 from deskbar import MODULES_DIRS
 
 import os
+import gobject
 from os.path import expanduser, exists, join
 from gettext import gettext as _
 
