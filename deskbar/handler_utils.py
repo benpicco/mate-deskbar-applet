@@ -13,7 +13,7 @@ def get_xdg_data_dirs():
 		sysdirs = "/usr/local/share:/usr/share"
 	
 	dirs = "%s:%s" % (dirs, sysdirs)
-	return [join(dir, "applications") for dir in dirs.split(":") if dir.strip() != "" and exists(join(dir, "applications"))]
+	return [dir for dir in dirs.split(":") if dir.strip() != "" and exists(dir)]
 
 icon_theme = gtk.icon_theme_get_default()
 factory = gnome.ui.ThumbnailFactory(deskbar.ICON_SIZE)

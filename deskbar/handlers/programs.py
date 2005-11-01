@@ -85,7 +85,7 @@ class SpecialProgramHandler(deskbar.handler.Handler):
 	def create_match(self, name, program, icon):
 		raise NotImplementedError
 		
-	def query(self, qstring, qmax):
+	def query(self, qstring, qmax=5):
 		if self._match != None:
 			return [self._match]
 		else:
@@ -126,8 +126,9 @@ class ProgramsHandler(deskbar.handler.Handler):
 
 def parse_desktop_filename(desktop):
 	for dir in get_xdg_data_dirs():
-		if exists(join(dir, desktop)):
-			return parse_desktop_file(join(dir, desktop))
+		f = join(dir, "applications", desktop)
+		if exists(f):
+			return parse_desktop_file(f)
 	
 	return None
 	
@@ -136,12 +137,15 @@ def parse_desktop_file(desktop):
 		config = ConfigParser.SafeConfigParser({
 			"Comment" : "",
 			"Icon": "",
+			"NoDisplay": "false",
 			"Terminal" : "no",
 		})
 		config.read(desktop)
 		if config.getboolean("Desktop Entry", "Terminal"):
 			return None
-
+		if config.getboolean("Desktop Entry", "NoDisplay"):
+			return None
+		
 		program = config.get("Desktop Entry", "Exec", True)
 		
 		name = get_entry_locale(config, "Name")

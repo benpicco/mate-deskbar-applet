@@ -9,10 +9,10 @@ from deskbar.handler_utils import get_xdg_data_dirs
 #FIXME: better way to detect beagle ?
 def _check_requirements():
 	for dir in get_xdg_data_dirs():
-		if exists(join(dir, "best.desktop")):
+		if exists(join(dir, "applications", "best.desktop")):
 			return (True, None)
 	
-	return (False, "Beagle does not seems to be installed, skipping")
+	return (False, "Beagle does not seem to be installed, skipping")
 
 HANDLERS = {
 	"BeagleHandler" : {

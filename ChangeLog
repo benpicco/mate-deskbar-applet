@@ -1,3 +1,17 @@
+
+========== Version 0.8.4 released ==========
+
+2005-11-01  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* data/Makefile.am:
+	* deskbar/deskbar-applet:
+	* deskbar/handler_utils.py:
+	* deskbar/handlers/beagle.py:
+	* deskbar/handlers/programs.py:
+	Fix problems introduced with XDG handling, and duplicate entries. Use
+	another threading init method which should fix the gnomevfs crash.
+	Honor the --disable-gconf-install flag.
+
 2005-10-31  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* configure.ac:

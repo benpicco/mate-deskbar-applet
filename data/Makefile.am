@@ -41,9 +41,12 @@ deskbarbindir = $(libdir)/deskbar-applet
 $(server_in_files): $(server_in_files:.server.in=.server.in.in)
 	sed -e "s|\@LIBEXECDIR\@|$(deskbarbindir)|" $< > $@
 
-install-data-local:
+if GCONF_SCHEMAS_INSTALL
+install-data-local: install-schemas
+install-schemas:
 	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) \
-                gconftool-2 --makefile-install-rule $(schema_DATA)
+		$(GCONFTOOL) --makefile-install-rule $(schema_DATA)
+endif
 
 DISTCLEANFILES = \
 	$(schema_DATA) \

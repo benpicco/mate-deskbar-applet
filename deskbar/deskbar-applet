@@ -3,8 +3,10 @@
 # (C) 2005 Nigel Tao.
 # Licensed under the GNU GPL.
 
+import gobject
+gobject.threads_init()
+
 import gtk
-gtk.threads_init()
 import gnome.ui, gnomeapplet
 
 import getopt, sys
