@@ -48,6 +48,7 @@ class DeskbarApplet:
 		self.applet.add(self.entry)
 		self.applet.connect("button-press-event", self.on_applet_button_press)
 		self.applet.connect('destroy', lambda x: self.keybinder.unbind())
+		self.applet.connect('change-orient', lambda x, orient: self.sync_applet_size())
 		self.applet.setup_menu_from_file (
 			None, os.path.join(deskbar.SHARED_DATA_DIR, "Deskbar_Applet.xml"),
 			None, [("About", self.on_about), ("Prefs", self.on_preferences)])
@@ -81,7 +82,11 @@ class DeskbarApplet:
 			self.applet.set_applet_flags(0)
 			
 			# Set the new size of the entry
-			self.entry.get_entry().set_width_chars(self.config_width)
+			if self.applet.get_orient() == gnomeapplet.ORIENT_UP or self.applet.get_orient() == gnomeapplet.ORIENT_DOWN:
+				self.entry.get_entry().set_width_chars(self.config_width)
+			else:
+				self.entry.get_entry().set_width_chars(-1)
+				self.entry.queue_resize()
 			
 	
 	def on_modules_loaded(self, loader):

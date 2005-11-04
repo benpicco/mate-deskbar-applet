@@ -146,6 +146,8 @@ ephy_icon_entry_init (EphyIconEntry *entry)
 
 	GTK_WIDGET_UNSET_FLAGS (widget, GTK_NO_WINDOW);
 
+	gtk_container_set_border_width (GTK_CONTAINER (entry), 0);
+
 	priv->hbox = gtk_hbox_new (FALSE, /* FIXME */ 0);
 	gtk_container_add (GTK_CONTAINER (entry), priv->hbox);
 
