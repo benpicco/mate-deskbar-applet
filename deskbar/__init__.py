@@ -56,19 +56,37 @@ ICON_SIZE = 16
 
 #Gconf client
 GCONF_CLIENT = gconf.client_get_default()
-# GConf directory for deskbar
+
+# GConf directory for deskbar in window mode and shared settings
 GCONF_DIR = "/apps/deskbar"
-# GConf key to the entry width setting
-GCONF_WIDTH = GCONF_DIR + "/width"
-# GConf key to the entry expand setting
-GCONF_EXPAND = GCONF_DIR + "/expand"
+# GConf directory for per-applet settings
+GCONF_APPLET_DIR = GCONF_DIR
+
+# Set the correct per-applet settings path, or global path if in window mode
+def GCONF_INIT(applet):
+	global GCONF_APPLET_DIR
+	path = applet.get_preferences_key()
+	if path != None:	
+		GCONF_APPLET_DIR = path
+		applet.add_preferences("/schemas" + GCONF_DIR)
+	
+	print 'Using per-applet gconf key:', GCONF_APPLET_DIR
+		
+# GConf key to the per applet entry width setting
+GCONF_WIDTH =  GCONF_APPLET_DIR + "/width"
+# GConf key to the per applet entry expand setting
+GCONF_EXPAND = GCONF_APPLET_DIR + "/expand"
+		
 # GConf key for global keybinding
 GCONF_KEYBINDING = GCONF_DIR + "/keybinding"
+
 # GConf key for list of enabled handlers, when uninstalled, use a debug key to not conflict
 # with development version
 if UNINSTALLED_DESKBAR:
 	GCONF_ENABLED_HANDLERS = GCONF_DIR + "/enabled_handlers_debug"
 else:
 	GCONF_ENABLED_HANDLERS = GCONF_DIR + "/enabled_handlers"
+	
 # Preload gconf directories
 GCONF_CLIENT.add_dir(deskbar.GCONF_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
+GCONF_CLIENT.add_dir(deskbar.GCONF_APPLET_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)

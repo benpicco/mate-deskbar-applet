@@ -11,6 +11,7 @@ from deskbar.preferences import update_modules_priority
 class DeskbarApplet:
 	def __init__(self, applet):
 		self.applet = applet
+		deskbar.GCONF_INIT(applet)
 		
 		self._inited_modules = 0
 		self._loaded_modules = 0
@@ -57,7 +58,6 @@ class DeskbarApplet:
 		self.sync_applet_size()
 		
 		self.entry.get_entry().grab_focus()
-		print 'GConf key:', applet.get_preferences_key()
 		
 	def on_about(self, component, verb):
 		deskbar.about.show_about()
