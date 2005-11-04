@@ -62,21 +62,24 @@ GCONF_DIR = "/apps/deskbar"
 # GConf directory for per-applet settings
 GCONF_APPLET_DIR = GCONF_DIR
 
-# Set the correct per-applet settings path, or global path if in window mode
-def GCONF_INIT(applet):
-	global GCONF_APPLET_DIR
-	path = applet.get_preferences_key()
-	if path != None:	
-		GCONF_APPLET_DIR = path
-		applet.add_preferences("/schemas" + GCONF_DIR)
-	
-	print 'Using per-applet gconf key:', GCONF_APPLET_DIR
-		
 # GConf key to the per applet entry width setting
 GCONF_WIDTH =  GCONF_APPLET_DIR + "/width"
 # GConf key to the per applet entry expand setting
 GCONF_EXPAND = GCONF_APPLET_DIR + "/expand"
-		
+
+# Set the correct per-applet settings path, or global path if in window mode
+def GCONF_INIT(applet):
+	global GCONF_APPLET_DIR, GCONF_WIDTH, GCONF_EXPAND
+	path = applet.get_preferences_key()
+	if path != None:	
+		GCONF_APPLET_DIR = path
+		GCONF_WIDTH =  GCONF_APPLET_DIR + "/width"
+		GCONF_EXPAND = GCONF_APPLET_DIR + "/expand"
+		applet.add_preferences("/schemas" + GCONF_DIR)
+	
+	print 'Using per-applet gconf key:', GCONF_APPLET_DIR
+	
+			
 # GConf key for global keybinding
 GCONF_KEYBINDING = GCONF_DIR + "/keybinding"
 
