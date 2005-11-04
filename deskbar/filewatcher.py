@@ -42,9 +42,6 @@ class Watcher(gobject.GObject):
 		if event == gnomevfs.MONITOR_EVENT_CHANGED or event == gnomevfs.MONITOR_EVENT_CREATED:
 			self.emit('changed', gnomevfs.get_local_path_from_uri(changed))
 
-if gtk.gtk_version < (2,8,0):
-	gobject.type_register(Watcher)
-	
 class FileWatcher(Watcher):
 	def __init__(self):
 		Watcher.__init__(self)
@@ -53,3 +50,8 @@ class DirWatcher(Watcher):
 	def __init__(self):
 		Watcher.__init__(self)
 		self.monitor_type = gnomevfs.MONITOR_DIRECTORY
+
+if gtk.gtk_version < (2,8,0):
+	gobject.type_register(Watcher)
+	gobject.type_register(FileWatcher)
+	gobject.type_register(DirWatcher)

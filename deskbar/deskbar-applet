@@ -2,6 +2,10 @@
 #
 # (C) 2005 Nigel Tao.
 # Licensed under the GNU GPL.
+PROFILE = False
+if PROFILE:
+	import statprof
+	statprof.start()
 
 import gobject
 gobject.threads_init()
@@ -93,3 +97,7 @@ if __name__ == "__main__":
 			"deskbar-applet",
 			"0",
 			applet_factory)
+	
+	if PROFILE:
+		statprof.stop()
+		statprof.display()

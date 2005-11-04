@@ -56,6 +56,7 @@ class DeskbarApplet:
 		self.sync_applet_size()
 		
 		self.entry.get_entry().grab_focus()
+		print 'GConf key:', applet.get_preferences_key()
 		
 	def on_about(self, component, verb):
 		deskbar.about.show_about()
@@ -152,10 +153,51 @@ class DeskbarApplet:
 
 	def on_history_item_selection(self, item, match, text):
 		match.action(text)
+	
+	def position_history_menu(self, menu):
+		# Stolen from drivemount applet in gnome-applets/drivemount/drive-button.c:165
+		align_to = self.entry.get_evbox()
+		direction = self.entry.get_entry().get_direction()
+
+		screen = menu.get_screen()
+		monitor_num = screen.get_monitor_at_window(align_to.window)
+		if monitor_num < 0:
+			monitor_num = 0
+		
+		monitor = screen.get_monitor_geometry (monitor_num)
+		menu.set_monitor (monitor_num)	
+		
+		tx, ty = align_to.window.get_origin()
+		twidth, theight = menu.get_child_requisition()
+		
+		tx += align_to.allocation.x
+		ty += align_to.allocation.y
+
+		if direction == gtk.TEXT_DIR_RTL:
+			tx += align_to.allocation.width - twidth
+
+		if (ty + align_to.allocation.height + theight) <= monitor.y + monitor.height:
+			ty += align_to.allocation.height
+		elif (ty - theight) >= monitor.y:
+			ty -= theight
+		elif monitor.y + monitor.height - (ty + align_to.allocation.height) > ty:
+			ty += align_to.allocation.height
+		else:
+			ty -= theight
+
+		if tx < monitor.x:
+			x = monitor.x
+		elif tx > max(monitor.x, monitor.x + monitor.width - twidth):
+			x = max(monitor.x, monitor.x + monitor.width - twidth)
+		else:
+			x = tx
+		
+		y = ty
+		
+		return (x, y, False)
 		
 	def build_history_menu(self, event):
 		menu = gtk.Menu()
-		menu.attach_to_widget(self.entry.get_evbox(), lambda: None)
 		
 		history = self.entry.get_history()
 		
@@ -196,4 +238,4 @@ class DeskbarApplet:
 			menu.attach(item, 0, 1, 0, 1)
 
 		menu.show_all()
-		menu.popup(None, None, None, event.button, event.time)
+		menu.popup(None, None, self.position_history_menu, event.button, event.time)
