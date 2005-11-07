@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 0.8.4, raphael@slinckx.net)
+AC_INIT(deskbar-applet, 0.8.5, raphael@slinckx.net)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
@@ -59,6 +59,7 @@ PKG_CHECK_MODULES(DESKBAR,
 	gnome-python-2.0			>= 2.10
 	gnome-python-extras-2.0	>= 2.10
 	gnome-python-extras-2.0	>= 2.10
+	gnome-desktop-2.0		>= 2.10
 )
 AC_SUBST(DESKBAR_CFLAGS)
 AC_SUBST(DESKBAR_LIBS)
@@ -153,6 +154,7 @@ deskbar/handlers/Makefile
 deskbar/iconentry/Makefile
 deskbar/keybinder/Makefile
 deskbar/beagle/Makefile
+deskbar/gnomedesktop/Makefile
 data/Makefile
 data/deskbar-applet.pc
 data/art/Makefile

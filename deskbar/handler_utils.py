@@ -1,7 +1,10 @@
 import os
 from os.path import *
-import deskbar
+import deskbar, deskbar.gnomedesktop
 import gtk, gnome.ui
+
+ICON_THEME = gtk.icon_theme_get_default()
+factory = gnome.ui.ThumbnailFactory(deskbar.ICON_SIZE)
 
 def get_xdg_data_dirs():
 	dirs = os.getenv("XDG_DATA_HOME")
@@ -15,16 +18,19 @@ def get_xdg_data_dirs():
 	dirs = "%s:%s" % (dirs, sysdirs)
 	return [dir for dir in dirs.split(":") if dir.strip() != "" and exists(dir)]
 
-icon_theme = gtk.icon_theme_get_default()
-factory = gnome.ui.ThumbnailFactory(deskbar.ICON_SIZE)
-
 def load_icon_for_file(f):
-	icon_name, flags = gnome.ui.icon_lookup(icon_theme, factory,
+	icon_name, flags = gnome.ui.icon_lookup(ICON_THEME, factory,
 				f, "",
 				gnome.ui.ICON_LOOKUP_FLAGS_SHOW_SMALL_IMAGES_AS_THEMSELVES)
 		
 	return load_icon(icon_name)
-	
+
+def load_icon_for_desktop_icon(icon):
+	if icon != None:
+		icon = deskbar.gnomedesktop.find_icon(ICON_THEME, icon, deskbar.ICON_SIZE, 0)
+		if icon != None:
+			return load_icon(icon)
+		
 # We load the icon file, and if it fails load an empty one
 # If the iconfile is a path starting with /, load the file
 # else try to load a stock or named icon name
@@ -38,10 +44,10 @@ def load_icon(icon):
 			elif icon.startswith("/"):
 				pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(icon, deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 			else:
-				pixbuf = icon_theme.load_icon(splitext(icon)[0], deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
+				pixbuf = ICON_THEME.load_icon(splitext(icon)[0], deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
 		except Exception, msg1:
 			try:
-				pixbuf = icon_theme.load_icon(icon, deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
+				pixbuf = ICON_THEME.load_icon(icon, deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
 			except Exception, msg2:
 				print 'Error:load_icon:Icon Load Error:%s (%s)' % (msg1, msg2)
 	return pixbuf

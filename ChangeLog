@@ -1,3 +1,25 @@
+2005-11-07  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* configure.ac:
+	* deskbar/Makefile.am:
+	* deskbar/deskbarentry.py:
+	* deskbar/gnomedesktop/.cvsignore:
+	* deskbar/gnomedesktop/Makefile.am:
+	* deskbar/gnomedesktop/__init__.py:
+	* deskbar/gnomedesktop/_gnomedesktop.defs:
+	* deskbar/gnomedesktop/_gnomedesktop.override:
+	* deskbar/gnomedesktop/_gnomedesktopmodule.c: (init_gnomedesktop):
+	* deskbar/handler.py:
+	* deskbar/handler_utils.py:
+	* deskbar/handlers/pathprograms.py:
+	* deskbar/handlers/programs.py:
+	Add wrapper for lignome-dektop's GnomeDesktopItem to parse .desktop files
+	Replace our uses of custom .desktop parser with the new wrapper, it's
+	faster and safer.
+	Startup Notification support through use of GnomeDesktopItem.launch()
+	New Duplication detection, duplicate items are checked in the order
+	defined by handler priorities.
+
 2005-11-04  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/__init__.py:

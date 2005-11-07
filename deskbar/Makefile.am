@@ -1,4 +1,4 @@
-SUBDIRS = handlers iconentry keybinder
+SUBDIRS = handlers iconentry keybinder gnomedesktop
 
 if ENABLE_BEAGLE
 SUBDIRS += beagle

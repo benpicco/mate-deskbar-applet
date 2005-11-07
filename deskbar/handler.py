@@ -56,6 +56,14 @@ class Match:
 		"""
 		return self._priority
 	
+	def get_hash(self, text=None):
+		"""
+		Returns a hash used to verify if a query has one or more duplicates.
+		Matches that have same hash will be selected based on the handler priority.
+		text is the entered query string.
+		"""
+		raise NotImplementedError
+		
 	def get_icon(self):
 		"""
 		Returns a GdkPixbuf hat represents this match.

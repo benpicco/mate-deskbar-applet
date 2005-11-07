@@ -214,6 +214,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		
 	def _on_entry_changed(self, widget, matches=None):
 		self._completion_model.clear()
+		self._completion_model._hashes = {}
 		self._selected_match_index = -1
 		
 		if matches == None:
@@ -245,7 +246,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		else:
 			self._append_matches (matches)
 	
-	def _append_matches (self, matches):
+	def _append_matches (self, matches, async=False):
 		"""
 		Appends the list of Match objects to the list of query matches
 		"""
@@ -265,7 +266,14 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			# Escape the query now for display
 			verbs["text"] = cgi.escape(verbs["text"])
 			
-			self._completion_model.append([handler.get_priority(), match.get_priority(), match.get_verb() % verbs, icon, match])
+			# FIXME: Port all handlers ot new API and remove this crap
+			if hasattr(match, "get_hash"):
+				hsh = match.get_hash(t)
+				if (not hsh in self._completion_model._hashes) or async:
+					self._completion_model._hashes[hsh] = True
+					self._completion_model.append([handler.get_priority(), match.get_priority(), match.get_verb() % verbs, icon, match])
+			else:
+				self._completion_model.append([handler.get_priority(), match.get_priority(), match.get_verb() % verbs, icon, match])
 		
 		#Set the entry icon accoring to the first match in the completion list
 		self._update_icon(iter=self._completion_model.get_iter_first())
@@ -289,7 +297,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 	
 	def _connect_if_async (self, sender, context):
 		if context.module.is_async():
-			context.module.connect('query-ready', lambda sender, matches: self._append_matches(matches))
+			context.module.connect('query-ready', lambda sender, matches: self._append_matches(matches, True))
 
 class History:
 	def __init__(self):
