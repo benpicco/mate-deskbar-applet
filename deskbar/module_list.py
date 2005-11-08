@@ -173,8 +173,11 @@ class ModuleLoader (gobject.GObject):
 		"""
 		Initializes the module in the given context. Emits a 'module-initialized' signal
 		when done, passing the (now enabled) contextas argument.
+		If module is already initialized, do nothing.
 		"""
-		
+		if context.enabled:
+			return
+			
 		print "Initializing %s" % context.infos["name"]
 		try:
 			context.module.initialize ()

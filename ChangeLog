@@ -1,5 +1,14 @@
 2005-11-08  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/applet.py:
+	* deskbar/module_list.py:
+	* deskbar/preferences.py:
+	Correctly handle the handlers list. Should react to external changes
+	in gconf correctly now when running multiple instances for example. Fixes
+	part of bug #320384
+
+2005-11-08  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/deskbarentry.py:
 	* deskbar/handler.py:
 	* deskbar/handlers/beagle-live.py:
