@@ -29,6 +29,9 @@ class FolderMatch(deskbar.handler.Match):
 	
 	def get_verb(self):
 		return _("Open folder <b>%(name)s</b>")
+	
+	def get_hash(self, text=None):
+		return self._filename
 				
 class FolderHandler(deskbar.handler.Handler):
 	def __init__(self):

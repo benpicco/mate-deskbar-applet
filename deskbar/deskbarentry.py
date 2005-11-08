@@ -266,12 +266,10 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			# Escape the query now for display
 			verbs["text"] = cgi.escape(verbs["text"])
 			
-			# FIXME: Port all handlers ot new API and remove this crap
-			if hasattr(match, "get_hash"):
-				hsh = match.get_hash(t)
-				if (not hsh in self._completion_model._hashes) or async:
-					self._completion_model._hashes[hsh] = True
-					self._completion_model.append([handler.get_priority(), match.get_priority(), match.get_verb() % verbs, icon, match])
+			hsh = match.get_hash(t)
+			if hsh != None and ((not hsh in self._completion_model._hashes) or async):
+				self._completion_model._hashes[hsh] = True
+				self._completion_model.append([handler.get_priority(), match.get_priority(), match.get_verb() % verbs, icon, match])
 			else:
 				self._completion_model.append([handler.get_priority(), match.get_priority(), match.get_verb() % verbs, icon, match])
 		

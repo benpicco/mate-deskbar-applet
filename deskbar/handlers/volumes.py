@@ -43,7 +43,10 @@ class VolumeMatch (Match):
 			return _("Open audio disk <b>%(name)s</b>")
 		else:
 			return _("Open location <b>%(name)s</b>")
-
+	
+	def get_hash(self, text=None):
+		return self.__drive.get_activation_uri()
+		
 class VolumeHandler (Handler):
 	
 	def __init__(self):

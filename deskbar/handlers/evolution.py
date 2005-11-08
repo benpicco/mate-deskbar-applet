@@ -29,6 +29,9 @@ class EvolutionMatch(deskbar.handler.Match):
 		
 	def get_verb(self):
 		return _("Send Email to <b>%(name)s</b> (%(email)s)")
+	
+	def get_hash(self, text=None):
+		return self._email
 		
 class EvolutionHandler(deskbar.handler.SignallingHandler):
 	def __init__(self):

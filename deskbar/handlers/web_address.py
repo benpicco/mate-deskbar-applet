@@ -35,6 +35,9 @@ class WebAddressMatch(deskbar.handler.Match):
 			return _("Open the web page <b>%(name)s</b>")
 		else:
 			return _("Open the location <b>%(name)s</b>")
+	
+	def get_hash(self, text=None):
+		return self._url
 		
 class WebAddressHandler(deskbar.handler.Handler):
 	def __init__(self):

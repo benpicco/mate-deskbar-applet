@@ -146,6 +146,10 @@ class BeagleLiveMatch (deskbar.handler.Match):
 
 		print "BeagleLive spawning:", action, args
 		gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
+	
+	def get_hash(self, text=None):
+		if "uri" in self.__result:
+			return self.__result["uri"]
 		
 class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 	def __init__(self):

@@ -31,7 +31,10 @@ class FileMatch(deskbar.handler.Match):
 		
 	def get_verb(self):
 		return _("Open <b>%(name)s</b>")
-				
+	
+	def get_hash(self, text=None):
+		return self._filename
+		
 class FileHandler(deskbar.handler.Handler):
 	def __init__(self):
 		deskbar.handler.Handler.__init__(self, "stock_new-text")

@@ -59,6 +59,9 @@ class GoogleMatch (Match):
 		
 	def action(self, text=None):
 		gobject.spawn_async(["gnome-open", self.__url], flags=gobject.SPAWN_SEARCH_PATH)
+	
+	def get_hash(self, text=None):
+		return self.__url
 
 class GoogleLiveHandler (AsyncHandler):
 	"""

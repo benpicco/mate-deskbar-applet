@@ -30,7 +30,10 @@ class BrowserMatch(deskbar.handler.Match):
 			return _("Open History Item <b>%(name)s</b>")
 		else:
 			return _("Open Bookmark <b>%(name)s</b>")
-
+	
+	def get_hash(self, text=None):
+		return self._url
+		
 class BrowserSmartMatch(BrowserMatch):
 	def __init__(self, bmk, name, url):
 		BrowserMatch.__init__(self, bmk.get_handler(), name, url, bmk.get_icon())

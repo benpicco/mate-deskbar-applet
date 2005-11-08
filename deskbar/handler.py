@@ -61,8 +61,10 @@ class Match:
 		Returns a hash used to verify if a query has one or more duplicates.
 		Matches that have same hash will be selected based on the handler priority.
 		text is the entered query string.
+		By default, if the handler does not override this, it will return None.
+		Returning None means no duplication check will be performed.
 		"""
-		raise NotImplementedError
+		return None
 		
 	def get_icon(self):
 		"""

@@ -8,6 +8,9 @@ from deskbar.handlers_browsers import get_url_host, is_preferred_browser
 from deskbar.handlers_browsers import BrowserSmartMatch, BrowserMatch
 
 def _check_requirements():
+	if deskbar.UNINSTALLED_DESKBAR:
+		return (True, None)
+		
 	if is_preferred_browser("epiphany"):
 		return (True, None)
 	else:

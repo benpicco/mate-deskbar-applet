@@ -27,7 +27,9 @@ class GtkBookmarkMatch(deskbar.handler.Match):
 	
 	def get_verb(self):
 		return _("Open location <b>%(name)s</b>")
-		
+	
+	def get_hash(self, text=None):
+		return self._path
 	
 class GtkBookmarkHandler(deskbar.handler.Handler):
 	def __init__(self):

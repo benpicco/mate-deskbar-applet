@@ -1,3 +1,25 @@
+2005-11-08  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/deskbarentry.py:
+	* deskbar/handler.py:
+	* deskbar/handlers/beagle-live.py:
+	* deskbar/handlers/directories.py:
+	* deskbar/handlers/email_address.py:
+	* deskbar/handlers/epiphany.py:
+	* deskbar/handlers/evolution.py:
+	* deskbar/handlers/files.py:
+	* deskbar/handlers/galeon.py:
+	* deskbar/handlers/google-live.py:
+	* deskbar/handlers/gtkbookmarks.py:
+	* deskbar/handlers/mozilla.py:
+	* deskbar/handlers/volumes.py:
+	* deskbar/handlers/web_address.py:
+	* deskbar/handlers_browsers.py:
+	Fix the get_hash problem, now handlers by default are not checked for
+	duplication except if they override the method.
+	Implement get_hash in all handlers where applicable
+	Revisit the firefox/mozilla smart engine parser, should be error free now.
+
 2005-11-07  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* configure.ac:
