@@ -1,6 +1,6 @@
 from os.path import join
 import gtk, gtk.glade, gobject, gconf
-import deskbar
+import deskbar, deskbar.handler_utils
 from deskbar.module_list import ModuleListView
 
 class PrefsDialog:
@@ -10,11 +10,9 @@ class PrefsDialog:
 		self.glade = gtk.glade.XML(join(deskbar.SHARED_DATA_DIR, "prefs-dialog.glade"))
 
 		self.dialog = self.glade.get_widget("preferences")
-		try:
-			pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(join(deskbar.ART_DATA_DIR, "deskbar-applet-small.png"), gtk.ICON_SIZE_DIALOG, gtk.ICON_SIZE_DIALOG)
+		pixbuf = deskbar.handler_utils.load_icon("deskbar-applet-small.png", 16)
+		if pixbuf != None:
 			self.dialog.set_icon(pixbuf)
-		except gobject.GError, msg:
-			print 'Error:PrefsDialog:', msg
 
 		# Retreive current values
 		self.width = deskbar.GCONF_CLIENT.get_int(deskbar.GCONF_WIDTH)

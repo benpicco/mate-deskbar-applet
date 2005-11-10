@@ -34,20 +34,20 @@ def load_icon_for_desktop_icon(icon):
 # We load the icon file, and if it fails load an empty one
 # If the iconfile is a path starting with /, load the file
 # else try to load a stock or named icon name
-def load_icon(icon):
+def load_icon(icon, size=deskbar.ICON_SIZE):
 	pixbuf = None
 	if icon != None and icon != "":
 		try:
 			our_icon = join(deskbar.ART_DATA_DIR, icon)
 			if exists(our_icon):
-				pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(our_icon, deskbar.ICON_SIZE, deskbar.ICON_SIZE)
+				pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(our_icon, size, size)
 			elif icon.startswith("/"):
-				pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(icon, deskbar.ICON_SIZE, deskbar.ICON_SIZE)
+				pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(icon, size, size)
 			else:
-				pixbuf = ICON_THEME.load_icon(splitext(icon)[0], deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
+				pixbuf = ICON_THEME.load_icon(splitext(icon)[0], size, gtk.ICON_LOOKUP_USE_BUILTIN)
 		except Exception, msg1:
 			try:
-				pixbuf = ICON_THEME.load_icon(icon, deskbar.ICON_SIZE, gtk.ICON_LOOKUP_USE_BUILTIN)
+				pixbuf = ICON_THEME.load_icon(icon, size, gtk.ICON_LOOKUP_USE_BUILTIN)
 			except Exception, msg2:
 				print 'Error:load_icon:Icon Load Error:%s (%s)' % (msg1, msg2)
 	return pixbuf
