@@ -143,7 +143,7 @@ class DeskbarApplet:
 		if self.config_expand:
 			self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR | gnomeapplet.EXPAND_MAJOR)
 		else:
-			self.applet.set_applet_flags(0)
+			self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
 			
 			# Set the new size of the entry
 			if self.applet.get_orient() == gnomeapplet.ORIENT_UP or self.applet.get_orient() == gnomeapplet.ORIENT_DOWN:
