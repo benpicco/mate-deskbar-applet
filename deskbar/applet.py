@@ -7,10 +7,27 @@ from gettext import gettext as _
 import deskbar, deskbar.deskbarentry, deskbar.about, deskbar.preferences, deskbar.applet_keybinder
 from deskbar.module_list import ModuleLoader, ModuleList, ModuleLoader
 
+class DeskbarAppletPreferences:
+	def __init__(self, applet):
+		# Default values
+		self.GCONF_APPLET_DIR = deskbar.GCONF_DIR
+		self.GCONF_WIDTH = deskbar.GCONF_WIDTH
+		self.GCONF_EXPAND = deskbar.GCONF_EXPAND
+		
+		# Retreive this applet's pref folder
+		path = applet.get_preferences_key()
+		if path != None:
+			self.GCONF_APPLET_DIR = path
+			self.GCONF_WIDTH =  self.GCONF_APPLET_DIR + "/width"
+			self.GCONF_EXPAND = self.GCONF_APPLET_DIR + "/expand"
+			applet.add_preferences("/schemas" + deskbar.GCONF_DIR)
+			deskbar.GCONF_CLIENT.add_dir(self.GCONF_APPLET_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
+			print 'Using per-applet gconf key:', self.GCONF_APPLET_DIR
+				
 class DeskbarApplet:
 	def __init__(self, applet):
 		self.applet = applet
-		deskbar.GCONF_INIT(applet)
+		self.gconf = DeskbarAppletPreferences(applet)
 		
 		self._inited_modules = 0
 		self._loaded_modules = 0
@@ -35,14 +52,14 @@ class DeskbarApplet:
 		self.keybinder = deskbar.applet_keybinder.AppletKeybinder(self)
 
 		# Set and retreive entry width from gconf
-		self.config_width = deskbar.GCONF_CLIENT.get_int(deskbar.GCONF_WIDTH)
+		self.config_width = deskbar.GCONF_CLIENT.get_int(self.gconf.GCONF_WIDTH)
 		if self.config_width == None:
 			self.config_width = 20
-		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
-		self.config_expand = deskbar.GCONF_CLIENT.get_bool(deskbar.GCONF_EXPAND)
+		deskbar.GCONF_CLIENT.notify_add(self.gconf.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
+		self.config_expand = deskbar.GCONF_CLIENT.get_bool(self.gconf.GCONF_EXPAND)
 		if self.config_expand == None:
 			self.config_expand = False
-		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
+		deskbar.GCONF_CLIENT.notify_add(self.gconf.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
 		
 		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_ENABLED_HANDLERS, lambda x, y, z, a: self.on_config_handlers(z.value))
 		
@@ -64,7 +81,7 @@ class DeskbarApplet:
 		deskbar.about.show_about()
 	
 	def on_preferences(self, component, verb):
-		deskbar.preferences.show_preferences(self.loader, self.module_list)
+		deskbar.preferences.show_preferences(self, self.loader, self.module_list)
 
 	def on_config_width(self, value=None):
 		if value != None and value.type == gconf.VALUE_INT:

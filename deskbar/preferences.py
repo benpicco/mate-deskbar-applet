@@ -4,7 +4,7 @@ import deskbar, deskbar.handler_utils
 from deskbar.module_list import ModuleListView
 
 class PrefsDialog:
-	def __init__(self, module_loader, module_list):
+	def __init__(self, applet, module_loader, module_list):
 		self.module_list = module_list
 		self.module_loader = module_loader
 		self.glade = gtk.glade.XML(join(deskbar.SHARED_DATA_DIR, "prefs-dialog.glade"))
@@ -15,19 +15,19 @@ class PrefsDialog:
 			self.dialog.set_icon(pixbuf)
 
 		# Retreive current values
-		self.width = deskbar.GCONF_CLIENT.get_int(deskbar.GCONF_WIDTH)
-		self.expand = deskbar.GCONF_CLIENT.get_bool(deskbar.GCONF_EXPAND)
+		self.width = deskbar.GCONF_CLIENT.get_int(applet.gconf.GCONF_WIDTH)
+		self.expand = deskbar.GCONF_CLIENT.get_bool(applet.gconf.GCONF_EXPAND)
 		
 		self.width_spin = self.glade.get_widget("width")
-		self.width_spin.connect('value-changed', self.on_spin_width_change)
-		self.width_notify_id = deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
+		self.width_spin.connect('value-changed', self.on_spin_width_change, applet)
+		self.width_notify_id = deskbar.GCONF_CLIENT.notify_add(applet.gconf.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
 
 		self.width_label = self.glade.get_widget("width_label")
 		self.width_units = self.glade.get_widget("width_units")
 
 		self.expand_toggle = self.glade.get_widget("expand")
-		self.expand_toggle.connect('toggled', self.on_expand_toggle)
-		self.expand_notify_id = deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
+		self.expand_toggle.connect('toggled', self.on_expand_toggle, applet)
+		self.expand_notify_id = deskbar.GCONF_CLIENT.notify_add(applet.gconf.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
 		
 		container = self.glade.get_widget("handlers")
 		self.moduleview = ModuleListView(module_list)
@@ -65,11 +65,11 @@ class PrefsDialog:
 			self.expand = value.get_bool()
 			self.sync_ui()
 		
-	def on_expand_toggle(self, toggle):
-		deskbar.GCONF_CLIENT.set_bool(deskbar.GCONF_EXPAND, toggle.get_property('active'))
+	def on_expand_toggle(self, toggle, applet):
+		deskbar.GCONF_CLIENT.set_bool(applet.gconf.GCONF_EXPAND, toggle.get_property('active'))
 		
-	def on_spin_width_change(self, spinner):
-		deskbar.GCONF_CLIENT.set_int(deskbar.GCONF_WIDTH, int(spinner.get_value()))
+	def on_spin_width_change(self, spinner, applet):
+		deskbar.GCONF_CLIENT.set_int(applet.gconf.GCONF_WIDTH, int(spinner.get_value()))
 	
 	def on_module_toggled(self, moduleview, context, loader):
 		if (context.enabled):
@@ -77,5 +77,5 @@ class PrefsDialog:
 		else:
 			loader.initialize_module_async (context)
 
-def show_preferences(loader, model):
-	PrefsDialog(loader, model).show_run_hide()
+def show_preferences(applet, loader, model):
+	PrefsDialog(applet, loader, model).show_run_hide()
