@@ -10,7 +10,10 @@ endif
 	
 deskbarbindir = $(libdir)/deskbar-applet
 deskbarbin_SCRIPTS = deskbar-applet
- 
+
+deskbar-applet: deskbar-applet.py
+	sed -e "s|\@PYTHONPATH\@|$(pythondir)/deskbar|" $< > $@
+        
 deskbardir = $(pythondir)/deskbar
 deskbar_PYTHON = \
 	__init__.py \
@@ -30,9 +33,13 @@ deskbar_PYTHON = \
 	module_list.py \
 	preferences.py
 
+CLEANFILES = \
+	deskbar-applet
+	
 DISTCLEANFILES = \
+	deskbar-applet \
 	defs.py
 	
 EXTRA_DIST = \
 	defs.py.in \
-	$(deskbarbin_SCRIPTS)
+	deskbar-applet.py

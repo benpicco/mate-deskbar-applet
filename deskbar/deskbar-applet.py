@@ -25,7 +25,8 @@ if _check(name):
 	print 'Running uninstalled deskbar, modifying PYTHONPATH'
 	sys.path.insert(0, abspath(name))
 else:
-	print "Running installed deskbar, using normal PYTHONPATH"
+	sys.path.insert(0, abspath("@PYTHONPATH@"))
+	print "Running installed deskbar, using [@PYTHONPATH@:$PYTHONPATH]"
 
 # Now the path is set, import our applet
 import deskbar, deskbar.applet, deskbar.defs
