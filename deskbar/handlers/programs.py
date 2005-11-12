@@ -91,7 +91,7 @@ class SpecialProgramHandler(deskbar.handler.Handler):
 		self._match = None
 		
 	def initialize(self):
-		result = parse_desktop_filename(self._desktop)
+		result = parse_desktop_filename(self._desktop, False)
 		if result != None:
 			self._match = self.create_match(result)
 	
@@ -143,23 +143,25 @@ class ProgramsHandler(deskbar.handler.Handler):
 								result.get_string(deskbar.gnomedesktop.KEY_COMMENT),
 							), match)
 
-def parse_desktop_filename(desktop):
+def parse_desktop_filename(desktop, only_if_visible=True):
 	for dir in get_xdg_data_dirs():
 		f = join(dir, "applications", desktop)
 		if exists(f):
-			return parse_desktop_file(f)
+			return parse_desktop_file(f, only_if_visible)
 	
 	return None
 
 
-def parse_desktop_file(desktop):
+def parse_desktop_file(desktop, only_if_visible=True):
 	#print '-----Scanning:', desktop
 	desktop = deskbar.gnomedesktop.item_new_from_file(desktop, deskbar.gnomedesktop.LOAD_ONLY_IF_EXISTS)
 	if desktop == None or desktop.get_entry_type() != deskbar.gnomedesktop.TYPE_APPLICATION:
 		return None
-	if desktop.get_boolean(deskbar.gnomedesktop.KEY_TERMINAL) or desktop.get_boolean(deskbar.gnomedesktop.KEY_NO_DISPLAY):
+	if desktop.get_boolean(deskbar.gnomedesktop.KEY_TERMINAL):
 		return None
-	
+	if only_if_visible and desktop.get_boolean(deskbar.gnomedesktop.KEY_NO_DISPLAY):
+		return None
+		
 	return desktop
 	
 #	return {

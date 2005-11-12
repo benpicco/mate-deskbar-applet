@@ -8,12 +8,20 @@ if ENABLE_EVOLUTION
 SUBDIRS += evolution
 endif
 	
+deskbar-applet: deskbar-applet.py
+	sed -e "s|\@PYTHONPATH\@|$(pythondir)/deskbar|" $< > $@
+
+defs.py: defs.py.in
+	sed -e "s|\@DATADIR\@|$(datadir)|" \
+		-e "s|\@LIBDIR\@|$(libdir)|" \
+		-e "s|\@VERSION\@|$(VERSION)|" \
+		-e "s|\@PACKAGE\@|$(PACKAGE)|" \
+		-e "s|\@PYTHONPATH\@|$(pythondir)/deskbar|" \
+		$< > $@
+
 deskbarbindir = $(libdir)/deskbar-applet
 deskbarbin_SCRIPTS = deskbar-applet
 
-deskbar-applet: deskbar-applet.py
-	sed -e "s|\@PYTHONPATH\@|$(pythondir)/deskbar|" $< > $@
-        
 deskbardir = $(pythondir)/deskbar
 deskbar_PYTHON = \
 	__init__.py \
@@ -33,12 +41,15 @@ deskbar_PYTHON = \
 	module_list.py \
 	preferences.py
 
-CLEANFILES = \
+BUILT_SOURCES = \
+	defs.py \
 	deskbar-applet
 	
+CLEANFILES = \
+	$(BUILT_SOURCES)
+	
 DISTCLEANFILES = \
-	deskbar-applet \
-	defs.py
+	$(CLEANFILES)
 	
 EXTRA_DIST = \
 	defs.py.in \

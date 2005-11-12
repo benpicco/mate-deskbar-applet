@@ -42,15 +42,6 @@ dnl ****************************************************************************
 AM_PATH_PYTHON(2.3)
 AM_CHECK_PYTHON_HEADERS(,[AC_MSG_ERROR(could not find Python headers)])
 
-AS_AC_EXPAND(DATADIR, $datadir)
-AS_AC_EXPAND(LIBDIR, $libdir)
-AS_AC_EXPAND(PYTHONPATH, $pythondir)
-AC_SUBST(PYTHONPATH)
-AC_SUBST(DATADIR)
-AC_SUBST(LIBDIR)
-AC_SUBST(VERSION)
-AC_SUBST(PACKAGE)
-
 dnl ****************************************************************************
 dnl * PyGTK & co for Gnome Streamer
 dnl ****************************************************************************
@@ -150,7 +141,6 @@ dnl ****************************************************************************
 AC_OUTPUT([
 Makefile
 deskbar/Makefile
-deskbar/defs.py
 deskbar/evolution/Makefile
 deskbar/handlers/Makefile
 deskbar/iconentry/Makefile
