@@ -39,6 +39,7 @@ locale.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "loc
 locale.textdomain('deskbar-applet')
     
 def applet_factory(applet, iid):
+	print 'Starting Deskbar instance:', applet, iid
 	deskbar.applet.DeskbarApplet(applet)
 	return True
 

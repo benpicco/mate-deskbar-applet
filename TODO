@@ -8,25 +8,14 @@ UI TODOs:
 	* Translucency handling in applet mode, see mini-commander patch in bugzilla
 	* Deskbar history matches, history items are matched first
 
-* PYTHONPATH in unusual prefixes, handle that !
-* Handle bonobo xml file correctly
 * Cache/Pickle indexes
 * Move indexing in a bonobo factory whatever that means
-* Hidden key for alt-f2
-
-
-panel_applet_setup_menu_from_file (PANEL_APPLET (battstat->applet),
-		DATADIR, /* defined in configure.in */
-		"GNOME_BattstatApplet.xml",
-		NULL,
-		battstat_menu_verbs,
-		battstat);
+* Hidden gconf key for alt-f2 dialog replacement
 
 Backends TODOs:
 	General:
 	* Do something about hardcoded path, for example /usr/share/applications
 	* Some icons (.desktop one notably) do not scale down, that's ugly
-	* Launch & show a CLI program in a window (output/err)
 			
 	Browsers (ephy, ff, moz): [epiphany.py, mozilla.py]
 	* Use Mozilla/FF's history file to present history items

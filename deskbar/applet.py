@@ -1,4 +1,5 @@
 import os, time
+from os.path import *
 # WARNING: Load gnome.ui before gnomeapplet or we have a nasty warning.
 import gnome.ui
 import gnomeapplet, gtk, gtk.gdk, gconf, gobject
@@ -13,6 +14,7 @@ class DeskbarAppletPreferences:
 		self.GCONF_APPLET_DIR = deskbar.GCONF_DIR
 		self.GCONF_WIDTH = deskbar.GCONF_WIDTH
 		self.GCONF_EXPAND = deskbar.GCONF_EXPAND
+		self.HISTORY = join(deskbar.USER_DESKBAR_DIR, "history.pickle")
 		
 		# Retreive this applet's pref folder
 		path = applet.get_preferences_key()
@@ -20,14 +22,17 @@ class DeskbarAppletPreferences:
 			self.GCONF_APPLET_DIR = path
 			self.GCONF_WIDTH =  self.GCONF_APPLET_DIR + "/width"
 			self.GCONF_EXPAND = self.GCONF_APPLET_DIR + "/expand"
+			self.HISTORY = join(deskbar.USER_DESKBAR_DIR, basename(self.GCONF_APPLET_DIR))
+			
 			applet.add_preferences("/schemas" + deskbar.GCONF_DIR)
 			deskbar.GCONF_CLIENT.add_dir(self.GCONF_APPLET_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
+			
 			print 'Using per-applet gconf key:', self.GCONF_APPLET_DIR
 				
 class DeskbarApplet:
 	def __init__(self, applet):
 		self.applet = applet
-		self.gconf = DeskbarAppletPreferences(applet)
+		self.prefs = DeskbarAppletPreferences(applet)
 		
 		self._inited_modules = 0
 		self._loaded_modules = 0
@@ -43,7 +48,7 @@ class DeskbarApplet:
 		self.loader.connect ("module-not-initialized", self.on_module_initialized)
 		self.loader.connect ("module-stopped", self.module_list.module_toggled_cb)
 		
-		self.entry = deskbar.deskbarentry.DeskbarEntry(self.module_list)
+		self.entry = deskbar.deskbarentry.DeskbarEntry(self, self.module_list)
 		self.entry.get_evbox().connect("button-press-event", self.on_icon_button_press)
 		self.entry.get_entry().connect("button-press-event", self.on_entry_button_press)
 		self.loader.connect ("module-initialized", self.entry._connect_if_async)
@@ -52,14 +57,14 @@ class DeskbarApplet:
 		self.keybinder = deskbar.applet_keybinder.AppletKeybinder(self)
 
 		# Set and retreive entry width from gconf
-		self.config_width = deskbar.GCONF_CLIENT.get_int(self.gconf.GCONF_WIDTH)
+		self.config_width = deskbar.GCONF_CLIENT.get_int(self.prefs.GCONF_WIDTH)
 		if self.config_width == None:
 			self.config_width = 20
-		deskbar.GCONF_CLIENT.notify_add(self.gconf.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
-		self.config_expand = deskbar.GCONF_CLIENT.get_bool(self.gconf.GCONF_EXPAND)
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
+		self.config_expand = deskbar.GCONF_CLIENT.get_bool(self.prefs.GCONF_EXPAND)
 		if self.config_expand == None:
 			self.config_expand = False
-		deskbar.GCONF_CLIENT.notify_add(self.gconf.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
 		
 		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_ENABLED_HANDLERS, lambda x, y, z, a: self.on_config_handlers(z.value))
 		
@@ -69,7 +74,7 @@ class DeskbarApplet:
 		self.applet.connect('destroy', lambda x: self.keybinder.unbind())
 		self.applet.connect('change-orient', lambda x, orient: self.sync_applet_size())
 		self.applet.setup_menu_from_file (
-			None, os.path.join(deskbar.SHARED_DATA_DIR, "Deskbar_Applet.xml"),
+			deskbar.SHARED_DATA_DIR, "Deskbar_Applet.xml",
 			None, [("About", self.on_about), ("Prefs", self.on_preferences)])
 
 		self.applet.show_all()

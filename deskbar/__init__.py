@@ -61,6 +61,9 @@ ART_DATA_DIR = join(SHARED_DATA_DIR, "art")
 # Default icon size in the entry
 ICON_SIZE = 16
 
+#Maximum number of history items
+MAX_HISTORY = 25
+
 #Gconf client
 GCONF_CLIENT = gconf.client_get_default()
 

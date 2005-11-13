@@ -153,7 +153,6 @@ def parse_desktop_filename(desktop, only_if_visible=True):
 
 
 def parse_desktop_file(desktop, only_if_visible=True):
-	#print '-----Scanning:', desktop
 	desktop = deskbar.gnomedesktop.item_new_from_file(desktop, deskbar.gnomedesktop.LOAD_ONLY_IF_EXISTS)
 	if desktop == None or desktop.get_entry_type() != deskbar.gnomedesktop.TYPE_APPLICATION:
 		return None
@@ -163,60 +162,3 @@ def parse_desktop_file(desktop, only_if_visible=True):
 		return None
 		
 	return desktop
-	
-#	return {
-#		"program":    desktop.get_string("Exec"),
-#		"name":       desktop.get_localestring(deskbar.gnomedesktop.KEY_NAME),
-#		"comment":    desktop.get_localestring(deskbar.gnomedesktop.KEY_COMMENT)comment,
-#		"pixbuf":     deskbar.handler_utils.load_icon_for_desktop_icon(desktop.get_string(deskbar.gnomedesktop.KEY_ICON)),
-#		"engname":    desktop.get_string(deskbar.gnomedesktop.KEY_NAME),
-#		"engcomment": desktop.get_string(deskbar.gnomedesktop.KEY_COMMENT),
-#		"desktop":    desktop,
-#	}
-#	try:
-#		config = ConfigParser.SafeConfigParser({
-#			"Comment" : "",
-#			"Icon": "",
-#			"NoDisplay": "false",
-#			"Terminal" : "no",
-#		})
-#		config.read(desktop)
-#		if config.getboolean("Desktop Entry", "Terminal"):
-#			return None
-#		if config.getboolean("Desktop Entry", "NoDisplay"):
-#			return None
-#		
-#		program = config.get("Desktop Entry", "Exec", True)
-#		
-#		name = get_entry_locale(config, "Name")
-#		comment = get_entry_locale(config, "Comment")
-#
-#		pixbuf = deskbar.handler_utils.load_icon(config.get("Desktop Entry", "Icon", True))
-#		
-#		#FIXME: We will also index in english, see if this is good, or not
-#		engname = config.get("Desktop Entry", "Name", True)
-#		engcomment = config.get("Desktop Entry", "Comment", True)
-#		
-#		return {
-#			"program":    program,
-#			"name":       name,
-#			"comment":    comment,
-#			"pixbuf":     pixbuf,
-#			"engname":    engname,
-#			"engcomment": engcomment,
-#		}
-#		
-#	except Exception, msg:
-#		print 'Error:_scan_desktop_files:File Error:%s:%s' % (desktop, msg)
-#		return None
-		
-#LANGS = deskbar.locale_utils.get_languages()
-#def get_entry_locale(config, key):
-#	for lang in LANGS:
-#		locale_key = "%s[%s]" % (key, lang)
-#		try:
-#			return config.get("Desktop Entry", locale_key, True)
-#		except:
-#			pass
-#	
-#	return config.get("Desktop Entry", key, True)
