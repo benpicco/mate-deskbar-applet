@@ -8,7 +8,7 @@ class Match:
 		self._handler = handler
 		self._name = name
 		self._icon = icon
-	
+			
 	def get_handler(self):
 		"""
 		Returns the handler owning this match.
@@ -80,7 +80,7 @@ class Match:
 		The optional text is the additional argument entered in the entry
 		"""
 		raise NotImplementedError
-		
+			
 class Handler:
 	def __init__(self, iconfile):
 		"""

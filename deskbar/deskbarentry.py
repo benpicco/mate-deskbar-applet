@@ -4,6 +4,7 @@ import cgi
 import gtk, gobject
 
 import deskbar, deskbar.iconentry
+from deskbar.history import DeskbarHistory
 from deskbar.module_list import ModuleList
 from deskbar.handler import *
 
@@ -19,15 +20,12 @@ SORT_BY_HANDLER_MATCH_ACTION = 1
 
 MAX_RESULTS_PER_HANDLER = 6
 
-#Maximum number of history items
-MAX_HISTORY = 25
-
 #selection directions
 MOVE_UP   = -1
 MOVE_DOWN = +1
 
 class DeskbarEntry(deskbar.iconentry.IconEntry):
-	def __init__(self, module_list):
+	def __init__(self, applet, module_list):
 		deskbar.iconentry.IconEntry.__init__(self)
 		
 		# Set up the Handlers
@@ -35,7 +33,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		
 		self._completion_model = None
 		self._selected_match_index = -1
-		self._history = History()
+		self._history = DeskbarHistory(applet)
 		
 		# Connect to underlying entry signals		
 		entry = self.get_entry()
@@ -43,6 +41,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		self._on_entry_changed_id = entry.connect("changed", self._on_entry_changed)
 		entry.connect("key-press-event", self._on_entry_key_press)
 		entry.connect("destroy", self._stop_async_handlers)
+		entry.connect("destroy", self._save_history)
 		
 		# The image showing the matches' icon
 		self._image = gtk.Image()
@@ -293,41 +292,10 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			if modctx.module.is_async():
 				modctx.module.stop_query()
 	
+	def _save_history(self, sender):
+		self._history.save()
+		
 	def _connect_if_async (self, sender, context):
 		if context.module.is_async():
 			context.module.connect('query-ready', lambda sender, matches: self._append_matches(matches, True))
 
-class History:
-	def __init__(self):
-		self._history = []
-		self._index = -1
-		
-	def add(self, history):
-		self._history.insert(0, history)
-		self._history[:MAX_HISTORY]
-		self._index = -1
-	
-	def up(self):
-		if self._index < len(self._history)-1:
-			self._index = self._index + 1
-	
-	def down(self):
-		if self._index > -1:
-			self._index = self._index - 1
-	
-	def reset(self):
-		self._index = -1
-	
-	def last(self):
-		if len(self._history) == 0:
-			return None
-		return self._history[0]
-	
-	def get_all_history(self):
-		return self._history
-		
-	def get_history(self):
-		if self._index == -1:
-			return None
-		
-		return self._history[self._index]
