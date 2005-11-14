@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 0.8.4.90, raphael@slinckx.net)
+AC_INIT(deskbar-applet, 0.8.6, raphael@slinckx.net)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
@@ -42,6 +42,21 @@ dnl ****************************************************************************
 AM_PATH_PYTHON(2.3)
 AM_CHECK_PYTHON_HEADERS(,[AC_MSG_ERROR(could not find Python headers)])
 
+dnl ****************************************************************************
+dnl * Write the values of various paths in defs.py
+dnl ****************************************************************************
+AC_SUBST(VERSION)
+AC_SUBST(PACKAGE)
+
+AS_AC_EXPAND(DATADIR, $datadir)
+AC_SUBST(DATADIR)
+
+AS_AC_EXPAND(LIBDIR, $libdir)
+AC_SUBST(LIBDIR)
+
+AS_AC_EXPAND(PYTHONPATH, $pythondir)
+AC_SUBST(PYTHONPATH)
+		
 dnl ****************************************************************************
 dnl * PyGTK & co for Gnome Streamer
 dnl ****************************************************************************
@@ -141,6 +156,7 @@ dnl ****************************************************************************
 AC_OUTPUT([
 Makefile
 deskbar/Makefile
+deskbar/defs.py
 deskbar/evolution/Makefile
 deskbar/handlers/Makefile
 deskbar/iconentry/Makefile
