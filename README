@@ -1,16 +1,16 @@
 =============
 deskbar-applet
 =============
-For more information, please visit our not-official-yet-website:
+For more information, please visit our website:
+http://raphael.slinckx.net/deskbar
 
+And our development wiki:
 http://live.gnome.org/DeskbarApplet
 
 =============
 Known issues
 =============
 * The result list does not expand when new matches coming from asynchronous backends appear, this affect the google live plugin, and the beagle plugin.
-* There are occasional lockups when beagle behaves.
-* Some users reported segfaults when using the beagle live module, the cause is still unclear.
 
 ============
 Requirements
@@ -21,6 +21,7 @@ Required dependencies:
  * gnome-python-2.10 (modules: gconf, gnome, gnome.ui, gnomevfs)
  * gnome-python-extras-2.10 (module: gnomeapplet)
  * gtk+-2.6 to compile global hotkey and icon entry
+ * gnome-desktop-2.10 to compile .desktop parsing
 
 Optional dependencies:
  * Compile time:

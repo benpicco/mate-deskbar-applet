@@ -1,4 +1,30 @@
 ====================
+Deskbar Applet 0.8.5
+====================
+
+Changes:
+	* Fix bug #321236: always show file search and gnome dict even when the menu item is hidden by the user. 
+	* Fix bug #321115: deskbar does not like being installed into a different prefix to Python.
+	* Fix bug #320373: Fitt's law whackiness, correctly size the applet on startup.
+	* Correctly handle the handlers list preferences, changes are shared between different deskbar instances. 
+	* Revisit the firefox/mozilla smart engine parser, should be error free now.
+	* Add wrapper for lignome-dektop's GnomeDesktopItem to parse .desktop files
+	* Startup Notification support.
+	* New Duplication detection, duplicate items are checked in the order defined by handler priorities.
+	* Support for per-applet-instance width and expand settings
+	* Position the history menu correctly to the icon
+	* Limit history menu to last 25 items
+	* Register more classes with pygtk < 2.8 to fix crashes in file monitoring classes
+	* Fix missing gobject import in google-live
+
+Contributors to this release: Nigel Tao, Raphael Slinckx
+
+Changes:
+	* Added Swedish translation.
+
+Contributor to this release: Christian Rose
+
+====================
 Deskbar Applet 0.8.4 -- It seems stabilized.
 ====================
 
