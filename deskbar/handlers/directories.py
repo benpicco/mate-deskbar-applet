@@ -28,7 +28,7 @@ class FolderMatch(deskbar.handler.Match):
 		gobject.spawn_async(["nautilus", self._filename], flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):
-		return _("Open folder <b>%(name)s</b>")
+		return _("Open folder %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
 		return self._filename

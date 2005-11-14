@@ -27,9 +27,9 @@ class BrowserMatch(deskbar.handler.Match):
 		
 	def get_verb(self):
 		if self._is_history:
-			return _("Open History Item <b>%(name)s</b>")
+			return _("Open History Item %s") % "<b>%(name)s</b>"
 		else:
-			return _("Open Bookmark <b>%(name)s</b>")
+			return _("Open Bookmark %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
 		return self._url
@@ -50,7 +50,8 @@ class BrowserSmartMatch(BrowserMatch):
 		gnomevfs.url_show(real_url)
 		
 	def get_verb(self):
-		return _("Search <b>%(name)s</b> for <i>%(text)s</i>")
+		#translators: First %s is the search engine name, second %s is the search term
+		return _("Search %s for %s") % ("<b>%(name)s</b>", "<i>%(text)s</i>")
 				
 def get_url_host(url):
 	try:

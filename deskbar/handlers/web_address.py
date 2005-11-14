@@ -32,9 +32,9 @@ class WebAddressMatch(deskbar.handler.Match):
 	
 	def get_verb(self):
 		if not self._has_method:
-			return _("Open the web page <b>%(name)s</b>")
+			return _("Open the web page %s") % "<b>%(name)s</b>"
 		else:
-			return _("Open the location <b>%(name)s</b>")
+			return _("Open the location %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
 		return self._url

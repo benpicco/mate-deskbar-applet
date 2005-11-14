@@ -61,7 +61,9 @@ class GenericProgramMatch(deskbar.handler.Match):
 			self._desktop.launch([])
 	
 	def get_verb(self):
-		return _("Launch <b>%(name)s</b> (%(prog)s)")
+		#translators: First %s is the programs full name, second is the executable name
+		#translators: For example: Launch Text Editor (gedit)
+		return _("Launch %s (%s)") % ("<b>%(name)s</b>", "%(prog)s")
 		
 	def get_name(self, text=None):
 		return {
@@ -74,7 +76,7 @@ class GnomeDictMatch(GenericProgramMatch):
 		GenericProgramMatch.__init__(self, backend, desktop, True)
 	
 	def get_verb(self):
-		return _("Lookup <b>%(text)s</b> in dictionary")
+		return _("Lookup %s in dictionary") % "<b>%(text)s</b>"
 
 class GnomeSearchMatch(GenericProgramMatch):
 	def __init__(self, backend, desktop):
@@ -82,7 +84,7 @@ class GnomeSearchMatch(GenericProgramMatch):
 		self._args = ["--start", "--path", expanduser("~"), "--named"]
 		
 	def get_verb(self):
-		return _("Search for file names like <b>%(text)s</b>")
+		return _("Search for file names like %s") % "<b>%(text)s</b>"
 
 class SpecialProgramHandler(deskbar.handler.Handler):
 	def __init__(self, desktop, icon="generic.png"):

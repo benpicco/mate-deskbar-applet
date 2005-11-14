@@ -24,7 +24,7 @@ class GalagoMatch(deskbar.handler.Match):
 		gnomevfs.url_show("mailto:"+self._email)
 	
 	def get_verb(self):
-		return _("Send Email to <b>%(name)s</b>")
+		return _("Send Email to %s") % "<b>%(name)s</b>"
 		
 class GalagoHandler(deskbar.handler.Handler):
 	def __init__(self):

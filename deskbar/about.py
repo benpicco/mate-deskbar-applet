@@ -29,7 +29,7 @@ def show_about():
 		"comments" : _("An all-in-one search bar."),
 		"copyright" : "Copyright (c) 2004-2005 Nigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen.",
 		"website" : "http://browserbookapp.sourceforge.net/deskbar.html",
-		"website-label" : _("Deskbar Applet Website"),
+		"website-label" : _("Deskbar Website"),
 	}
 
 	about.set_authors(["Nigel Tao <nigel.tao@myrealbox.com>", "Raphael Slinckx <raphael@slinckx.net>", "Mikkel Kamstrup Erlandsen <kamstrup@daimi.au.dk>"])

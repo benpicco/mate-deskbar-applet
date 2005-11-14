@@ -38,11 +38,11 @@ class VolumeMatch (Match):
 			uri_scheme = gnomevfs.get_uri_scheme(activation) 
 			
 		if uri_scheme in NETWORK_URIS:
-			return _("Open network place <b>%(name)s</b>")
+			return _("Open network place %s") % "<b>%(name)s</b>"
 		elif uri_scheme in AUDIO_URIS:
-			return _("Open audio disk <b>%(name)s</b>")
+			return _("Open audio disk %s") % "<b>%(name)s</b>"
 		else:
-			return _("Open location <b>%(name)s</b>")
+			return _("Open location %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
 		return self.__drive.get_activation_uri()

@@ -43,7 +43,7 @@ TYPES = {
 		"name"	: ("fixme:FileAs",),
 		"action": "evolution",
 		"icon"	: "stock_contact",
-		"description": _("Addressbook entry for <b>%(name)s</b>")
+		"description": _("Addressbook entry for %s") % "<b>%(name)s</b>"
 		},
 	
 	"MailMessage" 	: {
@@ -51,38 +51,40 @@ TYPES = {
 		"action": "evolution",
 		"icon"	: "stock_mail",
 		"extra": {"sender":("fixme:from_name", "parent:fixme:from_name")},
-		"description": _("View email from <i>%(sender)s</i>: <b>%(name)s</b>")
+		#translators: First %s is mail sender, second %s is mail subject.
+		"description": _("View email from %s: %s") % ("<i>%(sender)s</i>", "<b>%(name)s</b>")
 		},
 	"File" 		: {
 		"name"	: ("beagle:ExactFilename",), 
 		"action": "gnome-open",
 		"icon"	: "stock_new",
-		"description": _("Open <b>%(name)s</b>")
+		#translators: This is a file.
+		"description": _("Open %s") % "<b>%(name)s</b>"
 		},
 	"FeedItem"	: {
 		"name"	: ("dc:title",),
 		"action": "gnome-open",
 		"icon"	: "stock_news",
-		"description": _("Open news item <b>%(name)s</b>"),
+		"description": _("Open news item %s") % "<b>%(name)s</b>"
 		},
 	"Note"		: {
 		"name"	: ("dc:title",),
 		"action": "tomboy",
 		"action_args": "--open-note",
 		"icon"	:"stock_notes",
-		"description": _("Open note <b>%(name)s</b>")
+		"description": _("Open note %s") % "<b>%(name)s</b>"
 		},
 	"IMLog"		: {
 		"name"	: ("fixme:speakingto",),
 		"action": "beagle-imlogviewer",
 		"icon"	: "im",
-		"description": _("View conversation with <b>%(name)s</b>")
+		"description": _("View conversation with %s") % "<b>%(name)s</b>"
 		},
 	"Calendar"	: {
 		"name"	: ("fixme:summary",),
 		"action": "evolution",
 		"icon"	: "stock_calendar",
-		"description": _("View calendar <b>%(name)s</b>")
+		"description": _("View calendar %s") % "<b>%(name)s</b>"
 		},
 }
 
@@ -197,6 +199,8 @@ class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 					result["name"] = cgi.escape(name)
 					break
 			else:
+				#translators: This is used for unknown values returned by beagle
+				#translators: for example unknown email sender, or unknown note title
 				result["name"] = _("?")
 				
 			if "extra" in hit_type:

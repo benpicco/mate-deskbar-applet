@@ -23,7 +23,7 @@ class EmailAddressMatch(deskbar.handler.Match):
 		gnomevfs.url_show("mailto:"+self._email)
 	
 	def get_verb(self):
-		return _("Send Email to <b>%(name)s</b>")
+		return _("Send Email to %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
 		return self._email

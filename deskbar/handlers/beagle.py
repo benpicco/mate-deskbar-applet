@@ -30,7 +30,7 @@ class BeagleMatch(deskbar.handler.Match):
 		gobject.spawn_async(["best", '--no-tray', '--show-window', self._name], flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):
-		return _("Search <b>%(name)s</b> with Beagle")
+		return _("Search for %s using Beagle") % "<b>%(name)s</b>"
 		
 				
 class BeagleHandler(deskbar.handler.Handler):

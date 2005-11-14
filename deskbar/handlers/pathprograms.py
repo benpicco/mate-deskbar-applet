@@ -27,7 +27,7 @@ class PathProgramMatch(deskbar.handler.Match):
 		gobject.spawn_async(text.split(" "), flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):
-		return _("Execute <b>%(text)s</b>")
+		return _("Execute %s") % "<b>%(text)s</b>"
 
 class PathProgramsHandler(deskbar.handler.Handler):
 	def __init__(self):

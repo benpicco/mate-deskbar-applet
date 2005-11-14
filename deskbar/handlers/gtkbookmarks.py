@@ -26,7 +26,7 @@ class GtkBookmarkMatch(deskbar.handler.Match):
 		gobject.spawn_async(["nautilus", self._path], flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):
-		return _("Open location <b>%(name)s</b>")
+		return _("Open location %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
 		return self._path
