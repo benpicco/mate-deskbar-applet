@@ -4,7 +4,7 @@ import gobject
 
 HANDLERS = {
 	"SignallingDebugHandler" : {
-		"name": "Signalling Debug Module",
+		"name": "Debug (Signalling)",
 	}
 }
 

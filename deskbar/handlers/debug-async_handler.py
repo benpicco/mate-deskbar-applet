@@ -4,7 +4,7 @@ import gtk
 
 HANDLERS = {
 	"AsyncDebugHandler" : {
-		"name": "Async Debug Module",
+		"name": "Debug (Async)",
 	}
 }
 

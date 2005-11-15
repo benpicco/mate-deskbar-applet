@@ -13,8 +13,8 @@ import gtk, gnome, gnomevfs
 
 HANDLERS = {
 	"VolumeHandler" : {
-		"name": _("Search for disks and network places"),
-		"description": _("Open drives and volumes by their name"),
+		"name": _("Disks and Network Places"),
+		"description": _("Open disk drives, shared network places and similar resources by name"),
 	}
 }
 

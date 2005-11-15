@@ -14,7 +14,7 @@ from deskbar.handler_utils import filesystem_possible_completions
 HANDLERS = {
 	"FileHandler" : {
 		"name": _("Files"),
-		"description": _("Open files by typing their names."),
+		"description": _("Open files by name"),
 	}
 }
 

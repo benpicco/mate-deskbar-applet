@@ -10,8 +10,8 @@ import deskbar.handler
 
 HANDLERS = {
 	"PathProgramsHandler" : {
-		"name": _("Command line programs"),
-		"description": _("Allow to launch any program present in your $PATH"),
+		"name": _("Programs (Advanced)"),
+		"description": _("Launch any program present in your $PATH"),
 	}
 }
 

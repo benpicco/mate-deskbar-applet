@@ -26,14 +26,14 @@ def _check_requirements():
 		
 HANDLERS = {
 	"MozillaBookmarksHandler" : {
-		"name": _("Bookmarks"),
-		"description": _("Index your bookmarks"),
-		"requirements": _check_requirements,
+		"name": _("Web Bookmarks"),
+		"description": _("Open your web bookmarks by name"),
+		"requirements": _check_requirements
 	},
 	"MozillaSearchHandler" : {
-		"name": _("Search Engines"),
-		"description": _("Index your search engines"),
-		"requirements": _check_requirements,
+		"name": _("Web Searches"),
+		"description": _("Search the web via your browser's search settings"),
+		"requirements": _check_requirements
 	}
 }
 

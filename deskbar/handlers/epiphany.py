@@ -18,18 +18,18 @@ def _check_requirements():
 	
 HANDLERS = {
 	"EpiphanyBookmarksHandler": {
-		"name": _("Bookmarks"),
-		"description": _("Index your bookmarks"),
+		"name": _("Web Bookmarks"),
+		"description": _("Open your web bookmarks by name"),
 		"requirements": _check_requirements
 	},
 	"EpiphanyHistoryHandler": {
-		"name": _("History"),
-		"description": _("Index your search history"),
+		"name": _("Web History"),
+		"description": _("Open your web history by name"),
 		"requirements": _check_requirements
 	},
 	"EpiphanySearchHandler": {
-		"name": _("Smart Bookmarks"),
-		"description": _("Index your smart bookmarks"),
+		"name": _("Web Searches"),
+		"description": _("Search the web via your browser's search settings"),
 		"requirements": _check_requirements
 	},
 }

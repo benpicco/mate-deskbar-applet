@@ -4,8 +4,7 @@ from handler import Match
 
 HANDLERS = {
 	"DebugBlockingInitModule" : {
-		"name": "Debug/Blocking Init",
-		"description": "Blocking Init Module",
+		"name": "Debug (Block During Init)",
 	}
 }
 INIT_TIME = 0

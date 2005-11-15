@@ -11,16 +11,16 @@ from deskbar.handler_utils import get_xdg_data_dirs
 
 HANDLERS = {
 	"ProgramsHandler" : {
-		"name": _("Desktop Programs"),
-		"description": _("Index the program names and descriptions."),
+		"name": _("Programs"),
+		"description": _("Launch a program by its name and/or description"),
 	},
 	"GnomeDictHandler" : {
-		"name": _("Dictionary Lookup"),
-		"description": _("Type a word and lookup the definition in the dictionary"),
+		"name": _("Dictionary"),
+		"description": _("Look up word definitions in the dictionary"),
 	},
 	"GnomeSearchHandler" : {
-		"name": _("File Search"),
-		"description": _("Type a filename pattern and find matching files on your disk."),
+		"name": _("Files and Folders Search"),
+		"description": _("Find files and folders by searching for a name pattern"),
 	},
 }
 

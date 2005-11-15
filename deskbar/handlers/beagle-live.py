@@ -15,8 +15,8 @@ def _check_requirements():
 	
 HANDLERS = {
 	"BeagleLiveHandler" : {
-		"name": _("Live Beagle Queries"),
-		"description": _("Query Beagle automatically as you type."),
+		"name": _("Beagle Live"),
+		"description": _("Search all of your documents (using Beagle), as you type"),
 		# We must see how to detect properly beagle, for now it will fail on creating a new client
 		# when beagle is not available.
 		"requirements" : _check_requirements,

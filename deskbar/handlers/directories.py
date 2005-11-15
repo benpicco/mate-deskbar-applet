@@ -14,7 +14,7 @@ from deskbar.handler_utils import filesystem_possible_completions
 HANDLERS = {
 	"FolderHandler" : {
 		"name": _("Folders"),
-		"description": _("Open folders by their names."),
+		"description": _("Open folders by name"),
 	}
 }
 class FolderMatch(deskbar.handler.Match):

@@ -17,7 +17,7 @@ def _check_requirements():
 HANDLERS = {
 	"BeagleHandler" : {
 		"name": _("Beagle"),
-		"description": _("Use Beagle to search for documents"),
+		"description": _("Search all of your documents (using Beagle)"),
 		"requirements": _check_requirements,
 	}
 }

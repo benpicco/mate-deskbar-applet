@@ -6,8 +6,8 @@ import re
 
 HANDLERS = {
 	"EmailAddressHandler" : {
-		"name": _("Email Addresses"),
-		"description": _("Send mails by typing an email address."),
+		"name": _("Mail"),
+		"description": _("Send mail by typing a complete e-mail address"),
 	}
 }
 

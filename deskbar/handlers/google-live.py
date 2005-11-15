@@ -42,8 +42,8 @@ def _check_requirements():
 		
 HANDLERS = {
 	"GoogleLiveHandler" : {
-		"name": _("Live Google search"),
-		"description": _("Search the words you type with Google and display the results in the list."),
+		"name": _("Google Live"),
+		"description": _("Search Google as you type"),
 		"requirements" : _check_requirements
 	}
 }

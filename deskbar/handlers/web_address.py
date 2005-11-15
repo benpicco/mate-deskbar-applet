@@ -6,8 +6,8 @@ import deskbar.handler
 
 HANDLERS = {
 	"WebAddressHandler" : {
-		"name": _("Web Addresses"),
-		"description": _("Open webpages by typing an address."),
+		"name": _("Web"),
+		"description": _("Open web pages by typing a complete web address"),
 	}
 }
 
