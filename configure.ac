@@ -23,7 +23,7 @@ fi
 dnl ****************************************************************************
 dnl * Translation & i18n
 dnl ****************************************************************************
-ALL_LINGUAS="en_GB es fi ja nl sk sv zh_CN"
+ALL_LINGUAS="en_GB es fi ja lt nl sk sv zh_CN"
 GETTEXT_PACKAGE="deskbar-applet"
 AC_PROG_INTLTOOL([0.33])
 AC_SUBST(GETTEXT_PACKAGE)
