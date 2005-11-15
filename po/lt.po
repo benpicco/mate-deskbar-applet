@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-15 01:49+0200\n"
-"PO-Revision-Date: 2005-11-15 02:10+0200\n"
+"POT-Creation-Date: 2005-11-15 11:38+0200\n"
+"PO-Revision-Date: 2005-11-15 11:45+0200\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -37,8 +37,8 @@ msgid ""
 "<i><small><b>Note:</b> Drag and drop a handler to change its priority.</"
 "small></i>"
 msgstr ""
-"<i><small><b>Pastaba:</b> galite pakeisti valdiklio prioritetą perkeldami "
-"jį pele į kitą vietą.</small></i>"
+"<i><small><b>Pastaba:</b> galite pakeisti valdiklio prioritetą perkeldami jį "
+"pele į kitą vietą.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:4
 msgid "Deskbar Preferences"
@@ -74,37 +74,39 @@ msgstr "Deskbar svetainė"
 
 #: ../deskbar/handlers/epiphany.py:21 ../deskbar/handlers/mozilla.py:29
 #: ../deskbar/handlers/galeon.py:21
-msgid "Bookmarks"
-msgstr "Žymelės"
+msgid "Web Bookmarks"
+msgstr "Web Žymelės"
 
 #: ../deskbar/handlers/epiphany.py:22 ../deskbar/handlers/mozilla.py:30
 #: ../deskbar/handlers/galeon.py:22
-msgid "Index your bookmarks"
-msgstr "Indeksuoti Jūsų žymeles"
+msgid "Open your web bookmarks by name"
+msgstr "Atverti Jūsų web žymeles pagal pavadinimą"
 
 #: ../deskbar/handlers/epiphany.py:26 ../deskbar/handlers/galeon.py:26
-msgid "History"
-msgstr "Istorija"
+msgid "Web History"
+msgstr "Web istorija"
 
-#: ../deskbar/handlers/epiphany.py:27
-msgid "Index your search history"
-msgstr "Indeksuoti Jūsų paieškos istoriją"
+#: ../deskbar/handlers/epiphany.py:27 ../deskbar/handlers/galeon.py:27
+msgid "Open your web history by name"
+msgstr "Atverti Jūsų web istoriją pagal pavadinimą"
 
-#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/galeon.py:31
-msgid "Smart Bookmarks"
-msgstr "Gudrios žymelės"
+#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/galeon.py:31
+msgid "Web Searches"
+msgstr "Web paieškos"
 
-#: ../deskbar/handlers/epiphany.py:32
-msgid "Index your smart bookmarks"
-msgstr "Indeksuoti Jūsų gudrias žymeles"
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:35
+#: ../deskbar/handlers/galeon.py:32
+msgid "Search the web via your browser's search settings"
+msgstr "Ieškoti internete naudojantis Jūsų naršyklės nustatymais"
 
 #: ../deskbar/handlers/files.py:16
 msgid "Files"
 msgstr "Bylos"
 
 #: ../deskbar/handlers/files.py:17
-msgid "Open files by typing their names."
-msgstr "Atverti bylas įvedant jų vardus."
+msgid "Open files by name"
+msgstr "Atverti bylas pagal vardą"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/files.py:33 ../deskbar/handlers/beagle-live.py:62
@@ -117,8 +119,8 @@ msgid "Folders"
 msgstr "Aplankai"
 
 #: ../deskbar/handlers/directories.py:17
-msgid "Open folders by their names."
-msgstr "Atverti aplankus įvedant jų vardus."
+msgid "Open folders by name"
+msgstr "Atverti aplankus pagal vardus"
 
 #: ../deskbar/handlers/directories.py:31
 #, python-format
@@ -131,49 +133,41 @@ msgid "Send Email to %s"
 msgstr "Siųsti %s el. laišką"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
-msgid "File Manager bookmarks"
-msgstr "Bylų tvarkyklės žymelės"
+msgid "Folder Bookmarks"
+msgstr "Aplankų žymelės"
 
 #: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Open your file manager's bookmarks by name."
-msgstr "Atverti Jūsų bylų naršyklės žymeles pagal pavadinimą."
+msgid "Open your folder bookmarks by name"
+msgstr "Atverti Jūsų aplankų žymeles pagal pavadinimą"
 
 #: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
 #, python-format
 msgid "Open location %s"
 msgstr "Atverti vietą %s"
 
-#: ../deskbar/handlers/mozilla.py:34
-msgid "Search Engines"
-msgstr "Paieškos varikliukai"
-
-#: ../deskbar/handlers/mozilla.py:35 ../deskbar/handlers/galeon.py:32
-msgid "Index your search engines"
-msgstr "Indeksuoti Jūsų paieškos varikliukams"
-
 #: ../deskbar/handlers/programs.py:14
-msgid "Desktop Programs"
-msgstr "Darbo aplinkos programos"
+msgid "Programs"
+msgstr "Programos"
 
 #: ../deskbar/handlers/programs.py:15
-msgid "Index the program names and descriptions."
-msgstr "Indeksuoti programų vardus ir aprašymus."
+msgid "Launch a program by its name and/or description"
+msgstr "Paleisti programas pagal vardus ir/ar aprašymus"
 
 #: ../deskbar/handlers/programs.py:18
-msgid "Dictionary Lookup"
-msgstr "Paieška žodyne"
+msgid "Dictionary"
+msgstr "Žodynas"
 
 #: ../deskbar/handlers/programs.py:19
-msgid "Type a word and lookup the definition in the dictionary"
-msgstr "Ieškoti žodyne parašyto žodžio apibrėžimo"
+msgid "Look up word definitions in the dictionary"
+msgstr "Ieškoti žodyne parašytų žodžių apibrėžimų"
 
 #: ../deskbar/handlers/programs.py:22
-msgid "File Search"
-msgstr "Bylų paieška"
+msgid "Files and Folders Search"
+msgstr "Bylų ir aplankų paieška"
 
 #: ../deskbar/handlers/programs.py:23
-msgid "Type a filename pattern and find matching files on your disk."
-msgstr "Įveskite bylos vardo šabloną ir diske raskite atitinkančias bylas."
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Rasti bylas ir aplankus pagal vardo šabloną"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
@@ -193,12 +187,12 @@ msgid "Search for file names like %s"
 msgstr "Ieškoti bylų pavadinimų kaip %s"
 
 #: ../deskbar/handlers/pathprograms.py:13
-msgid "Command line programs"
-msgstr "Komandų eilutės programos"
+msgid "Programs (Advanced)"
+msgstr "Programos (sudėtingesnės)"
 
 #: ../deskbar/handlers/pathprograms.py:14
-msgid "Allow to launch any program present in your $PATH"
-msgstr "Leidžia paleisti bet kokią programą esančią Jūsų $PATH"
+msgid "Launch any program present in your $PATH"
+msgstr "Paleisti bet kokią programą esančią Jūsų $PATH"
 
 #: ../deskbar/handlers/pathprograms.py:30
 #, python-format
@@ -210,8 +204,8 @@ msgid "Beagle"
 msgstr "Beagle"
 
 #: ../deskbar/handlers/beagle.py:20
-msgid "Use Beagle to search for documents"
-msgstr "Naudoti Beagle dokumentų paieškai"
+msgid "Search all of your documents (using Beagle)"
+msgstr "Ieškoti visuose Jūsų dokumentuose (naudojant Beagle)"
 
 #: ../deskbar/handlers/beagle.py:33
 #, python-format
@@ -219,24 +213,20 @@ msgid "Search for %s using Beagle"
 msgstr "Ieškoti %s naudojant Beagle"
 
 #: ../deskbar/handlers/email_address.py:9
-msgid "Email Addresses"
-msgstr "El.pašto adresai"
+msgid "Mail"
+msgstr "Paštas"
 
 #: ../deskbar/handlers/email_address.py:10
-msgid "Send mails by typing an email address."
-msgstr "Siųsti el. laiškus įvedant el. pašto adresą."
-
-#: ../deskbar/handlers/galeon.py:27
-msgid "Index your history"
-msgstr "Indeksuoti Jūsų istoriją"
+msgid "Send mail by typing a complete e-mail address"
+msgstr "Siųsti el. laiškus įvedant el. pašto adresą"
 
 #: ../deskbar/handlers/volumes.py:16
-msgid "Search for disks and network places"
-msgstr "Ieškoti diskų ir tinklo vietų"
+msgid "Disks and Network Places"
+msgstr "Diskai ir tinklo vietos"
 
 #: ../deskbar/handlers/volumes.py:17
-msgid "Open drives and volumes by their name"
-msgstr "Atverti įrenginius ir kaupiklius parašant jų pavadinimą"
+msgid "Open disk drives, shared network places and similar resources by name"
+msgstr "Atverti diskus, viešinamas tinklo vietas ir pan. resursus pagal vardą"
 
 #: ../deskbar/handlers/volumes.py:41
 #, python-format
@@ -249,12 +239,12 @@ msgid "Open audio disk %s"
 msgstr "Atverti audio diską %s"
 
 #: ../deskbar/handlers/web_address.py:9
-msgid "Web Addresses"
-msgstr "Web adresai"
+msgid "Web"
+msgstr "Web"
 
 #: ../deskbar/handlers/web_address.py:10
-msgid "Open webpages by typing an address."
-msgstr "Atverti tinklalapius įvedant adresą."
+msgid "Open web pages by typing a complete web address"
+msgstr "Atverti tinklalapius įvedant visą adresą"
 
 #: ../deskbar/handlers/web_address.py:35
 #, python-format
@@ -283,12 +273,13 @@ msgid "Search %s for %s"
 msgstr "%s ieškoti %s"
 
 #: ../deskbar/handlers/evolution.py:8
-msgid "Address Book"
-msgstr "Adresų knyga"
+msgid "Mail (Address Book)"
+msgstr "Paštas (adresų knyga)"
 
 #: ../deskbar/handlers/evolution.py:9
-msgid "Send emails to your contacts by typing their name or email address"
-msgstr "Siųsti el.laiškus Jūsų kontaktams parašant jų vardą ar el. pašto adresą"
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr ""
+"Siųsti el.laiškus Jūsų kontaktams parašant jų vardą ar el. pašto adresą"
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:32
@@ -297,25 +288,24 @@ msgid "Send Email to %s (%s)"
 msgstr "Siųsti el. laišką %s (%s)"
 
 #: ../deskbar/handlers/google-live.py:45
-msgid "Live Google search"
-msgstr "Gyva Google paieška"
+msgid "Google Live"
+msgstr "Google Live"
 
 #: ../deskbar/handlers/google-live.py:46
-msgid ""
-"Search the words you type with Google and display the results in the list."
-msgstr "Ieškoti Google Jūsų įvedamų žodžių ir parodyti rezultatus sąraše."
+msgid "Search Google as you type"
+msgstr "Ieškoti Google rašymo metu"
 
 #: ../deskbar/applet.py:302
 msgid "No History"
 msgstr "Nėra istorijos"
 
 #: ../deskbar/handlers/beagle-live.py:18
-msgid "Live Beagle Queries"
-msgstr "Gyvos Beagle užklausos"
+msgid "Beagle Live"
+msgstr "Beagle Live"
 
 #: ../deskbar/handlers/beagle-live.py:19
-msgid "Query Beagle automatically as you type."
-msgstr "Jums rašant užklausti Beagle automatiškai."
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Ieškoti visuose Jūsų dokumentuose (naudojant Beagle) rašymo metu"
 
 #: ../deskbar/handlers/beagle-live.py:46
 #, python-format
