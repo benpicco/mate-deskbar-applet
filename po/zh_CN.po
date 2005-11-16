@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-14 19:13+0800\n"
-"PO-Revision-Date: 2005-10-14 19:17+0800\n"
+"POT-Creation-Date: 2005-11-16 13:33+0100\n"
+"PO-Revision-Date: 2005-11-16 23:31+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
@@ -20,28 +20,39 @@ msgid "An all-in-one search bar"
 msgstr "多合一搜索栏"
 
 #: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:26
-msgid "Deskbar Applet"
-msgstr "桌面栏小程序"
+msgid "Deskbar"
+msgstr "桌面栏"
 
 #: ../data/prefs-dialog.glade.h:1
+msgid "<b>Active Handlers</b>"
+msgstr "<b>活动的把手</b>"
+
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Applet Width</b>"
 msgstr "<b>小程序宽度</b>"
 
-#: ../data/prefs-dialog.glade.h:2
-msgid "Preferences"
-msgstr "首选项"
-
 #: ../data/prefs-dialog.glade.h:3
+msgid ""
+"<i><small><b>Note:</b> Drag and drop a handler to change its priority.</"
+"small></i>"
+msgstr ""
+"<i><small><b>注意：</b>拖曳把手可更改其优先级。</small></i>"
+
+#: ../data/prefs-dialog.glade.h:4
+msgid "Deskbar Preferences"
+msgstr "桌面栏首选项"
+
+#: ../data/prefs-dialog.glade.h:5
 msgid "Use _all available space"
 msgstr "使用可用的全部空间(_A)"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:6
 msgid "_Width:"
 msgstr "宽度(_W)："
 
-#: ../data/prefs-dialog.glade.h:5
-msgid "pixels"
-msgstr "像素"
+#: ../data/prefs-dialog.glade.h:7
+msgid "characters"
+msgstr "个字符"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -56,89 +67,277 @@ msgid "An all-in-one search bar."
 msgstr "多合一搜索栏。"
 
 #: ../deskbar/about.py:32
-msgid "Deskbar Applet Website"
-msgstr "桌面栏小程序网站"
+msgid "Deskbar Website"
+msgstr "桌面栏网站"
 
-#: ../deskbar/handlers/epiphany.py:12
-msgid "Epiphany Bookmarks and Search Engines"
-msgstr "Epiphany 书签和搜索引擎"
+#: ../deskbar/handlers/epiphany.py:21 ../deskbar/handlers/mozilla.py:29
+#: ../deskbar/handlers/galeon.py:21
+msgid "Web Bookmarks"
+msgstr "Web 书签"
 
-#: ../deskbar/handlers/epiphany.py:30 ../deskbar/handlers/mozilla.py:45
+#: ../deskbar/handlers/epiphany.py:22 ../deskbar/handlers/mozilla.py:30
+#: ../deskbar/handlers/galeon.py:22
+msgid "Open your web bookmarks by name"
+msgstr "按名称打开您的 Web 书签"
+
+#: ../deskbar/handlers/epiphany.py:26 ../deskbar/handlers/galeon.py:26
+msgid "Web History"
+msgstr "Web 历史"
+
+#: ../deskbar/handlers/epiphany.py:27 ../deskbar/handlers/galeon.py:27
+msgid "Open your web history by name"
+msgstr "按名称打开您的 Web 历史"
+
+#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/galeon.py:31
+msgid "Web Searches"
+msgstr "Web 搜索"
+
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:35
+#: ../deskbar/handlers/galeon.py:32
+msgid "Search the web via your browser's search settings"
+msgstr "通过您浏览器搜索设置搜索 Web"
+
+#: ../deskbar/handlers/files.py:16
+msgid "Files"
+msgstr "文件"
+
+#: ../deskbar/handlers/files.py:17
+msgid "Open files by name"
+msgstr "按名称打开文件"
+
+#. translators: This is a file.
+#: ../deskbar/handlers/files.py:33 ../deskbar/handlers/beagle-live.py:62
 #, python-format
-msgid "Open Bookmark <b>%(name)s</b>"
-msgstr "打开书签 <b>%(name)s</b>"
+msgid "Open %s"
+msgstr "打开 %s"
 
-#: ../deskbar/handlers/epiphany.py:48 ../deskbar/handlers/mozilla.py:63
+#: ../deskbar/handlers/directories.py:16
+msgid "Folders"
+msgstr "文件夹"
+
+#: ../deskbar/handlers/directories.py:17
+msgid "Open folders by name"
+msgstr "按名称打开文件夹"
+
+#: ../deskbar/handlers/directories.py:31
 #, python-format
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "在 <b>%(name)s</b> 中搜索 <i>%(text)s</i>"
+msgid "Open folder %s"
+msgstr "打开文件夹 %s"
 
-#: ../deskbar/handlers/files.py:14
-msgid "File Names"
-msgstr "文件名"
-
-#: ../deskbar/handlers/files.py:37
+#: ../deskbar/handlers/galago.py:27 ../deskbar/handlers/email_address.py:26
 #, python-format
-msgid "Open <b>%(name)s</b>"
-msgstr "打开 <b>%(name)s</b>"
+msgid "Send Email to %s"
+msgstr "给 %s 发送电子邮件"
 
-#: ../deskbar/handlers/directories.py:14
-msgid "Folder Names"
-msgstr "文件夹名称"
+#: ../deskbar/handlers/gtkbookmarks.py:12
+msgid "Folder Bookmarks"
+msgstr "文件夹书签"
 
-#: ../deskbar/handlers/directories.py:29
+#: ../deskbar/handlers/gtkbookmarks.py:13
+msgid "Open your folder bookmarks by name"
+msgstr "按名称打开您的文件夹书签"
+
+#: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
 #, python-format
-msgid "Open folder <b>%(name)s</b>"
-msgstr "打开文件夹 <b>%(name)s</b>"
+msgid "Open location %s"
+msgstr "打开位置 %s"
 
-#: ../deskbar/handlers/galago.py:27
-#, python-format
-msgid "Send Email to <b>%(name)s</b>"
-msgstr "给 <b>%(name)s</b> 发送电子邮件"
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "程序"
 
-#: ../deskbar/handlers/gtkbookmarks.py:9
-msgid "Nautilus Places"
-msgstr "Nautilus 位置"
+#: ../deskbar/handlers/programs.py:15
+msgid "Launch a program by its name and/or description"
+msgstr "按名称和/或描述调用程序"
 
-#: ../deskbar/handlers/gtkbookmarks.py:23
-#, python-format
-msgid "Open location <b>%(name)s</b>"
-msgstr "打开位置 <b>%(name)s</b>"
+#: ../deskbar/handlers/programs.py:18
+msgid "Dictionary"
+msgstr "字典"
 
-#: ../deskbar/handlers/mozilla.py:21
-msgid "Mozilla Bookmarks"
-msgstr "Mozilla 书签"
+#: ../deskbar/handlers/programs.py:19
+msgid "Look up word definitions in the dictionary"
+msgstr "查阅字典中的单词定义"
 
-#: ../deskbar/handlers/programs.py:17
-msgid "Desktop Programs"
-msgstr "桌面程序"
+#: ../deskbar/handlers/programs.py:22
+msgid "Files and Folders Search"
+msgstr "文件和文件夹搜索"
 
 #: ../deskbar/handlers/programs.py:23
-#, python-format
-msgid "Search for file names like <b>%(arg)s</b>"
-msgstr "搜索文件名类似 <b>%(arg)s</b> 的文件"
+msgid "Find files and folders by searching for a name pattern"
+msgstr "搜索匹配名称模式的文件和文件夹"
 
-#: ../deskbar/handlers/programs.py:26
-#, python-format
-msgid "Search <b>%(arg)s</b> in Gnome Dictionary"
-msgstr "在 Gnome 字典中搜索 <b>%(arg)s</b>"
-
-#: ../deskbar/handlers/programs.py:28
-#, python-format
-msgid "Search <b>%(arg)s</b> with Beagle"
-msgstr "用 Beagle 搜索 <b>%(arg)s</b>"
-
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
 #: ../deskbar/handlers/programs.py:66
 #, python-format
-msgid "Launch <b>%(name)s</b> (%(prog)s)"
-msgstr "调用 <b>%(name)s</b> (%(prog)s)"
+msgid "Launch %s (%s)"
+msgstr "调用 %s(%s)"
 
-#: ../deskbar/handlers/pathprograms.py:11
-msgid "Programs in your $PATH"
-msgstr "您 $PATH 中的程序"
-
-#: ../deskbar/handlers/pathprograms.py:33
+#: ../deskbar/handlers/programs.py:79
 #, python-format
-msgid "Execute <b>%(text)s</b>"
-msgstr "执行 <b>%(text)s</b>"
+msgid "Lookup %s in dictionary"
+msgstr "在字典中查阅 %s"
+
+#: ../deskbar/handlers/programs.py:87
+#, python-format
+msgid "Search for file names like %s"
+msgstr "搜索文件名类似 %s 的文件"
+
+#: ../deskbar/handlers/pathprograms.py:13
+msgid "Programs (Advanced)"
+msgstr "程序(高级)"
+
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Launch any program present in your $PATH"
+msgstr "调用您 $PATH 中存在的程序"
+
+#: ../deskbar/handlers/pathprograms.py:30
+#, python-format
+msgid "Execute %s"
+msgstr "执行 %s"
+
+#: ../deskbar/handlers/beagle.py:19
+msgid "Beagle"
+msgstr "Beagle"
+
+#: ../deskbar/handlers/beagle.py:20
+msgid "Search all of your documents (using Beagle)"
+msgstr "(使用 Beagle)搜索您所有的文档"
+
+#: ../deskbar/handlers/beagle.py:33
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "使用 Beagle 搜索 %s"
+
+#: ../deskbar/handlers/email_address.py:9
+msgid "Mail"
+msgstr "邮件"
+
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mail by typing a complete e-mail address"
+msgstr "输入完整的电子邮件地址以发送邮件"
+
+#: ../deskbar/handlers/volumes.py:16
+msgid "Disks and Network Places"
+msgstr "磁盘和网络位置"
+
+#: ../deskbar/handlers/volumes.py:17
+msgid "Open disk drives, shared network places and similar resources by name"
+msgstr "按名称打开磁盘驱动器、共享的网络位置和类似资源"
+
+#: ../deskbar/handlers/volumes.py:41
+#, python-format
+msgid "Open network place %s"
+msgstr "打开网络位置 %s"
+
+#: ../deskbar/handlers/volumes.py:43
+#, python-format
+msgid "Open audio disk %s"
+msgstr "打开 CD %s"
+
+#: ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "Web"
+
+#: ../deskbar/handlers/web_address.py:10
+msgid "Open web pages by typing a complete web address"
+msgstr "输入完整的 Web 地址打开 Web 页"
+
+#: ../deskbar/handlers/web_address.py:35
+#, python-format
+msgid "Open the web page %s"
+msgstr "打开 Web 页 %s"
+
+#: ../deskbar/handlers/web_address.py:37
+#, python-format
+msgid "Open the location %s"
+msgstr "打开位置 %s"
+
+#: ../deskbar/handlers_browsers.py:30
+#, python-format
+msgid "Open History Item %s"
+msgstr "打开历史项 %s"
+
+#: ../deskbar/handlers_browsers.py:32
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "打开书签 %s"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/handlers_browsers.py:54
+#, python-format
+msgid "Search %s for %s"
+msgstr "在 %s 中搜索 %s"
+
+#: ../deskbar/handlers/evolution.py:8
+msgid "Mail (Address Book)"
+msgstr "邮件(地址簿)"
+
+#: ../deskbar/handlers/evolution.py:9
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr "输入姓名或电子邮件地址以便向您的联系人发送邮件"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:32
+#, python-format
+msgid "Send Email to %s (%s)"
+msgstr "给 %s (%s) 发送电子邮件"
+
+#: ../deskbar/handlers/google-live.py:45
+msgid "Google Live"
+msgstr "Google Live"
+
+#: ../deskbar/handlers/google-live.py:46
+msgid "Search Google as you type"
+msgstr "随时用 Google 搜索"
+
+#: ../deskbar/applet.py:302
+msgid "No History"
+msgstr "无历史"
+
+#: ../deskbar/handlers/beagle-live.py:18
+msgid "Beagle Live"
+msgstr "Beagle Live"
+
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "(通过 Beagel)随时搜索您所有的文档"
+
+#: ../deskbar/handlers/beagle-live.py:46
+#, python-format
+msgid "Addressbook entry for %s"
+msgstr "%s 的地址簿项"
+
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:55
+#, python-format
+msgid "View email from %s: %s"
+msgstr "查看%s发来的邮件：%s"
+
+#: ../deskbar/handlers/beagle-live.py:68
+#, python-format
+msgid "Open news item %s"
+msgstr "打开新闻项 %s"
+
+#: ../deskbar/handlers/beagle-live.py:75
+#, python-format
+msgid "Open note %s"
+msgstr "打开备忘 %s"
+
+#: ../deskbar/handlers/beagle-live.py:81
+#, python-format
+msgid "View conversation with %s"
+msgstr "查看与 %s 的对话"
+
+#: ../deskbar/handlers/beagle-live.py:87
+#, python-format
+msgid "View calendar %s"
+msgstr "查看日历 %s"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:204
+msgid "?"
+msgstr "?"
 
