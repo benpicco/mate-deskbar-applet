@@ -1,3 +1,10 @@
+2005-11-16  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/filewatcher.py:
+	Attempt to fix random crashes happening in deskbar when playing with
+	gnomevfs file monitoring + xml parsing. This is a bug in pyexpat, sent a
+	patch. The workaround is valid.
+
 2005-11-15  Nigel Tao  <nigeltao@cvs.gnome.org>
 
 	* deskbar/handlers/beagle-live.py:
