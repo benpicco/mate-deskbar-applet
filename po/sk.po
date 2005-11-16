@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-14 23:19+0100\n"
-"PO-Revision-Date: 2005-11-14 23:53+0100\n"
+"POT-Creation-Date: 2005-11-16 05:47+0100\n"
+"PO-Revision-Date: 2005-11-16 05:59+0100\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,8 @@ msgid ""
 "<i><small><b>Note:</b> Drag and drop a handler to change its priority.</"
 "small></i>"
 msgstr ""
-"<i><small><b>Poznámka:</b> Ťahajte a pustite obsluhu, aby ste zmenili jej prioritu.</small></i>"
+"<i><small><b>Poznámka:</b> Ťahajte a pustite obsluhu, aby ste zmenili jej "
+"prioritu.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:4
 msgid "Deskbar Preferences"
@@ -74,37 +75,39 @@ msgstr "WWW stránka pracovnej lišty"
 
 #: ../deskbar/handlers/epiphany.py:21 ../deskbar/handlers/mozilla.py:29
 #: ../deskbar/handlers/galeon.py:21
-msgid "Bookmarks"
-msgstr "Záložky"
+msgid "Web Bookmarks"
+msgstr "WWW záložky"
 
 #: ../deskbar/handlers/epiphany.py:22 ../deskbar/handlers/mozilla.py:30
 #: ../deskbar/handlers/galeon.py:22
-msgid "Index your bookmarks"
-msgstr "Indexovať vaše záložky"
+msgid "Open your web bookmarks by name"
+msgstr "Otvoriť vaše www záložky podľa názvu"
 
 #: ../deskbar/handlers/epiphany.py:26 ../deskbar/handlers/galeon.py:26
-msgid "History"
-msgstr "História"
+msgid "Web History"
+msgstr "WWW história"
 
-#: ../deskbar/handlers/epiphany.py:27
-msgid "Index your search history"
-msgstr "Indexovať vašu históriu vyhľadávania"
+#: ../deskbar/handlers/epiphany.py:27 ../deskbar/handlers/galeon.py:27
+msgid "Open your web history by name"
+msgstr "Otvoriť vašu www históriu podľa názvu"
 
-#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/galeon.py:31
-msgid "Smart Bookmarks"
-msgstr "Pohotové záložky"
+#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/galeon.py:31
+msgid "Web Searches"
+msgstr "WWW hľadanie"
 
-#: ../deskbar/handlers/epiphany.py:32
-msgid "Index your smart bookmarks"
-msgstr "Indexovať vaše pohotové záložky"
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:35
+#: ../deskbar/handlers/galeon.py:32
+msgid "Search the web via your browser's search settings"
+msgstr "Prehľadať internet podľa vyhľadávacích nastavení vášho prehliadača"
 
 #: ../deskbar/handlers/files.py:16
 msgid "Files"
 msgstr "Súbory"
 
 #: ../deskbar/handlers/files.py:17
-msgid "Open files by typing their names."
-msgstr "Otvoriť súbory napísaním ich názvov."
+msgid "Open files by name"
+msgstr "Otvoriť súbory podľa názvu"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/files.py:33 ../deskbar/handlers/beagle-live.py:62
@@ -117,8 +120,8 @@ msgid "Folders"
 msgstr "Priečinky"
 
 #: ../deskbar/handlers/directories.py:17
-msgid "Open folders by their names."
-msgstr "Otvoriť priečinky podľa ich názvov."
+msgid "Open folders by name"
+msgstr "Otvoriť priečinky podľa názvu"
 
 #: ../deskbar/handlers/directories.py:31
 #, python-format
@@ -131,49 +134,41 @@ msgid "Send Email to %s"
 msgstr "Odoslať elektronickú poštu pre %s"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
-msgid "File Manager bookmarks"
-msgstr "Záložky správcu súborov"
+msgid "Folder Bookmarks"
+msgstr "Záložky priečinkov"
 
 #: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Open your file manager's bookmarks by name."
-msgstr "Otvoriť vaše záložky správcu súborov podľa názvu."
+msgid "Open your folder bookmarks by name"
+msgstr "Otvoriť vaše záložky priečinkov podľa názvu"
 
 #: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
 #, python-format
 msgid "Open location %s"
 msgstr "Otvoriť umiestnenie %s"
 
-#: ../deskbar/handlers/mozilla.py:34
-msgid "Search Engines"
-msgstr "Vyhľadávače"
-
-#: ../deskbar/handlers/mozilla.py:35 ../deskbar/handlers/galeon.py:32
-msgid "Index your search engines"
-msgstr "Indexovať vaše vyhľadávače"
-
 #: ../deskbar/handlers/programs.py:14
-msgid "Desktop Programs"
-msgstr "Progamy pracovnej plochy"
+msgid "Programs"
+msgstr "Progamy"
 
 #: ../deskbar/handlers/programs.py:15
-msgid "Index the program names and descriptions."
-msgstr "Indexovať názvy programov a popisy."
+msgid "Launch a program by its name and/or description"
+msgstr "Spustiť program podľa jeho názvo a/alebo popisu"
 
 #: ../deskbar/handlers/programs.py:18
-msgid "Dictionary Lookup"
-msgstr "Pozrieť v slovníku"
+msgid "Dictionary"
+msgstr "Slovník"
 
 #: ../deskbar/handlers/programs.py:19
-msgid "Type a word and lookup the definition in the dictionary"
-msgstr "Napíšte slovo a pozrite si jeho definíciu v slovníku"
+msgid "Look up word definitions in the dictionary"
+msgstr "Pozrieť definície slova v slovníku"
 
 #: ../deskbar/handlers/programs.py:22
-msgid "File Search"
-msgstr "Hľadanie súborov"
+msgid "Files and Folders Search"
+msgstr "Hľadanie súborov a priečinkov"
 
 #: ../deskbar/handlers/programs.py:23
-msgid "Type a filename pattern and find matching files on your disk."
-msgstr "Napíšte vzor názvu súboru a nájdite zodpovedajúce súbory na vašom disku."
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Nájsť súbory a priečinky vyhľadaním podľa vzoru názvu"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
@@ -193,12 +188,12 @@ msgid "Search for file names like %s"
 msgstr "Vyhľadať názvy súborov ako %s"
 
 #: ../deskbar/handlers/pathprograms.py:13
-msgid "Command line programs"
-msgstr "Programy príkazového riadku"
+msgid "Programs (Advanced)"
+msgstr "Programy (rozšírené)"
 
 #: ../deskbar/handlers/pathprograms.py:14
-msgid "Allow to launch any program present in your $PATH"
-msgstr "Povoliť spustenie ľubovoľného programu nachádzajúceho sa vo vašej ceste $PATH"
+msgid "Launch any program present in your $PATH"
+msgstr "Spustiť ľubovoľný program nachádzajúci sa vo vašej ceste $PATH"
 
 #: ../deskbar/handlers/pathprograms.py:30
 #, python-format
@@ -210,8 +205,8 @@ msgid "Beagle"
 msgstr "Beagle"
 
 #: ../deskbar/handlers/beagle.py:20
-msgid "Use Beagle to search for documents"
-msgstr "Použiť Beagle pre vyhľadanie dokumentov"
+msgid "Search all of your documents (using Beagle)"
+msgstr "Prehľadať všetky vaše dokumenty (pomocou Beagle)"
 
 #: ../deskbar/handlers/beagle.py:33
 #, python-format
@@ -219,24 +214,20 @@ msgid "Search for %s using Beagle"
 msgstr "Vyhľadanie %s pomocou Beagle"
 
 #: ../deskbar/handlers/email_address.py:9
-msgid "Email Addresses"
-msgstr "Adresa elektronicke pošty"
+msgid "Mail"
+msgstr "Pošta"
 
 #: ../deskbar/handlers/email_address.py:10
-msgid "Send mails by typing an email address."
-msgstr "Odoslať správy napísaním adresy elektronickej pošty."
-
-#: ../deskbar/handlers/galeon.py:27
-msgid "Index your history"
-msgstr "Indexovať vašu históriu"
+msgid "Send mail by typing a complete e-mail address"
+msgstr "Odoslať správu napísaním úplnej adresy elektronickej pošty"
 
 #: ../deskbar/handlers/volumes.py:16
-msgid "Search for disks and network places"
-msgstr "Vyľadať disky a sieťové miesta"
+msgid "Disks and Network Places"
+msgstr "Disky a sieťové miesta"
 
 #: ../deskbar/handlers/volumes.py:17
-msgid "Open drives and volumes by their name"
-msgstr "Otvoriť jednotky a zväzky podľa ich názvov"
+msgid "Open disk drives, shared network places and similar resources by name"
+msgstr "Otvoriť diskové jednotky, zdieľané sieťové miesta alebo podobné zdroje podľa názvu"
 
 #: ../deskbar/handlers/volumes.py:41
 #, python-format
@@ -249,12 +240,12 @@ msgid "Open audio disk %s"
 msgstr "Otvoriť zvukový disk %s"
 
 #: ../deskbar/handlers/web_address.py:9
-msgid "Web Addresses"
-msgstr "WWW adresy"
+msgid "Web"
+msgstr "WWW"
 
 #: ../deskbar/handlers/web_address.py:10
-msgid "Open webpages by typing an address."
-msgstr "Otvoriť WWW stránky napísaním adresy."
+msgid "Open web pages by typing a complete web address"
+msgstr "Otvoriť WWW stránky napísaním úplnej www adresy"
 
 #: ../deskbar/handlers/web_address.py:35
 #, python-format
@@ -283,12 +274,13 @@ msgid "Search %s for %s"
 msgstr "Vyhľadať pomocou %s výskyt %s"
 
 #: ../deskbar/handlers/evolution.py:8
-msgid "Address Book"
-msgstr "Adresár"
+msgid "Mail (Address Book)"
+msgstr "Pošta (adresár)"
 
 #: ../deskbar/handlers/evolution.py:9
-msgid "Send emails to your contacts by typing their name or email address"
-msgstr "Odoslať elektronickú poštu vašim kontaktom napísaním ich mena alebo adresy elektronickej pošty"
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr "Odoslať poštu vašim kontaktom napísaním ich mena alebo adresy "
+"elektronickej pošty"
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:32
@@ -297,26 +289,24 @@ msgid "Send Email to %s (%s)"
 msgstr "Odoslať elektronickú poštu pre %s (%s)"
 
 #: ../deskbar/handlers/google-live.py:45
-msgid "Live Google search"
-msgstr "Živé vyhľadávanie pomocou Google"
+msgid "Google Live"
+msgstr "Živé Google"
 
 #: ../deskbar/handlers/google-live.py:46
-msgid ""
-"Search the words you type with Google and display the results in the list."
-msgstr ""
-"Vyhľadať slová, ktoré napíšete, pomocou Google a zobraziť výsledky v zozname."
+msgid "Search Google as you type"
+msgstr "Vyhľadávať pomocou Google hneď, ako budete písať"
 
 #: ../deskbar/applet.py:302
 msgid "No History"
 msgstr "Bez histórie"
 
 #: ../deskbar/handlers/beagle-live.py:18
-msgid "Live Beagle Queries"
-msgstr "Živé vyhľadávanie pomocou Beagle"
+msgid "Beagle Live"
+msgstr "Živé Beagle"
 
 #: ../deskbar/handlers/beagle-live.py:19
-msgid "Query Beagle automatically as you type."
-msgstr "Vyhľadávať pomocou Beagle automaticky pri písaní."
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Prehľadávať všetky vaše dokumenty (pomocou Beagle) hneď, ako budete písať"
 
 #: ../deskbar/handlers/beagle-live.py:46
 #, python-format
