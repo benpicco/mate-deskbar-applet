@@ -152,7 +152,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			self._on_completion_selected (widget, self._completion_model, iter)
 
 	def _on_entry_key_press(self, entry, event):
-		if event.keyval == gtk.keysyms.Page_Up:
+		if (event.state & gtk.gdk.CONTROL_MASK) != 0 and event.keyval == gtk.keysyms.Up:
 			# Browse back history
 			self._history.up()
 			item = self._history.get_history()
@@ -169,7 +169,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 
 			return True
 			
-		if event.keyval == gtk.keysyms.Page_Down:
+		if (event.state & gtk.gdk.CONTROL_MASK) != 0 and event.keyval == gtk.keysyms.Down:
 			# Browse back history
 			self._history.down()
 			item = self._history.get_history()
