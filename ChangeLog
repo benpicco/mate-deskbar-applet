@@ -1,3 +1,13 @@
+2005-11-18  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/deskbarentry.py:
+	* deskbar/handlers/debug-blockinginit.py:
+	* deskbar/handlers/debug-requirements.py:
+	Remove blocking init handler, not of any use anymore.
+	Implement smart history browsing, now it's possible to use shell-like
+	up/down key to browse history, yet preserving (page) up/down navigation in
+	the matches list.
+
 2005-11-17  Adam Weinberger  <adamw@gnome.org>
 
 	* configure.ac: Added en_CA to ALL_LINGUAS.

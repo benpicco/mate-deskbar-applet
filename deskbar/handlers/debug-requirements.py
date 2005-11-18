@@ -21,7 +21,7 @@ HANDLERS = {
 
 class DebugRequirementsMatch(deskbar.handler.Match):
 	def __init__(self, handler, name, icon=None):
-		Match.__init__ (self, handler, name)
+		deskbar.handler.Match.__init__ (self, handler, name)
 	
 	def get_verb(self):
 		return "%(name)s - %(text)s"

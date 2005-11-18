@@ -39,7 +39,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		entry = self.get_entry()
 		entry.connect("activate", self._on_entry_activate)
 		self._on_entry_changed_id = entry.connect("changed", self._on_entry_changed)
-		entry.connect("key-press-event", self._on_entry_key_press)
+		entry.connect("key-press-event", self._on_entry_key_press, applet.applet)
 		entry.connect("destroy", self._stop_async_handlers)
 		entry.connect("destroy", self._save_history)
 		
@@ -150,9 +150,14 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		iter = self._completion_model.get_iter_first()
 		if iter != None:
 			self._on_completion_selected (widget, self._completion_model, iter)
-
-	def _on_entry_key_press(self, entry, event):
-		if (event.state & gtk.gdk.CONTROL_MASK) != 0 and event.keyval == gtk.keysyms.Up:
+	
+	def _on_entry_key_press(self, entry, event, applet):
+		# For key UP to browse in history, we have either to be already in history mode, or have an empty text entry to trigger hist. mode
+		up_history_condition = self._history.get_history() != None or (self._history.get_history() == None and entry.get_text() == "")
+		# For key DOWN to browse history, we have to be already in history mode. Down cannot trigger history mode in that orient.
+		down_history_condition = self._history.get_history() != None
+					
+		if event.keyval == gtk.keysyms.Up and up_history_condition:
 			# Browse back history
 			self._history.up()
 			item = self._history.get_history()
@@ -164,12 +169,9 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 				# Update the icon entry, without erasing history position
 				self._on_entry_changed(self.get_entry(), [match])
 				self.get_entry().handler_unblock(self._on_entry_changed_id)
-			else:
-				entry.set_text("")
-
 			return True
-			
-		if (event.state & gtk.gdk.CONTROL_MASK) != 0 and event.keyval == gtk.keysyms.Down:
+				
+		if event.keyval == gtk.keysyms.Down and down_history_condition:
 			# Browse back history
 			self._history.down()
 			item = self._history.get_history()
@@ -182,8 +184,14 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 				self._on_entry_changed(self.get_entry(), [match])
 				self.get_entry().handler_unblock(self._on_entry_changed_id)
 			else:
+				# Here we delete the text cause we got out of history mode
 				entry.set_text("")
-								
+				
+			return True
+		
+		# If the checks above fail and we come here, let's see if it's right to swallow up/down stroke
+		# to avoid the entry loosing focus.
+		if (event.keyval == gtk.keysyms.Down or event.keyval == gtk.keysyms.Up) and entry.get_text() == "":
 			return True
 			
 		if event.keyval == gtk.keysyms.Escape:
@@ -236,8 +244,6 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 					modctx.module.query_async(qstring, MAX_RESULTS_PER_HANDLER)
 				else:
 					matches = modctx.module.query(qstring, MAX_RESULTS_PER_HANDLER)
-					if matches == None:
-						print modctx.module
 					for match in matches:
 						result.append(match)
 					
