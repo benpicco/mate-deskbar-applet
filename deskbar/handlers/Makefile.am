@@ -23,11 +23,7 @@ if ENABLE_BEAGLE
 deskbar_handlers_PYTHON += evolution.py
 endif
 
-deskbar_handlers_DATA = \
-	google-live-help.txt
-
 EXTRA_DIST = \
-	$(deskbar_handlers_DATA) \
 	debug-blockinginit.py \
 	debug-async_handler.py \
 	debug-requirements.py \
