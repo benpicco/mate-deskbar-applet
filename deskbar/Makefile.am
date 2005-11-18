@@ -30,7 +30,6 @@ deskbar_PYTHON = \
 	indexer.py \
 	locale_utils.py \
 	ltihooks.py \
-	tokenizer.py \
 	module_list.py \
 	preferences.py
 	

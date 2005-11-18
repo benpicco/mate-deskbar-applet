@@ -1,5 +1,21 @@
 2005-11-18  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* data/art/Makefile.am:
+	* data/art/deskbar-applet-small.png:
+	* deskbar/Makefile.am:
+	* deskbar/deskbarentry.py:
+	* deskbar/handlers/Makefile.am:
+	* deskbar/indexer.py:
+	* deskbar/preferences.py:
+	* deskbar/tokenizer.py:
+	Remove tokenizer.py and update indexer, we won't need it anymore, too slow
+	anyway.
+
+	Remove the custom deskbar-small icon, and use stock search/find icon for
+	the bar and pref dialog.
+
+2005-11-18  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/handler_utils.py:
 	* deskbar/handlers/directories.py:
 	* deskbar/handlers/files.py:

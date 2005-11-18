@@ -52,12 +52,10 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		self._evbox.add(self._image)
 		self.pack_widget(self._evbox, True)
 		
-		self._default_pixbuf = None
-		try:
-			self._default_pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(join(deskbar.ART_DATA_DIR, "deskbar-applet-small.png"), deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-		except gobject.GError, msg:
-			print 'Error:DeskbarEntry.__init__:', msg
-		
+		self._default_pixbuf = deskbar.handler_utils.load_icon("search")
+		if self._default_pixbuf == None:
+			self._default_pixbuf = deskbar.handler_utils.load_icon(gtk.STOCK_FIND)
+			
 		self._image.set_property('pixbuf', self._default_pixbuf)
 
 		# Create the listtore, model for the completion popup

@@ -4,7 +4,6 @@ deskbar_handlers_PYTHON = \
 	email_address.py \
 	epiphany.py \
 	files.py \
-	directories.py \
 	galago.py \
 	galeon.py \
 	gtkbookmarks.py \

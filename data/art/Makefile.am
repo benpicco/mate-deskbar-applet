@@ -7,7 +7,6 @@ pixmaps_DATA = deskbar-applet.png
 artdir = $(pkgdatadir)/art
 art_DATA = \
 	deskbar-applet.png \
-	deskbar-applet-small.png \
 	folder-bookmark.png \
 	generic.png \
 	google.png \

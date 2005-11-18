@@ -11,8 +11,11 @@ class PrefsDialog:
 		self.glade = gtk.glade.XML(join(deskbar.SHARED_DATA_DIR, "prefs-dialog.glade"))
 
 		self.dialog = self.glade.get_widget("preferences")
-		pixbuf = deskbar.handler_utils.load_icon("deskbar-applet-small.png", 16)
-		if pixbuf != None:
+		
+		pixbuf = deskbar.handler_utils.load_icon("search")
+		if pixbuf == None:
+			pixbuf = deskbar.handler_utils.load_icon(gtk.STOCK_FIND)
+		if pixbuf != None
 			self.dialog.set_icon(pixbuf)
 
 		# Retreive current values
