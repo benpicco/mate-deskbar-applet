@@ -9,8 +9,8 @@ from deskbar.filewatcher import FileWatcher
 
 HANDLERS = {
 	"GtkBookmarkHandler" : {
-		"name": _("Folder Bookmarks"),
-		"description": _("Open your folder bookmarks by name"),
+		"name": _("Files and Folders Bookmarks"),
+		"description": _("Open your files and folders bookmarks by name"),
 	}
 }
 

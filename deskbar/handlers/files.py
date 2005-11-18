@@ -9,13 +9,11 @@ import gtk, gnome.ui
 import deskbar, deskbar.indexer
 import deskbar.handler
 
-from deskbar.handler_utils import filesystem_possible_completions
-
 HANDLERS = {
-	"FileHandler" : {
-		"name": _("Files"),
-		"description": _("Open files by name"),
-	}
+	"FileFolderHandler" : {
+		"name": _("Files and Folders"),
+		"description": _("Open your files and folders by name"),
+	},
 }
 
 class FileMatch(deskbar.handler.Match):
@@ -34,23 +32,85 @@ class FileMatch(deskbar.handler.Match):
 	
 	def get_hash(self, text=None):
 		return self._filename
-		
-class FileHandler(deskbar.handler.Handler):
-	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "stock_new-text")
-		self._relative = True
-		
-	def get_priority(self):
-		if self._relative:
-			return self._priority
-		else:
-			return self._priority+1
-		
-	def query(self, query, max=5):
-		completions, prefix, self._relative = filesystem_possible_completions(query, True)
 
-		result = []
-		for completion in completions:
-			result.append(FileMatch(self, prefix, completion))
+class FolderMatch(deskbar.handler.Match):
+	def __init__(self, backend, prefix, absname):
+		name = join(prefix, basename(absname))
+		deskbar.handler.Match.__init__(self, backend, name)
 		
-		return result[:max]
+		self._filename = absname
+		
+	def action(self, text=None):
+		gobject.spawn_async(["nautilus", self._filename], flags=gobject.SPAWN_SEARCH_PATH)
+	
+	def get_verb(self):
+		return _("Open folder %s") % "<b>%(name)s</b>"
+	
+	def get_hash(self, text=None):
+		return self._filename
+		
+class FileFolderHandler(deskbar.handler.Handler):
+	def __init__(self):
+		deskbar.handler.Handler.__init__(self, "stock_my-documents")
+				
+	def query(self, query, max=5):
+		result = []
+		result += self.query_filefolder(query, False)[:max]
+		result += self.query_filefolder(query, True)[:max]
+		return result
+	
+	def query_filefolder(self, query, is_file):
+		completions, prefix, relative = filesystem_possible_completions(query, is_file)
+		if is_file:
+			return [FileMatch(self, prefix, completion) for completion in completions]
+		else:
+			return [FolderMatch(self, prefix, completion) for completion in completions]
+			
+def filesystem_possible_completions(prefix, is_file=False):
+	"""
+	Given an path prefix, retreive the file/folders in it.
+	If files is False return only the folder, else return only the files.
+	Return a tuple (list, prefix, relative)
+	  list is a list of files whose name starts with prefix
+	  prefix is the prefix effectively used, and is always a directory
+	  relative is a flag indicating wether the given prefix was given without ~ or /
+	"""
+	relative = False
+	# Path with no leading ~ or / are considered relative to ~
+	if not prefix.startswith("~") and not prefix.startswith("/"):
+		relative = True
+		prefix = join("~/", prefix)
+	# Path starting with ~test are considered in ~/test
+	if prefix.startswith("~") and not prefix.startswith("~/"):
+		prefix = join("~/", prefix[1:])
+	if prefix.endswith("/"):
+		prefix = prefix[:-1]
+		
+	# Now we see if the typed name matches exactly a file/directory, or
+	# If we must take the parent directory and match the beginning of each file
+	start = None
+	path = normpath(abspath(expanduser(prefix)))		
+
+	prefix, start = split(prefix)
+	path = normpath(abspath(expanduser(prefix)))	
+	if not exists(path):
+		# The parent dir wasn't a valid file, exit
+		return ([], prefix, relative)
+	
+	# Now we list all files contained in path. Depending on the parameter we return all
+	# files or all directories only. If there was a "start" we also match each name
+	# to that prefix so typing ~/cvs/x will match in fact ~/cvs/x*
+	
+	# First if we have an exact file match, and we requested file matches we return it alone,
+	# else, we return the empty file set
+	if isfile(path):
+		if is_file:
+			return ([path], dirname(prefix), relative)
+		else:
+			return ([], prefix, relative)
+			
+	return ([f
+		for f in map(lambda x: join(path, x), os.listdir(path))
+		if isfile(f) == is_file and not basename(f).startswith(".") and (start == None or basename(f).startswith(start))
+	], prefix, relative)
+
