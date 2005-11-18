@@ -2,6 +2,19 @@ from os.path import join
 import gtk, gobject
 import deskbar, deskbar.handler_utils
 
+# Most Handlers will be HANDLER_IS_HAPPY, and this the assumed default state.
+# Some Handlers will require configuration, or need to notify the user in some
+# way of some message.  For example, the evolution-data-server backed Handler
+# should give an indication if none of the user's address books have auto-
+# complete enabled (thus rendering the Handler unable to function).  This would
+# be represented by HANDLER_IS_CONFIGURABLE.
+# Other Handlers shouldn't be shown to the user at all.  For example, if the
+# user's preferred web browser is Epiphany, then the Firefox handler should
+# be hidden: HANDLER_IS_NOT_APPLICABLE.
+HANDLER_IS_HAPPY          = 0
+HANDLER_IS_CONFIGURABLE   = 1
+HANDLER_IS_NOT_APPLICABLE = 2
+
 class Match:
 	def __init__(self, handler, name, icon=None):
 		self._priority = 0

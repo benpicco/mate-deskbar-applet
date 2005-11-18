@@ -1,8 +1,8 @@
-from deskbar.handler import AsyncHandler, Match
-from deskbar import MODULES_DIRS
+import deskbar.handler
 
 import os
 import gobject
+import gnomevfs
 from os.path import expanduser, exists, join
 from gettext import gettext as _
 
@@ -11,34 +11,45 @@ try:
 except:
 	pass
 	
-import gtk
-
 GOOGLE_WSDL = expanduser('~/.gnome2/deskbar-applet/GoogleSearch.wsdl')
 GOOGLE_API_KEY = expanduser('~/.gnome2/deskbar-applet/Google.key')
-HELP_FILE = 'GoogleLiveHelp.txt'
-GOOGLE_HELP = exists(join(MODULES_DIRS[0], HELP_FILE)) and join(MODULES_DIRS[0], HELP_FILE) or join(MODULES_DIRS[1], HELP_FILE)
 MAX_QUERIES = 10
 QUERY_DELAY = 1
 
-def _print_help():
-	if exists (GOOGLE_HELP): print "GoogleLive: Read the file %s for further instructions." % GOOGLE_HELP
-	else: print "GoogleLive: You need a Google API key and WSDL file. You can obtain these on api.google.com."
-		
+HELP_TEXT = _("""You need a Google account to use Google Live.  To get one, go to http://api.google.com/
+
+When you have created your account, you should recieve a Google API key by mail.  Place this key in the file
+
+~/.gnome2/deskbar-applet/Google.key
+
+If you do not receive an API key (or you have lost it) in your account verification mail, then go to www.google.com/accounts and log in.  Go to api.google.com, click "Create Account" and enter your e-mail address and password.  Your API key will be re-sent.
+
+Now download the developers kit and extract the GoogleSearch.wsdl file from it.  Copy this file to
+
+~/.gnome2/deskbar-applet/GoogleSearch.wsdl""")
+
+def _on_more_information():
+	import gtk
+	message_dialog = gtk.MessageDialog(buttons=gtk.BUTTONS_CLOSE)
+	message_dialog.set_markup(
+		"<span size='larger' weight='bold'>%s</span>\n\n%s" % (
+		_("Setting Up Google Live"),
+		HELP_TEXT));
+	resp = message_dialog.run()
+	if resp == gtk.RESPONSE_CLOSE:
+		message_dialog.destroy()
 
 def _check_requirements():
 	try:
 		from SOAPpy import WSDL
 	except:
-		_print_help()
-		return (False, "You need SOAPpy python module for google-live to work properly.")
+		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "You need to install the SOAPpy python module.", None)
 	if not exists (GOOGLE_WSDL):
-		_print_help()
-		return (False, "WSDL file %s not found. Aborting." % GOOGLE_WSDL)
+		return (deskbar.handler.HANDLER_IS_CONFIGURABLE, "You need the Google WSDL file.", _on_more_information)
 	if not exists (GOOGLE_API_KEY):
-		_print_help()
-		return (False, "Google API key file %s not found. Aborting." % GOOGLE_API_KEY)
+		return (deskbar.handler.HANDLER_IS_CONFIGURABLE, "You need a Google API key.", _on_more_information)
 	else:
-		return (True, None)
+		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
 		
 HANDLERS = {
 	"GoogleLiveHandler" : {
@@ -49,21 +60,21 @@ HANDLERS = {
 }
 
 
-class GoogleMatch (Match):
+class GoogleMatch (deskbar.handler.Match):
 	def __init__(self, handler, name, url, icon=None):
-		Match.__init__ (self, handler, "Google: "+name, icon)
+		deskbar.handler.Match.__init__ (self, handler, "Google Live: "+name, icon)
 		self.__url = url
 	
 	def get_verb(self):
 		return "%(name)s"
 		
 	def action(self, text=None):
-		gobject.spawn_async(["gnome-open", self.__url], flags=gobject.SPAWN_SEARCH_PATH)
+		gnomevfs.url_show(self.__url)
 	
 	def get_hash(self, text=None):
 		return self.__url
 
-class GoogleLiveHandler (AsyncHandler):
+class GoogleLiveHandler (deskbar.handler.AsyncHandler):
 	"""
 	This handler requires the user to have a valid Google account, a Google
 	API key and a GoogleSearch.wsdl file. The file locations are specified
@@ -72,22 +83,33 @@ class GoogleLiveHandler (AsyncHandler):
 	It uses SOAPpy to interact with Googles SOAP inteface.
 	"""
 	def __init__ (self):
-		AsyncHandler.__init__ (self, "google.png")
+		deskbar.handler.AsyncHandler.__init__ (self, "google.png")
 		self.server = None
 		self.api_key = None
 		
 	def initialize (self):
-		self.server = WSDL.Proxy (GOOGLE_WSDL)
-		api_key_file = file (GOOGLE_API_KEY)
-		self.api_key = api_key_file.readline()
-		api_key_file.close ()
+		try:
+			self.server = WSDL.Proxy (GOOGLE_WSDL)
+			api_key_file = file (GOOGLE_API_KEY)
+			self.api_key = api_key_file.readline()
+			api_key_file.close ()
+			self.everything_should_work = True
+		except:
+			self.everything_should_work = False
 		
+	def refresh (self):
+		self.server = None
+		self.api_key = None
+		self.initialize ()
 	
 	def query (self, qstring, qmax=5):
 		"""Behold the true power of the AsyncHandler!"""
 		
+		if not self.everything_should_work:
+			return []
+		
 		# Just to ensure we don't bork anything
-		qmax = min (qmax, 10)
+		qmax = min (qmax, MAX_QUERIES)
 		
 		# Delay before we query so we *don't* make four queries
 		# "s", "sp", "spa", "spam".

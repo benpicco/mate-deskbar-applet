@@ -9,9 +9,9 @@ MAX_RESULTS = 2 # per handler
 def _check_requirements():
 	try:
 		import deskbar.beagle
-		return (True, None)
+		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
 	except:
-		return (False, "Could not load deskbar.beagle, deskbar has been compiled without beagle support")
+		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "Could not load deskbar.beagle, deskbar has been compiled without beagle support", None)
 	
 HANDLERS = {
 	"BeagleLiveHandler" : {

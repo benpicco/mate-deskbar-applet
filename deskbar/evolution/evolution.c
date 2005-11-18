@@ -197,7 +197,7 @@ init (void)
 
 			p = e_source_get_property (source, "completion");
 
-			if (p != NULL &&  strcmp (p, "true") == 0) {
+			if (p != NULL && strcmp (p, "true") == 0) {
 				char *uri = g_strdup_printf ("%s/%s", e_source_group_peek_base_uri (group), e_source_peek_relative_uri (source));
 				EBook *book = e_book_new_from_uri (uri, NULL);
 				if (book != NULL) {
@@ -210,6 +210,40 @@ init (void)
 	}
 
 	g_object_unref (source_list);
+}
+
+int
+num_address_books_with_completion (void)
+{
+	int result = 0;
+	GSList *list, *l;
+	ESourceList *source_list;
+
+	source_list = e_source_list_new_for_gconf_default ("/apps/evolution/addressbook/sources");
+	if (source_list == NULL) {
+		return 0;
+	}
+
+	list = e_source_list_peek_groups (source_list);
+
+	for (l = list; l != NULL; l = l->next) {
+		ESourceGroup *group = l->data;
+		GSList *sources = NULL, *m;
+		sources = e_source_group_peek_sources (group);
+		for (m = sources; m != NULL; m = m->next) {
+			ESource *source = m->data;
+			const char *p;
+
+			p = e_source_get_property (source, "completion");
+
+			if (p != NULL && strcmp (p, "true") == 0) {
+				result++;
+			}
+		}
+	}
+
+	g_object_unref (source_list);
+	return result;
 }
 
 void

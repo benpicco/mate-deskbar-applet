@@ -3,10 +3,28 @@ import cgi, re
 import gnomevfs
 import deskbar, deskbar.indexer, deskbar.handler, deskbar.evolution
 
+def _on_more_information():
+	import gtk
+	message_dialog = gtk.MessageDialog(buttons=gtk.BUTTONS_CLOSE)
+	message_dialog.set_markup(
+		"<span size='larger' weight='bold'>%s</span>\n\n%s" % (
+		_("Autocompletion Needs to be Enabled"),
+		_("We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit → Preferences → Autocompletion.")));
+	resp = message_dialog.run()
+	if resp == gtk.RESPONSE_CLOSE:
+		message_dialog.destroy()
+
+def _check_requirements():
+	if deskbar.evolution.num_address_books_with_completion() > 0:
+		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
+	else:
+		return (deskbar.handler.HANDLER_IS_CONFIGURABLE, _("You need to enable autocomplete in your mail preferences"), _on_more_information)
+
 HANDLERS = {
 	"EvolutionHandler" : {
 		"name": _("Mail (Address Book)"),
 		"description": _("Send mail to your contacts by typing their name or e-mail address"),
+		"requirements" : _check_requirements
 	}
 }
 

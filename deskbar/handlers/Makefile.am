@@ -30,5 +30,6 @@ EXTRA_DIST = \
 	$(deskbar_handlers_DATA) \
 	debug-blockinginit.py \
 	debug-async_handler.py \
+	debug-requirements.py \
 	debug-signal_handler.py
 

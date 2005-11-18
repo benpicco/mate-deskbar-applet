@@ -10,9 +10,9 @@ from deskbar.handler_utils import get_xdg_data_dirs
 def _check_requirements():
 	for dir in get_xdg_data_dirs():
 		if exists(join(dir, "applications", "best.desktop")):
-			return (True, None)
+			return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
 	
-	return (False, "Beagle does not seem to be installed, skipping")
+	return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "Beagle does not seem to be installed, skipping", None)
 
 HANDLERS = {
 	"BeagleHandler" : {

@@ -1,3 +1,4 @@
+from gettext import gettext as _
 from os.path import join
 import gtk, gtk.glade, gobject, gconf
 import deskbar, deskbar.handler_utils
@@ -32,7 +33,33 @@ class PrefsDialog:
 		container = self.glade.get_widget("handlers")
 		self.moduleview = ModuleListView(module_list)
 		self.moduleview.connect ("row-toggled", self.on_module_toggled, module_loader)
+		self.moduleview.get_selection().connect("changed", self.on_module_selected)
 		container.add(self.moduleview)
+
+		self.default_info = gtk.Label(_("<i><small><b>Note:</b> Drag and drop a handler to change its priority.</small></i>"))
+		self.default_info.set_use_markup(True)
+		self.default_info.set_alignment(0.0, 0.5)
+		self.default_info.set_justify(gtk.JUSTIFY_LEFT)
+
+		self.other_info = gtk.HBox(spacing=6)
+		info_image = gtk.image_new_from_stock(gtk.STOCK_DIALOG_INFO, gtk.ICON_SIZE_BUTTON)
+		info_image.set_padding(3, 0)
+		self.other_info.pack_start(info_image, expand=False, fill=False)
+		self.other_info_label = gtk.Label()
+		self.other_info_label.set_alignment(0.0, 0.5)
+		self.other_info_label.set_justify(gtk.JUSTIFY_LEFT)
+		self.other_info.pack_start(self.other_info_label, expand=True, fill=True)
+		self.more_button = gtk.Button(_("_More..."))
+		self.more_button.connect("clicked", self.on_more_button_clicked)
+		self.more_button_callback = None
+		self.other_info.pack_start(self.more_button, expand=False, fill=False)
+		refresh_button = gtk.Button(stock=gtk.STOCK_REFRESH)
+		refresh_button.connect("clicked", self.on_refresh_button_clicked)
+		self.other_info.pack_start(refresh_button, expand=False, fill=False)
+
+		self.info_area = self.glade.get_widget("info_area")
+		self.info_area.add(self.default_info)
+		self.old_info_message = None
 				
 		self.sync_ui()
 		
@@ -70,6 +97,45 @@ class PrefsDialog:
 		
 	def on_spin_width_change(self, spinner, applet):
 		deskbar.GCONF_CLIENT.set_int(applet.prefs.GCONF_WIDTH, int(spinner.get_value()))
+	
+	def on_more_button_clicked(self, button):
+		if self.more_button_callback != None:
+			self.more_button_callback()
+	
+	def on_refresh_button_clicked(self, button):
+		context = self.moduleview.get_selected_module_context()
+		try:
+			context.module.refresh()
+		except AttributeError:
+			# most likely, the Handler does not have a "refresh" method
+			pass
+		self.on_module_selected(None)
+	
+	def on_module_selected(self, selection):
+		context = self.moduleview.get_selected_module_context()
+		if "requirements" in context.infos:
+			status, message, callback = context.infos["requirements"]()
+			if status == deskbar.handler.HANDLER_IS_CONFIGURABLE:
+				self.set_info(message, callback)
+			else:
+				self.set_info(None, None)
+		else:
+			self.set_info(None, None)
+	
+	def set_info(self, message, callback):
+		self.more_button_callback = callback
+		if message == self.old_info_message:
+			return
+		self.old_info_message = message
+		
+		self.info_area.remove(self.info_area.get_children()[0])
+		if message == None:
+			self.info_area.add(self.default_info)
+		else:
+			self.other_info_label.set_text(message)
+			self.more_button.set_sensitive(self.more_button_callback != None)
+			self.info_area.add(self.other_info)
+			self.other_info.show_all()
 	
 	def on_module_toggled(self, moduleview, context, loader):
 		if (context.enabled):

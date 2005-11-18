@@ -6,6 +6,7 @@ import pydoc
 from os.path import join, basename, normpath, abspath
 from os.path import split, expanduser, exists, isfile, dirname
 import gobject
+import deskbar.handler
 from deskbar.filewatcher import DirWatcher
 
 class ModuleContext:
@@ -130,8 +131,8 @@ class ModuleLoader (gobject.GObject):
 				return
 			
 			if "requirements" in infos:
-				ok, msg = infos["requirements"]()
-				if not ok:
+				status, msg, callback = infos["requirements"]()
+				if status == deskbar.handler.HANDLER_IS_NOT_APPLICABLE:
 					print >> sys.stderr, "***"
 					print >> sys.stderr, "*** The file %s (%s) decided to not load itself: %s" % (filename, handler, msg)
 					print >> sys.stderr, "***"
@@ -364,6 +365,7 @@ class ModuleListView (gtk.TreeView):
 		gtk.TreeView.__init__ (self, model)
 		
 		self.set_property("headers-visible", False)
+		self.set_property("rules-hint", True)
 		self.set_reorderable(True)
 		
 		cell_icon = gtk.CellRendererPixbuf ()
@@ -392,6 +394,10 @@ class ModuleListView (gtk.TreeView):
 			description = modctx.infos["description"]
 			
 		cell.set_property ("markup", "<b>%s</b>\n%s" % (name, description))
+		
+	def get_selected_module_context (self):
+		model, iter = self.get_selection().get_selected()
+		return model[iter][model.MODULE_CTX_COL]
 		
 	def emit_row_toggled (self, cell, path, model):
 		"""Callback for the toggle buttons in the ModuleList.ENABLED_COL.

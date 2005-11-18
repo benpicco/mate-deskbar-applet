@@ -9,12 +9,12 @@ from deskbar.handlers_browsers import BrowserSmartMatch, BrowserMatch
 
 def _check_requirements():
 	if deskbar.UNINSTALLED_DESKBAR:
-		return (True, None)
+		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
 		
 	if is_preferred_browser("galeon"):
-		return (True, None)
+		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
 	else:
-		return (False, "Galeon is not your preferred browser, not using it.")
+		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "Galeon is not your preferred browser, not using it.", None)
 		
 HANDLERS = {
 	"GaleonBookmarksHandler" : {
