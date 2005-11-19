@@ -51,6 +51,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		self._evbox.set_property('visible-window', False)
 		self._evbox.add(self._image)
 		self.pack_widget(self._evbox, True)
+		self._evbox.show()
 		
 		self._default_pixbuf = deskbar.handler_utils.load_icon("search")
 		if self._default_pixbuf == None:
@@ -90,7 +91,6 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		renderer = gtk.CellRendererText()
 		completion.pack_start(renderer)
 		completion.add_attribute(renderer, "markup", ACTION_COL)
-		self.show_all()
 		
 	def get_evbox(self):
 		return self._evbox

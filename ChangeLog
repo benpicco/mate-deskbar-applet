@@ -1,3 +1,16 @@
+2005-11-19  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/applet.py:
+	* deskbar/deskbar-applet.py:
+	* deskbar/deskbarentry.py:
+	* deskbar/handlers/mozilla.py:
+	* deskbar/indexer.py:
+	* deskbar/preferences.py:
+	Fixes CVS b0rkage in indexer.py and preferences.py
+	Correctly initialize gnome.program_init to hopefully avoid renadom crashes
+	Correctly call the show method on the icon eventbox to fully draw the
+	widget on the panel even before it got the focus.
+
 2005-11-18  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* data/art/Makefile.am:

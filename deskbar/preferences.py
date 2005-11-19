@@ -15,7 +15,7 @@ class PrefsDialog:
 		pixbuf = deskbar.handler_utils.load_icon("search")
 		if pixbuf == None:
 			pixbuf = deskbar.handler_utils.load_icon(gtk.STOCK_FIND)
-		if pixbuf != None
+		if pixbuf != None:
 			self.dialog.set_icon(pixbuf)
 
 		# Retreive current values

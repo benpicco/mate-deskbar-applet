@@ -1,5 +1,3 @@
-import deskbar.tokenizer
-
 # Check for presence of set to be compatible with python 2.3
 try:
 	set

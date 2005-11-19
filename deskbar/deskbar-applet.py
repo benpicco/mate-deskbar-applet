@@ -10,8 +10,7 @@ if PROFILE:
 import gobject
 gobject.threads_init()
 
-import gtk
-import gnome.ui, gnomeapplet
+import gtk, gnome, gnomeapplet
 
 import getopt, sys
 from os.path import *
@@ -30,6 +29,8 @@ else:
 
 # Now the path is set, import our applet
 import deskbar, deskbar.applet, deskbar.defs
+
+gnome.init(deskbar.defs.PACKAGE, deskbar.defs.VERSION)
 
 import gettext, locale
 gettext.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))

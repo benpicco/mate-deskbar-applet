@@ -1,7 +1,5 @@
 import os, time
 from os.path import *
-# WARNING: Load gnome.ui before gnomeapplet or we have a nasty warning.
-import gnome.ui
 import gnomeapplet, gtk, gtk.gdk, gconf, gobject
 from gettext import gettext as _
 
