@@ -89,9 +89,7 @@ if __name__ == "__main__":
 			standalone = True
 			
 	if standalone:
-		import gnome, gnome.ui
-		#print gnome.ui
-		#gnome.init(deskbar.defs.PACKAGE, deskbar.defs.VERSION, gnome.ui.libgnomeui_module_info_get())
+		import gnome
 		gnome.init(deskbar.defs.PACKAGE, deskbar.defs.VERSION)
 		build_window()
 		gtk.main()

@@ -4,11 +4,11 @@ from os.path import join, exists, isdir, isfile, dirname, abspath, expanduser
 import gtk, gtk.gdk, gconf
 
 # Autotools set the actual data_dir in defs.py
-from deskbar.defs import *
+from defs import *
 
 try:
 	# Allows to load uninstalled .la libs
-	import deskbar.ltihooks
+	import ltihooks
 except ImportError:
 	pass
 
@@ -86,4 +86,4 @@ else:
 	GCONF_ENABLED_HANDLERS = GCONF_DIR + "/enabled_handlers"
 	
 # Preload gconf directories
-GCONF_CLIENT.add_dir(deskbar.GCONF_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
+GCONF_CLIENT.add_dir(GCONF_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
