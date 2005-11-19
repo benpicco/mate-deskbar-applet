@@ -10,7 +10,7 @@ if PROFILE:
 import gobject
 gobject.threads_init()
 
-import gtk, gnome, gnomeapplet
+import gtk, gnomeapplet
 
 import getopt, sys
 from os.path import *
@@ -30,15 +30,13 @@ else:
 # Now the path is set, import our applet
 import deskbar, deskbar.applet, deskbar.defs
 
-gnome.init(deskbar.defs.PACKAGE, deskbar.defs.VERSION)
-
 import gettext, locale
 gettext.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))
 gettext.textdomain('deskbar-applet')
 
 locale.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))
 locale.textdomain('deskbar-applet')
-    
+
 def applet_factory(applet, iid):
 	print 'Starting Deskbar instance:', applet, iid
 	deskbar.applet.DeskbarApplet(applet)
@@ -91,14 +89,18 @@ if __name__ == "__main__":
 			standalone = True
 			
 	if standalone:
+		import gnome, gnome.ui
+		#print gnome.ui
+		#gnome.init(deskbar.defs.PACKAGE, deskbar.defs.VERSION, gnome.ui.libgnomeui_module_info_get())
+		gnome.init(deskbar.defs.PACKAGE, deskbar.defs.VERSION)
 		build_window()
 		gtk.main()
 	else:
 		gnomeapplet.bonobo_factory(
 			"OAFIID:Deskbar_Applet_Factory",
 			gnomeapplet.Applet.__gtype__,
-			"deskbar-applet",
-			"0",
+			deskbar.defs.PACKAGE,
+			deskbar.defs.VERSION,
 			applet_factory)
 	
 	if PROFILE:
