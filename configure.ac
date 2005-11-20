@@ -178,6 +178,11 @@ echo Evolution Support.... : $enable_libebook
 echo Beagle Support ...... : $enable_libbeagle
 
 echo
+echo "Please note that when using gnome-python-extras-2.10, you won't be able"
+echo "to focus the applet, only use it in window mode. Upgrade to 2.12 to get the"
+echo "applet functionnality"
+echo
+
 echo "Now type make to compile"
 echo "Then su to root and type: make install"
 echo

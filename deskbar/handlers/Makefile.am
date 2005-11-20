@@ -18,7 +18,7 @@ if ENABLE_BEAGLE
 deskbar_handlers_PYTHON += beagle-live.py
 endif
 
-if ENABLE_BEAGLE
+if ENABLE_EVOLUTION
 deskbar_handlers_PYTHON += evolution.py
 endif
 

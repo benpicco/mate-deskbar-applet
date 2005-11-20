@@ -71,6 +71,9 @@ class DeskbarApplet:
 		self.applet.connect("button-press-event", self.on_applet_button_press)
 		self.applet.connect('destroy', lambda x: self.keybinder.unbind())
 		self.applet.connect('change-orient', lambda x, orient: self.sync_applet_size())
+# FIXME: One day , transparency support
+#		self.applet.connect('map', lambda widget: gobject.timeout_add(100, self.on_applet_map_draw_background, widget))
+#		self.applet.connect("change_background",  self._on_applet_change_background)
 		self.applet.setup_menu_from_file (
 			deskbar.SHARED_DATA_DIR, "Deskbar_Applet.xml",
 			None, [("About", self.on_about), ("Prefs", self.on_preferences)])
@@ -302,3 +305,53 @@ class DeskbarApplet:
 
 		menu.show_all()
 		menu.popup(None, None, self.position_history_menu, event.button, event.time)
+
+#FIXME: Below is transparency support, not working
+#	def _reset_style(self, widget):
+#		widget.set_style(None)
+#		widget.modify_style(gtk.RcStyle())
+#
+#	def _set_background_pixmap(self, widget, pixmap):
+#		style = widget.style.copy()
+#		if style.bg_pixmap[gtk.STATE_NORMAL] != None:
+#			style.bg_pixmap[gtk.STATE_NORMAL] = pixmap.copy()
+#
+#		widget.set_style(style)
+#	
+#	def _prepare_pixmap_background (self, pixmap):
+#		if self.entry.get_entry().window == None:
+#			return
+#			
+#		width, height = self.entry.get_entry().window.get_size()
+#		small_pix = gtk.gdk.Pixmap(pixmap, width, height, -1)
+#		gc = gtk.gdk.GC(pixmap)
+#		x, y = self.entry.get_entry().window.get_position()
+#		small_pix.draw_drawable(gc, pixmap, x, y, 0, 0, width, height)
+#		self._set_background_pixmap (self.entry, pixmap)
+#		self._set_background_pixmap (self.entry.get_entry(), small_pix)
+#
+#	def _on_applet_change_background (self, applet, back, color, pixmap):
+#		print 'Change background'
+#		self._reset_style (self.entry.get_entry())
+#		self._reset_style (self.entry)
+#
+#		if back == gnomeapplet.COLOR_BACKGROUND:
+#			self.entry.get_entry().get_entry.modify_base(gtk.STATE_NORMAL, color)
+#			self.entry.modify_bg(gtk.STATE_NORMAL, color)
+#		elif back == gnomeapplet.PIXMAP_BACKGROUND:
+#			self._prepare_pixmap_background (pixmap)
+#
+#	def on_applet_map_draw_background(self, applet):
+#		print 'Map'
+#
+#		if self.entry.get_entry().window == None:
+#			return True
+#		print '----------------------'
+#		width, height = self.entry.get_entry().window.get_size()
+#		if width <= 1 or height <= 1:
+#			return True
+#
+#		#back, color, pixmap = applet.get_background ()
+#		#self._change_background (back,  color, pixmap)
+#		applet.connect("change_background",  self._on_applet_change_background)
+#		return False
