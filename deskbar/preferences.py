@@ -39,10 +39,7 @@ class PrefsDialog:
 		self.moduleview.get_selection().connect("changed", self.on_module_selected)
 		container.add(self.moduleview)
 
-		self.default_info = gtk.Label(_("<i><small><b>Note:</b> Drag and drop a handler to change its priority.</small></i>"))
-		self.default_info.set_use_markup(True)
-		self.default_info.set_alignment(0.0, 0.5)
-		self.default_info.set_justify(gtk.JUSTIFY_LEFT)
+		self.default_info = self.glade.get_widget("default_info")
 
 		self.other_info = gtk.HBox(spacing=6)
 		info_image = gtk.image_new_from_stock(gtk.STOCK_DIALOG_INFO, gtk.ICON_SIZE_BUTTON)
@@ -56,12 +53,8 @@ class PrefsDialog:
 		self.more_button.connect("clicked", self.on_more_button_clicked)
 		self.more_button_callback = None
 		self.other_info.pack_start(self.more_button, expand=False, fill=False)
-		refresh_button = gtk.Button(stock=gtk.STOCK_REFRESH)
-		refresh_button.connect("clicked", self.on_refresh_button_clicked)
-		self.other_info.pack_start(refresh_button, expand=False, fill=False)
 
 		self.info_area = self.glade.get_widget("info_area")
-		self.info_area.add(self.default_info)
 		self.old_info_message = None
 				
 		self.sync_ui()
@@ -105,21 +98,30 @@ class PrefsDialog:
 		if self.more_button_callback != None:
 			self.more_button_callback()
 	
-	def on_refresh_button_clicked(self, button):
-		context = self.moduleview.get_selected_module_context()
-		try:
-			context.module.refresh()
-		except AttributeError:
-			# most likely, the Handler does not have a "refresh" method
-			pass
-		self.on_module_selected(None)
-	
 	def on_module_selected(self, selection):
-		context = self.moduleview.get_selected_module_context()
-		if "requirements" in context.infos:
-			status, message, callback = context.infos["requirements"]()
+		module_context = self.moduleview.get_selected_module_context()
+		self.check_requirements(module_context)
+		gobject.timeout_add(1000, self.poll_requirements, module_context)
+	
+	def poll_requirements(self, module_context):
+		try:
+			if module_context != self.moduleview.get_selected_module_context():
+				return False
+		except AttributeError:
+			return False
+		self.check_requirements(module_context)
+		return True
+	
+	def check_requirements(self, module_context):
+		if "requirements" in module_context.infos:
+			status, message, callback = module_context.infos["requirements"]()
 			if status == deskbar.handler.HANDLER_IS_CONFIGURABLE:
 				self.set_info(message, callback)
+				try:
+					module_context.module.recheck_requirements()
+				except AttributeError:
+					# most likely, the Handler does not have a "recheck_requirements" method
+					pass
 			else:
 				self.set_info(None, None)
 		else:
@@ -136,9 +138,12 @@ class PrefsDialog:
 			self.info_area.add(self.default_info)
 		else:
 			self.other_info_label.set_text(message)
-			self.more_button.set_sensitive(self.more_button_callback != None)
 			self.info_area.add(self.other_info)
 			self.other_info.show_all()
+			if self.more_button_callback != None:
+				self.more_button.show()
+			else:
+				self.more_button.hide()
 	
 	def on_module_toggled(self, moduleview, context, loader):
 		if (context.enabled):

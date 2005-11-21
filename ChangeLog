@@ -1,6 +1,12 @@
-2005-11-21  Amanpreet Singh Alam <amanpreetalam@yahoo.com>
+2005-11-21  Nigel Tao  <nigeltao@cvs.gnome.org>
 
-	* configure.ac: pa (Punjabi) is added
+	* deskbar/preferences.py:
+	* deskbar/data/prefs_dialog.glade:
+	* deskbar/handlers/google-live.py:
+	Handlers don't need manual "Refresh"ing in the Preferences UI - it's all
+	instant apply.
+	Moved the "Drag and Drop Handlers" label back to the .glade file, where
+	it belonged in the first place.
 
 2005-11-20  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 

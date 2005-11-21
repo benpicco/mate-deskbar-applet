@@ -97,7 +97,11 @@ class GoogleLiveHandler (deskbar.handler.AsyncHandler):
 		except:
 			self.everything_should_work = False
 		
-	def refresh (self):
+	def recheck_requirements (self):
+		# Right now, this is un-optimized, in that we just keep loading
+		# the files even if they haven't changed since last time.  But
+		# I don't think that this is on the critical performance path.
+		# If it is, we'll fix it.  (ntao, 2005-11-21)
 		self.server = None
 		self.api_key = None
 		self.initialize ()
