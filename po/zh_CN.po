@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-16 13:33+0100\n"
-"PO-Revision-Date: 2005-11-16 23:31+0800\n"
+"POT-Creation-Date: 2005-11-21 05:43+0100\n"
+"PO-Revision-Date: 2005-11-21 18:24+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
@@ -32,25 +32,18 @@ msgid "<b>Applet Width</b>"
 msgstr "<b>小程序宽度</b>"
 
 #: ../data/prefs-dialog.glade.h:3
-msgid ""
-"<i><small><b>Note:</b> Drag and drop a handler to change its priority.</"
-"small></i>"
-msgstr ""
-"<i><small><b>注意：</b>拖曳把手可更改其优先级。</small></i>"
-
-#: ../data/prefs-dialog.glade.h:4
 msgid "Deskbar Preferences"
 msgstr "桌面栏首选项"
 
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:4
 msgid "Use _all available space"
 msgstr "使用可用的全部空间(_A)"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:5
 msgid "_Width:"
 msgstr "宽度(_W)："
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:6
 msgid "characters"
 msgstr "个字符"
 
@@ -98,29 +91,21 @@ msgstr "Web 搜索"
 msgid "Search the web via your browser's search settings"
 msgstr "通过您浏览器搜索设置搜索 Web"
 
-#: ../deskbar/handlers/files.py:16
-msgid "Files"
-msgstr "文件"
+#: ../deskbar/handlers/files.py:14
+msgid "Files and Folders"
+msgstr "文件和文件夹"
 
-#: ../deskbar/handlers/files.py:17
-msgid "Open files by name"
-msgstr "按名称打开文件"
+#: ../deskbar/handlers/files.py:15
+msgid "Open your files and folders by name"
+msgstr "按名称打开文件和文件夹"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/files.py:33 ../deskbar/handlers/beagle-live.py:62
+#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:62
 #, python-format
 msgid "Open %s"
 msgstr "打开 %s"
 
-#: ../deskbar/handlers/directories.py:16
-msgid "Folders"
-msgstr "文件夹"
-
-#: ../deskbar/handlers/directories.py:17
-msgid "Open folders by name"
-msgstr "按名称打开文件夹"
-
-#: ../deskbar/handlers/directories.py:31
+#: ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open folder %s"
 msgstr "打开文件夹 %s"
@@ -131,12 +116,12 @@ msgid "Send Email to %s"
 msgstr "给 %s 发送电子邮件"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
-msgid "Folder Bookmarks"
-msgstr "文件夹书签"
+msgid "Files and Folders Bookmarks"
+msgstr "文件和文件夹书签"
 
 #: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Open your folder bookmarks by name"
-msgstr "按名称打开您的文件夹书签"
+msgid "Open your files and folders bookmarks by name"
+msgstr "按名称打开您的文件和文件夹书签"
 
 #: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
 #, python-format
@@ -270,29 +255,69 @@ msgstr "打开书签 %s"
 msgid "Search %s for %s"
 msgstr "在 %s 中搜索 %s"
 
-#: ../deskbar/handlers/evolution.py:8
+#: ../deskbar/handlers/evolution.py:11
+msgid "Autocompletion Needs to be Enabled"
+msgstr "需要启用自动补全"
+
+#: ../deskbar/handlers/evolution.py:12
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit â Preferences â Autocompletion."
+msgstr ""
+
+#: ../deskbar/handlers/evolution.py:21
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "您需要在您的邮件首选项中启用自动补全"
+
+#: ../deskbar/handlers/evolution.py:25
 msgid "Mail (Address Book)"
 msgstr "邮件(地址簿)"
 
-#: ../deskbar/handlers/evolution.py:9
+#: ../deskbar/handlers/evolution.py:26
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "输入姓名或电子邮件地址以便向您的联系人发送邮件"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:32
+#: ../deskbar/handlers/evolution.py:50
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "给 %s (%s) 发送电子邮件"
 
-#: ../deskbar/handlers/google-live.py:45
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+
+#: ../deskbar/handlers/google-live.py:36
+msgid "Setting Up Google Live"
+msgstr "设置 Google Live"
+
+#: ../deskbar/handlers/google-live.py:56
 msgid "Google Live"
 msgstr "Google Live"
 
-#: ../deskbar/handlers/google-live.py:46
+#: ../deskbar/handlers/google-live.py:57
 msgid "Search Google as you type"
 msgstr "随时用 Google 搜索"
 
-#: ../deskbar/applet.py:302
+#: ../deskbar/applet.py:303
 msgid "No History"
 msgstr "无历史"
 
@@ -340,4 +365,14 @@ msgstr "查看日历 %s"
 #: ../deskbar/handlers/beagle-live.py:204
 msgid "?"
 msgstr "?"
+
+#: ../deskbar/preferences.py:42
+msgid ""
+"<i><small><b>Note:</b> Drag and drop a handler to change its priority.</"
+"small></i>"
+msgstr "<i><small><b>注意：</b>拖曳把手可更改其优先级。</small></i>"
+
+#: ../deskbar/preferences.py:55
+msgid "_More..."
+msgstr "更多(_M)..."
 
