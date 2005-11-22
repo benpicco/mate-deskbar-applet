@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-17 13:42+0100\n"
-"PO-Revision-Date: 2005-11-22 00:18+0100\n"
+"POT-Creation-Date: 2005-11-22 05:37+0100\n"
+"PO-Revision-Date: 2005-11-22 13:31+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -101,29 +101,21 @@ msgstr "Webkeresések"
 msgid "Search the web via your browser's search settings"
 msgstr "Keresés a weben a böngésző keresési beállításainak használatával"
 
-#: ../deskbar/handlers/files.py:16
-msgid "Files"
-msgstr "Fájlok"
+#: ../deskbar/handlers/files.py:14
+msgid "Files and Folders"
+msgstr "Fájlok és mappák"
 
-#: ../deskbar/handlers/files.py:17
-msgid "Open files by name"
-msgstr "Fájlok megnyitása név alapján"
+#: ../deskbar/handlers/files.py:15
+msgid "Open your files and folders by name"
+msgstr "Fájlok és mappák megnyitása név alapján"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/files.py:33 ../deskbar/handlers/beagle-live.py:62
+#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:62
 #, python-format
 msgid "Open %s"
 msgstr "%s megnyitása"
 
-#: ../deskbar/handlers/directories.py:16
-msgid "Folders"
-msgstr "Mappák"
-
-#: ../deskbar/handlers/directories.py:17
-msgid "Open folders by name"
-msgstr "Mappák megnyitása név alapján"
-
-#: ../deskbar/handlers/directories.py:31
+#: ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open folder %s"
 msgstr "%s mappa megnyitása"
@@ -134,12 +126,12 @@ msgid "Send Email to %s"
 msgstr "E-mail küldése a következőnek: %s"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
-msgid "Folder Bookmarks"
-msgstr "Mappakönyvjelzők"
+msgid "Files and Folders Bookmarks"
+msgstr "Fájlok és mappák könyvjelzők"
 
 #: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Open your folder bookmarks by name"
-msgstr "Mappakönyvjelzők megnyitása név alapján"
+msgid "Open your files and folders bookmarks by name"
+msgstr "Fájl- és mappakönyvjelzők megnyitása név alapján"
 
 #: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
 #, python-format
@@ -276,31 +268,89 @@ msgstr "%s könyvjelző megnyitása"
 msgid "Search %s for %s"
 msgstr "%s keresés a következőre: %s"
 
-#: ../deskbar/handlers/evolution.py:8
+#: ../deskbar/handlers/evolution.py:11
+msgid "Autocompletion Needs to be Enabled"
+msgstr "Az automatikus kiegészítést engedélyezni kell"
+
+#: ../deskbar/handlers/evolution.py:12
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit â Preferences â Autocompletion."
+msgstr ""
+"A címjegyzékében található e-mail címeket addig nem biztosíthatjuk, amíg "
+"az automatikus kiegészítés nincs engedélyezve. Ehhez válassza a levelezőprogram "
+"menüjének Szerkesztés -> Tulajdonságok -> Automatikus kiegészítés pontját."
+
+#: ../deskbar/handlers/evolution.py:21
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "Engedélyeznie kell az automatikus kiegészítést a levélbeállításoknál"
+
+#: ../deskbar/handlers/evolution.py:25
 msgid "Mail (Address Book)"
 msgstr "Levél (Címjegyzék)"
 
-#: ../deskbar/handlers/evolution.py:9
+#: ../deskbar/handlers/evolution.py:26
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Levél küldése névjegyek közt szereplő személynek a név vagy e-mail cím "
 "begépelésével"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:32
+#: ../deskbar/handlers/evolution.py:50
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Levél küldése a következőnek: %s (%s)"
 
-#: ../deskbar/handlers/google-live.py:45
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+"A Google Live használatához szüksége van egy Google fiókra. Ezt a http://api."
+"google.com/ címen szerezheti be.\n"
+"\n"
+"A fiók létrehozásakor levélben kap egy Google API kulcsot."
+"Helyezze el ezt a kulcsot a \n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"fájlban.\n"
+"Ha nem kapott API kulcsot (vagy elvesztette azt) a fiókellenőrzési e-mailben, akkor "
+"jelentkezzn be a www.google.com/accounts oldalon. Keresse fel az api."
+"google.com, oldalt, kattintson a \"Create Account\" gombra és adja meg az e-mail címét és jelszavát. Az API kulcsa újra el lesz küldve. \n"
+"\n"
+"Most töltse le a fejlesztői csomagot és bontsa ki belőle a GoogleSearch.wsdl fájlt. Másolja a fájlt a következő helyre:\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#: ../deskbar/handlers/google-live.py:36
+msgid "Setting Up Google Live"
+msgstr "Google Live beállítása"
+
+#: ../deskbar/handlers/google-live.py:56
 msgid "Google Live"
 msgstr "Google Live"
 
-#: ../deskbar/handlers/google-live.py:46
+#: ../deskbar/handlers/google-live.py:57
 msgid "Search Google as you type"
 msgstr "Keresés a Google használatával gépelés közben"
 
-#: ../deskbar/applet.py:302
+#: ../deskbar/applet.py:303
 msgid "No History"
 msgstr "Előzmények nélkül"
 
@@ -348,4 +398,8 @@ msgstr "%s naptár megtekintése"
 #: ../deskbar/handlers/beagle-live.py:204
 msgid "?"
 msgstr "?"
+
+#: ../deskbar/preferences.py:52
+msgid "_More..."
+msgstr "_Több..."
 
