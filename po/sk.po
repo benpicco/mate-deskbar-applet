@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-16 05:47+0100\n"
-"PO-Revision-Date: 2005-11-16 05:59+0100\n"
+"POT-Creation-Date: 2005-11-22 20:21+0100\n"
+"PO-Revision-Date: 2005-11-22 21:30+0100\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -101,29 +101,21 @@ msgstr "WWW hľadanie"
 msgid "Search the web via your browser's search settings"
 msgstr "Prehľadať internet podľa vyhľadávacích nastavení vášho prehliadača"
 
-#: ../deskbar/handlers/files.py:16
-msgid "Files"
-msgstr "Súbory"
+#: ../deskbar/handlers/files.py:14
+msgid "Files and Folders"
+msgstr "Súbory a priečinky"
 
-#: ../deskbar/handlers/files.py:17
-msgid "Open files by name"
-msgstr "Otvoriť súbory podľa názvu"
+#: ../deskbar/handlers/files.py:15
+msgid "Open your files and folders by name"
+msgstr "Otvoriť vaše súbory a priečinky podľa názvu"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/files.py:33 ../deskbar/handlers/beagle-live.py:62
+#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:62
 #, python-format
 msgid "Open %s"
 msgstr "Otvoriť %s"
 
-#: ../deskbar/handlers/directories.py:16
-msgid "Folders"
-msgstr "Priečinky"
-
-#: ../deskbar/handlers/directories.py:17
-msgid "Open folders by name"
-msgstr "Otvoriť priečinky podľa názvu"
-
-#: ../deskbar/handlers/directories.py:31
+#: ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open folder %s"
 msgstr "Otvoriť priečinok %s"
@@ -134,12 +126,12 @@ msgid "Send Email to %s"
 msgstr "Odoslať elektronickú poštu pre %s"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
-msgid "Folder Bookmarks"
-msgstr "Záložky priečinkov"
+msgid "Files and Folders Bookmarks"
+msgstr "Záložky súborov a priečinkov"
 
 #: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Open your folder bookmarks by name"
-msgstr "Otvoriť vaše záložky priečinkov podľa názvu"
+msgid "Open your files and folders bookmarks by name"
+msgstr "Otvoriť záložky vašich súborov a priečinkov podľa názvu"
 
 #: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
 #, python-format
@@ -227,7 +219,9 @@ msgstr "Disky a sieťové miesta"
 
 #: ../deskbar/handlers/volumes.py:17
 msgid "Open disk drives, shared network places and similar resources by name"
-msgstr "Otvoriť diskové jednotky, zdieľané sieťové miesta alebo podobné zdroje podľa názvu"
+msgstr ""
+"Otvoriť diskové jednotky, zdieľané sieťové miesta alebo podobné zdroje podľa "
+"názvu"
 
 #: ../deskbar/handlers/volumes.py:41
 #, python-format
@@ -273,30 +267,91 @@ msgstr "Otvoriť záložku %s"
 msgid "Search %s for %s"
 msgstr "Vyhľadať pomocou %s výskyt %s"
 
-#: ../deskbar/handlers/evolution.py:8
+#: ../deskbar/handlers/evolution.py:11
+msgid "Autocompletion Needs to be Enabled"
+msgstr "Automatické dokončovanie potrebuje byť povolené"
+
+#: ../deskbar/handlers/evolution.py:12
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit â Preferences â Autocompletion."
+msgstr ""
+"Nemôžeme poskytovať adresy elektronickej pošty z vášho adresára, kým nepovolíte "
+"automatické dokončovanie. Aby ste to urobili, vyberte z menu vášho poštového "
+"programu Upraviť -> Predvoľby -> Automatické dokončovanie."
+
+#: ../deskbar/handlers/evolution.py:21
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "Potrebujete povoliť automatické dokončovanie vo vašich predvoľbách pošty"
+
+#: ../deskbar/handlers/evolution.py:25
 msgid "Mail (Address Book)"
 msgstr "Pošta (adresár)"
 
-#: ../deskbar/handlers/evolution.py:9
+#: ../deskbar/handlers/evolution.py:26
 msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr "Odoslať poštu vašim kontaktom napísaním ich mena alebo adresy "
-"elektronickej pošty"
+msgstr ""
+"Odoslať poštu vašim kontaktom napísaním ich mena alebo adresy elektronickej "
+"pošty"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:32
+#: ../deskbar/handlers/evolution.py:50
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Odoslať elektronickú poštu pre %s (%s)"
 
-#: ../deskbar/handlers/google-live.py:45
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+"Potrebujete účet Google, aby ste mohli používať Živé Google. Aby ste ho získali, "
+"prejdite na http://api.google.com/\n"
+"\n"
+"Keď budete mať vytvorený váš účet, mali by ste dostať kľúč Google API poštou. "
+"Umiestnite tento kľúč do súboru\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"Ak nedostanete kľúč API (alebo ste ho stratili) vo vašej overovacej správe účtu, "
+"prejdite na www.google.com/accounts a prihláste sa. Prejdite na na api.google.com, "
+"kliknite na \"Vytvoriť účet\" a zadajte vašu adresu elektronickej pošty a heslo. "
+"Váš kľúč API bude opätovne zaslaný.\n"
+"\n"
+"Teraz stiahnite vývojársku sadu a vyberte z neho súbor GoogleSearch.wsdl. Skopírujte "
+"tento súbor do\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#: ../deskbar/handlers/google-live.py:36
+msgid "Setting Up Google Live"
+msgstr "Nastavenie Živé Google"
+
+#: ../deskbar/handlers/google-live.py:56
 msgid "Google Live"
 msgstr "Živé Google"
 
-#: ../deskbar/handlers/google-live.py:46
+#: ../deskbar/handlers/google-live.py:57
 msgid "Search Google as you type"
 msgstr "Vyhľadávať pomocou Google hneď, ako budete písať"
 
-#: ../deskbar/applet.py:302
+#: ../deskbar/applet.py:303
 msgid "No History"
 msgstr "Bez histórie"
 
@@ -306,7 +361,8 @@ msgstr "Živé Beagle"
 
 #: ../deskbar/handlers/beagle-live.py:19
 msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Prehľadávať všetky vaše dokumenty (pomocou Beagle) hneď, ako budete písať"
+msgstr ""
+"Prehľadávať všetky vaše dokumenty (pomocou Beagle) hneď, ako budete písať"
 
 #: ../deskbar/handlers/beagle-live.py:46
 #, python-format
@@ -344,3 +400,7 @@ msgstr "Zobraziť kalendár %s"
 #: ../deskbar/handlers/beagle-live.py:204
 msgid "?"
 msgstr "?"
+
+#: ../deskbar/preferences.py:52
+msgid "_More..."
+msgstr "_Viac..."
