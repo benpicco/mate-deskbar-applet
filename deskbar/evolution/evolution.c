@@ -10,6 +10,7 @@ typedef struct _Handler_And_Data {
 	gpointer            user_data;
 	GList              *hits;
 	int                 max_results_remaining;
+	int                 book_views_remaining;
 } Handler_And_Data;
 
 static GSList *books = NULL;
@@ -147,6 +148,14 @@ static void
 view_contacts_added_cb (EBookView *book_view, GList *contacts, gpointer user_data)
 {
 	Handler_And_Data *had = (Handler_And_Data *) user_data;
+	if (had->max_results_remaining <= 0) {
+		e_book_view_stop (book_view);
+		had->book_views_remaining--;
+		if (had->book_views_remaining == 0) {
+			view_finish (book_view, had);
+			return;
+		}
+	}
 	for (; contacts != NULL; contacts = g_list_next (contacts)) {
 		EContact *contact;
 		Hit *hit;
@@ -161,7 +170,10 @@ view_contacts_added_cb (EBookView *book_view, GList *contacts, gpointer user_dat
 		had->max_results_remaining--;
 		if (had->max_results_remaining <= 0) {
 			e_book_view_stop (book_view);
-			view_finish (book_view, had);
+			had->book_views_remaining--;
+			if (had->book_views_remaining == 0) {
+				view_finish (book_view, had);
+			}
 			break;
 		}
 	}
@@ -171,7 +183,10 @@ static void
 view_completed_cb (EBookView *book_view, EBookViewStatus status, gpointer user_data)
 {
 	Handler_And_Data *had = (Handler_And_Data *) user_data;
-	view_finish (book_view, had);
+	had->book_views_remaining--;
+	if (had->book_views_remaining == 0) {
+		view_finish (book_view, had);
+	}
 }
 
 void
@@ -262,20 +277,25 @@ search_async (const char         *query,
 
 	EBookQuery* book_query = create_query (query);
 
+	Handler_And_Data *had = g_new (Handler_And_Data, 1);
+	had->handler = handler;
+	had->user_data = user_data;
+	had->hits = NULL;
+	had->max_results_remaining = max_results;
+	had->book_views_remaining = 0;
 	for (iter = books; iter != NULL; iter = iter->next) {
 		EBook *book = (EBook *) iter->data;
 		EBookView *book_view = NULL;
 		e_book_get_book_view (book, book_query, NULL, max_results, &book_view, NULL);
 		if (book_view != NULL) {
-			Handler_And_Data *had = g_new (Handler_And_Data, 1);
-			had->handler = handler;
-			had->user_data = user_data;
-			had->hits = NULL;
-			had->max_results_remaining = max_results;
+			had->book_views_remaining++;
 			g_signal_connect (book_view, "contacts_added", (GCallback) view_contacts_added_cb, had);
 			g_signal_connect (book_view, "sequence_complete", (GCallback) view_completed_cb, had);
 			e_book_view_start (book_view);
 		}
+	}
+	if (had->book_views_remaining == 0) {
+		g_free (had);
 	}
 
 	e_book_query_unref (book_query);
