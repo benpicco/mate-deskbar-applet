@@ -43,4 +43,11 @@
   )
 )
 
-
+(define-function search_sync
+  (c-name "search_sync")
+  (return-type "GList*")
+  (parameters
+    '("const-char*" "query")
+    '("int" "max_results")
+  )
+)

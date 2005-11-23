@@ -26,6 +26,9 @@ void search_async (const char         *query,
                    SearchAsyncHandler  handler,
                    gpointer            user_data);
 
+GList * search_sync (const char *query,
+                     int         max_results);
+
 G_END_DECLS
 
 #endif /* __DESKBAR_EVOLUTION_H__ */

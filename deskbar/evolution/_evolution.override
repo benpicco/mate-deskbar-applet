@@ -147,3 +147,24 @@ _wrap_search_async (PyGObject *self, PyObject *args, PyObject *kwargs)
 	Py_INCREF (Py_None);
 	return Py_None;
 }
+%%
+override search_sync kwargs 
+static PyObject*
+_wrap_search_sync (PyGObject *self, PyObject *args, PyObject *kwargs) 
+{
+	char *query;
+	int max_results;
+	GList *hits;
+	PyObject *hits_apo;
+
+	if (!PyArg_ParseTuple (args, "si:search_sync", &query, &max_results)) {
+		return NULL;
+	}
+
+	hits = search_sync (query, max_results);
+	hits_apo = hits_as_python_object (hits);
+	g_list_foreach (hits, (GFunc) free_hit, NULL);
+	g_list_free (hits);
+
+	return hits_apo;
+}

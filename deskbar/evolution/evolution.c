@@ -300,3 +300,45 @@ search_async (const char         *query,
 
 	e_book_query_unref (book_query);
 }
+
+/*
+ * Note: you may get a message "WARNING **: FIXME: wait for completion unimplemented"
+ * if you call search_sync but are not running the gobject main loop.
+ * This appears to be harmless: http://bugzilla.gnome.org/show_bug.cgi?id=314544
+ */
+GList *
+search_sync (const char *query,
+             int         max_results)
+{
+	GSList *iter = NULL;
+	GList *contacts = NULL;
+	GList *hits = NULL;
+
+	EBookQuery* book_query = create_query (query);
+	for (iter = books; iter != NULL; iter = iter->next) {
+		if (max_results <= 0) {
+			break;
+		}
+		EBook *book = (EBook *) iter->data;
+		e_book_get_contacts (book, book_query, &contacts, NULL);
+		for (; contacts != NULL; contacts = g_list_next (contacts)) {
+			EContact *contact;
+			Hit *hit;
+
+			contact = E_CONTACT (contacts->data);
+			hit = g_new (Hit, 1);
+			hit->email = g_strdup ((char*) e_contact_get_const (contact, E_CONTACT_EMAIL_1));
+			hit->text = g_strdup ((char*) e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG));
+			hit->pixbuf = pixbuf_from_contact (contact);
+
+			hits = g_list_append (hits, hit);
+			max_results--;
+			if (max_results <= 0) {
+				break;
+			}
+		}
+	}
+	e_book_query_unref (book_query);
+
+	return hits;
+}
