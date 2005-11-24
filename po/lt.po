@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-15 11:38+0200\n"
-"PO-Revision-Date: 2005-11-15 11:45+0200\n"
+"POT-Creation-Date: 2005-11-24 20:23+0200\n"
+"PO-Revision-Date: 2005-11-24 20:35+0200\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -100,29 +100,21 @@ msgstr "Web paieškos"
 msgid "Search the web via your browser's search settings"
 msgstr "Ieškoti internete naudojantis Jūsų naršyklės nustatymais"
 
-#: ../deskbar/handlers/files.py:16
-msgid "Files"
-msgstr "Bylos"
+#: ../deskbar/handlers/files.py:14
+msgid "Files and Folders"
+msgstr "Bylos ir aplankai"
 
-#: ../deskbar/handlers/files.py:17
-msgid "Open files by name"
-msgstr "Atverti bylas pagal vardą"
+#: ../deskbar/handlers/files.py:15
+msgid "Open your files and folders by name"
+msgstr "Atverti bylas ir aplankus pagal vardus"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/files.py:33 ../deskbar/handlers/beagle-live.py:62
+#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:62
 #, python-format
 msgid "Open %s"
 msgstr "Atverti %s"
 
-#: ../deskbar/handlers/directories.py:16
-msgid "Folders"
-msgstr "Aplankai"
-
-#: ../deskbar/handlers/directories.py:17
-msgid "Open folders by name"
-msgstr "Atverti aplankus pagal vardus"
-
-#: ../deskbar/handlers/directories.py:31
+#: ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open folder %s"
 msgstr "Atverti aplanką %s"
@@ -133,12 +125,12 @@ msgid "Send Email to %s"
 msgstr "Siųsti %s el. laišką"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
-msgid "Folder Bookmarks"
-msgstr "Aplankų žymelės"
+msgid "Files and Folders Bookmarks"
+msgstr "Bylų ir aplankų žymelės"
 
 #: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Open your folder bookmarks by name"
-msgstr "Atverti Jūsų aplankų žymeles pagal pavadinimą"
+msgid "Open your files and folders bookmarks by name"
+msgstr "Atverti Jūsų bylų ir aplankų žymeles pagal pavadinimą"
 
 #: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
 #, python-format
@@ -272,30 +264,90 @@ msgstr "Atverti žymelę %s"
 msgid "Search %s for %s"
 msgstr "%s ieškoti %s"
 
-#: ../deskbar/handlers/evolution.py:8
+#: ../deskbar/handlers/evolution.py:11
+msgid "Autocompletion Needs to be Enabled"
+msgstr "Automatinis užbaigimas turi būti įjungtas"
+
+#: ../deskbar/handlers/evolution.py:12
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit â Preferences â Autocompletion."
+msgstr ""
+"Mes negalime suteikti el.pašto adresų iš Jūsų adresų knygelės, nebent "
+"Jūs įjungsite automatinį užbaigimą. Tą padaryti galite Jūsų pašto "
+"programos meniu pasirinkę Keisti → Nustatymai → Savaiminis pabaigimas."
+
+#: ../deskbar/handlers/evolution.py:21
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "Jūs turite savo pašto nustatymuose įjungti automatinį užbaigimą"
+
+#: ../deskbar/handlers/evolution.py:25
 msgid "Mail (Address Book)"
 msgstr "Paštas (adresų knyga)"
 
-#: ../deskbar/handlers/evolution.py:9
+#: ../deskbar/handlers/evolution.py:26
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Siųsti el.laiškus Jūsų kontaktams parašant jų vardą ar el. pašto adresą"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:32
+#: ../deskbar/handlers/evolution.py:48
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Siųsti el. laišką %s (%s)"
 
-#: ../deskbar/handlers/google-live.py:45
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+"Jums reikia Google abonemento, jei norite naudoti Google Live. Jį galite "
+"gauti http://api.google.com/\n"
+"\n"
+"Kai susikursite abonementą, el.paštu turėtumėte gauti Google API raktą. "
+"Įdėkite šį raktą į bylą\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"Jeigu abonemento patvirtinimo laišku negavote API rakto (arba jį pametėte), "
+"eikite į www.google.com/accounts ir prisijunkite. Tada eikite į api.google.com, "
+"paspauskite „Create Account“ ir įveskite savo el.pašto adresą ir slaptažodį. "
+"Jums API raktas bus išsiųstas pakartotinai.\n"
+"\n"
+"Dabar parsisiųskite kūrėjų rinkinį („developers kit“) ir iš jo išskleiskite "
+"bylą GoogleSearch.wsdl. Nukopijuokite šią bylą į\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#: ../deskbar/handlers/google-live.py:36
+msgid "Setting Up Google Live"
+msgstr "Kuriamas Google Live"
+
+#: ../deskbar/handlers/google-live.py:56
 msgid "Google Live"
 msgstr "Google Live"
 
-#: ../deskbar/handlers/google-live.py:46
+#: ../deskbar/handlers/google-live.py:57
 msgid "Search Google as you type"
 msgstr "Ieškoti Google rašymo metu"
 
-#: ../deskbar/applet.py:302
+#: ../deskbar/applet.py:303
 msgid "No History"
 msgstr "Nėra istorijos"
 
@@ -343,3 +395,7 @@ msgstr "Žiūrėti kalendorių %s"
 #: ../deskbar/handlers/beagle-live.py:204
 msgid "?"
 msgstr "?"
+
+#: ../deskbar/preferences.py:52
+msgid "_More..."
+msgstr "_Daugiau..."
