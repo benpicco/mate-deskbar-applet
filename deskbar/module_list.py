@@ -305,12 +305,19 @@ class ModuleList (gtk.ListStore):
 		return (None, 0)
 		
 	def reorder_with_priority(self, enabled_modules):
+		# Modules are sorted:
+		# First enabled, then disabled modules.
+		#   Enabled modules are sorted by their drag 'n' drop precedence.
+		#   Disabled modules are sorted alphabetically by (i18n'd) name,
+		#   (not the name of the Handler python class).
 		new_order = []
 		for classname in enabled_modules:
 			new_order.append(self.get_position_from_context("handler", classname)[1])
 		
-		for modctx in [modctx for modctx in self if modctx.handler not in enabled_modules]:
-			new_order.append(self.get_position_from_context("handler", modctx.handler)[1])
+		disabled_modules = [modctx for modctx in self if modctx.handler not in enabled_modules]
+		disabled_modules.sort(lambda x, y: cmp (x.infos["name"], y.infos["name"]))
+		for dm in disabled_modules:
+			new_order.append(self.get_position_from_context("handler", dm.handler)[1])
 		
 		self.reorder(new_order)
 		
