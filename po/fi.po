@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-26 21:37+0300\n"
-"PO-Revision-Date: 2005-10-27 23:14+0300\n"
+"POT-Creation-Date: 2005-11-24 21:16+0200\n"
+"PO-Revision-Date: 2005-11-24 21:16+0200\n"
 "Last-Translator: Tommi Vainikainen <Tommi.Vainikainen@iki.fi>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,9 @@ msgstr "<b>Sovelman leveys</b>"
 msgid ""
 "<i><small><b>Note:</b> Drag and drop a handler to change its priority.</"
 "small></i>"
-msgstr "<i><small><b>Huom:</b> Vedä ja pudota käsittelimiä vaihtaaksesi niiden prioriteettejä.</small></i>"
+msgstr ""
+"<i><small><b>Huom:</b> Vedä ja pudota käsittelimiä vaihtaaksesi niiden "
+"prioriteettejä.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:4
 msgid "Deskbar Preferences"
@@ -67,279 +69,417 @@ msgid "An all-in-one search bar."
 msgstr "Kaikki-yhdessä-hakupalkki."
 
 #: ../deskbar/about.py:32
-msgid "Deskbar Applet Website"
-msgstr "Työpöytäpalkkisovelman www-sivu"
+msgid "Deskbar Website"
+msgstr "Työpöytäpalkin www-sivu"
 
-#: ../deskbar/handlers/epiphany.py:18 ../deskbar/handlers/mozilla.py:26
-#: ../deskbar/handlers/galeon.py:18
-msgid "Bookmarks"
-msgstr "Kirjanmerkit"
+#: ../deskbar/handlers/epiphany.py:21 ../deskbar/handlers/mozilla.py:29
+#: ../deskbar/handlers/galeon.py:21
+msgid "Web Bookmarks"
+msgstr "WWW-kirjanmerkit"
 
-#: ../deskbar/handlers/epiphany.py:19 ../deskbar/handlers/mozilla.py:27
-#: ../deskbar/handlers/galeon.py:19
-msgid "Index your bookmarks"
-msgstr "Laadi kirjanmerkeille hakemisto"
+#: ../deskbar/handlers/epiphany.py:22 ../deskbar/handlers/mozilla.py:30
+#: ../deskbar/handlers/galeon.py:22
+msgid "Open your web bookmarks by name"
+msgstr "Avaa WWW-kirjanmerkkejä nimellä"
 
-#: ../deskbar/handlers/epiphany.py:23 ../deskbar/handlers/galeon.py:23
-msgid "History"
-msgstr "Historia"
+#: ../deskbar/handlers/epiphany.py:26 ../deskbar/handlers/galeon.py:26
+msgid "Web History"
+msgstr "WWW-historia"
 
-#: ../deskbar/handlers/epiphany.py:24
-msgid "Index your search history"
-msgstr "Laadi etsintähistoriasta hakemisto"
+#: ../deskbar/handlers/epiphany.py:27 ../deskbar/handlers/galeon.py:27
+msgid "Open your web history by name"
+msgstr "Avaa WWW-historia nimellä"
 
-#: ../deskbar/handlers/epiphany.py:28 ../deskbar/handlers/galeon.py:28
-msgid "Smart Bookmarks"
-msgstr "Älykirjanmerkit"
+#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/galeon.py:31
+msgid "Web Searches"
+msgstr "WWW-haut"
 
-#: ../deskbar/handlers/epiphany.py:29
-msgid "Index your smart bookmarks"
-msgstr "Laadi älykirjanmerkeistä hakemisto"
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:35
+#: ../deskbar/handlers/galeon.py:32
+msgid "Search the web via your browser's search settings"
+msgstr "Etsi webistä selaimen hakuasetuksin"
+
+#: ../deskbar/handlers/files.py:14
+msgid "Files and Folders"
+msgstr "Tiedostot ja kansiot"
 
 #: ../deskbar/handlers/files.py:15
-msgid "Files"
-msgstr "Tiedostot"
+msgid "Open your files and folders by name"
+msgstr "Avaa tiedostoja ja kansioita nimellä"
 
-#: ../deskbar/handlers/files.py:16
-msgid "Open files by typing their names."
-msgstr "Avaa tiedostot kirjoittamalla niiden nimet."
-
-#: ../deskbar/handlers/files.py:32 ../deskbar/handlers/beagle-live.py:52
+#. translators: This is a file.
+#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:62
 #, python-format
-msgid "Open <b>%(name)s</b>"
-msgstr "Avaa <b>%(name)s</b>"
+msgid "Open %s"
+msgstr "Avaa %s"
 
-#: ../deskbar/handlers/directories.py:15
-msgid "Folders"
-msgstr "Kansiot"
-
-#: ../deskbar/handlers/directories.py:16
-msgid "Open folders by their names."
-msgstr "Avaa kansiot nimellä."
-
-#: ../deskbar/handlers/directories.py:30
+#: ../deskbar/handlers/files.py:47
 #, python-format
-msgid "Open folder <b>%(name)s</b>"
-msgstr "Avaa kansio <b>%(name)s</b>"
+msgid "Open folder %s"
+msgstr "Avaa kansio %s"
 
 #: ../deskbar/handlers/galago.py:27 ../deskbar/handlers/email_address.py:26
 #, python-format
-msgid "Send Email to <b>%(name)s</b>"
-msgstr "Lähetä sähköpostia osoitteeseen <b>%(name)s</b>"
-
-#: ../deskbar/handlers/gtkbookmarks.py:11
-msgid "File Manager bookmarks"
-msgstr "Tiedostohallinnan kirjanmerkit"
+msgid "Send Email to %s"
+msgstr "Lähetä sähköpostia osoitteeseen %s"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
-msgid "Open your file manager's bookmarks by name."
-msgstr "Avaa tiedostohallinnan kirjanmerkkejä nimellä."
+msgid "Files and Folders Bookmarks"
+msgstr "Tiedostojen ja kansioiden kirjanmerkit"
 
-#: ../deskbar/handlers/gtkbookmarks.py:28 ../deskbar/handlers/volumes.py:38
+#: ../deskbar/handlers/gtkbookmarks.py:13
+msgid "Open your files and folders bookmarks by name"
+msgstr "Avaa tiedostojen ja kansioiden kirjanmerkkejä nimellä."
+
+#: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
 #, python-format
-msgid "Open location <b>%(name)s</b>"
-msgstr "Avaa sijainti <b>%(name)s</b>"
+msgid "Open location %s"
+msgstr "Avaa sijainti %s"
 
-#: ../deskbar/handlers/mozilla.py:31
-msgid "Search Engines"
-msgstr "Hakupalvelut"
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Ohjelmat"
 
-#: ../deskbar/handlers/mozilla.py:32 ../deskbar/handlers/galeon.py:29
-msgid "Index your search engines"
-msgstr "Laadi hakupalveluista hakemisto"
+#: ../deskbar/handlers/programs.py:15
+msgid "Launch a program by its name and/or description"
+msgstr "Käynnistä ohjelma nimellä ja/tai kuvauksella"
 
-#: ../deskbar/handlers/programs.py:12
-msgid "Desktop Programs"
-msgstr "Työpöytäsovellukset"
+#: ../deskbar/handlers/programs.py:18
+msgid "Dictionary"
+msgstr "Sanakirja"
 
-#: ../deskbar/handlers/programs.py:13
-msgid "Index the program names and descriptions."
-msgstr "Laadi ohjelmien nimistä ja kuvauksista hakemisto."
+#: ../deskbar/handlers/programs.py:19
+msgid "Look up word definitions in the dictionary"
+msgstr "Tarkista sanojen määritelmiä sanakirjasta"
 
-#: ../deskbar/handlers/programs.py:16
-msgid "Dictionary Lookup"
-msgstr "Sanakirjahaku"
+#: ../deskbar/handlers/programs.py:22
+msgid "Files and Folders Search"
+msgstr "Tiedostojen ja kansioiden haku"
 
-#: ../deskbar/handlers/programs.py:17
-msgid "Type a word and lookup the definition in the dictionary"
-msgstr "Kirjoita sana ja tarkista määritelmä sanakirjasta"
+#: ../deskbar/handlers/programs.py:23
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Etsi tiedostoja ja kansioita antamalla nimen osa"
 
-#: ../deskbar/handlers/programs.py:20
-msgid "File Search"
-msgstr "Tiedostohaku"
-
-#: ../deskbar/handlers/programs.py:21
-msgid "Type a filename pattern and find matching files on your disk."
-msgstr "Kirjoita tiedostonimihahmo ja etsi täsmääviä tiedostoja levyltäsi."
-
-#: ../deskbar/handlers/programs.py:49
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/programs.py:66
 #, python-format
-msgid "Launch <b>%(name)s</b> (%(prog)s)"
-msgstr "Käynnistä <b>%(name)s</b> (%(prog)s)"
+msgid "Launch %s (%s)"
+msgstr "Käynnistä %s (%s)"
 
-#: ../deskbar/handlers/programs.py:62
+#: ../deskbar/handlers/programs.py:79
 #, python-format
-msgid "Lookup <b>%(text)s</b> in dictionary"
-msgstr "Tarkista <b>%(text)s</b> sanakirjasta"
+msgid "Lookup %s in dictionary"
+msgstr "Tarkista %s sanakirjasta"
 
-#: ../deskbar/handlers/programs.py:70
+#: ../deskbar/handlers/programs.py:87
 #, python-format
-msgid "Search for file names like <b>%(text)s</b>"
-msgstr "Etsi tiedostonimiä ehdolla <b>%(text)s</b>"
-
-#: ../deskbar/handlers/pathprograms.py:12
-msgid "Command line programs"
-msgstr "Komentoriviohjelmat"
+msgid "Search for file names like %s"
+msgstr "Etsi tiedostonimiä ehdolla %s"
 
 #: ../deskbar/handlers/pathprograms.py:13
-msgid "Allow to launch any program present in your $PATH"
-msgstr "Salli minkä tahansa $PATH:ssa olevan ohjelman käynnistäminen"
+msgid "Programs (Advanced)"
+msgstr "Ohjelmat (kehittynyt)"
 
-#: ../deskbar/handlers/pathprograms.py:35
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Launch any program present in your $PATH"
+msgstr "Käynnistä mikä tahansa $PATH:sta löytyvä ohjelma"
+
+#: ../deskbar/handlers/pathprograms.py:30
 #, python-format
-msgid "Execute <b>%(text)s</b>"
-msgstr "Suorita <b>%(text)s</b>"
+msgid "Execute %s"
+msgstr "Suorita %s"
 
-#: ../deskbar/handlers/beagle.py:10
+#: ../deskbar/handlers/beagle.py:19
 msgid "Beagle"
 msgstr "Beagle"
 
-#: ../deskbar/handlers/beagle.py:11
-msgid "Use Beagle to search for documents"
-msgstr "Käytä Beaglea asiakirjahakuun"
+#: ../deskbar/handlers/beagle.py:20
+msgid "Search all of your documents (using Beagle)"
+msgstr "Etsi kaikkia asiakirjoja (Beaglella)"
 
-#: ../deskbar/handlers/beagle.py:25
+#: ../deskbar/handlers/beagle.py:33
 #, python-format
-msgid "Search <b>%(name)s</b> with Beagle"
-msgstr "Etsi sanaa <b>%(name)s</b> Beaglella"
+msgid "Search for %s using Beagle"
+msgstr "Etsi termiä %s Beaglella"
 
 #: ../deskbar/handlers/email_address.py:9
-msgid "Email Addresses"
-msgstr "Sähköpostiosoitteet"
+msgid "Mail"
+msgstr "Sähköposti"
 
 #: ../deskbar/handlers/email_address.py:10
-msgid "Send mails by typing an email address."
-msgstr "Lähetä sähköposteja kirjoittamalla osoite."
+msgid "Send mail by typing a complete e-mail address"
+msgstr "Lähetä sähköposteja kirjoittamalla täydellinen sähköpostiosoite"
 
-#: ../deskbar/handlers/galeon.py:24
-msgid "Index your history"
-msgstr "Laadi historiasta hakemisto"
+#: ../deskbar/handlers/volumes.py:16
+msgid "Disks and Network Places"
+msgstr "Levyt ja verkkosijainnit"
 
-#: ../deskbar/handlers/volumes.py:14
-msgid "Search for disks and network places"
-msgstr "Etsi levyjä ja verkkosijainteja"
+#: ../deskbar/handlers/volumes.py:17
+msgid "Open disk drives, shared network places and similar resources by name"
+msgstr ""
+"Avaa levyasemia, jaettuja verkkosijainteja ja muita samanlaisia resursseja "
+"nimellä"
 
-#: ../deskbar/handlers/volumes.py:15
-msgid "Open drives and volumes by their name"
-msgstr "Avaa asemia ja taltioita nimellä"
-
-#: ../deskbar/handlers/volumes.py:34
+#: ../deskbar/handlers/volumes.py:41
 #, python-format
-msgid "Open network place <b>%(name)s</b>"
-msgstr "Avaa verkkosijainti <b>%(name)s</b>"
+msgid "Open network place %s"
+msgstr "Avaa verkkosijainti %s"
 
-#: ../deskbar/handlers/volumes.py:36
+#: ../deskbar/handlers/volumes.py:43
 #, python-format
-msgid "Open audio disk <b>%(name)s</b>"
-msgstr "Avaa äänilevy <b>%(name)s</b>"
-
-#: ../deskbar/handlers/web_address.py:8
-msgid "Web Addresses"
-msgstr "WWW-osoitteet"
+msgid "Open audio disk %s"
+msgstr "Avaa äänilevy %s"
 
 #: ../deskbar/handlers/web_address.py:9
-msgid "Open webpages by typing an address."
-msgstr "Avaa www-sivuja osoitteella."
+msgid "Web"
+msgstr "WWW"
 
-#: ../deskbar/handlers/web_address.py:34
-#, python-format
-msgid "Open the web page <b>%(name)s</b>"
-msgstr "Avaa www-sivuo <b>%(name)s</b>"
+#: ../deskbar/handlers/web_address.py:10
+msgid "Open web pages by typing a complete web address"
+msgstr "Avaa WWW-sivut kirjoittamalla täydellinen WWW-osoite"
 
-#: ../deskbar/handlers/web_address.py:36
+#: ../deskbar/handlers/web_address.py:35
 #, python-format
-msgid "Open the location <b>%(name)s</b>"
-msgstr "Avaa sijainti <b>%(name)s</b>"
+msgid "Open the web page %s"
+msgstr "Avaa www-sivu %s"
+
+#: ../deskbar/handlers/web_address.py:37
+#, python-format
+msgid "Open the location %s"
+msgstr "Avaa sijainti %s"
 
 #: ../deskbar/handlers_browsers.py:30
 #, python-format
-msgid "Open History Item <b>%(name)s</b>"
-msgstr "Avaa historiamerkintä <b>%(name)s</b>"
+msgid "Open History Item %s"
+msgstr "Avaa historiamerkintä %s"
 
 #: ../deskbar/handlers_browsers.py:32
 #, python-format
-msgid "Open Bookmark <b>%(name)s</b>"
-msgstr "Avaa kirjanmerkki <b>%(name)s</b>"
+msgid "Open Bookmark %s"
+msgstr "Avaa kirjanmerkki %s"
 
-#: ../deskbar/handlers_browsers.py:50
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/handlers_browsers.py:54
 #, python-format
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "Etsi sanaa <b>%(name)s</b> kohdasta <i>%(text)s</i>"
+msgid "Search %s for %s"
+msgstr "Etsi %slla termiä %s"
 
-#: ../deskbar/handlers/evolution.py:8
-msgid "Address Book"
-msgstr "Osoitekirja"
+#: ../deskbar/handlers/evolution.py:11
+msgid "Autocompletion Needs to be Enabled"
+msgstr "Automaattitäydennys täytyy olla valittuna"
 
-#: ../deskbar/handlers/evolution.py:9
-msgid "Send emails to your contacts by typing their name or email address"
-msgstr "Lähetä sähköpostia tuttavillesi kirjoittamalla nimi tai sähköpostiosoite"
-
-#: ../deskbar/handlers/evolution.py:31
-#, python-format
-msgid "Send Email to <b>%(name)s</b> (%(email)s)"
-msgstr "Lähetä sähköpostia: <b>%(name)s</b> (%(email)s)"
-
-#: ../deskbar/handlers/google-live.py:44
-msgid "Live Google search"
-msgstr "Suora Google-haku"
-
-#: ../deskbar/handlers/google-live.py:45
+#: ../deskbar/handlers/evolution.py:12
 msgid ""
-"Search the words you type with Google and display the results in the list."
-msgstr "Etsi sanoja Googlella kirjoittaessa ja näytä tulokset luettelossa."
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit â Preferences â Autocompletion."
+msgstr ""
+"Sähköpostiosoitteita ei voida tarjota osoitekirjasta ellei "
+"automaattitäydennys ole päällä. Tämä asetetaan sähköpostiohjelman valikosta "
+"Muokkaa -> Asetukset -> Automaattinen täydennys"
 
-#: ../deskbar/applet.py:195
+#: ../deskbar/handlers/evolution.py:21
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "Automaattitäydennys täytyy valita sähköpostin asetuksista"
+
+#: ../deskbar/handlers/evolution.py:25
+msgid "Mail (Address Book)"
+msgstr "Sähköposti (Osoitekirja)"
+
+#: ../deskbar/handlers/evolution.py:26
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr ""
+"Lähetä sähköpostia tuttavillesi kirjoittamalla nimi tai sähköpostiosoite"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:48
+#, python-format
+msgid "Send Email to %s (%s)"
+msgstr "Lähetä sähköpostia %s (%s)"
+
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+"Tarvitse Google-tunnuksen Google Liven käytttämiseen. Sellaisen saa "
+"osoitteesta http://api.google.com/\n"
+"\n"
+"Kun tunnus on luotu, Google API -avain lähetetään sähköpostilla. Tämä avain "
+"täytyy lisätä tiedostoon\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"Mikäli API-avainta ei tule (tai se on hukkunut) tunnuksen varmistuspostissa, "
+"kirjaudu sisään osoitteessa www.google.com/accounts. Valitse api.google.com "
+"ja napsauta \"Create Account\" ja syötä sähköpostiosoite sekä salasana. API-"
+"avain lähetetään uudelleen.\n"
+"\n"
+"Nyt imuroi kehittäjäpakki ja pura GoogleSearch.wsdl-tiedosto sieltä. Kopioi "
+"tämä tiedostoksi\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#: ../deskbar/handlers/google-live.py:36
+msgid "Setting Up Google Live"
+msgstr "Google Liven käyttöönotto"
+
+#: ../deskbar/handlers/google-live.py:56
+msgid "Google Live"
+msgstr "Google Live"
+
+#: ../deskbar/handlers/google-live.py:57
+msgid "Search Google as you type"
+msgstr "Etsi Googlella kirjoitettaessa"
+
+#: ../deskbar/applet.py:303
 msgid "No History"
 msgstr "Ei historiaa"
 
-#: ../deskbar/handlers/beagle-live.py:11
-msgid "Live Beagle Queries"
-msgstr "Suora Beagle-kysely"
+#: ../deskbar/handlers/beagle-live.py:18
+msgid "Beagle Live"
+msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:12
-msgid "Query Beagle automatically as you type."
-msgstr "Kysy Beaglelta automaattisesti kirjoitettaessa."
-
-#: ../deskbar/handlers/beagle-live.py:38
-#, python-format
-msgid "Addressbook entry for <b>%(name)s</b>"
-msgstr "Osoitekirjan merkintä <b>%(name)s</b>"
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Etsi asiakirjojasi (Beaglella) kirjoitettaessa"
 
 #: ../deskbar/handlers/beagle-live.py:46
 #, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "Näytä sähköposti lähettäjältä <i>%(sender)s</i>: <b>%(name)s</b>"
+msgid "Addressbook entry for %s"
+msgstr "Osoitekirjan merkintä %s"
 
-#: ../deskbar/handlers/beagle-live.py:58
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:55
 #, python-format
-msgid "Open news item <b>%(name)s</b>"
-msgstr "Avaa uutisotsikko <b>%(name)s</b>"
+msgid "View email from %s: %s"
+msgstr "Näytä sähköposti lähettäjältä %s: %s"
 
-#: ../deskbar/handlers/beagle-live.py:65
+#: ../deskbar/handlers/beagle-live.py:68
 #, python-format
-msgid "Open note <b>%(name)s</b>"
-msgstr "Avaa muistilappu <b>%(name)s</b>"
+msgid "Open news item %s"
+msgstr "Avaa uutisotsikko %s"
 
-#: ../deskbar/handlers/beagle-live.py:71
+#: ../deskbar/handlers/beagle-live.py:75
 #, python-format
-msgid "View conversation with <b>%(name)s</b>"
-msgstr "Katso keskustelua henkilön <b>%(name)s</b> kanssa"
+msgid "Open note %s"
+msgstr "Avaa muistilappu %s"
 
-#: ../deskbar/handlers/beagle-live.py:77
+#: ../deskbar/handlers/beagle-live.py:81
 #, python-format
-msgid "View calendar <b>%(name)s</b>"
-msgstr "Katso kalenteria <b>%(name)s</b>"
+msgid "View conversation with %s"
+msgstr "Katso keskustelua henkilön %s kanssa"
 
-#: ../deskbar/handlers/beagle-live.py:186
+#: ../deskbar/handlers/beagle-live.py:87
+#, python-format
+msgid "View calendar %s"
+msgstr "Katso kalenteria %s"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:204
 msgid "?"
 msgstr "?"
+
+#: ../deskbar/preferences.py:52
+msgid "_More..."
+msgstr "_Lisää..."
+
+#~ msgid "Index your bookmarks"
+#~ msgstr "Laadi kirjanmerkeille hakemisto"
+
+#~ msgid "Index your search history"
+#~ msgstr "Laadi etsintähistoriasta hakemisto"
+
+#~ msgid "Smart Bookmarks"
+#~ msgstr "Älykirjanmerkit"
+
+#~ msgid "Index your smart bookmarks"
+#~ msgstr "Laadi älykirjanmerkeistä hakemisto"
+
+#~ msgid "Files"
+#~ msgstr "Tiedostot"
+
+#~ msgid "Open files by typing their names."
+#~ msgstr "Avaa tiedostot kirjoittamalla niiden nimet."
+
+#~ msgid "Open <b>%(name)s</b>"
+#~ msgstr "Avaa <b>%(name)s</b>"
+
+#~ msgid "Folders"
+#~ msgstr "Kansiot"
+
+#~ msgid "Open folders by their names."
+#~ msgstr "Avaa kansiot nimellä."
+
+#~ msgid "Search Engines"
+#~ msgstr "Hakupalvelut"
+
+#~ msgid "Index your search engines"
+#~ msgstr "Laadi hakupalveluista hakemisto"
+
+#~ msgid "Type a filename pattern and find matching files on your disk."
+#~ msgstr "Kirjoita tiedostonimihahmo ja etsi täsmääviä tiedostoja levyltäsi."
+
+#~ msgid "Launch <b>%(name)s</b> (%(prog)s)"
+#~ msgstr "Käynnistä <b>%(name)s</b> (%(prog)s)"
+
+#~ msgid "Command line programs"
+#~ msgstr "Komentoriviohjelmat"
+
+#~ msgid "Use Beagle to search for documents"
+#~ msgstr "Käytä Beaglea asiakirjahakuun"
+
+#~ msgid "Search <b>%(name)s</b> with Beagle"
+#~ msgstr "Etsi sanaa <b>%(name)s</b> Beaglella"
+
+#~ msgid "Email Addresses"
+#~ msgstr "Sähköpostiosoitteet"
+
+#~ msgid "Index your history"
+#~ msgstr "Laadi historiasta hakemisto"
+
+#~ msgid "Open drives and volumes by their name"
+#~ msgstr "Avaa asemia ja taltioita nimellä"
+
+#~ msgid "Web Addresses"
+#~ msgstr "WWW-osoitteet"
+
+#~ msgid "Open Bookmark <b>%(name)s</b>"
+#~ msgstr "Avaa kirjanmerkki <b>%(name)s</b>"
+
+#~ msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+#~ msgstr "Etsi sanaa <b>%(name)s</b> kohdasta <i>%(text)s</i>"
+
+#~ msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+#~ msgstr "Lähetä sähköpostia: <b>%(name)s</b> (%(email)s)"
+
+#~ msgid "Live Google search"
+#~ msgstr "Suora Google-haku"
+
+#~ msgid ""
+#~ "Search the words you type with Google and display the results in the list."
+#~ msgstr "Etsi sanoja Googlella kirjoittaessa ja näytä tulokset luettelossa."
+
+#~ msgid "Live Beagle Queries"
+#~ msgstr "Suora Beagle-kysely"
+
+#~ msgid "Query Beagle automatically as you type."
+#~ msgstr "Kysy Beaglelta automaattisesti kirjoitettaessa."
