@@ -12,6 +12,7 @@ class DeskbarAppletPreferences:
 		self.GCONF_APPLET_DIR = deskbar.GCONF_DIR
 		self.GCONF_WIDTH = deskbar.GCONF_WIDTH
 		self.GCONF_EXPAND = deskbar.GCONF_EXPAND
+		self.GCONF_KEYBINDING = deskbar.GCONF_KEYBINDING
 		self.HISTORY = join(deskbar.USER_DESKBAR_DIR, "history.pickle")
 		
 		# Retreive this applet's pref folder
@@ -20,6 +21,7 @@ class DeskbarAppletPreferences:
 			self.GCONF_APPLET_DIR = path
 			self.GCONF_WIDTH =  self.GCONF_APPLET_DIR + "/width"
 			self.GCONF_EXPAND = self.GCONF_APPLET_DIR + "/expand"
+			self.GCONF_KEYBINDING = self.GCONF_APPLET_DIR + "/keybinding"
 			self.HISTORY = join(deskbar.USER_DESKBAR_DIR, basename(self.GCONF_APPLET_DIR))
 			
 			applet.add_preferences("/schemas" + deskbar.GCONF_DIR)

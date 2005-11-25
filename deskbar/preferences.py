@@ -21,17 +21,20 @@ class PrefsDialog:
 		# Retreive current values
 		self.width = deskbar.GCONF_CLIENT.get_int(applet.prefs.GCONF_WIDTH)
 		self.expand = deskbar.GCONF_CLIENT.get_bool(applet.prefs.GCONF_EXPAND)
+		self.keybinding = deskbar.GCONF_CLIENT.get_string(applet.prefs.GCONF_KEYBINDING)
 		
 		self.width_spin = self.glade.get_widget("width")
 		self.width_spin.connect('value-changed', self.on_spin_width_change, applet)
 		self.width_notify_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
 
-		self.width_label = self.glade.get_widget("width_label")
-		self.width_units = self.glade.get_widget("width_units")
-
-		self.expand_toggle = self.glade.get_widget("expand")
-		self.expand_toggle.connect('toggled', self.on_expand_toggle, applet)
+		self.use_all_width_radio = self.glade.get_widget("use_all_width_radio")
+		self.use_all_width_radio.connect('toggled', self.on_use_all_width_radio_toggle, applet)
 		self.expand_notify_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
+		self.fixed_width_radio = self.glade.get_widget("fixed_width_radio")
+		
+		self.keyboard_shortcut_entry = self.glade.get_widget("keyboard_shortcut_entry")
+		self.keyboard_shortcut_entry.connect('changed', self.on_keyboard_shortcut_entry_changed, applet)
+		self.keybinding_notify_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_KEYBINDING, lambda x, y, z, a: self.on_config_keybinding(z.value))
 		
 		container = self.glade.get_widget("handlers")
 		self.moduleview = ModuleListView(module_list)
@@ -61,22 +64,25 @@ class PrefsDialog:
 		
 	def show_run_hide(self):
 		self.dialog.show_all()
+		self.moduleview.grab_focus()
 		self.dialog.run()
 		self.dialog.destroy()
 		
 		deskbar.GCONF_CLIENT.notify_remove(self.width_notify_id)
 		deskbar.GCONF_CLIENT.notify_remove(self.expand_notify_id)
+		deskbar.GCONF_CLIENT.notify_remove(self.keybinding_notify_id)
 		
 		# Update the gconf enabled modules settings
 		enabled_modules = [ctx.handler for ctx in self.module_list if ctx.enabled]
 		deskbar.GCONF_CLIENT.set_list(deskbar.GCONF_ENABLED_HANDLERS, gconf.VALUE_STRING, enabled_modules)
 	
 	def sync_ui(self):
-		self.width_spin.set_sensitive(not self.expand)
-		self.width_label.set_sensitive(not self.expand)
-		self.width_units.set_sensitive(not self.expand)
+		if self.expand:
+			self.use_all_width_radio.set_active(True)
+		else:
+			self.fixed_width_radio.set_active(True)
 		self.width_spin.set_value(self.width)
-		self.expand_toggle.set_property('active', self.expand)
+		self.keyboard_shortcut_entry.set_text(self.keybinding)
 		
 	def on_config_width(self, value):
 		if value != None and value.type == gconf.VALUE_INT:
@@ -88,11 +94,19 @@ class PrefsDialog:
 			self.expand = value.get_bool()
 			self.sync_ui()
 		
-	def on_expand_toggle(self, toggle, applet):
+	def on_config_keybinding(self, value):
+		if value != None and value.type == gconf.VALUE_STRING:
+			self.keybinding = value.get_string()
+			self.sync_ui()
+		
+	def on_use_all_width_radio_toggle(self, toggle, applet):
 		deskbar.GCONF_CLIENT.set_bool(applet.prefs.GCONF_EXPAND, toggle.get_property('active'))
 		
 	def on_spin_width_change(self, spinner, applet):
 		deskbar.GCONF_CLIENT.set_int(applet.prefs.GCONF_WIDTH, int(spinner.get_value()))
+	
+	def on_keyboard_shortcut_entry_changed(self, entry, applet):
+		deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_KEYBINDING, entry.get_text())
 	
 	def on_more_button_clicked(self, button):
 		if self.more_button_callback != None:
@@ -100,8 +114,9 @@ class PrefsDialog:
 	
 	def on_module_selected(self, selection):
 		module_context = self.moduleview.get_selected_module_context()
-		self.check_requirements(module_context)
-		gobject.timeout_add(1000, self.poll_requirements, module_context)
+		if module_context != None:
+			self.check_requirements(module_context)
+			gobject.timeout_add(1000, self.poll_requirements, module_context)
 	
 	def poll_requirements(self, module_context):
 		try:
@@ -113,6 +128,8 @@ class PrefsDialog:
 		return True
 	
 	def check_requirements(self, module_context):
+		if module_context is None:
+			return
 		if "requirements" in module_context.infos:
 			status, message, callback = module_context.infos["requirements"]()
 			if status == deskbar.handler.HANDLER_IS_CONFIGURABLE:

@@ -268,15 +268,15 @@ class ModuleList (gtk.ListStore):
 	Note that
 	"""
 	
-	ICON_COL = 0
-	ENABLED_COL = 1
+	ENABLED_COL = 0
+	ICON_COL = 1
 	MODULE_CTX_COL = 2
 	
 	def __init__ (self):
 		gtk.ListStore.__init__ (self,
-						gtk.gdk.Pixbuf, 
-						bool, 
-						gobject.TYPE_PYOBJECT)
+		                        bool,
+		                        gtk.gdk.Pixbuf,
+		                        gobject.TYPE_PYOBJECT)
 		
 	def __iter__ (self):
 		return ModuleListIter (self)
@@ -375,22 +375,22 @@ class ModuleListView (gtk.TreeView):
 		self.set_property("rules-hint", True)
 		self.set_reorderable(True)
 		
-		cell_icon = gtk.CellRendererPixbuf ()
-		self.column_icon = gtk.TreeViewColumn ("Icon", cell_icon)
-		self.column_icon.set_attributes (cell_icon, pixbuf=model.ICON_COL)
-		self.column_icon.set_max_width (36)
-		
 		cell_enabled = gtk.CellRendererToggle ()
 		cell_enabled.set_property ("activatable", True)
 		cell_enabled.connect('toggled', self.emit_row_toggled, model)
 		self.column_enabled = gtk.TreeViewColumn ("Enabled", cell_enabled, active=model.ENABLED_COL)
 
+		cell_icon = gtk.CellRendererPixbuf ()
+		self.column_icon = gtk.TreeViewColumn ("Icon", cell_icon)
+		self.column_icon.set_attributes (cell_icon, pixbuf=model.ICON_COL)
+		self.column_icon.set_max_width (36)
+		
 		cell_description = gtk.CellRendererText ()
 		self.column_description = gtk.TreeViewColumn ("Description", cell_description)
 		self.column_description.set_cell_data_func(cell_description, self.get_description_data)
 		
-		self.append_column(self.column_icon)
 		self.append_column(self.column_enabled)
+		self.append_column(self.column_icon)
 		self.append_column(self.column_description)
 	
 	def get_description_data(self, column, cell, model, iter, data=None):
@@ -404,6 +404,8 @@ class ModuleListView (gtk.TreeView):
 		
 	def get_selected_module_context (self):
 		model, iter = self.get_selection().get_selected()
+		if iter is None:
+			return None
 		return model[iter][model.MODULE_CTX_COL]
 		
 	def emit_row_toggled (self, cell, path, model):

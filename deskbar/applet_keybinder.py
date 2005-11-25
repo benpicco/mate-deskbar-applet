@@ -21,9 +21,11 @@ class AppletKeybinder:
 	
 	def on_config_keybinding(self, value=None):
 		if value != None and value.type == gconf.VALUE_STRING:
-			self.unbind()
-			self.keybinding = value.get_string()
-			self.bind()
+			v = value.get_string()
+			if self.keybinding != v:
+				self.unbind()
+				self.keybinding = v
+				self.bind()
 			
 	def bind(self):
 		if self.keybinding != None:
