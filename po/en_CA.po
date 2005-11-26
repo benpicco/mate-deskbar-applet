@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-17 20:55-0500\n"
+"POT-Creation-Date: 2005-11-25 21:17-0500\n"
 "PO-Revision-Date: 2005-11-17 20:55-0500\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -25,26 +25,42 @@ msgid "Deskbar"
 msgstr "Deskbar"
 
 #: data/prefs-dialog.glade.h:1
-msgid "<b>Active Handlers</b>"
-msgstr "<b>Active Handlers</b>"
+msgid "<b>Keyboard Shortcut</b>"
+msgstr "<b>Keyboard Shortcut</b>"
 
 #: data/prefs-dialog.glade.h:2
-msgid "<b>Applet Width</b>"
-msgstr "<b>Applet Width</b>"
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Loaded Extensions</b>"
 
 #: data/prefs-dialog.glade.h:3
+msgid "<b>Width</b>"
+msgstr "<b>Width</b>"
+
+#: data/prefs-dialog.glade.h:4
+msgid ""
+"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
+"small></i>"
+msgstr ""
+"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
+"small></i>"
+
+#: data/prefs-dialog.glade.h:5
 msgid "Deskbar Preferences"
 msgstr "Deskbar Preferences"
 
-#: data/prefs-dialog.glade.h:4
+#: data/prefs-dialog.glade.h:6
+msgid "Fixed _width:"
+msgstr "Fixed _width:"
+
+#: data/prefs-dialog.glade.h:7
 msgid "Use _all available space"
 msgstr "Use _all available space"
 
-#: data/prefs-dialog.glade.h:5
-msgid "_Width:"
-msgstr "_Width:"
+#: data/prefs-dialog.glade.h:8
+msgid "Use the _keyboard shortcut:"
+msgstr "Use the _keyboard shortcut:"
 
-#: data/prefs-dialog.glade.h:6
+#: data/prefs-dialog.glade.h:9
 msgid "characters"
 msgstr "characters"
 
@@ -92,29 +108,21 @@ msgstr "Web Searches"
 msgid "Search the web via your browser's search settings"
 msgstr "Search the web via your browser's search settings"
 
-#: deskbar/handlers/files.py:16
-msgid "Files"
-msgstr "Files"
+#: deskbar/handlers/files.py:14
+msgid "Files and Folders"
+msgstr "Files and Folders"
 
-#: deskbar/handlers/files.py:17
-msgid "Open files by name"
-msgstr "Open files by name"
+#: deskbar/handlers/files.py:15
+msgid "Open your files and folders by name"
+msgstr "Open your files and folders by name"
 
 #. translators: This is a file.
-#: deskbar/handlers/files.py:33 deskbar/handlers/beagle-live.py:62
+#: deskbar/handlers/files.py:31 deskbar/handlers/beagle-live.py:62
 #, python-format
 msgid "Open %s"
 msgstr "Open %s"
 
-#: deskbar/handlers/directories.py:16
-msgid "Folders"
-msgstr "Folders"
-
-#: deskbar/handlers/directories.py:17
-msgid "Open folders by name"
-msgstr "Open folders by name"
-
-#: deskbar/handlers/directories.py:31
+#: deskbar/handlers/files.py:47
 #, python-format
 msgid "Open folder %s"
 msgstr "Open folder %s"
@@ -125,12 +133,12 @@ msgid "Send Email to %s"
 msgstr "Send Email to %s"
 
 #: deskbar/handlers/gtkbookmarks.py:12
-msgid "Folder Bookmarks"
-msgstr "Folder Bookmarks"
+msgid "Files and Folders Bookmarks"
+msgstr "Files and Folders Bookmarks"
 
 #: deskbar/handlers/gtkbookmarks.py:13
-msgid "Open your folder bookmarks by name"
-msgstr "Open your folder bookmarks by name"
+msgid "Open your files and folders bookmarks by name"
+msgstr "Open your files and folders bookmarks by name"
 
 #: deskbar/handlers/gtkbookmarks.py:29 deskbar/handlers/volumes.py:45
 #, python-format
@@ -291,7 +299,7 @@ msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Send mail to your contacts by typing their name or e-mail address"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: deskbar/handlers/evolution.py:50
+#: deskbar/handlers/evolution.py:48
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Send Email to %s (%s)"
@@ -346,7 +354,7 @@ msgstr "Google Live"
 msgid "Search Google as you type"
 msgstr "Search Google as you type"
 
-#: deskbar/applet.py:302
+#: deskbar/applet.py:305
 msgid "No History"
 msgstr "No History"
 
@@ -394,3 +402,7 @@ msgstr "View calendar %s"
 #: deskbar/handlers/beagle-live.py:204
 msgid "?"
 msgstr "?"
+
+#: deskbar/preferences.py:55
+msgid "_More..."
+msgstr "_More..."
