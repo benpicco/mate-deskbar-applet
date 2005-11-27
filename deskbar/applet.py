@@ -165,6 +165,11 @@ class DeskbarApplet:
 	def on_applet_sensivity_update(self, active):
 		self.entry.get_entry().set_sensitive(active)
 		self.entry.get_evbox().set_sensitive(active)
+		# This queue_draw() is needed so that the Entry is drawn
+		# properly right from the start, before it gets focus.  I don't
+		# know if this is a bug with icon-entry or the theme, or whether
+		# it's not a hack but just needed in general.  But here it is.
+		self.entry.queue_draw()
 	
 	def sync_applet_size(self):
 		if self.config_expand:
