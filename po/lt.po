@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-24 20:23+0200\n"
-"PO-Revision-Date: 2005-11-24 20:35+0200\n"
+"POT-Creation-Date: 2005-11-27 18:18+0200\n"
+"PO-Revision-Date: 2005-11-27 18:20+0200\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -25,34 +25,42 @@ msgid "Deskbar"
 msgstr "Deskbar"
 
 #: ../data/prefs-dialog.glade.h:1
-msgid "<b>Active Handlers</b>"
-msgstr "<b>Aktyvūs valdikliai</b>"
+msgid "<b>Keyboard Shortcut</b>"
+msgstr "<b>Klavišų kombinacija</b>"
 
 #: ../data/prefs-dialog.glade.h:2
-msgid "<b>Applet Width</b>"
-msgstr "<b>Įtaiso plotis</b>"
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Įkelti išplėtimai</b>"
 
 #: ../data/prefs-dialog.glade.h:3
-msgid ""
-"<i><small><b>Note:</b> Drag and drop a handler to change its priority.</"
-"small></i>"
-msgstr ""
-"<i><small><b>Pastaba:</b> galite pakeisti valdiklio prioritetą perkeldami jį "
-"pele į kitą vietą.</small></i>"
+msgid "<b>Width</b>"
+msgstr "<b>Plotis</b>"
 
 #: ../data/prefs-dialog.glade.h:4
+msgid ""
+"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
+"small></i>"
+msgstr ""
+"<i><small><b>Pastaba:</b> valdiklio prioritetą galite pakeisdami perkeldami jį "
+"pele į kitą vietą.</small></i>"
+
+#: ../data/prefs-dialog.glade.h:5
 msgid "Deskbar Preferences"
 msgstr "Deskbar nustatymai"
 
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:6
+msgid "Fixed _width:"
+msgstr "Fiksuotas _plotis:"
+
+#: ../data/prefs-dialog.glade.h:7
 msgid "Use _all available space"
 msgstr "Naudoti _visą prieinamą vietą"
 
-#: ../data/prefs-dialog.glade.h:6
-msgid "_Width:"
-msgstr "_Plotis:"
+#: ../data/prefs-dialog.glade.h:8
+msgid "Use the _keyboard shortcut:"
+msgstr "Naudoti _klavišų kombinaciją:"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:9
 msgid "characters"
 msgstr "simbolių"
 
@@ -274,9 +282,9 @@ msgid ""
 "autocompletion is enabled.  To do this, from your mail program's menu, "
 "choose Edit â Preferences â Autocompletion."
 msgstr ""
-"Mes negalime suteikti el.pašto adresų iš Jūsų adresų knygelės, nebent "
-"Jūs įjungsite automatinį užbaigimą. Tą padaryti galite Jūsų pašto "
-"programos meniu pasirinkę Keisti → Nustatymai → Savaiminis pabaigimas."
+"Mes negalime suteikti el.pašto adresų iš Jūsų adresų knygelės, nebent Jūs "
+"įjungsite automatinį užbaigimą. Tą padaryti galite Jūsų pašto programos "
+"meniu pasirinkę Keisti → Nustatymai → Savaiminis pabaigimas."
 
 #: ../deskbar/handlers/evolution.py:21
 msgid "You need to enable autocomplete in your mail preferences"
@@ -326,9 +334,9 @@ msgstr ""
 "~/.gnome2/deskbar-applet/Google.key\n"
 "\n"
 "Jeigu abonemento patvirtinimo laišku negavote API rakto (arba jį pametėte), "
-"eikite į www.google.com/accounts ir prisijunkite. Tada eikite į api.google.com, "
-"paspauskite „Create Account“ ir įveskite savo el.pašto adresą ir slaptažodį. "
-"Jums API raktas bus išsiųstas pakartotinai.\n"
+"eikite į www.google.com/accounts ir prisijunkite. Tada eikite į api.google."
+"com, paspauskite „Create Account“ ir įveskite savo el.pašto adresą ir "
+"slaptažodį. Jums API raktas bus išsiųstas pakartotinai.\n"
 "\n"
 "Dabar parsisiųskite kūrėjų rinkinį („developers kit“) ir iš jo išskleiskite "
 "bylą GoogleSearch.wsdl. Nukopijuokite šią bylą į\n"
@@ -347,7 +355,7 @@ msgstr "Google Live"
 msgid "Search Google as you type"
 msgstr "Ieškoti Google rašymo metu"
 
-#: ../deskbar/applet.py:303
+#: ../deskbar/applet.py:312
 msgid "No History"
 msgstr "Nėra istorijos"
 
@@ -396,6 +404,9 @@ msgstr "Žiūrėti kalendorių %s"
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/preferences.py:52
+#: ../deskbar/preferences.py:55
 msgid "_More..."
 msgstr "_Daugiau..."
+
+#~ msgid "<b>Active Handlers</b>"
+#~ msgstr "<b>Aktyvūs valdikliai</b>"
