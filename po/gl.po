@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-25 11:26+0100\n"
-"PO-Revision-Date: 2005-11-25 11:28+0100\n"
+"POT-Creation-Date: 2005-11-28 23:06+0100\n"
+"PO-Revision-Date: 2005-11-28 23:07+0100\n"
 "Last-Translator: Ignacio Casal Quinteiro <nacho.resa@gmail.com>\n"
 "Language-Team: Galego\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,9 @@ msgstr "<b>Anchura</b>"
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
-msgstr "<i><small><b>Nota:</b> Arrastre e solte unha extensión para cambiar a súa orde.</small></i>"
+msgstr ""
+"<i><small><b>Nota:</b> Arrastre e solte unha extensión para cambiar a súa "
+"orde.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:5
 msgid "Deskbar Preferences"
@@ -78,30 +80,30 @@ msgstr "Unha barra de busca \"todo en un\"."
 msgid "Deskbar Website"
 msgstr "Sitio web de Deskbar"
 
-#: ../deskbar/handlers/epiphany.py:21 ../deskbar/handlers/mozilla.py:29
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:29
 #: ../deskbar/handlers/galeon.py:21
 msgid "Web Bookmarks"
 msgstr "Marcadores web"
 
-#: ../deskbar/handlers/epiphany.py:22 ../deskbar/handlers/mozilla.py:30
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/mozilla.py:30
 #: ../deskbar/handlers/galeon.py:22
 msgid "Open your web bookmarks by name"
 msgstr "Abrir os seus marcadores web por nome"
 
-#: ../deskbar/handlers/epiphany.py:26 ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
 msgid "Web History"
 msgstr "Historial web"
 
-#: ../deskbar/handlers/epiphany.py:27 ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
 msgid "Open your web history by name"
 msgstr "Abrir o seu historial web por nome"
 
-#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/mozilla.py:34
 #: ../deskbar/handlers/galeon.py:31
 msgid "Web Searches"
 msgstr "Buscas web"
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:35
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/mozilla.py:35
 #: ../deskbar/handlers/galeon.py:32
 msgid "Search the web via your browser's search settings"
 msgstr "Busque a web por medio dos axustes de busca do seu navegador"
@@ -267,16 +269,28 @@ msgid "Open Bookmark %s"
 msgstr "Abrir marcador %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:54
+#: ../deskbar/handlers_browsers.py:67
 #, python-format
 msgid "Search %s for %s"
 msgstr "Buscar %s para %s"
 
-#: ../deskbar/handlers/evolution.py:11
+#: ../deskbar/handlers_browsers.py:172
+msgid "Shortcut"
+msgstr "Atallo"
+
+#: ../deskbar/handlers_browsers.py:180
+msgid "Bookmark Name"
+msgstr "Nome do marcador"
+
+#: ../deskbar/handlers/evolution.py:12
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "Necesita activar o autocompletado nas súas preferencias de correo"
+
+#: ../deskbar/handlers/evolution.py:14
 msgid "Autocompletion Needs to be Enabled"
 msgstr "Necesítase ter activado o autocompletado"
 
-#: ../deskbar/handlers/evolution.py:12
+#: ../deskbar/handlers/evolution.py:15
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
@@ -286,20 +300,16 @@ msgstr ""
 "ser que estea activado o autocompletado. Para facer isto, ten que ir ao menú "
 "do seu programa de correo, escoller Editar â Preferencias â Autocompletado."
 
-#: ../deskbar/handlers/evolution.py:21
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr "Necesita activar o autocompletado nas súas preferencias de correo"
-
-#: ../deskbar/handlers/evolution.py:25
+#: ../deskbar/handlers/evolution.py:20
 msgid "Mail (Address Book)"
 msgstr "Correo (Libro de enderezos)"
 
-#: ../deskbar/handlers/evolution.py:26
+#: ../deskbar/handlers/evolution.py:21
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Enviar correos a seus contactos tecleando o seu nome ou enderezo de correo-e"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:43
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Enviar correo-e a %s (%s)"
@@ -342,19 +352,31 @@ msgstr ""
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
-#: ../deskbar/handlers/google-live.py:36
+#: ../deskbar/handlers/google-live.py:32
 msgid "Setting Up Google Live"
 msgstr "Configurando Google Live"
 
-#: ../deskbar/handlers/google-live.py:56
+#: ../deskbar/handlers/google-live.py:38
+msgid "You need to install the SOAPpy python module."
+msgstr "Necesita instalar o módulo de python SOAPpy"
+
+#: ../deskbar/handlers/google-live.py:40
+msgid "You need the Google WSDL file."
+msgstr "Necesita o ficheiro WSDL de Google."
+
+#: ../deskbar/handlers/google-live.py:42
+msgid "You need a Google API key."
+msgstr "Necesita a clave API de Google."
+
+#: ../deskbar/handlers/google-live.py:48
 msgid "Google Live"
 msgstr "Google Live"
 
-#: ../deskbar/handlers/google-live.py:57
+#: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
 msgstr "Busque con Google mentras teclea"
 
-#: ../deskbar/applet.py:305
+#: ../deskbar/applet.py:312
 msgid "No History"
 msgstr "Sen historial"
 
