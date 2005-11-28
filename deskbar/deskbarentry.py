@@ -268,15 +268,23 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			self._append_matches (result)
 		else:
 			self._append_matches (matches)
+		
+		# Special case history items:
+		print [match for text, match in self._history.get_all_history() if text.startswith(qstring)]
+		self._append_matches([(text, match) for text, match in self._history.get_all_history() if text.startswith(qstring)], override_query=True, override_priority=True)
 	
-	def _append_matches (self, matches, async=False):
+	def _append_matches (self, matches, async=False, override_query=False, override_priority=False):
 		"""
 		Appends the list of Match objects to the list of query matches
 		"""
-		
+		# By default, take the entry content as query string, unless override_query is specified
 		t = self.get_entry().get_text().strip()
 		
 		for match in matches:
+			# If override_query, then the passed match is in fact a (text, match)
+			if override_query:
+				t, match = match
+				
 			handler = match.get_handler()
 			if match.get_icon() != None:
 				icon = match.get_icon()
@@ -290,11 +298,18 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			verbs["text"] = cgi.escape(verbs["text"])
 			
 			hsh = match.get_hash(t)
+			
+			# Let's take the correct priority for the handler, by default use the order defined in the prefs
+			# If we have priority_override, then we are probably adding previous history item, so we must make it very high prio
+			handler_priority = handler.get_priority()
+			if override_priority:
+				handler_priority = 100000
+				
 			if hsh != None and ((not hsh in self._completion_model._hashes) or async):
 				self._completion_model._hashes[hsh] = True
-				self._completion_model.append([handler.get_priority(), match.get_priority(), match.get_verb() % verbs, icon, match])
+				self._completion_model.append([handler_priority, match.get_priority(), match.get_verb() % verbs, icon, match])
 			else:
-				self._completion_model.append([handler.get_priority(), match.get_priority(), match.get_verb() % verbs, icon, match])
+				self._completion_model.append([handler_priority, match.get_priority(), match.get_verb() % verbs, icon, match])
 		
 		#Set the entry icon accoring to the first match in the completion list
 		self._update_icon(iter=self._completion_model.get_iter_first())
