@@ -4,7 +4,7 @@ from gettext import gettext as _
 import gtk
 import deskbar, deskbar.indexer, deskbar.handler
 from deskbar.filewatcher import FileWatcher
-from deskbar.handlers_browsers import get_url_host, is_preferred_browser
+from deskbar.handlers_browsers import get_url_host, is_preferred_browser, on_customize_search_shortcuts, on_entry_key_press, load_shortcuts
 from deskbar.handlers_browsers import BrowserSmartMatch, BrowserMatch
 
 def _check_requirements():
@@ -13,6 +13,17 @@ def _check_requirements():
 		
 	if is_preferred_browser("epiphany"):
 		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
+	else:
+		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "Epiphany is not your preferred browser, not using it.", None)
+	
+def _check_requirements_search():
+	callback = lambda: on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map)
+	
+	if deskbar.UNINSTALLED_DESKBAR:
+		return (deskbar.handler.HANDLER_IS_CONFIGURABLE, "You can set shortcuts for your searches.", callback)
+		
+	if is_preferred_browser("epiphany"):
+		return (deskbar.handler.HANDLER_IS_CONFIGURABLE, "You can set shortcuts for your searches.", callback)
 	else:
 		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "Epiphany is not your preferred browser, not using it.", None)
 	
@@ -30,7 +41,7 @@ HANDLERS = {
 	"EpiphanySearchHandler": {
 		"name": _("Web Searches"),
 		"description": _("Search the web via your browser's search settings"),
-		"requirements": _check_requirements
+		"requirements": _check_requirements_search
 	},
 }
 
@@ -40,6 +51,7 @@ EPHY_HISTORY_FILE   = expanduser("~/.gnome2/epiphany/ephy-history.xml")
 favicon_cache = None
 bookmarks = None
 smart_bookmarks = None
+shortcuts_to_smart_bookmarks_map = {}
 
 class EpiphanyHandler(deskbar.handler.Handler):
 	def __init__(self, watched_file, callback):
@@ -75,6 +87,7 @@ class EpiphanyBookmarksHandler(EpiphanyHandler):
 			parser = EpiphanyBookmarksParser(self, favicon_cache)
 			bookmarks = parser.get_indexer()
 			smart_bookmarks = parser.get_smart_bookmarks()
+			load_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map)
 		
 	def query(self, query, max=5):
 		global bookmarks
@@ -84,8 +97,24 @@ class EpiphanySearchHandler(EpiphanyBookmarksHandler):
 	def __init__(self):
 		EpiphanyBookmarksHandler.__init__(self)
 	
+	def on_entry_key_press(self, entry, event, applet):
+		return on_entry_key_press(entry, event, applet, shortcuts_to_smart_bookmarks_map)
+	
 	def query(self, query, max=5):
-		global smart_bookmarks
+		# if one of the smart bookmarks' shortcuts matches as a prefix,
+		# then only return that bookmark
+		x = query.find(" ")
+		if x != -1:
+			prefix = query[:x]
+			try:
+				b = shortcuts_to_smart_bookmarks_map[prefix]
+				text = query[x+1:]
+				return [BrowserSmartMatch(b._bookmark, b._name, b._url, prefix)]
+			except KeyError:
+				# Probably from the b = ... line.  Getting here
+				# means that there is no such shortcut.
+				pass
+		
 		return smart_bookmarks
 		
 class EpiphanyHistoryHandler(EpiphanyHandler):

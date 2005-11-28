@@ -188,7 +188,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			return True
 		
 		# If the checks above fail and we come here, let's see if it's right to swallow up/down stroke
-		# to avoid the entry loosing focus.
+		# to avoid the entry losing focus.
 		if (event.keyval == gtk.keysyms.Down or event.keyval == gtk.keysyms.Up) and entry.get_text() == "":
 			return True
 			
@@ -198,6 +198,26 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 				# If we cleared some text, tell async handlers to stop.
 				self._stop_async_handlers()
 			entry.set_text("")
+			return False
+
+		if event.state != 0 and event.state != gtk.gdk.SHIFT_MASK:
+			# Some Handlers want to know about Ctrl-keypress
+			# combinations, for example.  Here, we notify such
+			# Handlers.
+			for modctx in self._handlers:
+				if not modctx.enabled:
+					continue
+				try:
+					if modctx.module.on_entry_key_press(entry, event, applet):
+						if not entry.get_text().strip() == "":
+							# If we cleared some text, tell async handlers to stop.
+							self._stop_async_handlers()
+						entry.set_text("")
+						return True
+				except AttributeError:
+					# The handler most likely does not have
+					# an on_entry_key_press method.
+					pass
 		
 		def match_move(updown):
 			self._selected_match_index = self._selected_match_index  + updown
