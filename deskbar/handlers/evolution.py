@@ -1,24 +1,19 @@
+# -*- coding: utf8 -*-
 from gettext import gettext as _
 import cgi
 import gnomevfs
-import deskbar, deskbar.indexer, deskbar.handler, deskbar.evolution
-
-def _on_more_information():
-	import gtk
-	message_dialog = gtk.MessageDialog(buttons=gtk.BUTTONS_CLOSE)
-	message_dialog.set_markup(
-		"<span size='larger' weight='bold'>%s</span>\n\n%s" % (
-		_("Autocompletion Needs to be Enabled"),
-		_("We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit → Preferences → Autocompletion.")));
-	resp = message_dialog.run()
-	if resp == gtk.RESPONSE_CLOSE:
-		message_dialog.destroy()
+import deskbar, deskbar.indexer, deskbar.handler, deskbar.evolution, deskbar.handler_utils
 
 def _check_requirements():
 	if deskbar.evolution.num_address_books_with_completion() > 0:
 		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
 	else:
-		return (deskbar.handler.HANDLER_IS_CONFIGURABLE, _("You need to enable autocomplete in your mail preferences"), _on_more_information)
+		return (deskbar.handler.HANDLER_HAS_REQUIREMENTS,
+		_("You need to enable autocomplete in your mail preferences"),
+		lambda: deskbar.handler_utils.more_information_dialog(
+			_("Autocompletion Needs to be Enabled"),
+			_("We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit → Preferences → Autocompletion.")
+			))
 
 HANDLERS = {
 	"EvolutionHandler" : {

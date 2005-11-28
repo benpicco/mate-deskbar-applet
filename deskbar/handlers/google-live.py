@@ -29,25 +29,17 @@ Now download the developers kit and extract the GoogleSearch.wsdl file from it. 
 ~/.gnome2/deskbar-applet/GoogleSearch.wsdl""")
 
 def _on_more_information():
-	import gtk
-	message_dialog = gtk.MessageDialog(buttons=gtk.BUTTONS_CLOSE)
-	message_dialog.set_markup(
-		"<span size='larger' weight='bold'>%s</span>\n\n%s" % (
-		_("Setting Up Google Live"),
-		HELP_TEXT));
-	resp = message_dialog.run()
-	if resp == gtk.RESPONSE_CLOSE:
-		message_dialog.destroy()
+	deskbar.handler_utils.more_information_dialog(_("Setting Up Google Live"), HELP_TEXT)
 
 def _check_requirements():
 	try:
 		from SOAPpy import WSDL
 	except:
-		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "You need to install the SOAPpy python module.", None)
+		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, _("You need to install the SOAPpy python module."), None)
 	if not exists (GOOGLE_WSDL):
-		return (deskbar.handler.HANDLER_IS_CONFIGURABLE, "You need the Google WSDL file.", _on_more_information)
+		return (deskbar.handler.HANDLER_HAS_REQUIREMENTS, _("You need the Google WSDL file."), _on_more_information)
 	if not exists (GOOGLE_API_KEY):
-		return (deskbar.handler.HANDLER_IS_CONFIGURABLE, "You need a Google API key.", _on_more_information)
+		return (deskbar.handler.HANDLER_HAS_REQUIREMENTS, _("You need a Google API key."), _on_more_information)
 	else:
 		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
 		
@@ -88,29 +80,13 @@ class GoogleLiveHandler (deskbar.handler.AsyncHandler):
 		self.api_key = None
 		
 	def initialize (self):
-		try:
-			self.server = WSDL.Proxy (GOOGLE_WSDL)
-			api_key_file = file (GOOGLE_API_KEY)
-			self.api_key = api_key_file.readline()
-			api_key_file.close ()
-			self.everything_should_work = True
-		except:
-			self.everything_should_work = False
-		
-	def recheck_requirements (self):
-		# Right now, this is un-optimized, in that we just keep loading
-		# the files even if they haven't changed since last time.  But
-		# I don't think that this is on the critical performance path.
-		# If it is, we'll fix it.  (ntao, 2005-11-21)
-		self.server = None
-		self.api_key = None
-		self.initialize ()
-	
+		self.server = WSDL.Proxy (GOOGLE_WSDL)
+		api_key_file = file (GOOGLE_API_KEY)
+		self.api_key = api_key_file.readline()
+		api_key_file.close ()
+			
 	def query (self, qstring, qmax=5):
 		"""Behold the true power of the AsyncHandler!"""
-		
-		if not self.everything_should_work:
-			return []
 		
 		# Just to ensure we don't bork anything
 		qmax = min (qmax, MAX_QUERIES)

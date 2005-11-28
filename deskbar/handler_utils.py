@@ -1,4 +1,4 @@
-import os
+import os, cgi
 from os.path import *
 import deskbar, deskbar.gnomedesktop
 import gtk, gtk.gdk, gnome.ui
@@ -6,6 +6,13 @@ import gtk, gtk.gdk, gnome.ui
 ICON_THEME = gtk.icon_theme_get_default()
 factory = gnome.ui.ThumbnailFactory(deskbar.ICON_SIZE)
 
+def more_information_dialog(title, content):
+	message_dialog = gtk.MessageDialog(buttons=gtk.BUTTONS_CLOSE)
+	message_dialog.set_markup("<span size='larger' weight='bold'>%s</span>\n\n%s" % (cgi.escape(title), cgi.escape(content)))
+	resp = message_dialog.run()
+	if resp == gtk.RESPONSE_CLOSE:
+		message_dialog.destroy()
+		
 def get_xdg_data_dirs():
 	dirs = os.getenv("XDG_DATA_HOME")
 	if dirs == None:

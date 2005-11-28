@@ -1,4 +1,4 @@
-import deskbar.handler
+import deskbar.handler, deskbar.handler_utils
 
 def _on_more():
 	print "More..."
@@ -10,7 +10,12 @@ def _check_requirements():
 		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
 	else:
 		print "DebugRequirementsModule: Requirements not met"
-		return (deskbar.handler.HANDLER_IS_CONFIGURABLE, 'You need to create a file called "~/foo"', _on_more)
+		return (deskbar.handler.HANDLER_HAS_REQUIREMENTS,
+			'You need to create a file called "~/foo"',
+			lambda: deskbar.handler_utils.more_information_dialog(
+			"Debug Requirements Title",
+			"Debug Requirements Content"
+			))
 
 HANDLERS = {
 	"DebugRequirementsModule" : {

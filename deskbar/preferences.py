@@ -132,13 +132,12 @@ class PrefsDialog:
 			return
 		if "requirements" in module_context.infos:
 			status, message, callback = module_context.infos["requirements"]()
-			if status == deskbar.handler.HANDLER_IS_CONFIGURABLE:
+			if status == deskbar.handler.HANDLER_HAS_REQUIREMENTS:
 				self.set_info(message, callback)
-				try:
-					module_context.module.recheck_requirements()
-				except AttributeError:
-					# most likely, the Handler does not have a "recheck_requirements" method
-					pass
+				if module_context.enabled:
+					self.module_loader.stop_module_async(module_context)
+			elif status == deskbar.handler.HANDLER_IS_CONFIGURABLE:
+				self.set_info(message, callback)
 			else:
 				self.set_info(None, None)
 		else:

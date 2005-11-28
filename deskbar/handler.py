@@ -13,7 +13,8 @@ import deskbar, deskbar.handler_utils
 # be hidden: HANDLER_IS_NOT_APPLICABLE.
 HANDLER_IS_HAPPY          = 0
 HANDLER_IS_CONFIGURABLE   = 1
-HANDLER_IS_NOT_APPLICABLE = 2
+HANDLER_HAS_REQUIREMENTS  = 2
+HANDLER_IS_NOT_APPLICABLE = 3
 
 class Match:
 	def __init__(self, handler, name, icon=None):
@@ -102,6 +103,7 @@ class Handler:
 		Under all circumstances, the constructor should not raise ANY exception
 		"""
 		self._icon = deskbar.handler_utils.load_icon(iconfile)
+		self._priority = 0
 	
 	def set_priority(self, prio):
 		self._priority = prio

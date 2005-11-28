@@ -1,3 +1,17 @@
+2005-11-28  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/handler.py:
+	* deskbar/handler_utils.py:
+	* deskbar/handlers/debug-requirements.py:
+	* deskbar/handlers/evolution.py:
+	* deskbar/handlers/google-live.py:
+	* deskbar/preferences.py:
+	Add a HANDLER_HAS_REQUIREMENTS to differentiate between hard dependencies,
+	and simple configuration.
+	Saner way to handle handlers with missing deps. Move evolution to new HAS_REQUIREMENTS.
+	Move the more dialog to handler_utils.py and make handlers use it.
+	Add google strings for translation
+
 2005-11-28  Nigel Tao  <nigeltao@cvs.gnome.org>
 
 	* data/Makefile.am:
