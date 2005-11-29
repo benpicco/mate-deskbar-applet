@@ -8,6 +8,7 @@ MAX_RESULTS = 2 # per handler
 
 def _check_requirements():
 	try:
+		import deskbar
 		import deskbar.beagle
 		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
 	except:
