@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-26 20:27+0100\n"
-"PO-Revision-Date: 2005-11-26 20:29+0100\n"
+"POT-Creation-Date: 2005-11-30 20:54+0100\n"
+"PO-Revision-Date: 2005-11-30 20:56+0100\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -42,8 +42,8 @@ msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
 msgstr ""
-"<i><small><b>Poznámka:</b> Ťahajte a pustite rozšírenie, aby ste zmenili jeho "
-"prioritu.</small></i>"
+"<i><small><b>Poznámka:</b> Ťahajte a pustite rozšírenie, aby ste zmenili "
+"jeho prioritu.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:5
 msgid "Deskbar Preferences"
@@ -81,30 +81,30 @@ msgstr "Vyhľadávacia lišta na všetko."
 msgid "Deskbar Website"
 msgstr "WWW stránka pracovnej lišty"
 
-#: ../deskbar/handlers/epiphany.py:21 ../deskbar/handlers/mozilla.py:29
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:29
 #: ../deskbar/handlers/galeon.py:21
 msgid "Web Bookmarks"
 msgstr "WWW záložky"
 
-#: ../deskbar/handlers/epiphany.py:22 ../deskbar/handlers/mozilla.py:30
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/mozilla.py:30
 #: ../deskbar/handlers/galeon.py:22
 msgid "Open your web bookmarks by name"
 msgstr "Otvoriť vaše www záložky podľa názvu"
 
-#: ../deskbar/handlers/epiphany.py:26 ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
 msgid "Web History"
 msgstr "WWW história"
 
-#: ../deskbar/handlers/epiphany.py:27 ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
 msgid "Open your web history by name"
 msgstr "Otvoriť vašu www históriu podľa názvu"
 
-#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/mozilla.py:34
 #: ../deskbar/handlers/galeon.py:31
 msgid "Web Searches"
 msgstr "WWW hľadanie"
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:35
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/mozilla.py:35
 #: ../deskbar/handlers/galeon.py:32
 msgid "Search the web via your browser's search settings"
 msgstr "Prehľadať internet podľa vyhľadávacích nastavení vášho prehliadača"
@@ -118,7 +118,7 @@ msgid "Open your files and folders by name"
 msgstr "Otvoriť vaše súbory a priečinky podľa názvu"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:62
+#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:63
 #, python-format
 msgid "Open %s"
 msgstr "Otvoriť %s"
@@ -270,16 +270,29 @@ msgid "Open Bookmark %s"
 msgstr "Otvoriť záložku %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:54
+#: ../deskbar/handlers_browsers.py:67
 #, python-format
 msgid "Search %s for %s"
 msgstr "Vyhľadať pomocou %s výskyt %s"
 
-#: ../deskbar/handlers/evolution.py:11
+#: ../deskbar/handlers_browsers.py:172
+msgid "Shortcut"
+msgstr "Skratka"
+
+#: ../deskbar/handlers_browsers.py:180
+msgid "Bookmark Name"
+msgstr "Názov záložky"
+
+#: ../deskbar/handlers/evolution.py:12
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr ""
+"Potrebujete povoliť automatické dokončovanie vo vašich predvoľbách pošty"
+
+#: ../deskbar/handlers/evolution.py:14
 msgid "Autocompletion Needs to be Enabled"
 msgstr "Automatické dokončovanie potrebuje byť povolené"
 
-#: ../deskbar/handlers/evolution.py:12
+#: ../deskbar/handlers/evolution.py:15
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
@@ -289,23 +302,18 @@ msgstr ""
 "nepovolíte automatické dokončovanie. Aby ste to urobili, vyberte z menu "
 "vášho poštového programu Upraviť -> Predvoľby -> Automatické dokončovanie."
 
-#: ../deskbar/handlers/evolution.py:21
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr ""
-"Potrebujete povoliť automatické dokončovanie vo vašich predvoľbách pošty"
-
-#: ../deskbar/handlers/evolution.py:25
+#: ../deskbar/handlers/evolution.py:20
 msgid "Mail (Address Book)"
 msgstr "Pošta (adresár)"
 
-#: ../deskbar/handlers/evolution.py:26
+#: ../deskbar/handlers/evolution.py:21
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Odoslať poštu vašim kontaktom napísaním ich mena alebo adresy elektronickej "
 "pošty"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:43
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Odoslať elektronickú poštu pre %s (%s)"
@@ -348,65 +356,77 @@ msgstr ""
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
-#: ../deskbar/handlers/google-live.py:36
+#: ../deskbar/handlers/google-live.py:32
 msgid "Setting Up Google Live"
 msgstr "Nastavenie Živé Google"
 
-#: ../deskbar/handlers/google-live.py:56
+#: ../deskbar/handlers/google-live.py:38
+msgid "You need to install the SOAPpy python module."
+msgstr "Potrebujete nainštalovať modul SOAPpy pre python."
+
+#: ../deskbar/handlers/google-live.py:40
+msgid "You need the Google WSDL file."
+msgstr "Potrebujete súbor Google WSDL."
+
+#: ../deskbar/handlers/google-live.py:42
+msgid "You need a Google API key."
+msgstr "Potrebujete kľúč Google API."
+
+#: ../deskbar/handlers/google-live.py:48
 msgid "Google Live"
 msgstr "Živé Google"
 
-#: ../deskbar/handlers/google-live.py:57
+#: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
 msgstr "Vyhľadávať pomocou Google hneď, ako budete písať"
 
-#: ../deskbar/applet.py:305
+#: ../deskbar/applet.py:312
 msgid "No History"
 msgstr "Bez histórie"
 
-#: ../deskbar/handlers/beagle-live.py:18
+#: ../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
 msgstr "Živé Beagle"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:20
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr ""
 "Prehľadávať všetky vaše dokumenty (pomocou Beagle) hneď, ako budete písať"
 
-#: ../deskbar/handlers/beagle-live.py:46
+#: ../deskbar/handlers/beagle-live.py:47
 #, python-format
 msgid "Addressbook entry for %s"
 msgstr "Položka adresára pre %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:55
+#: ../deskbar/handlers/beagle-live.py:56
 #, python-format
 msgid "View email from %s: %s"
 msgstr "Zobraziť elektronickú poštu od %s: %s"
 
-#: ../deskbar/handlers/beagle-live.py:68
+#: ../deskbar/handlers/beagle-live.py:69
 #, python-format
 msgid "Open news item %s"
 msgstr "Otovirť položku noviniek %s"
 
-#: ../deskbar/handlers/beagle-live.py:75
+#: ../deskbar/handlers/beagle-live.py:76
 #, python-format
 msgid "Open note %s"
 msgstr "Otvoriť poznámku %s"
 
-#: ../deskbar/handlers/beagle-live.py:81
+#: ../deskbar/handlers/beagle-live.py:82
 #, python-format
 msgid "View conversation with %s"
 msgstr "Zobraziť rozhovor s %s"
 
-#: ../deskbar/handlers/beagle-live.py:87
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
 msgid "View calendar %s"
 msgstr "Zobraziť kalendár %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:204
+#: ../deskbar/handlers/beagle-live.py:205
 msgid "?"
 msgstr "?"
 
