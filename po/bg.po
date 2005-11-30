@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-25 17:03+0200\n"
-"PO-Revision-Date: 2005-11-25 17:03+0200\n"
+"POT-Creation-Date: 2005-11-30 11:26+0200\n"
+"PO-Revision-Date: 2005-11-30 11:25+0200\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -79,30 +79,30 @@ msgstr "Пенкилерът на търсенето."
 msgid "Deskbar Website"
 msgstr "Сайт на Deskbar"
 
-#: ../deskbar/handlers/epiphany.py:21 ../deskbar/handlers/mozilla.py:29
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:29
 #: ../deskbar/handlers/galeon.py:21
 msgid "Web Bookmarks"
 msgstr "Отметки в уеб"
 
-#: ../deskbar/handlers/epiphany.py:22 ../deskbar/handlers/mozilla.py:30
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/mozilla.py:30
 #: ../deskbar/handlers/galeon.py:22
 msgid "Open your web bookmarks by name"
 msgstr "Отваряне на отметките по име"
 
-#: ../deskbar/handlers/epiphany.py:26 ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
 msgid "Web History"
 msgstr "История на уеб"
 
-#: ../deskbar/handlers/epiphany.py:27 ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
 msgid "Open your web history by name"
 msgstr "Отваряне на елементите в историята по име"
 
-#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/mozilla.py:34
 #: ../deskbar/handlers/galeon.py:31
 msgid "Web Searches"
 msgstr "Търсене по уеб"
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:35
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/mozilla.py:35
 #: ../deskbar/handlers/galeon.py:32
 msgid "Search the web via your browser's search settings"
 msgstr "Търсене в уеб чрез настройките на уеб браузъра"
@@ -116,7 +116,7 @@ msgid "Open your files and folders by name"
 msgstr "Отваряне на файлове и папки по име"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:62
+#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:63
 #, python-format
 msgid "Open %s"
 msgstr "Отваряне на %s"
@@ -268,16 +268,30 @@ msgid "Open Bookmark %s"
 msgstr "Отваряне на отметка %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:54
+#: ../deskbar/handlers_browsers.py:67
 #, python-format
 msgid "Search %s for %s"
 msgstr "Търсене в %s за %s"
 
-#: ../deskbar/handlers/evolution.py:11
+#: ../deskbar/handlers_browsers.py:172
+msgid "Shortcut"
+msgstr "Бърз клавиш"
+
+#: ../deskbar/handlers_browsers.py:180
+msgid "Bookmark Name"
+msgstr "Име на отметка"
+
+#: ../deskbar/handlers/evolution.py:12
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr ""
+"Трябва да включете автоматичното завършване в настройките на програмата си "
+"за е-поща"
+
+#: ../deskbar/handlers/evolution.py:14
 msgid "Autocompletion Needs to be Enabled"
 msgstr "Автоматичното завършване трябва да се включи"
 
-#: ../deskbar/handlers/evolution.py:12
+#: ../deskbar/handlers/evolution.py:15
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
@@ -288,23 +302,17 @@ msgstr ""
 "програмата си за е-поща и от менюто отидете в Редактиране â Настройки â "
 "Автоматично завършване."
 
-#: ../deskbar/handlers/evolution.py:21
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr ""
-"Трябва да включете автоматичното завършване в настройките на програмата си "
-"за е-поща"
-
-#: ../deskbar/handlers/evolution.py:25
+#: ../deskbar/handlers/evolution.py:20
 msgid "Mail (Address Book)"
 msgstr "Поща (адресна книга)"
 
-#: ../deskbar/handlers/evolution.py:26
+#: ../deskbar/handlers/evolution.py:21
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Пращане на е-писмо до познати като напишете името или адресът им за е-поща"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:43
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Пращане на е-писмо до %s (%s)"
@@ -348,64 +356,76 @@ msgstr ""
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
-#: ../deskbar/handlers/google-live.py:36
+#: ../deskbar/handlers/google-live.py:32
 msgid "Setting Up Google Live"
 msgstr "Настройки на Google на живо"
 
-#: ../deskbar/handlers/google-live.py:56
+#: ../deskbar/handlers/google-live.py:38
+msgid "You need to install the SOAPpy python module."
+msgstr "Трябва да инсталирате модула на Python - SOAPpy."
+
+#: ../deskbar/handlers/google-live.py:40
+msgid "You need the Google WSDL file."
+msgstr "Трябва Ви файлът от Google - WSDL."
+
+#: ../deskbar/handlers/google-live.py:42
+msgid "You need a Google API key."
+msgstr "Трябва ви ключ за API-тата на Google."
+
+#: ../deskbar/handlers/google-live.py:48
 msgid "Google Live"
 msgstr "Google на живо"
 
-#: ../deskbar/handlers/google-live.py:57
+#: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
 msgstr "Претърсване на Google докато пишете"
 
-#: ../deskbar/applet.py:305
+#: ../deskbar/applet.py:312
 msgid "No History"
 msgstr "Няма история"
 
-#: ../deskbar/handlers/beagle-live.py:18
+#: ../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
 msgstr "Beagle на живо"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:20
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Претърсване на всичките Ви документи (с Beagle) докато пишете"
 
-#: ../deskbar/handlers/beagle-live.py:46
+#: ../deskbar/handlers/beagle-live.py:47
 #, python-format
 msgid "Addressbook entry for %s"
 msgstr "Запис в адресната книга за %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:55
+#: ../deskbar/handlers/beagle-live.py:56
 #, python-format
 msgid "View email from %s: %s"
 msgstr "Разгледане на е-писмо от %s на тема %s"
 
-#: ../deskbar/handlers/beagle-live.py:68
+#: ../deskbar/handlers/beagle-live.py:69
 #, python-format
 msgid "Open news item %s"
 msgstr "Отваряне на новина %s"
 
-#: ../deskbar/handlers/beagle-live.py:75
+#: ../deskbar/handlers/beagle-live.py:76
 #, python-format
 msgid "Open note %s"
 msgstr "Отваряне на бележка %s"
 
-#: ../deskbar/handlers/beagle-live.py:81
+#: ../deskbar/handlers/beagle-live.py:82
 #, python-format
 msgid "View conversation with %s"
 msgstr "Разглеждане на разговора с %s"
 
-#: ../deskbar/handlers/beagle-live.py:87
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
 msgid "View calendar %s"
 msgstr "Разглеждане на календара %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:204
+#: ../deskbar/handlers/beagle-live.py:205
 msgid "?"
 msgstr "?"
 
