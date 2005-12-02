@@ -199,11 +199,11 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 				print 'Error:endElement(%s):Title:%s:%s' % (name.encode("utf8"), self.title, msg)
 
 			bookmark = BrowserMatch(self.handler, self.title, self.href, pixbuf)
-			self._indexer.add("%s %s" % (self.title, self.href), bookmark)
-
 			if self.smarthref != None:
 				bookmark = BrowserSmartMatch(bookmark, self.title, self.smarthref)
 				self._smart_bookmarks.append(bookmark)
+			else:
+				self._indexer.add("%s %s" % (self.title, self.href), bookmark)
 
 class EpiphanyFaviconCacheParser(xml.sax.ContentHandler):
 	def __init__(self):

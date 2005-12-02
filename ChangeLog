@@ -1,3 +1,14 @@
+2005-12-02  Nigel Tao  <nigeltao@cvs.gnome.org>
+
+	* deskbar/handlers/epiphany.py:
+	We shouldn't offer those bookmarks with an %s in them, without some
+	text to substitute for that %s.
+	
+	* deskbar/handlers/mozilla.py:
+	Now supports those Moz/Firefox bookmarks with a defined "ShortcutURL",
+	i.e., keywords.  Note that this is different from the search engines
+	presented in the top-right "search box" in firefox.
+
 2005-11-28  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/deskbarentry.py:

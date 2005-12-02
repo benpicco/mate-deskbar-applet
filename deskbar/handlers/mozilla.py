@@ -58,14 +58,38 @@ class MozillaBookmarksHandler(deskbar.handler.Handler):
 			self.watcher.add(parsed_file)
 		
 	def _parse_bookmarks(self):
-		self._bookmarks, parsed_file = MozillaBookmarksParser(self).get_indexer()
+		self._bookmarks, parsed_file, self._shortcuts_to_smart_bookmarks_map = MozillaBookmarksParser(self).get_indexer()
 		return parsed_file
 	
 	def stop(self):
 		self.watcher.remove_all()
 		
 	def query(self, query, max=5):
-		return self._bookmarks.look_up(query)[:max]
+		# First, check the smart bookmarks, or "keywords", where
+		# "wp Foo" takes you to the wikipedia entry for Foo.
+		x = self.query_smart_bookmarks(query, max)
+		if x != None:
+			return x
+		else:
+			# If none of the smart bookmarks matched as a prefix,
+			# then we'll just look up all bookmarks.
+			return self._bookmarks.look_up(query)[:max]
+	
+	def query_smart_bookmarks(self, query, max=5):
+		# if one of the smart bookmarks' shortcuts matches as a prefix,
+		# then only return that bookmark
+		x = query.find(" ")
+		if x != -1:
+			prefix = query[:x]
+			try:
+				b = self._shortcuts_to_smart_bookmarks_map[prefix]
+				text = query[x+1:]
+				return [BrowserSmartMatch(b._bookmark, b._name, b._url, prefix)]
+			except KeyError:
+				# Probably from the b = ... line.  Getting here
+				# means that there is no such shortcut.
+				pass
+		return None
 
 class MozillaSearchHandler(deskbar.handler.Handler):
 	def __init__(self):
@@ -105,6 +129,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 		self.href = None
 		self.icon_data = None
 		self.bookmarks = set()
+		self._shortcuts_to_smart_bookmarks_map = {}
 		
 		self._indexer = deskbar.indexer.Index()
 		
@@ -116,10 +141,12 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 		
 	def get_indexer(self):
 		"""
-		Returns a completed indexer with the contents of bookmark file
-		and the name of the indexed file
+		Returns a completed indexer with the contents of bookmark file,
+		the name of the indexed file, and a map from shortcuts (or
+		prefixes) to smart bookmarks - those bookmarks with %s in the
+		URL.
 		"""
-		return (self._indexer, self.indexed_file)
+		return (self._indexer, self.indexed_file, self._shortcuts_to_smart_bookmarks_map)
 		
 	def _index_mozilla(self):
 		try:
@@ -143,11 +170,14 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 		tag = tag.lower()
 		if tag == "a":
 			self.chars = ""
+			self.shortcuturl = None
 			for tag, value in attrs:
 				if tag.lower() == 'href':
 					self.href = value
 				if tag.lower() == 'icon' and value != "data:" and value.startswith("data:"):
 					self.icon_data = value
+				if tag.lower() == 'shortcuturl':
+					self.shortcuturl = value
 
 	def handle_endtag(self, tag):
 		tag = tag.lower()
@@ -176,7 +206,11 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 				self.icon_data = None
 				
 			bookmark = BrowserMatch(self.handler, self.chars, self.href, pixbuf)
-			self._indexer.add("%s %s" % (self.chars, self.href), bookmark)
+			if self.shortcuturl != None:
+				bookmark = BrowserSmartMatch(bookmark, self.chars, self.href, self.shortcuturl)
+				self._shortcuts_to_smart_bookmarks_map[self.shortcuturl] = bookmark
+			else:
+				self._indexer.add("%s %s" % (self.chars, self.href), bookmark)
 
 	def handle_data(self, chars):
 		self.chars = self.chars + chars
