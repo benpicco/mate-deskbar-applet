@@ -133,8 +133,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		match.action(text)
 		
 		# Add the item to history
-		if self._history.last() != (text, match):
-			self._history.add((text, match))
+		self._history.add(text, match)
 		self._history.reset()
 						
 		#Clear the entry in a idle call or we segfault
@@ -266,13 +265,12 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 						result.append(match)
 					
 			self._append_matches (result)
+			# Special case history items:
+			self._append_matches([(text, match) for text, match in self._history.get_all_history() if text.startswith(qstring)], override_query=True, override_priority=True)
 		else:
+			# We are called from history, do not display history items
 			self._append_matches (matches)
 		
-		# Special case history items:
-		print [match for text, match in self._history.get_all_history() if text.startswith(qstring)]
-		self._append_matches([(text, match) for text, match in self._history.get_all_history() if text.startswith(qstring)], override_query=True, override_priority=True)
-	
 	def _append_matches (self, matches, async=False, override_query=False, override_priority=False):
 		"""
 		Appends the list of Match objects to the list of query matches
@@ -305,10 +303,10 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			if override_priority:
 				handler_priority = 100000
 				
-			if hsh != None and ((not hsh in self._completion_model._hashes) or async):
+			if hsh != None and not hsh in self._completion_model._hashes:
 				self._completion_model._hashes[hsh] = True
 				self._completion_model.append([handler_priority, match.get_priority(), match.get_verb() % verbs, icon, match])
-			else:
+			elif async:
 				self._completion_model.append([handler_priority, match.get_priority(), match.get_verb() % verbs, icon, match])
 		
 		#Set the entry icon accoring to the first match in the completion list

@@ -20,8 +20,12 @@ class DeskbarHistory:
 			
 		self._index = -1
 		
-	def add(self, history):
-		self._history.insert(0, history)
+	def add(self, text, match):
+		for htext, hmatch in self._history:
+			if (text, match.__class__) == (htext, hmatch.__class__):
+				self._history.remove((htext, hmatch))
+
+		self._history.insert(0, (text, match))
 		self._history = self._history[:MAX_HISTORY]
 		self._index = -1
 	
