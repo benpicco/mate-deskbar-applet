@@ -28,7 +28,7 @@ def show_about():
 		"version" : VERSION,
 		"comments" : _("An all-in-one search bar."),
 		"copyright" : "Copyright (c) 2004-2005 Nigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen.",
-		"website" : "http://browserbookapp.sourceforge.net/deskbar.html",
+		"website" : "http://raphael.slinckx.net/deskbar",
 		"website-label" : _("Deskbar Website"),
 	}
 
