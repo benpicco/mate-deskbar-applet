@@ -12,9 +12,7 @@ class PrefsDialog:
 
 		self.dialog = self.glade.get_widget("preferences")
 		
-		pixbuf = deskbar.handler_utils.load_icon("search")
-		if pixbuf == None:
-			pixbuf = deskbar.handler_utils.load_icon(gtk.STOCK_FIND)
+		pixbuf = deskbar.handler_utils.load_icon("deskbar-applet-small.png")
 		if pixbuf != None:
 			self.dialog.set_icon(pixbuf)
 
