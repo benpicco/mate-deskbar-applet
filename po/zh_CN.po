@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-21 05:43+0100\n"
-"PO-Revision-Date: 2005-11-21 18:24+0800\n"
+"POT-Creation-Date: 2005-12-04 05:42+0100\n"
+"PO-Revision-Date: 2005-12-04 20:38+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
@@ -24,26 +24,40 @@ msgid "Deskbar"
 msgstr "桌面栏"
 
 #: ../data/prefs-dialog.glade.h:1
-msgid "<b>Active Handlers</b>"
-msgstr "<b>活动的把手</b>"
+msgid "<b>Keyboard Shortcut</b>"
+msgstr "<b>键盘快捷键</b>"
 
 #: ../data/prefs-dialog.glade.h:2
-msgid "<b>Applet Width</b>"
-msgstr "<b>小程序宽度</b>"
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>装入的扩展</b>"
 
 #: ../data/prefs-dialog.glade.h:3
+msgid "<b>Width</b>"
+msgstr "<b>宽度</b>"
+
+#: ../data/prefs-dialog.glade.h:4
+msgid ""
+"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
+"small></i>"
+msgstr "<i><small><b>注意：</b>拖曳把手可更改其顺序。</small></i>"
+
+#: ../data/prefs-dialog.glade.h:5
 msgid "Deskbar Preferences"
 msgstr "桌面栏首选项"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:6
+msgid "Fixed _width:"
+msgstr "固定宽度(_W)："
+
+#: ../data/prefs-dialog.glade.h:7
 msgid "Use _all available space"
 msgstr "使用可用的全部空间(_A)"
 
-#: ../data/prefs-dialog.glade.h:5
-msgid "_Width:"
-msgstr "宽度(_W)："
+#: ../data/prefs-dialog.glade.h:8
+msgid "Use the _keyboard shortcut:"
+msgstr "使用键盘快捷键(_K)："
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:9
 msgid "characters"
 msgstr "个字符"
 
@@ -63,30 +77,30 @@ msgstr "多合一搜索栏。"
 msgid "Deskbar Website"
 msgstr "桌面栏网站"
 
-#: ../deskbar/handlers/epiphany.py:21 ../deskbar/handlers/mozilla.py:29
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:29
 #: ../deskbar/handlers/galeon.py:21
 msgid "Web Bookmarks"
 msgstr "Web 书签"
 
-#: ../deskbar/handlers/epiphany.py:22 ../deskbar/handlers/mozilla.py:30
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/mozilla.py:30
 #: ../deskbar/handlers/galeon.py:22
 msgid "Open your web bookmarks by name"
 msgstr "按名称打开您的 Web 书签"
 
-#: ../deskbar/handlers/epiphany.py:26 ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
 msgid "Web History"
 msgstr "Web 历史"
 
-#: ../deskbar/handlers/epiphany.py:27 ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
 msgid "Open your web history by name"
 msgstr "按名称打开您的 Web 历史"
 
-#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/mozilla.py:34
 #: ../deskbar/handlers/galeon.py:31
 msgid "Web Searches"
 msgstr "Web 搜索"
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:35
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/mozilla.py:35
 #: ../deskbar/handlers/galeon.py:32
 msgid "Search the web via your browser's search settings"
 msgstr "通过您浏览器搜索设置搜索 Web"
@@ -100,7 +114,7 @@ msgid "Open your files and folders by name"
 msgstr "按名称打开文件和文件夹"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:62
+#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:63
 #, python-format
 msgid "Open %s"
 msgstr "打开 %s"
@@ -250,36 +264,44 @@ msgid "Open Bookmark %s"
 msgstr "打开书签 %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:54
+#: ../deskbar/handlers_browsers.py:67
 #, python-format
 msgid "Search %s for %s"
 msgstr "在 %s 中搜索 %s"
 
-#: ../deskbar/handlers/evolution.py:11
+#: ../deskbar/handlers_browsers.py:172
+msgid "Shortcut"
+msgstr "快捷键"
+
+#: ../deskbar/handlers_browsers.py:180
+msgid "Bookmark Name"
+msgstr "书签名称"
+
+#: ../deskbar/handlers/evolution.py:12
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "您需要在您的邮件首选项中启用自动补全"
+
+#: ../deskbar/handlers/evolution.py:14
 msgid "Autocompletion Needs to be Enabled"
 msgstr "需要启用自动补全"
 
-#: ../deskbar/handlers/evolution.py:12
+#: ../deskbar/handlers/evolution.py:15
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
 "choose Edit â Preferences â Autocompletion."
 msgstr ""
 
-#: ../deskbar/handlers/evolution.py:21
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr "您需要在您的邮件首选项中启用自动补全"
-
-#: ../deskbar/handlers/evolution.py:25
+#: ../deskbar/handlers/evolution.py:20
 msgid "Mail (Address Book)"
 msgstr "邮件(地址簿)"
 
-#: ../deskbar/handlers/evolution.py:26
+#: ../deskbar/handlers/evolution.py:21
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "输入姓名或电子邮件地址以便向您的联系人发送邮件"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:50
+#: ../deskbar/handlers/evolution.py:43
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "给 %s (%s) 发送电子邮件"
@@ -304,73 +326,94 @@ msgid ""
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 msgstr ""
+"要使用 Google Live，您需要有 Google 账户。要获得这样一个账户，请转到 http://api."
+"google.com/\n"
+"\n"
+"当您创建完账户之后，您将会收到包含 Google API 密钥的邮件。将该密钥放在以下文件中\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"如果您没有在账户验证邮件中收到 API 密钥(或者您不小心遗失了密钥)，请转到 "
+"www.google.com/accounts，登录后转到 api.google.com，单击“创建账户”，并"
+"输入您的电子邮件地址和密码。您会重新收到 API 密钥。\n"
+"\n"
+"现在应该下载开发者工具包，并从中提取 GoogleSearch.wsdl。将该文件复制为"
+"\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
-#: ../deskbar/handlers/google-live.py:36
+#: ../deskbar/handlers/google-live.py:32
 msgid "Setting Up Google Live"
 msgstr "设置 Google Live"
 
-#: ../deskbar/handlers/google-live.py:56
+#: ../deskbar/handlers/google-live.py:38
+msgid "You need to install the SOAPpy python module."
+msgstr "您需要安装 SOAPpy python 模块。"
+
+#: ../deskbar/handlers/google-live.py:40
+msgid "You need the Google WSDL file."
+msgstr "您需要 Google WSDL 文件。"
+
+#: ../deskbar/handlers/google-live.py:42
+msgid "You need a Google API key."
+msgstr "您需要有 Google API 密钥。"
+
+#: ../deskbar/handlers/google-live.py:48
 msgid "Google Live"
 msgstr "Google Live"
 
-#: ../deskbar/handlers/google-live.py:57
+#: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
 msgstr "随时用 Google 搜索"
 
-#: ../deskbar/applet.py:303
+#: ../deskbar/applet.py:312
 msgid "No History"
 msgstr "无历史"
 
-#: ../deskbar/handlers/beagle-live.py:18
+#: ../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:20
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "(通过 Beagel)随时搜索您所有的文档"
 
-#: ../deskbar/handlers/beagle-live.py:46
+#: ../deskbar/handlers/beagle-live.py:47
 #, python-format
 msgid "Addressbook entry for %s"
 msgstr "%s 的地址簿项"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:55
+#: ../deskbar/handlers/beagle-live.py:56
 #, python-format
 msgid "View email from %s: %s"
 msgstr "查看%s发来的邮件：%s"
 
-#: ../deskbar/handlers/beagle-live.py:68
+#: ../deskbar/handlers/beagle-live.py:69
 #, python-format
 msgid "Open news item %s"
 msgstr "打开新闻项 %s"
 
-#: ../deskbar/handlers/beagle-live.py:75
+#: ../deskbar/handlers/beagle-live.py:76
 #, python-format
 msgid "Open note %s"
 msgstr "打开备忘 %s"
 
-#: ../deskbar/handlers/beagle-live.py:81
+#: ../deskbar/handlers/beagle-live.py:82
 #, python-format
 msgid "View conversation with %s"
 msgstr "查看与 %s 的对话"
 
-#: ../deskbar/handlers/beagle-live.py:87
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
 msgid "View calendar %s"
 msgstr "查看日历 %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:204
+#: ../deskbar/handlers/beagle-live.py:205
 msgid "?"
 msgstr "?"
-
-#: ../deskbar/preferences.py:42
-msgid ""
-"<i><small><b>Note:</b> Drag and drop a handler to change its priority.</"
-"small></i>"
-msgstr "<i><small><b>注意：</b>拖曳把手可更改其优先级。</small></i>"
 
 #: ../deskbar/preferences.py:55
 msgid "_More..."
