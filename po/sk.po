@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-30 20:54+0100\n"
-"PO-Revision-Date: 2005-11-30 20:56+0100\n"
+"POT-Creation-Date: 2005-12-05 23:26+0100\n"
+"PO-Revision-Date: 2005-12-05 23:35+0100\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -18,12 +18,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one search bar"
-msgstr "Vyhľadávacia lišta na všetko"
+msgid "An all-in-one action bar"
+msgstr "Lišta na všetky činnosti v jednom"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:26
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:22
 msgid "Deskbar"
 msgstr "Pracovná lišta"
+
+#: ../data/Deskbar_Applet.xml.h:1
+msgid "_About"
+msgstr "_O programe"
+
+#: ../data/Deskbar_Applet.xml.h:2
+msgid "_Preferences"
+msgstr "_Predvoľby"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Keyboard Shortcut</b>"
@@ -65,140 +73,93 @@ msgstr "Použiť _klávesovú skratku:"
 msgid "characters"
 msgstr "znaky"
 
-#: ../data/Deskbar_Applet.xml.h:1
-msgid "_About"
-msgstr "_O programe"
+#: ../data/smart-bookmarks.glade.h:1
+msgid ""
+"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
+"you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
+"the deskbar.</small></i>"
+msgstr ""
+"<i><small><b>Poznámka: </b>Ak tá skratka je jedno písmeno (ako napríklad <b>t</b>), "
+"môžete tiež jednoducho zadať \"<b>niečo</b>\" a potom stlačiť <b>Ctrl-t</b> na "
+"pracovnej lište.</small></i>"
 
-#: ../data/Deskbar_Applet.xml.h:2
-msgid "_Preferences"
-msgstr "_Predvoľby"
+#: ../data/smart-bookmarks.glade.h:2
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>Poznámka:<b> Ak chcete použiť skratku (napríklad <b>wp</b>), aby "
+"ste vyhľadali <b>niečo</b>, napíšte \"<b>wp niečo</b>\" v pracovnej lište</small>"
+"</i>."
 
-#: ../deskbar/about.py:29
-msgid "An all-in-one search bar."
-msgstr "Vyhľadávacia lišta na všetko."
+#: ../data/smart-bookmarks.glade.h:3
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "Skratky pre vyhľadávania, ktoré sú medzi záložkami"
 
-#: ../deskbar/about.py:32
+#: ../deskbar/about.py:25
+msgid "An all-in-one action bar."
+msgstr "Lišta na všetky činnosti v jednom."
+
+#: ../deskbar/about.py:28
 msgid "Deskbar Website"
 msgstr "WWW stránka pracovnej lišty"
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:29
-#: ../deskbar/handlers/galeon.py:21
-msgid "Web Bookmarks"
-msgstr "WWW záložky"
+#: ../deskbar/applet.py:312
+msgid "No History"
+msgstr "Bez histórie"
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/mozilla.py:30
-#: ../deskbar/handlers/galeon.py:22
-msgid "Open your web bookmarks by name"
-msgstr "Otvoriť vaše www záložky podľa názvu"
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Beagle Live"
+msgstr "Živé Beagle"
 
-#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
-msgid "Web History"
-msgstr "WWW história"
+#: ../deskbar/handlers/beagle-live.py:20
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr ""
+"Prehľadávať všetky vaše dokumenty (pomocou Beagle) hneď, ako budete písať"
 
-#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
-msgid "Open your web history by name"
-msgstr "Otvoriť vašu www históriu podľa názvu"
+#: ../deskbar/handlers/beagle-live.py:47
+#, python-format
+msgid "Addressbook entry for %s"
+msgstr "Položka adresára pre %s"
 
-#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/mozilla.py:34
-#: ../deskbar/handlers/galeon.py:31
-msgid "Web Searches"
-msgstr "WWW hľadanie"
-
-#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/mozilla.py:35
-#: ../deskbar/handlers/galeon.py:32
-msgid "Search the web via your browser's search settings"
-msgstr "Prehľadať internet podľa vyhľadávacích nastavení vášho prehliadača"
-
-#: ../deskbar/handlers/files.py:14
-msgid "Files and Folders"
-msgstr "Súbory a priečinky"
-
-#: ../deskbar/handlers/files.py:15
-msgid "Open your files and folders by name"
-msgstr "Otvoriť vaše súbory a priečinky podľa názvu"
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:56
+#, python-format
+msgid "View email from %s: %s"
+msgstr "Zobraziť elektronickú poštu od %s: %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:63
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
 #, python-format
 msgid "Open %s"
 msgstr "Otvoriť %s"
 
-#: ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/beagle-live.py:69
 #, python-format
-msgid "Open folder %s"
-msgstr "Otvoriť priečinok %s"
+msgid "Open news item %s"
+msgstr "Otovirť položku noviniek %s"
 
-#: ../deskbar/handlers/galago.py:27 ../deskbar/handlers/email_address.py:26
+#: ../deskbar/handlers/beagle-live.py:76
 #, python-format
-msgid "Send Email to %s"
-msgstr "Odoslať elektronickú poštu pre %s"
+msgid "Open note %s"
+msgstr "Otvoriť poznámku %s"
 
-#: ../deskbar/handlers/gtkbookmarks.py:12
-msgid "Files and Folders Bookmarks"
-msgstr "Záložky súborov a priečinkov"
-
-#: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Open your files and folders bookmarks by name"
-msgstr "Otvoriť záložky vašich súborov a priečinkov podľa názvu"
-
-#: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
+#: ../deskbar/handlers/beagle-live.py:82
 #, python-format
-msgid "Open location %s"
-msgstr "Otvoriť umiestnenie %s"
+msgid "View conversation with %s"
+msgstr "Zobraziť rozhovor s %s"
 
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Progamy"
-
-#: ../deskbar/handlers/programs.py:15
-msgid "Launch a program by its name and/or description"
-msgstr "Spustiť program podľa jeho názvo a/alebo popisu"
-
-#: ../deskbar/handlers/programs.py:18
-msgid "Dictionary"
-msgstr "Slovník"
-
-#: ../deskbar/handlers/programs.py:19
-msgid "Look up word definitions in the dictionary"
-msgstr "Pozrieť definície slova v slovníku"
-
-#: ../deskbar/handlers/programs.py:22
-msgid "Files and Folders Search"
-msgstr "Hľadanie súborov a priečinkov"
-
-#: ../deskbar/handlers/programs.py:23
-msgid "Find files and folders by searching for a name pattern"
-msgstr "Nájsť súbory a priečinky vyhľadaním podľa vzoru názvu"
-
-#. translators: First %s is the programs full name, second is the executable name
-#. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:66
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
-msgid "Launch %s (%s)"
-msgstr "Spustiť %s (%s)"
+msgid "View calendar %s"
+msgstr "Zobraziť kalendár %s"
 
-#: ../deskbar/handlers/programs.py:79
-#, python-format
-msgid "Lookup %s in dictionary"
-msgstr "Pozrieť %s v slovníku"
-
-#: ../deskbar/handlers/programs.py:87
-#, python-format
-msgid "Search for file names like %s"
-msgstr "Vyhľadať názvy súborov ako %s"
-
-#: ../deskbar/handlers/pathprograms.py:13
-msgid "Programs (Advanced)"
-msgstr "Programy (rozšírené)"
-
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Launch any program present in your $PATH"
-msgstr "Spustiť ľubovoľný program nachádzajúci sa vo vašej ceste $PATH"
-
-#: ../deskbar/handlers/pathprograms.py:30
-#, python-format
-msgid "Execute %s"
-msgstr "Vykonať %s"
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:205
+msgid "?"
+msgstr "?"
 
 #: ../deskbar/handlers/beagle.py:19
 msgid "Beagle"
@@ -212,52 +173,6 @@ msgstr "Prehľadať všetky vaše dokumenty (pomocou Beagle)"
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Vyhľadanie %s pomocou Beagle"
-
-#: ../deskbar/handlers/email_address.py:9
-msgid "Mail"
-msgstr "Pošta"
-
-#: ../deskbar/handlers/email_address.py:10
-msgid "Send mail by typing a complete e-mail address"
-msgstr "Odoslať správu napísaním úplnej adresy elektronickej pošty"
-
-#: ../deskbar/handlers/volumes.py:16
-msgid "Disks and Network Places"
-msgstr "Disky a sieťové miesta"
-
-#: ../deskbar/handlers/volumes.py:17
-msgid "Open disk drives, shared network places and similar resources by name"
-msgstr ""
-"Otvoriť diskové jednotky, zdieľané sieťové miesta alebo podobné zdroje podľa "
-"názvu"
-
-#: ../deskbar/handlers/volumes.py:41
-#, python-format
-msgid "Open network place %s"
-msgstr "Otvoriť sieťové miesto %s"
-
-#: ../deskbar/handlers/volumes.py:43
-#, python-format
-msgid "Open audio disk %s"
-msgstr "Otvoriť zvukový disk %s"
-
-#: ../deskbar/handlers/web_address.py:9
-msgid "Web"
-msgstr "WWW"
-
-#: ../deskbar/handlers/web_address.py:10
-msgid "Open web pages by typing a complete web address"
-msgstr "Otvoriť WWW stránky napísaním úplnej www adresy"
-
-#: ../deskbar/handlers/web_address.py:35
-#, python-format
-msgid "Open the web page %s"
-msgstr "Otvoriť www stránku %s"
-
-#: ../deskbar/handlers/web_address.py:37
-#, python-format
-msgid "Open the location %s"
-msgstr "Otvoriť umiestnenie %s"
 
 #: ../deskbar/handlers_browsers.py:30
 #, python-format
@@ -282,6 +197,47 @@ msgstr "Skratka"
 #: ../deskbar/handlers_browsers.py:180
 msgid "Bookmark Name"
 msgstr "Názov záložky"
+
+#: ../deskbar/handlers/email_address.py:9
+msgid "Mail"
+msgstr "Pošta"
+
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mail by typing a complete e-mail address"
+msgstr "Odoslať správu napísaním úplnej adresy elektronickej pošty"
+
+#: ../deskbar/handlers/email_address.py:26 ../deskbar/handlers/galago.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "Odoslať elektronickú poštu pre %s"
+
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:29
+msgid "Web Bookmarks"
+msgstr "WWW záložky"
+
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:30
+msgid "Open your web bookmarks by name"
+msgstr "Otvoriť vaše www záložky podľa názvu"
+
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
+msgid "Web History"
+msgstr "WWW história"
+
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
+msgid "Open your web history by name"
+msgstr "Otvoriť vašu www históriu podľa názvu"
+
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:34
+msgid "Web Searches"
+msgstr "WWW hľadanie"
+
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:35
+msgid "Search the web via your browser's search settings"
+msgstr "Prehľadať internet podľa vyhľadávacích nastavení vášho prehliadača"
 
 #: ../deskbar/handlers/evolution.py:12
 msgid "You need to enable autocomplete in your mail preferences"
@@ -317,6 +273,19 @@ msgstr ""
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Odoslať elektronickú poštu pre %s (%s)"
+
+#: ../deskbar/handlers/files.py:14
+msgid "Files and Folders"
+msgstr "Súbory a priečinky"
+
+#: ../deskbar/handlers/files.py:15
+msgid "Open your files and folders by name"
+msgstr "Otvoriť vaše súbory a priečinky podľa názvu"
+
+#: ../deskbar/handlers/files.py:47
+#, python-format
+msgid "Open folder %s"
+msgstr "Otvoriť priečinok %s"
 
 #: ../deskbar/handlers/google-live.py:19
 msgid ""
@@ -380,56 +349,111 @@ msgstr "Živé Google"
 msgid "Search Google as you type"
 msgstr "Vyhľadávať pomocou Google hneď, ako budete písať"
 
-#: ../deskbar/applet.py:312
-msgid "No History"
-msgstr "Bez histórie"
+#: ../deskbar/handlers/gtkbookmarks.py:12
+msgid "Files and Folders Bookmarks"
+msgstr "Záložky súborov a priečinkov"
 
-#: ../deskbar/handlers/beagle-live.py:19
-msgid "Beagle Live"
-msgstr "Živé Beagle"
+#: ../deskbar/handlers/gtkbookmarks.py:13
+msgid "Open your files and folders bookmarks by name"
+msgstr "Otvoriť záložky vašich súborov a priečinkov podľa názvu"
 
-#: ../deskbar/handlers/beagle-live.py:20
-msgid "Search all of your documents (using Beagle), as you type"
+#: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
+#, python-format
+msgid "Open location %s"
+msgstr "Otvoriť umiestnenie %s"
+
+#: ../deskbar/handlers/pathprograms.py:13
+msgid "Programs (Advanced)"
+msgstr "Programy (rozšírené)"
+
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Launch any program present in your $PATH"
+msgstr "Spustiť ľubovoľný program nachádzajúci sa vo vašej ceste $PATH"
+
+#: ../deskbar/handlers/pathprograms.py:30
+#, python-format
+msgid "Execute %s"
+msgstr "Vykonať %s"
+
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Progamy"
+
+#: ../deskbar/handlers/programs.py:15
+msgid "Launch a program by its name and/or description"
+msgstr "Spustiť program podľa jeho názvo a/alebo popisu"
+
+#: ../deskbar/handlers/programs.py:18
+msgid "Dictionary"
+msgstr "Slovník"
+
+#: ../deskbar/handlers/programs.py:19
+msgid "Look up word definitions in the dictionary"
+msgstr "Pozrieť definície slova v slovníku"
+
+#: ../deskbar/handlers/programs.py:22
+msgid "Files and Folders Search"
+msgstr "Hľadanie súborov a priečinkov"
+
+#: ../deskbar/handlers/programs.py:23
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Nájsť súbory a priečinky vyhľadaním podľa vzoru názvu"
+
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/programs.py:66
+#, python-format
+msgid "Launch %s (%s)"
+msgstr "Spustiť %s (%s)"
+
+#: ../deskbar/handlers/programs.py:79
+#, python-format
+msgid "Lookup %s in dictionary"
+msgstr "Pozrieť %s v slovníku"
+
+#: ../deskbar/handlers/programs.py:87
+#, python-format
+msgid "Search for file names like %s"
+msgstr "Vyhľadať názvy súborov ako %s"
+
+#: ../deskbar/handlers/volumes.py:16
+msgid "Disks and Network Places"
+msgstr "Disky a sieťové miesta"
+
+#: ../deskbar/handlers/volumes.py:17
+msgid "Open disk drives, shared network places and similar resources by name"
 msgstr ""
-"Prehľadávať všetky vaše dokumenty (pomocou Beagle) hneď, ako budete písať"
+"Otvoriť diskové jednotky, zdieľané sieťové miesta alebo podobné zdroje podľa "
+"názvu"
 
-#: ../deskbar/handlers/beagle-live.py:47
+#: ../deskbar/handlers/volumes.py:41
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "Položka adresára pre %s"
+msgid "Open network place %s"
+msgstr "Otvoriť sieťové miesto %s"
 
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:56
+#: ../deskbar/handlers/volumes.py:43
 #, python-format
-msgid "View email from %s: %s"
-msgstr "Zobraziť elektronickú poštu od %s: %s"
+msgid "Open audio disk %s"
+msgstr "Otvoriť zvukový disk %s"
 
-#: ../deskbar/handlers/beagle-live.py:69
+#: ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "WWW"
+
+#: ../deskbar/handlers/web_address.py:10
+msgid "Open web pages by typing a complete web address"
+msgstr "Otvoriť WWW stránky napísaním úplnej www adresy"
+
+#: ../deskbar/handlers/web_address.py:35
 #, python-format
-msgid "Open news item %s"
-msgstr "Otovirť položku noviniek %s"
+msgid "Open the web page %s"
+msgstr "Otvoriť www stránku %s"
 
-#: ../deskbar/handlers/beagle-live.py:76
+#: ../deskbar/handlers/web_address.py:37
 #, python-format
-msgid "Open note %s"
-msgstr "Otvoriť poznámku %s"
+msgid "Open the location %s"
+msgstr "Otvoriť umiestnenie %s"
 
-#: ../deskbar/handlers/beagle-live.py:82
-#, python-format
-msgid "View conversation with %s"
-msgstr "Zobraziť rozhovor s %s"
-
-#: ../deskbar/handlers/beagle-live.py:88
-#, python-format
-msgid "View calendar %s"
-msgstr "Zobraziť kalendár %s"
-
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:205
-msgid "?"
-msgstr "?"
-
-#: ../deskbar/preferences.py:55
+#: ../deskbar/preferences.py:53
 msgid "_More..."
 msgstr "_Viac..."
