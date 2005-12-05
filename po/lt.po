@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-27 18:18+0200\n"
-"PO-Revision-Date: 2005-11-27 18:20+0200\n"
+"POT-Creation-Date: 2005-12-05 14:40+0200\n"
+"PO-Revision-Date: 2005-12-05 14:50+0200\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +17,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one search bar"
-msgstr "Paieškos juosta „viskas viename“"
+msgid "An all-in-one action bar"
+msgstr "Veiksmų juosta „viskas viename“"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:26
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:22
 msgid "Deskbar"
 msgstr "Deskbar"
+
+#: ../data/Deskbar_Applet.xml.h:1
+msgid "_About"
+msgstr "_Apie"
+
+#: ../data/Deskbar_Applet.xml.h:2
+msgid "_Preferences"
+msgstr "_Nustatymai"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Keyboard Shortcut</b>"
@@ -41,8 +49,8 @@ msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
 msgstr ""
-"<i><small><b>Pastaba:</b> valdiklio prioritetą galite pakeisdami perkeldami jį "
-"pele į kitą vietą.</small></i>"
+"<i><small><b>Pastaba:</b> valdiklio prioritetą galite pakeisdami perkeldami "
+"jį pele į kitą vietą.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:5
 msgid "Deskbar Preferences"
@@ -64,49 +72,202 @@ msgstr "Naudoti _klavišų kombinaciją:"
 msgid "characters"
 msgstr "simbolių"
 
-#: ../data/Deskbar_Applet.xml.h:1
-msgid "_About"
-msgstr "_Apie"
+#: ../data/smart-bookmarks.glade.h:1
+msgid ""
+"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
+"you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
+"the deskbar.</small></i>"
+msgstr ""
+"<b><small></b>Pastaba:</b> Jeigu kombinacija yra viena raidė (pvz. <b>t</b>), "
+"Jūs taip pat galite Deskbar juostoje tiesiog „<b>kažką</b>“ parašyti ir tada "
+"paspausti <b>Ctrl-t</b>.</small></i>"
 
-#: ../data/Deskbar_Applet.xml.h:2
-msgid "_Preferences"
-msgstr "_Nustatymai"
+#: ../data/smart-bookmarks.glade.h:2
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>Pastaba:</b> norėdami naudoti kombinaciją (pvz., <b>wp</b>) <b>"
+"kažkam</b> surasti, Deskbar juostoje įveskite „<b>wp kažkas</b>“.</small></i>"
 
-#: ../deskbar/about.py:29
-msgid "An all-in-one search bar."
-msgstr "Paieškos juosta „viskas viename“."
+#: ../data/smart-bookmarks.glade.h:3
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "Kombinacijos žymelėse esančioms paieškoms"
 
-#: ../deskbar/about.py:32
+#: ../deskbar/about.py:25
+msgid "An all-in-one action bar."
+msgstr "Veiksmų juosta „viskas viename“."
+
+#: ../deskbar/about.py:28
 msgid "Deskbar Website"
 msgstr "Deskbar svetainė"
 
-#: ../deskbar/handlers/epiphany.py:21 ../deskbar/handlers/mozilla.py:29
-#: ../deskbar/handlers/galeon.py:21
-msgid "Web Bookmarks"
-msgstr "Web Žymelės"
+#: ../deskbar/applet.py:312
+msgid "No History"
+msgstr "Nėra istorijos"
 
-#: ../deskbar/handlers/epiphany.py:22 ../deskbar/handlers/mozilla.py:30
-#: ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Beagle Live"
+msgstr "Beagle Live"
+
+#: ../deskbar/handlers/beagle-live.py:20
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Ieškoti visuose Jūsų dokumentuose (naudojant Beagle) rašymo metu"
+
+#: ../deskbar/handlers/beagle-live.py:47
+#, python-format
+msgid "Addressbook entry for %s"
+msgstr "Adresų knygos įrašas %s"
+
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:56
+#, python-format
+msgid "View email from %s: %s"
+msgstr "Žiūrėti el.laišką nuo %s: %s"
+
+#. translators: This is a file.
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
+#, python-format
+msgid "Open %s"
+msgstr "Atverti %s"
+
+#: ../deskbar/handlers/beagle-live.py:69
+#, python-format
+msgid "Open news item %s"
+msgstr "Atverti naujieną %s"
+
+#: ../deskbar/handlers/beagle-live.py:76
+#, python-format
+msgid "Open note %s"
+msgstr "Atverti raštelį %s"
+
+#: ../deskbar/handlers/beagle-live.py:82
+#, python-format
+msgid "View conversation with %s"
+msgstr "Žiūrėti pokalbį su %s"
+
+#: ../deskbar/handlers/beagle-live.py:88
+#, python-format
+msgid "View calendar %s"
+msgstr "Žiūrėti kalendorių %s"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:205
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle.py:19
+msgid "Beagle"
+msgstr "Beagle"
+
+#: ../deskbar/handlers/beagle.py:20
+msgid "Search all of your documents (using Beagle)"
+msgstr "Ieškoti visuose Jūsų dokumentuose (naudojant Beagle)"
+
+#: ../deskbar/handlers/beagle.py:33
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "Ieškoti %s naudojant Beagle"
+
+#: ../deskbar/handlers_browsers.py:30
+#, python-format
+msgid "Open History Item %s"
+msgstr "Atverti istorijos elementą %s"
+
+#: ../deskbar/handlers_browsers.py:32
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "Atverti žymelę %s"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/handlers_browsers.py:67
+#, python-format
+msgid "Search %s for %s"
+msgstr "%s ieškoti %s"
+
+#: ../deskbar/handlers_browsers.py:172
+msgid "Shortcut"
+msgstr "Kombinacija"
+
+#: ../deskbar/handlers_browsers.py:180
+msgid "Bookmark Name"
+msgstr "Žymelės pavadinimas"
+
+#: ../deskbar/handlers/email_address.py:9
+msgid "Mail"
+msgstr "Paštas"
+
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mail by typing a complete e-mail address"
+msgstr "Siųsti el. laiškus įvedant el. pašto adresą"
+
+#: ../deskbar/handlers/email_address.py:26 ../deskbar/handlers/galago.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "Siųsti %s el. laišką"
+
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:29
+msgid "Web Bookmarks"
+msgstr "Web žymelės"
+
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:30
 msgid "Open your web bookmarks by name"
 msgstr "Atverti Jūsų web žymeles pagal pavadinimą"
 
-#: ../deskbar/handlers/epiphany.py:26 ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
 msgid "Web History"
 msgstr "Web istorija"
 
-#: ../deskbar/handlers/epiphany.py:27 ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
 msgid "Open your web history by name"
 msgstr "Atverti Jūsų web istoriją pagal pavadinimą"
 
-#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/mozilla.py:34
-#: ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:34
 msgid "Web Searches"
 msgstr "Web paieškos"
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:35
-#: ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:35
 msgid "Search the web via your browser's search settings"
 msgstr "Ieškoti internete naudojantis Jūsų naršyklės nustatymais"
+
+#: ../deskbar/handlers/evolution.py:12
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "Jūs turite savo pašto nustatymuose įjungti automatinį užbaigimą"
+
+#: ../deskbar/handlers/evolution.py:14
+msgid "Autocompletion Needs to be Enabled"
+msgstr "Automatinis užbaigimas turi būti įjungtas"
+
+#: ../deskbar/handlers/evolution.py:15
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit â Preferences â Autocompletion."
+msgstr ""
+"Mes negalime suteikti el.pašto adresų iš Jūsų adresų knygelės, nebent Jūs "
+"įjungsite automatinį užbaigimą. Tą padaryti galite Jūsų pašto programos "
+"meniu pasirinkę Keisti → Nustatymai → Savaiminis pabaigimas."
+
+#: ../deskbar/handlers/evolution.py:20
+msgid "Mail (Address Book)"
+msgstr "Paštas (adresų knyga)"
+
+#: ../deskbar/handlers/evolution.py:21
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr ""
+"Siųsti el.laiškus Jūsų kontaktams parašant jų vardą ar el. pašto adresą"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:43
+#, python-format
+msgid "Send Email to %s (%s)"
+msgstr "Siųsti el. laišką %s (%s)"
 
 #: ../deskbar/handlers/files.py:14
 msgid "Files and Folders"
@@ -116,21 +277,72 @@ msgstr "Bylos ir aplankai"
 msgid "Open your files and folders by name"
 msgstr "Atverti bylas ir aplankus pagal vardus"
 
-#. translators: This is a file.
-#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:62
-#, python-format
-msgid "Open %s"
-msgstr "Atverti %s"
-
 #: ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open folder %s"
 msgstr "Atverti aplanką %s"
 
-#: ../deskbar/handlers/galago.py:27 ../deskbar/handlers/email_address.py:26
-#, python-format
-msgid "Send Email to %s"
-msgstr "Siųsti %s el. laišką"
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+"Jums reikia Google abonemento, jei norite naudoti Google Live. Jį galite "
+"gauti http://api.google.com/\n"
+"\n"
+"Kai susikursite abonementą, el.paštu turėtumėte gauti Google API raktą. "
+"Įdėkite šį raktą į bylą\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"Jeigu abonemento patvirtinimo laišku negavote API rakto (arba jį pametėte), "
+"eikite į www.google.com/accounts ir prisijunkite. Tada eikite į api.google."
+"com, paspauskite „Create Account“ ir įveskite savo el.pašto adresą ir "
+"slaptažodį. Jums API raktas bus išsiųstas pakartotinai.\n"
+"\n"
+"Dabar parsisiųskite kūrėjų rinkinį („developers kit“) ir iš jo išskleiskite "
+"bylą GoogleSearch.wsdl. Nukopijuokite šią bylą į\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#: ../deskbar/handlers/google-live.py:32
+msgid "Setting Up Google Live"
+msgstr "Kuriamas Google Live"
+
+#: ../deskbar/handlers/google-live.py:38
+msgid "You need to install the SOAPpy python module."
+msgstr "Jums reikia įdiegti SOAPpy python modulį."
+
+#: ../deskbar/handlers/google-live.py:40
+msgid "You need the Google WSDL file."
+msgstr "Jums reikia Goodle WSDL bylos."
+
+#: ../deskbar/handlers/google-live.py:42
+msgid "You need a Google API key."
+msgstr "Jums reikia Google API rakto."
+
+#: ../deskbar/handlers/google-live.py:48
+msgid "Google Live"
+msgstr "Google Live"
+
+#: ../deskbar/handlers/google-live.py:49
+msgid "Search Google as you type"
+msgstr "Ieškoti Google rašymo metu"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
 msgid "Files and Folders Bookmarks"
@@ -144,6 +356,19 @@ msgstr "Atverti Jūsų bylų ir aplankų žymeles pagal pavadinimą"
 #, python-format
 msgid "Open location %s"
 msgstr "Atverti vietą %s"
+
+#: ../deskbar/handlers/pathprograms.py:13
+msgid "Programs (Advanced)"
+msgstr "Programos (sudėtingesnės)"
+
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Launch any program present in your $PATH"
+msgstr "Paleisti bet kokią programą esančią Jūsų $PATH"
+
+#: ../deskbar/handlers/pathprograms.py:30
+#, python-format
+msgid "Execute %s"
+msgstr "Vykdyti %s"
 
 #: ../deskbar/handlers/programs.py:14
 msgid "Programs"
@@ -186,40 +411,6 @@ msgstr "Ieškoti %s žodyne"
 msgid "Search for file names like %s"
 msgstr "Ieškoti bylų pavadinimų kaip %s"
 
-#: ../deskbar/handlers/pathprograms.py:13
-msgid "Programs (Advanced)"
-msgstr "Programos (sudėtingesnės)"
-
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Launch any program present in your $PATH"
-msgstr "Paleisti bet kokią programą esančią Jūsų $PATH"
-
-#: ../deskbar/handlers/pathprograms.py:30
-#, python-format
-msgid "Execute %s"
-msgstr "Vykdyti %s"
-
-#: ../deskbar/handlers/beagle.py:19
-msgid "Beagle"
-msgstr "Beagle"
-
-#: ../deskbar/handlers/beagle.py:20
-msgid "Search all of your documents (using Beagle)"
-msgstr "Ieškoti visuose Jūsų dokumentuose (naudojant Beagle)"
-
-#: ../deskbar/handlers/beagle.py:33
-#, python-format
-msgid "Search for %s using Beagle"
-msgstr "Ieškoti %s naudojant Beagle"
-
-#: ../deskbar/handlers/email_address.py:9
-msgid "Mail"
-msgstr "Paštas"
-
-#: ../deskbar/handlers/email_address.py:10
-msgid "Send mail by typing a complete e-mail address"
-msgstr "Siųsti el. laiškus įvedant el. pašto adresą"
-
 #: ../deskbar/handlers/volumes.py:16
 msgid "Disks and Network Places"
 msgstr "Diskai ir tinklo vietos"
@@ -256,155 +447,7 @@ msgstr "Atverti tinklalapį %s"
 msgid "Open the location %s"
 msgstr "Atverti vietą %s"
 
-#: ../deskbar/handlers_browsers.py:30
-#, python-format
-msgid "Open History Item %s"
-msgstr "Atverti istorijos elementą %s"
-
-#: ../deskbar/handlers_browsers.py:32
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "Atverti žymelę %s"
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:54
-#, python-format
-msgid "Search %s for %s"
-msgstr "%s ieškoti %s"
-
-#: ../deskbar/handlers/evolution.py:11
-msgid "Autocompletion Needs to be Enabled"
-msgstr "Automatinis užbaigimas turi būti įjungtas"
-
-#: ../deskbar/handlers/evolution.py:12
-msgid ""
-"We cannot provide e-mail addresses from your address book unless "
-"autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit â Preferences â Autocompletion."
-msgstr ""
-"Mes negalime suteikti el.pašto adresų iš Jūsų adresų knygelės, nebent Jūs "
-"įjungsite automatinį užbaigimą. Tą padaryti galite Jūsų pašto programos "
-"meniu pasirinkę Keisti → Nustatymai → Savaiminis pabaigimas."
-
-#: ../deskbar/handlers/evolution.py:21
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr "Jūs turite savo pašto nustatymuose įjungti automatinį užbaigimą"
-
-#: ../deskbar/handlers/evolution.py:25
-msgid "Mail (Address Book)"
-msgstr "Paštas (adresų knyga)"
-
-#: ../deskbar/handlers/evolution.py:26
-msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-"Siųsti el.laiškus Jūsų kontaktams parašant jų vardą ar el. pašto adresą"
-
-#. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:48
-#, python-format
-msgid "Send Email to %s (%s)"
-msgstr "Siųsti el. laišką %s (%s)"
-
-#: ../deskbar/handlers/google-live.py:19
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should recieve a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"Jums reikia Google abonemento, jei norite naudoti Google Live. Jį galite "
-"gauti http://api.google.com/\n"
-"\n"
-"Kai susikursite abonementą, el.paštu turėtumėte gauti Google API raktą. "
-"Įdėkite šį raktą į bylą\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"Jeigu abonemento patvirtinimo laišku negavote API rakto (arba jį pametėte), "
-"eikite į www.google.com/accounts ir prisijunkite. Tada eikite į api.google."
-"com, paspauskite „Create Account“ ir įveskite savo el.pašto adresą ir "
-"slaptažodį. Jums API raktas bus išsiųstas pakartotinai.\n"
-"\n"
-"Dabar parsisiųskite kūrėjų rinkinį („developers kit“) ir iš jo išskleiskite "
-"bylą GoogleSearch.wsdl. Nukopijuokite šią bylą į\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:36
-msgid "Setting Up Google Live"
-msgstr "Kuriamas Google Live"
-
-#: ../deskbar/handlers/google-live.py:56
-msgid "Google Live"
-msgstr "Google Live"
-
-#: ../deskbar/handlers/google-live.py:57
-msgid "Search Google as you type"
-msgstr "Ieškoti Google rašymo metu"
-
-#: ../deskbar/applet.py:312
-msgid "No History"
-msgstr "Nėra istorijos"
-
-#: ../deskbar/handlers/beagle-live.py:18
-msgid "Beagle Live"
-msgstr "Beagle Live"
-
-#: ../deskbar/handlers/beagle-live.py:19
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Ieškoti visuose Jūsų dokumentuose (naudojant Beagle) rašymo metu"
-
-#: ../deskbar/handlers/beagle-live.py:46
-#, python-format
-msgid "Addressbook entry for %s"
-msgstr "Adresų knygos įrašas %s"
-
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:55
-#, python-format
-msgid "View email from %s: %s"
-msgstr "Žiūrėti el.laišką nuo %s: %s"
-
-#: ../deskbar/handlers/beagle-live.py:68
-#, python-format
-msgid "Open news item %s"
-msgstr "Atverti naujieną %s"
-
-#: ../deskbar/handlers/beagle-live.py:75
-#, python-format
-msgid "Open note %s"
-msgstr "Atverti raštelį %s"
-
-#: ../deskbar/handlers/beagle-live.py:81
-#, python-format
-msgid "View conversation with %s"
-msgstr "Žiūrėti pokalbį su %s"
-
-#: ../deskbar/handlers/beagle-live.py:87
-#, python-format
-msgid "View calendar %s"
-msgstr "Žiūrėti kalendorių %s"
-
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:204
-msgid "?"
-msgstr "?"
-
-#: ../deskbar/preferences.py:55
+#: ../deskbar/preferences.py:53
 msgid "_More..."
 msgstr "_Daugiau..."
 
