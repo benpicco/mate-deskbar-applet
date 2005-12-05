@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-30 11:26+0200\n"
-"PO-Revision-Date: 2005-11-30 11:25+0200\n"
+"POT-Creation-Date: 2005-12-05 09:10+0200\n"
+"PO-Revision-Date: 2005-12-05 09:10+0200\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one search bar"
-msgstr "Лента за търсене - пенкилер"
+msgid "An all-in-one action bar"
+msgstr "Универсална лента за търсене"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:26
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:22
 msgid "Deskbar"
 msgstr "Deskbar"
+
+#: ../data/Deskbar_Applet.xml.h:1
+msgid "_About"
+msgstr "_Относно"
+
+#: ../data/Deskbar_Applet.xml.h:2
+msgid "_Preferences"
+msgstr "_Настройки"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Keyboard Shortcut</b>"
@@ -63,140 +71,92 @@ msgstr "Използване на _клавишната комбинация:"
 msgid "characters"
 msgstr "знаци"
 
-#: ../data/Deskbar_Applet.xml.h:1
-msgid "_About"
-msgstr "_Относно"
+#: ../data/smart-bookmarks.glade.h:1
+msgid ""
+"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
+"you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
+"the deskbar.</small></i>"
+msgstr ""
+"<i><small><b>Бележка: </b>Ако бързите клавиши са всъщност един (напр. <b>т</"
+"b>), можете просто да напишете „<b>нещо</b>“ и след това да натиснете "
+"<b>Ctrl-т</b> в лентата.</small></i>"
 
-#: ../data/Deskbar_Applet.xml.h:2
-msgid "_Preferences"
-msgstr "_Настройки"
+#: ../data/smart-bookmarks.glade.h:2
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>Бележка:</b> За да използвате бързи клавиши (напр. <b>дай</b>), "
+"за да търсете за <b>нещо</b>, напишете „<b>дай нещо</b>“ в лентата</small></"
+"i>."
 
-#: ../deskbar/about.py:29
-msgid "An all-in-one search bar."
-msgstr "Пенкилерът на търсенето."
+#: ../data/smart-bookmarks.glade.h:3
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "Бързи клавиши за отметките за търсене"
 
-#: ../deskbar/about.py:32
+#: ../deskbar/about.py:25
+msgid "An all-in-one action bar."
+msgstr "Универсална лента."
+
+#: ../deskbar/about.py:28
 msgid "Deskbar Website"
 msgstr "Сайт на Deskbar"
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:29
-#: ../deskbar/handlers/galeon.py:21
-msgid "Web Bookmarks"
-msgstr "Отметки в уеб"
+#: ../deskbar/applet.py:312
+msgid "No History"
+msgstr "Няма история"
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/mozilla.py:30
-#: ../deskbar/handlers/galeon.py:22
-msgid "Open your web bookmarks by name"
-msgstr "Отваряне на отметките по име"
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Beagle Live"
+msgstr "Beagle на живо"
 
-#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
-msgid "Web History"
-msgstr "История на уеб"
+#: ../deskbar/handlers/beagle-live.py:20
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Претърсване на всичките Ви документи (с Beagle) докато пишете"
 
-#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
-msgid "Open your web history by name"
-msgstr "Отваряне на елементите в историята по име"
+#: ../deskbar/handlers/beagle-live.py:47
+#, python-format
+msgid "Addressbook entry for %s"
+msgstr "Запис в адресната книга за %s"
 
-#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/mozilla.py:34
-#: ../deskbar/handlers/galeon.py:31
-msgid "Web Searches"
-msgstr "Търсене по уеб"
-
-#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/mozilla.py:35
-#: ../deskbar/handlers/galeon.py:32
-msgid "Search the web via your browser's search settings"
-msgstr "Търсене в уеб чрез настройките на уеб браузъра"
-
-#: ../deskbar/handlers/files.py:14
-msgid "Files and Folders"
-msgstr "Файлове и папки"
-
-#: ../deskbar/handlers/files.py:15
-msgid "Open your files and folders by name"
-msgstr "Отваряне на файлове и папки по име"
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:56
+#, python-format
+msgid "View email from %s: %s"
+msgstr "Разгледане на е-писмо от %s на тема %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:63
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
 #, python-format
 msgid "Open %s"
 msgstr "Отваряне на %s"
 
-#: ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/beagle-live.py:69
 #, python-format
-msgid "Open folder %s"
-msgstr "Отваряне на папка %s"
+msgid "Open news item %s"
+msgstr "Отваряне на новина %s"
 
-#: ../deskbar/handlers/galago.py:27 ../deskbar/handlers/email_address.py:26
+#: ../deskbar/handlers/beagle-live.py:76
 #, python-format
-msgid "Send Email to %s"
-msgstr "Пращане на е-поща на %s"
+msgid "Open note %s"
+msgstr "Отваряне на бележка %s"
 
-#: ../deskbar/handlers/gtkbookmarks.py:12
-msgid "Files and Folders Bookmarks"
-msgstr "Файлове и отметки"
-
-#: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Open your files and folders bookmarks by name"
-msgstr "Отваряне на файловете и отметките Ви поп име"
-
-#: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
+#: ../deskbar/handlers/beagle-live.py:82
 #, python-format
-msgid "Open location %s"
-msgstr "Отваряне на местоположението %s"
+msgid "View conversation with %s"
+msgstr "Разглеждане на разговора с %s"
 
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Програми"
-
-#: ../deskbar/handlers/programs.py:15
-msgid "Launch a program by its name and/or description"
-msgstr "Стартиране на програма чрез име и/или описание"
-
-#: ../deskbar/handlers/programs.py:18
-msgid "Dictionary"
-msgstr "Речник"
-
-#: ../deskbar/handlers/programs.py:19
-msgid "Look up word definitions in the dictionary"
-msgstr "Търсене на превод или дефиниция на дума в речник"
-
-#: ../deskbar/handlers/programs.py:22
-msgid "Files and Folders Search"
-msgstr "Търсене на файлове и папки"
-
-#: ../deskbar/handlers/programs.py:23
-msgid "Find files and folders by searching for a name pattern"
-msgstr "Търсене на файлове и папки чрез шаблон за името им"
-
-#. translators: First %s is the programs full name, second is the executable name
-#. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:66
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
-msgid "Launch %s (%s)"
-msgstr "Стартиране на %s (%s)"
+msgid "View calendar %s"
+msgstr "Разглеждане на календара %s"
 
-#: ../deskbar/handlers/programs.py:79
-#, python-format
-msgid "Lookup %s in dictionary"
-msgstr "Търсене на %s в речник"
-
-#: ../deskbar/handlers/programs.py:87
-#, python-format
-msgid "Search for file names like %s"
-msgstr "Търсене за файлове с имена подобни на %s"
-
-#: ../deskbar/handlers/pathprograms.py:13
-msgid "Programs (Advanced)"
-msgstr "Програми (за напреднали)"
-
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Launch any program present in your $PATH"
-msgstr "Стартиране на всяка програма във Вашия път ($PATH)"
-
-#: ../deskbar/handlers/pathprograms.py:30
-#, python-format
-msgid "Execute %s"
-msgstr "Изпълняване на %s"
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:205
+msgid "?"
+msgstr "?"
 
 #: ../deskbar/handlers/beagle.py:19
 msgid "Beagle"
@@ -210,52 +170,6 @@ msgstr "Претърсване във всичките Ви документи (
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Търсене за %s чрез Beagle"
-
-#: ../deskbar/handlers/email_address.py:9
-msgid "Mail"
-msgstr "Поща"
-
-#: ../deskbar/handlers/email_address.py:10
-msgid "Send mail by typing a complete e-mail address"
-msgstr "Пращане на е-поща чрез пълният адрес на е-поща"
-
-#: ../deskbar/handlers/volumes.py:16
-msgid "Disks and Network Places"
-msgstr "Дискове и места по мрежата"
-
-#: ../deskbar/handlers/volumes.py:17
-msgid "Open disk drives, shared network places and similar resources by name"
-msgstr ""
-"Отваряне на дискови устройства, споделени папки по мрежата и подобни места "
-"по име"
-
-#: ../deskbar/handlers/volumes.py:41
-#, python-format
-msgid "Open network place %s"
-msgstr "Отваряне в мрежата на %s"
-
-#: ../deskbar/handlers/volumes.py:43
-#, python-format
-msgid "Open audio disk %s"
-msgstr "Отваряне на аудио диска %s"
-
-#: ../deskbar/handlers/web_address.py:9
-msgid "Web"
-msgstr "Уеб"
-
-#: ../deskbar/handlers/web_address.py:10
-msgid "Open web pages by typing a complete web address"
-msgstr "Отваряне на уеб страница чрез пълния й уеб адрес"
-
-#: ../deskbar/handlers/web_address.py:35
-#, python-format
-msgid "Open the web page %s"
-msgstr "Отваряне на уеб страницата %s"
-
-#: ../deskbar/handlers/web_address.py:37
-#, python-format
-msgid "Open the location %s"
-msgstr "Отваряне на местоположението %s"
 
 #: ../deskbar/handlers_browsers.py:30
 #, python-format
@@ -280,6 +194,47 @@ msgstr "Бърз клавиш"
 #: ../deskbar/handlers_browsers.py:180
 msgid "Bookmark Name"
 msgstr "Име на отметка"
+
+#: ../deskbar/handlers/email_address.py:9
+msgid "Mail"
+msgstr "Поща"
+
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mail by typing a complete e-mail address"
+msgstr "Пращане на е-поща чрез пълният адрес на е-поща"
+
+#: ../deskbar/handlers/email_address.py:26 ../deskbar/handlers/galago.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "Пращане на е-поща на %s"
+
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:29
+msgid "Web Bookmarks"
+msgstr "Отметки в уеб"
+
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:30
+msgid "Open your web bookmarks by name"
+msgstr "Отваряне на отметките по име"
+
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
+msgid "Web History"
+msgstr "История на уеб"
+
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
+msgid "Open your web history by name"
+msgstr "Отваряне на елементите в историята по име"
+
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:34
+msgid "Web Searches"
+msgstr "Търсене по уеб"
+
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:35
+msgid "Search the web via your browser's search settings"
+msgstr "Търсене в уеб чрез настройките на уеб браузъра"
 
 #: ../deskbar/handlers/evolution.py:12
 msgid "You need to enable autocomplete in your mail preferences"
@@ -316,6 +271,19 @@ msgstr ""
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Пращане на е-писмо до %s (%s)"
+
+#: ../deskbar/handlers/files.py:14
+msgid "Files and Folders"
+msgstr "Файлове и папки"
+
+#: ../deskbar/handlers/files.py:15
+msgid "Open your files and folders by name"
+msgstr "Отваряне на файлове и папки по име"
+
+#: ../deskbar/handlers/files.py:47
+#, python-format
+msgid "Open folder %s"
+msgstr "Отваряне на папка %s"
 
 #: ../deskbar/handlers/google-live.py:19
 msgid ""
@@ -380,55 +348,111 @@ msgstr "Google на живо"
 msgid "Search Google as you type"
 msgstr "Претърсване на Google докато пишете"
 
-#: ../deskbar/applet.py:312
-msgid "No History"
-msgstr "Няма история"
+#: ../deskbar/handlers/gtkbookmarks.py:12
+msgid "Files and Folders Bookmarks"
+msgstr "Файлове и отметки"
 
-#: ../deskbar/handlers/beagle-live.py:19
-msgid "Beagle Live"
-msgstr "Beagle на живо"
+#: ../deskbar/handlers/gtkbookmarks.py:13
+msgid "Open your files and folders bookmarks by name"
+msgstr "Отваряне на файловете и отметките Ви поп име"
 
-#: ../deskbar/handlers/beagle-live.py:20
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Претърсване на всичките Ви документи (с Beagle) докато пишете"
-
-#: ../deskbar/handlers/beagle-live.py:47
+#: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "Запис в адресната книга за %s"
+msgid "Open location %s"
+msgstr "Отваряне на местоположението %s"
 
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:56
+#: ../deskbar/handlers/pathprograms.py:13
+msgid "Programs (Advanced)"
+msgstr "Програми (за напреднали)"
+
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Launch any program present in your $PATH"
+msgstr "Стартиране на всяка програма във Вашия път ($PATH)"
+
+#: ../deskbar/handlers/pathprograms.py:30
 #, python-format
-msgid "View email from %s: %s"
-msgstr "Разгледане на е-писмо от %s на тема %s"
+msgid "Execute %s"
+msgstr "Изпълняване на %s"
 
-#: ../deskbar/handlers/beagle-live.py:69
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Програми"
+
+#: ../deskbar/handlers/programs.py:15
+msgid "Launch a program by its name and/or description"
+msgstr "Стартиране на програма чрез име и/или описание"
+
+#: ../deskbar/handlers/programs.py:18
+msgid "Dictionary"
+msgstr "Речник"
+
+#: ../deskbar/handlers/programs.py:19
+msgid "Look up word definitions in the dictionary"
+msgstr "Търсене на превод или дефиниция на дума в речник"
+
+#: ../deskbar/handlers/programs.py:22
+msgid "Files and Folders Search"
+msgstr "Търсене на файлове и папки"
+
+#: ../deskbar/handlers/programs.py:23
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Търсене на файлове и папки чрез шаблон за името им"
+
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/programs.py:66
 #, python-format
-msgid "Open news item %s"
-msgstr "Отваряне на новина %s"
+msgid "Launch %s (%s)"
+msgstr "Стартиране на %s (%s)"
 
-#: ../deskbar/handlers/beagle-live.py:76
+#: ../deskbar/handlers/programs.py:79
 #, python-format
-msgid "Open note %s"
-msgstr "Отваряне на бележка %s"
+msgid "Lookup %s in dictionary"
+msgstr "Търсене на %s в речник"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#: ../deskbar/handlers/programs.py:87
 #, python-format
-msgid "View conversation with %s"
-msgstr "Разглеждане на разговора с %s"
+msgid "Search for file names like %s"
+msgstr "Търсене за файлове с имена подобни на %s"
 
-#: ../deskbar/handlers/beagle-live.py:88
+#: ../deskbar/handlers/volumes.py:16
+msgid "Disks and Network Places"
+msgstr "Дискове и места по мрежата"
+
+#: ../deskbar/handlers/volumes.py:17
+msgid "Open disk drives, shared network places and similar resources by name"
+msgstr ""
+"Отваряне на дискови устройства, споделени папки по мрежата и подобни места "
+"по име"
+
+#: ../deskbar/handlers/volumes.py:41
 #, python-format
-msgid "View calendar %s"
-msgstr "Разглеждане на календара %s"
+msgid "Open network place %s"
+msgstr "Отваряне в мрежата на %s"
 
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:205
-msgid "?"
-msgstr "?"
+#: ../deskbar/handlers/volumes.py:43
+#, python-format
+msgid "Open audio disk %s"
+msgstr "Отваряне на аудио диска %s"
 
-#: ../deskbar/preferences.py:55
+#: ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "Уеб"
+
+#: ../deskbar/handlers/web_address.py:10
+msgid "Open web pages by typing a complete web address"
+msgstr "Отваряне на уеб страница чрез пълния й уеб адрес"
+
+#: ../deskbar/handlers/web_address.py:35
+#, python-format
+msgid "Open the web page %s"
+msgstr "Отваряне на уеб страницата %s"
+
+#: ../deskbar/handlers/web_address.py:37
+#, python-format
+msgid "Open the location %s"
+msgstr "Отваряне на местоположението %s"
+
+#: ../deskbar/preferences.py:53
 msgid "_More..."
 msgstr "_Допълнителни..."
