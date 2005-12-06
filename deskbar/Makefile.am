@@ -1,9 +1,5 @@
 SUBDIRS = handlers iconentry keybinder gnomedesktop
 
-if ENABLE_BEAGLE
-SUBDIRS += beagle
-endif
-
 if ENABLE_EVOLUTION
 SUBDIRS += evolution
 endif

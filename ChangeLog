@@ -1,3 +1,20 @@
+2005-12-06  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* configure.ac:
+	* deskbar/Makefile.am:
+	* deskbar/beagle/.cvsignore:
+	* deskbar/beagle/Makefile.am:
+	* deskbar/beagle/__init__.py:
+	* deskbar/beagle/_beagle.defs:
+	* deskbar/beagle/_beagle.override:
+	* deskbar/beagle/_beaglemodule.c:
+	* deskbar/beagle/gen-defs.sh:
+	* deskbar/handlers/Makefile.am:
+	* deskbar/handlers/beagle-live.py:
+	Remove our own beagle python binding. This mean we require beagle 0.1.3
+	that ships with python bindings. Update the handler to use 'import beagle'
+	and remove any reference to beagle in configure.ac
+
 2005-12-02  Nigel Tao  <nigeltao@cvs.gnome.org>
 
 	* deskbar/handlers/evolution.py:

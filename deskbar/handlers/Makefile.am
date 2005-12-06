@@ -1,6 +1,7 @@
 deskbar_handlersdir = $(libdir)/deskbar-applet/handlers
 deskbar_handlers_PYTHON = \
 	beagle.py \
+	beagle-live.py \
 	email_address.py \
 	epiphany.py \
 	files.py \
@@ -13,10 +14,6 @@ deskbar_handlers_PYTHON = \
 	pathprograms.py \
 	volumes.py \
 	web_address.py
-
-if ENABLE_BEAGLE
-deskbar_handlers_PYTHON += beagle-live.py
-endif
 
 if ENABLE_EVOLUTION
 deskbar_handlers_PYTHON += evolution.py

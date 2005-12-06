@@ -9,10 +9,10 @@ MAX_RESULTS = 2 # per handler
 def _check_requirements():
 	try:
 		import deskbar
-		import deskbar.beagle
+		import beagle
 		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
 	except:
-		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "Could not load deskbar.beagle, deskbar has been compiled without beagle support", None)
+		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "Could not load beagle, deskbar has been compiled without beagle support", None)
 	
 HANDLERS = {
 	"BeagleLiveHandler" : {
@@ -160,8 +160,8 @@ class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 		self.counter = {}
 		
 	def initialize (self):
-		import deskbar.beagle
-		self.beagle = deskbar.beagle.Client()
+		import beagle
+		self.beagle = beagle.Client()
 		self.ICONS = self.__load_icons()
 	
 	def __load_icons (self):
@@ -173,8 +173,8 @@ class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 		return res
 		
 	def query (self, qstring, qmax=5):
-		import deskbar.beagle
-		beagle_query = deskbar.beagle.Query()
+		import beagle
+		beagle_query = beagle.Query()
 		beagle_query.add_text(qstring)
 		beagle_query.connect("hits-added", self.hits_added, qstring, MAX_RESULTS)
 		self.beagle.send_request_async(beagle_query)
