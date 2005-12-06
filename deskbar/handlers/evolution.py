@@ -1,4 +1,3 @@
-# -*- coding: utf8 -*-
 from gettext import gettext as _
 import cgi
 import gnomevfs
@@ -12,7 +11,7 @@ def _check_requirements():
 		_("You need to enable autocomplete in your mail preferences"),
 		lambda: deskbar.handler_utils.more_information_dialog(
 			_("Autocompletion Needs to be Enabled"),
-			_("We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit → Preferences → Autocompletion.")
+			_("We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion.")
 			))
 
 HANDLERS = {
