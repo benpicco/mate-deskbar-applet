@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-28 23:06+0100\n"
-"PO-Revision-Date: 2005-11-28 23:07+0100\n"
+"POT-Creation-Date: 2005-12-06 19:57+0100\n"
+"PO-Revision-Date: 2005-12-06 20:02+0100\n"
 "Last-Translator: Ignacio Casal Quinteiro <nacho.resa@gmail.com>\n"
 "Language-Team: Galego\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +17,20 @@ msgstr ""
 "X-Generator: KBabel 1.10.2\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one search bar"
-msgstr "Barra de busca Todo en un"
+msgid "An all-in-one action bar"
+msgstr "Barra de accións 'todo en un'"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:26
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:22
 msgid "Deskbar"
 msgstr "Deskbar"
+
+#: ../data/Deskbar_Applet.xml.h:1
+msgid "_About"
+msgstr "_Acerca de"
+
+#: ../data/Deskbar_Applet.xml.h:2
+msgid "_Preferences"
+msgstr "_Preferencias"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Keyboard Shortcut</b>"
@@ -64,140 +72,86 @@ msgstr "Usar os _atallos de teclado:"
 msgid "characters"
 msgstr "caracteres"
 
-#: ../data/Deskbar_Applet.xml.h:1
-msgid "_About"
-msgstr "_Acerca de"
+#: ../data/smart-bookmarks.glade.h:1
+msgid ""
+"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
+"you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
+"the deskbar.</small></i>"
+msgstr "<i><small><b>Nota: </b> Se ese atallo é unha soa letra (como <b>t</b>) pode tamén teclear tan só \"<b>algo</b>\" e entón premer <b>Ctrl-t</b> na barra do escritorio.</small></i>"
 
-#: ../data/Deskbar_Applet.xml.h:2
-msgid "_Preferences"
-msgstr "_Preferencias"
+#: ../data/smart-bookmarks.glade.h:2
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr "<i><small><b>Nota:</b> Para usar un atallo (por exemplo <b>wp</b>) para buscar <b>algo</b>, teclee \"wp algo</b>\" na barra do escritorio.</small></i>."
 
-#: ../deskbar/about.py:29
-msgid "An all-in-one search bar."
-msgstr "Unha barra de busca \"todo en un\"."
+#: ../data/smart-bookmarks.glade.h:3
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "Atallos para as buscas almacenadas"
 
-#: ../deskbar/about.py:32
+#: ../deskbar/about.py:25
+msgid "An all-in-one action bar."
+msgstr "Unha barra de accións \"todo en un\"."
+
+#: ../deskbar/about.py:28
 msgid "Deskbar Website"
 msgstr "Sitio web de Deskbar"
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:29
-#: ../deskbar/handlers/galeon.py:21
-msgid "Web Bookmarks"
-msgstr "Marcadores web"
+#: ../deskbar/applet.py:312
+msgid "No History"
+msgstr "Sen historial"
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/mozilla.py:30
-#: ../deskbar/handlers/galeon.py:22
-msgid "Open your web bookmarks by name"
-msgstr "Abrir os seus marcadores web por nome"
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Beagle Live"
+msgstr "Beagle Live"
 
-#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
-msgid "Web History"
-msgstr "Historial web"
+#: ../deskbar/handlers/beagle-live.py:20
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Busque todos os seus documentos (usando Beagle), mentras teclea"
 
-#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
-msgid "Open your web history by name"
-msgstr "Abrir o seu historial web por nome"
+#: ../deskbar/handlers/beagle-live.py:47
+#, python-format
+msgid "Addressbook entry for %s"
+msgstr "Entrada do libro de enderezos para %s"
 
-#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/mozilla.py:34
-#: ../deskbar/handlers/galeon.py:31
-msgid "Web Searches"
-msgstr "Buscas web"
-
-#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/mozilla.py:35
-#: ../deskbar/handlers/galeon.py:32
-msgid "Search the web via your browser's search settings"
-msgstr "Busque a web por medio dos axustes de busca do seu navegador"
-
-#: ../deskbar/handlers/files.py:14
-msgid "Files and Folders"
-msgstr "Ficheiros e cartafoles"
-
-#: ../deskbar/handlers/files.py:15
-msgid "Open your files and folders by name"
-msgstr "Abrir os seus ficheiros e cartafoles por nome"
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:56
+#, python-format
+msgid "View email from %s: %s"
+msgstr "Ver correo-e de %s: %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:62
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
 #, python-format
 msgid "Open %s"
 msgstr "Abrir %s"
 
-#: ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/beagle-live.py:69
 #, python-format
-msgid "Open folder %s"
-msgstr "Abrir cartafol %s"
+msgid "Open news item %s"
+msgstr "Abrir elemento de noticias %s"
 
-#: ../deskbar/handlers/galago.py:27 ../deskbar/handlers/email_address.py:26
+#: ../deskbar/handlers/beagle-live.py:76
 #, python-format
-msgid "Send Email to %s"
-msgstr "Enviar correo-e a %s"
+msgid "Open note %s"
+msgstr "Abrir nota %s"
 
-#: ../deskbar/handlers/gtkbookmarks.py:12
-msgid "Files and Folders Bookmarks"
-msgstr "Marcadores de ficheiros e cartafoles"
-
-#: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Open your files and folders bookmarks by name"
-msgstr "Abrir os marcadores dos seus ficheiros e cartafoles por nome"
-
-#: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
+#: ../deskbar/handlers/beagle-live.py:82
 #, python-format
-msgid "Open location %s"
-msgstr "Abrir ubicación %s"
+msgid "View conversation with %s"
+msgstr "Ver conversación con %s"
 
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Programas"
-
-#: ../deskbar/handlers/programs.py:15
-msgid "Launch a program by its name and/or description"
-msgstr "Lanza un programa polo seu nome e/ou descrición"
-
-#: ../deskbar/handlers/programs.py:18
-msgid "Dictionary"
-msgstr "Diccionario"
-
-#: ../deskbar/handlers/programs.py:19
-msgid "Look up word definitions in the dictionary"
-msgstr "Busque definicións de palabras no diccionario"
-
-#: ../deskbar/handlers/programs.py:22
-msgid "Files and Folders Search"
-msgstr "Busca de ficheiros e cartafoles"
-
-#: ../deskbar/handlers/programs.py:23
-msgid "Find files and folders by searching for a name pattern"
-msgstr "Atopar os ficheiros e cartafoles buscando por un patrón do nome"
-
-#. translators: First %s is the programs full name, second is the executable name
-#. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:66
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
-msgid "Launch %s (%s)"
-msgstr "Lanzar %s (%s)"
+msgid "View calendar %s"
+msgstr "Ver calendario %s"
 
-#: ../deskbar/handlers/programs.py:79
-#, python-format
-msgid "Lookup %s in dictionary"
-msgstr "Buscar %s no diccionario"
-
-#: ../deskbar/handlers/programs.py:87
-#, python-format
-msgid "Search for file names like %s"
-msgstr "Buscar nomes de ficheiro como %s"
-
-#: ../deskbar/handlers/pathprograms.py:13
-msgid "Programs (Advanced)"
-msgstr "Programas (Avanzado)"
-
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Launch any program present in your $PATH"
-msgstr "Lanzar calquer programa presente no seu $PATH"
-
-#: ../deskbar/handlers/pathprograms.py:30
-#, python-format
-msgid "Execute %s"
-msgstr "Executar %s"
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:205
+msgid "?"
+msgstr "?"
 
 #: ../deskbar/handlers/beagle.py:19
 msgid "Beagle"
@@ -211,52 +165,6 @@ msgstr "Buscar todos os seus documentos (con Beagle)"
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Buscar %s usando Beagle"
-
-#: ../deskbar/handlers/email_address.py:9
-msgid "Mail"
-msgstr "Correo"
-
-#: ../deskbar/handlers/email_address.py:10
-msgid "Send mail by typing a complete e-mail address"
-msgstr "Enviar correo tecleando un enderezo de correo-e completo"
-
-#: ../deskbar/handlers/volumes.py:16
-msgid "Disks and Network Places"
-msgstr "Lugares de discos e redes"
-
-#: ../deskbar/handlers/volumes.py:17
-msgid "Open disk drives, shared network places and similar resources by name"
-msgstr ""
-"Abrir unidades de disco, lugares compartidos de rede e recursos similares "
-"por nome"
-
-#: ../deskbar/handlers/volumes.py:41
-#, python-format
-msgid "Open network place %s"
-msgstr "Abrir lugar de rede %s"
-
-#: ../deskbar/handlers/volumes.py:43
-#, python-format
-msgid "Open audio disk %s"
-msgstr "Abrir disco de son %s"
-
-#: ../deskbar/handlers/web_address.py:9
-msgid "Web"
-msgstr "Web"
-
-#: ../deskbar/handlers/web_address.py:10
-msgid "Open web pages by typing a complete web address"
-msgstr "Abrir páxinas web tecleando un enderezo web completo"
-
-#: ../deskbar/handlers/web_address.py:35
-#, python-format
-msgid "Open the web page %s"
-msgstr "Abrir a páxina web %s"
-
-#: ../deskbar/handlers/web_address.py:37
-#, python-format
-msgid "Open the location %s"
-msgstr "Abrir o lugar %s"
 
 #: ../deskbar/handlers_browsers.py:30
 #, python-format
@@ -282,37 +190,91 @@ msgstr "Atallo"
 msgid "Bookmark Name"
 msgstr "Nome do marcador"
 
-#: ../deskbar/handlers/evolution.py:12
+#: ../deskbar/handlers/email_address.py:9
+msgid "Mail"
+msgstr "Correo"
+
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mail by typing a complete e-mail address"
+msgstr "Enviar correo tecleando un enderezo de correo-e completo"
+
+#: ../deskbar/handlers/email_address.py:26 ../deskbar/handlers/galago.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "Enviar correo-e a %s"
+
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:29
+msgid "Web Bookmarks"
+msgstr "Marcadores web"
+
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:30
+msgid "Open your web bookmarks by name"
+msgstr "Abrir os seus marcadores web por nome"
+
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
+msgid "Web History"
+msgstr "Historial web"
+
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
+msgid "Open your web history by name"
+msgstr "Abrir o seu historial web por nome"
+
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:34
+msgid "Web Searches"
+msgstr "Buscas web"
+
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:35
+msgid "Search the web via your browser's search settings"
+msgstr "Busque a web por medio dos axustes de busca do seu navegador"
+
+#: ../deskbar/handlers/evolution.py:11
 msgid "You need to enable autocomplete in your mail preferences"
 msgstr "Necesita activar o autocompletado nas súas preferencias de correo"
 
-#: ../deskbar/handlers/evolution.py:14
+#: ../deskbar/handlers/evolution.py:13
 msgid "Autocompletion Needs to be Enabled"
 msgstr "Necesítase ter activado o autocompletado"
 
-#: ../deskbar/handlers/evolution.py:15
+#: ../deskbar/handlers/evolution.py:14
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit â Preferences â Autocompletion."
+"choose Edit - Preferences, and then Autocompletion."
 msgstr ""
 "Non podemos proporcionar enderezos de correo do seu libro de enderezos a non "
 "ser que estea activado o autocompletado. Para facer isto, ten que ir ao menú "
-"do seu programa de correo, escoller Editar â Preferencias â Autocompletado."
+"do seu programa de correo, escoller Editar - Preferencias, e Autocompletado."
 
-#: ../deskbar/handlers/evolution.py:20
+#: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
 msgstr "Correo (Libro de enderezos)"
 
-#: ../deskbar/handlers/evolution.py:21
+#: ../deskbar/handlers/evolution.py:20
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Enviar correos a seus contactos tecleando o seu nome ou enderezo de correo-e"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:43
+#: ../deskbar/handlers/evolution.py:42
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Enviar correo-e a %s (%s)"
+
+#: ../deskbar/handlers/files.py:14
+msgid "Files and Folders"
+msgstr "Ficheiros e cartafoles"
+
+#: ../deskbar/handlers/files.py:15
+msgid "Open your files and folders by name"
+msgstr "Abrir os seus ficheiros e cartafoles por nome"
+
+#: ../deskbar/handlers/files.py:47
+#, python-format
+msgid "Open folder %s"
+msgstr "Abrir cartafol %s"
 
 #: ../deskbar/handlers/google-live.py:19
 msgid ""
@@ -376,56 +338,112 @@ msgstr "Google Live"
 msgid "Search Google as you type"
 msgstr "Busque con Google mentras teclea"
 
-#: ../deskbar/applet.py:312
-msgid "No History"
-msgstr "Sen historial"
+#: ../deskbar/handlers/gtkbookmarks.py:12
+msgid "Files and Folders Bookmarks"
+msgstr "Marcadores de ficheiros e cartafoles"
 
-#: ../deskbar/handlers/beagle-live.py:18
-msgid "Beagle Live"
-msgstr "Beagle Live"
+#: ../deskbar/handlers/gtkbookmarks.py:13
+msgid "Open your files and folders bookmarks by name"
+msgstr "Abrir os marcadores dos seus ficheiros e cartafoles por nome"
 
-#: ../deskbar/handlers/beagle-live.py:19
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Busque todos os seus documentos (usando Beagle), mentras teclea"
-
-#: ../deskbar/handlers/beagle-live.py:46
+#: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "Entrada do libro de enderezos para %s"
+msgid "Open location %s"
+msgstr "Abrir ubicación %s"
 
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:55
+#: ../deskbar/handlers/pathprograms.py:13
+msgid "Programs (Advanced)"
+msgstr "Programas (Avanzado)"
+
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Launch any program present in your $PATH"
+msgstr "Lanzar calquer programa presente no seu $PATH"
+
+#: ../deskbar/handlers/pathprograms.py:30
 #, python-format
-msgid "View email from %s: %s"
-msgstr "Ver correo-e de %s: %s"
+msgid "Execute %s"
+msgstr "Executar %s"
 
-#: ../deskbar/handlers/beagle-live.py:68
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Programas"
+
+#: ../deskbar/handlers/programs.py:15
+msgid "Launch a program by its name and/or description"
+msgstr "Lanza un programa polo seu nome e/ou descrición"
+
+#: ../deskbar/handlers/programs.py:18
+msgid "Dictionary"
+msgstr "Diccionario"
+
+#: ../deskbar/handlers/programs.py:19
+msgid "Look up word definitions in the dictionary"
+msgstr "Busque definicións de palabras no diccionario"
+
+#: ../deskbar/handlers/programs.py:22
+msgid "Files and Folders Search"
+msgstr "Busca de ficheiros e cartafoles"
+
+#: ../deskbar/handlers/programs.py:23
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Atopar os ficheiros e cartafoles buscando por un patrón do nome"
+
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/programs.py:66
 #, python-format
-msgid "Open news item %s"
-msgstr "Abrir elemento de noticias %s"
+msgid "Launch %s (%s)"
+msgstr "Lanzar %s (%s)"
 
-#: ../deskbar/handlers/beagle-live.py:75
+#: ../deskbar/handlers/programs.py:79
 #, python-format
-msgid "Open note %s"
-msgstr "Abrir nota %s"
+msgid "Lookup %s in dictionary"
+msgstr "Buscar %s no diccionario"
 
-#: ../deskbar/handlers/beagle-live.py:81
+#: ../deskbar/handlers/programs.py:87
 #, python-format
-msgid "View conversation with %s"
-msgstr "Ver conversación con %s"
+msgid "Search for file names like %s"
+msgstr "Buscar nomes de ficheiro como %s"
 
-#: ../deskbar/handlers/beagle-live.py:87
+#: ../deskbar/handlers/volumes.py:16
+msgid "Disks and Network Places"
+msgstr "Lugares de discos e redes"
+
+#: ../deskbar/handlers/volumes.py:17
+msgid "Open disk drives, shared network places and similar resources by name"
+msgstr ""
+"Abrir unidades de disco, lugares compartidos de rede e recursos similares "
+"por nome"
+
+#: ../deskbar/handlers/volumes.py:41
 #, python-format
-msgid "View calendar %s"
-msgstr "Ver calendario %s"
+msgid "Open network place %s"
+msgstr "Abrir lugar de rede %s"
 
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:204
-msgid "?"
-msgstr "?"
+#: ../deskbar/handlers/volumes.py:43
+#, python-format
+msgid "Open audio disk %s"
+msgstr "Abrir disco de son %s"
 
-#: ../deskbar/preferences.py:55
+#: ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "Web"
+
+#: ../deskbar/handlers/web_address.py:10
+msgid "Open web pages by typing a complete web address"
+msgstr "Abrir páxinas web tecleando un enderezo web completo"
+
+#: ../deskbar/handlers/web_address.py:35
+#, python-format
+msgid "Open the web page %s"
+msgstr "Abrir a páxina web %s"
+
+#: ../deskbar/handlers/web_address.py:37
+#, python-format
+msgid "Open the location %s"
+msgstr "Abrir o lugar %s"
+
+#: ../deskbar/preferences.py:53
 msgid "_More..."
 msgstr "_Máis..."
 
