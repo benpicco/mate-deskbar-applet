@@ -31,7 +31,10 @@ def show_about():
 	about.set_authors(["Nigel Tao <nigel.tao@myrealbox.com>", "Raphael Slinckx <raphael@slinckx.net>", "Mikkel Kamstrup Erlandsen <kamstrup@daimi.au.dk>"])
 #	about.set_artists([])
 #	about.set_documenters([])
-#	about.set_translator-credits([])
+	translator_credits = _("")
+	if translator_credits != "":
+		#translators: Please keep it like "name <email@dot.com>". One line per translator.
+		about.set_translator-credits([name for name in translator_credits.split('\n') if name != ""])
 	
 	for prop, val in infos.items():
 		about.set_property(prop, val)

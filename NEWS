@@ -1,4 +1,42 @@
 ====================
+deskbar-applet 0.8.6
+====================
+
+Changes:
+	* Remove our own beagle python binding. This mean we require beagle 0.1.3 that ships with python bindings.
+	* New tango-ish artwork (because we're hype)
+	* Fix history behavior. Duplicate items in history are moved instead of being added multiple times. Fixes bug #322981: Duplicate items in history
+	* Builtin history completion as a regular match. 
+	* Web search bookmarks (aka "smart bookmarks") can now have shortcuts (aka "keywords") and keyboard shortcuts.
+	* Tidied up the preferences dialog. 
+	* Disabled handlers are now sorted by name alphabetically in the Preferences UI.
+	* Scale down those icons that are too large.
+	* Evolution handler is now sync rather than async. This will hopefully fix evolution handler bugs like bug #322119.
+	* Fixed crasher when user has more than one address book available for auto-completion. Possibly fixes bug #321975.
+	* 'Smart' history browsing, now it's possible to use shell-like up/down key to browse history, yet preserving (page) up/down navigation in the matches list.
+
+Contributors to this release: Raphael Slinckx, Nigel Tao.
+
+Translations:
+	* Updated Slovak translation.
+	* Updated Galician Translation.
+	* Updated Spanish translation.
+	* Updated Lithuanian translation.
+	* Updated Bulgarian translation by Alexander Shopov
+	* Updated Canadian English translation.
+	* Added Thai translation by Theppitak Karoonboonyanan
+	* Updated Simplified Chinese translation.
+	* Updated Canadian English translation.
+	* Updated Swedish translation.
+	* Updated Finnish translation.
+	* Hungarian translation updated.
+	* Added German translation.
+	* Add Punjabi Translation File
+	* Updated Japanese translation.
+
+Contributors to the translations: Amanpreet Singh Alam, Francisco Javier F. Serrador, Takeshi AIHANA, Alexander Shopov, Ignacio Casal Quinteiro, Tommi Vainikainen, Adam Weinberger, Marcel Telka, Žygimantas Beručka, Hendrik Brandt, Kjartan Maraas, Gabor Kelemen, Christian Rose, Funda Wang
+
+====================
 Deskbar Applet 0.8.5
 ====================
 
