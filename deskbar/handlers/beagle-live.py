@@ -212,7 +212,9 @@ class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 							result[prop] = cgi.escape(val)
 							break
 					else:
-						result[prop] = None
+						#translators: This is used for unknown values returned by beagle
+						#translators: for example unknown email sender, or unknown note title
+						result[prop] = _("?")
 			
 			hit_matches.append(BeagleLiveMatch(self, result))
 			
