@@ -1,3 +1,4 @@
+
 from os.path import join
 from gettext import gettext as _
 from deskbar.defs import VERSION
@@ -23,7 +24,7 @@ def show_about():
 		"logo" : deskbar_logo,
 		"version" : VERSION,
 		"comments" : _("An all-in-one action bar."),
-		"copyright" : "Copyright (c) 2004-2005 Nigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen.",
+		"copyright" : "Copyright © 2004-2005 Nigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen.",
 		"website" : "http://raphael.slinckx.net/deskbar",
 		"website-label" : _("Deskbar Website"),
 	}
@@ -32,10 +33,8 @@ def show_about():
 #	about.set_artists([])
 #	about.set_documenters([])
 	
-	#translators: Please keep it like "name <email@dot.com>". One line per translator.
-	translator_credits = _("translator-credits")
-	if translator_credits != "translator-credits":
-		about.set_translator_credits([name for name in translator_credits.split('\n') if name != ""])
+	#translators: These appear in the About dialog, usual format applies.
+	about.set_translator_credits( _("translator-credits") )
 	
 	for prop, val in infos.items():
 		about.set_property(prop, val)
