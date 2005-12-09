@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-05 09:10+0200\n"
-"PO-Revision-Date: 2005-12-05 09:10+0200\n"
+"POT-Creation-Date: 2005-12-09 11:19+0200\n"
+"PO-Revision-Date: 2005-12-09 11:22+0200\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "An all-in-one action bar"
 msgstr "Универсална лента за търсене"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:22
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:23
 msgid "Deskbar"
 msgstr "Deskbar"
 
@@ -95,13 +95,25 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Бързи клавиши за отметките за търсене"
 
-#: ../deskbar/about.py:25
+#: ../deskbar/about.py:26
 msgid "An all-in-one action bar."
 msgstr "Универсална лента."
 
-#: ../deskbar/about.py:28
+#: ../deskbar/about.py:29
 msgid "Deskbar Website"
 msgstr "Сайт на Deskbar"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/about.py:37
+msgid "translator-credits"
+msgstr ""
+"Александър Шопов <ash@contact.bg>\n"
+"\n"
+"Проектът за превод на GNOME има нужда от подкрепа.\n"
+"Научете повече за нас на http://gnome.cult.bg\n"
+"Докладвайте за грешки на http://gnome.cult.bg/bugs"
 
 #: ../deskbar/applet.py:312
 msgid "No History"
@@ -236,38 +248,34 @@ msgstr "Търсене по уеб"
 msgid "Search the web via your browser's search settings"
 msgstr "Търсене в уеб чрез настройките на уеб браузъра"
 
-#: ../deskbar/handlers/evolution.py:12
+#: ../deskbar/handlers/evolution.py:11
 msgid "You need to enable autocomplete in your mail preferences"
 msgstr ""
 "Трябва да включете автоматичното завършване в настройките на програмата си "
 "за е-поща"
 
-#: ../deskbar/handlers/evolution.py:14
+#: ../deskbar/handlers/evolution.py:13
 msgid "Autocompletion Needs to be Enabled"
 msgstr "Автоматичното завършване трябва да се включи"
 
-#: ../deskbar/handlers/evolution.py:15
+#: ../deskbar/handlers/evolution.py:14
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit â Preferences â Autocompletion."
-msgstr ""
-"Адресите във Вашата адресна книга не могат да бъдат получаван, освен ако не "
-"включите автоматичното завършване. За да направите това, стартирайте "
-"програмата си за е-поща и от менюто отидете в Редактиране â Настройки â "
-"Автоматично завършване."
+"choose Edit - Preferences, and then Autocompletion."
+msgstr "Адресите във Вашата адресна книга не могат да бъдат получавани, освен ако не включите автоматичното завършване. За да направите това, стартирайте програмата си за е-поща и от менюто отидете в Редактиране -> Настройки -> Автоматично завършване."
 
-#: ../deskbar/handlers/evolution.py:20
+#: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
 msgstr "Поща (адресна книга)"
 
-#: ../deskbar/handlers/evolution.py:21
+#: ../deskbar/handlers/evolution.py:20
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Пращане на е-писмо до познати като напишете името или адресът им за е-поща"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:43
+#: ../deskbar/handlers/evolution.py:42
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Пращане на е-писмо до %s (%s)"
