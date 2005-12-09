@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 2.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-06 01:57+0100\n"
-"PO-Revision-Date: 2005-12-06 02:02+0100\n"
+"POT-Creation-Date: 2005-12-09 13:37+0100\n"
+"PO-Revision-Date: 2005-12-09 13:40+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "An all-in-one action bar"
 msgstr "Barra de acciones «todo en uno»"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:22
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:23
 msgid "Deskbar"
 msgstr "Deskbar"
 
@@ -76,26 +76,39 @@ msgid ""
 "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
 "you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
 "the deskbar.</small></i>"
-msgstr "<i><small><b>Nota: </b>Si ese atajo es una sola letra (como <b>t</b>) puede también teclear tan sólo  \"<b>algo</b>\" y entonces presionar <b>Ctrl-t</b> en la barra del escritorio.</small></i>"
+msgstr ""
+"<i><small><b>Nota: </b>Si ese atajo es una sola letra (como <b>t</b>) puede "
+"también teclear tan sólo  \"<b>algo</b>\" y entonces presionar <b>Ctrl-t</b> "
+"en la barra del escritorio.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
-msgstr "<i><small><b>Nota:</b> Para usar un atajoo (por ejemplo <b>wp</b>) para buscar <b>algo</b>, teclee \"<b>wp algo</b>\" en la barra del escritorio</small></i>."
+msgstr ""
+"<i><small><b>Nota:</b> Para usar un atajoo (por ejemplo <b>wp</b>) para "
+"buscar <b>algo</b>, teclee \"<b>wp algo</b>\" en la barra del escritorio</"
+"small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "atajos para las búsquedas almacenadas"
 
-#: ../deskbar/about.py:25
+#: ../deskbar/about.py:26
 msgid "An all-in-one action bar."
 msgstr "Una barra de acciones «todo-en-uno»."
 
-#: ../deskbar/about.py:28
+#: ../deskbar/about.py:29
 msgid "Deskbar Website"
 msgstr "Sitio web de Deskbar"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/about.py:37
+msgid "translator-credits"
+msgstr "Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2005"
 
 #: ../deskbar/applet.py:312
 msgid "No History"
@@ -230,35 +243,32 @@ msgstr "Búsquedas web"
 msgid "Search the web via your browser's search settings"
 msgstr "Busque la web por medio de los ajustes de búsqueda de su navegador"
 
-#: ../deskbar/handlers/evolution.py:12
+#: ../deskbar/handlers/evolution.py:11
 msgid "You need to enable autocomplete in your mail preferences"
 msgstr "Necesita activar el autocompletado en sus preferencias de correo"
 
-#: ../deskbar/handlers/evolution.py:14
+#: ../deskbar/handlers/evolution.py:13
 msgid "Autocompletion Needs to be Enabled"
 msgstr "Se necesita tener activado el autocompletado"
 
-#: ../deskbar/handlers/evolution.py:15
+#: ../deskbar/handlers/evolution.py:14
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit â Preferences â Autocompletion."
-msgstr ""
-"No podemos proporcionar direcciones de correo de sus libretas de direcciones "
-"a no ser que está activado el autocompletado. Para hacer  esto, vaya al menú "
-"de su programa de correo, elija Editar â Preferencias  â Autocompletado."
+"choose Edit - Preferences, and then Autocompletion."
+msgstr "No podemos proporcionar direcciones de correo de sus libretas de direcciones a no ser que esté activado el autocompletado. Para hacer esto, vaya al menú de su programa de correo, elija Editar â Preferencias y después Autocompletado."
 
-#: ../deskbar/handlers/evolution.py:20
+#: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
 msgstr "Correo (Libreta de direcciones)"
 
-#: ../deskbar/handlers/evolution.py:21
+#: ../deskbar/handlers/evolution.py:20
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Envíe correos-e a sus contactos tecleando su nombre o dirección de correo-e"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:43
+#: ../deskbar/handlers/evolution.py:42
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Enviar correo-e a %s (%s)"
