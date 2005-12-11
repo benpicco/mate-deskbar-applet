@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-16 00:34+0900\n"
-"PO-Revision-Date: 2005-11-16 00:30+0900\n"
+"POT-Creation-Date: 2005-12-11 16:26+0900\n"
+"PO-Revision-Date: 2005-12-11 16:23+0900\n"
 "Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -16,44 +16,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one search bar"
-msgstr "デスクトップに統合した検索バーです"
+msgid "An all-in-one action bar"
+msgstr "デスクトップに統合したアクション・バーです"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:26
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:23
 msgid "Deskbar"
-msgstr "Deskbar"
-
-#: ../data/prefs-dialog.glade.h:1
-msgid "<b>Active Handlers</b>"
-msgstr "<b>利用可能なハンドラ</b>"
-
-#: ../data/prefs-dialog.glade.h:2
-msgid "<b>Applet Width</b>"
-msgstr "<b>アプレットの幅</b>"
-
-#: ../data/prefs-dialog.glade.h:3
-msgid ""
-"<i><small><b>Note:</b> Drag and drop a handler to change its priority.</"
-"small></i>"
-msgstr ""
-"<i><small><b>注意:</b> プロパティを変更するハンドラをドラッグ＆ドロップして下"
-"さい。</small></i>"
-
-#: ../data/prefs-dialog.glade.h:4
-msgid "Deskbar Preferences"
-msgstr "Deskbar の設定"
-
-#: ../data/prefs-dialog.glade.h:5
-msgid "Use _all available space"
-msgstr "利用可能な全ての領域を使用する(_A)"
-
-#: ../data/prefs-dialog.glade.h:6
-msgid "_Width:"
-msgstr "幅(_W):"
-
-#: ../data/prefs-dialog.glade.h:7
-msgid "characters"
-msgstr "文字"
+msgstr "デスクバー"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -63,124 +31,377 @@ msgstr "情報(_A)"
 msgid "_Preferences"
 msgstr "設定(_P)"
 
-#: ../deskbar/about.py:29
-msgid "An all-in-one search bar."
-msgstr "デスクトップに統合した検索バーです。"
+#: ../data/prefs-dialog.glade.h:1
+msgid "<b>Keyboard Shortcut</b>"
+msgstr "<b>キーボード・ショートカット</b>"
 
-#: ../deskbar/about.py:32
+#: ../data/prefs-dialog.glade.h:2
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>拡張モジュール</b>"
+
+#: ../data/prefs-dialog.glade.h:3
+msgid "<b>Width</b>"
+msgstr "<b>アプレットの幅</b>"
+
+#: ../data/prefs-dialog.glade.h:4
+msgid ""
+"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
+"small></i>"
+msgstr ""
+"<i><small><b>補足:</b> モジュールをドラッグ＆ドロップして順番を変更できます。"
+"</small></i>"
+
+#: ../data/prefs-dialog.glade.h:5
+msgid "Deskbar Preferences"
+msgstr "Deskbar の設定"
+
+#: ../data/prefs-dialog.glade.h:6
+msgid "Fixed _width:"
+msgstr "幅を固定する(_W):"
+
+#: ../data/prefs-dialog.glade.h:7
+msgid "Use _all available space"
+msgstr "利用可能な全ての領域を使用する(_A)"
+
+#: ../data/prefs-dialog.glade.h:8
+msgid "Use the _keyboard shortcut:"
+msgstr "使用するキーの組み合わせ(_K):"
+
+#: ../data/prefs-dialog.glade.h:9
+msgid "characters"
+msgstr "文字"
+
+#: ../data/smart-bookmarks.glade.h:1
+msgid ""
+"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
+"you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
+"the deskbar.</small></i>"
+msgstr ""
+"<i><small><b>補足: </b>ショートカットが１文字の場合、例えば <b>t</b> なら単"
+"に \"<b>something</b>\" を入力してからデスクバーの中で <b>Ctrl-t</b> を押して"
+"下さい。</small></i>"
+
+#: ../data/smart-bookmarks.glade.h:2
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>Note:</b> ショートカットを利用する場合、例えば <b>something</b> "
+"を検索するショートカットが <b>wp</b> ならば、デスクバーの中に \"<b>wp "
+"something</b>\" と入力して下さい。</small></i>"
+
+#: ../data/smart-bookmarks.glade.h:3
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "ブックマーク検索のショートカット"
+
+#: ../deskbar/about.py:26
+msgid "An all-in-one action bar."
+msgstr "デスクトップに統合したアクション・バーです。"
+
+#: ../deskbar/about.py:29
 msgid "Deskbar Website"
 msgstr "Deskbar のウェブサイト"
 
-#: ../deskbar/handlers/epiphany.py:21 ../deskbar/handlers/mozilla.py:29
-#: ../deskbar/handlers/galeon.py:21
-#, fuzzy
-msgid "Web Bookmarks"
-msgstr "ブックマーク"
-
-#: ../deskbar/handlers/epiphany.py:22 ../deskbar/handlers/mozilla.py:30
-#: ../deskbar/handlers/galeon.py:22
-#, fuzzy
-msgid "Open your web bookmarks by name"
-msgstr "ファイル・マネージャのブックマークの名前を指定して開きます"
-
-#: ../deskbar/handlers/epiphany.py:26 ../deskbar/handlers/galeon.py:26
-#, fuzzy
-msgid "Web History"
-msgstr "履歴"
-
-#: ../deskbar/handlers/epiphany.py:27 ../deskbar/handlers/galeon.py:27
-#, fuzzy
-msgid "Open your web history by name"
-msgstr "ファイル・マネージャのブックマークの名前を指定して開きます"
-
-#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/mozilla.py:34
-#: ../deskbar/handlers/galeon.py:31
-#, fuzzy
-msgid "Web Searches"
-msgstr "ファイル検索"
-
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:35
-#: ../deskbar/handlers/galeon.py:32
-msgid "Search the web via your browser's search settings"
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/about.py:37
+msgid "translator-credits"
 msgstr ""
+"相花 毅 <aihana@gnome.gr.jp>\n"
+"日本GNOMEユーザー会 http://www.gnome.gr.jp"
 
-#: ../deskbar/handlers/files.py:16
-msgid "Files"
-msgstr "ファイル"
+#: ../deskbar/applet.py:312
+msgid "No History"
+msgstr "履歴なし"
 
-#: ../deskbar/handlers/files.py:17
-#, fuzzy
-msgid "Open files by name"
-msgstr "フォルダ名を入力しながら検索します"
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Beagle Live"
+msgstr "Beagle ライブ"
+
+#: ../deskbar/handlers/beagle-live.py:20
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Beagle で全てのドキュメントを入力しながら検索します"
+
+#: ../deskbar/handlers/beagle-live.py:47
+#, python-format
+msgid "Addressbook entry for %s"
+msgstr "%s さんのアドレス帳を開く"
+
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:56
+#, python-format
+msgid "View email from %s: %s"
+msgstr "%s さんからの E-メールを開く: %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/files.py:33 ../deskbar/handlers/beagle-live.py:62
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
 #, python-format
 msgid "Open %s"
 msgstr "%s を開く"
 
-#: ../deskbar/handlers/directories.py:16
-msgid "Folders"
-msgstr "フォルダ"
-
-#: ../deskbar/handlers/directories.py:17
-#, fuzzy
-msgid "Open folders by name"
-msgstr "フォルダ名を入力しながら検索します"
-
-#: ../deskbar/handlers/directories.py:31
+#: ../deskbar/handlers/beagle-live.py:69
 #, python-format
-msgid "Open folder %s"
-msgstr "フォルダ %s を開く"
+msgid "Open news item %s"
+msgstr "ニュース %s を開く"
 
-#: ../deskbar/handlers/galago.py:27 ../deskbar/handlers/email_address.py:26
+#: ../deskbar/handlers/beagle-live.py:76
+#, python-format
+msgid "Open note %s"
+msgstr "メモ %s を開く"
+
+#: ../deskbar/handlers/beagle-live.py:82
+#, python-format
+msgid "View conversation with %s"
+msgstr "%s さんとの会話履歴を開く"
+
+#: ../deskbar/handlers/beagle-live.py:88
+#, python-format
+msgid "View calendar %s"
+msgstr "カレンダ %s を開く"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:205
+#: ../deskbar/handlers/beagle-live.py:217
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle.py:19
+msgid "Beagle"
+msgstr "Beagle"
+
+#: ../deskbar/handlers/beagle.py:20
+msgid "Search all of your documents (using Beagle)"
+msgstr "Beagle で全てのドキュメントを検索します"
+
+#: ../deskbar/handlers/beagle.py:33
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "Beagle で %s を検索する"
+
+#: ../deskbar/handlers_browsers.py:30
+#, python-format
+msgid "Open History Item %s"
+msgstr "訪問履歴 %s を開く"
+
+#: ../deskbar/handlers_browsers.py:32
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "ブックマーク %s を開く"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/handlers_browsers.py:67
+#, python-format
+msgid "Search %s for %s"
+msgstr "%s (%s) を検索する"
+
+#: ../deskbar/handlers_browsers.py:172
+msgid "Shortcut"
+msgstr "ショートカット"
+
+#: ../deskbar/handlers_browsers.py:180
+msgid "Bookmark Name"
+msgstr "ブックマーク名"
+
+#: ../deskbar/handlers/email_address.py:9
+msgid "Mail"
+msgstr "メール"
+
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mail by typing a complete e-mail address"
+msgstr "E-メール・アドレスを入力してメールを送信します"
+
+#: ../deskbar/handlers/email_address.py:26 ../deskbar/handlers/galago.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "%s へ E-メールを送信する"
 
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:29
+msgid "Web Bookmarks"
+msgstr "ウェブ・ブックマーク"
+
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:30
+msgid "Open your web bookmarks by name"
+msgstr "名前を指定してウェブ・ブックマークを開きます"
+
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
+msgid "Web History"
+msgstr "ウェブの訪問履歴"
+
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
+msgid "Open your web history by name"
+msgstr "名前を指定してウェブの訪問履歴を開きます"
+
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:34
+msgid "Web Searches"
+msgstr "ウェブ検索"
+
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:35
+msgid "Search the web via your browser's search settings"
+msgstr "ブラウザの検索機能を使ってウェブから検索します"
+
+#: ../deskbar/handlers/evolution.py:11
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "お使いのメール・クライアントで自動補完の機能を有効にして下さい"
+
+#: ../deskbar/handlers/evolution.py:13
+msgid "Autocompletion Needs to be Enabled"
+msgstr "自動補完の機能を有効にして下さい"
+
+#: ../deskbar/handlers/evolution.py:14
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"お使いのメール・クライアントで自動補完の機能が有効でないとアドレス帳から E-"
+"メールのアドレスを取得できません。これを設定するには、お使いのメール・クライ"
+"アントから [編集] メニューの [設定] にある \"自動補完\" にあります。"
+
+#: ../deskbar/handlers/evolution.py:19
+msgid "Mail (Address Book)"
+msgstr "メール (アドレス帳)"
+
+#: ../deskbar/handlers/evolution.py:20
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr ""
+"名前や E-メール・アドレスを入力しながら連絡先を検索してメールを送信します"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:42
+#, python-format
+msgid "Send Email to %s (%s)"
+msgstr "%s (%s) さんに E-メールを送信する"
+
+#: ../deskbar/handlers/files.py:14
+msgid "Files and Folders"
+msgstr "ファイルとフォルダ"
+
+#: ../deskbar/handlers/files.py:15
+msgid "Open your files and folders by name"
+msgstr "名前を入力しながらファイルまたはフォルダを開きます"
+
+#: ../deskbar/handlers/files.py:47
+#, python-format
+msgid "Open folder %s"
+msgstr "フォルダ %s を開く"
+
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+"Google ライブを利用する場合は Google アカウントが必要です。アカウントを取得す"
+"る時は http://api.google.com/ をご覧下さい。\n"
+"\n"
+"Google アカウントを登録すると、Google API キーがメールに送付されてきます。こ"
+"のキーを ~/.gnome2/deskbar-applet/Google.key というファイルに保存して下さ"
+"い。\n"
+"\n"
+"もしアカウント登録の確認メールの中に  API キーが添付されていない (あるいは紛"
+"失してしまった) 場合は、http://www.google.com/accounts でログインして下さい。"
+"そして http://api.google.com に移動し、\"Create Account\" ボタンをクリックし"
+"て E-メール・アドレスとパスワードを入力します。すると、API キーが再発行されま"
+"す。\n"
+"\n"
+"次に開発者向け API をダウンロードし GoogleSearch.wsdl ファイルを展開します。"
+"このファイルのコピーを ~/.gnome2/deskbar-applet/GoogleSearch.wsdl というファ"
+"イルに保存して下さい。"
+
+#: ../deskbar/handlers/google-live.py:32
+msgid "Setting Up Google Live"
+msgstr "Google ライブの設定"
+
+#: ../deskbar/handlers/google-live.py:38
+msgid "You need to install the SOAPpy python module."
+msgstr "python モジュール \"SOAPpy\" をインストールして下さい。"
+
+#: ../deskbar/handlers/google-live.py:40
+msgid "You need the Google WSDL file."
+msgstr "Google WSDl ファイルが必要です。"
+
+#: ../deskbar/handlers/google-live.py:42
+msgid "You need a Google API key."
+msgstr "Google API キーが必要です。"
+
+#: ../deskbar/handlers/google-live.py:48
+msgid "Google Live"
+msgstr "Google ライブ"
+
+#: ../deskbar/handlers/google-live.py:49
+msgid "Search Google as you type"
+msgstr "入力しながら Google から検索します"
+
 #: ../deskbar/handlers/gtkbookmarks.py:12
-#, fuzzy
-msgid "Folder Bookmarks"
-msgstr "ブックマーク"
+msgid "Files and Folders Bookmarks"
+msgstr "ファイルとフォルダのブックマーク"
 
 #: ../deskbar/handlers/gtkbookmarks.py:13
-#, fuzzy
-msgid "Open your folder bookmarks by name"
-msgstr "ファイル・マネージャのブックマークの名前を指定して開きます"
+msgid "Open your files and folders bookmarks by name"
+msgstr "名前を入力しながらファイルまたはフォルダを開きます"
 
 #: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
 #, python-format
 msgid "Open location %s"
 msgstr "場所 %s を開く"
 
+#: ../deskbar/handlers/pathprograms.py:13
+msgid "Programs (Advanced)"
+msgstr "プログラム (上級向け)"
+
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Launch any program present in your $PATH"
+msgstr "環境変数 $PATH からプログラムを検索して起動します"
+
+#: ../deskbar/handlers/pathprograms.py:30
+#, python-format
+msgid "Execute %s"
+msgstr "%s を起動する"
+
 #: ../deskbar/handlers/programs.py:14
-#, fuzzy
 msgid "Programs"
-msgstr "デスクトップ・アプリケーション"
+msgstr "プログラム"
 
 #: ../deskbar/handlers/programs.py:15
-#, fuzzy
 msgid "Launch a program by its name and/or description"
-msgstr "アプリの名前とその概要を検索します"
+msgstr "アプリの名前または説明を入力してプログラムを起動します"
 
 #: ../deskbar/handlers/programs.py:18
-#, fuzzy
 msgid "Dictionary"
-msgstr "辞書の検索"
+msgstr "辞書"
 
 #: ../deskbar/handlers/programs.py:19
-#, fuzzy
 msgid "Look up word definitions in the dictionary"
 msgstr "単語を入力して辞書から検索します"
 
 #: ../deskbar/handlers/programs.py:22
-#, fuzzy
 msgid "Files and Folders Search"
-msgstr "ファイル検索"
+msgstr "ファイルとフォルダの検索"
 
 #: ../deskbar/handlers/programs.py:23
 msgid "Find files and folders by searching for a name pattern"
-msgstr ""
+msgstr "名前のパターンを入力してファイルとフォルダを検索します"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
@@ -199,51 +420,14 @@ msgstr "辞書から %s を検索する"
 msgid "Search for file names like %s"
 msgstr "%s と似た名前のファイルを検索する"
 
-#: ../deskbar/handlers/pathprograms.py:13
-msgid "Programs (Advanced)"
-msgstr ""
-
-#: ../deskbar/handlers/pathprograms.py:14
-#, fuzzy
-msgid "Launch any program present in your $PATH"
-msgstr "環境変数 $PATH からプログラムを検索して起動します"
-
-#: ../deskbar/handlers/pathprograms.py:30
-#, python-format
-msgid "Execute %s"
-msgstr "%s を起動する"
-
-#: ../deskbar/handlers/beagle.py:19
-msgid "Beagle"
-msgstr "Beagle"
-
-#: ../deskbar/handlers/beagle.py:20
-#, fuzzy
-msgid "Search all of your documents (using Beagle)"
-msgstr "Beagle で %s を検索する"
-
-#: ../deskbar/handlers/beagle.py:33
-#, python-format
-msgid "Search for %s using Beagle"
-msgstr "Beagle で %s を検索する"
-
-#: ../deskbar/handlers/email_address.py:9
-msgid "Mail"
-msgstr ""
-
-#: ../deskbar/handlers/email_address.py:10
-#, fuzzy
-msgid "Send mail by typing a complete e-mail address"
-msgstr "E-メール・アドレスを入力してメールを送信します"
-
 #: ../deskbar/handlers/volumes.py:16
-#, fuzzy
 msgid "Disks and Network Places"
 msgstr "ディスクとネットワークの場所"
 
 #: ../deskbar/handlers/volumes.py:17
 msgid "Open disk drives, shared network places and similar resources by name"
 msgstr ""
+"名前を指定してディスク・ドライブや共有ネットワークなどのリソースを開きます"
 
 #: ../deskbar/handlers/volumes.py:41
 #, python-format
@@ -257,12 +441,11 @@ msgstr "ローカル・ディスク上の場所 %s を開く"
 
 #: ../deskbar/handlers/web_address.py:9
 msgid "Web"
-msgstr ""
+msgstr "ウェブ"
 
 #: ../deskbar/handlers/web_address.py:10
-#, fuzzy
 msgid "Open web pages by typing a complete web address"
-msgstr "URL を入力しながらウェブページを開きます"
+msgstr "URL を入力しながらウェブ・ページを開きます"
 
 #: ../deskbar/handlers/web_address.py:35
 #, python-format
@@ -274,152 +457,6 @@ msgstr "ウェブ・ページ %s を開く"
 msgid "Open the location %s"
 msgstr "場所 %s を開く"
 
-#: ../deskbar/handlers_browsers.py:30
-#, python-format
-msgid "Open History Item %s"
-msgstr "訪問履歴 %s を開く"
-
-#: ../deskbar/handlers_browsers.py:32
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "ブックマーク %s を開く"
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:54
-#, python-format
-msgid "Search %s for %s"
-msgstr "%s (%s) を検索する"
-
-#: ../deskbar/handlers/evolution.py:8
-#, fuzzy
-msgid "Mail (Address Book)"
-msgstr "アドレス帳"
-
-#: ../deskbar/handlers/evolution.py:9
-#, fuzzy
-msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-"名前や E-メール・アドレスを入力しながら連絡先を検索し E-メールを送信します"
-
-#. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:32
-#, python-format
-msgid "Send Email to %s (%s)"
-msgstr "%s (%s) さんに E-メールを送信する"
-
-#: ../deskbar/handlers/google-live.py:45
-msgid "Google Live"
-msgstr ""
-
-#: ../deskbar/handlers/google-live.py:46
-msgid "Search Google as you type"
-msgstr ""
-
-#: ../deskbar/applet.py:302
-msgid "No History"
-msgstr "履歴なし"
-
-#: ../deskbar/handlers/beagle-live.py:18
-#, fuzzy
-msgid "Beagle Live"
-msgstr "Beagle"
-
-#: ../deskbar/handlers/beagle-live.py:19
-#, fuzzy
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Beagle で %s を検索する"
-
-#: ../deskbar/handlers/beagle-live.py:46
-#, python-format
-msgid "Addressbook entry for %s"
-msgstr "%s さんのアドレス帳を開く"
-
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:55
-#, python-format
-msgid "View email from %s: %s"
-msgstr "%s さんからの E-メールを開く: %s"
-
-#: ../deskbar/handlers/beagle-live.py:68
-#, python-format
-msgid "Open news item %s"
-msgstr "ニュース %s を開く"
-
-#: ../deskbar/handlers/beagle-live.py:75
-#, python-format
-msgid "Open note %s"
-msgstr "メモ %s を開く"
-
-#: ../deskbar/handlers/beagle-live.py:81
-#, python-format
-msgid "View conversation with %s"
-msgstr "%s さんとの会話履歴を開く"
-
-#: ../deskbar/handlers/beagle-live.py:87
-#, python-format
-msgid "View calendar %s"
-msgstr "カレンダ %s を開く"
-
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:204
-msgid "?"
-msgstr "?"
-
-#~ msgid "Index your bookmarks"
-#~ msgstr "ブックマークの内容を検索します"
-
-#~ msgid "Index your search history"
-#~ msgstr "検索履歴のインデックスを生成します"
-
-#~ msgid "Smart Bookmarks"
-#~ msgstr "スマート・ブックマーク"
-
-#~ msgid "Index your smart bookmarks"
-#~ msgstr "スマート・ブックマークのインデックスを生成します"
-
-#~ msgid "Open files by typing their names."
-#~ msgstr "ファイル名を入力しながら検索します"
-
-#~ msgid "File Manager bookmarks"
-#~ msgstr "ファイル・マネージャのブックマーク"
-
-#~ msgid "Search Engines"
-#~ msgstr "検索エンジン"
-
-#~ msgid "Index your search engines"
-#~ msgstr "お使いの検索エンジンをインデックス化します"
-
-#~ msgid "Type a filename pattern and find matching files on your disk."
-#~ msgstr "ファイル名のパターンを入力してそれに一致するファイルを検索します"
-
-#~ msgid "Command line programs"
-#~ msgstr "コマンド・ライン"
-
-#~ msgid "Use Beagle to search for documents"
-#~ msgstr "Beagle を使ってドキュメントを検索します"
-
-#~ msgid "Email Addresses"
-#~ msgstr "E-メール・アドレス"
-
-#~ msgid "Index your history"
-#~ msgstr "ウェブ・ブラウザの訪問履歴をインデックス化します"
-
-#~ msgid "Open drives and volumes by their name"
-#~ msgstr "デバイス名を入力しながらボリュームを開きます"
-
-#~ msgid "Web Addresses"
-#~ msgstr "ウェブ・アドレス"
-
-#~ msgid "Live Google search"
-#~ msgstr "Live Google 検索"
-
-#~ msgid ""
-#~ "Search the words you type with Google and display the results in the list."
-#~ msgstr "入力した単語を Google で検索してその結果を一覧で表示します"
-
-#~ msgid "Live Beagle Queries"
-#~ msgstr "Live Beagle 検索"
-
-#~ msgid "Query Beagle automatically as you type."
-#~ msgstr "入力した内容を自動的に Beagle で検索します"
+#: ../deskbar/preferences.py:53
+msgid "_More..."
+msgstr "詳細(_M)..."
