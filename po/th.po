@@ -2,15 +2,14 @@
 # Copyright (C) 2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the deskbar-applet package.
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005.
-# , fuzzy
 # 
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-05 00:05+0700\n"
-"PO-Revision-Date: 2005-12-05 00:15+0700\n"
+"POT-Creation-Date: 2005-12-11 21:02+0700\n"
+"PO-Revision-Date: 2005-12-11 21:06+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +20,7 @@ msgstr ""
 msgid "An all-in-one action bar"
 msgstr "แถบปฏิบัติการอเนกประสงค์"
 
-#: data/Deskbar_Applet.server.in.in.h:2 deskbar/about.py:22
+#: data/Deskbar_Applet.server.in.in.h:2 deskbar/about.py:23
 msgid "Deskbar"
 msgstr "เดสก์บาร์"
 
@@ -77,8 +76,8 @@ msgid ""
 "you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
 "the deskbar.</small></i>"
 msgstr ""
-"<i><small><b>หมายเหตุ: </b>ถ้าคีย์ลัดเป็นตัวอักษรเดียว (เช่น <b>t</b>) "
-"คุณสามารถป้อน \"<b>อะไรบางอย่าง</b>\" แล้วกด <b>Ctrl-t</b> ในเดสก์บาร์ได้เลย</small></i>"
+"<i><small><b>หมายเหตุ: </b>ถ้าคีย์ลัดเป็นตัวอักษรเดียว (เช่น <b>t</b>) คุณสามารถป้อน "
+"\"<b>อะไรบางอย่าง</b>\" แล้วกด <b>Ctrl-t</b> ในเดสก์บาร์ได้เลย</small></i>"
 
 #: data/smart-bookmarks.glade.h:2
 msgid ""
@@ -86,20 +85,27 @@ msgid ""
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
 msgstr ""
-"<i><small><b>หมายเหตุ:</b> การใช้ทางลัด (เช่น <b>wp</b>) เพื่อค้นหา "
-"<b>something</b> ทำได้โดยป้อน \"<b>wp something</b>\" ในเดสก์บาร์</small></i>"
+"<i><small><b>หมายเหตุ:</b> การใช้ทางลัด (เช่น <b>wp</b>) เพื่อค้นหา <b>something</"
+"b> ทำได้โดยป้อน \"<b>wp something</b>\" ในเดสก์บาร์</small></i>"
 
 #: data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "ทางลัดสำหรับการค้นหาที่คั่นหน้าไว้"
 
-#: deskbar/about.py:25
+#: deskbar/about.py:26
 msgid "An all-in-one action bar."
 msgstr "แถบปฏิบัติการอเนกประสงค์"
 
-#: deskbar/about.py:28
+#: deskbar/about.py:29
 msgid "Deskbar Website"
 msgstr "เว็บไซต์ของเดสก์บาร์"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: deskbar/about.py:37
+msgid "translator-credits"
+msgstr "เทพพิทักษ์ การุญบุญญานันท์ <thep@linux.thai.net>"
 
 #: deskbar/applet.py:312
 msgid "No History"
@@ -153,6 +159,7 @@ msgstr "ดูปฏิทิน %s"
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
 #: deskbar/handlers/beagle-live.py:205
+#: deskbar/handlers/beagle-live.py:217
 msgid "?"
 msgstr "?"
 
@@ -234,33 +241,33 @@ msgstr "การค้นเว็บ"
 msgid "Search the web via your browser's search settings"
 msgstr "ค้นเว็บตามค่าตั้งในเว็บเบราว์เซอร์ของคุณ"
 
-#: deskbar/handlers/evolution.py:12
+#: deskbar/handlers/evolution.py:11
 msgid "You need to enable autocomplete in your mail preferences"
 msgstr "คุณจำเป็นต้องเปิดใช้การเติมเต็มคำอัตโนมัติในค่าตั้งเมลของคุณ"
 
-#: deskbar/handlers/evolution.py:14
+#: deskbar/handlers/evolution.py:13
 msgid "Autocompletion Needs to be Enabled"
 msgstr "ต้องเปิดใช้การเติมเต็มคำอัตโนมัติ"
 
-#: deskbar/handlers/evolution.py:15
+#: deskbar/handlers/evolution.py:14
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit â Preferences â Autocompletion."
+"choose Edit - Preferences, and then Autocompletion."
 msgstr ""
-"เราไม่สามารถหาที่อยู่อีเมลจากสมุดที่อยู่ของคุณได้ ถ้าไม่เปิดใช้การเติมเต็มคำอัตโนมัติ "
-"คุณสามารถเปิดได้โดยเปิดโปรแกรมเมลของคุณ ไปที่ แก้ไข → ปรับแต่ง → การเติมเต็มคำอัตโนมัติ"
+"ไม่สามารถหาที่อยู่อีเมลจากสมุดที่อยู่ของคุณได้ ถ้าไม่เปิดใช้การเติมเต็มคำอัตโนมัติ "
+"คุณสามารถเปิดได้โดยเปิดโปรแกรมเมลของคุณ ไปที่ แก้ไข - ปรับแต่ง - การเติมเต็มคำอัตโนมัติ"
 
-#: deskbar/handlers/evolution.py:20
+#: deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
 msgstr "เมล (สมุดที่อยู่)"
 
-#: deskbar/handlers/evolution.py:21
+#: deskbar/handlers/evolution.py:20
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "ส่งเมลไปยังผู้ที่ติดต่อกับคุณโดยป้อนชื่อหรือที่อยู่อีเมล"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: deskbar/handlers/evolution.py:43
+#: deskbar/handlers/evolution.py:42
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "ส่งเมลไปยัง %s (%s)"
