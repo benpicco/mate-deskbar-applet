@@ -300,13 +300,11 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			handler_priority = handler.get_priority()
 			if override_priority:
 				handler_priority = 100000
-				
-			if hsh != None and not hsh in self._completion_model._hashes:
+
+			if (hsh != None and not hsh in self._completion_model._hashes) or hsh == None or async:
 				self._completion_model._hashes[hsh] = True
 				self._completion_model.append([handler_priority, match.get_priority(), match.get_verb() % verbs, icon, match])
-			elif hsh == None or async:
-				self._completion_model.append([handler_priority, match.get_priority(), match.get_verb() % verbs, icon, match])
-		
+					
 		#Set the entry icon accoring to the first match in the completion list
 		self._update_icon(iter=self._completion_model.get_iter_first())
 	
