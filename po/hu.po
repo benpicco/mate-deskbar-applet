@@ -1,61 +1,29 @@
 # Hungarian translation of deskbar-applet.
 # This file is distributed under the same license as the deskbar-applet package.
 # Copyright (C) 2005, Free Software Foundation, Inc.
-# Gabor Kelemen <kelemeng@gnome.hu>, 2005.
 #
+# Gabor Kelemen <kelemeng@gnome.hu>, 2005.
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-22 05:37+0100\n"
-"PO-Revision-Date: 2005-11-22 13:31+0100\n"
+"POT-Creation-Date: 2005-12-13 05:25+0100\n"
+"PO-Revision-Date: 2005-12-11 23:15+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.10.2\n"
+"X-Generator: KBabel 1.11.1\n"
 "Plural-Forms:  nplurals=1; plural=0;\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one search bar"
-msgstr "Egy minden egyben keresősáv"
+msgid "An all-in-one action bar"
+msgstr "Egy \"minden egyben\" műveletsáv"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:26
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:23
 msgid "Deskbar"
 msgstr "Deskbar"
-
-#: ../data/prefs-dialog.glade.h:1
-msgid "<b>Active Handlers</b>"
-msgstr "<b>Aktív kezelők</b>"
-
-#: ../data/prefs-dialog.glade.h:2
-msgid "<b>Applet Width</b>"
-msgstr "<b>Kisalkalmazás szélessége</b>"
-
-#: ../data/prefs-dialog.glade.h:3
-msgid ""
-"<i><small><b>Note:</b> Drag and drop a handler to change its priority.</"
-"small></i>"
-msgstr ""
-"<i><small><b>Megjegyzés:</b> Fogd és ejtsd módszerrel megváltoztathatja a "
-"kezelők prioritását.</small></i>"
-
-#: ../data/prefs-dialog.glade.h:4
-msgid "Deskbar Preferences"
-msgstr "Deskbar tulajdonságai"
-
-#: ../data/prefs-dialog.glade.h:5
-msgid "Use _all available space"
-msgstr "A teljes _rendelkezésre álló terület használata"
-
-#: ../data/prefs-dialog.glade.h:6
-msgid "_Width:"
-msgstr "_Szélesség:"
-
-#: ../data/prefs-dialog.glade.h:7
-msgid "characters"
-msgstr "karakter"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -65,41 +33,251 @@ msgstr "_Névjegy"
 msgid "_Preferences"
 msgstr "_Beállítások"
 
-#: ../deskbar/about.py:29
-msgid "An all-in-one search bar."
-msgstr "Egy minden egyben keresősáv."
+#: ../data/prefs-dialog.glade.h:1
+msgid "<b>Keyboard Shortcut</b>"
+msgstr "<b>Billentyűzet-parancsikon</b>"
 
-#: ../deskbar/about.py:32
+#: ../data/prefs-dialog.glade.h:2
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Betöltött kiterjesztések</b>"
+
+#: ../data/prefs-dialog.glade.h:3
+msgid "<b>Width</b>"
+msgstr "<b>Szélesség</b>"
+
+#: ../data/prefs-dialog.glade.h:4
+msgid ""
+"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
+"small></i>"
+msgstr ""
+"<i><small><b>Megjegyzés:</b> Fogd és ejtsd módszerrel megváltoztathatja a "
+"kiterjesztések prioritását.</small></i>"
+
+#: ../data/prefs-dialog.glade.h:5
+msgid "Deskbar Preferences"
+msgstr "Deskbar tulajdonságai"
+
+#: ../data/prefs-dialog.glade.h:6
+msgid "Fixed _width:"
+msgstr "_Rögzített szélesség:"
+
+#: ../data/prefs-dialog.glade.h:7
+msgid "Use _all available space"
+msgstr "A teljes _rendelkezésre álló terület használata"
+
+#: ../data/prefs-dialog.glade.h:8
+msgid "Use the _keyboard shortcut:"
+msgstr "A következő gy_orsbillentyű használata:"
+
+#: ../data/prefs-dialog.glade.h:9
+msgid "characters"
+msgstr "karakter"
+
+#: ../data/smart-bookmarks.glade.h:1
+msgid ""
+"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
+"you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
+"the deskbar.</small></i>"
+msgstr ""
+
+#: ../data/smart-bookmarks.glade.h:2
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>Megjegyzés:</b> Gyorsbillentyű (például </b>wp<b>) "
+"használatához a </b>valami</b> kereséséhez írja be a \"<b>wp valami</b>\" "
+"karaktersorozatot a deskbarba.</small></i>"
+
+#: ../data/smart-bookmarks.glade.h:3
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "Könyvjelzős keresések parancsikonjai"
+
+#: ../deskbar/about.py:26
+msgid "An all-in-one action bar."
+msgstr "Egy \"minden egyben\" műveletsáv."
+
+#: ../deskbar/about.py:29
 msgid "Deskbar Website"
 msgstr "A Deskbar webhelye"
 
-#: ../deskbar/handlers/epiphany.py:21 ../deskbar/handlers/mozilla.py:29
-#: ../deskbar/handlers/galeon.py:21
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/about.py:37
+msgid "translator-credits"
+msgstr ""
+
+#: ../deskbar/applet.py:312
+msgid "No History"
+msgstr "Előzmények nélkül"
+
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Beagle Live"
+msgstr "Beagle Live"
+
+#: ../deskbar/handlers/beagle-live.py:20
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr ""
+"Keresés az összes dokumentumban (a Beagle használatával), gépelés közben"
+
+#: ../deskbar/handlers/beagle-live.py:47
+#, python-format
+msgid "Addressbook entry for %s"
+msgstr "Címjegyzékbejegyzés a következőhöz: %s"
+
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:56
+#, python-format
+msgid "View email from %s: %s"
+msgstr "E-mail megtekintése a következőtől: %s: %s"
+
+#. translators: This is a file.
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
+#, python-format
+msgid "Open %s"
+msgstr "%s megnyitása"
+
+#: ../deskbar/handlers/beagle-live.py:69
+#, python-format
+msgid "Open news item %s"
+msgstr "%s hírelem megnyitása"
+
+#: ../deskbar/handlers/beagle-live.py:76
+#, python-format
+msgid "Open note %s"
+msgstr "%s jegyzet megnyitása"
+
+#: ../deskbar/handlers/beagle-live.py:82
+#, python-format
+msgid "View conversation with %s"
+msgstr "Beszélgetések megtekintése a következővel: %s"
+
+#: ../deskbar/handlers/beagle-live.py:88
+#, python-format
+msgid "View calendar %s"
+msgstr "%s naptár megtekintése"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:205
+#: ../deskbar/handlers/beagle-live.py:217
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle.py:19
+msgid "Beagle"
+msgstr "Beagle"
+
+#: ../deskbar/handlers/beagle.py:20
+msgid "Search all of your documents (using Beagle)"
+msgstr "Keresés az összes dokumentumban (a Beagle használatával)"
+
+#: ../deskbar/handlers/beagle.py:33
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "%s keresése a Beagle használatával"
+
+#: ../deskbar/handlers_browsers.py:30
+#, python-format
+msgid "Open History Item %s"
+msgstr "%s előzményelem megnyitása"
+
+#: ../deskbar/handlers_browsers.py:32
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "%s könyvjelző megnyitása"
+
+# sorrendet megcserélni
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/handlers_browsers.py:67
+#, python-format
+msgid "Search %s for %s"
+msgstr "%s keresés a következőre: %s"
+
+#: ../deskbar/handlers_browsers.py:172
+msgid "Shortcut"
+msgstr "Gyorsbillentyű"
+
+#: ../deskbar/handlers_browsers.py:180
+msgid "Bookmark Name"
+msgstr "Könyvjelzőnév"
+
+#: ../deskbar/handlers/email_address.py:9
+msgid "Mail"
+msgstr "Levél"
+
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mail by typing a complete e-mail address"
+msgstr "Levél küldése egy teljes e-mail cím begépelésével"
+
+#: ../deskbar/handlers/email_address.py:26 ../deskbar/handlers/galago.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "E-mail küldése a következőnek: %s"
+
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:29
 msgid "Web Bookmarks"
 msgstr "Webkönyvjelzők"
 
-#: ../deskbar/handlers/epiphany.py:22 ../deskbar/handlers/mozilla.py:30
-#: ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:30
 msgid "Open your web bookmarks by name"
 msgstr "Webkönyvjelzők megnyitása név alapján"
 
-#: ../deskbar/handlers/epiphany.py:26 ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
 msgid "Web History"
 msgstr "Webes előzmények"
 
-#: ../deskbar/handlers/epiphany.py:27 ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
 msgid "Open your web history by name"
 msgstr "A webes előzmények megnyitása név alapján"
 
-#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/mozilla.py:34
-#: ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:34
 msgid "Web Searches"
 msgstr "Webkeresések"
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:35
-#: ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:35
 msgid "Search the web via your browser's search settings"
 msgstr "Keresés a weben a böngésző keresési beállításainak használatával"
+
+#: ../deskbar/handlers/evolution.py:11
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "Engedélyeznie kell az automatikus kiegészítést a levélbeállításoknál"
+
+#: ../deskbar/handlers/evolution.py:13
+msgid "Autocompletion Needs to be Enabled"
+msgstr "Az automatikus kiegészítést engedélyezni kell"
+
+#: ../deskbar/handlers/evolution.py:14
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"A címjegyzékében található e-mail címeket addig nem biztosíthatjuk, amíg az "
+"automatikus kiegészítés nincs engedélyezve. Ehhez válassza a levelezőprogram "
+"menüjének Szerkesztés -> Tulajdonságok -> Automatikus kiegészítés pontját."
+
+#: ../deskbar/handlers/evolution.py:19
+msgid "Mail (Address Book)"
+msgstr "Levél (Címjegyzék)"
+
+#: ../deskbar/handlers/evolution.py:20
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr ""
+"Levél küldése névjegyek közt szereplő személynek a név vagy e-mail cím "
+"begépelésével"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:42
+#, python-format
+msgid "Send Email to %s (%s)"
+msgstr "Levél küldése a következőnek: %s (%s)"
 
 #: ../deskbar/handlers/files.py:14
 msgid "Files and Folders"
@@ -109,21 +287,72 @@ msgstr "Fájlok és mappák"
 msgid "Open your files and folders by name"
 msgstr "Fájlok és mappák megnyitása név alapján"
 
-#. translators: This is a file.
-#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:62
-#, python-format
-msgid "Open %s"
-msgstr "%s megnyitása"
-
 #: ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open folder %s"
 msgstr "%s mappa megnyitása"
 
-#: ../deskbar/handlers/galago.py:27 ../deskbar/handlers/email_address.py:26
-#, python-format
-msgid "Send Email to %s"
-msgstr "E-mail küldése a következőnek: %s"
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+"A Google Live használatához szüksége van egy Google fiókra. Ezt a http://api."
+"google.com/ címen szerezheti be.\n"
+"\n"
+"A fiók létrehozásakor levélben kap egy Google API kulcsot.Helyezze el ezt a "
+"kulcsot a \n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"fájlban.\n"
+"Ha nem kapott API kulcsot (vagy elvesztette azt) a fiókellenőrzési e-"
+"mailben, akkor jelentkezzn be a www.google.com/accounts oldalon. Keresse fel "
+"az api.google.com, oldalt, kattintson a \"Create Account\" gombra és adja "
+"meg az e-mail címét és jelszavát. Az API kulcsa újra el lesz küldve. \n"
+"\n"
+"Most töltse le a fejlesztői csomagot és bontsa ki belőle a GoogleSearch.wsdl "
+"fájlt. Másolja a fájlt a következő helyre:\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#: ../deskbar/handlers/google-live.py:32
+msgid "Setting Up Google Live"
+msgstr "Google Live beállítása"
+
+#: ../deskbar/handlers/google-live.py:38
+msgid "You need to install the SOAPpy python module."
+msgstr "Telepítenie kell a SOAPpy python modult."
+
+#: ../deskbar/handlers/google-live.py:40
+msgid "You need the Google WSDL file."
+msgstr "Szükség van a Google WSDL fájlra."
+
+#: ../deskbar/handlers/google-live.py:42
+msgid "You need a Google API key."
+msgstr "Szükség van egy Google API kulcsra."
+
+#: ../deskbar/handlers/google-live.py:48
+msgid "Google Live"
+msgstr "Google Live"
+
+#: ../deskbar/handlers/google-live.py:49
+msgid "Search Google as you type"
+msgstr "Keresés a Google használatával gépelés közben"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
 msgid "Files and Folders Bookmarks"
@@ -137,6 +366,19 @@ msgstr "Fájl- és mappakönyvjelzők megnyitása név alapján"
 #, python-format
 msgid "Open location %s"
 msgstr "%s hely megnyitása"
+
+#: ../deskbar/handlers/pathprograms.py:13
+msgid "Programs (Advanced)"
+msgstr "Programok (haladó)"
+
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Launch any program present in your $PATH"
+msgstr "A $PATH változó alapján megtalálható program indítása"
+
+#: ../deskbar/handlers/pathprograms.py:30
+#, python-format
+msgid "Execute %s"
+msgstr "%s indítása"
 
 #: ../deskbar/handlers/programs.py:14
 msgid "Programs"
@@ -179,40 +421,6 @@ msgstr "%s keresése a szótárban"
 msgid "Search for file names like %s"
 msgstr "A következőhöz hasonló fájlnevek keresése: %s"
 
-#: ../deskbar/handlers/pathprograms.py:13
-msgid "Programs (Advanced)"
-msgstr "Programok (haladó)"
-
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Launch any program present in your $PATH"
-msgstr "A $PATH változó alapján megtalálható program indítása"
-
-#: ../deskbar/handlers/pathprograms.py:30
-#, python-format
-msgid "Execute %s"
-msgstr "%s indítása"
-
-#: ../deskbar/handlers/beagle.py:19
-msgid "Beagle"
-msgstr "Beagle"
-
-#: ../deskbar/handlers/beagle.py:20
-msgid "Search all of your documents (using Beagle)"
-msgstr "Keresés az összes dokumentumban (a Beagle használatával)"
-
-#: ../deskbar/handlers/beagle.py:33
-#, python-format
-msgid "Search for %s using Beagle"
-msgstr "%s keresése a Beagle használatával"
-
-#: ../deskbar/handlers/email_address.py:9
-msgid "Mail"
-msgstr "Levél"
-
-#: ../deskbar/handlers/email_address.py:10
-msgid "Send mail by typing a complete e-mail address"
-msgstr "Levél küldése egy teljes e-mail cím begépelésével"
-
 #: ../deskbar/handlers/volumes.py:16
 msgid "Disks and Network Places"
 msgstr "Lemezek és hálózati helyek"
@@ -251,155 +459,6 @@ msgstr "%s weboldal megnyitása"
 msgid "Open the location %s"
 msgstr "%s hely megnyitása"
 
-#: ../deskbar/handlers_browsers.py:30
-#, python-format
-msgid "Open History Item %s"
-msgstr "%s előzményelem megnyitása"
-
-#: ../deskbar/handlers_browsers.py:32
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "%s könyvjelző megnyitása"
-
-# sorrendet megcserélni
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:54
-#, python-format
-msgid "Search %s for %s"
-msgstr "%s keresés a következőre: %s"
-
-#: ../deskbar/handlers/evolution.py:11
-msgid "Autocompletion Needs to be Enabled"
-msgstr "Az automatikus kiegészítést engedélyezni kell"
-
-#: ../deskbar/handlers/evolution.py:12
-msgid ""
-"We cannot provide e-mail addresses from your address book unless "
-"autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit â Preferences â Autocompletion."
-msgstr ""
-"A címjegyzékében található e-mail címeket addig nem biztosíthatjuk, amíg "
-"az automatikus kiegészítés nincs engedélyezve. Ehhez válassza a levelezőprogram "
-"menüjének Szerkesztés -> Tulajdonságok -> Automatikus kiegészítés pontját."
-
-#: ../deskbar/handlers/evolution.py:21
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr "Engedélyeznie kell az automatikus kiegészítést a levélbeállításoknál"
-
-#: ../deskbar/handlers/evolution.py:25
-msgid "Mail (Address Book)"
-msgstr "Levél (Címjegyzék)"
-
-#: ../deskbar/handlers/evolution.py:26
-msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-"Levél küldése névjegyek közt szereplő személynek a név vagy e-mail cím "
-"begépelésével"
-
-#. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:50
-#, python-format
-msgid "Send Email to %s (%s)"
-msgstr "Levél küldése a következőnek: %s (%s)"
-
-#: ../deskbar/handlers/google-live.py:19
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should recieve a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"A Google Live használatához szüksége van egy Google fiókra. Ezt a http://api."
-"google.com/ címen szerezheti be.\n"
-"\n"
-"A fiók létrehozásakor levélben kap egy Google API kulcsot."
-"Helyezze el ezt a kulcsot a \n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"fájlban.\n"
-"Ha nem kapott API kulcsot (vagy elvesztette azt) a fiókellenőrzési e-mailben, akkor "
-"jelentkezzn be a www.google.com/accounts oldalon. Keresse fel az api."
-"google.com, oldalt, kattintson a \"Create Account\" gombra és adja meg az e-mail címét és jelszavát. Az API kulcsa újra el lesz küldve. \n"
-"\n"
-"Most töltse le a fejlesztői csomagot és bontsa ki belőle a GoogleSearch.wsdl fájlt. Másolja a fájlt a következő helyre:\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:36
-msgid "Setting Up Google Live"
-msgstr "Google Live beállítása"
-
-#: ../deskbar/handlers/google-live.py:56
-msgid "Google Live"
-msgstr "Google Live"
-
-#: ../deskbar/handlers/google-live.py:57
-msgid "Search Google as you type"
-msgstr "Keresés a Google használatával gépelés közben"
-
-#: ../deskbar/applet.py:303
-msgid "No History"
-msgstr "Előzmények nélkül"
-
-#: ../deskbar/handlers/beagle-live.py:18
-msgid "Beagle Live"
-msgstr "Beagle Live"
-
-#: ../deskbar/handlers/beagle-live.py:19
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Keresés az összes dokumentumban (a Beagle használatával), gépelés közben"
-
-#: ../deskbar/handlers/beagle-live.py:46
-#, python-format
-msgid "Addressbook entry for %s"
-msgstr "Címjegyzékbejegyzés a következőhöz: %s"
-
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:55
-#, python-format
-msgid "View email from %s: %s"
-msgstr "E-mail megtekintése a következőtől: %s: %s"
-
-#: ../deskbar/handlers/beagle-live.py:68
-#, python-format
-msgid "Open news item %s"
-msgstr "%s hírelem megnyitása"
-
-#: ../deskbar/handlers/beagle-live.py:75
-#, python-format
-msgid "Open note %s"
-msgstr "%s jegyzet megnyitása"
-
-#: ../deskbar/handlers/beagle-live.py:81
-#, python-format
-msgid "View conversation with %s"
-msgstr "Beszélgetések megtekintése a következővel: %s"
-
-#: ../deskbar/handlers/beagle-live.py:87
-#, python-format
-msgid "View calendar %s"
-msgstr "%s naptár megtekintése"
-
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:204
-msgid "?"
-msgstr "?"
-
-#: ../deskbar/preferences.py:52
+#: ../deskbar/preferences.py:53
 msgid "_More..."
 msgstr "_Több..."
-
