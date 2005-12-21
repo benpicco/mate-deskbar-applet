@@ -39,7 +39,7 @@ class EvolutionMatch(deskbar.handler.Match):
 		
 	def get_verb(self):
 		#translators: First %s is the contact full name, second %s is the email address
-		return _("Send Email to %s (%s)") % ("<b>%(name)s</b>", "%(email)s")
+		return _("Send Email to <b>%(name)s</b> (%(email)s)")
 	
 	def get_hash(self, text=None):
 		return self._email

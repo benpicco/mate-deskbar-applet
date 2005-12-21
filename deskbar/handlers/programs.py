@@ -63,7 +63,7 @@ class GenericProgramMatch(deskbar.handler.Match):
 	def get_verb(self):
 		#translators: First %s is the programs full name, second is the executable name
 		#translators: For example: Launch Text Editor (gedit)
-		return _("Launch %s (%s)") % ("<b>%(name)s</b>", "%(prog)s")
+		return _("Launch <b>%(name)s</b> (%(prog)s)")
 		
 	def get_name(self, text=None):
 		return {

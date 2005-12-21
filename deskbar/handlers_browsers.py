@@ -64,7 +64,7 @@ class BrowserSmartMatch(BrowserMatch):
 		
 	def get_verb(self):
 		#translators: First %s is the search engine name, second %s is the search term
-		return _("Search %s for %s") % ("<b>%(name)s</b>", "<i>%(text)s</i>")
+		return _("Search <b>%(name)s</b> for <i>%(text)s</i>")
 				
 def get_url_host(url):
 	try:
