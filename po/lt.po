@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-05 14:40+0200\n"
-"PO-Revision-Date: 2005-12-05 14:50+0200\n"
+"POT-Creation-Date: 2005-12-21 12:35+0200\n"
+"PO-Revision-Date: 2005-12-21 12:36+0200\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "An all-in-one action bar"
 msgstr "Veiksmų juosta „viskas viename“"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:22
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:23
 msgid "Deskbar"
 msgstr "Deskbar"
 
@@ -78,9 +78,9 @@ msgid ""
 "you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
 "the deskbar.</small></i>"
 msgstr ""
-"<b><small></b>Pastaba:</b> Jeigu kombinacija yra viena raidė (pvz. <b>t</b>), "
-"Jūs taip pat galite Deskbar juostoje tiesiog „<b>kažką</b>“ parašyti ir tada "
-"paspausti <b>Ctrl-t</b>.</small></i>"
+"<b><small></b>Pastaba:</b> Jeigu kombinacija yra viena raidė (pvz. <b>t</"
+"b>), Jūs taip pat galite Deskbar juostoje tiesiog „<b>kažką</b>“ parašyti ir "
+"tada paspausti <b>Ctrl-t</b>.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
@@ -88,20 +88,28 @@ msgid ""
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
 msgstr ""
-"<i><small><b>Pastaba:</b> norėdami naudoti kombinaciją (pvz., <b>wp</b>) <b>"
-"kažkam</b> surasti, Deskbar juostoje įveskite „<b>wp kažkas</b>“.</small></i>"
+"<i><small><b>Pastaba:</b> norėdami naudoti kombinaciją (pvz., <b>wp</b>) "
+"<b>kažkam</b> surasti, Deskbar juostoje įveskite „<b>wp kažkas</b>“.</"
+"small></i>"
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Kombinacijos žymelėse esančioms paieškoms"
 
-#: ../deskbar/about.py:25
+#: ../deskbar/about.py:26
 msgid "An all-in-one action bar."
 msgstr "Veiksmų juosta „viskas viename“."
 
-#: ../deskbar/about.py:28
+#: ../deskbar/about.py:29
 msgid "Deskbar Website"
 msgstr "Deskbar svetainė"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/about.py:37
+msgid "translator-credits"
+msgstr "Žygimantas Beručka <zygis@gnome.org>"
 
 #: ../deskbar/applet.py:312
 msgid "No History"
@@ -155,6 +163,7 @@ msgstr "Žiūrėti kalendorių %s"
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
 #: ../deskbar/handlers/beagle-live.py:205
+#: ../deskbar/handlers/beagle-live.py:217
 msgid "?"
 msgstr "?"
 
@@ -236,35 +245,35 @@ msgstr "Web paieškos"
 msgid "Search the web via your browser's search settings"
 msgstr "Ieškoti internete naudojantis Jūsų naršyklės nustatymais"
 
-#: ../deskbar/handlers/evolution.py:12
+#: ../deskbar/handlers/evolution.py:11
 msgid "You need to enable autocomplete in your mail preferences"
 msgstr "Jūs turite savo pašto nustatymuose įjungti automatinį užbaigimą"
 
-#: ../deskbar/handlers/evolution.py:14
+#: ../deskbar/handlers/evolution.py:13
 msgid "Autocompletion Needs to be Enabled"
 msgstr "Automatinis užbaigimas turi būti įjungtas"
 
-#: ../deskbar/handlers/evolution.py:15
+#: ../deskbar/handlers/evolution.py:14
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit â Preferences â Autocompletion."
+"choose Edit - Preferences, and then Autocompletion."
 msgstr ""
 "Mes negalime suteikti el.pašto adresų iš Jūsų adresų knygelės, nebent Jūs "
-"įjungsite automatinį užbaigimą. Tą padaryti galite Jūsų pašto programos "
+"įjungsite savaiminį pabaigimą. Tai galite padaryti Jūsų pašto programos "
 "meniu pasirinkę Keisti → Nustatymai → Savaiminis pabaigimas."
 
-#: ../deskbar/handlers/evolution.py:20
+#: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
 msgstr "Paštas (adresų knyga)"
 
-#: ../deskbar/handlers/evolution.py:21
+#: ../deskbar/handlers/evolution.py:20
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Siųsti el.laiškus Jūsų kontaktams parašant jų vardą ar el. pašto adresą"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:43
+#: ../deskbar/handlers/evolution.py:42
 #, python-format
 msgid "Send Email to %s (%s)"
 msgstr "Siųsti el. laišką %s (%s)"
