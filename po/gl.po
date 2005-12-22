@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-09 13:24+0100\n"
-"PO-Revision-Date: 2005-12-09 13:25+0100\n"
+"POT-Creation-Date: 2005-12-22 12:29+0100\n"
+"PO-Revision-Date: 2005-12-22 12:31+0100\n"
 "Last-Translator: Ignacio Casal Quinteiro <nacho.resa@gmail.com>\n"
 "Language-Team: Galego\n"
 "MIME-Version: 1.0\n"
@@ -131,8 +131,8 @@ msgstr "Entrada do libro de enderezos para %s"
 #. translators: First %s is mail sender, second %s is mail subject.
 #: ../deskbar/handlers/beagle-live.py:56
 #, python-format
-msgid "View email from %s: %s"
-msgstr "Ver correo-e de %s: %s"
+msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+msgstr "Ver correo-e de <i>%(sender)s</i>: <b>%(name)s</b>"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
@@ -163,6 +163,7 @@ msgstr "Ver calendario %s"
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
 #: ../deskbar/handlers/beagle-live.py:205
+#: ../deskbar/handlers/beagle-live.py:217
 msgid "?"
 msgstr "?"
 
@@ -192,8 +193,8 @@ msgstr "Abrir marcador %s"
 #. translators: First %s is the search engine name, second %s is the search term
 #: ../deskbar/handlers_browsers.py:67
 #, python-format
-msgid "Search %s for %s"
-msgstr "Buscar %s para %s"
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "Procurar <b>%(name)s</b> <i>%(text)s</i>"
 
 #: ../deskbar/handlers_browsers.py:172
 msgid "Shortcut"
@@ -273,8 +274,8 @@ msgstr "Enviar correos a seus contactos tecleando o seu nome ou enderezo de corr
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:42
 #, python-format
-msgid "Send Email to %s (%s)"
-msgstr "Enviar correo-e a %s (%s)"
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "Enviar correo-e a <b>%(name)s</b> (%(email)s)"
 
 #: ../deskbar/handlers/files.py:14
 msgid "Files and Folders"
@@ -405,8 +406,8 @@ msgstr "Atopar os ficheiros e cartafoles buscando por un patrón do nome"
 #. translators: For example: Launch Text Editor (gedit)
 #: ../deskbar/handlers/programs.py:66
 #, python-format
-msgid "Launch %s (%s)"
-msgstr "Lanzar %s (%s)"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Lanzar <b>%(name)s</b> (%(prog)s)"
 
 #: ../deskbar/handlers/programs.py:79
 #, python-format
