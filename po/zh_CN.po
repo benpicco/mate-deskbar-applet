@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-04 05:42+0100\n"
-"PO-Revision-Date: 2005-12-04 20:38+0800\n"
+"POT-Creation-Date: 2005-12-24 21:33+0100\n"
+"PO-Revision-Date: 2005-12-25 11:14+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,20 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one search bar"
-msgstr "多合一搜索栏"
+msgid "An all-in-one action bar"
+msgstr "全能动作栏"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:26
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:23
 msgid "Deskbar"
 msgstr "桌面栏"
+
+#: ../data/Deskbar_Applet.xml.h:1
+msgid "_About"
+msgstr "关于(_A)"
+
+#: ../data/Deskbar_Applet.xml.h:2
+msgid "_Preferences"
+msgstr "首选项(_P)"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Keyboard Shortcut</b>"
@@ -61,29 +69,156 @@ msgstr "使用键盘快捷键(_K)："
 msgid "characters"
 msgstr "个字符"
 
-#: ../data/Deskbar_Applet.xml.h:1
-msgid "_About"
-msgstr "关于(_A)"
+#: ../data/smart-bookmarks.glade.h:1
+msgid ""
+"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
+"you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
+"the deskbar.</small></i>"
+msgstr ""
+"<i><small><b>注意：</b>如果快捷键是单个字符(如 <b>t</b>)，您还可以输入“<b>内"
+"容</b>”，然后在桌面栏中按 <b>Ctrl+T</b>。</small></i>"
 
-#: ../data/Deskbar_Applet.xml.h:2
-msgid "_Preferences"
-msgstr "首选项(_P)"
+#: ../data/smart-bookmarks.glade.h:2
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>注意：</b>要使用快捷键(如 <b>wp</b>) 搜索<b>内容</b>，请在桌面中"
+"输入“<b>wp 内容</b>”。</small></i>"
+
+#: ../data/smart-bookmarks.glade.h:3
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "加入书签的搜索的快捷键"
+
+#: ../deskbar/about.py:26
+msgid "An all-in-one action bar."
+msgstr "全能动作栏。"
 
 #: ../deskbar/about.py:29
-msgid "An all-in-one search bar."
-msgstr "多合一搜索栏。"
-
-#: ../deskbar/about.py:32
 msgid "Deskbar Website"
 msgstr "桌面栏网站"
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:29
-#: ../deskbar/handlers/galeon.py:21
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/about.py:37
+msgid "translator-credits"
+msgstr "Funda Wang <fundawang@linux.net.cn>, 2005."
+
+#: ../deskbar/applet.py:312
+msgid "No History"
+msgstr "无历史"
+
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Beagle Live"
+msgstr "Beagle Live"
+
+#: ../deskbar/handlers/beagle-live.py:20
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "(通过 Beagel)随时搜索您所有的文档"
+
+#: ../deskbar/handlers/beagle-live.py:47
+#, python-format
+msgid "Addressbook entry for %s"
+msgstr "%s 的地址簿项"
+
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:56
+#, python-format
+msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+msgstr "查看 <i>%(sender)s</i> 发来的邮件：<b>%(name)s</b>"
+
+#. translators: This is a file.
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
+#, python-format
+msgid "Open %s"
+msgstr "打开 %s"
+
+#: ../deskbar/handlers/beagle-live.py:69
+#, python-format
+msgid "Open news item %s"
+msgstr "打开新闻项 %s"
+
+#: ../deskbar/handlers/beagle-live.py:76
+#, python-format
+msgid "Open note %s"
+msgstr "打开备忘 %s"
+
+#: ../deskbar/handlers/beagle-live.py:82
+#, python-format
+msgid "View conversation with %s"
+msgstr "查看与 %s 的对话"
+
+#: ../deskbar/handlers/beagle-live.py:88
+#, python-format
+msgid "View calendar %s"
+msgstr "查看日历 %s"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:205
+#: ../deskbar/handlers/beagle-live.py:217
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle.py:19
+msgid "Beagle"
+msgstr "Beagle"
+
+#: ../deskbar/handlers/beagle.py:20
+msgid "Search all of your documents (using Beagle)"
+msgstr "(使用 Beagle)搜索您所有的文档"
+
+#: ../deskbar/handlers/beagle.py:33
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "使用 Beagle 搜索 %s"
+
+#: ../deskbar/handlers_browsers.py:30
+#, python-format
+msgid "Open History Item %s"
+msgstr "打开历史项 %s"
+
+#: ../deskbar/handlers_browsers.py:32
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "打开书签 %s"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/handlers_browsers.py:67
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "在 <b>%(name)s</b> 中搜索 <i>%(text)s</i>"
+
+#: ../deskbar/handlers_browsers.py:172
+msgid "Shortcut"
+msgstr "快捷键"
+
+#: ../deskbar/handlers_browsers.py:180
+msgid "Bookmark Name"
+msgstr "书签名称"
+
+#: ../deskbar/handlers/email_address.py:9
+msgid "Mail"
+msgstr "邮件"
+
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mail by typing a complete e-mail address"
+msgstr "输入完整的电子邮件地址以发送邮件"
+
+#: ../deskbar/handlers/email_address.py:26 ../deskbar/handlers/galago.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "给 %s 发送电子邮件"
+
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:29
 msgid "Web Bookmarks"
 msgstr "Web 书签"
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/mozilla.py:30
-#: ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:30
 msgid "Open your web bookmarks by name"
 msgstr "按名称打开您的 Web 书签"
 
@@ -95,15 +230,46 @@ msgstr "Web 历史"
 msgid "Open your web history by name"
 msgstr "按名称打开您的 Web 历史"
 
-#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/mozilla.py:34
-#: ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:34
 msgid "Web Searches"
 msgstr "Web 搜索"
 
-#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/mozilla.py:35
-#: ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:35
 msgid "Search the web via your browser's search settings"
 msgstr "通过您浏览器搜索设置搜索 Web"
+
+#: ../deskbar/handlers/evolution.py:11
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "您需要在您的邮件首选项中启用自动补全"
+
+#: ../deskbar/handlers/evolution.py:13
+msgid "Autocompletion Needs to be Enabled"
+msgstr "需要启用自动补全"
+
+#: ../deskbar/handlers/evolution.py:14
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"除非您启用自动补全，否则我们无法从您的地址簿中提供电子邮件地址。"
+"要启用这一功能，请从您邮件程序的菜单中选择 编辑 - 首选项，然后设置自动补全功能。"
+
+#: ../deskbar/handlers/evolution.py:19
+msgid "Mail (Address Book)"
+msgstr "邮件(地址簿)"
+
+#: ../deskbar/handlers/evolution.py:20
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr "输入姓名或电子邮件地址以便向您的联系人发送邮件"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:42
+#, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "给 <b>%(name)s</b> (%(email)s) 发送电子邮件"
 
 #: ../deskbar/handlers/files.py:14
 msgid "Files and Folders"
@@ -113,21 +279,70 @@ msgstr "文件和文件夹"
 msgid "Open your files and folders by name"
 msgstr "按名称打开文件和文件夹"
 
-#. translators: This is a file.
-#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:63
-#, python-format
-msgid "Open %s"
-msgstr "打开 %s"
-
 #: ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open folder %s"
 msgstr "打开文件夹 %s"
 
-#: ../deskbar/handlers/galago.py:27 ../deskbar/handlers/email_address.py:26
-#, python-format
-msgid "Send Email to %s"
-msgstr "给 %s 发送电子邮件"
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+"要使用 Google Live，您需要有 Google 账户。要获得这样一个账户，请转到 http://"
+"api.google.com/\n"
+"\n"
+"当您创建完账户之后，您将会收到包含 Google API 密钥的邮件。将该密钥放在以下文"
+"件中\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"如果您没有在账户验证邮件中收到 API 密钥(或者您不小心遗失了密钥)，请转到 www."
+"google.com/accounts，登录后转到 api.google.com，单击“创建账户”，并输入您的电"
+"子邮件地址和密码。您会重新收到 API 密钥。\n"
+"\n"
+"现在应该下载开发者工具包，并从中提取 GoogleSearch.wsdl。将该文件复制为\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#: ../deskbar/handlers/google-live.py:32
+msgid "Setting Up Google Live"
+msgstr "设置 Google Live"
+
+#: ../deskbar/handlers/google-live.py:38
+msgid "You need to install the SOAPpy python module."
+msgstr "您需要安装 SOAPpy python 模块。"
+
+#: ../deskbar/handlers/google-live.py:40
+msgid "You need the Google WSDL file."
+msgstr "您需要 Google WSDL 文件。"
+
+#: ../deskbar/handlers/google-live.py:42
+msgid "You need a Google API key."
+msgstr "您需要有 Google API 密钥。"
+
+#: ../deskbar/handlers/google-live.py:48
+msgid "Google Live"
+msgstr "Google Live"
+
+#: ../deskbar/handlers/google-live.py:49
+msgid "Search Google as you type"
+msgstr "随时用 Google 搜索"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
 msgid "Files and Folders Bookmarks"
@@ -141,6 +356,19 @@ msgstr "按名称打开您的文件和文件夹书签"
 #, python-format
 msgid "Open location %s"
 msgstr "打开位置 %s"
+
+#: ../deskbar/handlers/pathprograms.py:13
+msgid "Programs (Advanced)"
+msgstr "程序(高级)"
+
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Launch any program present in your $PATH"
+msgstr "调用您 $PATH 中存在的程序"
+
+#: ../deskbar/handlers/pathprograms.py:30
+#, python-format
+msgid "Execute %s"
+msgstr "执行 %s"
 
 #: ../deskbar/handlers/programs.py:14
 msgid "Programs"
@@ -170,8 +398,8 @@ msgstr "搜索匹配名称模式的文件和文件夹"
 #. translators: For example: Launch Text Editor (gedit)
 #: ../deskbar/handlers/programs.py:66
 #, python-format
-msgid "Launch %s (%s)"
-msgstr "调用 %s(%s)"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "调用 <b>%(name)s</b> (%(prog)s)"
 
 #: ../deskbar/handlers/programs.py:79
 #, python-format
@@ -182,40 +410,6 @@ msgstr "在字典中查阅 %s"
 #, python-format
 msgid "Search for file names like %s"
 msgstr "搜索文件名类似 %s 的文件"
-
-#: ../deskbar/handlers/pathprograms.py:13
-msgid "Programs (Advanced)"
-msgstr "程序(高级)"
-
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Launch any program present in your $PATH"
-msgstr "调用您 $PATH 中存在的程序"
-
-#: ../deskbar/handlers/pathprograms.py:30
-#, python-format
-msgid "Execute %s"
-msgstr "执行 %s"
-
-#: ../deskbar/handlers/beagle.py:19
-msgid "Beagle"
-msgstr "Beagle"
-
-#: ../deskbar/handlers/beagle.py:20
-msgid "Search all of your documents (using Beagle)"
-msgstr "(使用 Beagle)搜索您所有的文档"
-
-#: ../deskbar/handlers/beagle.py:33
-#, python-format
-msgid "Search for %s using Beagle"
-msgstr "使用 Beagle 搜索 %s"
-
-#: ../deskbar/handlers/email_address.py:9
-msgid "Mail"
-msgstr "邮件"
-
-#: ../deskbar/handlers/email_address.py:10
-msgid "Send mail by typing a complete e-mail address"
-msgstr "输入完整的电子邮件地址以发送邮件"
 
 #: ../deskbar/handlers/volumes.py:16
 msgid "Disks and Network Places"
@@ -253,169 +447,7 @@ msgstr "打开 Web 页 %s"
 msgid "Open the location %s"
 msgstr "打开位置 %s"
 
-#: ../deskbar/handlers_browsers.py:30
-#, python-format
-msgid "Open History Item %s"
-msgstr "打开历史项 %s"
-
-#: ../deskbar/handlers_browsers.py:32
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "打开书签 %s"
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:67
-#, python-format
-msgid "Search %s for %s"
-msgstr "在 %s 中搜索 %s"
-
-#: ../deskbar/handlers_browsers.py:172
-msgid "Shortcut"
-msgstr "快捷键"
-
-#: ../deskbar/handlers_browsers.py:180
-msgid "Bookmark Name"
-msgstr "书签名称"
-
-#: ../deskbar/handlers/evolution.py:12
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr "您需要在您的邮件首选项中启用自动补全"
-
-#: ../deskbar/handlers/evolution.py:14
-msgid "Autocompletion Needs to be Enabled"
-msgstr "需要启用自动补全"
-
-#: ../deskbar/handlers/evolution.py:15
-msgid ""
-"We cannot provide e-mail addresses from your address book unless "
-"autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit â Preferences â Autocompletion."
-msgstr ""
-
-#: ../deskbar/handlers/evolution.py:20
-msgid "Mail (Address Book)"
-msgstr "邮件(地址簿)"
-
-#: ../deskbar/handlers/evolution.py:21
-msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr "输入姓名或电子邮件地址以便向您的联系人发送邮件"
-
-#. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:43
-#, python-format
-msgid "Send Email to %s (%s)"
-msgstr "给 %s (%s) 发送电子邮件"
-
-#: ../deskbar/handlers/google-live.py:19
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should recieve a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"要使用 Google Live，您需要有 Google 账户。要获得这样一个账户，请转到 http://api."
-"google.com/\n"
-"\n"
-"当您创建完账户之后，您将会收到包含 Google API 密钥的邮件。将该密钥放在以下文件中\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"如果您没有在账户验证邮件中收到 API 密钥(或者您不小心遗失了密钥)，请转到 "
-"www.google.com/accounts，登录后转到 api.google.com，单击“创建账户”，并"
-"输入您的电子邮件地址和密码。您会重新收到 API 密钥。\n"
-"\n"
-"现在应该下载开发者工具包，并从中提取 GoogleSearch.wsdl。将该文件复制为"
-"\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:32
-msgid "Setting Up Google Live"
-msgstr "设置 Google Live"
-
-#: ../deskbar/handlers/google-live.py:38
-msgid "You need to install the SOAPpy python module."
-msgstr "您需要安装 SOAPpy python 模块。"
-
-#: ../deskbar/handlers/google-live.py:40
-msgid "You need the Google WSDL file."
-msgstr "您需要 Google WSDL 文件。"
-
-#: ../deskbar/handlers/google-live.py:42
-msgid "You need a Google API key."
-msgstr "您需要有 Google API 密钥。"
-
-#: ../deskbar/handlers/google-live.py:48
-msgid "Google Live"
-msgstr "Google Live"
-
-#: ../deskbar/handlers/google-live.py:49
-msgid "Search Google as you type"
-msgstr "随时用 Google 搜索"
-
-#: ../deskbar/applet.py:312
-msgid "No History"
-msgstr "无历史"
-
-#: ../deskbar/handlers/beagle-live.py:19
-msgid "Beagle Live"
-msgstr "Beagle Live"
-
-#: ../deskbar/handlers/beagle-live.py:20
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "(通过 Beagel)随时搜索您所有的文档"
-
-#: ../deskbar/handlers/beagle-live.py:47
-#, python-format
-msgid "Addressbook entry for %s"
-msgstr "%s 的地址簿项"
-
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:56
-#, python-format
-msgid "View email from %s: %s"
-msgstr "查看%s发来的邮件：%s"
-
-#: ../deskbar/handlers/beagle-live.py:69
-#, python-format
-msgid "Open news item %s"
-msgstr "打开新闻项 %s"
-
-#: ../deskbar/handlers/beagle-live.py:76
-#, python-format
-msgid "Open note %s"
-msgstr "打开备忘 %s"
-
-#: ../deskbar/handlers/beagle-live.py:82
-#, python-format
-msgid "View conversation with %s"
-msgstr "查看与 %s 的对话"
-
-#: ../deskbar/handlers/beagle-live.py:88
-#, python-format
-msgid "View calendar %s"
-msgstr "查看日历 %s"
-
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:205
-msgid "?"
-msgstr "?"
-
-#: ../deskbar/preferences.py:55
+#: ../deskbar/preferences.py:53
 msgid "_More..."
 msgstr "更多(_M)..."
 
