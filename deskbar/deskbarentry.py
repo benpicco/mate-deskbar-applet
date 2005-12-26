@@ -4,9 +4,9 @@ import cgi
 import gtk, gobject
 
 import deskbar, deskbar.iconentry
-from deskbar.history import DeskbarHistory
 from deskbar.module_list import ModuleList
 from deskbar.handler import *
+from deskbar.history import get_deskbar_history
 
 # The liststore columns
 HANDLER_PRIO_COL = 0
@@ -18,14 +18,12 @@ MATCH_COL = 4
 # The sort function ids
 SORT_BY_HANDLER_MATCH_ACTION = 1
 
-MAX_RESULTS_PER_HANDLER = 6
-
 #selection directions
 MOVE_UP   = -1
 MOVE_DOWN = +1
 
 class DeskbarEntry(deskbar.iconentry.IconEntry):
-	def __init__(self, applet, module_list):
+	def __init__(self, applet, module_list, loader):
 		deskbar.iconentry.IconEntry.__init__(self)
 		
 		# Set up the Handlers
@@ -33,7 +31,9 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		
 		self._completion_model = None
 		self._selected_match_index = -1
-		self._history = DeskbarHistory(applet)
+		self._history = get_deskbar_history()
+		self._history.add_module_loader(loader)
+		self._history.connect('changed', self._on_history_move)
 		
 		# Connect to underlying entry signals		
 		entry = self.get_entry()
@@ -155,33 +155,11 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		if event.keyval == gtk.keysyms.Up and up_history_condition:
 			# Browse back history
 			self._history.up()
-			item = self._history.get_history()
-			if item != None:
-				self.get_entry().handler_block(self._on_entry_changed_id)
-				text, match = item
-				entry.set_text(text)
-				entry.select_region(0, -1)
-				# Update the icon entry, without erasing history position
-				self._on_entry_changed(self.get_entry(), [match])
-				self.get_entry().handler_unblock(self._on_entry_changed_id)
 			return True
 				
 		if event.keyval == gtk.keysyms.Down and down_history_condition:
 			# Browse back history
-			self._history.down()
-			item = self._history.get_history()
-			if item != None:
-				self.get_entry().handler_block(self._on_entry_changed_id)
-				text, match = item
-				entry.set_text(text)
-				entry.select_region(0, -1)
-				# Update the icon entry, without erasing history position
-				self._on_entry_changed(self.get_entry(), [match])
-				self.get_entry().handler_unblock(self._on_entry_changed_id)
-			else:
-				# Here we delete the text cause we got out of history mode
-				entry.set_text("")
-				
+			self._history.down()			
 			return True
 		
 		# If the checks above fail and we come here, let's see if it's right to swallow up/down stroke
@@ -233,7 +211,22 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			match_move(MOVE_DOWN)
 
 		return False
-		
+	
+	def _on_history_move(self, history):
+		item = self._history.get_history()
+		entry = self.get_entry()
+		if item != None:
+			self.get_entry().handler_block(self._on_entry_changed_id)
+			text, match = item
+			entry.set_text(text)
+			entry.select_region(0, -1)
+			# Update the icon entry, without erasing history position
+			self._on_entry_changed(self.get_entry(), [match])
+			self.get_entry().handler_unblock(self._on_entry_changed_id)
+		else:
+			# Here we delete the text cause we got out of history mode
+			entry.set_text("")
+				
 	def _on_entry_changed(self, widget, matches=None):
 		self._completion_model.clear()
 		self._completion_model._hashes = {}

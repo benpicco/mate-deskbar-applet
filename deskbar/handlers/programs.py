@@ -53,7 +53,7 @@ class GenericProgramMatch(deskbar.handler.Match):
 			if hasattr(self, "_args"):
 				args = args + self._args
 			args = args + text.split(" ")
-			print args
+
 			gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
 			# FIXME: This does not launch the App with passed parameters because they are not files..
 			#self._desktop.launch(text.split(" "), deskbar.gnomedesktop.LAUNCH_APPEND_PATHS|deskbar.gnomedesktop.LAUNCH_ONLY_ONE)

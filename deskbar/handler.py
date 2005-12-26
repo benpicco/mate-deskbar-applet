@@ -16,6 +16,10 @@ HANDLER_IS_CONFIGURABLE   = 1
 HANDLER_HAS_REQUIREMENTS  = 2
 HANDLER_IS_NOT_APPLICABLE = 3
 
+
+MAX_RESULTS_PER_HANDLER = 6
+
+
 class Match:
 	def __init__(self, handler, name, icon=None):
 		self._priority = 0

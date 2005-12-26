@@ -39,6 +39,7 @@ class PathProgramsHandler(deskbar.handler.Handler):
 	def query(self, query, max=5):
 		args = query.split(" ")
 		match = self._check_program(args[0])
+
 		if match != None:
 			return [match]
 		else:

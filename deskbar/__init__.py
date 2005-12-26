@@ -63,7 +63,8 @@ ICON_SIZE = 16
 
 #Maximum number of history items
 MAX_HISTORY = 25
-
+HISTORY_FILE = join(USER_DESKBAR_DIR, "history.pickle")
+		
 #Gconf client
 GCONF_CLIENT = gconf.client_get_default()
 

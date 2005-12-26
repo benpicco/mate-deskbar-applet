@@ -12,7 +12,6 @@ class DeskbarAppletPreferences:
 		self.GCONF_APPLET_DIR = deskbar.GCONF_DIR
 		self.GCONF_WIDTH = deskbar.GCONF_WIDTH
 		self.GCONF_EXPAND = deskbar.GCONF_EXPAND
-		self.HISTORY = join(deskbar.USER_DESKBAR_DIR, "history.pickle")
 		
 		# Retreive this applet's pref folder
 		path = applet.get_preferences_key()
@@ -20,7 +19,6 @@ class DeskbarAppletPreferences:
 			self.GCONF_APPLET_DIR = path
 			self.GCONF_WIDTH =  self.GCONF_APPLET_DIR + "/width"
 			self.GCONF_EXPAND = self.GCONF_APPLET_DIR + "/expand"
-			self.HISTORY = join(deskbar.USER_DESKBAR_DIR, basename(self.GCONF_APPLET_DIR))
 			
 			applet.add_preferences("/schemas" + deskbar.GCONF_DIR)
 			deskbar.GCONF_CLIENT.add_dir(self.GCONF_APPLET_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
@@ -50,7 +48,7 @@ class DeskbarApplet:
 		self.loader.connect ("module-not-initialized", self.on_module_initialized)
 		self.loader.connect ("module-stopped", self.module_list.module_toggled_cb)
 		
-		self.entry = deskbar.deskbarentry.DeskbarEntry(self, self.module_list)
+		self.entry = deskbar.deskbarentry.DeskbarEntry(self, self.module_list, self.loader)
 		self.entry.get_evbox().connect("button-press-event", self.on_icon_button_press)
 		self.entry.get_entry().connect("button-press-event", self.on_entry_button_press)
 		self.loader.connect ("module-initialized", self.entry._connect_if_async)
