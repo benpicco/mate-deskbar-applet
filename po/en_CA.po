@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-04 18:47-0500\n"
+"POT-Creation-Date: 2005-12-26 02:10-0500\n"
 "PO-Revision-Date: 2005-11-17 20:55-0500\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "An all-in-one action bar"
 msgstr "An all-in-one action bar"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:22
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:23
 msgid "Deskbar"
 msgstr "Deskbar"
 
@@ -96,13 +96,20 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Shortcuts for Bookmarked Searches"
 
-#: ../deskbar/about.py:25
+#: ../deskbar/about.py:26
 msgid "An all-in-one action bar."
 msgstr "An all-in-one action bar."
 
-#: ../deskbar/about.py:28
+#: ../deskbar/about.py:29
 msgid "Deskbar Website"
 msgstr "Deskbar Website"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/about.py:37
+msgid "translator-credits"
+msgstr "Adam Weinberger <adamw@gnome.org>"
 
 #: ../deskbar/applet.py:312
 msgid "No History"
@@ -124,8 +131,8 @@ msgstr "Addressbook entry for %s"
 #. translators: First %s is mail sender, second %s is mail subject.
 #: ../deskbar/handlers/beagle-live.py:56
 #, python-format
-msgid "View email from %s: %s"
-msgstr "View email from %s: %s"
+msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+msgstr "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
@@ -156,6 +163,7 @@ msgstr "View calendar %s"
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
 #: ../deskbar/handlers/beagle-live.py:205
+#: ../deskbar/handlers/beagle-live.py:217
 msgid "?"
 msgstr "?"
 
@@ -185,8 +193,8 @@ msgstr "Open Bookmark %s"
 #. translators: First %s is the search engine name, second %s is the search term
 #: ../deskbar/handlers_browsers.py:67
 #, python-format
-msgid "Search %s for %s"
-msgstr "Search %s for %s"
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "Search <b>%(name)s</b> for <i>%(text)s</i>"
 
 #: ../deskbar/handlers_browsers.py:172
 msgid "Shortcut"
@@ -237,37 +245,37 @@ msgstr "Web Searches"
 msgid "Search the web via your browser's search settings"
 msgstr "Search the web via your browser's search settings"
 
-#: ../deskbar/handlers/evolution.py:12
+#: ../deskbar/handlers/evolution.py:11
 msgid "You need to enable autocomplete in your mail preferences"
 msgstr "You need to enable autocomplete in your mail preferences"
 
-#: ../deskbar/handlers/evolution.py:14
+#: ../deskbar/handlers/evolution.py:13
 msgid "Autocompletion Needs to be Enabled"
 msgstr "Autocompletion Needs to be Enabled"
 
-#: ../deskbar/handlers/evolution.py:15
+#: ../deskbar/handlers/evolution.py:14
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit â Preferences â Autocompletion."
+"choose Edit - Preferences, and then Autocompletion."
 msgstr ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit â Preferences â Autocompletion."
+"choose Edit - Preferences, and then Autocompletion."
 
-#: ../deskbar/handlers/evolution.py:20
+#: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
 msgstr "Mail (Address Book)"
 
-#: ../deskbar/handlers/evolution.py:21
+#: ../deskbar/handlers/evolution.py:20
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Send mail to your contacts by typing their name or e-mail address"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:43
+#: ../deskbar/handlers/evolution.py:42
 #, python-format
-msgid "Send Email to %s (%s)"
-msgstr "Send Email to %s (%s)"
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "Send Email to <b>%(name)s</b> (%(email)s)"
 
 #: ../deskbar/handlers/files.py:14
 msgid "Files and Folders"
@@ -398,8 +406,8 @@ msgstr "Find files and folders by searching for a name pattern"
 #. translators: For example: Launch Text Editor (gedit)
 #: ../deskbar/handlers/programs.py:66
 #, python-format
-msgid "Launch %s (%s)"
-msgstr "Launch %s (%s)"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Launch <b>%(name)s</b> (%(prog)s)"
 
 #: ../deskbar/handlers/programs.py:79
 #, python-format
