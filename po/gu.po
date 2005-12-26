@@ -1,3 +1,4 @@
+# translation of deskbar-applet.HEAD.gu.po to Gujarati
 # translation of deskbar-applet.HEAD.po to Gujarati
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
@@ -5,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet.HEAD\n"
+"Project-Id-Version: deskbar-applet.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-09 05:37+0100\n"
-"PO-Revision-Date: 2005-12-10 16:07+0530\n"
+"POT-Creation-Date: 2005-12-26 05:15+0100\n"
+"PO-Revision-Date: 2005-12-26 17:04+0530\n"
 "Last-Translator: Ankit Patel <ankit644@yahoo.com>\n"
 "Language-Team: Gujarati <indianoss-gujarati@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
@@ -76,14 +78,18 @@ msgid ""
 "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
 "you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
 "the deskbar.</small></i>"
-msgstr "<i><small><b>નોંધ: </b>જો તે ટુંકાણ એ એક અક્ષર જ હોય (જેમ કે <b>t</b>) તો તમે \"<b>કંઈક</b>\" લખીને પછી<b>Ctrl-t</b> ને ડેસ્કપટ્ટીમાં દબાવી પણ શકો છો.</small></i>"
+msgstr ""
+"<i><small><b>નોંધ: </b>જો તે ટુંકાણ એ એક અક્ષર જ હોય (જેમ કે <b>t</b>) તો તમે "
+"\"<b>કંઈક</b>\" લખીને પછી<b>Ctrl-t</b> ને ડેસ્કપટ્ટીમાં દબાવી પણ શકો છો.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
-msgstr "<i><small><b>નોંધ:</b> <b>કંઈક</b> શોધવા માટે ટુંકાણ વાપરવા માટે (ઉદાહરણ તરીકે <b>wp</b>), ડેસ્કપટ્ટીમાં \"<b>wp કંઈક</b>\" લખો</small></i>."
+msgstr ""
+"<i><small><b>નોંધ:</b> <b>કંઈક</b> શોધવા માટે ટુંકાણ વાપરવા માટે (ઉદાહરણ તરીકે "
+"<b>wp</b>), ડેસ્કપટ્ટીમાં \"<b>wp કંઈક</b>\" લખો</small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
@@ -124,8 +130,8 @@ msgstr "%s માટે સરનામાપુસ્તિકા પ્રવ�
 #. translators: First %s is mail sender, second %s is mail subject.
 #: ../deskbar/handlers/beagle-live.py:56
 #, python-format
-msgid "View email from %s: %s"
-msgstr "%s માંથી ઈમેઈલ જુઓ: %s"
+msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+msgstr "<i>%(sender)s</i> માંથી ઈમેલ જુઓ: <b>%(name)s</b>"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
@@ -156,6 +162,7 @@ msgstr "કેલેન્ડર %s જુઓ"
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
 #: ../deskbar/handlers/beagle-live.py:205
+#: ../deskbar/handlers/beagle-live.py:217
 msgid "?"
 msgstr "?"
 
@@ -185,8 +192,8 @@ msgstr "બુકમાર્ક %s ખોલો"
 #. translators: First %s is the search engine name, second %s is the search term
 #: ../deskbar/handlers_browsers.py:67
 #, python-format
-msgid "Search %s for %s"
-msgstr "%s ને %s માટે ખોલો"
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "<b>%(name)s</b> ને <i>%(text)s</i> માટે શોધો"
 
 #: ../deskbar/handlers_browsers.py:172
 msgid "Shortcut"
@@ -250,7 +257,10 @@ msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
 "choose Edit - Preferences, and then Autocompletion."
-msgstr "અમે તમારી સરનામા પુસ્તિકામાંથી ઈ-મેઈલ સરનામાઓ પૂરા પાડી શકતા નથી જ્યાં સુધી આપોઆપ પૂર્ણાહૂતિ સક્રિય કરેલ નહિં હોય.  આમ કરવા માટે, તમારા મેઈલ કાર્યક્રમના મેનુમાંથી, ફેરફાર - પસંદગીઓ, અને પછી આપોઆપ પૂર્ણાંહૂતિ પસંદ કરો."
+msgstr ""
+"અમે તમારી સરનામા પુસ્તિકામાંથી ઈ-મેઈલ સરનામાઓ પૂરા પાડી શકતા નથી જ્યાં સુધી આપોઆપ "
+"પૂર્ણાહૂતિ સક્રિય કરેલ નહિં હોય.  આમ કરવા માટે, તમારા મેઈલ કાર્યક્રમના મેનુમાંથી, ફેરફાર - "
+"પસંદગીઓ, અને પછી આપોઆપ પૂર્ણાંહૂતિ પસંદ કરો."
 
 #: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
@@ -263,8 +273,8 @@ msgstr "તમારા સંપર્કોને તેમના નામ �
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:42
 #, python-format
-msgid "Send Email to %s (%s)"
-msgstr "%s ને મેઈલ મોકલો (%s)"
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "<b>%(name)s</b> ને ઈમેઈલ મોકલો (%(email)s)"
 
 #: ../deskbar/handlers/files.py:14
 msgid "Files and Folders"
@@ -302,13 +312,18 @@ msgstr ""
 "ગુગલ જીવંત વાપરવા માટે તમારે ગુગલ ખાતાની જરૂર છે.  કોઈએક મેળવવા માટે, http://api."
 "google.com/ પર જાઓ\n"
 "\n"
-"જ્યારે તમે એક ખાતું બનાવી દીધું, પછી તમને મેઈલ દ્વારા ગુગલ API કી મળવી જોઈએ.  આ કીને ફાઈલ\n"
+"જ્યારે તમે એક ખાતું બનાવી દીધું, પછી તમને મેઈલ દ્વારા ગુગલ API કી મળવી જોઈએ.  આ કીને "
+"ફાઈલ\n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key માં મૂકો\n"
 "\n"
-"જો તમને તમારા ખાતરી મેઈલમાં API કી મળે નહિં (અથવા તમે તેને ગુમાવી દીધી હોય), તો પછી www.google.com/accounts પર જાઓ અને પ્રવેશ કરો.  api.google.com પર જાઓ, \"ખાતું બનાવો\" ક્લિક કરો અને તમારું ઈ-મેઈલ સરનામું અને પાસવર્ડ દાખલ કરો.  તમારી API કી પુનઃ-મોકલાશે.\n"
+"જો તમને તમારા ખાતરી મેઈલમાં API કી મળે નહિં (અથવા તમે તેને ગુમાવી દીધી હોય), તો પછી "
+"www.google.com/accounts પર જાઓ અને પ્રવેશ કરો.  api.google.com પર જાઓ, \"ખાતું "
+"બનાવો\" ક્લિક કરો અને તમારું ઈ-મેઈલ સરનામું અને પાસવર્ડ દાખલ કરો.  તમારી API કી પુનઃ-"
+"મોકલાશે.\n"
 "\n"
-"હવે વિકાસકર્તાઓ કીટ ડાઉનલોડ કરો અને GoogleSearch.wsdl ફાઈલનો તેમાંથી અર્ક કાઢો.  આ ફાઈલને\n"
+"હવે વિકાસકર્તાઓ કીટ ડાઉનલોડ કરો અને GoogleSearch.wsdl ફાઈલનો તેમાંથી અર્ક કાઢો.  આ "
+"ફાઈલને\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl માં નકલ કરો"
 
@@ -390,8 +405,8 @@ msgstr "નામ ભાત માટે શોધ કરીને ફાઈલ�
 #. translators: For example: Launch Text Editor (gedit)
 #: ../deskbar/handlers/programs.py:66
 #, python-format
-msgid "Launch %s (%s)"
-msgstr "%s લોન્ચ કરો (%s)"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "<b>%(name)s</b> લાવો (%(prog)s)"
 
 #: ../deskbar/handlers/programs.py:79
 #, python-format
