@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 2.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-09 13:37+0100\n"
-"PO-Revision-Date: 2005-12-09 13:40+0100\n"
+"POT-Creation-Date: 2005-12-30 18:49+0100\n"
+"PO-Revision-Date: 2005-12-30 18:51+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -110,7 +110,7 @@ msgstr "Sitio web de Deskbar"
 msgid "translator-credits"
 msgstr "Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2005"
 
-#: ../deskbar/applet.py:312
+#: ../deskbar/applet.py:310
 msgid "No History"
 msgstr "Sin histórico"
 
@@ -130,8 +130,8 @@ msgstr "Entrada de libreta de direcciones para %s"
 #. translators: First %s is mail sender, second %s is mail subject.
 #: ../deskbar/handlers/beagle-live.py:56
 #, python-format
-msgid "View email from %s: %s"
-msgstr "Ver correo-e de %s: %s"
+msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+msgstr "Ver el correo-e de <i>%(sender)s</i>: <b>%(name)s</b>"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
@@ -162,6 +162,7 @@ msgstr "Ver calendario %s"
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
 #: ../deskbar/handlers/beagle-live.py:205
+#: ../deskbar/handlers/beagle-live.py:217
 msgid "?"
 msgstr "?"
 
@@ -191,8 +192,8 @@ msgstr "Abrir marcador %s"
 #. translators: First %s is the search engine name, second %s is the search term
 #: ../deskbar/handlers_browsers.py:67
 #, python-format
-msgid "Search %s for %s"
-msgstr "Buscar %s para %s"
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "Buscar <b>%(name)s</b> en <i>%(text)s</i>"
 
 #: ../deskbar/handlers_browsers.py:172
 msgid "Shortcut"
@@ -256,7 +257,11 @@ msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
 "choose Edit - Preferences, and then Autocompletion."
-msgstr "No podemos proporcionar direcciones de correo de sus libretas de direcciones a no ser que esté activado el autocompletado. Para hacer esto, vaya al menú de su programa de correo, elija Editar â Preferencias y después Autocompletado."
+msgstr ""
+"No podemos proporcionar direcciones de correo de sus libretas de direcciones "
+"a no ser que esté activado el autocompletado. Para hacer esto, vaya al menú "
+"de su programa de correo, elija Editar â Preferencias y después "
+"Autocompletado."
 
 #: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
@@ -270,8 +275,8 @@ msgstr ""
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:42
 #, python-format
-msgid "Send Email to %s (%s)"
-msgstr "Enviar correo-e a %s (%s)"
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "Enviar correo-e a <b>%(name)s</b> (%(email)s)"
 
 #: ../deskbar/handlers/files.py:14
 msgid "Files and Folders"
@@ -402,8 +407,8 @@ msgstr "Encuentre los archivos y carpetas buscando por un patrón del nombre"
 #. translators: For example: Launch Text Editor (gedit)
 #: ../deskbar/handlers/programs.py:66
 #, python-format
-msgid "Launch %s (%s)"
-msgstr "Lanzar %s (%s)"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Lanzar <b>%(name)s</b> (%(prog)s)"
 
 #: ../deskbar/handlers/programs.py:79
 #, python-format
@@ -456,6 +461,12 @@ msgstr "Abrir el lugar %s"
 #: ../deskbar/preferences.py:53
 msgid "_More..."
 msgstr "_Más..."
+
+#~ msgid "Search %s for %s"
+#~ msgstr "Buscar %s para %s"
+
+#~ msgid "Launch %s (%s)"
+#~ msgstr "Lanzar %s (%s)"
 
 #~ msgid "<b>Active Handlers</b>"
 #~ msgstr "<b>Manipuladores activos</b>"
