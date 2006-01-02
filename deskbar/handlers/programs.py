@@ -46,8 +46,6 @@ class GenericProgramMatch(deskbar.handler.Match):
 		return self._display_prog
 		
 	def action(self, text=None):
-		self._priority = self._priority+1
-				
 		if self._use_arg and text != None:
 			args = [self._desktop.get_string("Exec")]
 			if hasattr(self, "_args"):

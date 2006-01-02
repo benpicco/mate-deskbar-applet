@@ -22,7 +22,6 @@ class BrowserMatch(deskbar.handler.Match):
 		self._is_history = history
 		
 	def action(self, text=None):
-		self._priority = self._priority+1
 		gnomevfs.url_show(self._url)
 		
 	def get_verb(self):
@@ -54,8 +53,6 @@ class BrowserSmartMatch(BrowserMatch):
 		return m
 		
 	def action(self, text=""):
-		self._priority = self._priority+1
-		
 		if self._prefix_to_strip != None and text.startswith(self._prefix_to_strip):
 			text = text[len(self._prefix_to_strip):]
 		

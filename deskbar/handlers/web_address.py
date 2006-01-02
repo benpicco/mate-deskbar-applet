@@ -24,7 +24,6 @@ class WebAddressMatch(deskbar.handler.Match):
 			self._url = "http://" + url
 		
 	def action(self, text=None):
-		self._priority = self._priority+1
 		if self._url.startswith("http"):
 			gnomevfs.url_show(self._url)
 		else:

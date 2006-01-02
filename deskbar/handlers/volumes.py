@@ -27,7 +27,6 @@ class VolumeMatch (Match):
 		self.__drive = drive
 	
 	def action(self, text=None):
-		self._priority = self._priority+1
 		gobject.spawn_async(["nautilus", self.__drive.get_activation_uri()], flags=gobject.SPAWN_SEARCH_PATH)
 	 
 	def get_verb(self):

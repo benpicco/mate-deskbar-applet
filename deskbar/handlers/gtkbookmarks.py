@@ -22,7 +22,6 @@ class GtkBookmarkMatch(deskbar.handler.Match):
 		self._path = path
 		
 	def action(self, text=None):
-		self._priority = self._priority+1
 		gobject.spawn_async(["nautilus", self._path], flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):

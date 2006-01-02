@@ -15,10 +15,14 @@ except NameError:
 from deskbar.handlers_browsers import is_preferred_browser
 from deskbar.handlers_browsers import BrowserSmartMatch, BrowserMatch
 
+def _on_customize_search_engines():
+	pass
+	
 def _check_requirements():
 	if deskbar.UNINSTALLED_DESKBAR:
 		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
-		
+	
+	#We will need to pass some preference here to select one/all engines
 	if is_preferred_browser("firefox") or is_preferred_browser("mozilla"):
 		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
 	else:
@@ -99,7 +103,7 @@ class MozillaSearchHandler(deskbar.handler.Handler):
 	def initialize(self):
 		smart_dirs = None
 		if USING_FIREFOX:
-			smart_dirs = [get_firefox_home_file("search"), expanduser("~/.mozilla/searchplugins"), "/usr/lib/mozilla-firefox/searchplugins"]
+			smart_dirs = [get_firefox_home_file("searchplugins"), get_firefox_home_file("search"), expanduser("~/.mozilla/searchplugins"), "/usr/lib/mozilla-firefox/searchplugins"]
 		else:
 			smart_dirs = [get_mozilla_home_file("search"), expanduser("~/.mozilla/searchplugins"), "/usr/lib/mozilla/searchplugins"]
 		
@@ -110,7 +114,8 @@ class MozillaSearchHandler(deskbar.handler.Handler):
 		self.watcher.add(smart_dirs)
 		self._parse_search_engines(smart_dirs)
 		
-	def _parse_search_engines(self, smart_dirs):		
+	def _parse_search_engines(self, smart_dirs):	
+		#TODO: if using firefox, show a way to enable only active search engine in a pref dialog.
 		self._smart_bookmarks = MozillaSmartBookmarksDirParser(self, smart_dirs).get_smart_bookmarks()
 
 	def stop(self):

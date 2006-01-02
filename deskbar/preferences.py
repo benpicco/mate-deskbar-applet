@@ -80,7 +80,10 @@ class PrefsDialog:
 		else:
 			self.fixed_width_radio.set_active(True)
 		self.width_spin.set_value(self.width)
-		self.keyboard_shortcut_entry.set_text(self.keybinding)
+		if self.keybinding != None:
+			self.keyboard_shortcut_entry.set_text(self.keybinding)
+		else:
+			self.keyboard_shortcut_entry.set_text("<Alt>F3")
 		
 	def on_config_width(self, value):
 		if value != None and value.type == gconf.VALUE_INT:

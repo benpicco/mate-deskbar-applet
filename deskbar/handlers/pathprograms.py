@@ -23,7 +23,6 @@ class PathProgramMatch(deskbar.handler.Match):
 		return text
 		
 	def action(self, text=None):
-		self._priority = self._priority+1
 		gobject.spawn_async(text.split(" "), flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):

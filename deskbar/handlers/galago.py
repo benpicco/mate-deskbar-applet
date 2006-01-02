@@ -20,7 +20,6 @@ class GalagoMatch(deskbar.handler.Match):
 		self._email = email
 		
 	def action(self, text=None):
-		self._priority = self._priority+1
 		gnomevfs.url_show("mailto:"+self._email)
 	
 	def get_verb(self):
