@@ -205,7 +205,7 @@ class SignallingHandler (Handler, gobject.GObject):
 	def is_async (self):
 		return True
 		
-if gtk.gtk_version < (2,8,0):
+if gtk.pygtk_version < (2,8,0):
 	gobject.type_register(SignallingHandler)
 	
 # Here begins the Nastyness
@@ -375,5 +375,5 @@ class AsyncHandler (Handler, gobject.GObject):
 		"""Well what do you think?"""
 		return True
 
-if gtk.gtk_version < (2,8,0):
+if gtk.pygtk_version < (2,8,0):
 	gobject.type_register(AsyncHandler)

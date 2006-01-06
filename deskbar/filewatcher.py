@@ -51,7 +51,7 @@ class DirWatcher(Watcher):
 		Watcher.__init__(self)
 		self.monitor_type = gnomevfs.MONITOR_DIRECTORY
 
-if gtk.gtk_version < (2,8,0):
+if gtk.pygtk_version < (2,8,0):
 	gobject.type_register(Watcher)
 	gobject.type_register(FileWatcher)
 	gobject.type_register(DirWatcher)

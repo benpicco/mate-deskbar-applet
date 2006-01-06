@@ -221,7 +221,7 @@ class ModuleLoader (gobject.GObject):
 		Invokes stop_module in an idle mainloop call.
 		"""
 		gobject.idle_add(self.stop_module, context)
-if gtk.gtk_version < (2,8,0):
+if gtk.pygtk_version < (2,8,0):
 	gobject.type_register(ModuleLoader)
 
 class ModuleListIter : 
@@ -413,7 +413,7 @@ class ModuleListView (gtk.TreeView):
 		Emits a 'row-toggled' signal passing the context in the row as argument."""
 		self.emit ("row-toggled", model[model.get_iter(path)][model.MODULE_CTX_COL])
 
-if gtk.gtk_version < (2,8,0):
+if gtk.pygtk_version < (2,8,0):
 	gobject.type_register(ModuleListView)
 	
 def toggle_module (sender, context, ml):

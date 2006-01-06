@@ -108,6 +108,9 @@ class DeskbarHistory(gobject.GObject):
 			print 'Error:History.save:%s', msg
 		pass
 
+if gtk.pygtk_version < (2,8,0):
+	gobject.type_register(DeskbarHistory)
+	
 shared_history = DeskbarHistory()
 def get_deskbar_history():
 	return shared_history
