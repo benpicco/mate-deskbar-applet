@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 0.8.7, raphael@slinckx.net)
+AC_INIT(deskbar-applet, 0.8.8, raphael@slinckx.net)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
@@ -147,6 +147,8 @@ echo
 echo "Please note that when using gnome-python-extras-2.10, you won't be able"
 echo "to focus the applet, only use it in window mode. Upgrade to 2.12 to get the"
 echo "applet functionnality"
+echo
+echo "You version of gnome-python-extras is : `$PKG_CONFIG --modversion gnome-python-extras-2.0`"
 echo
 
 echo "Now type make to compile"
