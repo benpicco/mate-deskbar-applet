@@ -98,8 +98,7 @@ class DeskbarHistory(gobject.GObject):
 		save = []
 		for text, match in self._history:
 			hsh = match.get_hash(text)
-			if hsh != None:
-				save.append((text, hsh, str(match.get_handler().__class__) ))
+			save.append((text, hsh, str(match.get_handler().__class__) ))
 				
 		try:
 			cPickle.dump(save, file(HISTORY_FILE, 'w'), cPickle.HIGHEST_PROTOCOL)

@@ -31,9 +31,6 @@ class BeagleMatch(deskbar.handler.Match):
 	
 	def get_verb(self):
 		return _("Search for %s using Beagle") % "<b>%(name)s</b>"
-	
-	def get_hash(self, text=None):
-		return "BeagleMatch://" % text
 		
 				
 class BeagleHandler(deskbar.handler.Handler):
