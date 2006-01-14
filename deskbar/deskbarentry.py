@@ -14,6 +14,7 @@ MATCH_PRIO_COL = 1
 ACTION_COL = 2
 ICON_COL = 3
 MATCH_COL = 4
+TEXT_COL = 5
 
 # The sort function ids
 SORT_BY_HANDLER_MATCH_ACTION = 1
@@ -57,7 +58,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		self._image.set_property('pixbuf', self._default_pixbuf)
 
 		# Create the listtore, model for the completion popup
-		self._completion_model = gtk.ListStore(gobject.TYPE_INT, gobject.TYPE_INT, gobject.TYPE_STRING, gtk.gdk.Pixbuf, object)
+		self._completion_model = gtk.ListStore(gobject.TYPE_INT, gobject.TYPE_INT, gobject.TYPE_STRING, gtk.gdk.Pixbuf, object, gobject.TYPE_STRING)
 		self._completion_model.set_sort_column_id(SORT_BY_HANDLER_MATCH_ACTION, gtk.SORT_DESCENDING)
 		self._completion_model.set_sort_func(SORT_BY_HANDLER_MATCH_ACTION, self._on_sort_matches)
 		
@@ -124,7 +125,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			
 	def _on_completion_selected(self, completion, model, iterator):
 		match = model[iterator][MATCH_COL]
-		text = self.get_entry().get_text().strip()
+		text = model[iterator][TEXT_COL]
 		
 		# Do the action, match will be either a regular selected manually match
 		# Or the match stored in the model by history navigation
@@ -296,7 +297,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 
 			if (hsh != None and not hsh in self._completion_model._hashes) or hsh == None or async:
 				self._completion_model._hashes[hsh] = True
-				self._completion_model.append([handler_priority, match.get_priority(), match.get_verb() % verbs, icon, match])
+				self._completion_model.append([handler_priority, match.get_priority(), match.get_verb() % verbs, icon, match, t])
 					
 		#Set the entry icon accoring to the first match in the completion list
 		self._update_icon(iter=self._completion_model.get_iter_first())
