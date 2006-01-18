@@ -156,6 +156,16 @@ class Handler:
 		"""
 		raise NotImplementedError
 
+	def on_key_press(self, query, event):
+		"""
+		Called when the user presses a special trigger combination, like ctrl-foo
+		The query text and text press gtk event are passed.
+		
+		The handler must return None if it didn't handle the key press, or a Match instance if
+		it handled the keypress, and the returned match will be executed with the query text
+		"""
+		return None
+		
 	def is_async (self):
 		"""
 		AsyncHandler overwrites this method and returns True.

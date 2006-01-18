@@ -83,19 +83,15 @@ def get_url_host(url):
 # managing the UI for customizing shortcuts, and methods for activating them
 # on the right triggers (e.g. Ctrl-something).
 
-def on_entry_key_press(entry, event, applet, shortcuts_to_smart_bookmarks_map):
+def on_entry_key_press(query, event, shortcuts_to_smart_bookmarks_map):
 	if event.state == gtk.gdk.CONTROL_MASK:
 		key = chr(event.keyval)
 		try:
 			bookmark = shortcuts_to_smart_bookmarks_map[key]
-			text = entry.get_text().strip()
-			bookmark.action(text)
-			return True
+			return bookmark
 		except KeyError:
 			# There was no shortcut defined for this keypress
-			pass
-	
-	return False
+			return None
 
 def _sync_shortcuts_map_from_list_store(list_store, smart_bookmarks, shortcuts_to_smart_bookmarks_map):
 	shortcuts_to_smart_bookmarks_map.clear()
@@ -110,6 +106,12 @@ def _sync_list_store_from_shortcuts_map(list_store, smart_bookmarks, shortcuts_t
 	for sc in shortcuts_to_smart_bookmarks_map.keys():
 		m[shortcuts_to_smart_bookmarks_map[sc]] = sc
 	
+	# FIXME: this is a major design flaw since not inited bookmarks will fail here
+	# FIXME: Another fixme is to resolve conflicts in keybindings, and probably we
+	# should provide an unified framework to bind shortcuts with register/unregiter things
+	if smart_bookmarks == None:
+		return
+		
 	for b in smart_bookmarks:
 		try:
 			list_store.append([m[b], b])

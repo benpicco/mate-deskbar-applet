@@ -1,3 +1,18 @@
+2006-01-18  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/deskbarentry.py:
+	* deskbar/handler.py:
+	* deskbar/handlers/epiphany.py:
+	* deskbar/handlers/pathprograms.py:
+	* deskbar/handlers_browsers.py:
+	Fix a stack trace when clicking More... on epiphany handler when it's not
+	enabled.
+
+	Create an appropriate API for receiving key-combos in handlers
+
+	Add output view in zenity when hitting ctrl-t with a program name in the
+	entry
+
 2006-01-16  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* NEWS:

@@ -78,7 +78,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		except AttributeError:
 			pass
 			
-		completion.connect("match-selected", self._on_completion_selected)
+		completion.connect("match-selected", lambda c, mod, it: self._on_completion_selected(model[iterator][TEXT_COL], model[iterator][MATCH_COL]))
 		entry.set_completion(completion)
 		
 		# Paint  it accordingly		
@@ -123,10 +123,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		else:
 			return 0
 			
-	def _on_completion_selected(self, completion, model, iterator):
-		match = model[iterator][MATCH_COL]
-		text = model[iterator][TEXT_COL]
-		
+	def _on_completion_selected(self, text, match):
 		# Do the action, match will be either a regular selected manually match
 		# Or the match stored in the model by history navigation
 		match.action(text)
@@ -145,7 +142,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		# When the user hits enter on the entry, we use the first match to do the action
 		iter = self._completion_model.get_iter_first()
 		if iter != None:
-			self._on_completion_selected (widget, self._completion_model, iter)
+			self._on_completion_selected (self._completion_model[iter][TEXT_COL], self._completion_model[iter][MATCH_COL])
 	
 	def _on_entry_key_press(self, entry, event, applet):
 		# For key UP to browse in history, we have either to be already in history mode, or have an empty text entry to trigger hist. mode
@@ -180,20 +177,17 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			# Some Handlers want to know about Ctrl-keypress
 			# combinations, for example.  Here, we notify such
 			# Handlers.
+			query = entry.get_text().strip()
 			for modctx in self._handlers:
 				if not modctx.enabled:
 					continue
-				try:
-					if modctx.module.on_entry_key_press(entry, event, applet):
-						if not entry.get_text().strip() == "":
-							# If we cleared some text, tell async handlers to stop.
-							self._stop_async_handlers()
-						entry.set_text("")
-						return True
-				except AttributeError:
-					# The handler most likely does not have
-					# an on_entry_key_press method.
-					pass
+				
+				match = modctx.module.on_key_press(query, event)
+				if match != None:
+					self._on_completion_selected (query, match)
+					return True
+		
+		return False
 		
 		def match_move(updown):
 			self._selected_match_index = self._selected_match_index  + updown
