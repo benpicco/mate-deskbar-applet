@@ -2,6 +2,7 @@ import os, ConfigParser, cgi, re
 import glob
 from os.path import join, isfile, abspath, splitext, expanduser, exists, isdir
 from gettext import gettext as _
+import subprocess
 
 import gobject
 import gtk
@@ -28,10 +29,29 @@ class PathProgramMatch(deskbar.handler.Match):
 		
 	def action(self, text=None):
 		if self.use_terminal:
-			# FIXME: this is a hack, but i don't know how to do it with gobject
-			os.system("%s|zenity --text-info&" % text)
-		else:
-			gobject.spawn_async(text.split(" "), flags=gobject.SPAWN_SEARCH_PATH)
+			try:
+				prog = subprocess.Popen(
+					text.split(" "),
+					stdout=subprocess.PIPE,
+					stderr=subprocess.STDOUT)
+				
+				zenity = subprocess.Popen(
+					["zenity", "--title="+text,
+						"--window-icon="+join(deskbar.ART_DATA_DIR, "generic.png"),
+						"--width=700",
+						"--height=500",
+						"--text-info"],
+					stdin=prog.stdout)
+	
+				# Reap the processes when they have done
+				gobject.child_watch_add(zenity.pid, lambda pid, code: None)
+				gobject.child_watch_add(prog.pid, lambda pid, code: None)
+				return
+			except:
+				#No zenity, get out of the if, and launch without GUI
+				pass
+		
+		gobject.spawn_async(text.split(" "), flags=gobject.SPAWN_SEARCH_PATH)			
 	
 	def get_verb(self):
 		return _("Execute %s") % "<b>%(text)s</b>"
