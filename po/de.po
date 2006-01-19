@@ -1,15 +1,15 @@
 # German translation of deskbar-applet.
 # Copyright (C) 2005 THE deskbar-applet'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the deskbar-applet package.
-# Hendrik Brandt <heb@gnome-de.org>, 2005.
+# Hendrik Brandt <heb@gnome-de.org>, 2005, 2006.
 # 
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-21 22:08+0100\n"
-"PO-Revision-Date: 2005-11-22 00:55+0100\n"
+"POT-Creation-Date: 2006-01-19 15:32+0100\n"
+"PO-Revision-Date: 2006-01-19 15:47+0100\n"
 "Last-Translator: Hendrik Brandt <heb@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,44 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one search bar"
-msgstr "Ein allumfassendes Suchfeld"
+msgid "An all-in-one action bar"
+msgstr "Ein universales Applet für Suchen und das Starten von Anwendungen"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:26
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:23
 msgid "Deskbar"
 msgstr "Deskbar"
-
-#: ../data/prefs-dialog.glade.h:1
-msgid "<b>Active Handlers</b>"
-msgstr "<b>Aktive Elemente</b>"
-
-#: ../data/prefs-dialog.glade.h:2
-msgid "<b>Applet Width</b>"
-msgstr "<b>Applet-Breite</b>"
-
-#: ../data/prefs-dialog.glade.h:3
-msgid ""
-"<i><small><b>Note:</b> Drag and drop a handler to change its priority.</"
-"small></i>"
-msgstr ""
-"<i><small><b>Hinweis:</b> Ziehen Sie ein Element mit der Maus um dessen "
-"Priorität zu ändern.</small></i>"
-
-#: ../data/prefs-dialog.glade.h:4
-msgid "Deskbar Preferences"
-msgstr "Deskbar-Einstellungen"
-
-#: ../data/prefs-dialog.glade.h:5
-msgid "Use _all available space"
-msgstr "Den _gesamten verfügbaren Platz verwenden"
-
-#: ../data/prefs-dialog.glade.h:6
-msgid "_Width:"
-msgstr "_Breite:"
-
-#: ../data/prefs-dialog.glade.h:7
-msgid "characters"
-msgstr "Zeichen"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -64,41 +32,260 @@ msgstr "_Info"
 msgid "_Preferences"
 msgstr "_Einstellungen"
 
-#: ../deskbar/about.py:29
-msgid "An all-in-one search bar."
-msgstr "Ein alles-in-einem Suchfeld."
+#: ../data/prefs-dialog.glade.h:1
+msgid "<b>Keyboard Shortcut</b>"
+msgstr "<b>Tastenkombination</b>"
 
-#: ../deskbar/about.py:32
+#: ../data/prefs-dialog.glade.h:2
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Geladene Erweiterungen</b>"
+
+#: ../data/prefs-dialog.glade.h:3
+msgid "<b>Width</b>"
+msgstr "<b>Breite</b>"
+
+#: ../data/prefs-dialog.glade.h:4
+msgid ""
+"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
+"small></i>"
+msgstr ""
+"<i><small><b>Hinweis:</b> Ziehen Sie ein Element mit der Maus um dessen "
+"Priorität zu ändern.</small></i>"
+
+#: ../data/prefs-dialog.glade.h:5
+msgid "Deskbar Preferences"
+msgstr "Deskbar-Einstellungen"
+
+#: ../data/prefs-dialog.glade.h:6
+msgid "Fixed _width:"
+msgstr "Feste _Breite:"
+
+#: ../data/prefs-dialog.glade.h:7
+msgid "Use _all available space"
+msgstr "Den _gesamten verfügbaren Platz verwenden"
+
+#: ../data/prefs-dialog.glade.h:8
+msgid "Use the _keyboard shortcut:"
+msgstr "Diese _Tastenkombination verwenden:"
+
+#: ../data/prefs-dialog.glade.h:9
+msgid "characters"
+msgstr "Zeichen"
+
+#: ../data/smart-bookmarks.glade.h:1
+msgid ""
+"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
+"you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
+"the deskbar.</small></i>"
+msgstr ""
+"<i><small><b>Hinweis: </b>"
+"Wenn die Tastenkombination ein einzelner Buchstabe ist (z.B. <b>e</b>) "
+"können sie auch nur »<b>irgendwas</b>« schreiben und anschließend <b>Strg-e</b> "
+"im Deskbar-Feld drücken.</small></i>"
+""
+
+#: ../data/smart-bookmarks.glade.h:2
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>Hinweis:</b> "
+"Um ein Kürzel (z.B. <b>wp</b>) zur Suchen nach "
+"<b>irgendwas</b> zu verwenden, geben Sie »<b>wp irgendwas</b>« "
+"im Deskbar-Feld ein.</small></i>"
+""
+
+#: ../data/smart-bookmarks.glade.h:3
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "Kürzel für Lesezeichensuche"
+
+#: ../deskbar/about.py:26
+msgid "An all-in-one action bar."
+msgstr "Ein universales Applet für Suchen und das Starten von Anwendungen."
+
+#: ../deskbar/about.py:29
 msgid "Deskbar Website"
 msgstr "Deskbar-Internet-Seite"
 
-#: ../deskbar/handlers/epiphany.py:21 ../deskbar/handlers/mozilla.py:29
-#: ../deskbar/handlers/galeon.py:21
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/about.py:37
+msgid "translator-credits"
+msgstr "Hendrik Brandt <heb@gnome-de.org>"
+
+#: ../deskbar/applet.py:311
+msgid "No History"
+msgstr "Keine Chronik"
+
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Beagle Live"
+msgstr "Beagle-Live"
+
+#: ../deskbar/handlers/beagle-live.py:20
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Alle Dokumente mit Beagle während des Eintippens durchsuchen"
+
+#: ../deskbar/handlers/beagle-live.py:47
+#, python-format
+msgid "Addressbook entry for %s"
+msgstr "Adressbucheintrag für %s"
+
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:56
+#, python-format
+msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+msgstr "Nachricht von <i>%(sender)s</i>: <b>%(name)s</b> ansehen"
+
+#. translators: This is a file.
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
+#, python-format
+msgid "Open %s"
+msgstr "%s öffnen"
+
+#: ../deskbar/handlers/beagle-live.py:69
+#, python-format
+msgid "Open news item %s"
+msgstr "News-Eintrag %s öffnen"
+
+#: ../deskbar/handlers/beagle-live.py:76
+#, python-format
+msgid "Open note %s"
+msgstr "Notiz %s öffnen"
+
+#: ../deskbar/handlers/beagle-live.py:82
+#, python-format
+msgid "View conversation with %s"
+msgstr "Unterhaltung mit %s öffnen"
+
+#: ../deskbar/handlers/beagle-live.py:88
+#, python-format
+msgid "View calendar %s"
+msgstr "Kalender %s anzeigen"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:205
+#: ../deskbar/handlers/beagle-live.py:217
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle.py:19
+msgid "Beagle"
+msgstr "Beagle"
+
+#: ../deskbar/handlers/beagle.py:20
+msgid "Search all of your documents (using Beagle)"
+msgstr "Alle Ihre Dokumente durchsuchen (über Beagle)"
+
+#: ../deskbar/handlers/beagle.py:33
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "Nach %s mit Beagle suchen"
+
+#: ../deskbar/handlers_browsers.py:29
+#, python-format
+msgid "Open History Item %s"
+msgstr "Chronikeintrag %s öffnen"
+
+#: ../deskbar/handlers_browsers.py:31
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "Lesezeichen %s öffnen"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/handlers_browsers.py:64
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "Mit <b>%(name)s</b> nachen <i>%(text)s</i> suchen"
+
+#: ../deskbar/handlers_browsers.py:171
+msgid "Shortcut"
+msgstr "Kürzel"
+
+#: ../deskbar/handlers_browsers.py:179
+msgid "Bookmark Name"
+msgstr "Lesezeichenname"
+
+#: ../deskbar/handlers/email_address.py:9
+msgid "Mail"
+msgstr "E-Mail"
+
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mail by typing a complete e-mail address"
+msgstr ""
+"Eine E-Mail über die Eingabe einer vollständigen E-Mail-Adresse verschicken"
+
+#: ../deskbar/handlers/email_address.py:26 ../deskbar/handlers/galago.py:26
+#, python-format
+msgid "Send Email to %s"
+msgstr "E-Mail an %s senden"
+
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:33
 msgid "Web Bookmarks"
 msgstr "Internet-Lesezeichen"
 
-#: ../deskbar/handlers/epiphany.py:22 ../deskbar/handlers/mozilla.py:30
-#: ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:34
 msgid "Open your web bookmarks by name"
 msgstr "Ihre Internet-Lesezeichen über den Namen öffnen"
 
-#: ../deskbar/handlers/epiphany.py:26 ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
 msgid "Web History"
 msgstr "Internet-Chronik"
 
-#: ../deskbar/handlers/epiphany.py:27 ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
 msgid "Open your web history by name"
 msgstr "Ihre Internet-Chronik nach Namen öffnen"
 
-#: ../deskbar/handlers/epiphany.py:31 ../deskbar/handlers/mozilla.py:34
-#: ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:38
 msgid "Web Searches"
 msgstr "Internet-Suchen"
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/mozilla.py:35
-#: ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:39
 msgid "Search the web via your browser's search settings"
 msgstr "Das Internet über die Sucheinstellungen Ihres Browsers durchsuchen"
+
+#: ../deskbar/handlers/evolution.py:11
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr ""
+"Sie müssen die Autovervollständigung in den Einstellungen ihres E-Mail-"
+"Programms aktivieren"
+
+#: ../deskbar/handlers/evolution.py:13
+msgid "Autocompletion Needs to be Enabled"
+msgstr "Autovervollständigung muss aktiviert sein"
+
+#: ../deskbar/handlers/evolution.py:14
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"Es können keine E-Mail-Adressen aus Ihrem Adressbuch geholt werden, solange "
+"die Autovervollständigung nicht aktiviert ist. Um diese einzuschalten, "
+"aktivieren Sie in Ihrem E-Mail-Programm die Eigenschaft »Bearbeiten -> "
+"Einstellungen -> Autovervollständigung«."
+
+#: ../deskbar/handlers/evolution.py:19
+msgid "Mail (Address Book)"
+msgstr "E-Mail (Adressbuch)"
+
+#: ../deskbar/handlers/evolution.py:20
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr ""
+"E-Mail an Ihre Kontakte verschicken, in dem Sie deren Namen oder E-Mail-"
+"Adresse eingeben"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:41
+#, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "Nachricht an <b>%(name)s</b> (%(email)s) schicken"
 
 #: ../deskbar/handlers/files.py:14
 msgid "Files and Folders"
@@ -108,21 +295,73 @@ msgstr "Dateien und Ordner"
 msgid "Open your files and folders by name"
 msgstr "Ihre Dateien und Ordner über den Namen öffnen"
 
-#. translators: This is a file.
-#: ../deskbar/handlers/files.py:31 ../deskbar/handlers/beagle-live.py:62
-#, python-format
-msgid "Open %s"
-msgstr "%s öffnen"
-
 #: ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open folder %s"
 msgstr "Ordner %s öffnen"
 
-#: ../deskbar/handlers/galago.py:27 ../deskbar/handlers/email_address.py:26
-#, python-format
-msgid "Send Email to %s"
-msgstr "E-Mail an %s senden"
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+"Sie benötigen einen Google-Profil, um Google-Live zu verwenden. Bitte "
+"besuchen Sie http://api.google.com/\n"
+"\n"
+"Nachdem Sie ein Profil angelegt haben, sollten Sie einen Google-API-"
+"Schlüssel per E-Mail bekommen. Speichern Sie diesen Schlüssel in der Datei\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"Wenn Sie keinen API-Schlüssel in Ihrer Bestätigungs-E-Mail erhalten (oder "
+"Sie Ihn verloren haben), dann besuchen Sie www.google.com/accounts und "
+"melden Sie sich an, klicken Sie auf »Profil erstellen« und geben Sie Ihre E-"
+"Mail-Adresse und Ihr Passwort an. Anschließend wird Ihnen Ihr API-Schlüssel "
+"erneut zugesendet.\n"
+"\n"
+"Laden Sie nun die Entwicklerwerkzeuge herunter und entpacken Sie die Datei "
+"GoogleSearch.wsdl daraus. Kopieren Sie anschließend die Datei nach\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#: ../deskbar/handlers/google-live.py:32
+msgid "Setting Up Google Live"
+msgstr "Google-Live einrichten"
+
+#: ../deskbar/handlers/google-live.py:38
+msgid "You need to install the SOAPpy python module."
+msgstr "Sie müssen das Python-Modul SOAPpy installieren."
+
+#: ../deskbar/handlers/google-live.py:40
+msgid "You need the Google WSDL file."
+msgstr "Sie benötigen eine  Google-WSDL-Datei."
+
+#: ../deskbar/handlers/google-live.py:42
+msgid "You need a Google API key."
+msgstr "Sie benötigen einen Google-API-Schlüssel."
+
+#: ../deskbar/handlers/google-live.py:48
+msgid "Google Live"
+msgstr "Google-Live"
+
+#: ../deskbar/handlers/google-live.py:49
+msgid "Search Google as you type"
+msgstr "Google während des Eintippens durchsuchen"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
 msgid "Files and Folders Bookmarks"
@@ -132,10 +371,23 @@ msgstr "Datei- und Ordner-Lesezeichen"
 msgid "Open your files and folders bookmarks by name"
 msgstr "Ihre Datei- und Ordner-Lesezeichen über den Namen öffnen"
 
-#: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
+#: ../deskbar/handlers/gtkbookmarks.py:28 ../deskbar/handlers/volumes.py:44
 #, python-format
 msgid "Open location %s"
 msgstr "Ort %s öffnen"
+
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Programs (Advanced)"
+msgstr "Programme (Erweitert)"
+
+#: ../deskbar/handlers/pathprograms.py:15
+msgid "Launch any program present in your $PATH"
+msgstr "Jedes Programm in Ihrer Umgebungsvariable $PATH starten"
+
+#: ../deskbar/handlers/pathprograms.py:57
+#, python-format
+msgid "Execute %s"
+msgstr "%s ausführen"
 
 #: ../deskbar/handlers/programs.py:14
 msgid "Programs"
@@ -163,54 +415,20 @@ msgstr "Dateien und Ordner über Namensteile finden"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:66
+#: ../deskbar/handlers/programs.py:64
 #, python-format
-msgid "Launch %s (%s)"
-msgstr "%s (%s) starten"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "<b>%(name)s</b> (%(prog)s) starten"
 
-#: ../deskbar/handlers/programs.py:79
+#: ../deskbar/handlers/programs.py:77
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s im Wörterbuch nachschlagen"
 
-#: ../deskbar/handlers/programs.py:87
+#: ../deskbar/handlers/programs.py:85
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Nach Dateinamen ähnlich wie %s suchen"
-
-#: ../deskbar/handlers/pathprograms.py:13
-msgid "Programs (Advanced)"
-msgstr "Programme (Erweitert)"
-
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Launch any program present in your $PATH"
-msgstr "Jedes Programm in Ihrer Umgebungsvariable $PATH starten"
-
-#: ../deskbar/handlers/pathprograms.py:30
-#, python-format
-msgid "Execute %s"
-msgstr "%s ausführen"
-
-#: ../deskbar/handlers/beagle.py:19
-msgid "Beagle"
-msgstr "Beagle"
-
-#: ../deskbar/handlers/beagle.py:20
-msgid "Search all of your documents (using Beagle)"
-msgstr "Alle Ihre Dokumente durchsuchen (über Beagle)"
-
-#: ../deskbar/handlers/beagle.py:33
-#, python-format
-msgid "Search for %s using Beagle"
-msgstr "Nach %s mit Beagle suchen"
-
-#: ../deskbar/handlers/email_address.py:9
-msgid "Mail"
-msgstr "E-Mail"
-
-#: ../deskbar/handlers/email_address.py:10
-msgid "Send mail by typing a complete e-mail address"
-msgstr "Eine E-Mail über die Eingabe einer vollständigen E-Mail-Adresse verschicken"
 
 #: ../deskbar/handlers/volumes.py:16
 msgid "Disks and Network Places"
@@ -218,14 +436,15 @@ msgstr "Laufwerke und Orte im Netzwerk"
 
 #: ../deskbar/handlers/volumes.py:17
 msgid "Open disk drives, shared network places and similar resources by name"
-msgstr "Laufwerke, Orte im Netzwerk oder vergleichbare Quellen über den Namen öffnen"
+msgstr ""
+"Laufwerke, Orte im Netzwerk oder vergleichbare Quellen über den Namen öffnen"
 
-#: ../deskbar/handlers/volumes.py:41
+#: ../deskbar/handlers/volumes.py:40
 #, python-format
 msgid "Open network place %s"
 msgstr "Netzwerkort %s öffnen"
 
-#: ../deskbar/handlers/volumes.py:43
+#: ../deskbar/handlers/volumes.py:42
 #, python-format
 msgid "Open audio disk %s"
 msgstr "Audio-CD %s öffnen"
@@ -236,166 +455,21 @@ msgstr "Internet"
 
 #: ../deskbar/handlers/web_address.py:10
 msgid "Open web pages by typing a complete web address"
-msgstr "Eine Internet-Seite über die Eingabe einer vollständigen Internet-Adresse öffnen"
+msgstr ""
+"Eine Internet-Seite über die Eingabe einer vollständigen Internet-Adresse "
+"öffnen"
 
-#: ../deskbar/handlers/web_address.py:35
+#: ../deskbar/handlers/web_address.py:34
 #, python-format
 msgid "Open the web page %s"
 msgstr "Internet-Seite %s öffnen"
 
-#: ../deskbar/handlers/web_address.py:37
+#: ../deskbar/handlers/web_address.py:36
 #, python-format
 msgid "Open the location %s"
 msgstr "Ort %s öffnen"
 
-#: ../deskbar/handlers_browsers.py:30
-#, python-format
-msgid "Open History Item %s"
-msgstr "Chronikeintrag %s öffnen"
-
-#: ../deskbar/handlers_browsers.py:32
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "Lesezeichen %s öffnen"
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:54
-#, python-format
-msgid "Search %s for %s"
-msgstr "%s nach %s durchsuchen"
-
-#: ../deskbar/handlers/evolution.py:11
-msgid "Autocompletion Needs to be Enabled"
-msgstr "Autovervollständigung muss aktiviert sein"
-
-#: ../deskbar/handlers/evolution.py:12
-msgid ""
-"We cannot provide e-mail addresses from your address book unless "
-"autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit â Preferences â Autocompletion."
-msgstr "Es können keine E-Mail-Adressen aus Ihrem Adressbuch geholt werden, solange die "
-"Autovervollständigung nicht aktiviert ist. Um diese einzuschalten, aktivieren Sie in Ihrem E-Mail-Programm "
-"die Eigenschaft »Bearbeiten -> Einstellungen -> Autovervollständigung«."
-
-#: ../deskbar/handlers/evolution.py:21
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr "Sie müssen die Autovervollständigung in den Einstellungen ihres E-Mail-Programms aktivieren"
-
-#: ../deskbar/handlers/evolution.py:25
-msgid "Mail (Address Book)"
-msgstr "E-Mail (Adressbuch)"
-
-#: ../deskbar/handlers/evolution.py:26
-msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr "E-Mail an Ihre Kontakte verschicken, in dem Sie deren Namen oder E-Mail-Adresse eingeben"
-
-#. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:50
-#, python-format
-msgid "Send Email to %s (%s)"
-msgstr "E-Mail an %s (%s) senden"
-
-#: ../deskbar/handlers/google-live.py:19
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should recieve a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"Sie benötigen einen Google-Profil, um Google-Live zu verwenden. Bitte besuchen "
-"Sie http://api.google.com/\n"
-"\n"
-"Nachdem Sie ein Profil angelegt haben, sollten Sie einen Google-API-Schlüssel per E-Mail bekommen. "
-"Speichern Sie diesen Schlüssel in der Datei\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"Wenn Sie keinen API-Schlüssel in Ihrer Bestätigungs-E-Mail erhalten "
-"(oder Sie Ihn verloren haben), dann besuchen Sie www.google.com/accounts "
-"und melden Sie sich an, klicken Sie auf »Profil erstellen« und geben Sie Ihre "
-"E-Mail-Adresse und Ihr Passwort an. Anschließend wird Ihnen Ihr API-Schlüssel "
-"erneut zugesendet.\n"
-"\n"
-"Laden Sie nun die Entwicklerwerkzeuge herunter und entpacken Sie die Datei GoogleSearch.wsdl daraus. "
-"Kopieren Sie anschließend die Datei nach\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:36
-msgid "Setting Up Google Live"
-msgstr "Google-Live einrichten"
-
-#: ../deskbar/handlers/google-live.py:56
-msgid "Google Live"
-msgstr "Google-Live"
-
-#: ../deskbar/handlers/google-live.py:57
-msgid "Search Google as you type"
-msgstr "Google während des Eintippens durchsuchen"
-
-#: ../deskbar/applet.py:303
-msgid "No History"
-msgstr "Keine Chronik"
-
-#: ../deskbar/handlers/beagle-live.py:18
-msgid "Beagle Live"
-msgstr "Beagle-Live"
-
-#: ../deskbar/handlers/beagle-live.py:19
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Alle Dokumente mit Beagle während des Eintippens durchsuchen"
-
-#: ../deskbar/handlers/beagle-live.py:46
-#, python-format
-msgid "Addressbook entry for %s"
-msgstr "Adressbucheintrag für %s"
-
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:55
-#, python-format
-msgid "View email from %s: %s"
-msgstr "E-Mail von %s: %s ansehen"
-
-#: ../deskbar/handlers/beagle-live.py:68
-#, python-format
-msgid "Open news item %s"
-msgstr "News-Eintrag %s öffnen"
-
-#: ../deskbar/handlers/beagle-live.py:75
-#, python-format
-msgid "Open note %s"
-msgstr "Notiz %s öffnen"
-
-#: ../deskbar/handlers/beagle-live.py:81
-#, python-format
-msgid "View conversation with %s"
-msgstr "Unterhaltung mit %s öffnen"
-
-#: ../deskbar/handlers/beagle-live.py:87
-#, python-format
-msgid "View calendar %s"
-msgstr "Kalender %s anzeigen"
-
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:204
-msgid "?"
-msgstr "?"
-
-#: ../deskbar/preferences.py:52
+#: ../deskbar/preferences.py:53
 msgid "_More..."
 msgstr "_Mehr..."
 
