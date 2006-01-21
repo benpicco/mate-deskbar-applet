@@ -28,6 +28,9 @@ class VolumeMatch (Match):
 	
 	def action(self, text=None):
 		gobject.spawn_async(["nautilus", self.__drive.get_activation_uri()], flags=gobject.SPAWN_SEARCH_PATH)
+	
+	def get_category(self):
+		return "files"
 	 
 	def get_verb(self):
 		activation = self.__drive.get_activation_uri()

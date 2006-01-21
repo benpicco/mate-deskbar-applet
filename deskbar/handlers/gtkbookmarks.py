@@ -23,6 +23,9 @@ class GtkBookmarkMatch(deskbar.Match.Match):
 		
 	def action(self, text=None):
 		gobject.spawn_async(["nautilus", self._path], flags=gobject.SPAWN_SEARCH_PATH)
+		
+	def get_category(self):
+		return "files"
 	
 	def get_verb(self):
 		return _("Open location %s") % "<b>%(name)s</b>"

@@ -33,6 +33,9 @@ class DebugRequirementsMatch(deskbar.Match.Match):
 		
 	def action(self, text=None):
 		pass
+		
+	def get_category (self):
+		return "debug"
 
 class DebugRequirementsModule(deskbar.Handler.Handler):
 	def __init__ (self):

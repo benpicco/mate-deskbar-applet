@@ -72,6 +72,15 @@ class Match:
 		Returns None if there is no associated icon.
 		"""
 		return self._icon
+	
+	def get_category(self):
+		"""
+		Returns a string corresponding to a key in the Categories.py file, indicating
+		in which category this match should be put in.
+		
+		Returning None, uses the default category
+		"""
+		return None
 		
 	def action(self, text=None):
 		"""

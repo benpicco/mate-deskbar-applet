@@ -28,6 +28,9 @@ class WebAddressMatch(deskbar.Match.Match):
 			gnomevfs.url_show(self._url)
 		else:
 			gobject.spawn_async(["nautilus", self._url], flags=gobject.SPAWN_SEARCH_PATH)
+			
+	def get_category(self):
+		return "actions"
 	
 	def get_verb(self):
 		if not self._has_method:

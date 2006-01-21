@@ -32,6 +32,9 @@ class BrowserMatch(deskbar.Match.Match):
 	
 	def get_hash(self, text=None):
 		return self._url
+	
+	def get_category(self):
+		return "web"
 		
 class BrowserSmartMatch(BrowserMatch):
 	def __init__(self, bmk, name, url, prefix_to_strip=None):

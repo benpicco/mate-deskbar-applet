@@ -32,6 +32,9 @@ class BeagleMatch(deskbar.Match.Match):
 	def get_verb(self):
 		return _("Search for %s using Beagle") % "<b>%(name)s</b>"
 	
+	def get_category (self):
+		return "actions"
+	
 				
 class BeagleHandler(deskbar.Handler.Handler):
 	def __init__(self):

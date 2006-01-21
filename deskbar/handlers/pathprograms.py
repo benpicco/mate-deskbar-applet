@@ -53,6 +53,9 @@ class PathProgramMatch(deskbar.Match.Match):
 		
 		gobject.spawn_async(text.split(" "), flags=gobject.SPAWN_SEARCH_PATH)			
 	
+	def get_category(self):
+		return "programs"
+	
 	def get_verb(self):
 		return _("Execute %s") % "<b>%(text)s</b>"
 

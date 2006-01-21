@@ -4,7 +4,7 @@ import deskbar, deskbar.Handler, deskbar.Utils
 from gettext import gettext as _
 from os.path import exists
 
-MAX_RESULTS = 2 # per handler
+MAX_RESULTS = 100 # per handler
 
 def _check_requirements():
 	try:
@@ -121,6 +121,16 @@ class BeagleLiveMatch (deskbar.Match.Match):
 		deskbar.Match.Match.__init__ (self, handler, result["name"], handler.ICONS[result["type"]])
 		
 		self.__result = result
+	
+	def get_category (self):
+		t = self.__result["type"]
+		if t == "MailMessage" : return "emails"
+		elif t == "Contact": return "contacts"
+		elif t == "File": return "files"
+		elif t == "FeedItem": return "news"
+		elif t == "Note": return "notes"
+		elif t == "IMLog": return "conversation"
+		elif t == "Calendar": return "calendar"
 	
 	def get_name (self, text=None):
 		# We use the result dict itself to look up words

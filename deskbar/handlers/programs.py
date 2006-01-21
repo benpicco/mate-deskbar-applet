@@ -58,6 +58,9 @@ class GenericProgramMatch(deskbar.Match.Match):
 		else:
 			self._desktop.launch([])
 	
+	def get_category(self):
+		return "programs"
+	
 	def get_verb(self):
 		#translators: First %s is the programs full name, second is the executable name
 		#translators: For example: Launch Text Editor (gedit)

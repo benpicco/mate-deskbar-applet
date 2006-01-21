@@ -23,6 +23,9 @@ class AsyncDebugMatch (Match):
 		
 	def action(self, text=None):
 		print str(self.__class__) + " : action triggered"
+		
+	def get_category (self):
+		return "debug"
 
 class AsyncDebugHandler (AsyncHandler): 
 

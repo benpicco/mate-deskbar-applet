@@ -27,6 +27,9 @@ class FileMatch(deskbar.Match.Match):
 	def action(self, text=None):
 		gobject.spawn_async(["gnome-open", self._filename], flags=gobject.SPAWN_SEARCH_PATH)
 		
+	def get_category(self):
+		return "files"
+		
 	def get_verb(self):
 		return _("Open %s") % "<b>%(name)s</b>"
 	
@@ -42,6 +45,9 @@ class FolderMatch(deskbar.Match.Match):
 		
 	def action(self, text=None):
 		gobject.spawn_async(["nautilus", self._filename], flags=gobject.SPAWN_SEARCH_PATH)
+	
+	def get_category(self):
+		return "Files"
 	
 	def get_verb(self):
 		return _("Open folder %s") % "<b>%(name)s</b>"
