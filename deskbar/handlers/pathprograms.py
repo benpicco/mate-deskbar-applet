@@ -25,7 +25,7 @@ class PathProgramMatch(deskbar.handler.Match):
 		self.use_terminal = terminal
 		
 	def get_hash(self, text=None):
-		return text
+		return (text,self.use_terminal)
 		
 	def action(self, text=None):
 		if self.use_terminal:
