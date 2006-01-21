@@ -1,8 +1,7 @@
-
 from os.path import join
 from gettext import gettext as _
 from deskbar.defs import VERSION
-from deskbar.handler_utils import load_icon
+from deskbar.Utils import load_icon
 import gtk, gtk.gdk, gnomevfs, gobject
 import deskbar
 

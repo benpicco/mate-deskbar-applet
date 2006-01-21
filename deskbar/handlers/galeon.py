@@ -2,19 +2,19 @@ import xml.sax
 from os.path import join, expanduser, exists
 from gettext import gettext as _
 import gtk
-import deskbar, deskbar.indexer, deskbar.handler
-from deskbar.filewatcher import FileWatcher
-from deskbar.handlers_browsers import get_url_host, is_preferred_browser
-from deskbar.handlers_browsers import BrowserSmartMatch, BrowserMatch
+import deskbar, deskbar.Indexer, deskbar.Handler
+from deskbar.Watcher import FileWatcher
+from deskbar.BrowserMatch import get_url_host, is_preferred_browser
+from deskbar.BrowserMatch import BrowserSmartMatch, BrowserMatch
 
 def _check_requirements():
-	if deskbar.UNINSTALLED_DESKBAR:
-		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
+#	if deskbar.UNINSTALLED_DESKBAR:
+#		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 		
 	if is_preferred_browser("galeon"):
-		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
+		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	else:
-		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "Galeon is not your preferred browser, not using it.", None)
+		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Galeon is not your preferred browser, not using it.", None)
 		
 HANDLERS = {
 	"GaleonBookmarksHandler" : {
@@ -41,9 +41,9 @@ favicon_cache = None
 bookmarks = None
 smart_bookmarks = None
 
-class GaleonHandler(deskbar.handler.Handler):
+class GaleonHandler(deskbar.Handler.Handler):
 	def __init__(self, watched_file, callback):
-		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
+		deskbar.Handler.Handler.__init__(self, "web-bookmark.png")
 		self.watched_file = watched_file
 		self.watch_callback = callback
 		
@@ -116,7 +116,7 @@ class GaleonBookmarksParser(xml.sax.ContentHandler):
 		self.href = None
 		self.smarthref = None
 		
-		self._indexer = deskbar.indexer.Index()
+		self._indexer = deskbar.Indexer.Indexer()
 		self._smart_bookmarks = []
 		
 		self._cache = cache
@@ -227,7 +227,7 @@ class GaleonHistoryParser(xml.sax.ContentHandler):
 		self.handler = handler;
 		self._cache = cache;
 
-		self._indexer = deskbar.indexer.Index()
+		self._indexer = deskbar.Indexer.Indexer()
 
 		self._index_history();
 

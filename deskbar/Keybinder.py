@@ -1,22 +1,21 @@
-import gconf
+import gtk, gobject, gconf
 import deskbar, deskbar.keybinder
 
-def on_global_keybinding(applet):
-	# We want to grab focus here
-	print 'Focusing the deskbar-applet entry'
-	applet.applet.request_focus(deskbar.keybinder.tomboy_keybinder_get_current_event_time())
-	applet.entry.get_entry().grab_focus()
-
-class AppletKeybinder:
-	def __init__(self, applet):
-		self.applet = applet
+class Keybinder(gobject.GObject):
+	__gsignals__ = {
+		"activated" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
+		# When the keybinding changes, passes a boolean indicating wether the keybinding is successful
+		"changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
+	}
+	def __init__(self, gconf_key):
+		gobject.GObject.__init__(self)
 
 		# Set and retreive global keybinding from gconf
-		self.keybinding = deskbar.GCONF_CLIENT.get_string(deskbar.GCONF_KEYBINDING)
+		self.keybinding = deskbar.GCONF_CLIENT.get_string(gconf_key)
 		if self.keybinding == None:
 			# This is for uninstalled cases, the real default is in the schema
 			self.keybinding = "<Alt>F3"
-		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_KEYBINDING, lambda x, y, z, a: self.on_config_keybinding(z.value))
+		deskbar.GCONF_CLIENT.notify_add(gconf_key, lambda x, y, z, a: self.on_config_keybinding(z.value))
 		self.bind()
 	
 	def on_config_keybinding(self, value=None):
@@ -26,14 +25,19 @@ class AppletKeybinder:
 				self.unbind()
 				self.keybinding = v
 				self.bind()
-			
+	
+	def on_keyboard_shortcut(self):
+		self.emit('activated')
+		
 	def bind(self):
 		if self.keybinding != None:
 			try:
 				print 'Binding Global shortcut %s to focus the deskbar' % self.keybinding
-				deskbar.keybinder.tomboy_keybinder_bind(self.keybinding, on_global_keybinding, self.applet)
+				deskbar.keybinder.tomboy_keybinder_bind(self.keybinding, self.on_keyboard_shortcut, self)
+				self.emit('changed', True)
 			except KeyError:
 				# if the requested keybinding conflicts with an existing one, a KeyError will be thrown
+				self.emit('changed', False)
 				pass
 
 	def unbind(self):
@@ -43,3 +47,8 @@ class AppletKeybinder:
 			except KeyError:
 				# if the requested keybinding is not bound, a KeyError will be thrown
 				pass
+			
+			self.emit('changed', False)
+
+if gtk.pygtk_version < (2,8,0):
+	gobject.type_register(Keybinder)

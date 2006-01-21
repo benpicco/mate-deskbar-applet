@@ -1,4 +1,4 @@
-SUBDIRS = handlers iconentry keybinder gnomedesktop
+SUBDIRS = ui handlers iconentry keybinder gnomedesktop
 
 if ENABLE_EVOLUTION
 SUBDIRS += evolution
@@ -12,22 +12,20 @@ deskbarbin_SCRIPTS = deskbar-applet
 
 deskbardir = $(pythondir)/deskbar
 deskbar_PYTHON = \
+	BrowserMatch.py \
+	DeskbarApplet.py \
+	DeskbarAppletPreferences.py \
+	DeskbarHistory.py \
+	Handler.py \
+	Indexer.py \
 	__init__.py \
-	about.py \
-	applet.py \
-	applet_keybinder.py \
-	defs.py \
-	deskbarentry.py \
-	filewatcher.py \
-	handler.py \
-	handler_utils.py \
-	handlers_browsers.py \
-	history.py \
-	indexer.py \
-	locale_utils.py \
-	ltihooks.py \
-	module_list.py \
-	preferences.py
+	Keybinder.py \
+	Match.py \
+	ModuleContext.py \
+	ModuleList.py \
+	ModuleLoader.py \
+	Utils.py \
+	Watcher.py
 	
 BUILT_SOURCES = \
 	deskbar-applet

@@ -4,9 +4,11 @@ import cgi
 import gtk, gobject
 
 import deskbar, deskbar.iconentry
-from deskbar.module_list import ModuleList
-from deskbar.handler import *
-from deskbar.history import get_deskbar_history
+from deskbar import MAX_RESULTS_PER_HANDLER
+from deskbar.ModuleList import ModuleList
+from deskbar.Handler import *
+from deskbar.Match import *
+from deskbar.DeskbarHistory import get_deskbar_history
 
 # The liststore columns
 HANDLER_PRIO_COL = 0
@@ -54,7 +56,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		self.pack_widget(self._evbox, True)
 		self._evbox.show()
 		
-		self._default_pixbuf = deskbar.handler_utils.load_icon("deskbar-applet-small.png")
+		self._default_pixbuf = deskbar.Utils.load_icon("deskbar-applet-small.png")
 		self._image.set_property('pixbuf', self._default_pixbuf)
 
 		# Create the listtore, model for the completion popup
@@ -78,7 +80,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		except AttributeError:
 			pass
 			
-		completion.connect("match-selected", lambda c, mod, it: self._on_completion_selected(model[iterator][TEXT_COL], model[iterator][MATCH_COL]))
+		completion.connect("match-selected", lambda c, mod, it: self._on_completion_selected(mod[it][TEXT_COL], mod[it][MATCH_COL]))
 		entry.set_completion(completion)
 		
 		# Paint  it accordingly		

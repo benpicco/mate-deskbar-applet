@@ -1,3 +1,7 @@
+"""
+Helper classes to monitor directories/files for changes using gnomevfs
+"""
+
 import gnomevfs
 import gobject, gtk
 

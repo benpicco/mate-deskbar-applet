@@ -1,7 +1,7 @@
 from gettext import gettext as _
 
 import gnomevfs
-import deskbar.handler
+import deskbar.Handler
 import re
 
 HANDLERS = {
@@ -13,9 +13,9 @@ HANDLERS = {
 
 REGEX = re.compile(r'^([\w\-]+\.)*[\w\-]+@([\w\-]+\.)*[\w\-]+$')
 
-class EmailAddressMatch(deskbar.handler.Match):
+class EmailAddressMatch(deskbar.Match.Match):
 	def __init__(self, backend, email):
-		deskbar.handler.Match.__init__(self, backend, email)
+		deskbar.Match.Match.__init__(self, backend, email)
 		
 		self._email = email
 		
@@ -29,9 +29,9 @@ class EmailAddressMatch(deskbar.handler.Match):
 		return self._email
 		
 	
-class EmailAddressHandler(deskbar.handler.Handler):
+class EmailAddressHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "stock_mail")
+		deskbar.Handler.Handler.__init__(self, "stock_mail")
 		
 	def query(self, query, max=5):
 		if REGEX.match(query) != None:

@@ -2,30 +2,30 @@ import xml.sax
 from os.path import join, expanduser, exists
 from gettext import gettext as _
 import gtk
-import deskbar, deskbar.indexer, deskbar.handler
-from deskbar.filewatcher import FileWatcher
-from deskbar.handlers_browsers import get_url_host, is_preferred_browser, on_customize_search_shortcuts, on_entry_key_press, load_shortcuts
-from deskbar.handlers_browsers import BrowserSmartMatch, BrowserMatch
+import deskbar, deskbar.Indexer, deskbar.Handler
+from deskbar.Watcher import FileWatcher
+from deskbar.BrowserMatch import get_url_host, is_preferred_browser, on_customize_search_shortcuts, on_entry_key_press, load_shortcuts
+from deskbar.BrowserMatch import BrowserSmartMatch, BrowserMatch
 
 def _check_requirements():
-	if deskbar.UNINSTALLED_DESKBAR:
-		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
+#	if deskbar.UNINSTALLED_DESKBAR:
+#		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 		
 	if is_preferred_browser("epiphany"):
-		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
+		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	else:
-		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "Epiphany is not your preferred browser, not using it.", None)
+		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Epiphany is not your preferred browser, not using it.", None)
 	
 def _check_requirements_search():
 	callback = lambda: on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map)
 	
-	if deskbar.UNINSTALLED_DESKBAR:
-		return (deskbar.handler.HANDLER_IS_CONFIGURABLE, "You can set shortcuts for your searches.", callback)
+#	if deskbar.UNINSTALLED_DESKBAR:
+#		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, "You can set shortcuts for your searches.", callback)
 		
 	if is_preferred_browser("epiphany"):
-		return (deskbar.handler.HANDLER_IS_CONFIGURABLE, "You can set shortcuts for your searches.", callback)
+		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, "You can set shortcuts for your searches.", callback)
 	else:
-		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "Epiphany is not your preferred browser, not using it.", None)
+		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Epiphany is not your preferred browser, not using it.", None)
 	
 HANDLERS = {
 	"EpiphanyBookmarksHandler": {
@@ -53,9 +53,9 @@ bookmarks = None
 smart_bookmarks = None
 shortcuts_to_smart_bookmarks_map = {}
 
-class EpiphanyHandler(deskbar.handler.Handler):
+class EpiphanyHandler(deskbar.Handler.Handler):
 	def __init__(self, watched_file, callback):
-		deskbar.handler.Handler.__init__(self, "web-browser.png")
+		deskbar.Handler.Handler.__init__(self, "web-browser.png")
 		self.watched_file = watched_file
 		self.watch_callback = callback
 		
@@ -144,7 +144,7 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 		self.href = None
 		self.smarthref = None
 		
-		self._indexer = deskbar.indexer.Index()
+		self._indexer = deskbar.Indexer.Indexer()
 		self._smart_bookmarks = []
 		self._cache = cache;
 		
@@ -269,7 +269,7 @@ class EpiphanyHistoryParser(xml.sax.ContentHandler):
 		self.icon = None
 		self._id = None;
 	
-		self._indexer = deskbar.indexer.Index()
+		self._indexer = deskbar.Indexer.Indexer()
 
 		self._index_history();
 

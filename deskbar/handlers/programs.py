@@ -5,9 +5,9 @@ from gettext import gettext as _
 
 import gobject
 import gtk
-import deskbar, deskbar.indexer, deskbar.locale_utils, deskbar.handler_utils
-import deskbar.handler, deskbar.gnomedesktop
-from deskbar.handler_utils import get_xdg_data_dirs
+import deskbar, deskbar.Indexer, deskbar.Utils
+import deskbar.Handler, deskbar.gnomedesktop
+from deskbar.Utils import get_xdg_data_dirs
 
 HANDLERS = {
 	"ProgramsHandler" : {
@@ -24,12 +24,12 @@ HANDLERS = {
 	},
 }
 
-class GenericProgramMatch(deskbar.handler.Match):
+class GenericProgramMatch(deskbar.Match.Match):
 	def __init__(self, backend, desktop, use_arg=False):
 		self._name = cgi.escape(desktop.get_localestring(deskbar.gnomedesktop.KEY_NAME))
-		icon = deskbar.handler_utils.load_icon_for_desktop_icon(desktop.get_string(deskbar.gnomedesktop.KEY_ICON))
+		icon = deskbar.Utils.load_icon_for_desktop_icon(desktop.get_string(deskbar.gnomedesktop.KEY_ICON))
 		
-		deskbar.handler.Match.__init__(self, backend, self._name, icon)
+		deskbar.Match.Match.__init__(self, backend, self._name, icon)
 		
 		self._desktop = desktop
 		self._use_arg = use_arg
@@ -84,9 +84,9 @@ class GnomeSearchMatch(GenericProgramMatch):
 	def get_verb(self):
 		return _("Search for file names like %s") % "<b>%(text)s</b>"
 
-class SpecialProgramHandler(deskbar.handler.Handler):
+class SpecialProgramHandler(deskbar.Handler.Handler):
 	def __init__(self, desktop, icon="generic.png"):
-		deskbar.handler.Handler.__init__(self, icon)
+		deskbar.Handler.Handler.__init__(self, icon)
 		self._desktop = desktop
 		self._match = None
 		
@@ -118,10 +118,10 @@ class GnomeSearchHandler(SpecialProgramHandler):
 	def create_match(self, desktop):
 		return GnomeSearchMatch(self, desktop)
 		
-class ProgramsHandler(deskbar.handler.Handler):
+class ProgramsHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "generic.png")
-		self._indexer = deskbar.indexer.Index()
+		deskbar.Handler.Handler.__init__(self, "generic.png")
+		self._indexer = deskbar.Indexer.Indexer()
 		
 	def initialize(self):
 		self._scan_desktop_files()

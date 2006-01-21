@@ -1,10 +1,10 @@
 from gettext import gettext as _
 from os.path import join
 import gtk, gtk.glade, gobject, gconf
-import deskbar, deskbar.handler_utils
-from deskbar.module_list import ModuleListView
+import deskbar, deskbar.Utils
+from deskbar.ui.ModuleListView import ModuleListView
 
-class PrefsDialog:
+class DeskbarPreferencesUI:
 	def __init__(self, applet, module_loader, module_list):
 		self.module_list = module_list
 		self.module_loader = module_loader
@@ -12,7 +12,7 @@ class PrefsDialog:
 
 		self.dialog = self.glade.get_widget("preferences")
 		
-		pixbuf = deskbar.handler_utils.load_icon("deskbar-applet-small.png")
+		pixbuf = deskbar.Utils.load_icon("deskbar-applet-small.png")
 		if pixbuf != None:
 			self.dialog.set_icon(pixbuf)
 
@@ -133,11 +133,11 @@ class PrefsDialog:
 			return
 		if "requirements" in module_context.infos:
 			status, message, callback = module_context.infos["requirements"]()
-			if status == deskbar.handler.HANDLER_HAS_REQUIREMENTS:
+			if status == deskbar.Handler.HANDLER_HAS_REQUIREMENTS:
 				self.set_info(message, callback)
 				if module_context.enabled:
 					self.module_loader.stop_module_async(module_context)
-			elif status == deskbar.handler.HANDLER_IS_CONFIGURABLE:
+			elif status == deskbar.Handler.HANDLER_IS_CONFIGURABLE:
 				self.set_info(message, callback)
 			else:
 				self.set_info(None, None)
@@ -169,4 +169,4 @@ class PrefsDialog:
 			loader.initialize_module_async (context)
 
 def show_preferences(applet, loader, model):
-	PrefsDialog(applet, loader, model).show_run_hide()
+	DeskbarPreferencesUI(applet, loader, model).show_run_hide()

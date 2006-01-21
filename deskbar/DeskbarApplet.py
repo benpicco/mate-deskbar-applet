@@ -3,32 +3,15 @@ from os.path import *
 import gnomeapplet, gtk, gtk.gdk, gconf, gobject
 from gettext import gettext as _
 
-import deskbar, deskbar.deskbarentry, deskbar.about, deskbar.preferences, deskbar.applet_keybinder
-from deskbar.module_list import ModuleLoader, ModuleList, ModuleLoader
+import deskbar, deskbar.ui
+from deskbar.ModuleList import ModuleList
+from deskbar.ModuleLoader import ModuleLoader
+from deskbar.ui.DeskbarEntry import DeskbarEntry
+from deskbar.ui.About import show_about
+from deskbar.ui.DeskbarPreferencesUI import show_preferences
+from deskbar.DeskbarAppletPreferences import DeskbarAppletPreferences
+from deskbar.Keybinder import Keybinder
 
-class DeskbarAppletPreferences:
-	def __init__(self, applet):
-		# Default values
-		self.GCONF_APPLET_DIR = deskbar.GCONF_DIR
-		self.GCONF_WIDTH = deskbar.GCONF_WIDTH
-		self.GCONF_EXPAND = deskbar.GCONF_EXPAND
-		
-		# Retreive this applet's pref folder
-		path = applet.get_preferences_key()
-		if path != None:
-			self.GCONF_APPLET_DIR = path
-			self.GCONF_WIDTH =  self.GCONF_APPLET_DIR + "/width"
-			self.GCONF_EXPAND = self.GCONF_APPLET_DIR + "/expand"
-			
-			applet.add_preferences("/schemas" + deskbar.GCONF_DIR)
-			deskbar.GCONF_CLIENT.add_dir(self.GCONF_APPLET_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
-			
-			print 'Using per-applet gconf key:', self.GCONF_APPLET_DIR
-		
-		# This preference is shared across all applet instances, unlike
-		# width, which is per-instance.
-		self.GCONF_KEYBINDING = deskbar.GCONF_KEYBINDING
-				
 class DeskbarApplet:
 	def __init__(self, applet):
 		self.applet = applet
@@ -48,14 +31,19 @@ class DeskbarApplet:
 		self.loader.connect ("module-not-initialized", self.on_module_initialized)
 		self.loader.connect ("module-stopped", self.module_list.module_toggled_cb)
 		
-		self.entry = deskbar.deskbarentry.DeskbarEntry(self, self.module_list, self.loader)
+		self.entry = DeskbarEntry(self, self.module_list, self.loader)
 		self.entry.get_evbox().connect("button-press-event", self.on_icon_button_press)
 		self.entry.get_entry().connect("button-press-event", self.on_entry_button_press)
 		self.loader.connect ("module-initialized", self.entry._connect_if_async)
 		self.on_applet_sensivity_update(False)
 
-		self.keybinder = deskbar.applet_keybinder.AppletKeybinder(self)
-
+		self.keybinder = Keybinder(deskbar.GCONF_KEYBINDING)
+#		def on_global_keybinding(applet):
+#		# We want to grab focus here
+#		print 'Focusing the deskbar-applet entry'
+#		applet.applet.request_focus(deskbar.keybinder.tomboy_keybinder_get_current_event_time())
+#		applet.entry.get_entry().grab_focus()
+	
 		# Set and retreive entry width from gconf
 		self.config_width = deskbar.GCONF_CLIENT.get_int(self.prefs.GCONF_WIDTH)
 		if self.config_width == None:
@@ -83,10 +71,10 @@ class DeskbarApplet:
 		self.entry.get_entry().grab_focus()
 		
 	def on_about(self, component, verb):
-		deskbar.about.show_about()
+		show_about()
 	
 	def on_preferences(self, component, verb):
-		deskbar.preferences.show_preferences(self, self.loader, self.module_list)
+		show_preferences(self, self.loader, self.module_list)
 
 	def on_config_width(self, value=None):
 		if value != None and value.type == gconf.VALUE_INT:

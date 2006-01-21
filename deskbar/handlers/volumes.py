@@ -6,8 +6,8 @@ from gettext import gettext as _
 import gobject
 
 import deskbar
-from deskbar.handler import Handler
-from deskbar.handler import Match
+from deskbar.Handler import Handler
+from deskbar.Match import Match
 
 import gtk, gnome, gnomevfs
 
@@ -23,7 +23,7 @@ AUDIO_URIS = ["cdda"]
 
 class VolumeMatch (Match):
 	def __init__(self, backend, drive, icon=None):
-		deskbar.handler.Match.__init__(self, backend, drive.get_display_name(), icon)
+		deskbar.Match.Match.__init__(self, backend, drive.get_display_name(), icon)
 		self.__drive = drive
 	
 	def action(self, text=None):
@@ -49,7 +49,7 @@ class VolumeMatch (Match):
 class VolumeHandler (Handler):
 	
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "gnome-dev-harddisk")
+		deskbar.Handler.Handler.__init__(self, "gnome-dev-harddisk")
 		self.__locations = []
 		
 	def query(self, query, max=5):
@@ -66,7 +66,7 @@ class VolumeHandler (Handler):
 			if not drive.is_mounted () : continue
 			if not drive.get_display_name().lower().startswith(query): continue
 			
-			icon = deskbar.handler_utils.load_icon(drive.get_icon())
+			icon = deskbar.Utils.load_icon(drive.get_icon())
 			result.append (VolumeMatch (self, drive, icon))
 		
 		return result[:max]

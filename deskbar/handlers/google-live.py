@@ -1,4 +1,4 @@
-import deskbar.handler
+import deskbar.Handler
 
 import os
 import gobject
@@ -29,19 +29,19 @@ Now download the developers kit and extract the GoogleSearch.wsdl file from it. 
 ~/.gnome2/deskbar-applet/GoogleSearch.wsdl""")
 
 def _on_more_information():
-	deskbar.handler_utils.more_information_dialog(_("Setting Up Google Live"), HELP_TEXT)
+	deskbar.Utils.more_information_dialog(_("Setting Up Google Live"), HELP_TEXT)
 
 def _check_requirements():
 	try:
 		from SOAPpy import WSDL
 	except:
-		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, _("You need to install the SOAPpy python module."), None)
+		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, _("You need to install the SOAPpy python module."), None)
 	if not exists (GOOGLE_WSDL):
-		return (deskbar.handler.HANDLER_HAS_REQUIREMENTS, _("You need the Google WSDL file."), _on_more_information)
+		return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS, _("You need the Google WSDL file."), _on_more_information)
 	if not exists (GOOGLE_API_KEY):
-		return (deskbar.handler.HANDLER_HAS_REQUIREMENTS, _("You need a Google API key."), _on_more_information)
+		return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS, _("You need a Google API key."), _on_more_information)
 	else:
-		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
+		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 		
 HANDLERS = {
 	"GoogleLiveHandler" : {
@@ -52,9 +52,9 @@ HANDLERS = {
 }
 
 
-class GoogleMatch (deskbar.handler.Match):
+class GoogleMatch (deskbar.Match.Match):
 	def __init__(self, handler, name, url, icon=None):
-		deskbar.handler.Match.__init__ (self, handler, "Google Live: "+name, icon)
+		deskbar.Match.Match.__init__ (self, handler, "Google Live: "+name, icon)
 		self.__url = url
 	
 	def get_verb(self):
@@ -66,7 +66,7 @@ class GoogleMatch (deskbar.handler.Match):
 	def get_hash(self, text=None):
 		return self.__url
 
-class GoogleLiveHandler (deskbar.handler.AsyncHandler):
+class GoogleLiveHandler (deskbar.Handler.AsyncHandler):
 	"""
 	This handler requires the user to have a valid Google account, a Google
 	API key and a GoogleSearch.wsdl file. The file locations are specified
@@ -75,7 +75,7 @@ class GoogleLiveHandler (deskbar.handler.AsyncHandler):
 	It uses SOAPpy to interact with Googles SOAP inteface.
 	"""
 	def __init__ (self):
-		deskbar.handler.AsyncHandler.__init__ (self, "google.png")
+		deskbar.Handler.AsyncHandler.__init__ (self, "google.png")
 		self.server = None
 		self.api_key = None
 		

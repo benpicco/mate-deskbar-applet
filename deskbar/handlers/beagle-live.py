@@ -1,6 +1,6 @@
 import os, sys, cgi
 import gobject,gtk, gnome.ui, gnomevfs
-import deskbar, deskbar.handler, deskbar.handler_utils
+import deskbar, deskbar.Handler, deskbar.Utils
 from gettext import gettext as _
 from os.path import exists
 
@@ -10,9 +10,9 @@ def _check_requirements():
 	try:
 		import deskbar
 		import beagle
-		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
+		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	except:
-		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "Could not load beagle, deskbar has been compiled without beagle support", None)
+		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Could not load beagle, deskbar has been compiled without beagle support", None)
 	
 HANDLERS = {
 	"BeagleLiveHandler" : {
@@ -89,7 +89,7 @@ TYPES = {
 		},
 }
 
-class BeagleLiveMatch (deskbar.handler.Match):
+class BeagleLiveMatch (deskbar.Match.Match):
 	def __init__(self, handler, result):
 		"""
 		result: a dict containing:
@@ -107,18 +107,18 @@ class BeagleLiveMatch (deskbar.handler.Match):
 		
 		#if result["type"] == "File":
 		#	try:
-		#		icon = deskbar.handler_utils.load_icon_for_file(result["uri"])
+		#		icon = deskbar.Utils.load_icon_for_file(result["uri"])
 		#		if icon:
-		#			deskbar.handler.Match.__init__ (self, handler, result["name"], icon)
+		#			deskbar.Match.Match.__init__ (self, handler, result["name"], icon)
 		#		else:
 		#			raise Exception()
 		#	except Exception:
-		#		deskbar.handler.Match.__init__ (self, handler, result["name"], handler.ICONS["File"])
+		#		deskbar.Match.Match.__init__ (self, handler, result["name"], handler.ICONS["File"])
 		#		print >> sys.stderr, "BeagleLive: Failed to load icon for file %s" % result["uri"]
 		#
 		#else:
 		#	# We are not a file. Just use an icon from the ICON table
-		deskbar.handler.Match.__init__ (self, handler, result["name"], handler.ICONS[result["type"]])
+		deskbar.Match.Match.__init__ (self, handler, result["name"], handler.ICONS[result["type"]])
 		
 		self.__result = result
 	
@@ -154,9 +154,9 @@ class BeagleLiveMatch (deskbar.handler.Match):
 		if "uri" in self.__result:
 			return self.__result["uri"]
 		
-class BeagleLiveHandler(deskbar.handler.SignallingHandler):
+class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 	def __init__(self):
-		deskbar.handler.SignallingHandler.__init__(self, "best")
+		deskbar.Handler.SignallingHandler.__init__(self, "best")
 		self.counter = {}
 		
 	def initialize (self):
@@ -169,7 +169,7 @@ class BeagleLiveHandler(deskbar.handler.SignallingHandler):
 		for t in TYPES.iterkeys():
 			icon_file = TYPES[t]["icon"]
 			if not icon_file: continue
-			res[t] = deskbar.handler_utils.load_icon(icon_file)
+			res[t] = deskbar.Utils.load_icon(icon_file)
 		return res
 		
 	def query (self, qstring, qmax=5):

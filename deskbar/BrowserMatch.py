@@ -1,7 +1,7 @@
 import re,cgi, urllib
 from gettext import gettext as _
 import gnomevfs, gconf, gtk, gobject, os.path
-import deskbar, deskbar.handler, deskbar.handler_utils
+import deskbar, deskbar.Match, deskbar.Utils
 
 def is_preferred_browser(test):
 	# We will import only if the user's preferred browser is mozilla
@@ -14,9 +14,9 @@ def is_preferred_browser(test):
 	
 	return False
 		
-class BrowserMatch(deskbar.handler.Match):
+class BrowserMatch(deskbar.Match.Match):
 	def __init__(self, backend, name, url, icon=None, history=False):
-		deskbar.handler.Match.__init__(self, backend, cgi.escape(name), icon)
+		deskbar.Match.Match.__init__(self, backend, cgi.escape(name), icon)
 		self._priority = 10
 		self._url = url
 		self._is_history = history
@@ -78,7 +78,7 @@ def get_url_host(url):
 		return url
 
 
-
+# FIXME: Begins nastyness:
 # Definitions from here down deal with shortcuts for smart bookmarks - both
 # managing the UI for customizing shortcuts, and methods for activating them
 # on the right triggers (e.g. Ctrl-something).
@@ -181,7 +181,7 @@ def on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_
 	view.append_column(tvc_name)
 	
 	dialog = glade.get_widget("smart-bookmarks")
-	dialog.set_icon(deskbar.handler_utils.load_icon("deskbar-applet-small.png"))
+	dialog.set_icon(deskbar.Utils.load_icon("deskbar-applet-small.png"))
 	dialog.show_all()
 	dialog.run()
 	dialog.destroy()

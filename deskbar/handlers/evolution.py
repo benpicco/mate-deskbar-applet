@@ -1,15 +1,15 @@
 from gettext import gettext as _
 import cgi
 import gnomevfs
-import deskbar, deskbar.indexer, deskbar.handler, deskbar.evolution, deskbar.handler_utils
+import deskbar, deskbar.Indexer, deskbar.Handler, deskbar.evolution, deskbar.Utils
 
 def _check_requirements():
 	if deskbar.evolution.num_address_books_with_completion() > 0:
-		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
+		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	else:
-		return (deskbar.handler.HANDLER_HAS_REQUIREMENTS,
+		return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS,
 		_("You need to enable autocomplete in your mail preferences"),
-		lambda: deskbar.handler_utils.more_information_dialog(
+		lambda: deskbar.Utils.more_information_dialog(
 			_("Autocompletion Needs to be Enabled"),
 			_("We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion.")
 			))
@@ -22,9 +22,9 @@ HANDLERS = {
 	}
 }
 
-class EvolutionMatch(deskbar.handler.Match):
+class EvolutionMatch(deskbar.Match.Match):
 	def __init__(self, backend, name, email, icon):
-		deskbar.handler.Match.__init__(self, backend, name, icon)
+		deskbar.Match.Match.__init__(self, backend, name, icon)
 		self._email = email
 		
 	def action(self, text=None):
@@ -43,9 +43,9 @@ class EvolutionMatch(deskbar.handler.Match):
 	def get_hash(self, text=None):
 		return self._email
 		
-class EvolutionHandler(deskbar.handler.Handler):
+class EvolutionHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "stock_addressbook")	
+		deskbar.Handler.Handler.__init__(self, "stock_addressbook")	
 	
 	def initialize(self):
 		deskbar.evolution.set_pixbuf_size(deskbar.ICON_SIZE)

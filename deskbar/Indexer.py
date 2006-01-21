@@ -1,3 +1,7 @@
+"""
+A simple indexer which splits tokens in a string
+"""
+
 # Check for presence of set to be compatible with python 2.3
 try:
 	set
@@ -11,7 +15,7 @@ STOP_WORDS = {'and': 1, 'that': 1, 'into': 1,
 			'this': 1, 'will': 1, 'their': 1,
 			'then': 1, 'the': 1, 'was': 1}
                  
-class Index:
+class Indexer:
 	def __init__(self):
 		self.d = {}
 

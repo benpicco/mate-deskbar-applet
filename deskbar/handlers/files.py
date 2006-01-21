@@ -6,8 +6,8 @@ from gettext import gettext as _
 
 import gobject
 import gtk, gnome.ui
-import deskbar, deskbar.indexer
-import deskbar.handler
+import deskbar, deskbar.Indexer
+import deskbar.Handler
 
 HANDLERS = {
 	"FileFolderHandler" : {
@@ -16,11 +16,11 @@ HANDLERS = {
 	},
 }
 
-class FileMatch(deskbar.handler.Match):
+class FileMatch(deskbar.Match.Match):
 	def __init__(self, backend, prefix, absname):
-		pixbuf = deskbar.handler_utils.load_icon_for_file(absname)
+		pixbuf = deskbar.Utils.load_icon_for_file(absname)
 		name = join(prefix, basename(absname))
-		deskbar.handler.Match.__init__(self, backend, name, pixbuf)
+		deskbar.Match.Match.__init__(self, backend, name, pixbuf)
 		
 		self._filename = absname
 				
@@ -33,10 +33,10 @@ class FileMatch(deskbar.handler.Match):
 	def get_hash(self, text=None):
 		return self._filename
 
-class FolderMatch(deskbar.handler.Match):
+class FolderMatch(deskbar.Match.Match):
 	def __init__(self, backend, prefix, absname):
 		name = join(prefix, basename(absname))
-		deskbar.handler.Match.__init__(self, backend, name)
+		deskbar.Match.Match.__init__(self, backend, name)
 		
 		self._filename = absname
 		
@@ -49,9 +49,9 @@ class FolderMatch(deskbar.handler.Match):
 	def get_hash(self, text=None):
 		return self._filename
 		
-class FileFolderHandler(deskbar.handler.Handler):
+class FileFolderHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "stock_my-documents")
+		deskbar.Handler.Handler.__init__(self, "stock_my-documents")
 				
 	def query(self, query, max=5):
 		result = []

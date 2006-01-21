@@ -1,4 +1,5 @@
-from handler import *
+from deskbar.Handler import *
+from deskbar.Match import *
 from time import sleep
 import gobject
 

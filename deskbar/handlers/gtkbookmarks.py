@@ -4,8 +4,8 @@ from gettext import gettext as _
 
 import gobject
 import gnomevfs
-import deskbar.handler
-from deskbar.filewatcher import FileWatcher
+import deskbar.Handler
+from deskbar.Watcher import FileWatcher
 
 HANDLERS = {
 	"GtkBookmarkHandler" : {
@@ -16,9 +16,9 @@ HANDLERS = {
 
 GTK_BOOKMARKS_FILE = expanduser("~/.gtk-bookmarks")
 
-class GtkBookmarkMatch(deskbar.handler.Match):
+class GtkBookmarkMatch(deskbar.Match.Match):
 	def __init__(self, backend, name, path):
-		deskbar.handler.Match.__init__(self, backend, name)
+		deskbar.Match.Match.__init__(self, backend, name)
 		self._path = path
 		
 	def action(self, text=None):
@@ -30,9 +30,9 @@ class GtkBookmarkMatch(deskbar.handler.Match):
 	def get_hash(self, text=None):
 		return self._path
 	
-class GtkBookmarkHandler(deskbar.handler.Handler):
+class GtkBookmarkHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "folder-bookmark.png")
+		deskbar.Handler.Handler.__init__(self, "folder-bookmark.png")
 		self._locations = {}
 		
 	def initialize(self):

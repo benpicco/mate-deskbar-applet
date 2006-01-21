@@ -1,8 +1,6 @@
 import cPickle, os
-import gobject
-from deskbar import MAX_HISTORY, HISTORY_FILE
-import deskbar.handler
-from deskbar.handler import *
+import gtk, gobject
+from deskbar import MAX_HISTORY, HISTORY_FILE, MAX_RESULTS_PER_HANDLER
 	
 class DeskbarHistory(gobject.GObject):
 	__gsignals__ = {
@@ -16,11 +14,11 @@ class DeskbarHistory(gobject.GObject):
 		try:
 			self.saved_history = cPickle.load(file(HISTORY_FILE))
 		except Exception, msg:
-			self.saved_history = []
-			print 'Warning while loading history:', msg			
+			self.saved_history = []		
 			
 		self._index = -1
 	
+	# FIXME: this is a bit nasty
 	def add_module_loader(self, loader):
 		loader.connect ("module-initialized", self.on_module_initialized)
 		loader.connect ("module-initialized", self.connect_if_async)
@@ -55,7 +53,9 @@ class DeskbarHistory(gobject.GObject):
 	def add_saved_to_history(self, match, i, text, hsh):
 		if match.get_hash(text) == hsh:
 			self._history.insert(i, (text, match))
-		
+	
+	#Ends the nastyness
+	
 	def add(self, text, match):
 		for htext, hmatch in self._history:
 			if (text, match.__class__) == (htext, hmatch.__class__):

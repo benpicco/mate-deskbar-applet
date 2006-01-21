@@ -2,7 +2,7 @@ from gettext import gettext as _
 import re, os
 import gobject
 import gnomevfs
-import deskbar.handler
+import deskbar.Handler
 
 HANDLERS = {
 	"WebAddressHandler" : {
@@ -14,9 +14,9 @@ HANDLERS = {
 AUTH_REGEX = re.compile(r'[a-zA-Z]+://\w+(:\w+)?@([\w\-]+\.)+[\w\-]+(:\d+)?(/.*)?')
 HTTP_REGEX = re.compile(r'^(?P<method>[a-zA-Z]+://)?([\w\-]+\.)+[\w\-]+(:\d+)?(/.*)?$')
 
-class WebAddressMatch(deskbar.handler.Match):
+class WebAddressMatch(deskbar.Match.Match):
 	def __init__(self, backend, url, has_method=True):
-		deskbar.handler.Match.__init__(self, backend, url)
+		deskbar.Match.Match.__init__(self, backend, url)
 		
 		self._has_method = has_method
 		self._url = url
@@ -38,9 +38,9 @@ class WebAddressMatch(deskbar.handler.Match):
 	def get_hash(self, text=None):
 		return self._url
 		
-class WebAddressHandler(deskbar.handler.Handler):
+class WebAddressHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "stock_internet")
+		deskbar.Handler.Handler.__init__(self, "stock_internet")
 	
 	def query(self, query, max=5):
 		match = AUTH_REGEX.match(query)

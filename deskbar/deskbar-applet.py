@@ -28,7 +28,7 @@ else:
 	print "Running installed deskbar, using [@PYTHONPATH@:$PYTHONPATH]"
 
 # Now the path is set, import our applet
-import deskbar, deskbar.applet, deskbar.defs
+import deskbar, deskbar.DeskbarApplet, deskbar.defs
 
 import gettext, locale
 gettext.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))
@@ -39,7 +39,7 @@ locale.textdomain('deskbar-applet')
 
 def applet_factory(applet, iid):
 	print 'Starting Deskbar instance:', applet, iid
-	deskbar.applet.DeskbarApplet(applet)
+	deskbar.DeskbarApplet.DeskbarApplet(applet)
 	return True
 
 # Return a standalone window that holds the applet

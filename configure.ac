@@ -124,6 +124,7 @@ dnl ****************************************************************************
 AC_OUTPUT([
 Makefile
 deskbar/Makefile
+deskbar/ui/Makefile
 deskbar/defs.py
 deskbar/evolution/Makefile
 deskbar/handlers/Makefile

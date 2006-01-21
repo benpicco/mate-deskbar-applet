@@ -6,8 +6,8 @@ import subprocess
 
 import gobject
 import gtk
-import deskbar, deskbar.indexer
-import deskbar.handler
+import deskbar, deskbar.Indexer
+import deskbar.Handler
 
 HANDLERS = {
 	"PathProgramsHandler" : {
@@ -16,9 +16,9 @@ HANDLERS = {
 	}
 }
 
-class PathProgramMatch(deskbar.handler.Match):
+class PathProgramMatch(deskbar.Match.Match):
 	def __init__(self, backend, name):
-		deskbar.handler.Match.__init__(self, backend, name)
+		deskbar.Match.Match.__init__(self, backend, name)
 		self.use_terminal = False
 		
 	def set_with_terminal(self, terminal):
@@ -56,9 +56,9 @@ class PathProgramMatch(deskbar.handler.Match):
 	def get_verb(self):
 		return _("Execute %s") % "<b>%(text)s</b>"
 
-class PathProgramsHandler(deskbar.handler.Handler):
+class PathProgramsHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "generic.png")
+		deskbar.Handler.Handler.__init__(self, "generic.png")
 		
 	def initialize(self):
 		self._path = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip() != "" and exists(path) and isdir(path)]

@@ -3,8 +3,8 @@ from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
 
 import gtk
-from deskbar.filewatcher import FileWatcher, DirWatcher
-import deskbar, deskbar.indexer, deskbar.handler
+from deskbar.Watcher import FileWatcher, DirWatcher
+import deskbar, deskbar.Indexer, deskbar.Handler
 
 # Check for presence of set to be compatible with python 2.3
 try:
@@ -12,21 +12,21 @@ try:
 except NameError:
 	from sets import Set as set
 
-from deskbar.handlers_browsers import is_preferred_browser
-from deskbar.handlers_browsers import BrowserSmartMatch, BrowserMatch
+from deskbar.BrowserMatch import is_preferred_browser
+from deskbar.BrowserMatch import BrowserSmartMatch, BrowserMatch
 
 def _on_customize_search_engines():
 	pass
 	
 def _check_requirements():
-	if deskbar.UNINSTALLED_DESKBAR:
-		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
+#	if deskbar.UNINSTALLED_DESKBAR:
+#		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	
 	#We will need to pass some preference here to select one/all engines
 	if is_preferred_browser("firefox") or is_preferred_browser("mozilla"):
-		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
+		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	else:
-		return (deskbar.handler.HANDLER_IS_NOT_APPLICABLE, "Mozilla/Firefox is not your preferred browser, not using it.", None)
+		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Mozilla/Firefox is not your preferred browser, not using it.", None)
 		
 HANDLERS = {
 	"MozillaBookmarksHandler" : {
@@ -46,9 +46,9 @@ USING_FIREFOX = False
 if is_preferred_browser("firefox"):
 	USING_FIREFOX = True
 			
-class MozillaBookmarksHandler(deskbar.handler.Handler):
+class MozillaBookmarksHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
+		deskbar.Handler.Handler.__init__(self, "web-bookmark.png")
 		self._bookmarks = None
 	
 	def initialize(self):
@@ -95,9 +95,9 @@ class MozillaBookmarksHandler(deskbar.handler.Handler):
 				pass
 		return None
 
-class MozillaSearchHandler(deskbar.handler.Handler):
+class MozillaSearchHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.handler.Handler.__init__(self, "web-bookmark.png")
+		deskbar.Handler.Handler.__init__(self, "web-bookmark.png")
 		self._smart_bookmarks = None
 	
 	def initialize(self):
@@ -136,7 +136,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 		self.bookmarks = set()
 		self._shortcuts_to_smart_bookmarks_map = {}
 		
-		self._indexer = deskbar.indexer.Index()
+		self._indexer = deskbar.Indexer.Indexer()
 		
 		if USING_FIREFOX:
 			self.indexed_file = self._index_firefox()

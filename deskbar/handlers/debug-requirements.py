@@ -1,4 +1,4 @@
-import deskbar.handler, deskbar.handler_utils
+import deskbar.Handler, deskbar.Utils
 
 def _on_more():
 	print "More..."
@@ -7,12 +7,12 @@ def _check_requirements():
 	import os.path
 	if os.path.exists(os.path.expanduser("~/foo")):
 		print "DebugRequirementsModule: Requirements met"
-		return (deskbar.handler.HANDLER_IS_HAPPY, None, None)
+		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	else:
 		print "DebugRequirementsModule: Requirements not met"
-		return (deskbar.handler.HANDLER_HAS_REQUIREMENTS,
+		return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS,
 			'You need to create a file called "~/foo"',
-			lambda: deskbar.handler_utils.more_information_dialog(
+			lambda: deskbar.Utils.more_information_dialog(
 			"Debug Requirements Title",
 			"Debug Requirements Content"
 			))
@@ -24,9 +24,9 @@ HANDLERS = {
 	}
 }
 
-class DebugRequirementsMatch(deskbar.handler.Match):
+class DebugRequirementsMatch(deskbar.Match.Match):
 	def __init__(self, handler, name, icon=None):
-		deskbar.handler.Match.__init__ (self, handler, name)
+		deskbar.Match.Match.__init__ (self, handler, name)
 	
 	def get_verb(self):
 		return "%(name)s - %(text)s"
@@ -34,9 +34,9 @@ class DebugRequirementsMatch(deskbar.handler.Match):
 	def action(self, text=None):
 		pass
 
-class DebugRequirementsModule(deskbar.handler.Handler):
+class DebugRequirementsModule(deskbar.Handler.Handler):
 	def __init__ (self):
-		deskbar.handler.Handler.__init__ (self, "stock_script")
+		deskbar.Handler.Handler.__init__ (self, "stock_script")
 		
 	def query (self, qstring, max):
 		if max > 0:
