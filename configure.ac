@@ -125,6 +125,7 @@ AC_OUTPUT([
 Makefile
 deskbar/Makefile
 deskbar/ui/Makefile
+deskbar/ui/completion/Makefile
 deskbar/defs.py
 deskbar/evolution/Makefile
 deskbar/handlers/Makefile

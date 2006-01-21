@@ -71,7 +71,10 @@ class Match:
 		Returns a GdkPixbuf hat represents this match.
 		Returns None if there is no associated icon.
 		"""
-		return self._icon
+		if self._icon == None:
+			return self.get_handler().get_icon()
+		else:
+			return self._icon
 	
 	def get_category(self):
 		"""
