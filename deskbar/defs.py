@@ -1,0 +1,5 @@
+DATA_DIR = "/usr/share"
+LIB_DIR = "/usr/lib"
+VERSION = "0.8.9"
+PACKAGE = "deskbar-applet"
+PYTHONPATH = "/usr/lib/python2.4/site-packages"
