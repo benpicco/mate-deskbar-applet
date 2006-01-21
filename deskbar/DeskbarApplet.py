@@ -38,12 +38,10 @@ class DeskbarApplet:
 		self.on_applet_sensivity_update(False)
 
 		self.keybinder = Keybinder(deskbar.GCONF_KEYBINDING)
-#		def on_global_keybinding(applet):
-#		# We want to grab focus here
-#		print 'Focusing the deskbar-applet entry'
-#		applet.applet.request_focus(deskbar.keybinder.tomboy_keybinder_get_current_event_time())
-#		applet.entry.get_entry().grab_focus()
-	
+		self.keybinder.connect('activated', self.on_keybinding_activated)
+		self.keybinder.connect('changed', self.on_keybinding_changed)
+		self.keybinder.bind()
+
 		# Set and retreive entry width from gconf
 		self.config_width = deskbar.GCONF_CLIENT.get_int(self.prefs.GCONF_WIDTH)
 		if self.config_width == None:
@@ -301,3 +299,13 @@ class DeskbarApplet:
 
 		menu.show_all()
 		menu.popup(None, None, self.position_history_menu, event.button, event.time)
+	
+	def on_keybinding_activated(self, binder, time):
+		# We want to grab focus here
+		print 'Focusing the deskbar-applet entry'
+		self.applet.request_focus(time)
+		self.entry.get_entry().grab_focus()
+		
+	def on_keybinding_changed(self, binder, bound):
+		# FIXME: provide visual clue when not bound
+		pass
