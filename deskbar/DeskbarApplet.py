@@ -50,7 +50,6 @@ class DeskbarApplet:
 		self.ui.set_sensitive (False)
 		self.applet.add(self.ui.get_view ())
 		self.applet.show_all()
-		self.ui.get_view().queue_draw()
 		
 		self.keybinder = Keybinder(deskbar.GCONF_KEYBINDING)
 		
@@ -67,7 +66,6 @@ class DeskbarApplet:
 			None, [("About", self.on_about), ("Prefs", self.on_preferences)])
 			
 		self.applet.set_flags(gtk.CAN_FOCUS)
-		self.ui.set_sensitive (True)
 		
 	def _connect_if_async (self, sender, context):
 		if context.module.is_async():
@@ -75,6 +73,7 @@ class DeskbarApplet:
 	
 	def on_match_selected (self, sender, text, match):
 		print "match selected",match
+		self.on_stop_query()
 		match.action(text)
 		get_deskbar_history().add(text, match)
 		
