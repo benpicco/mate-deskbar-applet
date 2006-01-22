@@ -74,15 +74,17 @@ class Nest :
 	"""
 	A class used to handle nested results in the CuemiacModel.
 	"""
-	def __init__(self, category_name, parent):
-		self.__nest_msg = category_name
+	def __init__(self, nest_msg, parent):
+		self.__nest_msg = nest_msg
 		self.__parent = parent # The CuemiacCategory to which this nest belongs
 	
 	def get_name (self, text=None):
-		return {"count" : self.__parent.get_count () - self.__parent.get_threshold ()}
+		n = self.get_count()
+		# <i>%s More files</i> % <b>%d</b> % n
+		return {"msg" : "<i>%s</i>" % (self.__nest_msg(n) % ("<b>%d</b>" % n))}
 	
 	def get_verb (self):
-		return self.__nest_msg
+		return "%(msg)s"
 		
 	def get_count (self):
 		return self.__parent.get_count () - self.__parent.get_threshold ()
@@ -217,7 +219,7 @@ class CuemiacModel (gtk.TreeStore):
 		qstring, match_obj = match
 		#FIXME: Check validity of category name and use  proper i18n
 		# Set up a new category
-		cat = CuemiacCategory (match_obj.get_category(), self)
+		cat = CuemiacCategory (CATEGORIES[match_obj.get_category()]["name"], self)
 		iter = self.append_method (self, None, [cat])
 		cat.set_category_iter (iter)
 		self.__categories [match_obj.get_category()] = cat
@@ -494,6 +496,7 @@ class CuemiacTreeView (gtk.TreeView):
 		cell.set_property ("cell-background-gdk", self.match_bg)
 		
 		if match.__class__ == Nest:
+			cell.set_property ("markup", match.get_verb() % match.get_name())
 			return
 		
 		qstring, match_obj = match
@@ -708,7 +711,6 @@ class CuemiacUI (DeskbarUI):
 		self.deskbar_button.set_active_main (True)
 	
 	def scroll_cview_to_selection (self, tree_sel):
-		print "scroll_cview_to_selection"
 		model, iter = tree_sel.get_selected ()
 		if iter is None:
 			return

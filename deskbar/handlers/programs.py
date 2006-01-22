@@ -78,15 +78,15 @@ class GenericProgramMatch(deskbar.Match.Match):
 		}
 		
 class GnomeDictMatch(GenericProgramMatch):
-	def __init__(self, backend, name, icon, desktop, desktop_file):
-		GenericProgramMatch.__init__(self, backend, name, icon, True, desktop, desktop_file)
+	def __init__(self, backend, name, icon, desktop, desktop_file, **args):
+		GenericProgramMatch.__init__(self, backend, name, icon, True, desktop, desktop_file, **args)
 	
 	def get_verb(self):
 		return _("Lookup %s in dictionary") % "<b>%(text)s</b>"
 
 class GnomeSearchMatch(GenericProgramMatch):
-	def __init__(self, backend, name, icon, desktop, desktop_file):
-		GenericProgramMatch.__init__(self, backend, name, icon, True, desktop, desktop_file)
+	def __init__(self, backend, name, icon, desktop, desktop_file, **args):
+		GenericProgramMatch.__init__(self, backend, name, icon, True, desktop, desktop_file, **args)
 		self._args = ["--start", "--path", expanduser("~"), "--named"]
 		
 	def get_verb(self):

@@ -54,20 +54,20 @@ HANDLERS = {
 
 class GoogleMatch (deskbar.Match.Match):
 	def __init__(self, handler, name, url, **args):
-		deskbar.Match.Match.__init__ (self, handler, "Google Live: "+name, **args)
-		self.__url = url
+		deskbar.Match.Match.__init__ (self, handler, name="Google Live: "+name, **args)
+		self.url = url
 	
 	def get_verb(self):
 		return "%(name)s"
 		
 	def action(self, text=None):
-		gnomevfs.url_show(self.__url)
+		gnomevfs.url_show(self.url)
 		
 	def get_category(self):
 		return "google"
 	
 	def get_hash(self, text=None):
-		return self.__url
+		return self.url
 
 class GoogleLiveHandler (deskbar.Handler.AsyncHandler):
 	"""
