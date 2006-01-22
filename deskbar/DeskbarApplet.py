@@ -14,13 +14,15 @@ from deskbar.ui.About import show_about
 from deskbar.ui.DeskbarPreferencesUI import show_preferences
 from deskbar.DeskbarAppletPreferences import DeskbarAppletPreferences
 from deskbar.Keybinder import Keybinder
-from deskbar.ui.Cuemiac import CuemiacUI
+from deskbar.ui.cuemiac.Cuemiac import CuemiacUI
 from deskbar.ui.completion.CompletionDeskbarUI import CompletionDeskbarUI
 
 class DeskbarApplet:
 	def __init__(self, applet):
 		self.applet = applet
-	
+		
+		self.start_query_id = 0
+		
 		self.ui = CompletionDeskbarUI (applet)
 		self.ui.connect ("match-selected", self.on_match_selected)
 		self.ui.connect ("start-query", self.on_start_query)
@@ -75,6 +77,13 @@ class DeskbarApplet:
 		print "match selected",match
 	
 	def on_start_query (self, sender, qstring, max_hits):
+		if self.start_query_id != 0:
+			gobject.source_remove(self.start_query_id)
+			
+		self.start_query_id = gobject.timeout_add(150, self.on_start_query_real, sender, qstring, max_hits)
+		
+	def on_start_query_real (self, sender, qstring, max_hits):
+		print '-----------------------Start Query'
 		results = []
 		for modctx in self.module_list:
 			if not modctx.enabled:

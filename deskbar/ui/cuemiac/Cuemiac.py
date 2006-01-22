@@ -68,7 +68,7 @@ import pango
 import deskbar
 from deskbar.Categories import CATEGORIES
 from deskbar.ui.DeskbarUI import DeskbarUI
-from deskbar.ui.DeskbarAppletButton import DeskbarAppletButton
+from deskbar.ui.cuemiac.DeskbarAppletButton import DeskbarAppletButton
 
 class Nest :
 	"""

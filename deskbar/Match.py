@@ -12,7 +12,7 @@ class Match:
 		
 		self.name = name
 		self.icon = icon
-			
+	
 	def get_handler(self):
 		"""
 		Returns the handler owning this match.
