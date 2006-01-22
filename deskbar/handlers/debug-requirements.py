@@ -25,7 +25,7 @@ HANDLERS = {
 }
 
 class DebugRequirementsMatch(deskbar.Match.Match):
-	def __init__(self, handler, name, icon=None):
+	def __init__(self, handler, name=None, icon=None):
 		deskbar.Match.Match.__init__ (self, handler, name)
 	
 	def get_verb(self):

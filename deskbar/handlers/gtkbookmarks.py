@@ -17,12 +17,12 @@ HANDLERS = {
 GTK_BOOKMARKS_FILE = expanduser("~/.gtk-bookmarks")
 
 class GtkBookmarkMatch(deskbar.Match.Match):
-	def __init__(self, backend, name, path):
+	def __init__(self, backend, name=None, path=None, icon=None):
 		deskbar.Match.Match.__init__(self, backend, name)
-		self._path = path
+		self.path = path
 		
 	def action(self, text=None):
-		gobject.spawn_async(["nautilus", self._path], flags=gobject.SPAWN_SEARCH_PATH)
+		gobject.spawn_async(["nautilus", self.path], flags=gobject.SPAWN_SEARCH_PATH)
 		
 	def get_category(self):
 		return "files"
@@ -31,7 +31,7 @@ class GtkBookmarkMatch(deskbar.Match.Match):
 		return _("Open location %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
-		return self._path
+		return self.path
 	
 class GtkBookmarkHandler(deskbar.Handler.Handler):
 	def __init__(self):
@@ -46,7 +46,7 @@ class GtkBookmarkHandler(deskbar.Handler.Handler):
 		self.watcher.add(GTK_BOOKMARKS_FILE)
 		self._scan_bookmarks_files()
 		
-	def query(self, query, max=5):
+	def query(self, query, max):
 		result = []
 		query = query.lower()
 		for bmk, (name, loc) in self._locations.items():

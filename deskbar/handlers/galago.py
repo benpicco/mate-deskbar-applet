@@ -4,7 +4,7 @@ import gnomevfs
 import deskbar, deskbar.Indexer
 import deskbar.Handler
 
-# FIXME: Waiting for python bindings of galago.
+# FIXME: Waiting for python bindings of galago. This class is not ready
 HANDLERS = {
 	"GalagoHandler" : {
 		"name": "Instant Messaging (IM) Buddies",
@@ -40,5 +40,5 @@ class GalagoHandler(deskbar.Handler.Handler):
 		#self._indexer.add("Bill Joy <bjoy@sun.com>", GalagoMatch(self, "Bill Joy", "bjoy@sun.com"))
 		pass
 		
-	def query(self, query, max=5):
+	def query(self, query, max):
 		return self._indexer.look_up(query)[:5]

@@ -1,13 +1,17 @@
+import deskbar.Utils
+
 """
 Represents a match returned by handlers
 """
 
 class Match:
-	def __init__(self, handler, name, icon=None):
+	def __init__(self, handler, name=None, icon=None):
 		self._priority = 0
 		self._handler = handler
-		self._name = name
-		self._icon = icon
+		self._icon = None
+		
+		self.name = name
+		self.icon = icon
 			
 	def get_handler(self):
 		"""
@@ -27,7 +31,7 @@ class Match:
 		
 		Remember to escape pango markup if needed.
 		"""
-		return {"name": self._name}
+		return {"name": self.name}
 		
 	def get_verb(self):
 		"""
@@ -72,6 +76,12 @@ class Match:
 		Returns None if there is no associated icon.
 		"""
 		if self._icon == None:
+			if self.icon != None:
+				self._icon = deskbar.Utils.load_icon(self.icon)
+			if self._icon == None:
+				self._icon = False
+		
+		if self._icon == False:
 			return self.get_handler().get_icon()
 		else:
 			return self._icon
@@ -92,3 +102,12 @@ class Match:
 		The optional text is the additional argument entered in the entry
 		"""
 		raise NotImplementedError
+	
+	def serialize(self):
+		serialized = {}
+		for prop, val in [(prop, getattr(self, prop)) for prop in dir(self)
+								if not prop.startswith("_") and
+								not callable(getattr(self, prop))]:
+			serialized[prop] = val
+		
+		return serialized

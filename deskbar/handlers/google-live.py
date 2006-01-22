@@ -88,7 +88,7 @@ class GoogleLiveHandler (deskbar.Handler.AsyncHandler):
 		self.api_key = api_key_file.readline()
 		api_key_file.close ()
 			
-	def query (self, qstring, qmax=5):
+	def query (self, qstring, qmax):
 		"""Behold the true power of the AsyncHandler!"""
 		
 		# Just to ensure we don't bork anything

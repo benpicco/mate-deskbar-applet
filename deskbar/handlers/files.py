@@ -1,5 +1,5 @@
 import os
-from os.path import join, basename, normpath, abspath
+from os.path import join, basename, normpath, abspath, dirname
 from os.path import split, expanduser, exists, isfile
 
 from gettext import gettext as _
@@ -17,15 +17,14 @@ HANDLERS = {
 }
 
 class FileMatch(deskbar.Match.Match):
-	def __init__(self, backend, prefix, absname):
-		pixbuf = deskbar.Utils.load_icon_for_file(absname)
-		name = join(prefix, basename(absname))
-		deskbar.Match.Match.__init__(self, backend, name, pixbuf)
+	def __init__(self, backend, name=None, absname=None):
+		deskbar.Match.Match.__init__(self, backend, name)
+		self._icon = deskbar.Utils.load_icon_for_file(absname)
 		
-		self._filename = absname
+		self.absname = absname
 				
 	def action(self, text=None):
-		gobject.spawn_async(["gnome-open", self._filename], flags=gobject.SPAWN_SEARCH_PATH)
+		gobject.spawn_async(["gnome-open", self.absname], flags=gobject.SPAWN_SEARCH_PATH)
 		
 	def get_category(self):
 		return "files"
@@ -34,17 +33,16 @@ class FileMatch(deskbar.Match.Match):
 		return _("Open %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
-		return self._filename
+		return self.absname
 
 class FolderMatch(deskbar.Match.Match):
-	def __init__(self, backend, prefix, absname):
-		name = join(prefix, basename(absname))
+	def __init__(self, backend, name=None, absname=None):
 		deskbar.Match.Match.__init__(self, backend, name)
 		
-		self._filename = absname
+		self.absname = absname
 		
 	def action(self, text=None):
-		gobject.spawn_async(["nautilus", self._filename], flags=gobject.SPAWN_SEARCH_PATH)
+		gobject.spawn_async(["nautilus", self.absname], flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_category(self):
 		return "Files"
@@ -53,13 +51,13 @@ class FolderMatch(deskbar.Match.Match):
 		return _("Open folder %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
-		return self._filename
+		return self.absname
 		
 class FileFolderHandler(deskbar.Handler.Handler):
 	def __init__(self):
 		deskbar.Handler.Handler.__init__(self, "stock_my-documents")
 				
-	def query(self, query, max=5):
+	def query(self, query, max):
 		result = []
 		result += self.query_filefolder(query, False)[:max]
 		result += self.query_filefolder(query, True)[:max]
@@ -68,9 +66,9 @@ class FileFolderHandler(deskbar.Handler.Handler):
 	def query_filefolder(self, query, is_file):
 		completions, prefix, relative = filesystem_possible_completions(query, is_file)
 		if is_file:
-			return [FileMatch(self, prefix, completion) for completion in completions]
+			return [FileMatch(self, join(prefix, basename(completion)), completion) for completion in completions]
 		else:
-			return [FolderMatch(self, prefix, completion) for completion in completions]
+			return [FolderMatch(self, join(prefix, basename(completion)), completion) for completion in completions]
 			
 def filesystem_possible_completions(prefix, is_file=False):
 	"""

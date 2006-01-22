@@ -12,7 +12,7 @@ HANDLERS = {
 SIGNAL_DELAY = 1000 # 1 sec.
 
 class SignallingDebugMatch (Match):
-	def __init__(self, handler, name, icon=None):
+	def __init__(self, handler, name=None, icon=None):
 		Match.__init__ (self, handler, name)
 		
 	def get_verb(self):

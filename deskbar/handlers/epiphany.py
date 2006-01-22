@@ -23,7 +23,7 @@ def _check_requirements_search():
 #		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, "You can set shortcuts for your searches.", callback)
 		
 	if is_preferred_browser("epiphany"):
-		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, "You can set shortcuts for your searches.", callback)
+		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, _("You can set shortcuts for your searches."), callback)
 	else:
 		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Epiphany is not your preferred browser, not using it.", None)
 	
@@ -89,7 +89,7 @@ class EpiphanyBookmarksHandler(EpiphanyHandler):
 			smart_bookmarks = parser.get_smart_bookmarks()
 			load_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map)
 		
-	def query(self, query, max=5):
+	def query(self, query, max):
 		global bookmarks
 		return bookmarks.look_up(query)[:max]
 
@@ -100,7 +100,7 @@ class EpiphanySearchHandler(EpiphanyBookmarksHandler):
 	def on_key_press(self, query, event):
 		return on_entry_key_press(query, event, shortcuts_to_smart_bookmarks_map)
 	
-	def query(self, query, max=5):
+	def query(self, query, max):
 		# if one of the smart bookmarks' shortcuts matches as a prefix,
 		# then only return that bookmark
 		x = query.find(" ")
@@ -109,7 +109,7 @@ class EpiphanySearchHandler(EpiphanyBookmarksHandler):
 			try:
 				b = shortcuts_to_smart_bookmarks_map[prefix]
 				text = query[x+1:]
-				return [BrowserSmartMatch(b._bookmark, b._name, b._url, prefix)]
+				return [BrowserSmartMatch(b.get_handler(), b.name, b.url, b.icon, prefix, b)]
 			except KeyError:
 				# Probably from the b = ... line.  Getting here
 				# means that there is no such shortcut.
@@ -130,7 +130,7 @@ class EpiphanyHistoryHandler(EpiphanyHandler):
 		global favicon_cache
 		self._history = EpiphanyHistoryParser(self, favicon_cache).get_indexer()
 			
-	def query(self, query, max=5):
+	def query(self, query, max):
 		return self._history.look_up(query)[:max]
 		
 class EpiphanyBookmarksParser(xml.sax.ContentHandler):
@@ -189,18 +189,14 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 			if self.href.startswith("javascript:"):
 				return
 			
-			pixbuf = None
-			try:
-				host = get_url_host(self.href)
-				if host in self._cache:
-					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(self._cache[host], deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-			except Exception, msg:
-				# Most of the time we have an html page here, it could also be an unrecognized format
-				print 'Error:endElement(%s):Title:%s:%s' % (name.encode("utf8"), self.title, msg)
+			icon = None
+			host = get_url_host(self.href)
+			if host in self._cache:
+				icon = self._cache[host]
 
-			bookmark = BrowserMatch(self.handler, self.title, self.href, pixbuf)
+			bookmark = BrowserMatch(self.handler, self.title, self.href, icon)
 			if self.smarthref != None:
-				bookmark = BrowserSmartMatch(bookmark, self.title, self.smarthref)
+				bookmark = BrowserSmartMatch(self.handler, self.title, self.smarthref, icon, bookmark=bookmark)
 				self._smart_bookmarks.append(bookmark)
 			else:
 				self._indexer.add("%s %s" % (self.title, self.href), bookmark)
@@ -308,13 +304,9 @@ class EpiphanyHistoryParser(xml.sax.ContentHandler):
 			elif self._id == "9":
 				self.icon = self.chars.encode('utf8')
 		elif name == "node":
-			pixbuf = None
-			try:
-				if self.icon in self._cache:
-					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(self._cache[self.icon], deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-			except Exception, msg:
-				# Most of the time we have an html page here, it could also be an unrecognized format
-				print 'Error:endElement(%s):Title:%s:%s' % (name.encode("utf8"), self.title, msg)
+			icon = None
+			if self.icon in self._cache:
+				icon = self._cache[self.icon]
 
-			item = BrowserMatch(self.handler, self.title, self.url, pixbuf, True)
+			item = BrowserMatch(self.handler, self.title, self.url, icon, is_history=True)
 			self._indexer.add("%s %s" % (self.title, self.url), item)

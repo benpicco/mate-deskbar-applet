@@ -90,7 +90,7 @@ TYPES = {
 }
 
 class BeagleLiveMatch (deskbar.Match.Match):
-	def __init__(self, handler, result):
+	def __init__(self, handler, result=None, name=None, icon=None):
 		"""
 		result: a dict containing:
 			"name" : a name sensible to display for this match
@@ -118,12 +118,12 @@ class BeagleLiveMatch (deskbar.Match.Match):
 		#
 		#else:
 		#	# We are not a file. Just use an icon from the ICON table
-		deskbar.Match.Match.__init__ (self, handler, result["name"], handler.ICONS[result["type"]])
+		deskbar.Match.Match.__init__ (self, handler, result["name"])
+		self.result = result
+		self._icon = handler.ICONS[result["type"]]
 		
-		self.__result = result
-	
 	def get_category (self):
-		t = self.__result["type"]
+		t = self.result["type"]
 		if t == "MailMessage" : return "emails"
 		elif t == "Contact": return "contacts"
 		elif t == "File": return "files"
@@ -134,35 +134,35 @@ class BeagleLiveMatch (deskbar.Match.Match):
 	
 	def get_name (self, text=None):
 		# We use the result dict itself to look up words
-		return self.__result
+		return self.result
 	
 	def get_verb(self):
 		# Fetch the "description" template from TYPES
-		return TYPES[self.__result["type"]]["description"]
+		return TYPES[self.result["type"]]["description"]
 		
 	def action(self, text=None):
 	
 		# Retrieve the associated action
-		action = TYPES[self.__result["type"]]["action"]
+		action = TYPES[self.result["type"]]["action"]
 		args = [action]
 
 		# If the result requires additional arguments
 		# prepend them to args.
-		if TYPES[self.__result["type"]].has_key ("action_args"):
-			args.append(TYPES[self.__result["type"]]["action_args"])
+		if TYPES[self.result["type"]].has_key ("action_args"):
+			args.append(TYPES[self.result["type"]]["action_args"])
 		
 		if action == "beagle-imlogviewer":
 			# Strip the uti descriptor, because imlogviewer takes a local path
-			args.append (gnomevfs.get_local_path_from_uri(self.__result["uri"]))
+			args.append (gnomevfs.get_local_path_from_uri(self.result["uri"]))
 		else:
-			args.append (self.__result["uri"])
+			args.append (self.result["uri"])
 
 		print "BeagleLive spawning:", action, args
 		gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_hash(self, text=None):
-		if "uri" in self.__result:
-			return self.__result["uri"]
+		if "uri" in self.result:
+			return self.result["uri"]
 		
 class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 	def __init__(self):
@@ -182,7 +182,7 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 			res[t] = deskbar.Utils.load_icon(icon_file)
 		return res
 		
-	def query (self, qstring, qmax=5):
+	def query (self, qstring, qmax):
 		import beagle
 		beagle_query = beagle.Query()
 		beagle_query.add_text(qstring)

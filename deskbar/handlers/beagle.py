@@ -23,11 +23,11 @@ HANDLERS = {
 }
 
 class BeagleMatch(deskbar.Match.Match):
-	def __init__(self, backend, name):
+	def __init__(self, backend, name=None, icon=None):
 		deskbar.Match.Match.__init__(self, backend, name)
 		
 	def action(self, text=None):
-		gobject.spawn_async(["best", '--no-tray', '--show-window', self._name], flags=gobject.SPAWN_SEARCH_PATH)
+		gobject.spawn_async(["best", '--no-tray', '--show-window', self.name], flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_verb(self):
 		return _("Search for %s using Beagle") % "<b>%(name)s</b>"
@@ -40,5 +40,5 @@ class BeagleHandler(deskbar.Handler.Handler):
 	def __init__(self):
 		deskbar.Handler.Handler.__init__(self, "best")
 				
-	def query(self, query, max=5):
+	def query(self, query, max):
 		return [BeagleMatch(self, query)]

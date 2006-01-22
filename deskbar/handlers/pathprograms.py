@@ -17,9 +17,9 @@ HANDLERS = {
 }
 
 class PathProgramMatch(deskbar.Match.Match):
-	def __init__(self, backend, name):
+	def __init__(self, backend, name=None, icon=None, use_terminal=False):
 		deskbar.Match.Match.__init__(self, backend, name)
-		self.use_terminal = False
+		self.use_terminal = use_terminal
 		
 	def set_with_terminal(self, terminal):
 		self.use_terminal = terminal
@@ -66,7 +66,7 @@ class PathProgramsHandler(deskbar.Handler.Handler):
 	def initialize(self):
 		self._path = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip() != "" and exists(path) and isdir(path)]
 		
-	def query(self, query, max=5):
+	def query(self, query, max):
 		args = query.split(" ")
 		match = self._check_program(args[0])
 

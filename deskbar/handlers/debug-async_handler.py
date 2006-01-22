@@ -15,7 +15,7 @@ NUM_QUERIES = 6
 PARTIAL_RESULTS_TIME = 3
 
 class AsyncDebugMatch (Match):
-	def __init__(self, handler, name, icon=None):
+	def __init__(self, handler, name=None, icon=None):
 		Match.__init__ (self, handler, name)
 	
 	def get_verb(self):
@@ -32,7 +32,7 @@ class AsyncDebugHandler (AsyncHandler):
 	def __init__ (self):
 		AsyncHandler.__init__ (self, "stock_script")
 		
-	def query (self, qstring, max=5):
+	def query (self, qstring, max):
 		
 		for i in range (NUM_QUERIES):
 			sleep (QUERY_TIME)

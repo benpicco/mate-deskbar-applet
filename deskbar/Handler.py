@@ -33,6 +33,13 @@ class Handler:
 		Returns the global priority (against other handlers) of this handler as int
 		"""
 		return self._priority
+	
+	def deserialize(self, class_name, serialized):
+		try:
+			return globals()[class_name](self, **serialized)
+		except Exception, msg:
+			print 'Warning:Error while deserializing match:', class_name, serialized, msg
+			return None
 		
 	def get_icon(self):
 		"""
@@ -64,7 +71,7 @@ class Handler:
 		"""
 		pass
 		
-	def query(self, query, max=5):
+	def query(self, query, max):
 		"""
 		Searches the handler for the given query string.
 		Returns a list of matches objects of maximum length
@@ -95,7 +102,7 @@ class SignallingHandler (Handler, gobject.GObject):
 	libebook, or galago, or twisted.
 	"""
 	__gsignals__ = {
-		"query-ready" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT])
+		"query-ready" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT])
 	}
 
 	def __init__ (self, iconfile=None):
@@ -103,7 +110,7 @@ class SignallingHandler (Handler, gobject.GObject):
 		gobject.GObject.__init__ (self)
 		self.__last_query = ""
 
-	def query_async (self, qstring, max=5):
+	def query_async (self, qstring, max):
 		"""
 		When we receive an async call, we first register the most current search string.
 		Then we call with a little delay the actual query() method, implemented by the handler.
@@ -121,9 +128,9 @@ class SignallingHandler (Handler, gobject.GObject):
 		if self.__last_query == qstring:
 			self.query (qstring, max)
 
-	def emit_query_ready (self, matches, qstring):
+	def emit_query_ready (self, qstring, matches):
 		if qstring == self.__last_query:
-			self.emit ("query-ready", matches)
+			self.emit ("query-ready", qstring, matches)
 
 	def stop_query (self):
 		self.__last_query = None
@@ -166,7 +173,7 @@ class AsyncHandler (Handler, gobject.GObject):
 	"""
 
 	__gsignals__ = {
-		"query-ready" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+		"query-ready" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT]),
 	}
 
 	QUERY_PRIORITY = gobject.PRIORITY_DEFAULT_IDLE
@@ -177,7 +184,7 @@ class AsyncHandler (Handler, gobject.GObject):
 		self.__query_queue = Queue ()
 		self.is_running = False
 	
-	def query_async (self, qstring, max=5):
+	def query_async (self, qstring, max):
 		"""
 		This method is the one to be called by the object wanting to start a new query.
 		If there's an already running query that one will be cancelled if possible.
@@ -203,14 +210,14 @@ class AsyncHandler (Handler, gobject.GObject):
 		"""
 		self.__query_queue.put (QueryStopped)
 	
-	def emit_query_ready (self, matches):
+	def emit_query_ready (self, qstring, matches):
 		"""
 		Use this method to emit partial results. matches should be a list of Match objects.
 		
 		Note: returning a list of Match objects from the query() method automatically
 		emits a 'query-ready' signal for this list. 
 		"""
-		gobject.idle_add (self.__emit_query_ready, matches)
+		gobject.idle_add (self.__emit_query_ready, qstring, matches)
 		
 	def check_query_changed (self, clean_up=None, args=NoArgs, timeout=None):
 		"""
@@ -241,19 +248,19 @@ class AsyncHandler (Handler, gobject.GObject):
 					clean_up (args)
 			raise QueryChanged (qstring)
 		
-	def __emit_query_ready (self, matches):
+	def __emit_query_ready (self, qstring, matches):
 		"""Idle handler to emit a 'query-ready' signal to the main loop."""
-		self.emit ("query-ready", matches)
+		self.emit ("query-ready", qstring, matches)
 		return False
 
-	def __query_async (self, qstring, max=5):
+	def __query_async (self, qstring, max):
 		"""
 		The magic happens here.
 		"""
 		try:
 			res = self.query (qstring, max)
 			if (res and res != []):
-				self.emit_query_ready (res)
+				self.emit_query_ready (qstring, res)
 			self.is_running = False
 			
 		except QueryChanged, query_change:

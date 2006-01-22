@@ -23,20 +23,21 @@ HANDLERS = {
 }
 
 class EvolutionMatch(deskbar.Match.Match):
-	def __init__(self, backend, name, email, icon):
-		deskbar.Match.Match.__init__(self, backend, name, icon)
-		self._email = email
+	def __init__(self, backend, name=None, email=None, pixbuf=None, icon=None):
+		deskbar.Match.Match.__init__(self, backend, name)
+		self._icon = pixbuf
+		self.email = email
 		
 	def action(self, text=None):
-		gnomevfs.url_show("mailto:"+self._email)
+		gnomevfs.url_show("mailto:"+self.email)
 		
 	def get_category(self):
 		return "contacts"
 	
 	def get_name(self, text=None):
 		return {
-			"name": cgi.escape(self._name),
-			"email": self._email,
+			"name": cgi.escape(self.name),
+			"email": self.email,
 		}
 		
 	def get_verb(self):
@@ -44,7 +45,7 @@ class EvolutionMatch(deskbar.Match.Match):
 		return _("Send Email to <b>%(name)s</b> (%(email)s)")
 	
 	def get_hash(self, text=None):
-		return self._email
+		return self.email
 		
 class EvolutionHandler(deskbar.Handler.Handler):
 	def __init__(self):
@@ -53,7 +54,7 @@ class EvolutionHandler(deskbar.Handler.Handler):
 	def initialize(self):
 		deskbar.evolution.set_pixbuf_size(deskbar.ICON_SIZE)
 		
-	def query(self, query, max=5):
+	def query(self, query, max):
 		hits = deskbar.evolution.search_sync(query, max)
 		matches = []
 		for name, email, pixbuf in hits:

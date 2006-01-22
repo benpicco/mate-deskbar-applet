@@ -68,7 +68,7 @@ class MozillaBookmarksHandler(deskbar.Handler.Handler):
 	def stop(self):
 		self.watcher.remove_all()
 		
-	def query(self, query, max=5):
+	def query(self, query, max):
 		# First, check the smart bookmarks, or "keywords", where
 		# "wp Foo" takes you to the wikipedia entry for Foo.
 		x = self.query_smart_bookmarks(query, max)
@@ -79,7 +79,7 @@ class MozillaBookmarksHandler(deskbar.Handler.Handler):
 			# then we'll just look up all bookmarks.
 			return self._bookmarks.look_up(query)[:max]
 	
-	def query_smart_bookmarks(self, query, max=5):
+	def query_smart_bookmarks(self, query, max):
 		# if one of the smart bookmarks' shortcuts matches as a prefix,
 		# then only return that bookmark
 		x = query.find(" ")
@@ -121,7 +121,7 @@ class MozillaSearchHandler(deskbar.Handler.Handler):
 	def stop(self):
 		self.watcher.remove_all()
 		
-	def query(self, query, max=5):
+	def query(self, query, max):
 		return self._smart_bookmarks
 		
 class MozillaBookmarksParser(HTMLParser.HTMLParser):
