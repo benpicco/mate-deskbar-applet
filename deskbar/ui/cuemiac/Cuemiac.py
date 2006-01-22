@@ -523,7 +523,7 @@ class CuemiacTreeView (gtk.TreeView):
 				if self.row_expanded (path):
 					self.collapse_row (path)
 				else:
-					self.expand_row (path)
+					self.expand_row (path, False)
 				return True
 			
 			self.emit ("match-selected", match)
@@ -635,7 +635,6 @@ class CuemiacUI (DeskbarUI):
 	
 	def __init__ (self, applet):
 		DeskbarUI.__init__ (self, applet)
-		self.emit ("match-selected", [None])
 		
 		self.deskbar_button = DeskbarAppletButton (applet.get_orient())
 		self.deskbar_button.connect ("toggled-main", lambda x,y: self.show_entry())
@@ -661,6 +660,7 @@ class CuemiacUI (DeskbarUI):
 		self.entry.connect ("key-press-event", self.on_entry_key_press)
 		self.cview.connect ("key-press-event", self.on_cview_key_press)
 		self.cview.get_selection().connect ("changed", self.scroll_cview_to_selection)
+		self.cview.connect ("match-selected", lambda sender, match: self.emit ("match-selected", match[0], match[1]))
 		#self.cview.set_vadjustment (self.scroll_win.get_vadjustment())
 		
 		self.screen_height = self.popup.get_screen().get_height ()
@@ -687,7 +687,7 @@ class CuemiacUI (DeskbarUI):
 		if self.deskbar_button.get_active_arrow ():
 			self.emit ("request-history-show", self.deskbar_button.button_arrow, self.applet.get_orient())
 		else:
-			self.emit ("request-history-hide", self.deskbar_button.button_arrow, self.applet.get_orient())
+			self.emit ("request-history-hide")
 	
 	def get_view (self):
 		return self.deskbar_button
@@ -707,7 +707,7 @@ class CuemiacUI (DeskbarUI):
 	def recieve_focus (self):
 		self.deskbar_button.set_active_main (True)
 	
-	def scroll_cview_to_selection (self, tree_sel): # FIXME: Unused
+	def scroll_cview_to_selection (self, tree_sel):
 		print "scroll_cview_to_selection"
 		model, iter = tree_sel.get_selected ()
 		if iter is None:
@@ -787,8 +787,18 @@ class CuemiacUI (DeskbarUI):
 			
 		elif event.keyval == 65364: # Down
 			self.cview.grab_focus ()
-			self.cview.set_cursor (cmodel.get_path(cmodel.get_iter_first()))
+			self.cview.set_cursor (self.model.get_path(self.model.get_iter_first()))
 			return True
+			
+		elif event.keyval == 65293: # Enter
+			path, column = self.cview.get_cursor ()
+			iter = self.model.get_iter (path)
+			if iter is None:
+				# No selection, select top element # FIXME do this
+				pass
+			match = model[iter][model.MATCHES]
+			# FIXME check that selection is not cat or nest, and then activate
+				
 		
 		return False
 		

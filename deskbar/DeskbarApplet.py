@@ -39,7 +39,8 @@ class DeskbarApplet:
 		self.loader.connect ("module-stopped", self.module_list.module_toggled_cb)
 		self.loader.connect ("module-initialized", self._connect_if_async)
 		
-		self.ui = CompletionDeskbarUI (applet)
+	#	self.ui = CompletionDeskbarUI (applet)
+		self.ui = CuemiacUI (applet)
 		self.ui.connect ("match-selected", self.on_match_selected)
 		self.ui.connect ("start-query", self.on_start_query)
 		self.ui.connect ("stop-query", self.on_stop_query)
@@ -106,7 +107,7 @@ class DeskbarApplet:
 	def on_request_history_show (self, sender, widget_to_align_to, alignment):
 		print "history show request"
 		
-	def on_request_history_hide (self):
+	def on_request_history_hide (self, sender):
 		print "history hide request"
 		
 	def on_request_keybinding (self, sender, match, keybinding):
