@@ -10,51 +10,47 @@ class DeskbarHistory(gobject.GObject):
 	def __init__(self):
 		gobject.GObject.__init__ (self)
 		self._history = []
-				
-		try:
-			self.saved_history = cPickle.load(file(HISTORY_FILE))
-		except Exception, msg:
-			self.saved_history = []		
-			
 		self._index = -1
-	
-	# FIXME: this is a bit nasty
-	def add_module_loader(self, loader):
-		loader.connect ("module-initialized", self.on_module_initialized)
-		loader.connect ("module-initialized", self.connect_if_async)
+					
+	def load(self, module_list):
+		print 'Loading History'
+		try:
+			saved_history = cPickle.load(file(HISTORY_FILE))
+		except Exception, msg:
+			return
 		
-	def on_module_initialized(self, loader, modctx, matches=None):
-		to_delete = []
-		for i, saved in enumerate(self.saved_history):
-			text, hsh, handler_class = saved
-			
-			# Checks wether it's the good handler
-			j = handler_class.rfind(".")
-			if j == -1 or handler_class[j+1:] != modctx.handler:
-				continue
-			
-			if modctx.module.is_async() and matches == None:
-				modctx.module.query_async(text, MAX_RESULTS_PER_HANDLER)
-			elif matches == None:
-				matches = modctx.module.query(text, MAX_RESULTS_PER_HANDLER)
-
-			if matches != None:
-				for match in matches:
-					self.add_saved_to_history(match, i, text, hsh)
-				to_delete.append(saved)
-		
-		for delete in to_delete:
-			self.saved_history.remove(delete)
+		def strip_class(name):
+			i = name.rfind(".")
+			if i == -1:
+				return None
 				
-	def connect_if_async (self, sender, context):
-		if context.module.is_async():
-			context.module.connect('query-ready', lambda sender, qstring, matches: self.on_module_initialized(sender, context, matches))
-	
-	def add_saved_to_history(self, match, i, text, hsh):
-		if match.get_hash(text) == hsh:
-			self._history.insert(i, (text, match))
-	
-	#Ends the nastyness
+			return name[i+1:]
+					
+		for text, handler_class_name, match_class_name, serialized in saved_history:
+			for modctx in module_list:
+				if strip_class(handler_class_name) != modctx.handler:
+					continue
+				
+				match_class = strip_class(match_class_name)
+				if match_class == None:
+					continue
+					
+				match = modctx.module.deserialize(match_class, serialized)
+				if match != None:
+					self.add(text, match)
+		
+	def save(self):
+		save = []
+		for text, match in self._history:
+			hsh = match.get_hash(text)
+			save.append((text, str(match.get_handler().__class__), str(match.__class__), match.serialize()))
+			
+		try:
+			cPickle.dump(save, file(HISTORY_FILE, 'w'), cPickle.HIGHEST_PROTOCOL)
+			print 'History saved'
+		except Exception, msg:
+			print 'Error:History.save:%s', msg
+		pass
 	
 	def add(self, text, match):
 		for htext, hmatch in self._history:
@@ -94,19 +90,6 @@ class DeskbarHistory(gobject.GObject):
 		
 		return self._history[self._index]
 	
-	def save(self):
-		save = []
-		for text, match in self._history:
-			hsh = match.get_hash(text)
-			save.append((text, hsh, str(match.get_handler().__class__) ))
-				
-		try:
-			cPickle.dump(save, file(HISTORY_FILE, 'w'), cPickle.HIGHEST_PROTOCOL)
-			pass
-		except Exception, msg:
-			print 'Error:History.save:%s', msg
-		pass
-
 if gtk.pygtk_version < (2,8,0):
 	gobject.type_register(DeskbarHistory)
 	

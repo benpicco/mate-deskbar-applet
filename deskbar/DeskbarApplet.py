@@ -5,6 +5,7 @@ from gettext import gettext as _
 
 import deskbar, deskbar.ui
 from deskbar import MAX_RESULTS_PER_HANDLER
+from deskbar.DeskbarHistory import get_deskbar_history
 from deskbar.ModuleList import ModuleList
 from deskbar.ModuleLoader import ModuleLoader
 from deskbar.ui.DeskbarEntry import DeskbarEntry
@@ -20,20 +21,7 @@ class DeskbarApplet:
 		self.applet = applet
 		
 		self.start_query_id = 0
-		
-		self.ui = CompletionDeskbarUI (applet)
-		self.ui.connect ("match-selected", self.on_match_selected)
-		self.ui.connect ("start-query", self.on_start_query)
-		self.ui.connect ("stop-query", self.on_stop_query)
-		self.ui.connect ("request-keybinding", self.on_request_keybinding)
-		self.ui.connect ("keyboard-shortcut", self.on_keyboard_shortcut)
-		self.ui.connect ("request-history-show", self.on_request_history_show)
-		self.ui.connect ("request-history-hide", self.on_request_history_hide)
-		self.ui.set_sensitive (False)
-		self.applet.add(self.ui.get_view ())
-		self.applet.show_all()
-		self.ui.get_view().queue_draw()
-	
+			
 		self.prefs = DeskbarAppletPreferences(applet)
 		
 		self._inited_modules = 0
@@ -51,6 +39,19 @@ class DeskbarApplet:
 		self.loader.connect ("module-stopped", self.module_list.module_toggled_cb)
 		self.loader.connect ("module-initialized", self._connect_if_async)
 		
+		self.ui = CompletionDeskbarUI (applet)
+		self.ui.connect ("match-selected", self.on_match_selected)
+		self.ui.connect ("start-query", self.on_start_query)
+		self.ui.connect ("stop-query", self.on_stop_query)
+		self.ui.connect ("request-keybinding", self.on_request_keybinding)
+		self.ui.connect ("keyboard-shortcut", self.on_keyboard_shortcut)
+		self.ui.connect ("request-history-show", self.on_request_history_show)
+		self.ui.connect ("request-history-hide", self.on_request_history_hide)
+		self.ui.set_sensitive (False)
+		self.applet.add(self.ui.get_view ())
+		self.applet.show_all()
+		self.ui.get_view().queue_draw()
+		
 		self.keybinder = Keybinder(deskbar.GCONF_KEYBINDING)
 		
 		# Set and retreive enabled handler list from gconf
@@ -58,6 +59,7 @@ class DeskbarApplet:
 		
 		self.applet.connect("button-press-event", self.on_applet_button_press)
 		self.applet.connect('destroy', lambda x: self.keybinder.unbind())
+		self.applet.connect('destroy', lambda x: get_deskbar_history().save())
 		self.applet.connect('change-orient', lambda x, orient: self.ui.on_change_orient(applet))
 		self.applet.connect('change-size', lambda x, orient: self.ui.on_change_size(applet))
 		self.applet.setup_menu_from_file (
@@ -71,9 +73,11 @@ class DeskbarApplet:
 		if context.module.is_async():
 			context.module.connect ('query-ready', lambda sender, qstring, matches: self.dispatch_matches([(qstring, match) for match in matches]))	
 	
-	def on_match_selected (self, match):
+	def on_match_selected (self, sender, text, match):
 		print "match selected",match
-	
+		match.action(text)
+		get_deskbar_history().add(text, match)
+		
 	def on_start_query (self, sender, qstring, max_hits):
 		if self.start_query_id != 0:
 			gobject.source_remove(self.start_query_id)
@@ -100,7 +104,7 @@ class DeskbarApplet:
 			if modctx.module.is_async():
 				modctx.module.stop_query()
 		
-	def on_request_history_show (self, widget_to_align_to, alignment):
+	def on_request_history_show (self, sender, widget_to_align_to, alignment):
 		print "history show request"
 		
 	def on_request_history_hide (self):
@@ -179,7 +183,8 @@ class DeskbarApplet:
 		self._inited_modules = self._inited_modules + 1
 		if self._inited_modules == self._loaded_modules:
 			self.ui.set_sensitive (True)
-				
+			get_deskbar_history().load(self.module_list)
+							
 	def on_applet_button_press(self, widget, event):
 		try:
 			# GNOME 2.12

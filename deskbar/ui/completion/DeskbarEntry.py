@@ -133,7 +133,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			self._on_completion_selected (self._completion_model[iter][TEXT_COL], self._completion_model[iter][MATCH_COL])
 	
 	def _on_completion_selected(self, text, match):
-		self.emit('match-selected', text, match)
+		self.ui.emit('match-selected', text, match)
 						
 		#Clear the entry in a idle call or we segfault
 		gobject.idle_add(lambda: self.get_entry().set_text(""))

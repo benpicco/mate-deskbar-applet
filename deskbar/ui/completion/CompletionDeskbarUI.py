@@ -31,7 +31,7 @@ class CompletionDeskbarUI (DeskbarUI):
 			self.applet.emit("button-press-event", event)
 			return True
 		elif event.button == 1:
-			self.emit('request-history-popup', self.entry.get_evbox(), self.entry.get_entry().get_direction())
+			self.emit('request-history-show', self.entry.get_evbox(), self.entry.get_entry().get_direction())
 			return True
 		
 		return False

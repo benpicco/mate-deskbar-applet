@@ -8,7 +8,7 @@ class DeskbarUI (gobject.GObject):
 	(which most will).
 	
 	Signals:
-		"match-selected" (Match):
+		"match-selected" (text, Match):
 			A match has been selected by the user. Passes the selected match along.
 			
 		"request-history-show" (gtk.Widget, gnomeapplet.ORIENT_*)
@@ -34,7 +34,7 @@ class DeskbarUI (gobject.GObject):
 			
 	"""
 	__gsignals__ = {
-		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT]),
 		"request-history-show" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
 		"request-history-hide" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
 		"start-query" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),

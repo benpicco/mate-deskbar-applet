@@ -203,7 +203,8 @@ class CuemiacModel (gtk.TreeStore):
 			self.__append (match)
 		
 	def __append (self, match):
-		if self.__categories.has_key (match.get_category()):
+		qstring, match_obj = match
+		if self.__categories.has_key (match_obj.get_category()):
 			self.__append_to_category (match)
 		else:
 			self.__create_category_with_match (match)
@@ -213,12 +214,13 @@ class CuemiacModel (gtk.TreeStore):
 		"""
 		Assumes that the category for the match does not exist.
 		"""
+		qstring, match_obj = match
 		#FIXME: Check validity of category name and use  proper i18n
 		# Set up a new category
-		cat = CuemiacCategory (match.get_category(), self)
+		cat = CuemiacCategory (match_obj.get_category(), self)
 		iter = self.append_method (self, None, [cat])
 		cat.set_category_iter (iter)
-		self.__categories [match.get_category()] = cat
+		self.__categories [match_obj.get_category()] = cat
 
 		# Append the match to the category		
 		self.append_method (self, iter, [match])
@@ -227,8 +229,8 @@ class CuemiacModel (gtk.TreeStore):
 		
 	
 	def __append_to_category (self, match):
-
-		cat = self.__categories [match.get_category ()]
+		qstring, match_obj = match
+		cat = self.__categories [match_obj.get_category ()]
 		row_iter = None
 		
 		if cat.get_count() < cat.get_threshold() :
@@ -239,7 +241,7 @@ class CuemiacModel (gtk.TreeStore):
 		elif cat.get_count() == cat.get_threshold():
 			# We reached the threshold with this match
 			# Set up a Nest, and append the match to that
-			nest = Nest (CATEGORIES[match.get_category ()]["nest"], cat)
+			nest = Nest (CATEGORIES[match_obj.get_category ()]["nest"], cat)
 			nest_iter = self.append_method (self, cat.get_category_iter(), [nest])
 			cat.set_nest_iter (nest_iter)
 			
@@ -459,7 +461,7 @@ class CuemiacTreeView (gtk.TreeView):
 		model, iter = self.get_selection().get_selected()
 	
 	def __get_match_icon_for_cell (self, column, cell, model, iter, data=None):
-		
+	
 		match = model[iter][model.MATCHES]
 		
 		if match.__class__ == CuemiacCategory:
@@ -471,11 +473,12 @@ class CuemiacTreeView (gtk.TreeView):
 			if match.__class__ == Nest:
 				cell.set_property ("pixbuf", None)		
 			else:
-				cell.set_property ("pixbuf", match.get_icon())
+				qstring, match_obj = match
+				cell.set_property ("pixbuf", match_obj.get_icon())
 
 		
 	def __get_match_title_for_cell (self, column, cell, model, iter, data=None):
-
+	
 		match = model[iter][model.MATCHES]
 		
 		if match.__class__ == CuemiacCategory:
@@ -485,18 +488,22 @@ class CuemiacTreeView (gtk.TreeView):
 			cell.set_property ("category-header", match.get_name())
 			cell.set_property ("match-count", match.get_count ())
 			return
-		else:
-			cell.set_property ("category-header", None)
-			cell.set_property ("height", -1)
-			cell.set_property ("cell-background-gdk", self.match_bg)
 		
+		cell.set_property ("category-header", None)
+		cell.set_property ("height", -1)
+		cell.set_property ("cell-background-gdk", self.match_bg)
+		
+		if match.__class__ == Nest:
+			return
+		
+		qstring, match_obj = match
 		# Pass unescaped query to the matches
-		verbs = {"text" : self.qstring}
-		verbs.update(match.get_name(self.qstring))
+		verbs = {"text" : qstring}
+		verbs.update(match_obj.get_name(qstring))
 		# Escape the query now for display
 		verbs["text"] = cgi.escape(verbs["text"])
 		
-		cell.set_property ("markup", match.get_verb () % verbs)
+		cell.set_property ("markup", match_obj.get_verb () % verbs)
 
 	def __on_click (self, widget, event):
 		model, iter = self.get_selection().get_selected()
@@ -661,13 +668,18 @@ class CuemiacUI (DeskbarUI):
 		self.max_window_height = int (0.6 * self.screen_height)
 		self.max_window_width = int (0.4 * self.screen_width)
 
+		self.deskbar_button.realize ()
+		self.box.show ()
+		self.entry.show ()
 	
 	def show_entry (self):
 		if self.deskbar_button.get_active_main ():
 			self.popup.update_position ()
-			self.popup.show_all ()
+			self.popup.show ()
 			self.entry.grab_focus ()
 		else:
+			#if self.entry.get_text().strip() == "":
+			#	self.scroll_win.hide ()
 			self.popup.hide ()
 			self.emit ("stop-query")
 	
@@ -689,6 +701,7 @@ class CuemiacUI (DeskbarUI):
 		self.set_layout_by_orientation (applet.get_orient())
 	
 	def append_matches (self, matches):
+		self.popup.show_all ()
 		self.model.append (matches)
 		
 	def recieve_focus (self):
@@ -741,7 +754,9 @@ class CuemiacUI (DeskbarUI):
 		qstring = self.entry.get_text().strip()
 		self.model.clear()
 		self.cview.set_query_string (qstring)
-		self.emit ("start-query", qstring, 100)	
+		if qstring == "":
+			return
+		self.emit ("start-query", qstring, 100)
 		self.popup.show ()
 	
 	def hide_if_entry_empty (self):
@@ -758,17 +773,18 @@ class CuemiacUI (DeskbarUI):
 				# If we clear some text, tell async handlers to stop.
 				self.emit ("stop-query")
 			self.entry.set_text("")
+			self.deskbar_button.set_active_main (False)
 			return True
 		
 		if event.keyval == 65362: # Up
-			cview.grab_focus ()
-			last = cview.last_visible_path ()
-			cview.set_cursor (last)
+			self.cview.grab_focus ()
+			last = self.cview.last_visible_path ()
+			self.cview.set_cursor (last)
 			return True
 			
 		elif event.keyval == 65364: # Down
-			cview.grab_focus ()
-			cview.set_cursor (cmodel.get_path(cmodel.get_iter_first()))
+			self.cview.grab_focus ()
+			self.cview.set_cursor (cmodel.get_path(cmodel.get_iter_first()))
 			return True
 		
 		return False
@@ -784,11 +800,11 @@ class CuemiacUI (DeskbarUI):
 		model = cview.get_model ()
 		if model.paths_equal (path, model.get_path(model.get_iter_first())):
 			if event.keyval == 65362: # Up
-				gobject.timeout_add (1, lambda : entry.grab_focus ())
+				gobject.timeout_add (1, lambda : self.entry.grab_focus ())
 			
 		elif model.paths_equal (path, cview.last_visible_path()):
 			if event.keyval == 65364: # Down
-				gobject.timeout_add (1, lambda : entry.grab_focus ())
+				gobject.timeout_add (1, lambda : self.entry.grab_focus ())
 		else:
 			pass
 			#self.cview.scroll_to_cell (path)

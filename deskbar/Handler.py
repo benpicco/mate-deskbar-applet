@@ -1,3 +1,4 @@
+import sys
 import gtk, gobject
 import deskbar.Utils
 
@@ -36,7 +37,7 @@ class Handler:
 	
 	def deserialize(self, class_name, serialized):
 		try:
-			return globals()[class_name](self, **serialized)
+			return getattr(sys.modules[self.__module__], class_name)(self, **serialized)
 		except Exception, msg:
 			print 'Warning:Error while deserializing match:', class_name, serialized, msg
 			return None
