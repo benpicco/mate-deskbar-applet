@@ -48,7 +48,7 @@ class DeskbarHistory(gobject.GObject):
 				
 	def connect_if_async (self, sender, context):
 		if context.module.is_async():
-			context.module.connect('query-ready', lambda sender, matches: self.on_module_initialized(sender, context, matches))
+			context.module.connect('query-ready', lambda sender, qstring, matches: self.on_module_initialized(sender, context, matches))
 	
 	def add_saved_to_history(self, match, i, text, hsh):
 		if match.get_hash(text) == hsh:

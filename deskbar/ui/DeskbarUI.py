@@ -1,4 +1,4 @@
-import gobject
+import gtk, gobject
 
 class DeskbarUI (gobject.GObject):
 	"""
@@ -11,10 +11,13 @@ class DeskbarUI (gobject.GObject):
 		"match-selected" (Match):
 			A match has been selected by the user. Passes the selected match along.
 			
-		"request-history-popup" (gtk.Widget, gnomeapplet.ORIENT_*)
+		"request-history-show" (gtk.Widget, gnomeapplet.ORIENT_*)
 			The user has performed and action such that the history should be popped up.
 			The widget is the widget to align the popup to, the ORIENT_* is the alignment
 			the popup should have relative to the widget.
+			
+		"request-history-hide" ():
+			Request that the history window will be hidden.
 		
 		"start-query" (query_string, max_hits):
 			Request a query on the given string returning maximally max_hits hits.
@@ -32,8 +35,9 @@ class DeskbarUI (gobject.GObject):
 	"""
 	__gsignals__ = {
 		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
-		"request-history-popup" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
-		"start-query" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+		"request-history-show" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
+		"request-history-hide" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
+		"start-query" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
 		"stop-query" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
 		"request-keybinding" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
 		"keyboard-shortcut" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_UINT, gobject.TYPE_UINT]),

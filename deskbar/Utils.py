@@ -56,7 +56,8 @@ def load_icon(icon, width=deskbar.ICON_SIZE, height=deskbar.ICON_SIZE):
 			try:
 				pixbuf = ICON_THEME.load_icon(icon, width, gtk.ICON_LOOKUP_USE_BUILTIN)
 			except Exception, msg2:
-				print 'Error:load_icon:Icon Load Error:%s (%s)' % (msg1, msg2)
+				print 'Error:load_icon:Icon Load Error:%s (or %s)' % (msg1, msg2)
+				
 	# an icon that is too tall will make the EntryCompletion look funny
 	if pixbuf != None and pixbuf.get_height() > height:
 		pixbuf = pixbuf.scale_simple(width, height, gtk.gdk.INTERP_BILINEAR)

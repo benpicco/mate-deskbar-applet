@@ -3,6 +3,9 @@ from os.path import *
 import gnomeapplet, gtk, gtk.gdk, gconf, gobject
 from gettext import gettext as _
 
+MAX_RESULTS_PER_HANDLER = 100
+
+
 import deskbar, deskbar.ui
 from deskbar.ModuleList import ModuleList
 from deskbar.ModuleLoader import ModuleLoader
@@ -11,10 +14,26 @@ from deskbar.ui.About import show_about
 from deskbar.ui.DeskbarPreferencesUI import show_preferences
 from deskbar.DeskbarAppletPreferences import DeskbarAppletPreferences
 from deskbar.Keybinder import Keybinder
+from deskbar.ui.Cuemiac import CuemiacUI
+from deskbar.ui.completion.CompletionDeskbarUI import CompletionDeskbarUI
 
 class DeskbarApplet:
 	def __init__(self, applet):
 		self.applet = applet
+	
+		self.ui = CompletionDeskbarUI (applet)
+		self.ui.connect ("match-selected", self.on_match_selected)
+		self.ui.connect ("start-query", self.on_start_query)
+		self.ui.connect ("stop-query", self.on_stop_query)
+		self.ui.connect ("request-keybinding", self.on_request_keybinding)
+		self.ui.connect ("keyboard-shortcut", self.on_keyboard_shortcut)
+		self.ui.connect ("request-history-show", self.on_request_history_show)
+		self.ui.connect ("request-history-hide", self.on_request_history_hide)
+		self.ui.set_sensitive (False)
+		self.applet.add(self.ui.get_view ())
+		self.applet.show_all()
+		self.ui.get_view().queue_draw()
+	
 		self.prefs = DeskbarAppletPreferences(applet)
 		
 		self._inited_modules = 0
@@ -30,55 +49,72 @@ class DeskbarApplet:
 		self.loader.connect ("module-initialized", self.on_module_initialized)
 		self.loader.connect ("module-not-initialized", self.on_module_initialized)
 		self.loader.connect ("module-stopped", self.module_list.module_toggled_cb)
+		self.loader.connect ("module-initialized", self._connect_if_async)
 		
 		self.keybinder = Keybinder(deskbar.GCONF_KEYBINDING)
-		self.keybinder.connect('activated', self.on_keybinding_activated)
-		self.keybinder.connect('changed', self.on_keybinding_changed)
-		self.keybinder.bind()
-
-		# Set and retreive entry width from gconf
-		self.config_width = deskbar.GCONF_CLIENT.get_int(self.prefs.GCONF_WIDTH)
-		if self.config_width == None:
-			self.config_width = 20
-		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
-		self.config_expand = deskbar.GCONF_CLIENT.get_bool(self.prefs.GCONF_EXPAND)
-		if self.config_expand == None:
-			self.config_expand = False
-		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
 		
+		# Set and retreive enabled handler list from gconf
 		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_ENABLED_HANDLERS, lambda x, y, z, a: self.on_config_handlers(z.value))
 		
-		self.applet.set_flags(gtk.CAN_FOCUS)
-		self.applet.add(self.entry)
 		self.applet.connect("button-press-event", self.on_applet_button_press)
 		self.applet.connect('destroy', lambda x: self.keybinder.unbind())
-		self.applet.connect('change-orient', lambda x, orient: self.sync_applet_size())
+		self.applet.connect('change-orient', lambda x, orient: self.ui.on_change_orient(applet))
+		self.applet.connect('change-size', lambda x, orient: self.ui.on_change_size(applet))
 		self.applet.setup_menu_from_file (
 			deskbar.SHARED_DATA_DIR, "Deskbar_Applet.xml",
 			None, [("About", self.on_about), ("Prefs", self.on_preferences)])
-
-		self.applet.show_all()
-		self.sync_applet_size()
+			
+		self.applet.set_flags(gtk.CAN_FOCUS)
+		self.ui.set_sensitive (True)
 		
-		self.entry.get_entry().grab_focus()
+	def _connect_if_async (self, sender, context):
+		if context.module.is_async():
+			context.module.connect ('query-ready', lambda sender, qstring, matches: self.dispatch_matches([(qstring, match) for match in matches]))	
+	
+	def on_match_selected (self, match):
+		print "match selected",match
+	
+	def on_start_query (self, sender, qstring, max_hits):
+		results = []
+		for modctx in self.module_list:
+			if not modctx.enabled:
+				continue
+			if modctx.module.is_async():
+				modctx.module.query_async(qstring, MAX_RESULTS_PER_HANDLER)
+			else:
+				matches = modctx.module.query(qstring, MAX_RESULTS_PER_HANDLER)
+				for match in matches: # FIXME: This can be optimised
+					results.append((qstring,match))
+				
+		self.ui.append_matches (results)
 		
-	def on_about(self, component, verb):
+	def on_stop_query (self, sender=None):
+		for modctx in self.module_list:
+			if modctx.module.is_async():
+				modctx.module.stop_query()
+		
+	def on_request_history_show (self, widget_to_align_to, alignment):
+		print "history show request"
+		
+	def on_request_history_hide (self):
+		print "history hide request"
+		
+	def on_request_keybinding (self, sender, match, keybinding):
+		print "keybind request:", match, keybinding
+		
+	def on_keyboard_shortcut (self, sender, modifier, shortcut):
+		print "shortcut triggered"
+				
+	def dispatch_matches (self, matches):
+		self.ui.append_matches (matches)
+	
+	def on_about (self, component, verb):
 		show_about()
 	
-	def on_preferences(self, component, verb):
+	def on_preferences (self, component, verb):
 		show_preferences(self, self.loader, self.module_list)
-
-	def on_config_width(self, value=None):
-		if value != None and value.type == gconf.VALUE_INT:
-			self.config_width = value.get_int()
-			self.sync_applet_size()
 	
-	def on_config_expand(self, value=None):
-		if value != None and value.type == gconf.VALUE_BOOL:
-			self.config_expand = value.get_bool()
-			self.sync_applet_size()
-	
-	def on_config_handlers(self, value):
+	def on_config_handlers (self, value):
 		if value != None and value.type == gconf.VALUE_LIST:
 			enabled_modules = [h.get_string() for h in value.get_list()]
 			
@@ -123,7 +159,7 @@ class DeskbarApplet:
 		enabled_list = deskbar.GCONF_CLIENT.get_list(deskbar.GCONF_ENABLED_HANDLERS, gconf.VALUE_STRING)
 		
 		def foreach_enabled(modctx):
-			self.loader.initialize_module_async(	modctx)
+			self.loader.initialize_module_async(modctx)
 			self._loaded_modules = self._loaded_modules + 1
 		
 		# Update live priorities
@@ -135,36 +171,26 @@ class DeskbarApplet:
 	def on_module_initialized(self, loader, modctx):
 		self._inited_modules = self._inited_modules + 1
 		if self._inited_modules == self._loaded_modules:
-			self.on_applet_sensivity_update(True)
-	
-	def on_applet_sensivity_update(self, active):
-		# call set_sensitive
-	
-	def sync_applet_size(self):
-		if self.config_expand:
-			self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR | gnomeapplet.EXPAND_MAJOR)
-		else:
-			self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
-			
-			# Set the new size of the entry
-			if self.applet.get_orient() == gnomeapplet.ORIENT_UP or self.applet.get_orient() == gnomeapplet.ORIENT_DOWN:
-				self.entry.get_entry().set_width_chars(self.config_width)
-			else:
-				self.entry.get_entry().set_width_chars(-1)
-				self.entry.queue_resize()
+			self.ui.set_sensitive (True)
 				
 	def on_applet_button_press(self, widget, event):
-		if not self.entry.get_evbox().get_property('sensitive'):
-			return False
-			
 		try:
 			# GNOME 2.12
 			self.applet.request_focus(long(event.time))
 		except AttributeError:
 			pass
 			
-		# Call receive_focus
+		# Left-Mouse-Button should focus the GtkEntry widget (for Fitt's Law
+		# - so that a click on applet border on edge of screen activates the
+		# most important widget).
+		if event.button == 1:
+			self.ui.recieve_focus()
+			return True
+		
+		return False
 
+	def on_history_item_selection (self, item, match, text):
+		pass
 	
 	def on_keybinding_activated(self, binder, time):
 		# We want to grab focus here

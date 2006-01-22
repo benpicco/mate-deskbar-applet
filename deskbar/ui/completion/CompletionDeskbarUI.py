@@ -1,7 +1,7 @@
 import gobject, gtk
 
 from deskbar.ui.DeskbarUI import DeskbarUI
-from deskbar.ui.completion import DeskbarEntry
+from deskbar.ui.completion.DeskbarEntry import DeskbarEntry
 
 class CompletionDeskbarUI (DeskbarUI):
 	

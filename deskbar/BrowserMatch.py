@@ -15,51 +15,57 @@ def is_preferred_browser(test):
 	return False
 		
 class BrowserMatch(deskbar.Match.Match):
-	def __init__(self, backend, name, url, icon=None, history=False):
+	def __init__(self, backend, name, url, icon=None, is_history=False):
 		deskbar.Match.Match.__init__(self, backend, cgi.escape(name), icon)
 		self._priority = 10
-		self._url = url
-		self._is_history = history
+		
+		self.url = url
+		self.is_history = is_history
 		
 	def action(self, text=None):
-		gnomevfs.url_show(self._url)
+		gnomevfs.url_show(self.url)
 		
 	def get_verb(self):
-		if self._is_history:
+		if self.is_history:
 			return _("Open History Item %s") % "<b>%(name)s</b>"
 		else:
 			return _("Open Bookmark %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
-		return self._url
+		return self.url
 	
 	def get_category(self):
 		return "web"
 		
 class BrowserSmartMatch(BrowserMatch):
-	def __init__(self, bmk, name, url, prefix_to_strip=None):
-		BrowserMatch.__init__(self, bmk.get_handler(), name, url, bmk.get_icon())
+	def __init__(self, backend, name=None, url=None, icon=None, prefix_to_strip=None, bookmark=None, serialized_bookmark=None):
+		BrowserMatch.__init__(self, backend, name, url, icon)
+		print 'Icon:', icon
 		self._priority = 0
-		self._bookmark = bmk
-		if prefix_to_strip != None:
-			self._prefix_to_strip = prefix_to_strip + " "
+		
+		if bookmark != None:
+			self._bookmark = bookmark
+			self.serialized_bookmark = bookmark.serialize()
 		else:
-			self._prefix_to_strip = None
+			self._bookmark = BrowserMatch(**serialized_bookmark)
+			self.serialized_bookmark = serialized_bookmark
+		
+		self.prefix_to_strip = prefix_to_strip
 		
 	def get_bookmark(self):
 		return self._bookmark
 		
 	def get_name(self, text=None):
 		m = BrowserMatch.get_name(self, text)
-		if self._prefix_to_strip != None and text.startswith(self._prefix_to_strip):
-			m["text"] = text[len(self._prefix_to_strip):]
+		if self.prefix_to_strip != None and text.startswith(self.prefix_to_strip):
+			m["text"] = text[len(self.prefix_to_strip):]
 		return m
 		
 	def action(self, text=""):
-		if self._prefix_to_strip != None and text.startswith(self._prefix_to_strip):
-			text = text[len(self._prefix_to_strip):]
+		if self.prefix_to_strip != None and text.startswith(self.prefix_to_strip):
+			text = text[len(self.prefix_to_strip):]
 		
-		real_url = re.sub("%s", urllib.quote_plus(text), self._url)
+		real_url = re.sub("%s", urllib.quote_plus(text), self.url)
 		gnomevfs.url_show(real_url)
 		
 	def get_verb(self):
@@ -136,7 +142,7 @@ def load_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map):
 		pass
 	for b in smart_bookmarks:
 		try:
-			sc = url_to_shortcuts[b._url]
+			sc = url_to_shortcuts[b.url]
 			shortcuts_to_smart_bookmarks_map[sc] = b
 		except KeyError:
 			pass
@@ -145,7 +151,7 @@ def _save_shortcuts(shortcuts_to_smart_bookmarks_map):
 	f = open(os.path.join(deskbar.USER_DESKBAR_DIR, "search-bookmarks-shortcuts.txt"), "w")
 	for shortcut in shortcuts_to_smart_bookmarks_map.keys():
 		bookmark = shortcuts_to_smart_bookmarks_map[shortcut]
-		f.write(bookmark._url)
+		f.write(bookmark.url)
 		f.write("\t")
 		f.write(shortcut)
 		f.write("\n")
