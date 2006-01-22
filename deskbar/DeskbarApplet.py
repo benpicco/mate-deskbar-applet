@@ -48,8 +48,6 @@ class DeskbarApplet:
 		self.ui.connect ("stop-query", self.on_stop_query)
 		self.ui.connect ("request-keybinding", self.on_request_keybinding)
 		self.ui.connect ("keyboard-shortcut", self.on_keyboard_shortcut)
-		self.ui.connect ("request-history-show", self.on_request_history_show)
-		self.ui.connect ("request-history-hide", self.on_request_history_hide)
 		self.ui.set_sensitive (False)
 		self.applet.add(self.ui.get_view ())
 		self.applet.show_all()
@@ -105,13 +103,7 @@ class DeskbarApplet:
 		for modctx in self.module_list:
 			if modctx.module.is_async():
 				modctx.module.stop_query()
-		
-	def on_request_history_show (self, sender, widget_to_align_to, alignment):
-		print "history show request"
-		
-	def on_request_history_hide (self, sender):
-		print "history hide request"
-		
+				
 	def on_request_keybinding (self, sender, match, keybinding):
 		print "keybind request:", match, keybinding
 		

@@ -159,9 +159,16 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			# Handlers.
 			text = entry.get_text().strip()
 			if text != "":
+				self.ui.emit('stop-query')
 				self.ui.emit('keyboard-shortcut', text, event.state, event.keyval)
 			entry.set_text("")
-		
+			
+			# Broadcast an escape
+			event.state = 0
+			event.keyval = gtk.keysyms.Escape
+			entry.emit('key-press-event', event)
+			return True
+			
 		return False
 		
 		def match_move(updown):

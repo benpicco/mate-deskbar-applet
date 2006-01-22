@@ -15,7 +15,7 @@ def is_preferred_browser(test):
 	return False
 		
 class BrowserMatch(deskbar.Match.Match):
-	def __init__(self, backend, name, url, icon=None, is_history=False):
+	def __init__(self, backend, name=None, url=None, icon=None, is_history=False):
 		deskbar.Match.Match.__init__(self, backend, cgi.escape(name), icon)
 		self._priority = 10
 		
@@ -37,27 +37,34 @@ class BrowserMatch(deskbar.Match.Match):
 	def get_category(self):
 		return "web"
 		
-class BrowserSmartMatch(BrowserMatch):
+class BrowserSmartMatch(deskbar.Match.Match):
 	def __init__(self, backend, name=None, url=None, icon=None, prefix_to_strip=None, bookmark=None, serialized_bookmark=None):
-		BrowserMatch.__init__(self, backend, name, url, icon)
+		deskbar.Match.Match.__init__(self, backend, cgi.escape(name), icon)
 		self._priority = 0
 		
+		self.url = url
 		if bookmark != None:
 			self._bookmark = bookmark
 			self.serialized_bookmark = bookmark.serialize()
 		else:
-			self._bookmark = BrowserMatch(**serialized_bookmark)
+			self._bookmark = BrowserMatch(backend, **serialized_bookmark)
 			self.serialized_bookmark = serialized_bookmark
 		
 		self.prefix_to_strip = prefix_to_strip
 		if self.prefix_to_strip != None and not self.prefix_to_strip.endswith(" "):
 			self.prefix_to_strip += " "
-		
+	
 	def get_bookmark(self):
 		return self._bookmark
 		
+	def get_hash(self, text=None):
+		return self.url
+	
+	def get_category(self):
+		return "web"
+		
 	def get_name(self, text=None):
-		m = BrowserMatch.get_name(self, text)
+		m = deskbar.Match.Match.get_name(self, text)
 		if self.prefix_to_strip != None and text.startswith(self.prefix_to_strip):
 			m["text"] = text[len(self.prefix_to_strip):]
 		return m

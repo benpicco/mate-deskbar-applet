@@ -35,12 +35,10 @@ class DeskbarUI (gobject.GObject):
 	"""
 	__gsignals__ = {
 		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT]),
-		"request-history-show" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
-		"request-history-hide" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
 		"start-query" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
 		"stop-query" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
 		"request-keybinding" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
-		"keyboard-shortcut" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_UINT, gobject.TYPE_UINT]),
+		"keyboard-shortcut" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_UINT, gobject.TYPE_UINT]),
 	}
 	
 	def __init__ (self, applet):
