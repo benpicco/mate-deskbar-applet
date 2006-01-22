@@ -131,6 +131,7 @@ deskbar/handlers/Makefile
 deskbar/iconentry/Makefile
 deskbar/keybinder/Makefile
 deskbar/gnomedesktop/Makefile
+deskbar/evolution/Makefile
 data/Makefile
 data/deskbar-applet.pc
 data/art/Makefile
