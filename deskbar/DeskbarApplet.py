@@ -8,7 +8,6 @@ from deskbar import MAX_RESULTS_PER_HANDLER
 from deskbar.DeskbarHistory import get_deskbar_history
 from deskbar.ModuleList import ModuleList
 from deskbar.ModuleLoader import ModuleLoader
-from deskbar.ui.DeskbarEntry import DeskbarEntry
 from deskbar.ui.About import show_about
 from deskbar.ui.DeskbarPreferencesUI import show_preferences
 from deskbar.DeskbarAppletPreferences import DeskbarAppletPreferences
@@ -85,7 +84,6 @@ class DeskbarApplet:
 		self.start_query_id = gobject.timeout_add(150, self.on_start_query_real, sender, qstring, max_hits)
 		
 	def on_start_query_real (self, sender, qstring, max_hits):
-		print '-----------------------Start Query'
 		results = []
 		for modctx in self.module_list:
 			if not modctx.enabled:
@@ -107,12 +105,12 @@ class DeskbarApplet:
 	def on_request_keybinding (self, sender, match, keybinding):
 		print "keybind request:", match, keybinding
 		
-	def on_keyboard_shortcut (self, sender, qstring, modifier, shortcut):
+	def on_keyboard_shortcut (self, sender, qstring, shortcut):
 		for modctx in self.module_list:
 			if not modctx.enabled:
 				continue
 				
-			match = modctx.module.on_key_press(qstring, modifier, shortcut)
+			match = modctx.module.on_key_press(qstring, shortcut)
 			if match != None:
 				self.on_match_selected(sender, qstring, match)
 				break

@@ -29,8 +29,8 @@ class DeskbarUI (gobject.GObject):
 		"request-keybinding" (Match, key_binding):
 			The user has performed an action which should attach a keybinding to the given match.
 		
-		"keyboard-shortcut" (modifier, keyval):
-			Te user has triggered a keyboard shortcut, the modifier key and keyval are passed (from gdk event)
+		"keyboard-shortcut" (string, keyval):
+			Te user has triggered a keyboard shortcut, the query and keyval are passed (from gdk event)
 			
 	"""
 	__gsignals__ = {
@@ -38,7 +38,7 @@ class DeskbarUI (gobject.GObject):
 		"start-query" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
 		"stop-query" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
 		"request-keybinding" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
-		"keyboard-shortcut" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_UINT, gobject.TYPE_UINT]),
+		"keyboard-shortcut" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_UINT]),
 	}
 	
 	def __init__ (self, applet):

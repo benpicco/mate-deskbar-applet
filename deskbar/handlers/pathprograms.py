@@ -17,8 +17,8 @@ HANDLERS = {
 }
 
 class PathProgramMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, icon=None, use_terminal=False):
-		deskbar.Match.Match.__init__(self, backend, name)
+	def __init__(self, backend, name=None, use_terminal=False, **args):
+		deskbar.Match.Match.__init__(self, backend, name=name, **args)
 		self.use_terminal = use_terminal
 		
 	def set_with_terminal(self, terminal):
@@ -75,8 +75,8 @@ class PathProgramsHandler(deskbar.Handler.Handler):
 		else:
 			return []
 	
-	def on_key_press(self, query, modifier, shortcut):
-		if modifier == gtk.gdk.CONTROL_MASK and shortcut == gtk.keysyms.t:
+	def on_key_press(self, query, shortcut):
+		if shortcut == gtk.keysyms.t:
 			match = self._check_program(query.split(" ")[0])
 			if match != None:
 				match.set_with_terminal(True)

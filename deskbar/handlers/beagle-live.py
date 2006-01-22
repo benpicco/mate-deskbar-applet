@@ -90,7 +90,7 @@ TYPES = {
 }
 
 class BeagleLiveMatch (deskbar.Match.Match):
-	def __init__(self, handler, result=None, name=None, icon=None):
+	def __init__(self, handler, result=None, **args):
 		"""
 		result: a dict containing:
 			"name" : a name sensible to display for this match
@@ -118,7 +118,7 @@ class BeagleLiveMatch (deskbar.Match.Match):
 		#
 		#else:
 		#	# We are not a file. Just use an icon from the ICON table
-		deskbar.Match.Match.__init__ (self, handler, result["name"])
+		deskbar.Match.Match.__init__ (self, handler, name=result["name"], **args)
 		self.result = result
 		self._icon = handler.ICONS[result["type"]]
 		

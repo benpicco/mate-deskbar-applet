@@ -15,8 +15,8 @@ NUM_QUERIES = 6
 PARTIAL_RESULTS_TIME = 3
 
 class AsyncDebugMatch (Match):
-	def __init__(self, handler, name=None, icon=None):
-		Match.__init__ (self, handler, name)
+	def __init__(self, handler, **args):
+		Match.__init__ (self, handler, **args)
 	
 	def get_verb(self):
 		return "%(name)s - %(text)s"
@@ -39,14 +39,14 @@ class AsyncDebugHandler (AsyncHandler):
 			print "Querying: " + (i+1)*"."
 			if i == PARTIAL_RESULTS_TIME:
 				# emit partial results
-				self.emit_query_ready ([AsyncDebugMatch(self, "AsyncDebug:partial results - %s"%qstring)])
+				self.emit_query_ready ([AsyncDebugMatch(self, name="AsyncDebug:partial results - %s"%qstring)])
 				
 			# This call will exit this method if there's a new query pending
 			# or we have been instructed to stop:
 			self.check_query_changed (self.clean_me, [qstring])
 		
 		# it is also allowed to return matches like this:
-		return [AsyncDebugMatch(self, "AsyncDebug:returned results - %s"%qstring)]
+		return [AsyncDebugMatch(self, name="AsyncDebug:returned results - %s"%qstring)]
 				
 	def clean_me (self, args):
 		print str(self.__class__) + " : Clean up for query: " + str(args)

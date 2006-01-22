@@ -23,8 +23,8 @@ HANDLERS = {
 }
 
 class BeagleMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, icon=None):
-		deskbar.Match.Match.__init__(self, backend, name)
+	def __init__(self, backend, name=None, **args):
+		deskbar.Match.Match.__init__(self, backend, name, **args)
 		
 	def action(self, text=None):
 		gobject.spawn_async(["best", '--no-tray', '--show-window', self.name], flags=gobject.SPAWN_SEARCH_PATH)

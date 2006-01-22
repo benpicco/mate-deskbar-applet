@@ -25,8 +25,8 @@ HANDLERS = {
 }
 
 class GenericProgramMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, icon=None, use_arg=False, desktop=None, desktop_file=None):
-		deskbar.Match.Match.__init__(self, backend, name, icon)
+	def __init__(self, backend, name=None, icon=None, use_arg=False, desktop=None, desktop_file=None, **args):
+		deskbar.Match.Match.__init__(self, backend, name=name, icon=icon, **args)
 		
 		self.desktop_file = desktop_file
 		self.use_arg = use_arg

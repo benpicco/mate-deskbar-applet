@@ -53,8 +53,8 @@ HANDLERS = {
 
 
 class GoogleMatch (deskbar.Match.Match):
-	def __init__(self, handler, name, url, icon=None):
-		deskbar.Match.Match.__init__ (self, handler, "Google Live: "+name, icon)
+	def __init__(self, handler, name, url, **args):
+		deskbar.Match.Match.__init__ (self, handler, "Google Live: "+name, **args)
 		self.__url = url
 	
 	def get_verb(self):
@@ -98,7 +98,7 @@ class GoogleLiveHandler (deskbar.Handler.AsyncHandler):
 		# "s", "sp", "spa", "spam".
 		self.check_query_changed (timeout=QUERY_DELAY)
 		
-		print "GoogleLive: Querying Google for", qstring
+		#print "GoogleLive: Querying Google for", qstring
 		results = self.server.doGoogleSearch (self.api_key, # personal google api key
 						qstring, 	# query
 						0, qmax, 	# start/end of result list

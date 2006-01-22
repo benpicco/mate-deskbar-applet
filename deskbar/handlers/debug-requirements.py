@@ -25,8 +25,8 @@ HANDLERS = {
 }
 
 class DebugRequirementsMatch(deskbar.Match.Match):
-	def __init__(self, handler, name=None, icon=None):
-		deskbar.Match.Match.__init__ (self, handler, name)
+	def __init__(self, handler, **args):
+		deskbar.Match.Match.__init__ (self, handler, **args)
 	
 	def get_verb(self):
 		return "%(name)s - %(text)s"
@@ -43,6 +43,6 @@ class DebugRequirementsModule(deskbar.Handler.Handler):
 		
 	def query (self, qstring, max):
 		if max > 0:
-			return [DebugRequirementsMatch(self, "TestMatch")]
+			return [DebugRequirementsMatch(self, name="TestMatch")]
 		else:
 			return []	

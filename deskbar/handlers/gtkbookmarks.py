@@ -17,8 +17,8 @@ HANDLERS = {
 GTK_BOOKMARKS_FILE = expanduser("~/.gtk-bookmarks")
 
 class GtkBookmarkMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, path=None, icon=None):
-		deskbar.Match.Match.__init__(self, backend, name)
+	def __init__(self, backend, name=None, path=None, **args):
+		deskbar.Match.Match.__init__(self, backend, name=name, **args)
 		self.path = path
 		
 	def action(self, text=None):

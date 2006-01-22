@@ -151,16 +151,15 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 				self.ui.emit('stop-query')
 			entry.set_text("")
 			return False
-		
-		# FIXME !
-		if event.state != 0 and event.state != gtk.gdk.SHIFT_MASK:
-			# Some Handlers want to know about Ctrl-keypress
+			
+		if 	event.state&gtk.gdk.MOD1_MASK != 0:
+			# Some Handlers want to know about Alt-keypress
 			# combinations, for example.  Here, we notify such
 			# Handlers.
 			text = entry.get_text().strip()
 			if text != "":
 				self.ui.emit('stop-query')
-				self.ui.emit('keyboard-shortcut', text, event.state, event.keyval)
+				self.ui.emit('keyboard-shortcut', text, event.keyval)
 			entry.set_text("")
 			
 			# Broadcast an escape

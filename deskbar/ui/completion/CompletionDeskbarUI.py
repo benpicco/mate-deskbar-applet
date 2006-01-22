@@ -81,7 +81,10 @@ class CompletionDeskbarUI (DeskbarUI):
 		
 	def popup_history(self, event):
 		menu = gtk.Menu()
-				
+		
+		def on_match_selection(item, text, match):
+			self.emit("match-selected", text, match)
+			
 		i = 0
 		for text, match in get_deskbar_history().get_all_history():
 			# Recreate the action
@@ -109,8 +112,8 @@ class CompletionDeskbarUI (DeskbarUI):
 			box.pack_start(label)
 			
 			item = gtk.MenuItem()
-			item.add(box)		
-			item.connect('activate', lambda item: self.emit("match-selected", text, match))
+			item.add(box)
+			item.connect('activate', on_match_selection, text, match)
 			menu.attach(item, 0, 1, i, i+1)
 			i = i+1
 		

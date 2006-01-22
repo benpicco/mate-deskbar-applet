@@ -23,8 +23,8 @@ HANDLERS = {
 }
 
 class EvolutionMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, email=None, pixbuf=None, icon=None):
-		deskbar.Match.Match.__init__(self, backend, name)
+	def __init__(self, backend, name=None, email=None, pixbuf=None, **args):
+		deskbar.Match.Match.__init__(self, backend, name=name, email=email, **args)
 		self._icon = pixbuf
 		self.email = email
 		

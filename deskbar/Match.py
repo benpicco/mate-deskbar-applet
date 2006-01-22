@@ -5,13 +5,17 @@ Represents a match returned by handlers
 """
 
 class Match:
-	def __init__(self, handler, name=None, icon=None):
+	def __init__(self, handler, **args):
 		self._priority = 0
 		self._handler = handler
 		self._icon = None
 		
-		self.name = name
-		self.icon = icon
+		self.name = None
+		self.icon = None
+		if "name" in args:
+			self.name = args["name"]
+		if "icon" in args:
+			self.icon = args["icon"]
 	
 	def get_handler(self):
 		"""

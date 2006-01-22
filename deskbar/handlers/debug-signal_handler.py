@@ -12,8 +12,8 @@ HANDLERS = {
 SIGNAL_DELAY = 1000 # 1 sec.
 
 class SignallingDebugMatch (Match):
-	def __init__(self, handler, name=None, icon=None):
-		Match.__init__ (self, handler, name)
+	def __init__(self, handler, **args):
+		Match.__init__ (self, handler, **args)
 		
 	def get_verb(self):
 		return "%(name)s - %(text)s"
@@ -34,7 +34,7 @@ class SignallingDebugHandler(SignallingHandler):
 		self.sig = gobject.timeout_add(SIGNAL_DELAY, lambda : self.__callback(qstring))
 
 	def __callback(self, qstring):
-		match = SignallingDebugMatch(self, "SignallingDebug:"+qstring)
+		match = SignallingDebugMatch(self, name="SignallingDebug:"+qstring)
 		self.emit_query_ready([match], qstring)
 		
 		# Keep sending the results, see if filter works ok

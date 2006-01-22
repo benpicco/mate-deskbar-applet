@@ -16,7 +16,7 @@ def is_preferred_browser(test):
 		
 class BrowserMatch(deskbar.Match.Match):
 	def __init__(self, backend, name=None, url=None, icon=None, is_history=False):
-		deskbar.Match.Match.__init__(self, backend, cgi.escape(name), icon)
+		deskbar.Match.Match.__init__(self, backend, name=cgi.escape(name), icon=icon)
 		self._priority = 10
 		
 		self.url = url
@@ -39,7 +39,7 @@ class BrowserMatch(deskbar.Match.Match):
 		
 class BrowserSmartMatch(deskbar.Match.Match):
 	def __init__(self, backend, name=None, url=None, icon=None, prefix_to_strip=None, bookmark=None, serialized_bookmark=None):
-		deskbar.Match.Match.__init__(self, backend, cgi.escape(name), icon)
+		deskbar.Match.Match.__init__(self, backend, name=cgi.escape(name), icon=icon)
 		self._priority = 0
 		
 		self.url = url
@@ -100,15 +100,14 @@ def get_url_host(url):
 # managing the UI for customizing shortcuts, and methods for activating them
 # on the right triggers (e.g. Ctrl-something).
 
-def on_entry_key_press(query, modifier, shortcut, shortcuts_to_smart_bookmarks_map):
-	if modifier == gtk.gdk.CONTROL_MASK:
-		key = chr(shortcut)
-		try:
-			bookmark = shortcuts_to_smart_bookmarks_map[key]
-			return bookmark
-		except KeyError:
-			# There was no shortcut defined for this keypress
-			return None
+def on_entry_key_press(query, shortcut, shortcuts_to_smart_bookmarks_map):
+	key = chr(shortcut)
+	try:
+		bookmark = shortcuts_to_smart_bookmarks_map[key]
+		return bookmark
+	except KeyError:
+		# There was no shortcut defined for this keypress
+		return None
 
 def _sync_shortcuts_map_from_list_store(list_store, smart_bookmarks, shortcuts_to_smart_bookmarks_map):
 	shortcuts_to_smart_bookmarks_map.clear()

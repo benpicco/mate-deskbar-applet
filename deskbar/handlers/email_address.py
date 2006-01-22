@@ -14,8 +14,8 @@ HANDLERS = {
 REGEX = re.compile(r'^([\w\-]+\.)*[\w\-]+@([\w\-]+\.)*[\w\-]+$')
 
 class EmailAddressMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, icon=None):
-		deskbar.Match.Match.__init__(self, backend, name)
+	def __init__(self, backend, **args):
+		deskbar.Match.Match.__init__(self, backend, **args)
 		
 	def action(self, text=None):
 		gnomevfs.url_show("mailto:"+self.name)
@@ -36,6 +36,6 @@ class EmailAddressHandler(deskbar.Handler.Handler):
 		
 	def query(self, query, max):
 		if REGEX.match(query) != None:
-			return [EmailAddressMatch(self, query)]
+			return [EmailAddressMatch(self, name=query)]
 		else:
 			return []

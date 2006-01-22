@@ -17,8 +17,8 @@ HANDLERS = {
 }
 
 class FileMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, absname=None):
-		deskbar.Match.Match.__init__(self, backend, name)
+	def __init__(self, backend, name=None, absname=None, **args):
+		deskbar.Match.Match.__init__(self, backend, name=name, **args)
 		self._icon = deskbar.Utils.load_icon_for_file(absname)
 		
 		self.absname = absname
@@ -36,8 +36,8 @@ class FileMatch(deskbar.Match.Match):
 		return self.absname
 
 class FolderMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, absname=None):
-		deskbar.Match.Match.__init__(self, backend, name)
+	def __init__(self, backend, name=None, absname=None, **args):
+		deskbar.Match.Match.__init__(self, backend, name=name, **args)
 		
 		self.absname = absname
 		

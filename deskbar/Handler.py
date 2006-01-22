@@ -80,9 +80,9 @@ class Handler:
 		"""
 		raise NotImplementedError
 
-	def on_key_press(self, query, modifier, shortcut):
+	def on_key_press(self, query, shortcut):
 		"""
-		Called when the user presses a special trigger combination, like ctrl-foo
+		Called when the user presses a special trigger combination, like alt-foo
 		The query text and text press gtk event are passed.
 		
 		The handler must return None if it didn't handle the key press, or a Match instance if
@@ -201,7 +201,7 @@ class AsyncHandler (Handler, gobject.GObject):
 		if not self.is_running:
 			self.is_running = True
 			Thread (None, self.__query_async, args=(qstring, max)).start ()
-			print "AsyncHandler: Thread created for %s" % self.__class__
+			#print "AsyncHandler: Thread created for %s" % self.__class__
 		else:
 			self.__query_queue.put (qstring, False)
 	
@@ -269,11 +269,11 @@ class AsyncHandler (Handler, gobject.GObject):
 				self.__query_async (query_change.new_query, max)
 			except QueryStopped:
 				self.is_running = False
-				print "AsyncHandler: %s thread terminated." % str(self.__class__)
+				#print "AsyncHandler: %s thread terminated." % str(self.__class__)
 				
 		except QueryStopped:
 			self.is_running = False
-			print "AsyncHandler: %s thread terminated." % str(self.__class__)
+			#print "AsyncHandler: %s thread terminated." % str(self.__class__)
 
 	def __get_last_query (self, timeout=None):
 		"""

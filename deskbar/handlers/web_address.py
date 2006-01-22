@@ -16,10 +16,10 @@ HTTP_REGEX = re.compile(r'^(?P<method>[a-zA-Z]+://)?([\w\-]+\.)+[\w\-]+(:\d+)?(/
 
 class WebAddressMatch(deskbar.Match.Match):
 	def __init__(self, backend, name=None, has_method=True, **args):
-		deskbar.Match.Match.__init__(self, backend, name)
+		deskbar.Match.Match.__init__(self, backend, name=name, **args)
 		
 		self.has_method = has_method
-		if not has_method:
+		if not has_method and not self.name.startswith("http://"):
 			self.name = "http://" + name
 		
 	def action(self, text=None):
