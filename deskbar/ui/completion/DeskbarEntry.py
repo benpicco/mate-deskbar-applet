@@ -157,7 +157,10 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			# Some Handlers want to know about Ctrl-keypress
 			# combinations, for example.  Here, we notify such
 			# Handlers.
-			self.ui.emit('keyboard-shortcut', event.state, event.keyval)
+			text = entry.get_text().strip()
+			if text != "":
+				self.ui.emit('keyboard-shortcut', text, event.state, event.keyval)
+			entry.set_text("")
 		
 		return False
 		

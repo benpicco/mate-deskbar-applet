@@ -80,7 +80,7 @@ class Handler:
 		"""
 		raise NotImplementedError
 
-	def on_key_press(self, query, event):
+	def on_key_press(self, query, modifier, shortcut):
 		"""
 		Called when the user presses a special trigger combination, like ctrl-foo
 		The query text and text press gtk event are passed.

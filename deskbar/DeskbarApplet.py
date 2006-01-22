@@ -115,8 +115,15 @@ class DeskbarApplet:
 	def on_request_keybinding (self, sender, match, keybinding):
 		print "keybind request:", match, keybinding
 		
-	def on_keyboard_shortcut (self, sender, modifier, shortcut):
-		print "shortcut triggered"
+	def on_keyboard_shortcut (self, sender, qstring, modifier, shortcut):
+		for modctx in self.module_list:
+			if not modctx.enabled:
+				continue
+				
+			match = modctx.module.on_key_press(qstring, modifier, shortcut)
+			if match != None:
+				self.on_match_selected(sender, qstring, match)
+				break
 				
 	def dispatch_matches (self, matches):
 		self.ui.append_matches (matches)

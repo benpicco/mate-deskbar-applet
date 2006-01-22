@@ -88,7 +88,7 @@ class MozillaBookmarksHandler(deskbar.Handler.Handler):
 			try:
 				b = self._shortcuts_to_smart_bookmarks_map[prefix]
 				text = query[x+1:]
-				return [BrowserSmartMatch(b._bookmark, b._name, b._url, prefix)]
+				return [BrowserSmartMatch(b.get_handler(), b.name, b.url, b.icon, prefix, b)]
 			except KeyError:
 				# Probably from the b = ... line.  Getting here
 				# means that there is no such shortcut.
@@ -412,20 +412,19 @@ class MozillaSmartBookmarksDirParser:
 					continue
 				else:
 					foundbookmarks.append(bmname)
-					
-				pixbuf = None
+				
+				img = None
 				try:
 					img = [img for img in glob.glob(join(bookmarks_dir, '%s.*' % f[:-4])) if not img.endswith(".src")][0]
-					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(img, deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-				except Exception, msg:
-					print 'Error:MozillaSmartBookmarksDirParser:Cannot load image:%s' % msg
+				except:
+					pass
 				
 				parser = MozillaSmartBookmarksParser(f)
 				try:
 					parser.parse()
 					infos = parser.get_infos()
-					bookmark = BrowserMatch(handler, infos["name"], infos["url"], pixbuf)
-					bookmark = BrowserSmartMatch(bookmark, infos["name"], infos["action"])
+					bookmark = BrowserMatch(handler, infos["name"], infos["url"], img)
+					bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], img, bookmark=bookmark)
 					self._smart_bookmarks.append(bookmark)
 				except Exception, msg:
 					print 'Error:MozillaSmartBookmarksDirParser:cannot parse smrt bookmark:%s:bookmark %s' % (msg, f)

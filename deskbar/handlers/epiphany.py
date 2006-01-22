@@ -97,8 +97,8 @@ class EpiphanySearchHandler(EpiphanyBookmarksHandler):
 	def __init__(self):
 		EpiphanyBookmarksHandler.__init__(self)
 	
-	def on_key_press(self, query, event):
-		return on_entry_key_press(query, event, shortcuts_to_smart_bookmarks_map)
+	def on_key_press(self, query, modifier, shortcut):
+		return on_entry_key_press(query, modifier, shortcut, shortcuts_to_smart_bookmarks_map)
 	
 	def query(self, query, max):
 		# if one of the smart bookmarks' shortcuts matches as a prefix,

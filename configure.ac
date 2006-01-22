@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 0.8.9, raphael@slinckx.net)
+AC_INIT(deskbar-applet, 0.9.9, raphael@slinckx.net)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
@@ -124,7 +124,9 @@ AC_OUTPUT([
 Makefile
 deskbar/Makefile
 deskbar/defs.py
-deskbar/evolution/Makefile
+deskbar/ui/Makefile
+deskbar/ui/completion/Makefile
+deskbar/ui/cuemiac/Makefile
 deskbar/handlers/Makefile
 deskbar/iconentry/Makefile
 deskbar/keybinder/Makefile

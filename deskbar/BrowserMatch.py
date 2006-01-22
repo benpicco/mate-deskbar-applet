@@ -40,7 +40,6 @@ class BrowserMatch(deskbar.Match.Match):
 class BrowserSmartMatch(BrowserMatch):
 	def __init__(self, backend, name=None, url=None, icon=None, prefix_to_strip=None, bookmark=None, serialized_bookmark=None):
 		BrowserMatch.__init__(self, backend, name, url, icon)
-		print 'Icon:', icon
 		self._priority = 0
 		
 		if bookmark != None:
@@ -51,6 +50,8 @@ class BrowserSmartMatch(BrowserMatch):
 			self.serialized_bookmark = serialized_bookmark
 		
 		self.prefix_to_strip = prefix_to_strip
+		if self.prefix_to_strip != None and not self.prefix_to_strip.endswith(" "):
+			self.prefix_to_strip += " "
 		
 	def get_bookmark(self):
 		return self._bookmark
@@ -92,9 +93,9 @@ def get_url_host(url):
 # managing the UI for customizing shortcuts, and methods for activating them
 # on the right triggers (e.g. Ctrl-something).
 
-def on_entry_key_press(query, event, shortcuts_to_smart_bookmarks_map):
-	if event.state == gtk.gdk.CONTROL_MASK:
-		key = chr(event.keyval)
+def on_entry_key_press(query, modifier, shortcut, shortcuts_to_smart_bookmarks_map):
+	if modifier == gtk.gdk.CONTROL_MASK:
+		key = chr(shortcut)
 		try:
 			bookmark = shortcuts_to_smart_bookmarks_map[key]
 			return bookmark
@@ -182,7 +183,7 @@ def on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_
 	
 	def bookmark_to_bookmark_name(tree_view_column, cell_renderer, model, iter):
 		bookmark = model.get_value(iter, 1)
-		cell_renderer.set_property("text", bookmark._name)
+		cell_renderer.set_property("text", bookmark.name)
 
 	crt_name = gtk.CellRendererText()
 	tvc_name = gtk.TreeViewColumn(_("Bookmark Name"), crt_name)

@@ -159,20 +159,16 @@ class GaleonBookmarksParser(xml.sax.ContentHandler):
 			if self.href.startswith("javascript:"):
 				return
 			
-			pixbuf = None
-			try:
-				host = get_url_host(self.href)
-				if host in self._cache:
-					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(self._cache[host], deskbar.ICON_SIZE, deskbar.ICON_SIZE)
-			except Exception, msg:
-				# Most of the time we have an html page here, it could also be an unrecognized format
-				print 'Error:endElement(%s):Title:%s:%s' % (name.encode("utf8"), self.title, msg)
-			
-			bookmark = BrowserMatch(self.handler, self.title, self.href, pixbuf)
+			img = None
+			host = get_url_host(self.href)
+			if host in self._cache:
+				img = self._cache[host]
+
+			bookmark = BrowserMatch(self.handler, self.title, self.href, img)
 			self._indexer.add("%s %s" % (self.title, self.href), bookmark)
 
 			if self.smarthref != None:
-				bookmark = BrowserSmartMatch(bookmark, self.title, self.smarthref)
+				bookmark = BrowserSmartMatch(self.handler, self.title, self.smarthref, img, bookmark=bookmark)
 				self._smart_bookmarks.append(bookmark)
 
 class GaleonFaviconCacheParser(xml.sax.ContentHandler):

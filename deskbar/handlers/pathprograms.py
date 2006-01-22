@@ -75,8 +75,8 @@ class PathProgramsHandler(deskbar.Handler.Handler):
 		else:
 			return []
 	
-	def on_key_press(self, query, event):
-		if event.state == gtk.gdk.CONTROL_MASK and event.keyval == gtk.keysyms.t:
+	def on_key_press(self, query, modifier, shortcut):
+		if modifier == gtk.gdk.CONTROL_MASK and shortcut == gtk.keysyms.t:
 			match = self._check_program(query.split(" ")[0])
 			if match != None:
 				match.set_with_terminal(True)
