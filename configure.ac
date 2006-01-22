@@ -126,6 +126,7 @@ Makefile
 deskbar/Makefile
 deskbar/ui/Makefile
 deskbar/ui/completion/Makefile
+deskbar/ui/cuemiac/Makefile
 deskbar/defs.py
 deskbar/evolution/Makefile
 deskbar/handlers/Makefile
