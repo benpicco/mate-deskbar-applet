@@ -678,8 +678,8 @@ class CuemiacUI (DeskbarUI):
 			self.popup.show ()
 			self.entry.grab_focus ()
 		else:
-			#if self.entry.get_text().strip() == "":
-			#	self.scroll_win.hide ()
+			if self.entry.get_text().strip() == "":
+				self.scroll_win.hide ()
 			self.popup.hide ()
 			self.emit ("stop-query")
 	
@@ -754,7 +754,9 @@ class CuemiacUI (DeskbarUI):
 		qstring = self.entry.get_text().strip()
 		self.model.clear()
 		self.cview.set_query_string (qstring)
+		
 		if qstring == "":
+			self.scroll_win.hide ()
 			return
 		self.emit ("start-query", qstring, 100)
 		self.popup.show ()
@@ -763,7 +765,7 @@ class CuemiacUI (DeskbarUI):
 		"""Checks if the entry is empty, and hides the window if so.
 		Used by on_entry_changed() with a gobject.timeout_add()."""
 		if self.entry.get_text().strip() == "":
-			self.hide ()
+			self.popup.hide ()
 	
 	def on_entry_key_press (self, entry, event):
 		
@@ -772,7 +774,8 @@ class CuemiacUI (DeskbarUI):
 			if not entry.get_text().strip() == "":
 				# If we clear some text, tell async handlers to stop.
 				self.emit ("stop-query")
-			self.entry.set_text("")
+			
+			#self.entry.set_text("")
 			self.deskbar_button.set_active_main (False)
 			return True
 		
