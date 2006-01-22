@@ -73,7 +73,7 @@ if __name__ == "__main__":
 	standalone = False
 	
 	try:
-		opts, args = getopt.getopt(sys.argv[1:], "hdw", ["help", "debug", "window"])
+		opts, args = getopt.getopt(sys.argv[1:], "hdwc", ["help", "debug", "window", "cuemiac"])
 	except getopt.GetoptError:
 		# Unknown args were passed, we fallback to bahave as if
 		# no options were passed
@@ -87,6 +87,8 @@ if __name__ == "__main__":
 			print "No problems so far."
 		elif o in ("-w", "--window"):
 			standalone = True
+		elif o in ("-c", "--cuemiac"):
+			deskbar.COMPLETION_UI = False
 			
 	if standalone:
 		import gnome

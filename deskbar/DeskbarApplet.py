@@ -38,9 +38,11 @@ class DeskbarApplet:
 		self.loader.connect ("module-not-initialized", self.on_module_initialized)
 		self.loader.connect ("module-stopped", self.module_list.module_toggled_cb)
 		self.loader.connect ("module-initialized", self._connect_if_async)
-		
-	#	self.ui = CompletionDeskbarUI (applet)
-		self.ui = CuemiacUI (applet)
+	
+		if deskbar.COMPLETION_UI:
+			self.ui = CompletionDeskbarUI (applet)
+		else:
+			self.ui = CuemiacUI (applet)
 		self.ui.connect ("match-selected", self.on_match_selected)
 		self.ui.connect ("start-query", self.on_start_query)
 		self.ui.connect ("stop-query", self.on_stop_query)
