@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 0.9.0, raphael@slinckx.net)
+AC_INIT(deskbar-applet, 0.8.9, raphael@slinckx.net)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
@@ -23,7 +23,7 @@ fi
 dnl ****************************************************************************
 dnl * Translation & i18n
 dnl ****************************************************************************
-ALL_LINGUAS="bg cs de en_CA en_GB es fi gl gu hu ja lt mk nb nl pa sk sv th zh_CN"
+ALL_LINGUAS="bg de en_CA en_GB es fi gl gu hu ja lt mk nb nl pa sk sv th zh_CN"
 GETTEXT_PACKAGE="deskbar-applet"
 AC_PROG_INTLTOOL([0.33])
 AC_SUBST(GETTEXT_PACKAGE)
@@ -64,13 +64,12 @@ PKG_CHECK_MODULES(DESKBAR,
 	gtk+-2.0				>= 2.6
 	pygtk-2.0				>= 2.6
 	pygobject-2.0			>= 2.6
-	gnome-python-2.0			>= 2.10
-	gnome-python-extras-2.0	>= 2.10
-	gnome-python-extras-2.0	>= 2.10
+	gnome-python-2.0		>= 2.10
 	gnome-desktop-2.0		>= 2.10
 )
 AC_SUBST(DESKBAR_CFLAGS)
 AC_SUBST(DESKBAR_LIBS)
+AM_CHECK_PYMOD(gnomeapplet,,,AC_MSG_ERROR([gnomeapplet not found]))
 
 dnl ****************************************************************************
 dnl * Check for evolution's libebook to build the evolution handler
@@ -124,9 +123,6 @@ dnl ****************************************************************************
 AC_OUTPUT([
 Makefile
 deskbar/Makefile
-deskbar/ui/Makefile
-deskbar/ui/completion/Makefile
-deskbar/ui/cuemiac/Makefile
 deskbar/defs.py
 deskbar/evolution/Makefile
 deskbar/handlers/Makefile
