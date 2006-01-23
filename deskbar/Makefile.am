@@ -12,6 +12,7 @@ deskbarbin_SCRIPTS = deskbar-applet
 
 deskbardir = $(pythondir)/deskbar
 deskbar_PYTHON = \
+	defs.py \
 	BrowserMatch.py \
 	Categories.py \
 	DeskbarApplet.py \
