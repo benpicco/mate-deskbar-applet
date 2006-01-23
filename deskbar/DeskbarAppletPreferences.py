@@ -10,6 +10,7 @@ class DeskbarAppletPreferences:
 		self.GCONF_APPLET_DIR = deskbar.GCONF_DIR
 		self.GCONF_WIDTH = deskbar.GCONF_WIDTH
 		self.GCONF_EXPAND = deskbar.GCONF_EXPAND
+		self.GCONF_UI_NAME = deskbar.GCONF_UI_NAME
 		
 		# This preference is shared across all applet instances, unlike
 		# width, which is per-instance.
@@ -21,6 +22,7 @@ class DeskbarAppletPreferences:
 			self.GCONF_APPLET_DIR = path
 			self.GCONF_WIDTH =  self.GCONF_APPLET_DIR + "/width"
 			self.GCONF_EXPAND = self.GCONF_APPLET_DIR + "/expand"
+			self.GCONF_UI_NAME = self.GCONF_APPLET_DIR + "/ui_name"
 			
 			applet.add_preferences("/schemas" + deskbar.GCONF_DIR)
 			deskbar.GCONF_CLIENT.add_dir(self.GCONF_APPLET_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)

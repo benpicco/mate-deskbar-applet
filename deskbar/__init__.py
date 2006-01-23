@@ -85,6 +85,12 @@ GCONF_EXPAND = GCONF_DIR + "/expand"
 # GConf key for global keybinding
 GCONF_KEYBINDING = GCONF_DIR + "/keybinding"
 
+# GConf key for UI name
+GCONF_UI_NAME = GCONF_DIR + "/ui_name"
+
+COMPLETION_UI_NAME = "Completion"
+CUEMIAC_UI_NAME = "Cuemiac"
+
 # GConf key for list of enabled handlers, when uninstalled, use a debug key to not conflict
 # with development version
 if UNINSTALLED_DESKBAR:

@@ -22,19 +22,20 @@ class DeskbarAppletButton (gtk.HBox):
 		"toggled-arrow" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT])
 	}
 
-	def __init__ (self, popup_dir):
+	def __init__ (self, applet):
 		"""
 		popup_dir: gnomeapplet.ORIENT_UP,gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}
 		set the image in the main button with DeskbarAppletButton.set_button_image_from_file(filename)
 		"""
 		gtk.HBox.__init__ (self)
-		if popup_dir in [gnomeapplet.ORIENT_UP,gnomeapplet.ORIENT_DOWN]:
+		self.applet = applet
+		self.popup_dir = applet.get_orient()
+		
+		if self.popup_dir in [gnomeapplet.ORIENT_UP,gnomeapplet.ORIENT_DOWN]:
 			self.box = gtk.HBox ()
 		else:
 			self.box = gtk.VBox ()
-			
-		self.popup_dir = popup_dir
-		
+					
 		self.button_main = gtk.ToggleButton ()
 		self.button_main.set_relief (gtk.RELIEF_NONE)
 		self.image = gtk.Image ()
@@ -43,11 +44,11 @@ class DeskbarAppletButton (gtk.HBox):
 		
 		self.button_arrow = gtk.ToggleButton ()
 		self.button_arrow.set_relief (gtk.RELIEF_NONE)
-		self.arrow = gtk.Arrow (self.gnomeapplet_dir_to_arrow_dir(popup_dir), gtk.SHADOW_IN)
+		self.arrow = gtk.Arrow (self.gnomeapplet_dir_to_arrow_dir(self.popup_dir), gtk.SHADOW_IN)
 		self.button_arrow.add (self.arrow)
 		self.button_arrow.connect ("toggled", lambda widget: self.emit ("toggled-arrow", widget))
 				
-		if popup_dir in [gnomeapplet.ORIENT_UP,gnomeapplet.ORIENT_DOWN]:
+		if self.popup_dir in [gnomeapplet.ORIENT_UP,gnomeapplet.ORIENT_DOWN]:
 			self.separator = gtk.VSeparator ()
 		else:
 			self.separator = gtk.HSeparator ()
@@ -57,6 +58,18 @@ class DeskbarAppletButton (gtk.HBox):
 		self.box.pack_start (self.button_main)
 		self.add (self.box)
 	
+		self.connect("button-press-event", self.on_button_press_event)
+		self.button_arrow.connect("button-press-event", self.on_button_press_event)
+		self.button_main.connect("button-press-event", self.on_button_press_event)
+		self.separator.connect("button-press-event", self.on_button_press_event)
+	
+	def on_button_press_event(self, widget, event):
+		if event.button == 3:
+			self.applet.emit("button-press-event", event)
+			return True
+		
+		return False
+		
 	def toggle_main (self):
 		self.button_main.toggled ()
 		

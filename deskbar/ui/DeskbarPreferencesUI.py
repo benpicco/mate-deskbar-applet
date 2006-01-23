@@ -3,6 +3,7 @@ from os.path import join
 import gtk, gtk.glade, gobject, gconf
 import deskbar, deskbar.Utils
 from deskbar.ui.ModuleListView import ModuleListView
+from deskbar import COMPLETION_UI_NAME, CUEMIAC_UI_NAME
 
 class DeskbarPreferencesUI:
 	def __init__(self, applet, module_loader, module_list):
@@ -57,7 +58,13 @@ class DeskbarPreferencesUI:
 
 		self.info_area = self.glade.get_widget("info_area")
 		self.old_info_message = None
-				
+		
+		self.ui_name = deskbar.GCONF_CLIENT.get_string(applet.prefs.GCONF_UI_NAME)
+		self.completion_ui_radio = self.glade.get_widget("completion_radio")
+		self.cuemiac_ui_radio = self.glade.get_widget("cuemiac_radio")
+		self.completion_ui_radio.connect ("toggled", self.on_ui_changed, applet)
+		self.ui_change_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_UI_NAME, lambda x, y, z, a: self.on_config_ui(z.value))
+		
 		self.sync_ui()
 		
 	def show_run_hide(self):
@@ -69,6 +76,7 @@ class DeskbarPreferencesUI:
 		deskbar.GCONF_CLIENT.notify_remove(self.width_notify_id)
 		deskbar.GCONF_CLIENT.notify_remove(self.expand_notify_id)
 		deskbar.GCONF_CLIENT.notify_remove(self.keybinding_notify_id)
+		deskbar.GCONF_CLIENT.notify_remove(self.ui_change_id)
 		
 		# Update the gconf enabled modules settings
 		enabled_modules = [ctx.handler for ctx in self.module_list if ctx.enabled]
@@ -84,6 +92,13 @@ class DeskbarPreferencesUI:
 			self.keyboard_shortcut_entry.set_text(self.keybinding)
 		else:
 			self.keyboard_shortcut_entry.set_text("<Alt>F3")
+		if self.ui_name:
+			if self.ui_name == COMPLETION_UI_NAME:
+				self.completion_ui_radio.set_active (True)
+			elif self.ui_name == CUEMIAC_UI_NAME:
+				self.cuemiac_ui_radio.set_active (True)
+		else:
+			self.completion_ui_radio.set_active (True)			
 		
 	def on_config_width(self, value):
 		if value != None and value.type == gconf.VALUE_INT:
@@ -168,5 +183,18 @@ class DeskbarPreferencesUI:
 		else:
 			loader.initialize_module_async (context)
 
+	def on_ui_changed (self, sender, applet):
+		if self.completion_ui_radio.get_active ():
+			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, COMPLETION_UI_NAME)
+		elif self.cuemiac_ui_radio.get_active ():
+			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, CUEMIAC_UI_NAME)
+		print "UI"
+		
+	def on_config_ui (self, value):
+		if value != None and value.type == gconf.VALUE_STRING:
+			self.ui_name = value.get_string ()
+			self.sync_ui
+				
+			
 def show_preferences(applet, loader, model):
 	DeskbarPreferencesUI(applet, loader, model).show_run_hide()

@@ -37,19 +37,22 @@ class DeskbarApplet:
 		self.loader.connect ("module-not-initialized", self.on_module_initialized)
 		self.loader.connect ("module-stopped", self.module_list.module_toggled_cb)
 		self.loader.connect ("module-initialized", self._connect_if_async)
-	
-		if deskbar.COMPLETION_UI:
+
+		ui_name = deskbar.GCONF_CLIENT.get_string(self.prefs.GCONF_UI_NAME)
+		if ui_name == None:
+			ui_name = deskbar.COMPLETION_UI_NAME
+			
+		if ui_name == deskbar.COMPLETION_UI_NAME:
 			self.ui = CompletionDeskbarUI (applet)
-		else:
+		elif ui_name == deskbar.CUEMIAC_UI_NAME:
 			self.ui = CuemiacUI (applet)
-		self.ui.connect ("match-selected", self.on_match_selected)
-		self.ui.connect ("start-query", self.on_start_query)
-		self.ui.connect ("stop-query", self.on_stop_query)
-		self.ui.connect ("request-keybinding", self.on_request_keybinding)
-		self.ui.connect ("keyboard-shortcut", self.on_keyboard_shortcut)
+			
+		self.set_up_ui_signals ()
 		self.ui.set_sensitive (False)
 		self.applet.add(self.ui.get_view ())
 		self.applet.show_all()
+		
+		deskbar.GCONF_CLIENT.notify_add (deskbar.GCONF_UI_NAME, lambda x, y, z, a: self.on_ui_changed (z.value))
 		
 		self.keybinder = Keybinder(deskbar.GCONF_KEYBINDING)
 		
@@ -213,3 +216,28 @@ class DeskbarApplet:
 		# FIXME: provide visual clue when not bound
 		# FIXME: should be used in the pref window
 		pass
+
+	def set_up_ui_signals (self):
+		self.ui.connect ("match-selected", self.on_match_selected)
+		self.ui.connect ("start-query", self.on_start_query)
+		self.ui.connect ("stop-query", self.on_stop_query)
+		self.ui.connect ("request-keybinding", self.on_request_keybinding)
+		self.ui.connect ("keyboard-shortcut", self.on_keyboard_shortcut)
+
+	def on_ui_changed (self, value):
+		if value is None or value.type != gconf.VALUE_STRING:
+			return
+			
+		self.applet.remove (self.ui.get_view())
+		#FIXME: Should we clean up signals and stuff on the old UI?
+			
+		if value.get_string () == deskbar.CUEMIAC_UI_NAME:
+			self.ui = CuemiacUI (self.applet)
+			
+		elif value.get_string () == deskbar.COMPLETION_UI_NAME:
+			self.ui = CompletionDeskbarUI (self.applet)
+		
+		self.set_up_ui_signals ()
+		self.applet.add (self.ui.get_view())
+		self.applet.show_all ()
+		self.ui.set_sensitive(True)

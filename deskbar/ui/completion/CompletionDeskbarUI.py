@@ -12,8 +12,13 @@ class CompletionDeskbarUI (DeskbarUI):
 		self.entry = DeskbarEntry(self)
 		self.entry.get_evbox().connect("button-press-event", self.on_icon_button_press)
 		self.entry.get_entry().connect("button-press-event", self.on_entry_button_press)
-		self.set_sensitive(False)
 		
+		self.set_sensitive(False)
+		try:
+			self.applet.set_background_widget(self.entry)
+		except Exception, msg:
+			print 'Could not set background widget, no transparency:', msg
+			
 	def set_sensitive(self, active):
 		self.entry.get_entry().set_sensitive(active)
 		self.entry.get_evbox().set_sensitive(active)

@@ -639,7 +639,7 @@ class CuemiacUI (DeskbarUI):
 	def __init__ (self, applet):
 		DeskbarUI.__init__ (self, applet)
 		
-		self.deskbar_button = DeskbarAppletButton (applet.get_orient())
+		self.deskbar_button = DeskbarAppletButton (applet)
 		self.deskbar_button.connect ("toggled-main", lambda x,y: self.show_entry())
 		self.deskbar_button.connect ("toggled-arrow", lambda x,y: self.show_history())
 
@@ -674,7 +674,13 @@ class CuemiacUI (DeskbarUI):
 		self.deskbar_button.realize ()
 		self.box.show ()
 		self.entry.show ()
-	
+		
+		self.set_sensitive(False)
+		try:
+			self.applet.set_background_widget(self.deskbar_button)
+		except Exception, msg:
+			print 'Could not set background widget, no transparency:', msg
+		
 	def show_entry (self):
 		if self.deskbar_button.get_active_main ():
 			self.popup.update_position ()
@@ -824,8 +830,7 @@ class CuemiacUI (DeskbarUI):
 			pass
 			#self.cview.scroll_to_cell (path)
 			#print "scroll"
-		return False
-
+		return False		
 
 if gtk.pygtk_version < (2,8,0):	
 	gobject.type_register (CuemiacUI)
