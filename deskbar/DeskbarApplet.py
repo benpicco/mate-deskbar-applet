@@ -38,6 +38,7 @@ class DeskbarApplet:
 		self.loader.connect ("module-stopped", self.module_list.module_toggled_cb)
 		self.loader.connect ("module-initialized", self._connect_if_async)
 
+		# Set and retrieve the UI to be used
 		ui_name = deskbar.GCONF_CLIENT.get_string(self.prefs.GCONF_UI_NAME)
 		if ui_name == None:
 			ui_name = deskbar.COMPLETION_UI_NAME
@@ -47,12 +48,13 @@ class DeskbarApplet:
 		elif ui_name == deskbar.CUEMIAC_UI_NAME:
 			self.ui = CuemiacUI (applet)
 			
+		# Set up the chosen UI
 		self.set_up_ui_signals ()
 		self.ui.set_sensitive (False)
 		self.applet.add(self.ui.get_view ())
 		self.applet.show_all()
 		
-		deskbar.GCONF_CLIENT.notify_add (deskbar.GCONF_UI_NAME, lambda x, y, z, a: self.on_ui_changed (z.value))
+		deskbar.GCONF_CLIENT.notify_add (self.prefs.GCONF_UI_NAME, lambda x, y, z, a: self.on_ui_changed (z.value))
 		
 		# Set and retreive enabled handler list from gconf
 		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_ENABLED_HANDLERS, lambda x, y, z, a: self.on_config_handlers(z.value))
@@ -251,3 +253,4 @@ class DeskbarApplet:
 		self.applet.add (self.ui.get_view())
 		self.applet.show_all ()
 		self.ui.set_sensitive(True)
+		print "Changing UI to:", value.get_string ()

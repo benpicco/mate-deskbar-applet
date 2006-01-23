@@ -681,6 +681,8 @@ class CuemiacUI (DeskbarUI):
 		except Exception, msg:
 			print 'Could not set background widget, no transparency:', msg
 		
+		self.invalid = True
+		
 	def show_entry (self):
 		if self.deskbar_button.get_active_main ():
 			self.popup.update_position ()
@@ -694,9 +696,9 @@ class CuemiacUI (DeskbarUI):
 	
 	def show_history (self):
 		if self.deskbar_button.get_active_arrow ():
-			self.emit ("request-history-show", self.deskbar_button.button_arrow, self.applet.get_orient())
+			print "FIXME show history"
 		else:
-			self.emit ("request-history-hide")
+			print "FIXME hide history"
 	
 	def get_view (self):
 		return self.deskbar_button
@@ -710,8 +712,11 @@ class CuemiacUI (DeskbarUI):
 		self.set_layout_by_orientation (applet.get_orient())
 	
 	def append_matches (self, matches):
-		self.popup.show_all ()
+		if self.invalid :
+			self.invalid = False
+			self.model.clear()
 		self.model.append (matches)
+		self.popup.show_all ()
 		
 	def recieve_focus (self):
 		self.deskbar_button.set_active_main (True)
@@ -735,7 +740,7 @@ class CuemiacUI (DeskbarUI):
 			self.box.pack_start (self.entry, False)
 			self.box.pack_start (self.scroll_win)
 			self.cview.append_method = gtk.TreeStore.append
-			if orientation == gnomeapplet.ORIENT_DOWN:
+			if orient == gnomeapplet.ORIENT_DOWN:
 				self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-horiz.svg"))
 			else:
 				self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-vert.svg"))
@@ -760,13 +765,13 @@ class CuemiacUI (DeskbarUI):
 		
 	def on_entry_changed (self, entry):
 		qstring = self.entry.get_text().strip()
-		self.model.clear()
 		self.cview.set_query_string (qstring)
-		
 		if qstring == "":
+			self.model.clear()
 			self.scroll_win.hide ()
 			return
 		self.emit ("start-query", qstring, 100)
+		self.invalid = True
 		self.popup.show ()
 	
 	def hide_if_entry_empty (self):

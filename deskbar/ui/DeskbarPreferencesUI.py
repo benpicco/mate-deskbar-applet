@@ -188,7 +188,6 @@ class DeskbarPreferencesUI:
 			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, COMPLETION_UI_NAME)
 		elif self.cuemiac_ui_radio.get_active ():
 			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, CUEMIAC_UI_NAME)
-		print "UI"
 		
 	def on_config_ui (self, value):
 		if value != None and value.type == gconf.VALUE_STRING:

@@ -1,3 +1,12 @@
+2006-01-24  Mikkel Kamstrup Erlandsen  <kamstrup@daimi.au.dk>
+
+	* deskbar/DeskbarApplet.py:
+	* deskbar/ui/DeskbarPreferencesUI.py:
+	* deskbar/ui/cuemiac/Cuemiac.py:
+	Fix UI changing CompletionUI<->CuemiacUI in applet-mode.
+	Optimize Cuemiac response time by waiting to clear the model
+	until the first match is returned.
+
 2006-01-23  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/DeskbarApplet.py:
