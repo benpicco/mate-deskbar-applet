@@ -3,22 +3,23 @@ import deskbar, deskbar.keybinder
 
 class Keybinder(gobject.GObject):
 	__gsignals__ = {
-		"activated" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_INT64]),
+		"activated" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_ULONG]),
 		# When the keybinding changes, passes a boolean indicating wether the keybinding is successful
 		"changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
 	}
-	def __init__(self, gconf_key):
+	def __init__(self):
 		gobject.GObject.__init__(self)
 		
 		self.bound = False
 		
 		# Set and retreive global keybinding from gconf
-		self.keybinding = deskbar.GCONF_CLIENT.get_string(gconf_key)
+		self.keybinding = deskbar.GCONF_CLIENT.get_string(deskbar.GCONF_KEYBINDING)
 		if self.keybinding == None:
 			# This is for uninstalled cases, the real default is in the schema
 			self.keybinding = "<Alt>F3"
-		deskbar.GCONF_CLIENT.notify_add(gconf_key, lambda x, y, z, a: self.on_config_keybinding(z.value))
-	
+		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_KEYBINDING, lambda x, y, z, a: self.on_config_keybinding(z.value))
+		self.bind()
+		
 	def on_config_keybinding(self, value=None):
 		if value != None and value.type == gconf.VALUE_STRING:
 			self.keybinding = value.get_string()
@@ -44,9 +45,14 @@ class Keybinder(gobject.GObject):
 	def unbind(self):
 		try:
 			deskbar.keybinder.tomboy_keybinder_unbind(self.keybinding)
+			self.bound = False
 		except KeyError:
 			# if the requested keybinding is not bound, a KeyError will be thrown
 			pass
 
 if gtk.pygtk_version < (2,8,0):
 	gobject.type_register(Keybinder)
+
+keybinder = Keybinder()
+def get_deskbar_keybinder():
+	return keybinder

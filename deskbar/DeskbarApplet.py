@@ -11,7 +11,7 @@ from deskbar.ModuleLoader import ModuleLoader
 from deskbar.ui.About import show_about
 from deskbar.ui.DeskbarPreferencesUI import show_preferences
 from deskbar.DeskbarAppletPreferences import DeskbarAppletPreferences
-from deskbar.Keybinder import Keybinder
+from deskbar.Keybinder import get_deskbar_keybinder
 from deskbar.ui.cuemiac.Cuemiac import CuemiacUI
 from deskbar.ui.completion.CompletionDeskbarUI import CompletionDeskbarUI
 
@@ -54,13 +54,14 @@ class DeskbarApplet:
 		
 		deskbar.GCONF_CLIENT.notify_add (deskbar.GCONF_UI_NAME, lambda x, y, z, a: self.on_ui_changed (z.value))
 		
-		self.keybinder = Keybinder(deskbar.GCONF_KEYBINDING)
-		
 		# Set and retreive enabled handler list from gconf
 		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_ENABLED_HANDLERS, lambda x, y, z, a: self.on_config_handlers(z.value))
 		
+		# Monitor global shortcut binding
+		get_deskbar_keybinder().connect('activated', self.on_keybinding_button_press)
+		
 		self.applet.connect("button-press-event", self.on_applet_button_press)
-		self.applet.connect('destroy', lambda x: self.keybinder.unbind())
+		#self.applet.connect('destroy', lambda x: get_deskbar_keybinder().unbind())
 		self.applet.connect('destroy', lambda x: get_deskbar_history().save())
 		self.applet.connect('change-orient', lambda x, orient: self.ui.on_change_orient(applet))
 		self.applet.connect('change-size', lambda x, orient: self.ui.on_change_size(applet))
@@ -202,7 +203,16 @@ class DeskbarApplet:
 			return True
 		
 		return False
-
+	
+	def on_keybinding_button_press(self, widget, time):
+		print 'Keybinding activated, focusing UI'
+		try:
+			# GNOME 2.12
+			self.applet.request_focus(time)
+		except AttributeError:
+			pass
+		self.ui.recieve_focus()
+		
 	def on_history_item_selection (self, item, match, text):
 		pass
 	
