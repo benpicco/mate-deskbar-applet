@@ -101,6 +101,9 @@ class DeskbarApplet:
 		
 	def on_stop_query (self, sender=None):
 		print 'Stopping query from applet'
+		if self.start_query_id != 0:
+			gobject.source_remove(self.start_query_id)
+			
 		for modctx in self.module_list:
 			if modctx.module.is_async():
 				modctx.module.stop_query()

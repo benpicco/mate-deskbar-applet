@@ -685,8 +685,6 @@ class CuemiacUI (DeskbarUI):
 	
 	def on_match_selected (self, cview, match):
 		self.emit ("match-selected", match[0], match[1])
-		self.entry.set_text ("")
-		self.model.clear ()
 		self.deskbar_button.button_main.set_active (False)
 	
 	def show_entry (self):

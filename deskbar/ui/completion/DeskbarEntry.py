@@ -133,11 +133,18 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		if iter != None:
 			self._on_completion_selected (self._completion_model[iter][TEXT_COL], self._completion_model[iter][MATCH_COL])
 	
+	#Clear the entry in a idle call or we segfault
+	def after_match_selection(self):
+		self.get_entry().set_text("")
+		self._completion_model_invalid = True
+		self._completion_model.clear()
+		self._update_icon()
+		print 'End of match selection sequence'
+
 	def _on_completion_selected(self, text, match):
 		self.ui.emit('match-selected', text, match)
 						
-		#Clear the entry in a idle call or we segfault
-		gobject.idle_add(lambda: self.get_entry().set_text(""))
+		gobject.idle_add(self.after_match_selection)
 				
 	def _on_entry_key_press(self, entry, event):
 		if event.keyval == gtk.keysyms.Escape:
@@ -217,6 +224,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		self._image.set_size_request(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 	
 	def append_matches (self, matches):
+		print 'Appending matches'
 		if self._completion_model_invalid:
 			self._completion_model_invalid = False
 			self._completion_model.clear()
