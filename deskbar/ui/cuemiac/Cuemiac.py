@@ -1,9 +1,6 @@
 #
 # Release dependant:
 #
-# - (EASY/MEDIUM) Some way of marking the default match to be executed.
-#   Hint: Use cairo. gtk.TreeView.get_bin_window() to obtain a gtk.gdk.Drawable.
-#
 # - (EASY [Hard part solved]) Store expandedness state of categories (DONE)
 #   Missing: Store states in Gconf. Hint: Just store CuemiacTreeView.__collapsed_rows
 #
@@ -18,18 +15,17 @@
 # - (TRIVIAL) Handlers don't need "prefixes" like "Google Live:" or "Open news item", also adjust
 #   max hits per handler (especially beagle-live should return a skazillion hits)
 #
-# - (MEDIUM) Integrate into deskbar-applet as an option
+# - Use icon entry instead of normal gtk.Entry (and update the icon correctly)
 #
-# - Use icon entry
+# - Always make sure that the selection is visible in scrolled windows. gtk.TreeView has an api
+#   for this, but I can't get it to work.
 #
-# - Always make sure that the selection is visible in scrolled windows
+# - Panel size handling: Fill in CuemiacUI.on_size_changed and DeskbarAppletButton icon size setting.
 #
-# - Panel handling: applet.get_size(), get_orient(). Also connect to signals
+# - Implement history popup
+#
 #
 # Would be really really nice:
-#
-# - (EASY) Use gnomeapplet.Applet.get_orient() and gnomeapplet.Applet.get_size() to detect correct layout.
-#          Most cuemiac widgets already support orientations.
 #
 # - (MEDIUM) User defined (non-static) categories *WITHOUT PERFOMANCE HIT*
 #
@@ -39,13 +35,16 @@
 #
 # - (EASY) Fine tune aligned window behavior for vertical panels
 # 
+#
 # Bonus features/Ideas
 #
 # - (HARD) Detach the search window to "save" the search
 #
-# - (MEDIUM) Drag hits onto desktop/nautilus (likely to require additional Match api)
+# - (MEDIUM) Drag hits onto desktop/nautilus to create links (likely to require additional Match api)
 #
-
+# - Go into shortcur mode when ctrl is pressed (with entry focus) and show flat list of avail
+#   shortcuts. When match list is focussed bind shortcuts when user hits ctrl-*. 
+#   Give visual clue like : http://raphael.slinckx.net/mocku.png
 
 from os.path import *
 from gettext import gettext as _

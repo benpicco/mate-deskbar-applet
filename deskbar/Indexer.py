@@ -33,7 +33,7 @@ class Indexer:
 				self.d[tok] = [obj]
 						
 	def look_up(self, text):
-		tokens = [token for token in text.lower().split()]
+		tokens = [token for token in text.lower().split() if len(token) > 2 and len(tok) < 25 and not tok in STOP_WORDS]
 		
 		result = set()
 		if len(tokens) == 0:
