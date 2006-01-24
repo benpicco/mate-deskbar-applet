@@ -65,7 +65,6 @@ $ deskbar-applet [OPTIONS]
 
 OPTIONS:
 	-h, --help			Print this help notice.
-	-d, --debug			Enable debug output (default=off).
 	-w, --window		Launch the applet in a standalone window for test purposes (default=no).
 	-c, --cuemiac		Launch the Cuemiac UI (when in window mode) (default=no).
 	"""
@@ -76,7 +75,7 @@ if __name__ == "__main__":
 	cuemiac = False
 	
 	try:
-		opts, args = getopt.getopt(sys.argv[1:], "hdwc", ["help", "debug", "window", "cuemiac"])
+		opts, args = getopt.getopt(sys.argv[1:], "hwc", ["help", "window", "cuemiac"])
 	except getopt.GetoptError:
 		# Unknown args were passed, we fallback to bahave as if
 		# no options were passed
@@ -86,8 +85,6 @@ if __name__ == "__main__":
 	for o, a in opts:
 		if o in ("-h", "--help"):
 			usage()
-		elif o in ("-d", "--debug"):
-			print "No problems so far."
 		elif o in ("-w", "--window"):
 			standalone = True
 		elif o in ("-c", "--cuemiac"):

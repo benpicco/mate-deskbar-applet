@@ -34,7 +34,7 @@ class SignallingDebugHandler(SignallingHandler):
 		self.sig = gobject.timeout_add(SIGNAL_DELAY, lambda : self.__callback(qstring))
 
 	def __callback(self, qstring):
-		match = SignallingDebugMatch(self, name="SignallingDebug:"+qstring)
+		match = SignallingDebugMatch(self, name="Signalling :"+qstring)
 		self.emit_query_ready(qstring, [match])
 		
 		# Keep sending the results, see if filter works ok

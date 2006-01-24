@@ -26,7 +26,7 @@ class GalagoMatch(deskbar.Match.Match):
 		return "contacts"
 	
 	def get_verb(self):
-		return _("Send Email to %s") % "<b>%(name)s</b>"
+		return "Send Email to %s" % "<b>%(name)s</b>"
 		
 class GalagoHandler(deskbar.Handler.Handler):
 	def __init__(self):

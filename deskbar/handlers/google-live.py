@@ -54,7 +54,7 @@ HANDLERS = {
 
 class GoogleMatch (deskbar.Match.Match):
 	def __init__(self, handler, name, url, **args):
-		deskbar.Match.Match.__init__ (self, handler, name="Google Live: "+name, **args)
+		deskbar.Match.Match.__init__ (self, handler, name=name, **args)
 		self.url = url
 	
 	def get_verb(self):

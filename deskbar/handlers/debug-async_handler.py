@@ -39,14 +39,14 @@ class AsyncDebugHandler (AsyncHandler):
 			print "Querying: " + (i+1)*"."
 			if i == PARTIAL_RESULTS_TIME:
 				# emit partial results
-				self.emit_query_ready (qstring, [AsyncDebugMatch(self, name="AsyncDebug:partial results - %s"%qstring)])
+				self.emit_query_ready (qstring, [AsyncDebugMatch(self, name="Async partial results - %s"%qstring)])
 				
 			# This call will exit this method if there's a new query pending
 			# or we have been instructed to stop:
 			self.check_query_changed (self.clean_me, [qstring])
 		
 		# it is also allowed to return matches like this:
-		return [AsyncDebugMatch(self, name="AsyncDebug:returned results - %s"%qstring)]
+		return [AsyncDebugMatch(self, name="Async returned results - %s"%qstring)]
 				
 	def clean_me (self, args):
 		print str(self.__class__) + " : Clean up for query: " + str(args)

@@ -248,10 +248,7 @@ class DeskbarApplet:
 		self.applet.remove (self.ui.get_view())
 		#FIXME: Should we clean up signals and stuff on the old UI?
 		
-		ui_name = value.get_string()
-		if deskbar.UI_OVERRIDE != None:
-			ui_name = deskbar.UI_OVERRIDE
-			
+		ui_name = value.get_string()			
 		if ui_name == deskbar.CUEMIAC_UI_NAME:
 			self.ui = CuemiacUI (self.applet, self.prefs)
 			
