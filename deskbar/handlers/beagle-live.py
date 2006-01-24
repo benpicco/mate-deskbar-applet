@@ -12,7 +12,7 @@ def _check_requirements():
 		import beagle
 		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	except:
-		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Could not load beagle, deskbar has been compiled without beagle support", None)
+		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Could not load beagle, libbeagle has been compiled without python bindings", None)
 	
 HANDLERS = {
 	"BeagleLiveHandler" : {
@@ -166,7 +166,7 @@ class BeagleLiveMatch (deskbar.Match.Match):
 		
 class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 	def __init__(self):
-		deskbar.Handler.SignallingHandler.__init__(self, "best")
+		deskbar.Handler.SignallingHandler.__init__(self, ("system-search", "best"))
 		self.counter = {}
 		
 	def initialize (self):
@@ -205,7 +205,15 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 				"type": hit.get_type(),
 			}
 			for prop in hit_type["name"]:
-				name = hit.get_property(prop)
+				try:
+					name = hit.get_one_property(prop)
+				except:
+					try:
+						# Beagle < 0.2
+						name = hit.get_property(prop)
+					except:
+						continue
+						
 				if name != None:
 					result["name"] = cgi.escape(name)
 					break
@@ -217,7 +225,14 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 			if "extra" in hit_type:
 				for prop, keys in hit_type["extra"].items():
 					for key in keys:
-						val = hit.get_property(key)
+						try:
+							val = hit.get_one_property(key)
+						except:
+							try:
+								# Beagle < 0.2
+								val = hit.get_property(key)
+							except:
+								continue
 						if val != None:
 							result[prop] = cgi.escape(val)
 							break
@@ -230,4 +245,4 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 			
 			self.counter[qstring][hit.get_type()] = self.counter[qstring][hit.get_type()] +1
 			
-		self.emit_query_ready(hit_matches, qstring)
+		self.emit_query_ready(qstring, hit_matches)

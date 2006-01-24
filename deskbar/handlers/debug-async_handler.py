@@ -39,7 +39,7 @@ class AsyncDebugHandler (AsyncHandler):
 			print "Querying: " + (i+1)*"."
 			if i == PARTIAL_RESULTS_TIME:
 				# emit partial results
-				self.emit_query_ready ([AsyncDebugMatch(self, name="AsyncDebug:partial results - %s"%qstring)])
+				self.emit_query_ready (qstring, [AsyncDebugMatch(self, name="AsyncDebug:partial results - %s"%qstring)])
 				
 			# This call will exit this method if there's a new query pending
 			# or we have been instructed to stop:

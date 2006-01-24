@@ -35,7 +35,7 @@ class SignallingDebugHandler(SignallingHandler):
 
 	def __callback(self, qstring):
 		match = SignallingDebugMatch(self, name="SignallingDebug:"+qstring)
-		self.emit_query_ready([match], qstring)
+		self.emit_query_ready(qstring, [match])
 		
 		# Keep sending the results, see if filter works ok
 		return True
