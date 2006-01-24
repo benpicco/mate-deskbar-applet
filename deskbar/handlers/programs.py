@@ -167,8 +167,8 @@ class ProgramsHandler(deskbar.Handler.Handler):
 							), match)
 
 def parse_desktop_filename(desktop, only_if_visible=True):
-	if desktop[0] == "/" and exists(f):
-		return parse_desktop_file(f, only_if_visible)
+	if desktop[0] == "/" and exists(desktop):
+		return parse_desktop_file(desktop, only_if_visible)
 			
 	for dir in get_xdg_data_dirs():
 		f = join(dir, "applications", desktop)

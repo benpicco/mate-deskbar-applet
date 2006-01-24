@@ -41,7 +41,10 @@ class DeskbarApplet:
 		ui_name = deskbar.GCONF_CLIENT.get_string(self.prefs.GCONF_UI_NAME)
 		if ui_name == None:
 			ui_name = deskbar.COMPLETION_UI_NAME
-			
+		
+		if deskbar.UI_OVERRIDE != None:
+			ui_name = deskbar.UI_OVERRIDE
+
 		if ui_name == deskbar.COMPLETION_UI_NAME:
 			self.ui = CompletionDeskbarUI (applet, self.prefs)
 		elif ui_name == deskbar.CUEMIAC_UI_NAME:
@@ -244,11 +247,15 @@ class DeskbarApplet:
 			
 		self.applet.remove (self.ui.get_view())
 		#FIXME: Should we clean up signals and stuff on the old UI?
+		
+		ui_name = value.get_string()
+		if deskbar.UI_OVERRIDE != None:
+			ui_name = deskbar.UI_OVERRIDE
 			
-		if value.get_string () == deskbar.CUEMIAC_UI_NAME:
+		if ui_name == deskbar.CUEMIAC_UI_NAME:
 			self.ui = CuemiacUI (self.applet, self.prefs)
 			
-		elif value.get_string () == deskbar.COMPLETION_UI_NAME:
+		elif ui_name == deskbar.COMPLETION_UI_NAME:
 			self.ui = CompletionDeskbarUI (self.applet, self.prefs)
 		
 		self.set_up_ui_signals ()

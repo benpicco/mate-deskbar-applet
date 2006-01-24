@@ -50,6 +50,7 @@ def build_window():
 	app.set_property('resizable', False)
 	
 	applet = gnomeapplet.Applet()
+	applet.get_orient = lambda: gnomeapplet.ORIENT_DOWN
 	applet_factory(applet, None)
 	applet.reparent(app)
 		
@@ -66,11 +67,13 @@ OPTIONS:
 	-h, --help			Print this help notice.
 	-d, --debug			Enable debug output (default=off).
 	-w, --window		Launch the applet in a standalone window for test purposes (default=no).
+	-c, --cuemiac		Launch the Cuemiac UI (when in window mode) (default=no).
 	"""
 	sys.exit()
 	
 if __name__ == "__main__":	
 	standalone = False
+	cuemiac = False
 	
 	try:
 		opts, args = getopt.getopt(sys.argv[1:], "hdwc", ["help", "debug", "window", "cuemiac"])
@@ -88,9 +91,14 @@ if __name__ == "__main__":
 		elif o in ("-w", "--window"):
 			standalone = True
 		elif o in ("-c", "--cuemiac"):
-			deskbar.COMPLETION_UI = False
+			cuemiac = True
 			
 	if standalone:
+		if cuemiac:
+			deskbar.UI_OVERRIDE = deskbar.CUEMIAC_UI_NAME
+		else:
+			deskbar.UI_OVERRIDE = deskbar.COMPLETION_UI_NAME
+
 		import gnome
 		gnome.init(deskbar.defs.PACKAGE, deskbar.defs.VERSION)
 		build_window()
