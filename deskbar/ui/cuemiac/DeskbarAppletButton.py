@@ -64,7 +64,10 @@ class DeskbarAppletButton (gtk.HBox):
 		self.separator.connect("button-press-event", self.on_button_press_event)
 	
 	def on_button_press_event(self, widget, event):
-		if event.button == 3:
+		if not self.get_property('sensitive'):
+			return False
+			
+		if event.button != 1:
 			self.applet.emit("button-press-event", event)
 			return True
 		

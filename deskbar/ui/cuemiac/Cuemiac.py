@@ -642,7 +642,7 @@ class CuemiacUI (DeskbarUI):
 		self.deskbar_button = DeskbarAppletButton (applet)
 		self.deskbar_button.connect ("toggled-main", lambda x,y: self.show_entry())
 		self.deskbar_button.connect ("toggled-arrow", lambda x,y: self.show_history())
-
+				
 		self.popup = CuemiacAlignedWindow (self.deskbar_button.button_main, applet.get_orient())
 		self.entry = gtk.Entry()
 		self.model = CuemiacModel ()
@@ -857,6 +857,7 @@ class CuemiacUI (DeskbarUI):
 			#self.cview.scroll_to_cell (path)
 			#print "scroll"
 		return False		
-
+		
 if gtk.pygtk_version < (2,8,0):	
 	gobject.type_register (CuemiacUI)
+
