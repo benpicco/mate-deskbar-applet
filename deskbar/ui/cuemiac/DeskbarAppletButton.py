@@ -88,14 +88,14 @@ class DeskbarAppletButton (gtk.HBox):
 	def set_active_arrow (self, is_active):
 		self.button_arrow.set_active (is_active)
 			
-	def set_button_image_from_file (self, filename):
+	def set_button_image_from_file (self, filename, size=20):
 		# FIXME: Take self.popup_dir into account. Rotate img if necesary
 
 		# We use an intermediate pixbuf to scale the image
 		if self.popup_dir in [gnomeapplet.ORIENT_DOWN, gnomeapplet.ORIENT_UP]:
-			pixbuf = gtk.gdk.pixbuf_new_from_file_at_size (filename, 40, 18)
+			pixbuf = gtk.gdk.pixbuf_new_from_file_at_size (filename, size, size)
 		else:
-			pixbuf = gtk.gdk.pixbuf_new_from_file_at_size (filename, 18, 40)
+			pixbuf = gtk.gdk.pixbuf_new_from_file_at_size (filename, size, size)
 		self.image.set_from_pixbuf (pixbuf)
 		
 	def gnomeapplet_dir_to_arrow_dir (self, gnomeapplet_dir):
@@ -141,7 +141,8 @@ class DeskbarAppletButton (gtk.HBox):
 		
 		if reshow:
 			self.show_all ()
-		
+
+			
 if __name__ == "__main__":
 	button = DeskbarAppletButton (gnomeapplet.ORIENT_RIGHT)
 	

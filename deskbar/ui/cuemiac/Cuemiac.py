@@ -20,10 +20,9 @@
 # - Always make sure that the selection is visible in scrolled windows. gtk.TreeView has an api
 #   for this, but I can't get it to work.
 #
-# - Panel size handling: Fill in CuemiacUI.on_size_changed and DeskbarAppletButton icon size setting.
-#
 # - Implement history popup
 #
+# - Focus entry on Alt-F3
 #
 # Would be really really nice:
 #
@@ -34,7 +33,9 @@
 # - (?) Multiscreen logic.
 #
 # - (EASY) Fine tune aligned window behavior for vertical panels
-# 
+#   Should probably check the window.gravity and construct the popup window according to that;
+#   - ie. entry at bottom, hits on top, for applets in lower half of the screen, and vice versa
+#   for applets in the top half (this can be read frm the CuemiacAlignedWindow.gravity).
 #
 # Bonus features/Ideas
 #
@@ -544,7 +545,7 @@ class CuemiacAlignedWindow (gtk.Window):
 		"""
 		gtk.Window.__init__(self, gtk.WINDOW_TOPLEVEL)
 		self.set_decorated (False)
-		#self.set_focus_on_map (False) # don't grab focus when popping up
+		self.set_focus_on_map (True) # grab focus when popping up
 		
 		# Skip the taskbar, and the pager, stick and stay on top
 		self.stick()
@@ -642,7 +643,7 @@ class CuemiacUI (DeskbarUI):
 		self.deskbar_button.connect ("toggled-main", lambda x,y: self.show_entry())
 		self.deskbar_button.connect ("toggled-arrow", lambda x,y: self.show_history())
 
-		self.popup = CuemiacAlignedWindow (self.deskbar_button, applet.get_orient())
+		self.popup = CuemiacAlignedWindow (self.deskbar_button.button_main, applet.get_orient())
 		self.entry = gtk.Entry()
 		self.model = CuemiacModel ()
 		self.cview = CuemiacTreeView (self.model)
@@ -719,8 +720,11 @@ class CuemiacUI (DeskbarUI):
 		print "CuemiacUI changing orientation to", applet.get_orient()
 	
 	def on_change_size (self, applet):
-		# FIXME: We should update size in DeskbarAppletButton
-		pass
+		if applet.get_orient () in [gnomeapplet.ORIENT_UP, gnomeapplet.ORIENT_DOWN]:
+			# We're horizontal
+			self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-horiz.svg"), applet.get_size())
+		else:
+			self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-vert.svg"), applet.get_size())
 	
 	def append_matches (self, matches):
 		if self.invalid :
@@ -731,6 +735,8 @@ class CuemiacUI (DeskbarUI):
 		
 	def recieve_focus (self):
 		self.deskbar_button.set_active_main (True)
+		self.popup.show_all ()
+		self.entry.grab_focus ()
 	
 	def scroll_cview_to_selection (self, tree_sel):
 		model, iter = tree_sel.get_selected ()
@@ -752,9 +758,9 @@ class CuemiacUI (DeskbarUI):
 			self.box.pack_start (self.scroll_win)
 			self.cview.append_method = gtk.TreeStore.append
 			if orient == gnomeapplet.ORIENT_DOWN:
-				self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-horiz.svg"))
+				self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-horiz.svg"), self.applet.get_size ())
 			else:
-				self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-vert.svg"))
+				self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-vert.svg"), self.applet.get_size ())
 		else:
 			# We are at a bottom panel. Put entry on bottom, and prepend matches (instead of append).
 			self.box.pack_start (self.scroll_win)
