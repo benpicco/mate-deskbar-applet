@@ -681,8 +681,11 @@ class CuemiacUI (DeskbarUI):
 			print 'Could not set background widget, no transparency:', msg
 		
 		self.invalid = True
-	
+		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
+		
 	def on_match_selected (self, cview, match):
+		if match.__class__ == Nest or match.__class__ == CuemiacCategory:
+			return
 		self.emit ("match-selected", match[0], match[1])
 		self.deskbar_button.button_main.set_active (False)
 	
