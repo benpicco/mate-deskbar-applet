@@ -1,26 +1,26 @@
 # Vietnamese translation for DeskBar Applet.
-# Copyright © 2005 Gnome i18n Project for Vietnamese.
-# Clytie Siddall <clytie@riverland.net.au>, 2005.
+# Copyright © 2005-2006 Gnome i18n Project for Vietnamese.
+# Clytie Siddall <clytie@riverland.net.au>, 2005-2006.
 # 
 msgid ""
 ""
 msgstr "Project-Id-Version: deskbar-applet HEADReport-Msgid-Bugs-To: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-29 05:35+0100\n"
-"PO-Revision-Date: 2005-12-29 17:39+1030\n"
+"POT-Creation-Date: 2006-01-23 21:57+0100\n"
+"PO-Revision-Date: 2006-01-24 15:56+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"X-Generator: LocFactoryEditor 1.5.1b\n"
+"X-Generator: LocFactoryEditor 1.6b31\n"
 
 #:../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
 msgstr "Thanh hành động hoàn thành"
 
-#:../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:23
+#:../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
 msgid "Deskbar"
 msgstr "Deskbar"
 
@@ -33,51 +33,71 @@ msgid "_Preferences"
 msgstr "Tù_y thích"
 
 #:../data/prefs-dialog.glade.h:1
-msgid "<b>Keyboard Shortcut</b>"
-msgstr "<b>Phím tắt</b>"
+msgid "<b>Focus</b>"
+msgstr "<b>Tiêu điểm</b>"
 
 #:../data/prefs-dialog.glade.h:2
+msgid "<b>Layout</b>"
+msgstr "<b>Bố trí</b>"
+
+#:../data/prefs-dialog.glade.h:3
 msgid "<b>Loaded Extensions</b>"
 msgstr "<b>Phần mở rộng đã tải</b>"
 
-#:../data/prefs-dialog.glade.h:3
+#:../data/prefs-dialog.glade.h:4
 msgid "<b>Width</b>"
 msgstr "<b>Rộng</b>"
 
-#:../data/prefs-dialog.glade.h:4
+#:../data/prefs-dialog.glade.h:5
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
 msgstr "<i><small><b>Ghi chú:</b> Hãy kéo và thả phần mở rộng nào để thay đổi thứ tự."
 "</small></i>"
 
-#:../data/prefs-dialog.glade.h:5
+#:../data/prefs-dialog.glade.h:6
+msgid "Button in panel with grouped list"
+msgstr "Nút trên bảng với danh sách theo nhóm"
+
+#:../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Tùy thích Deskbar"
 
-#:../data/prefs-dialog.glade.h:6
+#:../data/prefs-dialog.glade.h:8
+msgid "Entry in panel with flat list"
+msgstr "Mục trong bảng với danh sách phẳng"
+
+#:../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
 msgstr "_Rộng có định:"
 
-#:../data/prefs-dialog.glade.h:7
+#:../data/prefs-dialog.glade.h:10
+msgid "Searches"
+msgstr "Tìm kiếm"
+
+#:../data/prefs-dialog.glade.h:11
 msgid "Use _all available space"
 msgstr "Dùng toàn _chỗ sẵn sàng"
 
-#:../data/prefs-dialog.glade.h:8
-msgid "Use the _keyboard shortcut:"
-msgstr "Dùng _phím tắt:"
+#:../data/prefs-dialog.glade.h:12
+msgid "View"
+msgstr "Xem"
 
-#:../data/prefs-dialog.glade.h:9
+#:../data/prefs-dialog.glade.h:13
+msgid "_Keyboard shortcut to focus:"
+msgstr "_Phím tắt để lấy tiêu điểm:"
+
+#:../data/prefs-dialog.glade.h:14
 msgid "characters"
 msgstr "ký tự"
 
 #:../data/smart-bookmarks.glade.h:1
 msgid ""
 "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
+"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
-msgstr "<i><small><b>Ghi chú: </b>Nếu phím tắt là một chữ đơn (như <b>t</b>) thì bạn "
-"cũng có thể gõ chỉ « <b>vật gì</b> » rồi bấm <b>Ctrl-t</b> trong thanh.</"
+msgstr "<i><small><b>Ghi chú: </b>Nếu phím tắt là một chữ đơn (như <b>t</b>), bạn "
+"cũng có thể gõ chỉ « <b>vật gì</b> » rồi bấm tổ hợp phím <b>Alt-t</b> trong thanh.</"
 "small></i>"
 
 #:../data/smart-bookmarks.glade.h:2
@@ -92,24 +112,159 @@ msgstr "<i><small><b>Ghi chú:</b> Để sử dụng phím tắt (v.d. <b>wp</b>
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Phím tắt cho việc tìm kiếm đã đánh dấu"
 
-#:../deskbar/about.py:26
-msgid "An all-in-one action bar."
-msgstr "Thanh hành động hoàn thanh."
+#:../deskbar/BrowserMatch.py:30
+#,python-format
+msgid "Open History Item %s"
+msgstr "Mở mục Lược sử %s"
 
-#:../deskbar/about.py:29
-msgid "Deskbar Website"
-msgstr "Nơi Mạng Deskbar"
+#:../deskbar/BrowserMatch.py:32
+#,python-format
+msgid "Open Bookmark %s"
+msgstr "Mở Đánh dấu %s"
 
-#.about.set_artists([])
-#.about.set_documenters([])
-#.translators: These appear in the About dialog, usual format applies.
-#:../deskbar/about.py:37
-msgid "translator-credits"
-msgstr "Nhóm Việt hóa Gnome <gnomevi-list@lists.sourceforge.net>"
+#.translators: First %s is the search engine name, second %s is the search term
+#:../deskbar/BrowserMatch.py:81
+#,python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "Tìm kiếm <i>%(text)s</i> trong <b>%(name)s</b>"
 
-#:../deskbar/applet.py:310
-msgid "No History"
-msgstr "Không có lược sử"
+#:../deskbar/BrowserMatch.py:187
+msgid "Shortcut"
+msgstr "Phím tắt"
+
+#:../deskbar/BrowserMatch.py:195
+msgid "Bookmark Name"
+msgstr "Tên Đánh dấu"
+
+#:../deskbar/Categories.py:11
+msgid "Files"
+msgstr "Tập tin"
+
+#:../deskbar/Categories.py:12
+#,python-format
+msgid "%s more file"
+msgid_plural "%s more files"
+msgstr[0] ""
+
+#:../deskbar/Categories.py:16
+msgid "Actions"
+msgstr "Hành động"
+
+#:../deskbar/Categories.py:17
+#,python-format
+msgid "%s more action"
+msgid_plural "%s more actions"
+msgstr[0] ""
+
+#:../deskbar/Categories.py:21
+msgid "News"
+msgstr "Tin tức"
+
+#:../deskbar/Categories.py:22
+#,python-format
+msgid "%s more news item"
+msgid_plural "%s more news items"
+msgstr[0] "Mở mục tin tức %s"
+
+#:../deskbar/Categories.py:26
+msgid "Contacts"
+msgstr "Liên lạc"
+
+#:../deskbar/Categories.py:27
+#,python-format
+msgid "%s more contact"
+msgid_plural "%s more contacts"
+msgstr[0] ""
+
+#:../deskbar/Categories.py:31
+msgid "Emails"
+msgstr "Thư"
+
+#:../deskbar/Categories.py:32
+#,python-format
+msgid "%s more email"
+msgid_plural "%s more emails"
+msgstr[0] ""
+
+#:../deskbar/Categories.py:36
+msgid "Notes"
+msgstr "Ghi chú"
+
+#:../deskbar/Categories.py:37
+#,python-format
+msgid "%s more note"
+msgid_plural "%s more notes"
+msgstr[0] ""
+
+#:../deskbar/Categories.py:41
+msgid "Volumes"
+msgstr "Khối tin"
+
+#:../deskbar/Categories.py:42
+#,python-format
+msgid "%s more volume"
+msgid_plural "%s more volumes"
+msgstr[0] ""
+
+#:../deskbar/Categories.py:46
+msgid "Google Search"
+msgstr "Tìm kiếm Google"
+
+#:../deskbar/Categories.py:47
+#,python-format
+msgid "%s more online hit"
+msgid_plural "%s more online hits"
+msgstr[0] ""
+
+#:../deskbar/Categories.py:51
+msgid "Calendar"
+msgstr "Lịch"
+
+#:../deskbar/Categories.py:52
+#,python-format
+msgid "%s more calendar item"
+msgid_plural "%s more calendar items"
+msgstr[0] ""
+
+#:../deskbar/Categories.py:56
+msgid "Conversation"
+msgstr "Đối thoại"
+
+#:../deskbar/Categories.py:57
+#,python-format
+msgid "%s more conversation"
+msgid_plural "%s more conversations"
+msgstr[0] "Xem cuộc đối thoại với %s"
+
+#:../deskbar/Categories.py:61
+msgid "Web Browser"
+msgstr "Bộ duyệt Mạng"
+
+#:../deskbar/Categories.py:62
+#,python-format
+msgid "%s more item"
+msgid_plural "%s more items"
+msgstr[0] ""
+
+#:../deskbar/Categories.py:66 ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Chương trình"
+
+#:../deskbar/Categories.py:67
+#,python-format
+msgid "%s more program"
+msgid_plural "%s more programs"
+msgstr[0] ""
+
+#:../deskbar/Categories.py:71
+msgid "Debug"
+msgstr "Gỡ lỗi"
+
+#:../deskbar/Categories.py:72
+#,python-format
+msgid "%s more debugging handler"
+msgid_plural "%s more debugging handlers"
+msgstr[0] ""
 
 #:../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
@@ -131,7 +286,7 @@ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 msgstr "Xem thư từ <i>%(sender)s</i>: <b>%(name)s</b>"
 
 #.translators: This is a file.
-#:../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
+#:../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
 #,python-format
 msgid "Open %s"
 msgstr "Mở %s"
@@ -158,8 +313,8 @@ msgstr "Xem lịch %s"
 
 #.translators: This is used for unknown values returned by beagle
 #.translators: for example unknown email sender, or unknown note title
-#:../deskbar/handlers/beagle-live.py:205
-#:../deskbar/handlers/beagle-live.py:217
+#:../deskbar/handlers/beagle-live.py:215
+#:../deskbar/handlers/beagle-live.py:227
 msgid "?"
 msgstr "?"
 
@@ -176,30 +331,6 @@ msgstr "Tìm kiếm trong mọi tài liệu của bạn (bằng Beagle)"
 msgid "Search for %s using Beagle"
 msgstr "Tìm kiếm %s bằng Beagle"
 
-#:../deskbar/handlers_browsers.py:30
-#,python-format
-msgid "Open History Item %s"
-msgstr "Mở mục Lược sử %s"
-
-#:../deskbar/handlers_browsers.py:32
-#,python-format
-msgid "Open Bookmark %s"
-msgstr "Mở Đánh dấu %s"
-
-#.translators: First %s is the search engine name, second %s is the search term
-#:../deskbar/handlers_browsers.py:67
-#,python-format
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "Tìm kiếm <i>%(text)s</i> trong <b>%(name)s</b>"
-
-#:../deskbar/handlers_browsers.py:172
-msgid "Shortcut"
-msgstr "Phím tắt"
-
-#:../deskbar/handlers_browsers.py:180
-msgid "Bookmark Name"
-msgstr "Tên Đánh dấu"
-
 #:../deskbar/handlers/email_address.py:9
 msgid "Mail"
 msgstr "Thư"
@@ -208,18 +339,22 @@ msgstr "Thư"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "Gởi thư bằng cách gõ địa chỉ thư hoàn thành"
 
-#:../deskbar/handlers/email_address.py:26 ../deskbar/handlers/galago.py:27
+#:../deskbar/handlers/email_address.py:27
 #,python-format
 msgid "Send Email to %s"
 msgstr "Gởi Thư cho %s"
 
+#:../deskbar/handlers/epiphany.py:26
+msgid "You can set shortcuts for your searches."
+msgstr "Bạn có thể lập phím tắt cho việc tìm kiếm."
+
 #:../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#:../deskbar/handlers/mozilla.py:29
+#:../deskbar/handlers/mozilla.py:33
 msgid "Web Bookmarks"
 msgstr "Dấu sách Mạng"
 
 #:../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#:../deskbar/handlers/mozilla.py:30
+#:../deskbar/handlers/mozilla.py:34
 msgid "Open your web bookmarks by name"
 msgstr "Mở đánh dấu theo tên"
 
@@ -232,12 +367,12 @@ msgid "Open your web history by name"
 msgstr "Mở lược sử Mạng theo tên"
 
 #:../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#:../deskbar/handlers/mozilla.py:34
+#:../deskbar/handlers/mozilla.py:38
 msgid "Web Searches"
 msgstr "Tìm kiếm Mạng"
 
 #:../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#:../deskbar/handlers/mozilla.py:35
+#:../deskbar/handlers/mozilla.py:39
 msgid "Search the web via your browser's search settings"
 msgstr "Tìm kiếm trên Mạng thông qua thiết lập tìm kiếm của trình duyệt"
 
@@ -267,7 +402,7 @@ msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Gởi thư cho liên lạc bằng cách gõ tên hay địa chỉ thư của họ"
 
 #.translators: First %s is the contact full name, second %s is the email address
-#:../deskbar/handlers/evolution.py:42
+#:../deskbar/handlers/evolution.py:45
 #,python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Gởi thư cho <b>%(name)s</b> (%(email)s)"
@@ -280,7 +415,7 @@ msgstr "Tập tin và Thư mục"
 msgid "Open your files and folders by name"
 msgstr "Mở tập tin và thư mục theo tên"
 
-#:../deskbar/handlers/files.py:47
+#:../deskbar/handlers/files.py:51
 #,python-format
 msgid "Open folder %s"
 msgstr "Mở thư mục %s"
@@ -354,27 +489,23 @@ msgstr "Đánh dấu Tập tin và Thư mục"
 msgid "Open your files and folders bookmarks by name"
 msgstr "Mở đánh dấu của tập tin và thư mục theo tên"
 
-#:../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
+#:../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
 #,python-format
 msgid "Open location %s"
 msgstr "Mở địa điểm %s"
 
-#:../deskbar/handlers/pathprograms.py:13
+#:../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
 msgstr "Chương trình (Cấp cao)"
 
-#:../deskbar/handlers/pathprograms.py:14
+#:../deskbar/handlers/pathprograms.py:15
 msgid "Launch any program present in your $PATH"
 msgstr "Khởi chạy chương trình nào có trong đường dẫn $PATH của bạn."
 
-#:../deskbar/handlers/pathprograms.py:30
+#:../deskbar/handlers/pathprograms.py:60
 #,python-format
 msgid "Execute %s"
 msgstr "Thực hiện %s"
-
-#:../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Chương trình"
 
 #:../deskbar/handlers/programs.py:15
 msgid "Launch a program by its name and/or description"
@@ -398,17 +529,17 @@ msgstr "Tìm tập tin và thư mục bằng cách tìm kiếm mẫu tên"
 
 #.translators: First %s is the programs full name, second is the executable name
 #.translators: For example: Launch Text Editor (gedit)
-#:../deskbar/handlers/programs.py:66
+#:../deskbar/handlers/programs.py:72
 #,python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Khởi chạy <b>%(name)s</b> (%(prog)s)"
 
-#:../deskbar/handlers/programs.py:79
+#:../deskbar/handlers/programs.py:85
 #,python-format
 msgid "Lookup %s in dictionary"
 msgstr "Tra tìm %s trong từ điển"
 
-#:../deskbar/handlers/programs.py:87
+#:../deskbar/handlers/programs.py:93
 #,python-format
 msgid "Search for file names like %s"
 msgstr "Tìm kiếm tên tập tin như %s"
@@ -421,12 +552,12 @@ msgstr "Nơi mạng và đĩa"
 msgid "Open disk drives, shared network places and similar resources by name"
 msgstr "Mở ổ đĩa, nơi mạng dùng chung và tài nguyên tương tư theo tên"
 
-#:../deskbar/handlers/volumes.py:41
+#:../deskbar/handlers/volumes.py:44
 #,python-format
 msgid "Open network place %s"
 msgstr "Mở nơi mạng %s"
 
-#:../deskbar/handlers/volumes.py:43
+#:../deskbar/handlers/volumes.py:46
 #,python-format
 msgid "Open audio disk %s"
 msgstr "Mở đĩa âm thanh %s"
@@ -441,16 +572,39 @@ msgstr "Mạng"
 msgid "Open web pages by typing a complete web address"
 msgstr "Mở trang Mạng nào bằng cách gõ địa chỉ Mạng hoàn thành"
 
-#:../deskbar/handlers/web_address.py:35
+#:../deskbar/handlers/web_address.py:36
 #,python-format
 msgid "Open the web page %s"
 msgstr "Mở trang Mạng %s"
 
-#:../deskbar/handlers/web_address.py:37
+#:../deskbar/handlers/web_address.py:38
 #,python-format
 msgid "Open the location %s"
 msgstr "Mở địa điểm %s"
 
-#:../deskbar/preferences.py:53
+#:../deskbar/ui/About.py:25
+msgid "An all-in-one action bar."
+msgstr "Thanh hành động hoàn thanh."
+
+#:../deskbar/ui/About.py:28
+msgid "Deskbar Website"
+msgstr "Nơi Mạng Deskbar"
+
+#.about.set_artists([])
+#.about.set_documenters([])
+#.translators: These appear in the About dialog, usual format applies.
+#:../deskbar/ui/About.py:36
+msgid "translator-credits"
+msgstr "Nhóm Việt hóa Gnome <gnomevi-list@lists.sourceforge.net>"
+
+#:../deskbar/ui/DeskbarPreferencesUI.py:54
 msgid "_More..."
 msgstr "_Thêm..."
+
+#:../deskbar/ui/completion/CompletionDeskbarUI.py:126
+msgid "No History"
+msgstr "Không có lược sử"
+
+#:../deskbar/ui/cuemiac/Cuemiac.py:59
+msgid "You need Gtk+ version 2.8.0 or higher to use this module"
+msgstr "Bạn cần thiết Gtk+ phiên bản 2.8.0 hay cao hơn để sử dụng mô-đun này"
