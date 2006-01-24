@@ -23,7 +23,14 @@ class Handler:
 		Heavy duty tasks such as indexing should be done in the initialize() method.
 		Under all circumstances, the constructor should not raise ANY exception
 		"""
-		self._icon = deskbar.Utils.load_icon(iconfile)
+		if type(iconfile) == tuple:
+			for icon in iconfile:
+				self._icon = deskbar.Utils.load_icon(icon)
+				if self._icon != None:
+					break
+		else:
+			self._icon = deskbar.Utils.load_icon(iconfile)
+			
 		self._priority = 0
 	
 	def set_priority(self, prio):

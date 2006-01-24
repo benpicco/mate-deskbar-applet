@@ -31,6 +31,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		self.ui = ui
 		
 		self._completion_model = None
+		self._completion_model_invalid = True
 		self._selected_match_index = -1
 			
 		# Connect to underlying entry signals		
@@ -184,15 +185,16 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		return False
 					
 	def _on_entry_changed(self, widget, matches=None):
-		self._completion_model.clear()
 		self._selected_match_index = -1
 		
 		qstring = widget.get_text().strip()
 		if  qstring == "":
 			#Reset default icon
+			self._completion_model.clear()
 			self._update_icon(icon=self._default_pixbuf)
 			return
 		
+		self._completion_model_invalid = True
 		self.ui.emit('start-query', qstring, MAX_RESULTS_PER_HANDLER)
 	
 	def on_history_set(self, historymanager, set):
@@ -215,6 +217,10 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		self._image.set_size_request(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 	
 	def append_matches (self, matches):
+		if self._completion_model_invalid:
+			self._completion_model_invalid = False
+			self._completion_model.clear()
+			
 		for text, match in matches:
 			handler = match.get_handler()
 			if match.get_icon() != None:
