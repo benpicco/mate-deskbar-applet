@@ -45,7 +45,7 @@ class FolderMatch(deskbar.Match.Match):
 		gobject.spawn_async(["nautilus", self.absname], flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_category(self):
-		return "Files"
+		return "files"
 	
 	def get_verb(self):
 		return _("Open folder %s") % "<b>%(name)s</b>"

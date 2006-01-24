@@ -62,8 +62,6 @@ class DeskbarApplet:
 		
 		self.applet.connect("button-press-event", self.on_applet_button_press)
 		self.applet.connect('destroy', lambda x: get_deskbar_history().save())
-		self.applet.connect('change-orient', lambda x, orient: self.ui.on_change_orient(applet))
-		self.applet.connect('change-size', lambda x, orient: self.ui.on_change_size(applet))
 		self.applet.setup_menu_from_file (
 			deskbar.SHARED_DATA_DIR, "Deskbar_Applet.xml",
 			None, [("About", self.on_about), ("Prefs", self.on_preferences)])
@@ -102,6 +100,7 @@ class DeskbarApplet:
 		self.ui.append_matches (results)
 		
 	def on_stop_query (self, sender=None):
+		print 'Stopping query from applet'
 		for modctx in self.module_list:
 			if modctx.module.is_async():
 				modctx.module.stop_query()
@@ -233,6 +232,8 @@ class DeskbarApplet:
 		self.ui.connect ("stop-query", self.on_stop_query)
 		self.ui.connect ("request-keybinding", self.on_request_keybinding)
 		self.ui.connect ("keyboard-shortcut", self.on_keyboard_shortcut)
+		self.applet.connect('change-orient', lambda applet, orient: self.ui.on_change_orient(applet))
+		self.applet.connect('change-size', lambda applet, orient: self.ui.on_change_size(applet))
 
 	def on_ui_changed (self, value):
 		if value is None or value.type != gconf.VALUE_STRING:

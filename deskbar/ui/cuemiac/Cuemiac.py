@@ -663,7 +663,7 @@ class CuemiacUI (DeskbarUI):
 		self.entry.connect ("key-press-event", self.on_entry_key_press)
 		self.cview.connect ("key-press-event", self.on_cview_key_press)
 		self.cview.get_selection().connect ("changed", self.scroll_cview_to_selection)
-		self.cview.connect ("match-selected", lambda sender, match: self.emit ("match-selected", match[0], match[1]))
+		self.cview.connect ("match-selected", self.on_match_selected)
 		#self.cview.set_vadjustment (self.scroll_win.get_vadjustment())
 		
 		self.screen_height = self.popup.get_screen().get_height ()
@@ -682,7 +682,13 @@ class CuemiacUI (DeskbarUI):
 			print 'Could not set background widget, no transparency:', msg
 		
 		self.invalid = True
-		
+	
+	def on_match_selected (self, cview, match):
+		self.emit ("match-selected", match[0], match[1])
+		self.entry.set_text ("")
+		self.model.clear ()
+		self.deskbar_button.button_main.set_active (False)
+	
 	def show_entry (self):
 		if self.deskbar_button.get_active_main ():
 			self.popup.update_position ()
@@ -710,6 +716,11 @@ class CuemiacUI (DeskbarUI):
 		
 	def on_change_orient (self, applet):
 		self.set_layout_by_orientation (applet.get_orient())
+		print "CuemiacUI changing orientation to", applet.get_orient()
+	
+	def on_change_size (self, applet):
+		# FIXME: We should update size in DeskbarAppletButton
+		pass
 	
 	def append_matches (self, matches):
 		if self.invalid :
@@ -750,9 +761,12 @@ class CuemiacUI (DeskbarUI):
 			self.box.pack_start (self.entry, False)
 			self.cview.append_method = gtk.TreeStore.prepend
 			self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-horiz.svg"))
+			
+		# Update the DeskbarAppletButton accordingly
+		self.deskbar_button.set_orientation (orient, reshow)
+		
 		if reshow:
 			self.box.show_all ()
-			
 		
 	def adjust_size (self, child, event):
 		"""adjust window size to the size of the children"""
