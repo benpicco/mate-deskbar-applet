@@ -23,6 +23,15 @@ class DeskbarHistoryIter :
 		return item
 
 class DeskbarHistory (gtk.ListStore) :
+	"""
+	Iteraating over a DeskbarHistory with a for loop returns (text,match) pairs.
+	Keeps an internal pointer to a history index which you can move with up(), down(),
+	and reset(). You retrieve the item in question by get_history().
+	
+	Signals:
+		"changed" : emitted when the internal pointer has changed
+	"""
+
 	__gsignals__ = {
 		"changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
 	}
@@ -81,6 +90,7 @@ class DeskbarHistory (gtk.ListStore) :
 		for htext, hmatch in self:
 			if (text, match.__class__) == (htext, hmatch.__class__):
 				self.remove (self.get_iter_from_string (str(idx)))
+				self.count = self.count - 1
 			idx = idx + 1
 
 		self.prepend ([(text, match)])
@@ -89,10 +99,11 @@ class DeskbarHistory (gtk.ListStore) :
 			# Remove the last element
 			last = self.get_iter_from_string (str(self.count - 1))
 			self.remove (last)
+			self.count = self.count - 1
 		self._index = -1
 	
 	def up(self):
-		if self._index < len(self._history)-1:
+		if self._index < self.count-1:
 			self._index = self._index + 1
 			self.emit('changed')
 	
@@ -118,7 +129,6 @@ class DeskbarHistory (gtk.ListStore) :
 	def get_history(self):
 		if self._index == -1:
 			return None
-		
 		return self[self.get_iter_from_string (str(self._index))][0]
 	
 if gtk.pygtk_version < (2,8,0):
