@@ -87,18 +87,31 @@ class DeskbarPreferencesUI:
 			self.use_all_width_radio.set_active(True)
 		else:
 			self.fixed_width_radio.set_active(True)
+			
 		self.width_spin.set_value(self.width)
+		
 		if self.keybinding != None:
 			self.keyboard_shortcut_entry.set_text(self.keybinding)
 		else:
 			self.keyboard_shortcut_entry.set_text("<Alt>F3")
-		if self.ui_name:
-			if self.ui_name == COMPLETION_UI_NAME:
-				self.completion_ui_radio.set_active (True)
-			elif self.ui_name == CUEMIAC_UI_NAME:
-				self.cuemiac_ui_radio.set_active (True)
+		
+		if self.ui_name == COMPLETION_UI_NAME:
+			self.completion_ui_radio.set_active (True)
+			self.set_width_settings_sensitive(True)
+		elif self.ui_name == CUEMIAC_UI_NAME:
+			self.cuemiac_ui_radio.set_active (True)
+			self.set_width_settings_sensitive(False)
+			
+	def set_width_settings_sensitive(self, sensitive):
+		if sensitive and not self.expand:
+			self.width_spin.set_sensitive(True)
+			self.glade.get_widget("width_units").set_sensitive(True)
 		else:
-			self.completion_ui_radio.set_active (True)			
+			self.width_spin.set_sensitive(False)
+			self.glade.get_widget("width_units").set_sensitive(False)
+			
+		self.use_all_width_radio.set_sensitive(sensitive)
+		self.fixed_width_radio.set_sensitive(sensitive)
 		
 	def on_config_width(self, value):
 		if value != None and value.type == gconf.VALUE_INT:
@@ -114,7 +127,18 @@ class DeskbarPreferencesUI:
 		if value != None and value.type == gconf.VALUE_STRING:
 			self.keybinding = value.get_string()
 			self.sync_ui()
-		
+	
+	def on_config_ui (self, value):
+		if value != None and value.type == gconf.VALUE_STRING:
+			self.ui_name = value.get_string ()
+			self.sync_ui()
+			
+	def on_ui_changed (self, sender, applet):
+		if self.completion_ui_radio.get_active ():
+			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, COMPLETION_UI_NAME)
+		elif self.cuemiac_ui_radio.get_active ():
+			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, CUEMIAC_UI_NAME)
+			
 	def on_use_all_width_radio_toggle(self, toggle, applet):
 		deskbar.GCONF_CLIENT.set_bool(applet.prefs.GCONF_EXPAND, toggle.get_property('active'))
 		
@@ -182,17 +206,6 @@ class DeskbarPreferencesUI:
 			loader.stop_module_async (context)
 		else:
 			loader.initialize_module_async (context)
-
-	def on_ui_changed (self, sender, applet):
-		if self.completion_ui_radio.get_active ():
-			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, COMPLETION_UI_NAME)
-		elif self.cuemiac_ui_radio.get_active ():
-			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, CUEMIAC_UI_NAME)
-		
-	def on_config_ui (self, value):
-		if value != None and value.type == gconf.VALUE_STRING:
-			self.ui_name = value.get_string ()
-			self.sync_ui
 				
 			
 def show_preferences(applet, loader, model):

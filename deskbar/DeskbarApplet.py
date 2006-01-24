@@ -242,10 +242,10 @@ class DeskbarApplet:
 		#FIXME: Should we clean up signals and stuff on the old UI?
 			
 		if value.get_string () == deskbar.CUEMIAC_UI_NAME:
-			self.ui = CuemiacUI (self.applet)
+			self.ui = CuemiacUI (self.applet, self.prefs)
 			
 		elif value.get_string () == deskbar.COMPLETION_UI_NAME:
-			self.ui = CompletionDeskbarUI (self.applet)
+			self.ui = CompletionDeskbarUI (self.applet, self.prefs)
 		
 		self.set_up_ui_signals ()
 		self.applet.add (self.ui.get_view())
