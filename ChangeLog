@@ -1,3 +1,11 @@
+2006-01-24  Mikkel Kamstrup Erlandsen  <kamstrup@daimi.au.dk>
+
+	* deskbar/DeskbarHistory.py:
+	Make DeskbarHistory subclass gtk.ListStore and use that
+	as a backend to store the historic matches.
+	A DeskbarHistory object is now itself traversable with a for loop
+	and returns (text,match) pairs on each iteration.
+
 2006-01-24  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/ui/cuemiac/Cuemiac.py:

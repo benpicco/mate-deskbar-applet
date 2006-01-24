@@ -1,18 +1,41 @@
 import cPickle, os
 import gtk, gobject
 from deskbar import MAX_HISTORY, HISTORY_FILE, MAX_RESULTS_PER_HANDLER
-	
-class DeskbarHistory(gobject.GObject):
+
+class DeskbarHistoryIter : 
+	"""An iter type to iterate over a DeskbarHistory.
+	This object is (typically) not used directly.
+	For documentation on iters see: http://docs.python.org/lib/typeiter.html
+	"""
+	def __init__ (self, owner):
+		self.owner = owner
+		self.owner_iter = owner.get_iter_first ()
+		
+	def __iter__ (self):
+		return self
+		
+	def next (self):
+		try:
+			item = self.owner[self.owner_iter][0]
+			self.owner_iter = self.owner.iter_next (self.owner_iter)
+		except TypeError:
+			raise StopIteration
+		return item
+
+class DeskbarHistory (gtk.ListStore) :
 	__gsignals__ = {
 		"changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
 	}
 	
-	def __init__(self):
-		gobject.GObject.__init__ (self)
-		self._history = []
+	def __init__ (self):
+		gtk.ListStore.__init__ (self, gobject.TYPE_PYOBJECT)
+		self.count = 0
 		self._index = -1
-					
-	def load(self, module_list):
+		
+	def __iter__ (self):
+		return DeskbarHistoryIter (self)				
+		
+	def load (self, module_list):
 		print 'Loading History'
 		try:
 			saved_history = cPickle.load(file(HISTORY_FILE))
@@ -37,11 +60,12 @@ class DeskbarHistory(gobject.GObject):
 					
 				match = modctx.module.deserialize(match_class, serialized)
 				if match != None:
-					self.add(text, match)
+					self.append ([(text, match)])
+					self.count = self.count + 1
 		
-	def save(self):
+	def save (self):
 		save = []
-		for text, match in self._history:
+		for text, match in self:
 			hsh = match.get_hash(text)
 			save.append((text, str(match.get_handler().__class__), str(match.__class__), match.serialize()))
 			
@@ -52,13 +76,19 @@ class DeskbarHistory(gobject.GObject):
 			print 'Error:History.save:%s', msg
 		pass
 	
-	def add(self, text, match):
-		for htext, hmatch in self._history:
+	def add (self, text, match):
+		idx = 0
+		for htext, hmatch in self:
 			if (text, match.__class__) == (htext, hmatch.__class__):
-				self._history.remove((htext, hmatch))
+				self.remove (self.get_iter_from_string (str(idx)))
+			idx = idx + 1
 
-		self._history.insert(0, (text, match))
-		self._history = self._history[:MAX_HISTORY]
+		self.prepend ([(text, match)])
+		self.count = self.count + 1
+		if self.count > MAX_HISTORY:
+			# Remove the last element
+			last = self.get_iter_from_string (str(self.count - 1))
+			self.remove (last)
 		self._index = -1
 	
 	def up(self):
@@ -77,18 +107,19 @@ class DeskbarHistory(gobject.GObject):
 			self.emit('changed')
 	
 	def last(self):
-		if len(self._history) == 0:
+		if self.count == 0:
 			return None
-		return self._history[0]
+		last = self.get_iter_from_string (str(self.count - 1))
+		return self[last][0]
 	
 	def get_all_history(self):
-		return self._history
+		return self
 		
 	def get_history(self):
 		if self._index == -1:
 			return None
 		
-		return self._history[self._index]
+		return self[self.get_iter_from_string (str(self._index))][0]
 	
 if gtk.pygtk_version < (2,8,0):
 	gobject.type_register(DeskbarHistory)
