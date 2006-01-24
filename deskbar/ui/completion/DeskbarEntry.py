@@ -139,11 +139,6 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		gobject.idle_add(lambda: self.get_entry().set_text(""))
 				
 	def _on_entry_key_press(self, entry, event):
-		# If the checks above fail and we come here, let's see if it's right to swallow up/down stroke
-		# to avoid the entry losing focus.
-		if (event.keyval == gtk.keysyms.Down or event.keyval == gtk.keysyms.Up) and entry.get_text() == "":
-			return True
-			
 		if event.keyval == gtk.keysyms.Escape:
 			# bind Escape to clear the GtkEntry
 			if not entry.get_text().strip() == "":

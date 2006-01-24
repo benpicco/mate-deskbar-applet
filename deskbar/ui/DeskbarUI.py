@@ -41,9 +41,10 @@ class DeskbarUI (gobject.GObject):
 		"keyboard-shortcut" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_UINT]),
 	}
 	
-	def __init__ (self, applet):
+	def __init__ (self, applet, prefs):
 		gobject.GObject.__init__ (self)
 		self.applet = applet
+		self.prefs = prefs
 	
 	def on_change_orient (self, applet):
 		"""

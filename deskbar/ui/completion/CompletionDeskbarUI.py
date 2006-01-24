@@ -1,24 +1,41 @@
-import gobject, gtk
+import gobject, gtk, gconf, gnomeapplet
 
+import deskbar
 from deskbar.ui.DeskbarUI import DeskbarUI
 from deskbar.ui.completion.DeskbarEntry import DeskbarEntry
 from deskbar.DeskbarHistory import get_deskbar_history
 
 class CompletionDeskbarUI (DeskbarUI):
 	
-	def __init__ (self, applet):
-		DeskbarUI.__init__ (self, applet)
+	def __init__ (self, applet, prefs):
+		DeskbarUI.__init__ (self, applet, prefs)
 		
 		self.entry = DeskbarEntry(self)
 		self.entry.get_evbox().connect("button-press-event", self.on_icon_button_press)
 		self.entry.get_entry().connect("button-press-event", self.on_entry_button_press)
 		
-		self.set_sensitive(False)
+		# Set and retreive entry width from gconf
+		self.config_width = deskbar.GCONF_CLIENT.get_int(self.prefs.GCONF_WIDTH)
+		if self.config_width == None:
+			self.config_width = 20
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
+		
+		# Set and retreive expasoion settings
+		self.config_expand = deskbar.GCONF_CLIENT.get_bool(self.prefs.GCONF_EXPAND)
+		if self.config_expand == None:
+			self.config_expand = False
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
+		
+		# Apply gconf values
+		self.sync_applet_size()
+		
 		try:
 			self.applet.set_background_widget(self.entry)
 		except Exception, msg:
 			print 'Could not set background widget, no transparency:', msg
-			
+		
+		self.applet.set_flags(gtk.CAN_FOCUS)
+		
 	def set_sensitive(self, active):
 		self.entry.get_entry().set_sensitive(active)
 		self.entry.get_evbox().set_sensitive(active)
@@ -41,7 +58,30 @@ class CompletionDeskbarUI (DeskbarUI):
 			return True
 		
 		return False
-		
+	
+	def on_config_width(self, value=None):
+		if value != None and value.type == gconf.VALUE_INT:
+			self.config_width = value.get_int()
+			self.sync_applet_size()
+	
+	def on_config_expand(self, value=None):
+		if value != None and value.type == gconf.VALUE_BOOL:
+			self.config_expand = value.get_bool()
+			self.sync_applet_size()
+
+	def sync_applet_size(self):
+		if self.config_expand:
+			self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR | gnomeapplet.EXPAND_MAJOR)
+		else:
+			self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
+			
+			# Set the new size of the entry
+			if self.applet.get_orient() == gnomeapplet.ORIENT_UP or self.applet.get_orient() == gnomeapplet.ORIENT_DOWN:
+				self.entry.get_entry().set_width_chars(self.config_width)
+			else:
+				self.entry.get_entry().set_width_chars(-1)
+				self.entry.queue_resize()
+				
 	def position_history_menu(self, menu):
 		# Stolen from drivemount applet in gnome-applets/drivemount/drive-button.c:165
 		align_to = self.entry.get_evbox()

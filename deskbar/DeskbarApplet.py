@@ -28,8 +28,7 @@ class DeskbarApplet:
 		
 		self.loader = ModuleLoader (deskbar.MODULES_DIRS)
 		self.loader.connect ("modules-loaded", self.on_modules_loaded)
-		self.loader.load_all_async()
-		
+				
 		self.module_list = ModuleList ()
 		self.loader.connect ("module-loaded", self.module_list.update_row_cb)
 		self.loader.connect ("module-initialized", self.module_list.module_toggled_cb)
@@ -44,16 +43,15 @@ class DeskbarApplet:
 			ui_name = deskbar.COMPLETION_UI_NAME
 			
 		if ui_name == deskbar.COMPLETION_UI_NAME:
-			self.ui = CompletionDeskbarUI (applet)
+			self.ui = CompletionDeskbarUI (applet, self.prefs)
 		elif ui_name == deskbar.CUEMIAC_UI_NAME:
-			self.ui = CuemiacUI (applet)
+			self.ui = CuemiacUI (applet, self.prefs)
 			
 		# Set up the chosen UI
 		self.set_up_ui_signals ()
 		self.ui.set_sensitive (False)
 		self.applet.add(self.ui.get_view ())
-		self.applet.show_all()
-		
+				
 		deskbar.GCONF_CLIENT.notify_add (self.prefs.GCONF_UI_NAME, lambda x, y, z, a: self.on_ui_changed (z.value))
 		
 		# Set and retreive enabled handler list from gconf
@@ -63,15 +61,15 @@ class DeskbarApplet:
 		get_deskbar_keybinder().connect('activated', self.on_keybinding_button_press)
 		
 		self.applet.connect("button-press-event", self.on_applet_button_press)
-		#self.applet.connect('destroy', lambda x: get_deskbar_keybinder().unbind())
 		self.applet.connect('destroy', lambda x: get_deskbar_history().save())
 		self.applet.connect('change-orient', lambda x, orient: self.ui.on_change_orient(applet))
 		self.applet.connect('change-size', lambda x, orient: self.ui.on_change_size(applet))
 		self.applet.setup_menu_from_file (
 			deskbar.SHARED_DATA_DIR, "Deskbar_Applet.xml",
 			None, [("About", self.on_about), ("Prefs", self.on_preferences)])
-			
-		self.applet.set_flags(gtk.CAN_FOCUS)
+		self.applet.show_all()
+		
+		self.loader.load_all_async()
 		
 	def _connect_if_async (self, sender, context):
 		if context.module.is_async():

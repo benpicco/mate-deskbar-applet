@@ -35,6 +35,11 @@ class EntryHistoryManager(gobject.GObject):
 			self.history.down()			
 			return True
 		
+		# If the checks above fail and we come here, let's see if it's right to swallow up/down stroke
+		# to avoid the entry losing focus.
+		if (event.keyval == gtk.keysyms.Down or event.keyval == gtk.keysyms.Up) and entry.get_text() == "":
+			return True
+			
 		return False
 			
 	def _on_history_move(self, history):

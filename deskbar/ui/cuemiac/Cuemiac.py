@@ -636,8 +636,8 @@ class CuemiacUI (DeskbarUI):
 	
 	navigation_keys = [65364, 65362, 43, 45, 65293] # Down, Up, +, -, Enter
 	
-	def __init__ (self, applet):
-		DeskbarUI.__init__ (self, applet)
+	def __init__ (self, applet, prefs):
+		DeskbarUI.__init__ (self, applet, prefs)
 		
 		self.deskbar_button = DeskbarAppletButton (applet)
 		self.deskbar_button.connect ("toggled-main", lambda x,y: self.show_entry())
