@@ -73,6 +73,7 @@ from deskbar.ui.cuemiac.DeskbarAppletButton import DeskbarAppletButton
 from deskbar.ui.cuemiac.CuemiacAlignedWindow import CuemiacAlignedWindow
 from deskbar.ui.cuemiac.CuemiacHistory import CuemiacHistoryPopup
 from deskbar.DeskbarHistory import get_deskbar_history
+from deskbar.ui.EntryHistoryManager import EntryHistoryManager
 
 class Nest :
 	"""
@@ -564,13 +565,20 @@ class CuemiacUI (DeskbarUI):
 		self.scroll_win.add_with_viewport (self.cview)
 		
 		self.box.connect ("size-request", self.adjust_size)
-		self.entry.connect ("changed", self.on_entry_changed)
+		on_entry_changed_id = self.entry.connect ("changed", self.on_entry_changed)
+		
+		# Connect first the history handler then the regular key handler
+		self.history_entry_manager = EntryHistoryManager(self.entry, on_entry_changed_id)
+		self.history_entry_manager.connect('history-set', self.on_history_set)
+		
 		self.entry.connect ("key-press-event", self.on_entry_key_press)
+		self.entry.connect ("activate", self.on_entry_activate)
 		self.cview.connect ("key-press-event", self.on_cview_key_press)
 		self.cview.get_selection().connect ("changed", self.scroll_cview_to_selection)
 		self.cview.connect ("match-selected", self.on_match_selected)
 		self.history_popup.connect ("match-selected", self.on_match_selected)
 		#self.cview.set_vadjustment (self.scroll_win.get_vadjustment())
+		
 		
 		self.screen_height = self.popup.get_screen().get_height ()
 		self.screen_width = self.popup.get_screen().get_width ()
@@ -694,6 +702,7 @@ class CuemiacUI (DeskbarUI):
 		self.popup.resize (w, h)
 		
 	def on_entry_changed (self, entry):
+		self.history.reset()
 		qstring = self.entry.get_text().strip()
 		self.cview.set_query_string (qstring)
 		if qstring == "":
@@ -733,19 +742,38 @@ class CuemiacUI (DeskbarUI):
 			self.cview.grab_focus ()
 			self.cview.set_cursor (self.model.get_path(self.model.get_iter_first()))
 			return True
-			
-		elif event.keyval == 65293: # Enter
-			path, column = self.cview.get_cursor ()
-			iter = self.model.get_iter (path)
-			if iter is None:
-				# No selection, select top element # FIXME do this
-				pass
-			match = model[iter][model.MATCHES]
-			# FIXME check that selection is not cat or nest, and then activate
-				
-		
+
 		return False
 		
+	def on_entry_activate(self, widget):
+		# if we have an active history item, use it
+		if self.history_entry_manager.current_history != None:
+			text, match = self.history_entry_manager.current_history
+			self.on_match_selected(widget, (text, match))
+			return
+			
+		path, column = self.cview.get_cursor ()
+		iter = None
+		if path != None:
+			iter = self.model.get_iter (path)
+			
+		if iter is None:
+			# No selection, select top element # FIXME do this
+			iter = self.model.get_iter_first()
+			iter = self.model.iter_next(iter)
+		#FIXME: this seems broken
+		if iter is None:
+			return
+			
+		# FIXME check that selection is not cat or nest, and then activate			
+		self.on_match_selected(widget, self.model[iter][self.model.MATCHES])
+
+
+	def on_history_set(self, historymanager, set):
+		if not set:
+			#self.entry.set_text("")
+			pass
+			
 	def on_cview_key_press (self, cview, event):
 		# If this is an ordinary keystroke just let the
 		# entry handle it.

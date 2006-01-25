@@ -38,10 +38,12 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		entry = self.get_entry()
 		entry.connect("activate", self._on_entry_activate)
 		on_entry_changed_id = entry.connect("changed", self._on_entry_changed)
-		entry.connect("key-press-event", self._on_entry_key_press)
-	
+			
 		self._history = EntryHistoryManager(self.get_entry(), on_entry_changed_id)
 		self._history.connect('history-set', self.on_history_set)
+		
+		# Connect after the history handler
+		entry.connect("key-press-event", self._on_entry_key_press)
 		
 		# The image showing the matches' icon
 		self._image = gtk.Image()
@@ -127,12 +129,12 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		if self._history.current_history != None:
 			text, match = self._history.current_history
 			self._on_completion_selected (text, match)
-			
-		# When the user hits enter on the entry, we use the first match to do the action
-		iter = self._completion_model.get_iter_first()
-		if iter != None:
-			self._on_completion_selected (self._completion_model[iter][TEXT_COL], self._completion_model[iter][MATCH_COL])
-	
+		else:	
+			# When the user hits enter on the entry, we use the first match to do the action
+			iter = self._completion_model.get_iter_first()
+			if iter != None:
+				self._on_completion_selected (self._completion_model[iter][TEXT_COL], self._completion_model[iter][MATCH_COL])
+		
 	#Clear the entry in a idle call or we segfault
 	def after_match_selection(self):
 		self.get_entry().set_text("")
@@ -193,7 +195,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 					
 	def _on_entry_changed(self, widget, matches=None):
 		self._selected_match_index = -1
-		self._history.history.reset ()	
+		self._history.history.reset ()
 
 		qstring = widget.get_text().strip()
 		if  qstring == "":
@@ -210,7 +212,8 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			text, match = self._history.current_history
 			self._update_icon(icon=match.get_icon())
 		else:
-			self.get_entry().set_text("")
+			#self.get_entry().set_text("")
+			pass
 			
 	def _update_icon(self, iter=None, icon=None):
 		if self._selected_match_index > -1 and len(self._completion_model) > 0:
