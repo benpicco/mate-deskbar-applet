@@ -576,7 +576,8 @@ class CuemiacUI (DeskbarUI):
 		self.cview.connect ("key-press-event", self.on_cview_key_press)
 		self.cview.get_selection().connect ("changed", self.scroll_cview_to_selection)
 		self.cview.connect ("match-selected", self.on_match_selected)
-		self.history_popup.connect ("match-selected", self.on_match_selected)
+		self.history_popup.connect ("match-selected", self.on_match_selected, True)
+		self.history_popup.connect ("key-press-event", self.on_history_key_press)
 		#self.cview.set_vadjustment (self.scroll_win.get_vadjustment())
 		
 		
@@ -598,11 +599,14 @@ class CuemiacUI (DeskbarUI):
 		self.invalid = True
 		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
 		
-	def on_match_selected (self, cview, match):
+	def on_match_selected (self, cview, match, is_historic=False):
 		if match.__class__ == Nest or match.__class__ == CuemiacCategory:
 			return
 		self.emit ("match-selected", match[0], match[1])
-		self.deskbar_button.button_main.set_active (False)
+		if is_historic :
+			self.deskbar_button.button_arrow.set_active (False)
+		else:
+			self.deskbar_button.button_main.set_active (False)
 	
 	def show_entry (self):
 		if self.deskbar_button.get_active_main ():
@@ -648,9 +652,8 @@ class CuemiacUI (DeskbarUI):
 		self.popup.show_all ()
 		
 	def recieve_focus (self):
-		self.deskbar_button.set_active_main (True)
-		self.popup.show_all ()
-		self.entry.grab_focus ()
+		# Toggle expandedness of the popup
+		self.deskbar_button.button_main.set_active (not self.deskbar_button.button_main.get_active())
 	
 	def scroll_cview_to_selection (self, tree_sel):
 		model, iter = tree_sel.get_selected ()
@@ -745,6 +748,10 @@ class CuemiacUI (DeskbarUI):
 
 		return False
 		
+	def on_history_key_press (self, history, event):
+		if event.keyval == gtk.keysyms.Escape:
+			self.deskbar_button.button_arrow.set_active (False)
+			
 	def on_entry_activate(self, widget):
 		# if we have an active history item, use it
 		if self.history_entry_manager.current_history != None:

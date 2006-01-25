@@ -52,17 +52,16 @@ class CuemaicHistoryView (gtk.TreeView):
 		model, iter = self.get_selection().get_selected()
 		match = model[iter][0]
 		self.emit ("match-selected", match)
-		print "click"
 				
 	def __on_key_press (self, widget, event):
-		print "press"
 		model, iter = self.get_selection().get_selected()
 		if iter is None:
 			return False
 		match = model[iter][0]
-		# If this is a category or nest, toggle expansion state
 		if event.keyval == 65293: # enter
 			self.emit ("match-selected", match)
+			return True
+		
 
 class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 
@@ -76,6 +75,7 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 		self.add (view)
 		
 		view.connect ("match-selected", self.on_match_selected)
+		view.connect ("key-press-event", self.on_view_key_press)
 	
 	def show (self):
 		self.update_position ()
@@ -86,9 +86,10 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 		CuemiacAlignedWindow.show_all (self)
 		
 	def on_match_selected (self, sender, match):
-		print sender, match
-		self.hide()
 		self.emit ("match-selected", match)
+
+	def on_view_key_press (self, view, event):
+		self.emit ("key-press-event", event)
 		
 if gtk.pygtk_version < (2,8,0):	
 	gobject.type_register (CuemiacHistoryView)
