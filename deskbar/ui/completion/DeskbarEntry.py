@@ -193,7 +193,8 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 					
 	def _on_entry_changed(self, widget, matches=None):
 		self._selected_match_index = -1
-		
+		self._history.history.reset ()	
+
 		qstring = widget.get_text().strip()
 		if  qstring == "":
 			#Reset default icon

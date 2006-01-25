@@ -102,7 +102,9 @@ class ModuleList (gtk.ListStore):
 		Callback to toggle the enabled state of the context.
 		"""
 		self[self.get_position_from_context(context)[0]][self.ENABLED_COL] = context.enabled
-		
+
+gobject.type_register(ModuleList)
+
 class ModuleListIter : 
 	"""An iter type to iterate over the of *enabled* module contexts in a ModuleList object.
 	This object is (typically) not used directly. See the documentation for ModuleList.

@@ -355,7 +355,6 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
 		else:
 			raise AttributeError, 'unknown property %s' % property.name
 		
-
 class CuemiacTreeView (gtk.TreeView):
 	"""
 	Shows a DeskbarCategoryModel. Sets the background of the root nodes (category headers)
@@ -857,7 +856,10 @@ class CuemiacUI (DeskbarUI):
 			#self.cview.scroll_to_cell (path)
 			#print "scroll"
 		return False		
-		
-if gtk.pygtk_version < (2,8,0):	
-	gobject.type_register (CuemiacUI)
 
+gobject.type_register (CuemiacUI)
+gobject.type_register (CuemiacAlignedWindow)
+if gtk.pygtk_version < (2,8,0):	
+	gobject.type_register (CuemiacTreeView)
+	gobject.type_register (CellRendererCuemiacCategory)
+	gobject.type_register (CuemiacModel)

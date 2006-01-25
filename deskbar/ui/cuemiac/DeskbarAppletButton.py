@@ -68,6 +68,7 @@ class DeskbarAppletButton (gtk.HBox):
 			return False
 			
 		if event.button != 1:
+			print 'Got middle click'
 			self.applet.emit("button-press-event", event)
 			return True
 		
@@ -144,7 +145,9 @@ class DeskbarAppletButton (gtk.HBox):
 		
 		if reshow:
 			self.show_all ()
-
+			
+if gtk.pygtk_version < (2,8,0):			
+	gobject.type_register(DeskbarAppletButton)
 			
 if __name__ == "__main__":
 	button = DeskbarAppletButton (gnomeapplet.ORIENT_RIGHT)
