@@ -12,15 +12,13 @@
 #   As long as categories are static it might also be a good idea to include a few generic'ish,
 #   like "info" or something, for custom handlers..?
 #
-# - (TRIVIAL) Handlers don't need "prefixes" like "Google Live:" or "Open news item", also adjust
-#   max hits per handler (especially beagle-live should return a skazillion hits)
+# - (TRIVIAL) Adjust max hits per handler (especially beagle-live should return a skazillion hits)
 #
 # - Use icon entry instead of normal gtk.Entry (and update the icon correctly)
 #
-# - Always make sure that the selection is visible in scrolled windows. gtk.TreeView has an api
-#   for this, but I can't get it to work.
-#
 # - Focus _entry_ on Alt-F3
+#
+# - Middle click on the deskbar button should open the search, paste in the entry, focus the entry, and perform the search.
 #
 # Would be really really nice:
 #
