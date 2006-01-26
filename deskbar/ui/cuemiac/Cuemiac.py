@@ -16,6 +16,9 @@
 #
 # - Use icon entry instead of normal gtk.Entry (and update the icon correctly)
 #
+# - Put some kind of border around the Cuemiac popup and history popup
+#
+#
 # Would be really really nice:
 #
 # - (MEDIUM) User defined (non-static) categories *WITHOUT PERFOMANCE HIT*
@@ -28,6 +31,7 @@
 #   Should probably check the window.gravity and construct the popup window according to that;
 #   - ie. entry at bottom, hits on top, for applets in lower half of the screen, and vice versa
 #   for applets in the top half (this can be read frm the CuemiacAlignedWindow.gravity).
+#
 #
 # Bonus features/Ideas
 #
@@ -535,12 +539,16 @@ class CuemiacUI (DeskbarUI):
 	def __init__ (self, applet, prefs):
 		DeskbarUI.__init__ (self, applet, prefs)
 		
+		self.default_entry_pixbuf = deskbar.Utils.load_icon("deskbar-applet-small.png")
+		
 		self.deskbar_button = DeskbarAppletButton (applet)
 		self.deskbar_button.connect ("toggled-main", lambda x,y: self.show_entry())
 		self.deskbar_button.connect ("toggled-arrow", lambda x,y: self.show_history())
 
 		self.popup = CuemiacAlignedWindow (self.deskbar_button.button_main, applet.get_orient())
-		self.entry = gtk.Entry()
+		self.icon_entry = deskbar.iconentry.IconEntry ()
+		self.entry = self.icon_entry.get_entry ()
+		self.entry_icon = gtk.Image ()
 		self.history = get_deskbar_history ()
 		self.history_popup = CuemiacHistoryPopup (self.history, self.deskbar_button.button_arrow, applet.get_orient ())
 		self.model = CuemiacModel ()
@@ -553,6 +561,8 @@ class CuemiacUI (DeskbarUI):
 			
 		self.popup.add (self.box)
 		self.scroll_win.add(self.cview)
+		self.icon_entry.pack_widget (self.entry_icon, True)
+		self.entry_icon.set_property('pixbuf', self.default_entry_pixbuf)
 		
 		self.box.connect ("size-request", lambda box, event: self.adjust_popup_size())
 		on_entry_changed_id = self.entry.connect ("changed", self.on_entry_changed)
@@ -562,12 +572,13 @@ class CuemiacUI (DeskbarUI):
 		self.history_entry_manager.connect('history-set', self.on_history_set)
 		
 		self.entry.connect ("key-press-event", self.on_entry_key_press)
+		self.entry.connect_after ("changed", lambda entry : self.update_entry_icon())
 		self.entry.connect ("activate", self.on_entry_activate)
 		self.cview.connect ("key-press-event", self.on_cview_key_press)
 		self.cview.connect ("match-selected", self.on_match_selected)
+		self.cview.connect_after ("cursor-changed", lambda treeview : self.update_entry_icon())
 		self.history_popup.connect ("match-selected", self.on_match_selected, True)
-		self.history_popup.connect ("key-press-event", self.on_history_key_press)
-		
+		self.history_popup.connect ("key-press-event", self.on_history_key_press)		
 		
 		self.screen_height = self.popup.get_screen().get_height ()
 		self.screen_width = self.popup.get_screen().get_width ()
@@ -575,7 +586,7 @@ class CuemiacUI (DeskbarUI):
 		self.max_window_width = int (0.4 * self.screen_width)
 
 		self.box.show ()
-		self.entry.show ()
+		self.icon_entry.show_all ()
 		
 		self.set_sensitive(False)
 		try:
@@ -584,9 +595,24 @@ class CuemiacUI (DeskbarUI):
 			print 'Could not set background widget, no transparency:', msg
 		
 		self.invalid = True
+		
 		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
 		self.applet.set_flags(gtk.CAN_FOCUS)
 		
+	def update_entry_icon (self):
+		path, column = self.cview.get_cursor ()
+		
+		if path is None:
+			self.entry_icon.set_property('pixbuf', self.default_entry_pixbuf)
+			
+		else:
+			item = self.model[self.model.get_iter(path)][self.model.MATCHES]
+			if item.__class__ == CuemiacCategory or item.__class__ == Nest:
+				self.entry_icon.set_property('pixbuf', self.default_entry_pixbuf)
+			else:
+				text, match = item
+				self.entry_icon.set_property('pixbuf', match.get_icon())
+	
 	def on_match_selected (self, cview, match, is_historic=False):
 		if match.__class__ == Nest or match.__class__ == CuemiacCategory:
 			return
@@ -604,7 +630,8 @@ class CuemiacUI (DeskbarUI):
 			self.popup.update_position ()
 			self.adjust_popup_size ()
 			self.popup.show ()
-			self.entry.grab_focus ()
+			self.icon_entry.grab_focus ()
+			self.update_entry_icon ()
 		else:
 			self.popup.hide ()
 			self.emit ("stop-query")
@@ -652,8 +679,8 @@ class CuemiacUI (DeskbarUI):
 	def recieve_focus (self):
 		# Toggle expandedness of the popup
 		self.deskbar_button.button_main.set_active (not self.deskbar_button.button_main.get_active())
-		self.entry.grab_focus()
-		
+		self.icon_entry.grab_focus ()
+
 	def set_layout_by_orientation (self, orient, reshow=True, setup=False):
 		"""orient should be a gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}.
 		reshow indicates whether or not the widget should call show() on all
@@ -664,7 +691,7 @@ class CuemiacUI (DeskbarUI):
 			self.box.remove (self.scroll_win)
 		
 		if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
-			self.box.pack_start (self.entry, False)
+			self.box.pack_start (self.icon_entry, False)
 			self.box.pack_start (self.scroll_win)
 			self.cview.append_method = gtk.TreeStore.append
 			if orient == gnomeapplet.ORIENT_DOWN:
@@ -674,9 +701,9 @@ class CuemiacUI (DeskbarUI):
 		else:
 			# We are at a bottom panel. Put entry on bottom, and prepend matches (instead of append).
 			self.box.pack_start (self.scroll_win)
-			self.box.pack_start (self.entry, False)
+			self.box.pack_start (self.icon_entry, False)
 			self.cview.append_method = gtk.TreeStore.prepend
-			self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-horiz.svg"))
+			self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-horiz.svg"), self.applet.get_size ())
 			
 		# Update the DeskbarAppletButton accordingly
 		self.deskbar_button.set_orientation (orient, reshow)
@@ -692,7 +719,7 @@ class CuemiacUI (DeskbarUI):
 		"""adjust window size to the size of the children"""
 		# FIXME: Should we handle width intelligently also?
 		w, h = self.cview.size_request ()
-		h = h + self.entry.allocation.height + 4 # To ensure we don't always show scrollbars
+		h = h + self.icon_entry.allocation.height + 4 # To ensure we don't always show scrollbars
 		h = min (h, self.max_window_height)
 		w = min (w, self.max_window_width)
 		if w > 0 and h > 0:
@@ -747,6 +774,7 @@ class CuemiacUI (DeskbarUI):
 	def on_history_key_press (self, history, event):
 		if event.keyval == gtk.keysyms.Escape:
 			self.deskbar_button.button_arrow.set_active (False)
+		self.update_entry_icon ()
 			
 	def on_entry_activate(self, widget):
 		# if we have an active history item, use it
