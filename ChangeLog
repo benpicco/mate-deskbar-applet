@@ -1,3 +1,13 @@
+2006-01-27  Mikkel Kamstrup Erlandsen  <kamstrup@daimi.au.dk>
+
+	* deskbar/ui/cuemiac/Cuemiac.py:
+	* deskbar/ui/cuemiac/CuemiacAlignedWindow.py:
+	Correct mistakes introduced in fixing bug #328661.
+	FOR THE RECORD: CuemiacAlignedWindow is moved with update_position()
+	before show() is called on it. Therefore it has to be realized before
+	we can use all its widget properties.
+	Add 1 pixel border to both entry and history popups.
+
 2006-01-27  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/Categories.py:

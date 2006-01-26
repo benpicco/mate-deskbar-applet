@@ -25,14 +25,18 @@ class CuemiacAlignedWindow (gtk.Window):
 		
 		self.widgetToAlignWith = widgetToAlignWith
 		self.alignment = alignment
+
+		self.is_realized = False
+		self.connect ("realize", lambda win : self.__register_realize ())
 		
-		self.connect_after('realize', self.update_position)
-		
-	def update_position (self, widget):
+	def update_position (self):
 		"""
 		Calculates the position and moves the window to it.
 		IMPORATNT: widgetToAlignWith should be realized!
 		"""
+		if not self.is_realized:
+			self.realize ()
+			
 		# Get our own dimensions & position
 		window_width  = (self.window.get_geometry())[2]
 	   	window_height = (self.window.get_geometry())[3]
@@ -98,5 +102,8 @@ class CuemiacAlignedWindow (gtk.Window):
 		
 		self.move(x, y)
 		self.set_gravity(gravity)
-				
+	
+	def __register_realize (self):
+		self.is_realized = True
+		
 gobject.type_register (CuemiacAlignedWindow)

@@ -564,6 +564,9 @@ class CuemiacUI (DeskbarUI):
 		self.icon_entry.pack_widget (self.entry_icon, True)
 		self.entry_icon.set_property('pixbuf', self.default_entry_pixbuf)
 		
+		self.popup.set_border_width (1)
+		self.history_popup.set_border_width (1)
+		
 		self.box.connect ("size-request", lambda box, event: self.adjust_popup_size())
 		on_entry_changed_id = self.entry.connect ("changed", self.on_entry_changed)
 		
@@ -628,8 +631,9 @@ class CuemiacUI (DeskbarUI):
 				self.model.clear ()
 				self.scroll_win.hide ()
 			self.adjust_popup_size ()
+			self.popup.update_position ()
 			self.popup.show ()
-			self.icon_entry.grab_focus ()
+			self.entry.grab_focus ()
 			self.update_entry_icon ()
 		else:
 			self.popup.hide ()
@@ -637,6 +641,7 @@ class CuemiacUI (DeskbarUI):
 	
 	def show_history (self):
 		if self.deskbar_button.get_active_arrow ():
+			self.history_popup.update_position ()
 			self.history_popup.show_all ()
 		else:
 			self.history_popup.hide ()

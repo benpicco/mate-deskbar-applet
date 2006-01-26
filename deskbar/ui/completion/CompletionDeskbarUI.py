@@ -1,5 +1,5 @@
 import gobject, gtk, gconf, gnomeapplet
-
+from gettext import gettext as _
 import deskbar
 from deskbar.ui.DeskbarUI import DeskbarUI
 from deskbar.ui.completion.DeskbarEntry import DeskbarEntry
