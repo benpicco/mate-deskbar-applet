@@ -20,9 +20,7 @@
 # - Always make sure that the selection is visible in scrolled windows. gtk.TreeView has an api
 #   for this, but I can't get it to work.
 #
-# - Implement history popup
-#
-# - Focus entry on Alt-F3
+# - Focus _entry_ on Alt-F3
 #
 # Would be really really nice:
 #
@@ -554,17 +552,15 @@ class CuemiacUI (DeskbarUI):
 		self.model = CuemiacModel ()
 		self.cview = CuemiacTreeView (self.model)
 		self.scroll_win = gtk.ScrolledWindow ()
-		
-		#self.scroll_win = gtk.ScrolledWindow (hadjustment=cview.get_hadjustment())
 		self.scroll_win.set_policy (gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)	
 		self.box = gtk.VBox ()
 		
 		self.set_layout_by_orientation (applet.get_orient(), reshow=False, setup=True)
 			
 		self.popup.add (self.box)
-		self.scroll_win.add_with_viewport (self.cview)
+		self.scroll_win.add(self.cview)
 		
-		self.box.connect ("size-request", self.adjust_size)
+		self.box.connect ("size-request", lambda box, event: self.adjust_popup_size())
 		on_entry_changed_id = self.entry.connect ("changed", self.on_entry_changed)
 		
 		# Connect first the history handler then the regular key handler
@@ -574,11 +570,9 @@ class CuemiacUI (DeskbarUI):
 		self.entry.connect ("key-press-event", self.on_entry_key_press)
 		self.entry.connect ("activate", self.on_entry_activate)
 		self.cview.connect ("key-press-event", self.on_cview_key_press)
-		self.cview.get_selection().connect ("changed", self.scroll_cview_to_selection)
 		self.cview.connect ("match-selected", self.on_match_selected)
 		self.history_popup.connect ("match-selected", self.on_match_selected, True)
 		self.history_popup.connect ("key-press-event", self.on_history_key_press)
-		#self.cview.set_vadjustment (self.scroll_win.get_vadjustment())
 		
 		
 		self.screen_height = self.popup.get_screen().get_height ()
@@ -586,7 +580,6 @@ class CuemiacUI (DeskbarUI):
 		self.max_window_height = int (0.6 * self.screen_height)
 		self.max_window_width = int (0.4 * self.screen_width)
 
-		self.deskbar_button.realize ()
 		self.box.show ()
 		self.entry.show ()
 		
@@ -610,12 +603,14 @@ class CuemiacUI (DeskbarUI):
 	
 	def show_entry (self):
 		if self.deskbar_button.get_active_main ():
+			if self.entry.get_text().strip() == "":
+				self.model.clear ()
+				self.scroll_win.hide ()
 			self.popup.update_position ()
+			self.adjust_popup_size ()
 			self.popup.show ()
 			self.entry.grab_focus ()
 		else:
-			if self.entry.get_text().strip() == "":
-				self.scroll_win.hide ()
 			self.popup.hide ()
 			self.emit ("stop-query")
 	
@@ -655,12 +650,6 @@ class CuemiacUI (DeskbarUI):
 		# Toggle expandedness of the popup
 		self.deskbar_button.button_main.set_active (not self.deskbar_button.button_main.get_active())
 	
-	def scroll_cview_to_selection (self, tree_sel):
-		model, iter = tree_sel.get_selected ()
-		if iter is None:
-			return
-		tree_sel.get_tree_view().scroll_to_cell (model.get_path (iter))
-	
 	def set_layout_by_orientation (self, orient, reshow=True, setup=False):
 		"""orient should be a gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}.
 		reshow indicates whether or not the widget should call show() on all
@@ -695,14 +684,17 @@ class CuemiacUI (DeskbarUI):
 		if reshow:
 			self.box.show_all ()
 		
-	def adjust_size (self, child, event):
+	def adjust_popup_size (self):
 		"""adjust window size to the size of the children"""
 		# FIXME: Should we handle width intelligently also?
 		w, h = self.cview.size_request ()
 		h = h + self.entry.allocation.height + 4 # To ensure we don't always show scrollbars
 		h = min (h, self.max_window_height)
 		w = min (w, self.max_window_width)
-		self.popup.resize (w, h)
+		if w > 0 and h > 0:
+			self.popup.resize (w, h)
+		else:
+			print "Deskbar Warning: tried to set window size to (%s, %s)" % (w, h)
 		
 	def on_entry_changed (self, entry):
 		self.history.reset()
@@ -797,10 +789,7 @@ class CuemiacUI (DeskbarUI):
 		elif model.paths_equal (path, cview.last_visible_path()):
 			if event.keyval == 65364: # Down
 				gobject.timeout_add (1, lambda : self.entry.grab_focus ())
-		else:
-			pass
-			#self.cview.scroll_to_cell (path)
-			#print "scroll"
+
 		return False		
 
 gobject.type_register (CuemiacUI)
