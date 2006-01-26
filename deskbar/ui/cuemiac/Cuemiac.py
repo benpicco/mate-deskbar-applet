@@ -627,7 +627,6 @@ class CuemiacUI (DeskbarUI):
 			if self.entry.get_text().strip() == "":
 				self.model.clear ()
 				self.scroll_win.hide ()
-			self.popup.update_position ()
 			self.adjust_popup_size ()
 			self.popup.show ()
 			self.icon_entry.grab_focus ()

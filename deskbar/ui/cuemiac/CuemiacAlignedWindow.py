@@ -26,10 +26,9 @@ class CuemiacAlignedWindow (gtk.Window):
 		self.widgetToAlignWith = widgetToAlignWith
 		self.alignment = alignment
 		
-		self.realize()
-		gtk.gdk.flush()
-
-	def update_position (self):
+		self.connect_after('realize', self.update_position)
+		
+	def update_position (self, widget):
 		"""
 		Calculates the position and moves the window to it.
 		IMPORATNT: widgetToAlignWith should be realized!
