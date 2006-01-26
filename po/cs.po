@@ -1,5 +1,6 @@
-# Czech translation of deskbar-applet.
+# Czech translation of gnome-2.14
 # Copyright (C) 2006 THE deskbar-applet'S COPYRIGHT HOLDER
+# Copyright (C) 2006 Lukas Novotny <lukasnov@cvs.gnome.org>
 # This file is distributed under the same license as the deskbar-applet package.
 # Lukas Novotny <lukasnov@cvs.gnome.org>, 2006.
 # 
@@ -7,23 +8,24 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet 0.8.9\n"
+"Project-Id-Version: deskbar-applet 0.9.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-20 13:33+0100\n"
-"PO-Revision-Date: 2006-01-20 22:17+0100\n"
+"POT-Creation-Date: 2006-01-25 21:12+0100\n"
+"PO-Revision-Date: 2006-01-25 22:01+0100\n"
 "Last-Translator: Lukas Novotny <lukasnov@cvs.gnome.org>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
 msgstr "Lišta pro více činností v jednom"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:23
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
 msgid "Deskbar"
-msgstr ""
+msgstr "Deskbar"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -34,51 +36,80 @@ msgid "_Preferences"
 msgstr "_Předvolby"
 
 #: ../data/prefs-dialog.glade.h:1
-msgid "<b>Keyboard Shortcut</b>"
-msgstr "<b>Klávesové zkratky</b>"
+#, fuzzy
+msgid "<b>Focus</b>"
+msgstr "<b>Zájem</b>"
 
 #: ../data/prefs-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Layout</b>"
+msgstr "<b>Šířka</b>"
+
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Loaded Extensions</b>"
 msgstr "<b>Načíst rozšíření</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
 msgid "<b>Width</b>"
 msgstr "<b>Šířka</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:5
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
 msgstr ""
-"<i><small><b>Poznámka:</b>·Uchopte rozšíření myši a poté pusťte pro změnu jejich uspořádání.</"
-"small></i>"
+"<i><small><b>Poznámka:</b>·Uchopte rozšíření myši a poté pusťte pro změnu "
+"jejich uspořádání.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:6
+#, fuzzy
+msgid "Button in panel with grouped list"
+msgstr "Tlačítko v panelu se seskupeným seznamem"
+
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Předvolby aplikace Deskbar"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:8
+#, fuzzy
+msgid "Entry in panel with flat list"
+msgstr "Položka v panelu s plochým seznamem"
+
+#: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
 msgstr "_Maximálně:"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:10
+msgid "Searches"
+msgstr "Hledám"
+
+#: ../data/prefs-dialog.glade.h:11
 msgid "Use _all available space"
 msgstr "Použít _všechnu dostupnou šířku"
 
-#: ../data/prefs-dialog.glade.h:8
-msgid "Use the _keyboard shortcut:"
+#: ../data/prefs-dialog.glade.h:12
+msgid "View"
+msgstr "Zobrazit"
+
+#: ../data/prefs-dialog.glade.h:13
+#, fuzzy
+msgid "_Keyboard shortcut to focus:"
 msgstr "Použít za pomocí _klávesové zkratky:"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:14
 msgid "characters"
 msgstr "znaků"
 
 #: ../data/smart-bookmarks.glade.h:1
+#, fuzzy
 msgid ""
 "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
+"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
 msgstr ""
+"<i><small><b>Poznámka:·</b>jestliže klávesová zkratka se skládá z jednoho "
+"znaku (třeba <b>t</b>) můžete také jenom napsat \"<b>something</b>\" a potom "
+"stiskněte <b>Ctrl-t</b> v aplikaci Deskbar.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
@@ -86,79 +117,261 @@ msgid ""
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
 msgstr ""
+"<i><small><b>Poznámka:</b>·K použití klávesové zkratky (například <b>wp</b>)"
+"pro vyhledání výrazu <b>something</b>, napište \"<b>wp·something</b>\" v "
+"apliakci Deskbar</small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
-msgstr ""
+msgstr "Vyhledá klávesové zkratky v záložkách"
 
-#: ../deskbar/about.py:26
-msgid "An all-in-one action bar."
-msgstr "Lišta pro více činností v jednom."
+#: ../deskbar/BrowserMatch.py:30
+#, python-format
+msgid "Open History Item %s"
+msgstr "Otevřít položku historie %s"
 
-#: ../deskbar/about.py:29
-msgid "Deskbar Website"
-msgstr "Domovská stránka aplikace Deskbar"
+#: ../deskbar/BrowserMatch.py:32
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "Otevřít záložku %s"
 
-#. about.set_artists([])
-#. about.set_documenters([])
-#. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/about.py:37
-msgid "translator-credits"
-msgstr "Novotný Lukáš <lukasnov@cvs.gnome.org>"
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/BrowserMatch.py:81
+#, python-format
+#, fuzzy
+msgid "Search <b>%name</b> for <i>%text</i>"
+msgid_plural "Search <b>%name</b> for <i>%text</i>"
+msgstr[0] "Vyhledá <b>%službu</b>·for·<i>%text</i>"
+msgstr[1] "Vyhledá <b>%služby</b>·for·<i>%texty</i>"
+msgstr[2] "Vyhledá <b>%služeb</b>·for·<i>%textů</i>"
 
-#: ../deskbar/applet.py:311
-msgid "No History"
-msgstr "Žádná dostupná historie"
+#: ../deskbar/BrowserMatch.py:187
+msgid "Shortcut"
+msgstr "Klávesová zkratka"
+
+#: ../deskbar/BrowserMatch.py:195
+msgid "Bookmark Name"
+msgstr "Název záložky"
+
+#: ../deskbar/Categories.py:11
+msgid "Files"
+msgstr "Soubory"
+
+#: ../deskbar/Categories.py:12
+#, python-format
+msgid "%s more file"
+msgid_plural "%s more files"
+msgstr[0] "%s e-mail"
+msgstr[1] "%s e-mailů"
+msgstr[2] "%s e-mailů"
+
+#: ../deskbar/Categories.py:16
+msgid "Actions"
+msgstr "Akce"
+
+#: ../deskbar/Categories.py:17
+#, python-format
+#, fuzzy
+msgid "%s more action"
+msgid_plural "%s more actions"
+msgstr[0] "%s akce"
+msgstr[1] "%s akcí"
+msgstr[2] "%s akcí"
+
+#: ../deskbar/Categories.py:21
+#, fuzzy
+msgid "News"
+msgstr "Zpravodajství"
+
+#: ../deskbar/Categories.py:22
+#, fuzzy, python-format
+msgid "%s more news item"
+msgid_plural "%s more news items"
+msgstr[0] "Otevřít položku %s zpravodajství"
+msgstr[1] "Otevřít položky %s zpravodajství"
+msgstr[2] "Otevřít položky %s zpravodajství"
+
+#: ../deskbar/Categories.py:26
+msgid "Contacts"
+msgstr "Kontakty"
+
+#: ../deskbar/Categories.py:27
+#, python-format
+#, fuzzy
+msgid "%s more contact"
+msgid_plural "%s more contacts"
+msgstr[0] "%s kontakt"
+msgstr[1] "%s kontakty"
+msgstr[2] "%s kontakty"
+
+#: ../deskbar/Categories.py:31
+msgid "Emails"
+msgstr "E-maily"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more email"
+msgid_plural "%s more emails"
+msgstr[0] "%s e-mail"
+msgstr[1] "%s e-maily"
+msgstr[2] "%s e-maily"
+
+#: ../deskbar/Categories.py:36
+msgid "Notes"
+msgstr "Poznámky"
+
+#: ../deskbar/Categories.py:37
+#, python-format
+msgid "%s more note"
+msgid_plural "%s more notes"
+msgstr[0] "%s poznámka"
+msgstr[1] "%s poznámky"
+msgstr[2] "%s poznámky"
+
+#: ../deskbar/Categories.py:41
+#, fuzzy
+msgid "Volumes"
+msgstr "Hlasitosti"
+
+#: ../deskbar/Categories.py:42
+#, python-format
+#, fuzzy
+msgid "%s more volume"
+msgid_plural "%s more volumes"
+msgstr[0] "%s hlasitost"
+msgstr[1] "%s více hlasitosti"
+msgstr[2] "%s více hlasitosti"
+
+#: ../deskbar/Categories.py:46
+#, fuzzy
+msgid "Google Search"
+msgstr "Google Vyhledávání"
+
+#: ../deskbar/Categories.py:47
+#, python-format
+#, fuzzy
+msgid "%s more online hit"
+msgid_plural "%s more online hits"
+msgstr[0] "%s online hit"
+msgstr[1] "%s online hity"
+msgstr[2] "%s online hity"
+
+#: ../deskbar/Categories.py:51
+msgid "Calendar"
+msgstr "Kalendář"
+
+#: ../deskbar/Categories.py:52
+#, python-format
+#, fuzzy
+msgid "%s more calendar item"
+msgid_plural "%s more calendar items"
+msgstr[0] "%s položka kalendáře"
+msgstr[1] "%s položky kalendáře"
+msgstr[2] "%s položky kalendáře"
+
+#: ../deskbar/Categories.py:56
+msgid "Conversation"
+msgstr "Konverzace"
+
+#: ../deskbar/Categories.py:57
+#, fuzzy, python-format
+msgid "%s more conversation"
+msgid_plural "%s more conversations"
+msgstr[0] "Zobrazit konverzaci s %s"
+msgstr[1] "Zobrazit konverzace s %s"
+msgstr[2] "Zobrazit konverzace s %s"
+
+#: ../deskbar/Categories.py:61
+msgid "Web Browser"
+msgstr "Webový prohlížeč"
+
+#: ../deskbar/Categories.py:62
+#, python-format
+msgid "%s more item"
+msgid_plural "%s more items"
+msgstr[0] "%s položka"
+msgstr[1] "%s položky"
+msgstr[2] "%s položky"
+
+#: ../deskbar/Categories.py:66 ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Programy"
+
+#: ../deskbar/Categories.py:67
+#, python-format
+#, fuzzy
+msgid "%s more program"
+msgid_plural "%s more programs"
+msgstr[0] "%s program"
+msgstr[1] "%s programů"
+msgstr[2] "%s programy"
+
+#: ../deskbar/Categories.py:71
+#, fuzzy
+msgid "Debug"
+msgstr "Ladit program"
+
+#: ../deskbar/Categories.py:72
+#, python-format
+#, fuzzy
+msgid "%s more debugging handler"
+msgid_plural "%s more debugging handlers"
+msgstr[0] "%s odlaďuji zařízení"
+msgstr[1] "%s odlaďuji zařízení"
+msgstr[2] "%s odlaďuji zařízení"
 
 #: ../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
-msgstr ""
+msgstr "Beagle Live"
 
 #: ../deskbar/handlers/beagle-live.py:20
 msgid "Search all of your documents (using Beagle), as you type"
-msgstr ""
+msgstr "Vyhledá všechny dokumenty (aplikací·Beagle), během psaní"
 
 #: ../deskbar/handlers/beagle-live.py:47
 #, python-format
 msgid "Addressbook entry for %s"
-msgstr ""
+msgstr "Položka databáze kontaktů %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
 #: ../deskbar/handlers/beagle-live.py:56
 #, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr ""
+msgid "View email from <i>%sender</i>: <b>%name</b>"
+msgid_plural "View email from <i>%senders</i>: <b>%names</b>"
+msgstr[0] "Zobrazí e-mail od <i>odesílatele %</i>: s <b>předmětem %</b>"
+msgstr[1] "Zobrazí e-mail od <i>odesílatelů %</i>: s <b>předměty %</b>"
+msgstr[2] "Zobrazí e-mail od <i>odesílatelů %</i>: s <b>předměty %</b>"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
 #, python-format
 msgid "Open %s"
-msgstr ""
+msgstr "Otevřít %s"
 
 #: ../deskbar/handlers/beagle-live.py:69
 #, python-format
 msgid "Open news item %s"
-msgstr ""
+msgstr "Otevřít položku %s diskusních skupin"
 
 #: ../deskbar/handlers/beagle-live.py:76
 #, python-format
 msgid "Open note %s"
-msgstr ""
+msgstr "Otevřít poznámku %s"
 
 #: ../deskbar/handlers/beagle-live.py:82
 #, python-format
 msgid "View conversation with %s"
-msgstr ""
+msgstr "Zobrazit konverzaci s %s"
 
 #: ../deskbar/handlers/beagle-live.py:88
 #, python-format
 msgid "View calendar %s"
-msgstr ""
+msgstr "Zobrazit kalendář %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:205
-#: ../deskbar/handlers/beagle-live.py:217
+#: ../deskbar/handlers/beagle-live.py:223
+#: ../deskbar/handlers/beagle-live.py:242
 msgid "?"
 msgstr "?"
 
@@ -170,48 +383,27 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Vyhledá všechny dokumenty (za použití aplikace Beagle)"
 
-#: ../deskbar/handlers/beagle.py:33
+#: ../deskbar/handlers/beagle.py:36
 #, python-format
 msgid "Search for %s using Beagle"
-msgstr ""
-
-#: ../deskbar/handlers_browsers.py:29
-#, python-format
-msgid "Open History Item %s"
-msgstr ""
-
-#: ../deskbar/handlers_browsers.py:31
-#, python-format
-msgid "Open Bookmark %s"
-msgstr ""
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:64
-#, python-format
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr ""
-
-#: ../deskbar/handlers_browsers.py:171
-msgid "Shortcut"
-msgstr ""
-
-#: ../deskbar/handlers_browsers.py:179
-msgid "Bookmark Name"
-msgstr ""
+msgstr "Vyhledá %s aplikací Beagle"
 
 #: ../deskbar/handlers/email_address.py:9
 msgid "Mail"
 msgstr "Pošta"
 
 #: ../deskbar/handlers/email_address.py:10
-#, fuzzy
 msgid "Send mail by typing a complete e-mail address"
-msgstr "xxx"
+msgstr "Vloží do e-mailu kontakt podle vepsané kompletní e-mailové adrese"
 
-#: ../deskbar/handlers/email_address.py:26 ../deskbar/handlers/galago.py:26
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
-msgstr ""
+msgstr "Odeslat e-mail pro %s"
+
+#: ../deskbar/handlers/epiphany.py:26
+msgid "You can set shortcuts for your searches."
+msgstr "Můžete nastavit klávesové zkratky pro vaše hledání."
 
 #: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
 #: ../deskbar/handlers/mozilla.py:33
@@ -225,11 +417,11 @@ msgstr "Otevře vaše webové záložky podle jména"
 
 #: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
 msgid "Web History"
-msgstr ""
+msgstr "Historie webových stránek"
 
 #: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
 msgid "Open your web history by name"
-msgstr ""
+msgstr "Otevře historii webových stránek podle jména"
 
 #: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
 #: ../deskbar/handlers/mozilla.py:38
@@ -239,15 +431,18 @@ msgstr "Vyhledat webové stránky"
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
 #: ../deskbar/handlers/mozilla.py:39
 msgid "Search the web via your browser's search settings"
-msgstr "Vyhledá webovou stránku za pomocí vyhledávacího modulu vašeho prohlížeče"
+msgstr ""
+"Vyhledá webovou stránku za pomocí vyhledávacího modulu vašeho prohlížeče"
 
 #: ../deskbar/handlers/evolution.py:11
 msgid "You need to enable autocomplete in your mail preferences"
 msgstr ""
+"Nemáte povoleno automatické dokončování adres v předvolbách vašeho "
+"poštovního programu"
 
 #: ../deskbar/handlers/evolution.py:13
 msgid "Autocompletion Needs to be Enabled"
-msgstr ""
+msgstr "Automatické dokončování musí být dostupné"
 
 #: ../deskbar/handlers/evolution.py:14
 msgid ""
@@ -255,21 +450,29 @@ msgid ""
 "autocompletion is enabled.  To do this, from your mail program's menu, "
 "choose Edit - Preferences, and then Autocompletion."
 msgstr ""
+"Nemůžeme vyhledávat e-mailové adresy ve vašem adresáři kontaktů pokud není "
+"automatické dokončování povoleno.  Proto, ve vašem poštovním programu "
+"vyberte v menu položky Úpravy - Předvolby a zde vyberte volbu automatického "
+"doplňování."
 
 #: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
 msgstr "Pošta (adresář kontaktů)"
 
 #: ../deskbar/handlers/evolution.py:20
-#, fuzzy
 msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr "Vloží do emailu kontakty podle vepsaných jmen nebo e-mailových adres"
+msgstr ""
+"Vloží do emailu kontakty podle vyhledávaných jmen nebo e-mailových adres"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:41
+#: ../deskbar/handlers/evolution.py:45
 #, python-format
-msgid "Send Email to <b>%(name)s</b> (%(email)s)"
-msgstr ""
+msgid "Send Email to <b>%name</b> (%email)"
+msgid_plural "Send Email to <b>%names</b> (%emails)"
+msgstr[0] "Odeslat e-mail pro <b>příjemce %</b> s (e-mailem %)"
+msgstr[1] "Odeslat e-mail pro <b>příjemce %</b> s (e-maily %)"
+msgstr[2] "Odeslat e-mail pro <b>příjemce %</b> s (e-maily %)"
+
 
 #: ../deskbar/handlers/files.py:14
 msgid "Files and Folders"
@@ -279,12 +482,13 @@ msgstr "Soubory a adresáře"
 msgid "Open your files and folders by name"
 msgstr "Otevře soubory a adresáře podle jména"
 
-#: ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/files.py:51
 #, python-format
 msgid "Open folder %s"
-msgstr ""
+msgstr "Otevřít adresář %s"
 
 #: ../deskbar/handlers/google-live.py:19
+#, fuzzy
 msgid ""
 "You need a Google account to use Google Live.  To get one, go to http://api."
 "google.com/\n"
@@ -304,30 +508,47 @@ msgid ""
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 msgstr ""
+"Vy potřebujete Google účet k použití služby Google Live.  Pro jeho vytvoření "
+"přejdětena adresu http://api.google.com/\n"
+"\n"
+"Po vytvoření účtu, by jste měli obdržet e-mailem Google API klíč.·Umístěte "
+"soubor s klíčem do\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.klíč\n"
+"\n"
+"Jestliže API klíč neobdržíte (nebo jste ho ztratili) v ověřovacím e-mailu,"
+"přejděte na stránku·www.google.com/accounts·a přihlaste se. Přejděte na "
+"stránku api.google.com,·klikněte na \"Create·Account\"·a vložte tam vaší e-"
+"mailovou adresu a heslo.  API klíč vám bude zaslán.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Nakopírujte tento soubor do\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
 #: ../deskbar/handlers/google-live.py:32
 msgid "Setting Up Google Live"
-msgstr ""
+msgstr "Nastavení Google·Live"
 
 #: ../deskbar/handlers/google-live.py:38
 msgid "You need to install the SOAPpy python module."
-msgstr ""
+msgstr "Potřebujete nainstalovat SOAPpy python modul."
 
 #: ../deskbar/handlers/google-live.py:40
 msgid "You need the Google WSDL file."
-msgstr ""
+msgstr "Potřebujete Google WSDL soubor."
 
 #: ../deskbar/handlers/google-live.py:42
 msgid "You need a Google API key."
-msgstr ""
+msgstr "Potřebujete Google API klíč."
 
 #: ../deskbar/handlers/google-live.py:48
 msgid "Google Live"
-msgstr ""
+msgstr "Google·Live"
 
 #: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
-msgstr ""
+msgstr "Vyhledat Google během psaní"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
 msgid "Files and Folders Bookmarks"
@@ -337,10 +558,10 @@ msgstr "Soubory a složky záložek"
 msgid "Open your files and folders bookmarks by name"
 msgstr "Otevře soubory a adresáře v záložkách podle jména"
 
-#: ../deskbar/handlers/gtkbookmarks.py:28 ../deskbar/handlers/volumes.py:44
+#: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
 #, python-format
 msgid "Open location %s"
-msgstr ""
+msgstr "Otevřít umístění %s"
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
@@ -350,14 +571,10 @@ msgstr "Programy (pokročilé)"
 msgid "Launch any program present in your $PATH"
 msgstr "Spustí program přítomný ve vašem $PATH"
 
-#: ../deskbar/handlers/pathprograms.py:57
+#: ../deskbar/handlers/pathprograms.py:60
 #, python-format
 msgid "Execute %s"
-msgstr ""
-
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Programy"
+msgstr "Provést %s"
 
 #: ../deskbar/handlers/programs.py:15
 msgid "Launch a program by its name and/or description"
@@ -381,20 +598,23 @@ msgstr "Vyhledá soubory a adresáře podle jména"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:64
+#: ../deskbar/handlers/programs.py:72
 #, python-format
-msgid "Launch <b>%(name)s</b> (%(prog)s)"
-msgstr ""
-
-#: ../deskbar/handlers/programs.py:77
-#, python-format
-msgid "Lookup %s in dictionary"
-msgstr ""
+msgid "Launch <b>%name</b> (%prog)"
+msgid_plural "Launch <b>%names</b> (%progs)"
+msgstr[0] "Spustit <b>%(jméno programu)</b>·(%název programu)"
+msgstr[1] "Spustit <b>%(jména programů)</b>·(%názvy programů)"
+msgstr[2] "Spustit <b>%(jména programů)</b>·(%názvy programů)"
 
 #: ../deskbar/handlers/programs.py:85
 #, python-format
+msgid "Lookup %s in dictionary"
+msgstr "Vyhledá výraz %s ve slovníku"
+
+#: ../deskbar/handlers/programs.py:93
+#, python-format
 msgid "Search for file names like %s"
-msgstr ""
+msgstr "Vyhledá stejná jména souborů %s"
 
 #: ../deskbar/handlers/volumes.py:16
 msgid "Disks and Network Places"
@@ -404,15 +624,15 @@ msgstr "Místo na discích a v síti"
 msgid "Open disk drives, shared network places and similar resources by name"
 msgstr "Otevře disk, sdílené místo na síti a podobné zdroje podle jména"
 
-#: ../deskbar/handlers/volumes.py:40
+#: ../deskbar/handlers/volumes.py:44
 #, python-format
 msgid "Open network place %s"
-msgstr ""
+msgstr "Otevřít místo na síti %s"
 
-#: ../deskbar/handlers/volumes.py:42
+#: ../deskbar/handlers/volumes.py:46
 #, python-format
 msgid "Open audio disk %s"
-msgstr ""
+msgstr "Otevřít hudební disk %s"
 
 #: ../deskbar/handlers/web_address.py:9
 msgid "Web"
@@ -422,17 +642,42 @@ msgstr "Webové stránky"
 msgid "Open web pages by typing a complete web address"
 msgstr "Otevře webové stránky podle zadaných kompletních webových adres"
 
-#: ../deskbar/handlers/web_address.py:34
-#, python-format
-msgid "Open the web page %s"
-msgstr ""
-
 #: ../deskbar/handlers/web_address.py:36
 #, python-format
+msgid "Open the web page %s"
+msgstr "Otevřít webovou stránku %s"
+
+#: ../deskbar/handlers/web_address.py:38
+#, python-format
 msgid "Open the location %s"
-msgstr ""
+msgstr "Otevřít umístění %s"
 
-#: ../deskbar/preferences.py:53
+#: ../deskbar/ui/About.py:25
+msgid "An all-in-one action bar."
+msgstr "Lišta pro více činností v jednom."
+
+#: ../deskbar/ui/About.py:28
+msgid "Deskbar Website"
+msgstr "Domovská stránka aplikace Deskbar"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:36
+msgid "translator-credits"
+msgstr "Novotný Lukáš <lukasnov@cvs.gnome.org>"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:54
 msgid "_More..."
-msgstr ""
+msgstr "_Více..."
 
+#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
+msgid "No History"
+msgstr "Žádná dostupná historie"
+
+#: ../deskbar/ui/cuemiac/Cuemiac.py:59
+msgid "You need Gtk+ version 2.8.0 or higher to use this module"
+msgstr "Potřebujete Gtk+ verze 2.8.0 nebo vyšší pro použití tohoto modulu"
+
+#~ msgid "<b>Keyboard Shortcut</b>"
+#~ msgstr "<b>Klávesové zkratky</b>"
