@@ -13,6 +13,7 @@ deskbarbin_SCRIPTS = deskbar-applet
 deskbardir = $(pythondir)/deskbar
 deskbar_PYTHON = \
 	defs.py \
+	gtkexcepthook.py \
 	BrowserMatch.py \
 	Categories.py \
 	DeskbarApplet.py \

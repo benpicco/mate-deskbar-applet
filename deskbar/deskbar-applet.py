@@ -11,7 +11,6 @@ import gobject
 gobject.threads_init()
 
 import gtk, gnomeapplet
-
 import getopt, sys
 from os.path import *
 
@@ -36,6 +35,8 @@ gettext.textdomain('deskbar-applet')
 
 locale.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))
 locale.textdomain('deskbar-applet')
+
+import gtkexcepthook
 
 def applet_factory(applet, iid):
 	print 'Starting Deskbar instance:', applet, iid
@@ -111,3 +112,4 @@ if __name__ == "__main__":
 	if PROFILE:
 		statprof.stop()
 		statprof.display()
+
