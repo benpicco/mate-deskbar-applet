@@ -207,6 +207,11 @@ class DeskbarApplet:
 			self.ui.recieve_focus()
 			return True
 		
+		# Middle click handling, we need this in the cuemiac
+		if event.button == 2:
+			if self.ui.middle_click():
+				return True
+			
 		return False
 	
 	def on_keybinding_button_press(self, widget, time):

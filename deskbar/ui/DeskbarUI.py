@@ -64,6 +64,12 @@ class DeskbarUI (gobject.GObject):
 		"""
 		pass
 	
+	def middle_click(self):
+		"""
+		Called when the applet receives a middle click. Must return True if the middle click event is handled
+		"""
+		return False
+		
 	def set_sensitive (self, active):
 		"""
 		Called when the UI should be in/active because modules are loading

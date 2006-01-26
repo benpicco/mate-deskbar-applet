@@ -16,8 +16,6 @@
 #
 # - Use icon entry instead of normal gtk.Entry (and update the icon correctly)
 #
-# - Middle click on the deskbar button should open the search, paste in the entry, focus the entry, and perform the search.
-#
 # Would be really really nice:
 #
 # - (MEDIUM) User defined (non-static) categories *WITHOUT PERFOMANCE HIT*
@@ -642,6 +640,14 @@ class CuemiacUI (DeskbarUI):
 			self.model.clear()
 		self.model.append (matches)
 		self.popup.show_all ()
+	
+	def middle_click(self):
+		def clipboard_text_received(clipboard, text, data):
+			self.deskbar_button.button_main.set_active (True)
+			self.entry.grab_focus()
+			if text != None:
+				self.entry.set_text(text)
+		gtk.clipboard_get(gtk.gdk.SELECTION_PRIMARY).request_text(clipboard_text_received)
 		
 	def recieve_focus (self):
 		# Toggle expandedness of the popup
