@@ -82,8 +82,10 @@ class Handler:
 	def query(self, query, max):
 		"""
 		Searches the handler for the given query string.
-		Returns a list of matches objects of maximum length
-		"max".
+		Returns a list of
+			(string, match object) tuple or
+			match object, when the string is the same as the passed one.
+		of maximum length "max".
 		"""
 		raise NotImplementedError
 

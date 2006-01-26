@@ -9,6 +9,7 @@ deskbar_handlers_PYTHON = \
 	galeon.py \
 	gtkbookmarks.py \
 	google-live.py \
+	history.py \
 	mozilla.py \
 	programs.py \
 	pathprograms.py \

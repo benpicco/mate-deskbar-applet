@@ -98,7 +98,10 @@ class DeskbarApplet:
 			else:
 				matches = modctx.module.query(qstring, MAX_RESULTS_PER_HANDLER)
 				for match in matches: # FIXME: This can be optimised
-					results.append((qstring,match))
+					if type(match) is tuple:
+						results.append(match)
+					else:
+						results.append((qstring,match))
 				
 		self.ui.append_matches (results)
 		

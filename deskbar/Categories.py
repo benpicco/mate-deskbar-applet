@@ -67,6 +67,11 @@ CATEGORIES = {
 		"nest": lambda n: ngettext("%s more program", "%s more programs", n), 
 		"threshold": 3,
 	},
+	"history" : {
+		"name": _("History"),
+		"nest": lambda n: ngettext("%s more match", "%s more matches", n), 
+		"threshold": 5,
+	},
 	"debug" : {
 		"name": _("Debug"),
 		"nest": lambda n: ngettext("%s more debugging handler", "%s more debugging handlers", n), 
