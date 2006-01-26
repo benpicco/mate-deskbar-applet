@@ -16,8 +16,6 @@
 #
 # - Use icon entry instead of normal gtk.Entry (and update the icon correctly)
 #
-# - Focus _entry_ on Alt-F3
-#
 # - Middle click on the deskbar button should open the search, paste in the entry, focus the entry, and perform the search.
 #
 # Would be really really nice:
@@ -589,6 +587,7 @@ class CuemiacUI (DeskbarUI):
 		
 		self.invalid = True
 		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
+		self.applet.set_flags(gtk.CAN_FOCUS)
 		
 	def on_match_selected (self, cview, match, is_historic=False):
 		if match.__class__ == Nest or match.__class__ == CuemiacCategory:
@@ -647,7 +646,8 @@ class CuemiacUI (DeskbarUI):
 	def recieve_focus (self):
 		# Toggle expandedness of the popup
 		self.deskbar_button.button_main.set_active (not self.deskbar_button.button_main.get_active())
-	
+		self.entry.grab_focus()
+		
 	def set_layout_by_orientation (self, orient, reshow=True, setup=False):
 		"""orient should be a gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}.
 		reshow indicates whether or not the widget should call show() on all
