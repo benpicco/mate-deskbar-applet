@@ -7,8 +7,10 @@ pixmaps_DATA = deskbar-applet.svg
 artdir = $(pkgdatadir)/art
 art_DATA = \
 	deskbar-applet.svg \
-	deskbar-horiz.svg \
-	deskbar-vert.svg \
+	deskbar-applet-panel-v.svg \
+	deskbar-applet-panel-h.svg \
+	deskbar-applet-panel-v.png \
+	deskbar-applet-panel-h.png \
 	deskbar-applet-small.png \
 	folder-bookmark.png \
 	generic.png \

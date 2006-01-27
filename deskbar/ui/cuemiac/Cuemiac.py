@@ -677,11 +677,21 @@ class CuemiacUI (DeskbarUI):
 		print "CuemiacUI changing orientation to", applet.get_orient()
 	
 	def on_change_size (self, applet):
+		# FIXME: This is ugly, but i don't know how to get it right
+		image_name = "deskbar-applet-panel"
 		if applet.get_orient () in [gnomeapplet.ORIENT_UP, gnomeapplet.ORIENT_DOWN]:
-			# We're horizontal
-			self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-horiz.svg"), applet.get_size())
+			image_name += "-h"
 		else:
-			self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-vert.svg"), applet.get_size())
+			image_name += "-v"
+		
+		if applet.get_size() <= 36:
+			image_name += ".png"
+			s = 24
+		else:
+			image_name += ".svg"
+			s = applet.get_size()-12
+		
+		self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, image_name), s)
 	
 	def append_matches (self, matches):
 		if self.invalid :
@@ -716,17 +726,15 @@ class CuemiacUI (DeskbarUI):
 			self.box.pack_start (self.icon_entry, False)
 			self.box.pack_start (self.scroll_win)
 			self.cview.append_method = gtk.TreeStore.append
-			if orient == gnomeapplet.ORIENT_DOWN:
-				self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-horiz.svg"), self.applet.get_size ())
-			else:
-				self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-vert.svg"), self.applet.get_size ())
 		else:
 			# We are at a bottom panel. Put entry on bottom, and prepend matches (instead of append).
 			self.box.pack_start (self.scroll_win)
 			self.box.pack_start (self.icon_entry, False)
 			self.cview.append_method = gtk.TreeStore.prepend
-			self.deskbar_button.set_button_image_from_file (join(deskbar.ART_DATA_DIR, "deskbar-horiz.svg"), self.applet.get_size ())
 			
+		# Update icon accordingto direction
+		self.on_change_size (self.applet)
+		
 		# Update the DeskbarAppletButton accordingly
 		self.deskbar_button.set_orientation (orient, reshow)
 		
