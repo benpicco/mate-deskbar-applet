@@ -212,7 +212,7 @@ class DeskbarApplet:
 		self.update_modules_priority(enabled_list, foreach_enabled)
 		
 		if self._loaded_modules == 0:
-			self.on_applet_sensivity_update(True)
+			self.ui.set_sensitive (True)
 		
 	def on_module_initialized(self, loader, modctx):
 		self._inited_modules = self._inited_modules + 1
