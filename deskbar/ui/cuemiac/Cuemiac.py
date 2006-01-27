@@ -14,10 +14,6 @@
 #
 # - (TRIVIAL) Adjust max hits per handler (especially beagle-live should return a skazillion hits)
 #
-# - Use icon entry instead of normal gtk.Entry (and update the icon correctly)
-#
-# - Put some kind of border around the Cuemiac popup and history popup
-#
 #
 # Would be really really nice:
 #
