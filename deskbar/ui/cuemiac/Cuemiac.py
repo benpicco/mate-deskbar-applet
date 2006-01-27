@@ -687,7 +687,7 @@ class CuemiacUI (DeskbarUI):
 		its children.
 		setup should be true if this is the first time the widgets are laid out."""
 		if not setup:
-			self.box.remove (self.entry)
+			self.box.remove (self.icon_entry)
 			self.box.remove (self.scroll_win)
 		
 		if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:

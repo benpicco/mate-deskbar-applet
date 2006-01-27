@@ -35,7 +35,7 @@ class DeskbarAppletButton (gtk.HBox):
 			self.box = gtk.HBox ()
 		else:
 			self.box = gtk.VBox ()
-					
+			
 		self.button_main = gtk.ToggleButton ()
 		self.button_main.set_relief (gtk.RELIEF_NONE)
 		self.image = gtk.Image ()
@@ -48,20 +48,14 @@ class DeskbarAppletButton (gtk.HBox):
 		self.button_arrow.add (self.arrow)
 		self.button_arrow.connect ("toggled", lambda widget: self.emit ("toggled-arrow", widget))
 				
-		if self.popup_dir in [gnomeapplet.ORIENT_UP,gnomeapplet.ORIENT_DOWN]:
-			self.separator = gtk.VSeparator ()
-		else:
-			self.separator = gtk.HSeparator ()
-		
-		self.box.pack_start (self.button_arrow, False)
-		self.box.pack_start (self.separator, False)
 		self.box.pack_start (self.button_main)
+		self.box.pack_end (self.button_arrow, False, False)
+		
 		self.add (self.box)
 	
 		self.connect("button-press-event", self.on_button_press_event)
 		self.button_arrow.connect("button-press-event", self.on_button_press_event)
 		self.button_main.connect("button-press-event", self.on_button_press_event)
-		self.separator.connect("button-press-event", self.on_button_press_event)
 	
 	def on_button_press_event(self, widget, event):
 		if not self.get_property('sensitive'):
@@ -124,25 +118,22 @@ class DeskbarAppletButton (gtk.HBox):
 		its children."""
 		self.remove (self.box)	
 		self.box.remove (self.button_arrow)
-		self.box.remove (self.separator)
 		self.box.remove (self.button_main)
 		self.button_arrow.remove (self.arrow)
 		
 		if orientation in [gnomeapplet.ORIENT_UP,gnomeapplet.ORIENT_DOWN]:
 			self.box = gtk.HBox ()
-			self.separator = gtk.VSeparator ()
 		else:
 			self.box = gtk.VBox ()
-			self.separator = gtk.HSeparator ()
-		
+				
 		self.arrow = gtk.Arrow (self.gnomeapplet_dir_to_arrow_dir(orientation), gtk.SHADOW_IN)
 		
 		self.add (self.box)
-		self.box.pack_start (self.button_arrow, False)
 		self.button_arrow.add (self.arrow)
-		self.box.pack_start (self.separator, False)
-		self.box.pack_start (self.button_main)
 		
+		self.box.pack_start (self.button_main)
+		self.box.pack_end (self.button_arrow, False, False)
+				
 		if reshow:
 			self.show_all ()
 			
