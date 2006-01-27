@@ -15,8 +15,8 @@ def is_preferred_browser(test):
 	return False
 		
 class BrowserMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, url=None, icon=None, is_history=False):
-		deskbar.Match.Match.__init__(self, backend, name=cgi.escape(name), icon=icon)
+	def __init__(self, backend, name=None, url=None, is_history=False, **args):
+		deskbar.Match.Match.__init__(self, backend, name=cgi.escape(name), **args)
 		self._priority = 10
 		
 		self.url = url
@@ -38,8 +38,8 @@ class BrowserMatch(deskbar.Match.Match):
 		return "web"
 		
 class BrowserSmartMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, url=None, icon=None, prefix_to_strip=None, bookmark=None, serialized_bookmark=None):
-		deskbar.Match.Match.__init__(self, backend, name=cgi.escape(name), icon=icon)
+	def __init__(self, backend, name=None, url=None, prefix_to_strip=None, bookmark=None, serialized_bookmark=None, **args):
+		deskbar.Match.Match.__init__(self, backend, name=cgi.escape(name), **args)
 		self._priority = 0
 		
 		self.url = url

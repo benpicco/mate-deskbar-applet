@@ -97,7 +97,7 @@ class MozillaBookmarksHandler(deskbar.Handler.Handler):
 
 class MozillaSearchHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, "web-bookmark.png")
+		deskbar.Handler.Handler.__init__(self, "stock_bookmark")
 		self._smart_bookmarks = None
 	
 	def initialize(self):
@@ -212,7 +212,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 				
 			bookmark = BrowserMatch(self.handler, self.chars, self.href, pixbuf)
 			if self.shortcuturl != None:
-				bookmark = BrowserSmartMatch(bookmark, self.chars, self.href, self.shortcuturl)
+				bookmark = BrowserSmartMatch(self.handler, self.chars, self.href, self.shortcuturl, bookmark)
 				self._shortcuts_to_smart_bookmarks_map[self.shortcuturl] = bookmark
 			else:
 				self._indexer.add("%s %s" % (self.chars, self.href), bookmark)

@@ -87,6 +87,13 @@ TYPES = {
 		"icon"	: "stock_calendar",
 		"description": _("View calendar %s") % "<b>%(name)s</b>"
 		},
+# FIXME: Kamstrup ?
+#	"WebHistory": {
+#		"name"	: ("fixme:summary",),
+#		"action": "evolution",
+#		"icon"	: "stock_calendar",
+#		"description": _("View calendar %s") % "<b>%(name)s</b>"
+#		},
 }
 
 class BeagleLiveMatch (deskbar.Match.Match):
