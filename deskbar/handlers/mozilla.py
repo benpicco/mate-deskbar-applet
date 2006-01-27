@@ -48,7 +48,7 @@ if is_preferred_browser("firefox"):
 			
 class MozillaBookmarksHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, "web-bookmark.png")
+		deskbar.Handler.Handler.__init__(self, "stock_bookmark")
 		self._bookmarks = None
 	
 	def initialize(self):

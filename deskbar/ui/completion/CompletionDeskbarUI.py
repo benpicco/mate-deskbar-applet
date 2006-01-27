@@ -32,7 +32,7 @@ class CompletionDeskbarUI (DeskbarUI):
 		try:
 			self.applet.set_background_widget(self.entry)
 		except Exception, msg:
-			print 'Could not set background widget, no transparency:', msg
+			pass
 		
 		self.applet.set_flags(gtk.CAN_FOCUS)
 		

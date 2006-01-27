@@ -80,7 +80,6 @@ class DeskbarHistory (gtk.ListStore) :
 			
 		try:
 			cPickle.dump(save, file(HISTORY_FILE, 'w'), cPickle.HIGHEST_PROTOCOL)
-			print 'History saved'
 		except Exception, msg:
 			print 'Error:History.save:%s', msg
 		pass

@@ -93,7 +93,7 @@ class GnomeSearchMatch(GenericProgramMatch):
 		return _("Search for file names like %s") % "<b>%(text)s</b>"
 
 class SpecialProgramHandler(deskbar.Handler.Handler):
-	def __init__(self, desktop, icon="generic.png"):
+	def __init__(self, desktop, icon=gtk.STOCK_EXECUTE):
 		deskbar.Handler.Handler.__init__(self, icon)
 		self._desktop = desktop
 		self._match = None
@@ -138,7 +138,7 @@ class GnomeSearchHandler(SpecialProgramHandler):
 		
 class ProgramsHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, "generic.png")
+		deskbar.Handler.Handler.__init__(self, gtk.STOCK_EXECUTE)
 		self._indexer = deskbar.Indexer.Indexer()
 		
 	def initialize(self):

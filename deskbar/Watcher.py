@@ -2,6 +2,7 @@
 Helper classes to monitor directories/files for changes using gnomevfs
 """
 
+import traceback
 import gnomevfs
 import gobject, gtk
 
@@ -26,7 +27,7 @@ class Watcher(gobject.GObject):
 				try:
 					self.watched[name] = gnomevfs.monitor_add(name, self.monitor_type, self._on_change)
 				except Exception, msg:
-					print 'Error:add_watched_file:', msg
+					traceback.print_exc()
 					self.watched[name] = 0
 	
 	def remove(self, args):

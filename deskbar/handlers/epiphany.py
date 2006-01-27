@@ -55,7 +55,7 @@ shortcuts_to_smart_bookmarks_map = {}
 
 class EpiphanyHandler(deskbar.Handler.Handler):
 	def __init__(self, watched_file, callback):
-		deskbar.Handler.Handler.__init__(self, "web-browser.png")
+		deskbar.Handler.Handler.__init__(self, "stock_bookmark")
 		self.watched_file = watched_file
 		self.watch_callback = callback
 		

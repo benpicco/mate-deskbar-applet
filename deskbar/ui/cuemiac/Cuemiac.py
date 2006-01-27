@@ -1,6 +1,9 @@
 #
 # Release dependant:
 #
+# - Make the pref dialog non modal
+# - When clicking the history then cuemiac button, the two window overlap, should close one, open the other
+# - Clear cuemiac when hitting Esc.
 # - (EASY [Hard part solved]) Store expandedness state of categories (DONE)
 #   Missing: Store states in Gconf. Hint: Just store CuemiacTreeView.__collapsed_rows
 #
@@ -591,7 +594,7 @@ class CuemiacUI (DeskbarUI):
 		try:
 			self.applet.set_background_widget(self.deskbar_button)
 		except Exception, msg:
-			print 'Could not set background widget, no transparency:', msg
+			pass
 		
 		self.invalid = True
 		
@@ -630,8 +633,27 @@ class CuemiacUI (DeskbarUI):
 			self.popup.update_position ()
 			self.popup.show ()
 			self.entry.grab_focus ()
+			
+			#fevent = gtk.gdk.Event(gtk.gdk.FOCUS_CHANGE)
+
+			#self.entry.set_flags(gtk.HAS_FOCUS)
+			#fevent.window = self.entry.window
+			#fevent.in_ = True
+
+			#self.entry.event(fevent)
+			#self.entry.notify("has-focus")
+			#self.entry.grab_focus ()
 			self.update_entry_icon ()
 		else:
+			#fevent = gtk.gdk.Event(gtk.gdk.FOCUS_CHANGE)
+
+			#self.entry.unset_flags(gtk.HAS_FOCUS)
+			#fevent.window = self.entry.window
+			#fevent.in_ = False
+
+			#self.entry.event(fevent)
+			#self.entry.notify("has-focus")
+			
 			self.popup.hide ()
 			self.emit ("stop-query")
 	

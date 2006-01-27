@@ -43,7 +43,7 @@ smart_bookmarks = None
 
 class GaleonHandler(deskbar.Handler.Handler):
 	def __init__(self, watched_file, callback):
-		deskbar.Handler.Handler.__init__(self, "web-bookmark.png")
+		deskbar.Handler.Handler.__init__(self, "stock_bookmark")
 		self.watched_file = watched_file
 		self.watch_callback = callback
 		

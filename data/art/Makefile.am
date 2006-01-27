@@ -12,10 +12,9 @@ art_DATA = \
 	deskbar-applet-small.png \
 	folder-bookmark.png \
 	generic.png \
-	google.png \
-	web-bookmark.png
+	google.png
 
 EXTRA_DIST = \
-	deskbar-applet-small.svg \
+	deskbar-applet-small.xcf \
 	$(pixmaps_DATA) \
 	$(art_DATA)

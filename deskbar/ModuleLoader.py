@@ -1,6 +1,6 @@
 import os, sys, pydoc
 from os.path import abspath, expanduser
-
+import traceback
 import gtk, gobject
 
 import deskbar, deskbar.Handler
@@ -72,7 +72,7 @@ class ModuleLoader (gobject.GObject):
 				res = res + map (lambda s: d+"/"+s, tmp)
 			except OSError, err:
 				print >> sys.stderr, "Error reading directory %s, skipping." % d
-				print >> sys.stderr, str(err)
+				traceback.print_exc()
 		return res
 			
 	def is_module (self, filename):
@@ -84,13 +84,9 @@ class ModuleLoader (gobject.GObject):
 		Primarily for internal use."""
 		try:
 			mod = pydoc.importfile (filename)
-		except IOError, err:
-			print >> sys.stderr, "Error loading the file: %s\nThe file probably doesn't exist." % filename
-			print >> sys.stderr, str(err)
-			return
-		except pydoc.ErrorDuringImport, err:
-			print >> sys.stderr, "Unknown error loading the file: %s." % filename
-			print >> sys.stderr, str(err)
+		except Exception:
+			print >> sys.stderr, "Error loading the file: %s." % filename
+			traceback.print_exc()
 			return
 		
 		try:
@@ -98,15 +94,14 @@ class ModuleLoader (gobject.GObject):
 		except AttributeError:
 			print >> sys.stderr, "The file %s is not a valid module. Skipping." %filename
 			print >> sys.stderr, "A module must have the variable HANDLERS defined as a dictionary."
+			traceback.print_exc()
 			return
 		
 		if mod.HANDLERS == None:
 			if not hasattr(mod, "ERROR"):
 				mod.ERROR = "Unspecified Reason"
 				
-			print >> sys.stderr, "***"
 			print >> sys.stderr, "*** The file %s decided to not load itself: %s" % (filename, mod.ERROR)
-			print >> sys.stderr, "***"
 			return
 		
 		for handler, infos in mod.HANDLERS.items():
@@ -170,6 +165,7 @@ class ModuleLoader (gobject.GObject):
 			context.module.initialize ()
 		except Exception, msg:
 			print "Error while initializing %s: %s" % (context.infos["name"],msg)
+			traceback.print_exc()
 			context.enabled = False
 			self.emit("module-not-initialized", context)
 			return

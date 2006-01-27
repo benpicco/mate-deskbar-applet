@@ -61,7 +61,7 @@ class PathProgramMatch(deskbar.Match.Match):
 
 class PathProgramsHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, "generic.png")
+		deskbar.Handler.Handler.__init__(self, gtk.STOCK_EXECUTE)
 		
 	def initialize(self):
 		self._path = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip() != "" and exists(path) and isdir(path)]

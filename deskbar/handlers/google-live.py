@@ -82,8 +82,19 @@ class GoogleLiveHandler (deskbar.Handler.AsyncHandler):
 		self.server = None
 		self.api_key = None
 		
-	def initialize (self):
+	def initialize (self):                        
 		self.server = WSDL.Proxy (GOOGLE_WSDL)
+		
+		try:
+			proxy = os.environ['http_proxy']
+			if proxy.startswith('http://'):
+				proxy = proxy[len('http://'):]
+				
+			self.server.soapproxy.http_proxy = proxy
+			print "Using http_proxy '%s' for google live" % proxy
+		except KeyError:
+			pass
+			
 		api_key_file = file (GOOGLE_API_KEY)
 		self.api_key = api_key_file.readline()
 		api_key_file.close ()

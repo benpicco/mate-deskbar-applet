@@ -1,5 +1,33 @@
 2006-01-27  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* configure.ac:
+	* data/art/Makefile.am:
+	* data/art/deskbar-applet-small.png:
+	* data/art/deskbar-applet-small.svg:
+	* data/art/deskbar-applet-small.xcf:
+	* data/art/deskbar-applet.png:
+	* data/art/deskbar-applet.svg:
+	* data/art/deskbar-horiz.svg:
+	* data/art/deskbar-vert.svg:
+	* data/art/web-bookmark.png:
+	* deskbar/DeskbarHistory.py:
+	* deskbar/ModuleLoader.py:
+	* deskbar/Watcher.py:
+	* deskbar/handlers/epiphany.py:
+	* deskbar/handlers/galeon.py:
+	* deskbar/handlers/google-live.py:
+	* deskbar/handlers/mozilla.py:
+	* deskbar/handlers/pathprograms.py:
+	* deskbar/handlers/programs.py:
+	* deskbar/ui/completion/CompletionDeskbarUI.py:
+	* deskbar/ui/cuemiac/Cuemiac.py:
+	Add proxy detection code in google-live
+	Change some icons to use stock icons, so we get theming
+	Use the traceback module when possible to display good debug traces
+	Change the artwork a bit to reflect recent IRC discussions
+
+2006-01-27  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/DeskbarApplet.py:
 	Fix sensivity update when no modules are loaded
 
