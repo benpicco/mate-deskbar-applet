@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-23 19:42+0100\n"
-"PO-Revision-Date: 2006-01-23 19:57+0100\n"
+"POT-Creation-Date: 2006-01-27 19:41+0100\n"
+"PO-Revision-Date: 2006-01-27 19:42+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -100,9 +100,9 @@ msgid ""
 "you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
 msgstr ""
-"<i><small><b>Nota: </b>Si esa combinación de teclas es una sola letra (como <b>t</b>) puede "
-"también teclear tan sólo teclear \"<b>algo</b>\" y después pulsar <b>Alt-t</b> "
-"en la barra del escritorio.</small></i>"
+"<i><small><b>Nota: </b>Si esa combinación de teclas es una sola letra (como "
+"<b>t</b>) puede también teclear tan sólo teclear \"<b>algo</b>\" y después "
+"pulsar <b>Alt-t</b> en la barra del escritorio.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
@@ -110,9 +110,9 @@ msgid ""
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
 msgstr ""
-"<i><small><b>Nota:</b> Para usar una combinación de teclas (por ejemplo <b>wp</b>) para "
-"buscar <b>algo</b>, teclee \"<b>wp algo</b>\" en la barra del escritorio</"
-"small></i>."
+"<i><small><b>Nota:</b> Para usar una combinación de teclas (por ejemplo "
+"<b>wp</b>) para buscar <b>algo</b>, teclee \"<b>wp algo</b>\" en la barra "
+"del escritorio</small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
@@ -275,10 +275,21 @@ msgstr[0] "%s programa más"
 msgstr[1] "%s programas más"
 
 #: ../deskbar/Categories.py:71
+msgid "History"
+msgstr "Histórico"
+
+#: ../deskbar/Categories.py:72
+#, python-format
+msgid "%s more match"
+msgid_plural "%s more matches"
+msgstr[0] "%s coincidencia más"
+msgstr[1] "%s coincidencias más"
+
+#: ../deskbar/Categories.py:76
 msgid "Debug"
 msgstr "Depuración"
 
-#: ../deskbar/Categories.py:72
+#: ../deskbar/Categories.py:77
 #, python-format
 msgid "%s more debugging handler"
 msgid_plural "%s more debugging handlers"
@@ -332,8 +343,8 @@ msgstr "Ver calendario %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:215
-#: ../deskbar/handlers/beagle-live.py:227
+#: ../deskbar/handlers/beagle-live.py:223
+#: ../deskbar/handlers/beagle-live.py:242
 msgid "?"
 msgstr "?"
 
@@ -345,7 +356,7 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Buscar todos sus documentos (con Beagle)"
 
-#: ../deskbar/handlers/beagle.py:33
+#: ../deskbar/handlers/beagle.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Buscar %s usando Beagle"
@@ -420,7 +431,8 @@ msgstr "Correo (Libreta de direcciones)"
 
 #: ../deskbar/handlers/evolution.py:20
 msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr "Envíe correos-e a sus contactos tecleando su nombre o dirección de correo-e"
+msgstr ""
+"Envíe correos-e a sus contactos tecleando su nombre o dirección de correo-e"
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:45
@@ -623,11 +635,11 @@ msgstr "Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2006"
 msgid "_More..."
 msgstr "_Más…"
 
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:126
+#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "Sin histórico"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:59
+#: ../deskbar/ui/cuemiac/Cuemiac.py:54
 msgid "You need Gtk+ version 2.8.0 or higher to use this module"
 msgstr "Necesita GTK+ versión 2.8.0 o superior para usar este módulo"
 
@@ -707,4 +719,3 @@ msgstr "Necesita GTK+ versión 2.8.0 o superior para usar este módulo"
 
 #~ msgid "Query Beagle automatically as you type."
 #~ msgstr "Consultar Beagle automáticamente mientras teclea."
-
