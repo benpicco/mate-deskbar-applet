@@ -10,7 +10,6 @@ HANDLERS = {
 	}
 }
 
-	
 class HistoryHandler(deskbar.Handler.Handler):
 	def __init__(self):
 		deskbar.Handler.Handler.__init__(self, "stock_redo")
@@ -20,6 +19,7 @@ class HistoryHandler(deskbar.Handler.Handler):
 		for text, match in get_deskbar_history():
 			if text.startswith(query):
 				match.get_category = lambda: "history"
+				match._history_priority = self.get_priority()
 				result.append((text, match))
 		
 		return result

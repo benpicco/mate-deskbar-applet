@@ -68,7 +68,6 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		try:
 			# PyGTK >= 2.8
 			completion.set_popup_set_width(False)
-			completion.set_property("text-column", ACTION_COL)
 		except AttributeError:
 			pass
 			
@@ -247,6 +246,9 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			verbs["text"] = cgi.escape(verbs["text"])
 			
 			handler_priority = handler.get_priority()
+			if hasattr(match, '_history_priority'):
+				handler_priority = match._history_priority
+				
 			self._completion_model.append([handler_priority, match.get_priority(), match.get_verb() % verbs, icon, match, text])
 					
 		#Set the entry icon accoring to the first match in the completion list

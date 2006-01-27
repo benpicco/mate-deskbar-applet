@@ -26,6 +26,8 @@ class DeskbarApplet:
 		self._inited_modules = 0
 		self._loaded_modules = 0
 		
+		self._match_hashes = {}
+		
 		self.loader = ModuleLoader (deskbar.MODULES_DIRS)
 		self.loader.connect ("modules-loaded", self.on_modules_loaded)
 				
@@ -89,6 +91,7 @@ class DeskbarApplet:
 		self.start_query_id = gobject.timeout_add(150, self.on_start_query_real, sender, qstring, max_hits)
 		
 	def on_start_query_real (self, sender, qstring, max_hits):
+		self._match_hashes = {}
 		results = []
 		for modctx in self.module_list:
 			if not modctx.enabled:
@@ -98,18 +101,42 @@ class DeskbarApplet:
 			else:
 				matches = modctx.module.query(qstring, MAX_RESULTS_PER_HANDLER)
 				for match in matches: # FIXME: This can be optimised
+					text, match = qstring, match
 					if type(match) is tuple:
-						results.append(match)
+						text, match = match
+					
+					hsh = match.get_hash(text)
+					if hsh != None:
+						if hsh in self._match_hashes:
+							continue
+							
+						self._match_hashes[hsh] = True
+						results.append((text,match))
 					else:
-						results.append((qstring,match))
+						results.append((text,match))
 				
+		self.ui.append_matches (results)
+	
+	def dispatch_matches (self, matches):
+		results = []
+		for text, match in matches:
+			hsh = match.get_hash(text)
+			if hsh != None:
+				if hsh in self._match_hashes:
+					continue
+					
+				self._match_hashes[hsh] = True
+				results.append((text,match))
+			else:
+				results.append((text,match))
+						
 		self.ui.append_matches (results)
 		
 	def on_stop_query (self, sender=None):
 		print 'Stopping query from applet'
 		if self.start_query_id != 0:
 			gobject.source_remove(self.start_query_id)
-			
+				
 		for modctx in self.module_list:
 			if modctx.module.is_async():
 				modctx.module.stop_query()
@@ -126,10 +153,7 @@ class DeskbarApplet:
 			if match != None:
 				self.on_match_selected(sender, qstring, match)
 				break
-				
-	def dispatch_matches (self, matches):
-		self.ui.append_matches (matches)
-	
+					
 	def on_about (self, component, verb):
 		show_about()
 	
