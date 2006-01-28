@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @deskbar-applet@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-19 21:29+0100\n"
-"PO-Revision-Date: 2006-01-28 14:04+0100\n"
+"POT-Creation-Date: 2006-01-28 14:10+0100\n"
+"PO-Revision-Date: 2006-01-28 14:16+0100\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
 "Language-Team: Kurdish <ku@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,8 +25,7 @@ msgstr ""
 msgid "An all-in-one action bar"
 msgstr "geroka dormandorî"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2
-#: ../deskbar/about.py:23
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
 msgid "Deskbar"
 msgstr "Deskbar"
 
@@ -45,80 +44,271 @@ msgid "_Preferences"
 msgstr "_Vêbijark"
 
 #: ../data/prefs-dialog.glade.h:1
-msgid "<b>Keyboard Shortcut</b>"
+msgid "<b>Focus</b>"
 msgstr ""
 
 #: ../data/prefs-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Layout</b>"
+msgstr "<b>Firehî</b>"
+
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Loaded Extensions</b>"
 msgstr ""
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
 msgid "<b>Width</b>"
 msgstr "<b>Firehî</b>"
 
 # Element:m. hêman,
 # Priorität: prîorîte, anjî tiştekî girîng
-#: ../data/prefs-dialog.glade.h:4
-msgid "<i><small><b>Note:</b> Drag and drop an extension to change its order.</small></i>"
-msgstr "<i><small><b>Not:</b> Bi mişk hêmanekî bikişînin ji bo girîngiya gûhertina wî.</small></i>"
-
 #: ../data/prefs-dialog.glade.h:5
+msgid ""
+"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
+"small></i>"
+msgstr ""
+"<i><small><b>Not:</b> Bi mişk hêmanekî bikişînin ji bo girîngiya gûhertina "
+"wî.</small></i>"
+
+#: ../data/prefs-dialog.glade.h:6
+msgid "Button in panel with grouped list"
+msgstr ""
+
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "heyara Deskbar"
 
-#: ../data/prefs-dialog.glade.h:6
-msgid "Fixed _width:"
-msgstr "Firehiya _sabît:"
-
-#: ../data/prefs-dialog.glade.h:7
-msgid "Use _all available space"
-msgstr "Cihê vergirtî )hemuyî bixebitîne"
-
 #: ../data/prefs-dialog.glade.h:8
-msgid "Use the _keyboard shortcut:"
+msgid "Entry in panel with flat list"
 msgstr ""
 
 #: ../data/prefs-dialog.glade.h:9
+msgid "Fixed _width:"
+msgstr "Firehiya _sabît:"
+
+#: ../data/prefs-dialog.glade.h:10
+#, fuzzy
+msgid "Searches"
+msgstr "Gera înternetê"
+
+#: ../data/prefs-dialog.glade.h:11
+msgid "Use _all available space"
+msgstr "Cihê vergirtî )hemuyî bixebitîne"
+
+#: ../data/prefs-dialog.glade.h:12
+msgid "View"
+msgstr "Dîtin"
+
+#: ../data/prefs-dialog.glade.h:13
+msgid "_Keyboard shortcut to focus:"
+msgstr ""
+
+#: ../data/prefs-dialog.glade.h:14
 msgid "characters"
 msgstr "nîşan"
 
 #: ../data/smart-bookmarks.glade.h:1
-msgid "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in the deskbar.</small></i>"
+msgid ""
+"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
+"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
+"the deskbar.</small></i>"
 msgstr ""
 
 #: ../data/smart-bookmarks.glade.h:2
-msgid "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></i>."
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
 msgstr ""
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr ""
 
-# Ein alles-in-einem Suchfeld.
-# Alles ist unbekannt.
-# Übersetzung freie Hand.
-#: ../deskbar/about.py:26
-msgid "An all-in-one action bar."
-msgstr "Darika giştî di yekê de."
+#: ../deskbar/BrowserMatch.py:30
+#, python-format
+msgid "Open History Item %s"
+msgstr "Tomara dîrokî veke %s "
 
-# Ich bin dafür, dass man die ausländischen Begriffe übernimmt. Es sieht lächerlich aus, dass man einen künstlichen Begrif für diese Wörter erschafft. Zumal sie vollig nicht zu verstehen sind.
-# Website=website=site
-# Oder E-Mail=e-mail=e-name
-# Im folgenden, habe ich mich für e-name entschieden.
-#: ../deskbar/about.py:29
-msgid "Deskbar Website"
-msgstr "Sîteya Deskbar"
+# Lesezeichen wurde übersetzt aus
+# Lesen = xwendin und Zeichen=nîşan.
+#: ../deskbar/BrowserMatch.py:32
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "Xwendenîşanê veke %s "
 
-#. about.set_artists([])
-#. about.set_documenters([])
-#. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/about.py:37
-msgid "translator-credits"
-msgstr "Azad Xerabî"
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/BrowserMatch.py:81
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr ""
 
-#: ../deskbar/applet.py:312
-msgid "No History"
+#: ../deskbar/BrowserMatch.py:187
+msgid "Shortcut"
+msgstr ""
+
+# Lesezeichen wurde übersetzt aus
+# Lesen = xwendin und Zeichen=nîşan.
+#: ../deskbar/BrowserMatch.py:195
+msgid "Bookmark Name"
+msgstr "Navê xwendenîşanê "
+
+#: ../deskbar/Categories.py:11
+msgid "Files"
+msgstr "Dosya"
+
+#: ../deskbar/Categories.py:12
+#, python-format
+msgid "%s more file"
+msgid_plural "%s more files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:16
+msgid "Actions"
+msgstr "Çalakî"
+
+#: ../deskbar/Categories.py:17
+#, python-format
+msgid "%s more action"
+msgid_plural "%s more actions"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:21
+msgid "News"
+msgstr ""
+
+#: ../deskbar/Categories.py:22
+#, fuzzy, python-format
+msgid "%s more news item"
+msgid_plural "%s more news items"
+msgstr[0] "nûçeyên tomarî veke %s "
+msgstr[1] "nûçeyên tomarî veke %s "
+
+#: ../deskbar/Categories.py:26
+msgid "Contacts"
+msgstr ""
+
+#: ../deskbar/Categories.py:27
+#, python-format
+msgid "%s more contact"
+msgid_plural "%s more contacts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:31
+#, fuzzy
+msgid "Emails"
+msgstr "E-name"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more email"
+msgid_plural "%s more emails"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:36
+msgid "Notes"
+msgstr ""
+
+#: ../deskbar/Categories.py:37
+#, python-format
+msgid "%s more note"
+msgid_plural "%s more notes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:41
+msgid "Volumes"
+msgstr ""
+
+#: ../deskbar/Categories.py:42
+#, python-format
+msgid "%s more volume"
+msgid_plural "%s more volumes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:46
+#, fuzzy
+msgid "Google Search"
+msgstr "Google-zindî"
+
+#: ../deskbar/Categories.py:47
+#, python-format
+msgid "%s more online hit"
+msgid_plural "%s more online hits"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:51
+msgid "Calendar"
+msgstr "Salname"
+
+#: ../deskbar/Categories.py:52
+#, python-format
+msgid "%s more calendar item"
+msgid_plural "%s more calendar items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:56
+msgid "Conversation"
+msgstr ""
+
+#: ../deskbar/Categories.py:57
+#, fuzzy, python-format
+msgid "%s more conversation"
+msgid_plural "%s more conversations"
+msgstr[0] "Dembûhêrkê bi %s binêre"
+msgstr[1] "Dembûhêrkê bi %s binêre"
+
+#: ../deskbar/Categories.py:61
+msgid "Web Browser"
+msgstr "Geroka Torê"
+
+#: ../deskbar/Categories.py:62
+#, python-format
+msgid "%s more item"
+msgid_plural "%s more items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:66 ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Program"
+
+#: ../deskbar/Categories.py:67
+#, python-format
+msgid "%s more program"
+msgid_plural "%s more programs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:71
+#, fuzzy
+msgid "History"
 msgstr "Bê dîrok"
+
+#: ../deskbar/Categories.py:72
+#, python-format
+msgid "%s more match"
+msgid_plural "%s more matches"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:76
+msgid "Debug"
+msgstr ""
+
+#: ../deskbar/Categories.py:77
+#, python-format
+msgid "%s more debugging handler"
+msgid_plural "%s more debugging handlers"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
@@ -139,16 +329,15 @@ msgstr "Tomara adrêspirtûkê jibo %s"
 # E-name=E-post=E-Mail
 #. translators: First %s is mail sender, second %s is mail subject.
 #: ../deskbar/handlers/beagle-live.py:56
-#, python-format
-msgid "View email from %s: %s"
+#, fuzzy, python-format
+msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 msgstr "E-name ji %s: %s binêre"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:63
-#: ../deskbar/handlers/files.py:31
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
 #, python-format
 msgid "Open %s"
-msgstr "Veke %s "
+msgstr "%s veke"
 
 #: ../deskbar/handlers/beagle-live.py:69
 #, python-format
@@ -172,8 +361,8 @@ msgstr "Salnameya %s nîşan bike"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:205
-#: ../deskbar/handlers/beagle-live.py:217
+#: ../deskbar/handlers/beagle-live.py:230
+#: ../deskbar/handlers/beagle-live.py:249
 msgid "?"
 msgstr "?"
 
@@ -185,38 +374,10 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Li nav dokûmentên xwe bigerehe (bi Beagle)"
 
-#: ../deskbar/handlers/beagle.py:33
+#: ../deskbar/handlers/beagle.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Bi Beagle li %s bigerihe"
-
-#: ../deskbar/handlers_browsers.py:30
-#, python-format
-msgid "Open History Item %s"
-msgstr "Tomara dîrokî veke %s "
-
-# Lesezeichen wurde übersetzt aus
-# Lesen = xwendin und Zeichen=nîşan.
-#: ../deskbar/handlers_browsers.py:32
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "Xwendenîşanê veke %s "
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:67
-#, python-format
-msgid "Search %s for %s"
-msgstr "Li %s bigerihe jibo %s "
-
-#: ../deskbar/handlers_browsers.py:172
-msgid "Shortcut"
-msgstr ""
-
-# Lesezeichen wurde übersetzt aus
-# Lesen = xwendin und Zeichen=nîşan.
-#: ../deskbar/handlers_browsers.py:180
-msgid "Bookmark Name"
-msgstr "Navê xwendenîşanê "
 
 #: ../deskbar/handlers/email_address.py:9
 msgid "Mail"
@@ -227,45 +388,42 @@ msgstr "E-name"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "E-namê bi tikandina adrêsa (navnîşana) giştî ya e-namê bişîne"
 
-#: ../deskbar/handlers/email_address.py:26
-#: ../deskbar/handlers/galago.py:27
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "E-name ji %s re bişîne"
 
-#: ../deskbar/handlers/epiphany.py:32
-#: ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:29
+#: ../deskbar/handlers/epiphany.py:26
+msgid "You can set shortcuts for your searches."
+msgstr ""
+
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:33
 msgid "Web Bookmarks"
 msgstr "Xwendenîşana înternetê"
 
 # Ihre Internet-Lesezeichen über den Namen öffnen
-#: ../deskbar/handlers/epiphany.py:33
-#: ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:30
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:34
 msgid "Open your web bookmarks by name"
 msgstr "Xwendenîşana xwe ya înternetê bi nav veke"
 
-#: ../deskbar/handlers/epiphany.py:37
-#: ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
 msgid "Web History"
 msgstr "Dîroka înternetê "
 
-#: ../deskbar/handlers/epiphany.py:38
-#: ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
 msgid "Open your web history by name"
 msgstr "Dîroka xwe ya înternetê bi nav veke"
 
-#: ../deskbar/handlers/epiphany.py:42
-#: ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:38
 msgid "Web Searches"
 msgstr "Gera înternetê"
 
 # Das Internet über die Sucheinstellungen Ihres Browsers durchsuchen
-#: ../deskbar/handlers/epiphany.py:43
-#: ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:35
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:39
 msgid "Search the web via your browser's search settings"
 msgstr "Di înternetê de bi heyara geroka xwe bigerehe"
 
@@ -283,8 +441,14 @@ msgstr "Pêwîst e otogiştî bibe aktîvkirin"
 # übersetzt.
 # xelasîya otomatik=otogistî
 #: ../deskbar/handlers/evolution.py:14
-msgid "We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion."
-msgstr "Heta otogiştî ne aktîv bê, ji adrêspirrtûka we adrêsa e-name nayê kişandin. Jibo çêkirinê, di menûya programa e-name xwe de »biguherîne -> heyarî -> otogiştî«  aktîv bike."
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"Heta otogiştî ne aktîv bê, ji adrêspirrtûka we adrêsa e-name nayê kişandin. "
+"Jibo çêkirinê, di menûya programa e-name xwe de »biguherîne -> heyarî -> "
+"otogiştî«  aktîv bike."
 
 #: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
@@ -296,9 +460,9 @@ msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "An bi tikandina nav anjî adrêsa e-name, e-name ji kontakta xwe re bişîne"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:42
-#, python-format
-msgid "Send Email to %s (%s)"
+#: ../deskbar/handlers/evolution.py:45
+#, fuzzy, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "E-name ji %s (%s) re bişîne"
 
 #: ../deskbar/handlers/files.py:14
@@ -309,7 +473,7 @@ msgstr "Pelge û Peldank"
 msgid "Open your files and folders by name"
 msgstr "Pelge û peldankên xwe bi nav veke"
 
-#: ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/files.py:51
 #, python-format
 msgid "Open folder %s"
 msgstr "Dosiya %s veke"
@@ -327,33 +491,45 @@ msgstr "Dosiya %s veke"
 # ~/.gnome2/deskbar-applet/GoogleSearch.wsdl
 #: ../deskbar/handlers/google-live.py:19
 msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api.google.com/\n"
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
 "\n"
-"When you have created your account, you should recieve a Google API key by mail.  Place this key in the file\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
 "\n"
-"If you do not receive an API key (or you have lost it) in your account verification mail, then go to www.google.com/accounts and log in.  Go to api.google.com, click \"Create Account\" and enter your e-mail address and password.  Your API key will be re-sent.\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
 "\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from it.  Copy this file to\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 msgstr ""
-"Ji we re Google-profîl pêwîste, ta hûn karibin Google-zindî bixebitînin. Bo avakirina profîlê herin http://api.google.com/\n"
+"Ji we re Google-profîl pêwîste, ta hûn karibin Google-zindî bixebitînin. Bo "
+"avakirina profîlê herin http://api.google.com/\n"
 "\n"
-"Piştî we profîlek avakir, wê ji we re Google-API-Mifte (kîlît) bi e-name hatibê. Wê miftê bixe dosiya \n"
+"Piştî we profîlek avakir, wê ji we re Google-API-Mifte (kîlît) bi e-name "
+"hatibê. Wê miftê bixe dosiya \n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
 "\n"
-"Heger API-Mifte di e-name we ya destûrnamî de ne hatibe (anji we windakiribe), werin  www.google.com/accounts û xwe qeyd bikin, li ser »Profîlê Çekin« bitikînin û adrêsa e-name  û sifreya xwe bidin. Paşê wê nûjen ji we re API-Mifte bê şandin.\n"
+"Heger API-Mifte di e-name we ya destûrnamî de ne hatibe (anji we "
+"windakiribe), werin  www.google.com/accounts û xwe qeyd bikin, li ser "
+"»Profîlê Çekin« bitikînin û adrêsa e-name  û sifreya xwe bidin. Paşê wê "
+"nûjen ji we re API-Mifte bê şandin.\n"
 "\n"
-"Naka  alavên avakirinê daxînin (downloadkirin) û pelgeya GoogleSearch.wsdl derxînin. Kopî bikin û bişînin wê pelgeyê\n"
+"Naka  alavên avakirinê daxînin (downloadkirin) û pelgeya GoogleSearch.wsdl "
+"derxînin. Kopî bikin û bişînin wê pelgeyê\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
 #: ../deskbar/handlers/google-live.py:32
 msgid "Setting Up Google Live"
-msgstr "Google-zindî tomarbikin"
+msgstr "Google Zindî tê sazkirin"
 
 #: ../deskbar/handlers/google-live.py:38
 msgid "You need to install the SOAPpy python module."
@@ -369,7 +545,7 @@ msgstr ""
 
 #: ../deskbar/handlers/google-live.py:48
 msgid "Google Live"
-msgstr "Google-zindî"
+msgstr "Google Zindî"
 
 #: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
@@ -383,32 +559,27 @@ msgstr "Xwendenîşana pelge û dosyan"
 msgid "Open your files and folders bookmarks by name"
 msgstr "Xwenîşana pelge û dosyayên xwe bi nav veke"
 
-#: ../deskbar/handlers/gtkbookmarks.py:29
-#: ../deskbar/handlers/volumes.py:45
+#: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
 #, python-format
 msgid "Open location %s"
 msgstr "Cihê %s veke"
 
 # Anjî bername
-#: ../deskbar/handlers/pathprograms.py:13
+#: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
 msgstr "Program (berfireh)"
 
 # Umgebungsvariante ist im kurdischen unklar
 # Umgebung=hawîrdor, derdor ....
 # Variante wird mit şikil übersetzt
-#: ../deskbar/handlers/pathprograms.py:14
+#: ../deskbar/handlers/pathprograms.py:15
 msgid "Launch any program present in your $PATH"
 msgstr "Her programekê bi şiklê hawîrdor $PATH destpêke"
 
-#: ../deskbar/handlers/pathprograms.py:30
+#: ../deskbar/handlers/pathprograms.py:60
 #, python-format
 msgid "Execute %s"
 msgstr "%s bicihbike"
-
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Program"
 
 #: ../deskbar/handlers/programs.py:15
 msgid "Launch a program by its name and/or description"
@@ -433,21 +604,20 @@ msgstr "Gera pelge û dosyan"
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Pelge û dosyan bi \"sernavên\" wan bibîne"
 
-# starten
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:66
+#: ../deskbar/handlers/programs.py:72
 #, python-format
-msgid "Launch %s (%s)"
-msgstr "Destpêk %s (%s) "
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr ""
 
-#: ../deskbar/handlers/programs.py:79
+#: ../deskbar/handlers/programs.py:85
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s di ferhengê de binêre"
 
 # Nach Dateinamen ähnlich wie %s suchen
-#: ../deskbar/handlers/programs.py:87
+#: ../deskbar/handlers/programs.py:93
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Li navên pelge mîna %s bigerihe"
@@ -462,13 +632,13 @@ msgstr "Laufwerke und Orte im Netzwerk"
 msgid "Open disk drives, shared network places and similar resources by name"
 msgstr "Laufwerke, Orte im Netzwerk oder vergleichbare Quellen über den Namen öffnen"
 
-#: ../deskbar/handlers/volumes.py:41
+#: ../deskbar/handlers/volumes.py:44
 #, python-format
 msgid "Open network place %s"
 msgstr "Netzwerkort %s öffnen"
 
 # Audio-CD
-#: ../deskbar/handlers/volumes.py:43
+#: ../deskbar/handlers/volumes.py:46
 #, python-format
 msgid "Open audio disk %s"
 msgstr "Deng-CD %s veke"
@@ -482,17 +652,47 @@ msgstr "Înternet"
 msgid "Open web pages by typing a complete web address"
 msgstr "Sîteyek înternetê bi navdanîna giştî ya adêsa înternetê veke"
 
-#: ../deskbar/handlers/web_address.py:35
+#: ../deskbar/handlers/web_address.py:36
 #, python-format
 msgid "Open the web page %s"
 msgstr "Sîteya Înternetê %s veke"
 
-#: ../deskbar/handlers/web_address.py:37
+#: ../deskbar/handlers/web_address.py:38
 #, python-format
 msgid "Open the location %s"
 msgstr "Cihê  %s veke"
 
-#: ../deskbar/preferences.py:53
+# Ein alles-in-einem Suchfeld.
+# Alles ist unbekannt.
+# Übersetzung freie Hand.
+#: ../deskbar/ui/About.py:25
+msgid "An all-in-one action bar."
+msgstr "Darika giştî di yekê de."
+
+# Ich bin dafür, dass man die ausländischen Begriffe übernimmt. Es sieht lächerlich aus, dass man einen künstlichen Begrif für diese Wörter erschafft. Zumal sie vollig nicht zu verstehen sind.
+# Website=website=site
+# Oder E-Mail=e-mail=e-name
+# Im folgenden, habe ich mich für e-name entschieden.
+#: ../deskbar/ui/About.py:28
+msgid "Deskbar Website"
+msgstr "Sîteya Deskbar"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:36
+msgid "translator-credits"
+msgstr "Azad Xerabî"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:54
 msgid "_More..."
 msgstr "_Bêtir..."
+
+#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
+msgid "No History"
+msgstr "Bê dîrok"
+
+#: ../deskbar/ui/cuemiac/Cuemiac.py:54
+msgid "You need Gtk+ version 2.8.0 or higher to use this module"
+msgstr ""
 
