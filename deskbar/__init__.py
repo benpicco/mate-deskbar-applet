@@ -94,7 +94,10 @@ if UNINSTALLED_DESKBAR:
 	GCONF_ENABLED_HANDLERS = GCONF_DIR + "/enabled_handlers_debug"
 else:
 	GCONF_ENABLED_HANDLERS = GCONF_DIR + "/enabled_handlers"
-	
+
+# GConf key for collapsed categories in the cuemiac view
+GCONF_COLLAPSED_CAT = GCONF_DIR + "/collapsed_cat"
+
 # Preload gconf directories
 GCONF_CLIENT.add_dir(GCONF_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
 

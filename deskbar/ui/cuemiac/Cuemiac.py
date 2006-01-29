@@ -1,11 +1,7 @@
 #
 # Release dependant:
 #
-# - Make the pref dialog non modal
-# - When clicking the history then cuemiac button, the two window overlap, should close one, open the other
-# - Clear cuemiac when hitting Esc.
-# - (EASY [Hard part solved]) Store expandedness state of categories (DONE)
-#   Missing: Store states in Gconf. Hint: Just store CuemiacTreeView.__collapsed_rows
+# - Make the pref dialog non modal ?? i tried but it doesn't work.. ?
 #
 # - (?) Take category/handler ordering into account
 #   Idea: Use no category sorting per default, then let the treeview be reoderable.
@@ -56,7 +52,7 @@ if incompatible:
 	sys.exit (1) # FIXME: Throw an appropriate exception instead, so we can use a gui notification
 del incompatible
 
-import gnome, gobject
+import gnome, gobject, gconf
 import gnome.ui, gnomeapplet
 import pango
 
@@ -97,7 +93,7 @@ class CuemiacCategory :
 	"""
 	A class representing a root node in the cuemiac model/view.
 	"""
-	def __init__ (self, name, parent, threshold=5):
+	def __init__ (self, id, name, parent, threshold=5):
 		"""
 		name: i18n'ed name for the category
 		parent: CuemiacTreeStore in which this category belongs
@@ -108,6 +104,7 @@ class CuemiacCategory :
 		self.__parent = parent
 
 		self.__name = name
+		self.__id = id
 		self.__threshold = threshold
 		self.__count = 0
 
@@ -144,7 +141,7 @@ class CuemiacCategory :
 		
 	def get_id (self):
 		"""id used to store expansion state"""
-		return self.__name
+		return self.__id
 	
 	def inc_count (self):
 		"""increase total number of hits in this category"""
@@ -156,6 +153,9 @@ class CuemiacCategory :
 	
 	def get_threshold (self):
 		return self.__threshold
+
+# The sort function ids
+SORT_BY_CATEGORY = 1
 
 class CuemiacModel (gtk.TreeStore):
 	"""
@@ -192,6 +192,17 @@ class CuemiacModel (gtk.TreeStore):
 		gtk.TreeStore.__init__ (self, gobject.TYPE_PYOBJECT)
 		self.__categories = {}
 		self.append_method = gtk.TreeStore.append # Alternatively gtk.TreeStore.prepend for bottom panel layout
+		self.set_sort_func(SORT_BY_CATEGORY, self.__on_sort_categories)
+		self.set_sort_column_id(SORT_BY_CATEGORY, gtk.SORT_DESCENDING)
+	
+	def __on_sort_categories(self, treemodel, iter1, iter2):
+		match1 = treemodel[iter1][self.MATCHES]
+		match2 = treemodel[iter2][self.MATCHES]
+		print 'Sorting', match1, match2
+		if match1.__class__ == CuemiacCategory and match2.__class__ == CuemiacCategory:
+			print 'Comparing:', match1.get_name(), match2.get_name()
+			
+		return 0
 		
 	def append (self, match):
 		"""
@@ -219,7 +230,7 @@ class CuemiacModel (gtk.TreeStore):
 		qstring, match_obj = match
 		#FIXME: Check validity of category name and use  proper i18n
 		# Set up a new category
-		cat = CuemiacCategory (CATEGORIES[match_obj.get_category()]["name"], self)
+		cat = CuemiacCategory (match_obj.get_category(), CATEGORIES[match_obj.get_category()]["name"], self)
 		iter = self.append_method (self, None, [cat])
 		cat.set_category_iter (iter)
 		self.__categories [match_obj.get_category()] = cat
@@ -388,7 +399,7 @@ class CuemiacTreeView (gtk.TreeView):
 		self.connect ("key-press-event", self.__on_key_press)
 				
 		self.set_enable_search (False)
-		self.set_reorderable(True)
+		#self.set_reorderable(True)
 		# FIXME: Make it so that categories *only* can be reordered by dragging
 		# gtkTreeView does not use normal gtk DnD api.
 		# it uses the api from hell
@@ -400,7 +411,9 @@ class CuemiacTreeView (gtk.TreeView):
 		# Stuff to handle persistant expansion states.
 		# A category will be expanded if it's in __collapsed_rows
 		# a Nest will never be expanded (this is not a bug, but policy)
-		self.__collapsed_rows = [] 
+		self.__collapsed_rows = deskbar.GCONF_CLIENT.get_list(deskbar.GCONF_COLLAPSED_CAT, gconf.VALUE_STRING)
+		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_COLLAPSED_CAT, lambda x, y, z, a: self.__on_config_expanded_cat(z.value))
+		
 		self.connect ("row-expanded", self.__on_row_expanded, model)
 		self.connect ("row-collapsed", self.__on_row_collapsed, model)
 		model.connect ("category-added", self.__on_category_added)
@@ -442,14 +455,20 @@ class CuemiacTreeView (gtk.TreeView):
 		iter = model.iter_nth_child (iter, num_children - 1)
 		return model.get_path (iter)
 	
+	def __on_config_expanded_cat (self, value):
+		if value != None and value.type == gconf.VALUE_LIST:
+			self.__collapsed_rows = [h.get_string() for h in value.get_list()]
+			
 	def __on_row_expanded (self, widget, iter, path, model):
 		idx = model[iter][model.MATCHES].get_id ()
 		if idx in self.__collapsed_rows:
 			self.__collapsed_rows.remove (idx)
+			deskbar.GCONF_CLIENT.set_list(deskbar.GCONF_COLLAPSED_CAT, gconf.VALUE_STRING, self.__collapsed_rows)
 		
 	def __on_row_collapsed (self, widget, iter, path, model):
 		idx = model[iter][model.MATCHES].get_id ()
 		self.__collapsed_rows.append (idx)
+		deskbar.GCONF_CLIENT.set_list(deskbar.GCONF_COLLAPSED_CAT, gconf.VALUE_STRING, self.__collapsed_rows)
 	
 	def __on_category_added (self, widget, cat, path):
 		if cat.get_id() not in self.__collapsed_rows:
@@ -626,9 +645,11 @@ class CuemiacUI (DeskbarUI):
 	
 	def show_entry (self):
 		if self.deskbar_button.get_active_main ():
-			if self.entry.get_text().strip() == "":
-				self.model.clear ()
-				self.scroll_win.hide ()
+			#if self.entry.get_text().strip() == "":
+			self.entry.set_text("")
+			self.model.clear ()
+			self.scroll_win.hide ()
+			self.deskbar_button.button_arrow.set_active (False)
 			self.adjust_popup_size ()
 			self.popup.update_position ()
 			self.popup.show ()
@@ -644,6 +665,7 @@ class CuemiacUI (DeskbarUI):
 			#self.entry.notify("has-focus")
 			#self.entry.grab_focus ()
 			self.update_entry_icon ()
+			
 		else:
 			#fevent = gtk.gdk.Event(gtk.gdk.FOCUS_CHANGE)
 
@@ -659,6 +681,7 @@ class CuemiacUI (DeskbarUI):
 	
 	def show_history (self):
 		if self.deskbar_button.get_active_arrow ():
+			self.deskbar_button.button_main.set_active (False)
 			self.history_popup.update_position ()
 			self.history_popup.show_all ()
 		else:
@@ -784,7 +807,7 @@ class CuemiacUI (DeskbarUI):
 				# If we clear some text, tell async handlers to stop.
 				self.emit ("stop-query")
 			
-			#self.entry.set_text("")
+			self.entry.set_text("")
 			self.deskbar_button.set_active_main (False)
 			return True
 		

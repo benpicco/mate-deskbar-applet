@@ -60,8 +60,9 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 
 		# Create the listtore, model for the completion popup
 		self._completion_model = gtk.ListStore(gobject.TYPE_INT, gobject.TYPE_INT, gobject.TYPE_STRING, gtk.gdk.Pixbuf, object, gobject.TYPE_STRING)
-		self._completion_model.set_sort_column_id(SORT_BY_HANDLER_MATCH_ACTION, gtk.SORT_DESCENDING)
 		self._completion_model.set_sort_func(SORT_BY_HANDLER_MATCH_ACTION, self._on_sort_matches)
+		self._completion_model.set_sort_column_id(SORT_BY_HANDLER_MATCH_ACTION, gtk.SORT_DESCENDING)
+		
 		
 		# Create the completion model
 		completion = gtk.EntryCompletion()
