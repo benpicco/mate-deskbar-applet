@@ -57,7 +57,6 @@ class EntryHistoryManager(gobject.GObject):
 			self.emit('history-set', True)
 			entry.handler_unblock(self.changed_id)
 		else:
-			print 'No more histoy'
 			# Here we delete the text cause we got out of history mode
 			self.emit('history-set', False)
 

@@ -6,9 +6,12 @@
 # - (TRIVIAL but THINK) Trim category names to as few as possible, and really get the names right
 #
 # - (TRIVIAL) Adjust max hits per handler (especially beagle-live should return a skazillion hits)
-#
-#
+# - Check for pycairo and disable cuemiac if not found in the prefs
+#    - hasattr(gtk.gdk.Drawable, 'cairo_create')
+#    - (better) check for cairo.gtk
 # Would be really really nice:
+#
+# - (EASY) Show nests only for two or more nested results, or something like that
 #
 # - (MEDIUM) User defined (non-static) categories *WITHOUT PERFOMANCE HIT*
 #

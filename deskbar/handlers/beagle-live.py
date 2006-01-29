@@ -1,4 +1,4 @@
-import os, sys, cgi
+import os, sys, cgi, re
 import gobject,gtk, gnome.ui, gnomevfs
 import deskbar, deskbar.Handler, deskbar.Utils
 from gettext import gettext as _
@@ -44,7 +44,8 @@ TYPES = {
 		"name"	: ("fixme:FileAs",),
 		"action": "evolution",
 		"icon"	: "stock_contact",
-		"description": _("Addressbook entry for %s") % "<b>%(name)s</b>"
+		"description": _("Addressbook entry for %s") % "<b>%(name)s</b>",
+		"category": "people",
 		},
 	
 	"MailMessage" 	: {
@@ -53,47 +54,55 @@ TYPES = {
 		"icon"	: "stock_mail",
 		"extra": {"sender":("fixme:from_name", "parent:fixme:from_name")},
 		#translators: First %s is mail sender, second %s is mail subject.
-		"description": _("View email from <i>%(sender)s</i>: <b>%(name)s</b>")
+		"description": _("View email from <i>%(sender)s</i>: <b>%(name)s</b>"),
+		"category": "documents",
 		},
 	"File" 		: {
 		"name"	: ("beagle:ExactFilename",), 
 		"action": "gnome-open",
 		"icon"	: "stock_new",
 		#translators: This is a file.
-		"description": _("Open %s") % "<b>%(name)s</b>"
+		"description": _("Open %s") % "<b>%(name)s</b>",
+		"category": "files",
 		},
 	"FeedItem"	: {
 		"name"	: ("dc:title",),
 		"action": "gnome-open",
 		"icon"	: "stock_news",
-		"description": _("Open news item %s") % "<b>%(name)s</b>"
+		"description": _("Open news item %s") % "<b>%(name)s</b>",
+		"category": "web",
 		},
 	"Note"		: {
 		"name"	: ("dc:title",),
 		"action": "tomboy",
 		"action_args": "--open-note",
 		"icon"	:"stock_notes",
-		"description": _("Open note %s") % "<b>%(name)s</b>"
+		"description": _("Open note %s") % "<b>%(name)s</b>",
+		"category": "documents",
 		},
 	"IMLog"		: {
 		"name"	: ("fixme:speakingto",),
 		"action": "beagle-imlogviewer",
 		"icon"	: "im",
-		"description": _("View conversation with %s") % "<b>%(name)s</b>"
+		#"description": (_("View conversation with %s") + "\n%s") % ("<b>%(name)s</b>","<span foreground='grey' size='small'>%(snippet)s</span>"),
+		"description": _("View conversation with %s") % "<b>%(name)s</b>",
+		"snippet": True,
+		"category": "documents",
 		},
 	"Calendar"	: {
 		"name"	: ("fixme:summary",),
 		"action": "evolution",
 		"icon"	: "stock_calendar",
-		"description": _("View calendar %s") % "<b>%(name)s</b>"
+		"description": _("View calendar %s") % "<b>%(name)s</b>",
+		"category": "documents",
 		},
-# FIXME: Kamstrup ?
-#	"WebHistory": {
-#		"name"	: ("fixme:summary",),
-#		"action": "evolution",
-#		"icon"	: "stock_calendar",
-#		"description": _("View calendar %s") % "<b>%(name)s</b>"
-#		},
+	"WebHistory": {
+		"name"	: ("dc:title",),
+		"action": "gnome-open",
+		"icon"	: "stock_bookmark",
+		"description": _("Open History Item %s") % "<b>%(name)s</b>",
+		"category": "web",
+		},
 }
 
 class BeagleLiveMatch (deskbar.Match.Match):
@@ -130,16 +139,10 @@ class BeagleLiveMatch (deskbar.Match.Match):
 		self._icon = handler.ICONS[result["type"]]
 		
 	def get_category (self):
-		t = self.result["type"]
-		if t == "MailMessage" : return "documents"
-		elif t == "Note": return "documents"
-		elif t == "IMLog": return "documents"
-		elif t == "Calendar": return "documents"
-		elif t == "Contact": return "people"
-		elif t == "File": return "files"
-		elif t == "FeedItem": return "web"
-		
-		return "default"
+		try:
+			return TYPES[self.result["type"]]["category"]
+		except:
+			return "default"
 		
 	def get_name (self, text=None):
 		# We use the result dict itself to look up words
@@ -198,60 +201,85 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 		beagle_query.connect("hits-added", self.hits_added, qstring, MAX_RESULTS)
 		self.beagle.send_request_async(beagle_query)
 		self.counter[qstring] = {}
+	
+	def _on_hit_added(self, query, hit, qstring, qmax, snippet=None):
+		if not hit.get_type() in self.counter[qstring]:
+			self.counter[qstring][hit.get_type()] = 0
+
+		if self.counter[qstring][hit.get_type()] >= qmax:
+			return
+			
+		hit_type = TYPES[hit.get_type()]
+		result = {
+			"uri":  hit.get_uri(),
+			"type": hit.get_type(),
+		}
+		
+		#if snippet != None:
+		#	print 'OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO'
+		#	tmp = re.sub(r"<.*?>", "", snippet)
+		#	tmp = re.sub(r"</.*?>", "", tmp)
+		#	result["snippet"] = cgi.escape(tmp)
+		
+		for prop in hit_type["name"]:
+			try:
+				name = hit.get_one_property(prop)
+			except:
+				try:
+					# Beagle < 0.2
+					name = hit.get_property(prop)
+				except:
+					continue
+					
+			if name != None:
+				result["name"] = cgi.escape(name)
+				break
+		else:
+			#translators: This is used for unknown values returned by beagle
+			#translators: for example unknown email sender, or unknown note title
+			result["name"] = _("?")
+			
+		if "extra" in hit_type:
+			for prop, keys in hit_type["extra"].items():
+				for key in keys:
+					try:
+						val = hit.get_one_property(key)
+					except:
+						try:
+							# Beagle < 0.2
+							val = hit.get_property(key)
+						except:
+							continue
+					if val != None:
+						result[prop] = cgi.escape(val)
+						break
+				else:
+					#translators: This is used for unknown values returned by beagle
+					#translators: for example unknown email sender, or unknown note title
+					result[prop] = _("?")
+					
+		self.counter[qstring][hit.get_type()] = self.counter[qstring][hit.get_type()] +1
+		
+		match = BeagleLiveMatch(self, result)
+		#if snippet != None:
+		#	self.emit_query_ready(qstring, [match])
+		#else:	
+		return match
 		
 	def hits_added(self, query, response, qstring, qmax):
+		import beagle
 		hit_matches = []
 		for hit in response.get_hits():
-			if not hit.get_type() in self.counter[qstring]:
-				self.counter[qstring][hit.get_type()] = 0
-
-			if self.counter[qstring][hit.get_type()] >= qmax:
-				continue
-				
-			hit_type = TYPES[hit.get_type()]
-			result = {
-				"uri":  hit.get_uri(),
-				"type": hit.get_type(),
-			}
-			for prop in hit_type["name"]:
-				try:
-					name = hit.get_one_property(prop)
-				except:
-					try:
-						# Beagle < 0.2
-						name = hit.get_property(prop)
-					except:
-						continue
-						
-				if name != None:
-					result["name"] = cgi.escape(name)
-					break
-			else:
-				#translators: This is used for unknown values returned by beagle
-				#translators: for example unknown email sender, or unknown note title
-				result["name"] = _("?")
-				
-			if "extra" in hit_type:
-				for prop, keys in hit_type["extra"].items():
-					for key in keys:
-						try:
-							val = hit.get_one_property(key)
-						except:
-							try:
-								# Beagle < 0.2
-								val = hit.get_property(key)
-							except:
-								continue
-						if val != None:
-							result[prop] = cgi.escape(val)
-							break
-					else:
-						#translators: This is used for unknown values returned by beagle
-						#translators: for example unknown email sender, or unknown note title
-						result[prop] = _("?")
-			
-			hit_matches.append(BeagleLiveMatch(self, result))
-			
-			self.counter[qstring][hit.get_type()] = self.counter[qstring][hit.get_type()] +1
+			#if "snippet" in TYPES[hit.get_type()]:
+			#	req = beagle.SnippetRequest()
+			#	req.set_query(query)
+			#	req.set_hit(hit)
+			#	req.connect('response', lambda req, snipresponse: self._on_hit_added(query, hit, qstring, qmax, snipresponse.get_snippet()))
+			#	self.beagle.send_request_async(req)
+			#	continue
+							
+			match = self._on_hit_added(query, hit, qstring, qmax)
+			if match != None:
+				hit_matches.append(match)				
 			
 		self.emit_query_ready(qstring, hit_matches)
