@@ -8,19 +8,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-19 15:32+0100\n"
+"POT-Creation-Date: 2006-01-29 17:13+0100\n"
 "PO-Revision-Date: 2006-01-19 15:47+0100\n"
 "Last-Translator: Hendrik Brandt <heb@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
 msgstr "Ein universales Applet für Suchen und das Starten von Anwendungen"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:23
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
 msgid "Deskbar"
 msgstr "Deskbar"
 
@@ -33,18 +33,23 @@ msgid "_Preferences"
 msgstr "_Einstellungen"
 
 #: ../data/prefs-dialog.glade.h:1
-msgid "<b>Keyboard Shortcut</b>"
-msgstr "<b>Tastenkombination</b>"
+msgid "<b>Focus</b>"
+msgstr ""
 
 #: ../data/prefs-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Layout</b>"
+msgstr "<b>Breite</b>"
+
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Loaded Extensions</b>"
 msgstr "<b>Geladene Erweiterungen</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
 msgid "<b>Width</b>"
 msgstr "<b>Breite</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:5
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
@@ -52,37 +57,54 @@ msgstr ""
 "<i><small><b>Hinweis:</b> Ziehen Sie ein Element mit der Maus um dessen "
 "Priorität zu ändern.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:6
+msgid "Button in panel with grouped list"
+msgstr ""
+
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Deskbar-Einstellungen"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:8
+msgid "Entry in panel with flat list"
+msgstr ""
+
+#: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
 msgstr "Feste _Breite:"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:10
+#, fuzzy
+msgid "Searches"
+msgstr "Internet-Suchen"
+
+#: ../data/prefs-dialog.glade.h:11
 msgid "Use _all available space"
 msgstr "Den _gesamten verfügbaren Platz verwenden"
 
-#: ../data/prefs-dialog.glade.h:8
-msgid "Use the _keyboard shortcut:"
+#: ../data/prefs-dialog.glade.h:12
+msgid "View"
+msgstr ""
+
+#: ../data/prefs-dialog.glade.h:13
+#, fuzzy
+msgid "_Keyboard shortcut to focus:"
 msgstr "Diese _Tastenkombination verwenden:"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:14
 msgid "characters"
 msgstr "Zeichen"
 
 #: ../data/smart-bookmarks.glade.h:1
+#, fuzzy
 msgid ""
 "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
+"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
 msgstr ""
-"<i><small><b>Hinweis: </b>"
-"Wenn die Tastenkombination ein einzelner Buchstabe ist (z.B. <b>e</b>) "
-"können sie auch nur »<b>irgendwas</b>« schreiben und anschließend <b>Strg-e</b> "
-"im Deskbar-Feld drücken.</small></i>"
-""
+"<i><small><b>Hinweis: </b>Wenn die Tastenkombination ein einzelner Buchstabe "
+"ist (z.B. <b>e</b>) können sie auch nur »<b>irgendwas</b>« schreiben und "
+"anschließend <b>Strg-e</b> im Deskbar-Feld drücken.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
@@ -90,34 +112,219 @@ msgid ""
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
 msgstr ""
-"<i><small><b>Hinweis:</b> "
-"Um ein Kürzel (z.B. <b>wp</b>) zur Suchen nach "
-"<b>irgendwas</b> zu verwenden, geben Sie »<b>wp irgendwas</b>« "
-"im Deskbar-Feld ein.</small></i>"
-""
+"<i><small><b>Hinweis:</b> Um ein Kürzel (z.B. <b>wp</b>) zur Suchen nach "
+"<b>irgendwas</b> zu verwenden, geben Sie »<b>wp irgendwas</b>« im Deskbar-"
+"Feld ein.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Kürzel für Lesezeichensuche"
 
-#: ../deskbar/about.py:26
-msgid "An all-in-one action bar."
-msgstr "Ein universales Applet für Suchen und das Starten von Anwendungen."
+#: ../deskbar/BrowserMatch.py:30
+#, python-format
+msgid "Open History Item %s"
+msgstr "Chronikeintrag %s öffnen"
 
-#: ../deskbar/about.py:29
-msgid "Deskbar Website"
-msgstr "Deskbar-Internet-Seite"
+#: ../deskbar/BrowserMatch.py:32
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "Lesezeichen %s öffnen"
 
-#. about.set_artists([])
-#. about.set_documenters([])
-#. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/about.py:37
-msgid "translator-credits"
-msgstr "Hendrik Brandt <heb@gnome-de.org>"
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/BrowserMatch.py:81
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "Mit <b>%(name)s</b> nachen <i>%(text)s</i> suchen"
 
-#: ../deskbar/applet.py:311
-msgid "No History"
+#: ../deskbar/BrowserMatch.py:187
+msgid "Shortcut"
+msgstr "Kürzel"
+
+#: ../deskbar/BrowserMatch.py:195
+msgid "Bookmark Name"
+msgstr "Lesezeichenname"
+
+#: ../deskbar/Categories.py:11
+msgid "Uncategorized"
+msgstr ""
+
+#: ../deskbar/Categories.py:12
+#, python-format
+msgid "%s more result"
+msgid_plural "%s more results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:16
+msgid "Files"
+msgstr ""
+
+#: ../deskbar/Categories.py:17
+#, python-format
+msgid "%s more file"
+msgid_plural "%s more files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:21
+msgid "Actions"
+msgstr ""
+
+#: ../deskbar/Categories.py:22
+#, python-format
+msgid "%s more action"
+msgid_plural "%s more actions"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:26
+msgid "News"
+msgstr ""
+
+#: ../deskbar/Categories.py:27
+#, fuzzy, python-format
+msgid "%s more news item"
+msgid_plural "%s more news items"
+msgstr[0] "News-Eintrag %s öffnen"
+msgstr[1] "News-Eintrag %s öffnen"
+
+#: ../deskbar/Categories.py:31
+msgid "Contacts"
+msgstr ""
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more contact"
+msgid_plural "%s more contacts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:36
+#, fuzzy
+msgid "Emails"
+msgstr "E-Mail"
+
+#: ../deskbar/Categories.py:37
+#, python-format
+msgid "%s more email"
+msgid_plural "%s more emails"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:41
+msgid "Notes"
+msgstr ""
+
+#: ../deskbar/Categories.py:42
+#, python-format
+msgid "%s more note"
+msgid_plural "%s more notes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:46
+msgid "Volumes"
+msgstr ""
+
+#: ../deskbar/Categories.py:47
+#, python-format
+msgid "%s more volume"
+msgid_plural "%s more volumes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:51
+#, fuzzy
+msgid "Google Search"
+msgstr "Google-Live"
+
+#: ../deskbar/Categories.py:52
+#, python-format
+msgid "%s more online hit"
+msgid_plural "%s more online hits"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:56
+msgid "Calendar"
+msgstr ""
+
+#: ../deskbar/Categories.py:57
+#, python-format
+msgid "%s more calendar item"
+msgid_plural "%s more calendar items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:61
+msgid "Conversation"
+msgstr ""
+
+#: ../deskbar/Categories.py:62
+#, fuzzy, python-format
+msgid "%s more conversation"
+msgid_plural "%s more conversations"
+msgstr[0] "Unterhaltung mit %s öffnen"
+msgstr[1] "Unterhaltung mit %s öffnen"
+
+#: ../deskbar/Categories.py:66
+msgid "Web Browser"
+msgstr ""
+
+#: ../deskbar/Categories.py:67
+#, python-format
+msgid "%s more item"
+msgid_plural "%s more items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Programme"
+
+#: ../deskbar/Categories.py:72
+#, python-format
+msgid "%s more program"
+msgid_plural "%s more programs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
+#, fuzzy
+msgid "History"
 msgstr "Keine Chronik"
+
+#: ../deskbar/Categories.py:77
+#, python-format
+msgid "%s more match"
+msgid_plural "%s more matches"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/Categories.py:81
+msgid "Debug"
+msgstr ""
+
+#: ../deskbar/Categories.py:82
+#, python-format
+msgid "%s more debugging handler"
+msgid_plural "%s more debugging handlers"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../deskbar/gtkexcepthook.py:21
+msgid "A programming error has been detected"
+msgstr ""
+
+#: ../deskbar/gtkexcepthook.py:22
+msgid ""
+"It probably isn't fatal, but should be reported to the developers "
+"nonetheless. The program may behave erratically from now on."
+msgstr ""
+
+#: ../deskbar/gtkexcepthook.py:24
+msgid "Bug Detected"
+msgstr ""
 
 #: ../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
@@ -139,7 +346,7 @@ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 msgstr "Nachricht von <i>%(sender)s</i>: <b>%(name)s</b> ansehen"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
 #, python-format
 msgid "Open %s"
 msgstr "%s öffnen"
@@ -166,8 +373,8 @@ msgstr "Kalender %s anzeigen"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:205
-#: ../deskbar/handlers/beagle-live.py:217
+#: ../deskbar/handlers/beagle-live.py:230
+#: ../deskbar/handlers/beagle-live.py:249
 msgid "?"
 msgstr "?"
 
@@ -179,34 +386,10 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Alle Ihre Dokumente durchsuchen (über Beagle)"
 
-#: ../deskbar/handlers/beagle.py:33
+#: ../deskbar/handlers/beagle.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Nach %s mit Beagle suchen"
-
-#: ../deskbar/handlers_browsers.py:29
-#, python-format
-msgid "Open History Item %s"
-msgstr "Chronikeintrag %s öffnen"
-
-#: ../deskbar/handlers_browsers.py:31
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "Lesezeichen %s öffnen"
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:64
-#, python-format
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "Mit <b>%(name)s</b> nachen <i>%(text)s</i> suchen"
-
-#: ../deskbar/handlers_browsers.py:171
-msgid "Shortcut"
-msgstr "Kürzel"
-
-#: ../deskbar/handlers_browsers.py:179
-msgid "Bookmark Name"
-msgstr "Lesezeichenname"
 
 #: ../deskbar/handlers/email_address.py:9
 msgid "Mail"
@@ -217,10 +400,15 @@ msgid "Send mail by typing a complete e-mail address"
 msgstr ""
 "Eine E-Mail über die Eingabe einer vollständigen E-Mail-Adresse verschicken"
 
-#: ../deskbar/handlers/email_address.py:26 ../deskbar/handlers/galago.py:26
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "E-Mail an %s senden"
+
+#: ../deskbar/handlers/epiphany.py:26
+#, fuzzy
+msgid "You can set shortcuts for your searches."
+msgstr "Kürzel für Lesezeichensuche"
 
 #: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
 #: ../deskbar/handlers/mozilla.py:33
@@ -282,7 +470,7 @@ msgstr ""
 "Adresse eingeben"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:41
+#: ../deskbar/handlers/evolution.py:45
 #, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Nachricht an <b>%(name)s</b> (%(email)s) schicken"
@@ -295,7 +483,7 @@ msgstr "Dateien und Ordner"
 msgid "Open your files and folders by name"
 msgstr "Ihre Dateien und Ordner über den Namen öffnen"
 
-#: ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/files.py:51
 #, python-format
 msgid "Open folder %s"
 msgstr "Ordner %s öffnen"
@@ -371,10 +559,14 @@ msgstr "Datei- und Ordner-Lesezeichen"
 msgid "Open your files and folders bookmarks by name"
 msgstr "Ihre Datei- und Ordner-Lesezeichen über den Namen öffnen"
 
-#: ../deskbar/handlers/gtkbookmarks.py:28 ../deskbar/handlers/volumes.py:44
+#: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
 #, python-format
 msgid "Open location %s"
 msgstr "Ort %s öffnen"
+
+#: ../deskbar/handlers/history.py:9
+msgid "Recognize previously used searches"
+msgstr ""
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
@@ -384,14 +576,10 @@ msgstr "Programme (Erweitert)"
 msgid "Launch any program present in your $PATH"
 msgstr "Jedes Programm in Ihrer Umgebungsvariable $PATH starten"
 
-#: ../deskbar/handlers/pathprograms.py:57
+#: ../deskbar/handlers/pathprograms.py:60
 #, python-format
 msgid "Execute %s"
 msgstr "%s ausführen"
-
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Programme"
 
 #: ../deskbar/handlers/programs.py:15
 msgid "Launch a program by its name and/or description"
@@ -415,17 +603,17 @@ msgstr "Dateien und Ordner über Namensteile finden"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:64
+#: ../deskbar/handlers/programs.py:72
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) starten"
 
-#: ../deskbar/handlers/programs.py:77
+#: ../deskbar/handlers/programs.py:85
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s im Wörterbuch nachschlagen"
 
-#: ../deskbar/handlers/programs.py:85
+#: ../deskbar/handlers/programs.py:93
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Nach Dateinamen ähnlich wie %s suchen"
@@ -439,12 +627,12 @@ msgid "Open disk drives, shared network places and similar resources by name"
 msgstr ""
 "Laufwerke, Orte im Netzwerk oder vergleichbare Quellen über den Namen öffnen"
 
-#: ../deskbar/handlers/volumes.py:40
+#: ../deskbar/handlers/volumes.py:44
 #, python-format
 msgid "Open network place %s"
 msgstr "Netzwerkort %s öffnen"
 
-#: ../deskbar/handlers/volumes.py:42
+#: ../deskbar/handlers/volumes.py:46
 #, python-format
 msgid "Open audio disk %s"
 msgstr "Audio-CD %s öffnen"
@@ -459,17 +647,42 @@ msgstr ""
 "Eine Internet-Seite über die Eingabe einer vollständigen Internet-Adresse "
 "öffnen"
 
-#: ../deskbar/handlers/web_address.py:34
+#: ../deskbar/handlers/web_address.py:36
 #, python-format
 msgid "Open the web page %s"
 msgstr "Internet-Seite %s öffnen"
 
-#: ../deskbar/handlers/web_address.py:36
+#: ../deskbar/handlers/web_address.py:38
 #, python-format
 msgid "Open the location %s"
 msgstr "Ort %s öffnen"
 
-#: ../deskbar/preferences.py:53
+#: ../deskbar/ui/About.py:25
+msgid "An all-in-one action bar."
+msgstr "Ein universales Applet für Suchen und das Starten von Anwendungen."
+
+#: ../deskbar/ui/About.py:28
+msgid "Deskbar Website"
+msgstr "Deskbar-Internet-Seite"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:36
+msgid "translator-credits"
+msgstr "Hendrik Brandt <heb@gnome-de.org>"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:54
 msgid "_More..."
 msgstr "_Mehr..."
 
+#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
+msgid "No History"
+msgstr "Keine Chronik"
+
+#: ../deskbar/ui/cuemiac/Cuemiac.py:44
+msgid "You need Gtk+ version 2.8.0 or higher to use this module"
+msgstr ""
+
+#~ msgid "<b>Keyboard Shortcut</b>"
+#~ msgstr "<b>Tastenkombination</b>"

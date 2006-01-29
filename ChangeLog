@@ -1,5 +1,19 @@
 2006-01-29  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/Categories.py:
+	* deskbar/handlers/google-live.py:
+	* deskbar/ui/cuemiac/Cuemiac.py:
+	Implement category sorting according to various criterions.
+	Categories are sorted according to the highest handler priority (as
+	defined in the preferences) found in a match within the category.
+	Matches insides a category are sorted according to their handler
+	preference then relative priority. Finally alphabetic order is used.
+
+	Add a generic category dubbed 'Uncategorized' for handlers returning bogus
+	categories or handlers that haven't any particular category.
+
+2006-01-29  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* data/deskbar-applet.schemas.in:
 	* deskbar/__init__.py:
 	* deskbar/ui/completion/DeskbarEntry.py:

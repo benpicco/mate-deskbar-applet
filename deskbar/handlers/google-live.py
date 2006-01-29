@@ -110,6 +110,7 @@ class GoogleLiveHandler (deskbar.Handler.AsyncHandler):
 		self.check_query_changed (timeout=QUERY_DELAY)
 		
 		#print "GoogleLive: Querying Google for", qstring
+		print 'Query google for:', qstring
 		results = self.server.doGoogleSearch (self.api_key, # personal google api key
 						qstring, 	# query
 						0, qmax, 	# start/end of result list
@@ -118,7 +119,8 @@ class GoogleLiveHandler (deskbar.Handler.AsyncHandler):
 						False, 		# safe search (filter adult material)
 						"", 		# get results in specific language
 						"utf-8", "utf-8") # input/output encodings
-					
+		print 'Got google answer for:', qstring
+		
 		# The google search might have taken a long time
 		# better check if we're still valid	
 		self.check_query_changed ()

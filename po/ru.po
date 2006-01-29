@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-24 03:21+0300\n"
+"POT-Creation-Date: 2006-01-29 17:13+0100\n"
 "PO-Revision-Date: 2006-01-24 03:37+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -15,7 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.1\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
@@ -54,8 +55,8 @@ msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
 msgstr ""
-"<i><small><b>Примечание:</b> Порядок меняется перетаскиванием "
-"расширения вниз или вверх.</small></i>"
+"<i><small><b>Примечание:</b> Порядок меняется перетаскиванием расширения "
+"вниз или вверх.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
 msgid "Button in panel with grouped list"
@@ -142,10 +143,22 @@ msgid "Bookmark Name"
 msgstr "Имя закладки"
 
 #: ../deskbar/Categories.py:11
+msgid "Uncategorized"
+msgstr ""
+
+#: ../deskbar/Categories.py:12
+#, fuzzy, python-format
+msgid "%s more result"
+msgid_plural "%s more results"
+msgstr[0] "Ещё %s письмо"
+msgstr[1] "Ещё %s письма"
+msgstr[2] "Ещё %s писем"
+
+#: ../deskbar/Categories.py:16
 msgid "Files"
 msgstr "Файлы"
 
-#: ../deskbar/Categories.py:12
+#: ../deskbar/Categories.py:17
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
@@ -153,11 +166,11 @@ msgstr[0] "Ещё %s файл"
 msgstr[1] "Ещё %s файла"
 msgstr[2] "Ещё %s файлов"
 
-#: ../deskbar/Categories.py:16
+#: ../deskbar/Categories.py:21
 msgid "Actions"
 msgstr "Действия"
 
-#: ../deskbar/Categories.py:17
+#: ../deskbar/Categories.py:22
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
@@ -165,11 +178,11 @@ msgstr[0] "Ещё %s действие"
 msgstr[1] "Ещё %s действия"
 msgstr[2] "Ещё %s действий"
 
-#: ../deskbar/Categories.py:21
+#: ../deskbar/Categories.py:26
 msgid "News"
 msgstr "Новости"
 
-#: ../deskbar/Categories.py:22
+#: ../deskbar/Categories.py:27
 #, python-format
 msgid "%s more news item"
 msgid_plural "%s more news items"
@@ -177,11 +190,11 @@ msgstr[0] "Ещё %s новость"
 msgstr[1] "Ещё %s новости"
 msgstr[2] "Ещё %s новостей"
 
-#: ../deskbar/Categories.py:26
+#: ../deskbar/Categories.py:31
 msgid "Contacts"
 msgstr "Контакты"
 
-#: ../deskbar/Categories.py:27
+#: ../deskbar/Categories.py:32
 #, python-format
 msgid "%s more contact"
 msgid_plural "%s more contacts"
@@ -189,11 +202,11 @@ msgstr[0] "Ещё %s контакт"
 msgstr[1] "Ещё %s контакта"
 msgstr[2] "Ещё %s контактов"
 
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:36
 msgid "Emails"
 msgstr "Письма"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:37
 #, python-format
 msgid "%s more email"
 msgid_plural "%s more emails"
@@ -201,11 +214,11 @@ msgstr[0] "Ещё %s письмо"
 msgstr[1] "Ещё %s письма"
 msgstr[2] "Ещё %s писем"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:41
 msgid "Notes"
 msgstr "Заметки"
 
-#: ../deskbar/Categories.py:37
+#: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more note"
 msgid_plural "%s more notes"
@@ -213,11 +226,11 @@ msgstr[0] "Ещё %s заметка"
 msgstr[1] "Ещё %s заметки"
 msgstr[2] "Ещё %s заметок"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:46
 msgid "Volumes"
 msgstr "Тома"
 
-#: ../deskbar/Categories.py:42
+#: ../deskbar/Categories.py:47
 #, python-format
 msgid "%s more volume"
 msgid_plural "%s more volumes"
@@ -225,11 +238,11 @@ msgstr[0] "Ещё %s том"
 msgstr[1] "Ещё %s тома"
 msgstr[2] "Ещё %s томов"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:51
 msgid "Google Search"
 msgstr "Поиск по Google"
 
-#: ../deskbar/Categories.py:47
+#: ../deskbar/Categories.py:52
 #, python-format
 msgid "%s more online hit"
 msgid_plural "%s more online hits"
@@ -237,11 +250,11 @@ msgstr[0] "Ещё %s посещённая страница"
 msgstr[1] "Ещё %s посещённых страницы"
 msgstr[2] "Ещё %s посещённых страниц"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:56
 msgid "Calendar"
 msgstr "Календарь"
 
-#: ../deskbar/Categories.py:52
+#: ../deskbar/Categories.py:57
 #, python-format
 msgid "%s more calendar item"
 msgid_plural "%s more calendar items"
@@ -249,11 +262,11 @@ msgstr[0] "Ещё %s календарное событие"
 msgstr[1] "Ещё %s календарных события"
 msgstr[2] "Ещё %s календарных событий"
 
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:61
 msgid "Conversation"
 msgstr "Разговоры"
 
-#: ../deskbar/Categories.py:57
+#: ../deskbar/Categories.py:62
 #, python-format
 msgid "%s more conversation"
 msgid_plural "%s more conversations"
@@ -261,11 +274,11 @@ msgstr[0] "Ещё %s разговор"
 msgstr[1] "Ещё %s разговора"
 msgstr[2] "Ещё %s разговоров"
 
-#: ../deskbar/Categories.py:61
+#: ../deskbar/Categories.py:66
 msgid "Web Browser"
 msgstr "Веб-браузер"
 
-#: ../deskbar/Categories.py:62
+#: ../deskbar/Categories.py:67
 #, python-format
 msgid "%s more item"
 msgid_plural "%s more items"
@@ -273,11 +286,11 @@ msgstr[0] "Ещё %s объект"
 msgstr[1] "Ещё %s объекта"
 msgstr[2] "Ещё %s объектов"
 
-#: ../deskbar/Categories.py:66 ../deskbar/handlers/programs.py:14
+#: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
 msgid "Programs"
 msgstr "Программы"
 
-#: ../deskbar/Categories.py:67
+#: ../deskbar/Categories.py:72
 #, python-format
 msgid "%s more program"
 msgid_plural "%s more programs"
@@ -285,11 +298,24 @@ msgstr[0] "Ещё %s программа"
 msgstr[1] "Ещё %s программы"
 msgstr[2] "Ещё %s программ"
 
-#: ../deskbar/Categories.py:71
+#: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
+#, fuzzy
+msgid "History"
+msgstr "История пуста"
+
+#: ../deskbar/Categories.py:77
+#, fuzzy, python-format
+msgid "%s more match"
+msgid_plural "%s more matches"
+msgstr[0] "Ещё %s письмо"
+msgstr[1] "Ещё %s письма"
+msgstr[2] "Ещё %s писем"
+
+#: ../deskbar/Categories.py:81
 msgid "Debug"
 msgstr "Отладка"
 
-#: ../deskbar/Categories.py:72
+#: ../deskbar/Categories.py:82
 #, python-format
 msgid "%s more debugging handler"
 msgid_plural "%s more debugging handlers"
@@ -297,13 +323,28 @@ msgstr[0] "Ещё %s отладочное сообщение"
 msgstr[1] "Ещё %s отладочных сообщения"
 msgstr[2] "Ещё %s отладочных сообщений"
 
+#: ../deskbar/gtkexcepthook.py:21
+msgid "A programming error has been detected"
+msgstr ""
+
+#: ../deskbar/gtkexcepthook.py:22
+msgid ""
+"It probably isn't fatal, but should be reported to the developers "
+"nonetheless. The program may behave erratically from now on."
+msgstr ""
+
+#: ../deskbar/gtkexcepthook.py:24
+msgid "Bug Detected"
+msgstr ""
+
 #: ../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
 #: ../deskbar/handlers/beagle-live.py:20
 msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Искать по всем вашим документам при помощи Beagle по мере набора запроса"
+msgstr ""
+"Искать по всем вашим документам при помощи Beagle по мере набора запроса"
 
 #: ../deskbar/handlers/beagle-live.py:47
 #, python-format
@@ -344,8 +385,8 @@ msgstr "Просмотреть календарь %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:215
-#: ../deskbar/handlers/beagle-live.py:227
+#: ../deskbar/handlers/beagle-live.py:230
+#: ../deskbar/handlers/beagle-live.py:249
 msgid "?"
 msgstr "?"
 
@@ -357,7 +398,7 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Поиск по всем вашим документам (используя Beagle)"
 
-#: ../deskbar/handlers/beagle.py:33
+#: ../deskbar/handlers/beagle.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Искать %s, используя Beagle"
@@ -528,6 +569,10 @@ msgstr "Открывать ваши закладки на файлы и папк
 msgid "Open location %s"
 msgstr "Открыть местоположение %s"
 
+#: ../deskbar/handlers/history.py:9
+msgid "Recognize previously used searches"
+msgstr ""
+
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
 msgstr "Программы (Расширенное)"
@@ -633,13 +678,12 @@ msgstr "Александр Прокудин <alexandre.prokoudine@gmail.com>"
 msgid "_More..."
 msgstr "_Больше..."
 
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:126
+#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "История пуста"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:59
+#: ../deskbar/ui/cuemiac/Cuemiac.py:44
 msgid "You need Gtk+ version 2.8.0 or higher to use this module"
 msgstr ""
 "Вам нужна бибилиотека Gtk+ версии 2.8.0 или новее для использования этого "
 "расширения"
-

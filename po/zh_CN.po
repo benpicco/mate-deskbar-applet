@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-24 21:33+0100\n"
+"POT-Creation-Date: 2006-01-29 17:13+0100\n"
 "PO-Revision-Date: 2005-12-25 11:14+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "An all-in-one action bar"
 msgstr "全能动作栏"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/about.py:23
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
 msgid "Deskbar"
 msgstr "桌面栏"
 
@@ -32,47 +32,71 @@ msgid "_Preferences"
 msgstr "首选项(_P)"
 
 #: ../data/prefs-dialog.glade.h:1
-msgid "<b>Keyboard Shortcut</b>"
-msgstr "<b>键盘快捷键</b>"
+msgid "<b>Focus</b>"
+msgstr ""
 
 #: ../data/prefs-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Layout</b>"
+msgstr "<b>宽度</b>"
+
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Loaded Extensions</b>"
 msgstr "<b>装入的扩展</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
 msgid "<b>Width</b>"
 msgstr "<b>宽度</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:5
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
 msgstr "<i><small><b>注意：</b>拖曳把手可更改其顺序。</small></i>"
 
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:6
+msgid "Button in panel with grouped list"
+msgstr ""
+
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "桌面栏首选项"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:8
+msgid "Entry in panel with flat list"
+msgstr ""
+
+#: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
 msgstr "固定宽度(_W)："
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:10
+#, fuzzy
+msgid "Searches"
+msgstr "Web 搜索"
+
+#: ../data/prefs-dialog.glade.h:11
 msgid "Use _all available space"
 msgstr "使用可用的全部空间(_A)"
 
-#: ../data/prefs-dialog.glade.h:8
-msgid "Use the _keyboard shortcut:"
+#: ../data/prefs-dialog.glade.h:12
+msgid "View"
+msgstr ""
+
+#: ../data/prefs-dialog.glade.h:13
+#, fuzzy
+msgid "_Keyboard shortcut to focus:"
 msgstr "使用键盘快捷键(_K)："
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:14
 msgid "characters"
 msgstr "个字符"
 
 #: ../data/smart-bookmarks.glade.h:1
+#, fuzzy
 msgid ""
 "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Ctrl-t</b> in "
+"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
 msgstr ""
 "<i><small><b>注意：</b>如果快捷键是单个字符(如 <b>t</b>)，您还可以输入“<b>内"
@@ -91,24 +115,196 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "加入书签的搜索的快捷键"
 
-#: ../deskbar/about.py:26
-msgid "An all-in-one action bar."
-msgstr "全能动作栏。"
+#: ../deskbar/BrowserMatch.py:30
+#, python-format
+msgid "Open History Item %s"
+msgstr "打开历史项 %s"
 
-#: ../deskbar/about.py:29
-msgid "Deskbar Website"
-msgstr "桌面栏网站"
+#: ../deskbar/BrowserMatch.py:32
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "打开书签 %s"
 
-#. about.set_artists([])
-#. about.set_documenters([])
-#. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/about.py:37
-msgid "translator-credits"
-msgstr "Funda Wang <fundawang@linux.net.cn>, 2005."
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/BrowserMatch.py:81
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "在 <b>%(name)s</b> 中搜索 <i>%(text)s</i>"
 
-#: ../deskbar/applet.py:312
-msgid "No History"
+#: ../deskbar/BrowserMatch.py:187
+msgid "Shortcut"
+msgstr "快捷键"
+
+#: ../deskbar/BrowserMatch.py:195
+msgid "Bookmark Name"
+msgstr "书签名称"
+
+#: ../deskbar/Categories.py:11
+msgid "Uncategorized"
+msgstr ""
+
+#: ../deskbar/Categories.py:12
+#, python-format
+msgid "%s more result"
+msgid_plural "%s more results"
+msgstr[0] ""
+
+#: ../deskbar/Categories.py:16
+msgid "Files"
+msgstr ""
+
+#: ../deskbar/Categories.py:17
+#, python-format
+msgid "%s more file"
+msgid_plural "%s more files"
+msgstr[0] ""
+
+#: ../deskbar/Categories.py:21
+msgid "Actions"
+msgstr ""
+
+#: ../deskbar/Categories.py:22
+#, python-format
+msgid "%s more action"
+msgid_plural "%s more actions"
+msgstr[0] ""
+
+#: ../deskbar/Categories.py:26
+msgid "News"
+msgstr ""
+
+#: ../deskbar/Categories.py:27
+#, fuzzy, python-format
+msgid "%s more news item"
+msgid_plural "%s more news items"
+msgstr[0] "打开新闻项 %s"
+
+#: ../deskbar/Categories.py:31
+msgid "Contacts"
+msgstr ""
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more contact"
+msgid_plural "%s more contacts"
+msgstr[0] ""
+
+#: ../deskbar/Categories.py:36
+#, fuzzy
+msgid "Emails"
+msgstr "邮件"
+
+#: ../deskbar/Categories.py:37
+#, python-format
+msgid "%s more email"
+msgid_plural "%s more emails"
+msgstr[0] ""
+
+#: ../deskbar/Categories.py:41
+msgid "Notes"
+msgstr ""
+
+#: ../deskbar/Categories.py:42
+#, python-format
+msgid "%s more note"
+msgid_plural "%s more notes"
+msgstr[0] ""
+
+#: ../deskbar/Categories.py:46
+msgid "Volumes"
+msgstr ""
+
+#: ../deskbar/Categories.py:47
+#, python-format
+msgid "%s more volume"
+msgid_plural "%s more volumes"
+msgstr[0] ""
+
+#: ../deskbar/Categories.py:51
+#, fuzzy
+msgid "Google Search"
+msgstr "Google Live"
+
+#: ../deskbar/Categories.py:52
+#, python-format
+msgid "%s more online hit"
+msgid_plural "%s more online hits"
+msgstr[0] ""
+
+#: ../deskbar/Categories.py:56
+msgid "Calendar"
+msgstr ""
+
+#: ../deskbar/Categories.py:57
+#, python-format
+msgid "%s more calendar item"
+msgid_plural "%s more calendar items"
+msgstr[0] ""
+
+#: ../deskbar/Categories.py:61
+msgid "Conversation"
+msgstr ""
+
+#: ../deskbar/Categories.py:62
+#, fuzzy, python-format
+msgid "%s more conversation"
+msgid_plural "%s more conversations"
+msgstr[0] "查看与 %s 的对话"
+
+#: ../deskbar/Categories.py:66
+msgid "Web Browser"
+msgstr ""
+
+#: ../deskbar/Categories.py:67
+#, python-format
+msgid "%s more item"
+msgid_plural "%s more items"
+msgstr[0] ""
+
+#: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "程序"
+
+#: ../deskbar/Categories.py:72
+#, python-format
+msgid "%s more program"
+msgid_plural "%s more programs"
+msgstr[0] ""
+
+#: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
+#, fuzzy
+msgid "History"
 msgstr "无历史"
+
+#: ../deskbar/Categories.py:77
+#, python-format
+msgid "%s more match"
+msgid_plural "%s more matches"
+msgstr[0] ""
+
+#: ../deskbar/Categories.py:81
+msgid "Debug"
+msgstr ""
+
+#: ../deskbar/Categories.py:82
+#, python-format
+msgid "%s more debugging handler"
+msgid_plural "%s more debugging handlers"
+msgstr[0] ""
+
+#: ../deskbar/gtkexcepthook.py:21
+msgid "A programming error has been detected"
+msgstr ""
+
+#: ../deskbar/gtkexcepthook.py:22
+msgid ""
+"It probably isn't fatal, but should be reported to the developers "
+"nonetheless. The program may behave erratically from now on."
+msgstr ""
+
+#: ../deskbar/gtkexcepthook.py:24
+msgid "Bug Detected"
+msgstr ""
 
 #: ../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
@@ -130,7 +326,7 @@ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 msgstr "查看 <i>%(sender)s</i> 发来的邮件：<b>%(name)s</b>"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:31
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
 #, python-format
 msgid "Open %s"
 msgstr "打开 %s"
@@ -157,8 +353,8 @@ msgstr "查看日历 %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:205
-#: ../deskbar/handlers/beagle-live.py:217
+#: ../deskbar/handlers/beagle-live.py:230
+#: ../deskbar/handlers/beagle-live.py:249
 msgid "?"
 msgstr "?"
 
@@ -170,34 +366,10 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "(使用 Beagle)搜索您所有的文档"
 
-#: ../deskbar/handlers/beagle.py:33
+#: ../deskbar/handlers/beagle.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "使用 Beagle 搜索 %s"
-
-#: ../deskbar/handlers_browsers.py:30
-#, python-format
-msgid "Open History Item %s"
-msgstr "打开历史项 %s"
-
-#: ../deskbar/handlers_browsers.py:32
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "打开书签 %s"
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/handlers_browsers.py:67
-#, python-format
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "在 <b>%(name)s</b> 中搜索 <i>%(text)s</i>"
-
-#: ../deskbar/handlers_browsers.py:172
-msgid "Shortcut"
-msgstr "快捷键"
-
-#: ../deskbar/handlers_browsers.py:180
-msgid "Bookmark Name"
-msgstr "书签名称"
 
 #: ../deskbar/handlers/email_address.py:9
 msgid "Mail"
@@ -207,18 +379,23 @@ msgstr "邮件"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "输入完整的电子邮件地址以发送邮件"
 
-#: ../deskbar/handlers/email_address.py:26 ../deskbar/handlers/galago.py:27
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "给 %s 发送电子邮件"
 
+#: ../deskbar/handlers/epiphany.py:26
+#, fuzzy
+msgid "You can set shortcuts for your searches."
+msgstr "加入书签的搜索的快捷键"
+
 #: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:29
+#: ../deskbar/handlers/mozilla.py:33
 msgid "Web Bookmarks"
 msgstr "Web 书签"
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:30
+#: ../deskbar/handlers/mozilla.py:34
 msgid "Open your web bookmarks by name"
 msgstr "按名称打开您的 Web 书签"
 
@@ -231,12 +408,12 @@ msgid "Open your web history by name"
 msgstr "按名称打开您的 Web 历史"
 
 #: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/mozilla.py:38
 msgid "Web Searches"
 msgstr "Web 搜索"
 
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:35
+#: ../deskbar/handlers/mozilla.py:39
 msgid "Search the web via your browser's search settings"
 msgstr "通过您浏览器搜索设置搜索 Web"
 
@@ -254,8 +431,8 @@ msgid ""
 "autocompletion is enabled.  To do this, from your mail program's menu, "
 "choose Edit - Preferences, and then Autocompletion."
 msgstr ""
-"除非您启用自动补全，否则我们无法从您的地址簿中提供电子邮件地址。"
-"要启用这一功能，请从您邮件程序的菜单中选择 编辑 - 首选项，然后设置自动补全功能。"
+"除非您启用自动补全，否则我们无法从您的地址簿中提供电子邮件地址。要启用这一功"
+"能，请从您邮件程序的菜单中选择 编辑 - 首选项，然后设置自动补全功能。"
 
 #: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
@@ -266,7 +443,7 @@ msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "输入姓名或电子邮件地址以便向您的联系人发送邮件"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:42
+#: ../deskbar/handlers/evolution.py:45
 #, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "给 <b>%(name)s</b> (%(email)s) 发送电子邮件"
@@ -279,7 +456,7 @@ msgstr "文件和文件夹"
 msgid "Open your files and folders by name"
 msgstr "按名称打开文件和文件夹"
 
-#: ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/files.py:51
 #, python-format
 msgid "Open folder %s"
 msgstr "打开文件夹 %s"
@@ -352,27 +529,27 @@ msgstr "文件和文件夹书签"
 msgid "Open your files and folders bookmarks by name"
 msgstr "按名称打开您的文件和文件夹书签"
 
-#: ../deskbar/handlers/gtkbookmarks.py:29 ../deskbar/handlers/volumes.py:45
+#: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
 #, python-format
 msgid "Open location %s"
 msgstr "打开位置 %s"
 
-#: ../deskbar/handlers/pathprograms.py:13
+#: ../deskbar/handlers/history.py:9
+msgid "Recognize previously used searches"
+msgstr ""
+
+#: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
 msgstr "程序(高级)"
 
-#: ../deskbar/handlers/pathprograms.py:14
+#: ../deskbar/handlers/pathprograms.py:15
 msgid "Launch any program present in your $PATH"
 msgstr "调用您 $PATH 中存在的程序"
 
-#: ../deskbar/handlers/pathprograms.py:30
+#: ../deskbar/handlers/pathprograms.py:60
 #, python-format
 msgid "Execute %s"
 msgstr "执行 %s"
-
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "程序"
 
 #: ../deskbar/handlers/programs.py:15
 msgid "Launch a program by its name and/or description"
@@ -396,17 +573,17 @@ msgstr "搜索匹配名称模式的文件和文件夹"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:66
+#: ../deskbar/handlers/programs.py:72
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "调用 <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:79
+#: ../deskbar/handlers/programs.py:85
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "在字典中查阅 %s"
 
-#: ../deskbar/handlers/programs.py:87
+#: ../deskbar/handlers/programs.py:93
 #, python-format
 msgid "Search for file names like %s"
 msgstr "搜索文件名类似 %s 的文件"
@@ -419,12 +596,12 @@ msgstr "磁盘和网络位置"
 msgid "Open disk drives, shared network places and similar resources by name"
 msgstr "按名称打开磁盘驱动器、共享的网络位置和类似资源"
 
-#: ../deskbar/handlers/volumes.py:41
+#: ../deskbar/handlers/volumes.py:44
 #, python-format
 msgid "Open network place %s"
 msgstr "打开网络位置 %s"
 
-#: ../deskbar/handlers/volumes.py:43
+#: ../deskbar/handlers/volumes.py:46
 #, python-format
 msgid "Open audio disk %s"
 msgstr "打开 CD %s"
@@ -437,17 +614,42 @@ msgstr "Web"
 msgid "Open web pages by typing a complete web address"
 msgstr "输入完整的 Web 地址打开 Web 页"
 
-#: ../deskbar/handlers/web_address.py:35
+#: ../deskbar/handlers/web_address.py:36
 #, python-format
 msgid "Open the web page %s"
 msgstr "打开 Web 页 %s"
 
-#: ../deskbar/handlers/web_address.py:37
+#: ../deskbar/handlers/web_address.py:38
 #, python-format
 msgid "Open the location %s"
 msgstr "打开位置 %s"
 
-#: ../deskbar/preferences.py:53
+#: ../deskbar/ui/About.py:25
+msgid "An all-in-one action bar."
+msgstr "全能动作栏。"
+
+#: ../deskbar/ui/About.py:28
+msgid "Deskbar Website"
+msgstr "桌面栏网站"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:36
+msgid "translator-credits"
+msgstr "Funda Wang <fundawang@linux.net.cn>, 2005."
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:54
 msgid "_More..."
 msgstr "更多(_M)..."
 
+#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
+msgid "No History"
+msgstr "无历史"
+
+#: ../deskbar/ui/cuemiac/Cuemiac.py:44
+msgid "You need Gtk+ version 2.8.0 or higher to use this module"
+msgstr ""
+
+#~ msgid "<b>Keyboard Shortcut</b>"
+#~ msgstr "<b>键盘快捷键</b>"

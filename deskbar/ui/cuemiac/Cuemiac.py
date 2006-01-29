@@ -3,13 +3,7 @@
 #
 # - Make the pref dialog non modal ?? i tried but it doesn't work.. ?
 #
-# - (?) Take category/handler ordering into account
-#   Idea: Use no category sorting per default, then let the treeview be reoderable.
-#         store sorting in gconf.
-#
 # - (TRIVIAL but THINK) Trim category names to as few as possible, and really get the names right
-#   As long as categories are static it might also be a good idea to include a few generic'ish,
-#   like "info" or something, for custom handlers..?
 #
 # - (TRIVIAL) Adjust max hits per handler (especially beagle-live should return a skazillion hits)
 #
@@ -70,8 +64,12 @@ class Nest :
 	"""
 	A class used to handle nested results in the CuemiacModel.
 	"""
-	def __init__(self, nest_msg, parent):
-		self.__nest_msg = nest_msg
+	def __init__(self, id, parent):
+		try:
+			self.__nest_msg = CATEGORIES[id]["nest"]
+		except:
+			self.__nest_msg = CATEGORIES["default"]["nest"]
+
 		self.__parent = parent # The CuemiacCategory to which this nest belongs
 	
 	def get_name (self, text=None):
@@ -93,7 +91,7 @@ class CuemiacCategory :
 	"""
 	A class representing a root node in the cuemiac model/view.
 	"""
-	def __init__ (self, id, name, parent, threshold=5):
+	def __init__ (self, id, parent, threshold=5):
 		"""
 		name: i18n'ed name for the category
 		parent: CuemiacTreeStore in which this category belongs
@@ -102,9 +100,15 @@ class CuemiacCategory :
 		self.__category_row_ref = None
 		self.__nest_row_ref = None
 		self.__parent = parent
-
-		self.__name = name
-		self.__id = id
+		
+		try:
+			self.__name = CATEGORIES[id]["name"]
+			self.__id = id
+		except:
+			self.__name = CATEGORIES["default"]["name"]
+			self.__id = "default"
+			
+		self.__priority = -1
 		self.__threshold = threshold
 		self.__count = 0
 
@@ -153,7 +157,15 @@ class CuemiacCategory :
 	
 	def get_threshold (self):
 		return self.__threshold
-
+	
+	def get_priority(self):
+		return self.__priority
+	
+	def set_priority(self, match):
+		p = match.get_handler().get_priority()
+		if self.__priority < p:
+			self.__priority = p
+			
 # The sort function ids
 SORT_BY_CATEGORY = 1
 
@@ -182,6 +194,7 @@ class CuemiacModel (gtk.TreeStore):
 	"""
 	# Column name
 	MATCHES = 0
+	ACTIONS = 1
 	
 	__gsignals__ = {
 		"category-added" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
@@ -189,20 +202,54 @@ class CuemiacModel (gtk.TreeStore):
 	}
 	
 	def __init__ (self):
-		gtk.TreeStore.__init__ (self, gobject.TYPE_PYOBJECT)
+		gtk.TreeStore.__init__ (self, gobject.TYPE_PYOBJECT, gobject.TYPE_STRING)
 		self.__categories = {}
 		self.append_method = gtk.TreeStore.append # Alternatively gtk.TreeStore.prepend for bottom panel layout
 		self.set_sort_func(SORT_BY_CATEGORY, self.__on_sort_categories)
-		self.set_sort_column_id(SORT_BY_CATEGORY, gtk.SORT_DESCENDING)
+	
+	def set_sort_order(self, order):
+		self.set_sort_column_id(SORT_BY_CATEGORY, order)
 	
 	def __on_sort_categories(self, treemodel, iter1, iter2):
 		match1 = treemodel[iter1][self.MATCHES]
 		match2 = treemodel[iter2][self.MATCHES]
-		print 'Sorting', match1, match2
-		if match1.__class__ == CuemiacCategory and match2.__class__ == CuemiacCategory:
-			print 'Comparing:', match1.get_name(), match2.get_name()
+
+		# Sort categories according to handler preferences
+		if match1.__class__ == CuemiacCategory:
+			return match1.get_priority() - match2.get_priority()
+		
+		# Ensure Nests are always last
+		if match1.__class__ == Nest:
+			return -1
+		if match2.__class__ == Nest:
+			return 1
+		
+		# Sort matches inside category according to handler prefs, then match prio
+		text1, match1 = match1
+		text2, match2 = match2
+		
+		diff = match1.get_handler().get_priority() - match2.get_handler().get_priority()
+		if diff != 0:
+			return diff
 			
-		return 0
+		diff = match1.get_priority() - match2.get_priority()
+		if diff != 0:
+			return diff
+		
+		# Finally use the Action to sort alphabetically, is this a bottleneck ?
+		a = treemodel[iter1][self.ACTIONS]
+		b = treemodel[iter2][self.ACTIONS]
+		if a != None:
+			a = a.strip().lower()
+		if b != None:
+			b = b.strip().lower()
+			
+		if a < b:
+			return 1
+		elif a > b:
+			return -1
+		else:
+			return 0
 		
 	def append (self, match):
 		"""
@@ -230,13 +277,15 @@ class CuemiacModel (gtk.TreeStore):
 		qstring, match_obj = match
 		#FIXME: Check validity of category name and use  proper i18n
 		# Set up a new category
-		cat = CuemiacCategory (match_obj.get_category(), CATEGORIES[match_obj.get_category()]["name"], self)
-		iter = self.append_method (self, None, [cat])
+		cat = CuemiacCategory (match_obj.get_category(), self)
+		cat.set_priority(match_obj)	
+
+		iter = self.append_method (self, None, [cat, None])
 		cat.set_category_iter (iter)
 		self.__categories [match_obj.get_category()] = cat
 
-		# Append the match to the category		
-		self.append_method (self, iter, [match])
+		# Append the match to the category	
+		self.__append_match_to_iter (iter, match)
 		cat.inc_count ()
 		self.emit ("category-added", cat, cat.get_category_row_path ())
 		
@@ -244,32 +293,43 @@ class CuemiacModel (gtk.TreeStore):
 	def __append_to_category (self, match):
 		qstring, match_obj = match
 		cat = self.__categories [match_obj.get_category ()]
+		cat.set_priority(match_obj)
 		row_iter = None
 		
 		if cat.get_count() < cat.get_threshold() :
 			# We havent reached threshold, append normally
 			cat.inc_count ()
-			gtk.TreeStore.append (self, cat.get_category_iter(), [match])
+			self.__append_match_to_iter (cat.get_category_iter(), match)
 			
 		elif cat.get_count() == cat.get_threshold():
 			# We reached the threshold with this match
 			# Set up a Nest, and append the match to that
-			nest = Nest (CATEGORIES[match_obj.get_category ()]["nest"], cat)
-			nest_iter = self.append_method (self, cat.get_category_iter(), [nest])
+			nest = Nest (match_obj.get_category (), cat)
+			nest_iter = self.append_method (self, cat.get_category_iter(), [nest, None])
 			cat.set_nest_iter (nest_iter)
 			
 			cat.inc_count ()
-			self.append_method (self, nest_iter, [match])
+			self.__append_match_to_iter (nest_iter, match)
 			self.emit ("nest-added", nest, cat.get_nest_row_path ())
 		else:
 			# We've already passed the threshold. Append the match in the nest.
 			cat.inc_count ()
-			self.append_method (self, cat.get_nest_iter(), [match])
+			self.__append_match_to_iter (cat.get_nest_iter(), match)
 			# Update the nested count in the nest row:
 			self.row_changed (cat.get_nest_row_path(), cat.get_nest_iter())
 			
 		# Update the row count in the view:
 		self.row_changed (cat.get_category_row_path(), cat.get_category_iter())
+
+	def __append_match_to_iter (self, iter, match):
+		qstring, match_obj = match
+		# Pass unescaped query to the matches
+		verbs = {"text" : qstring}
+		verbs.update(match_obj.get_name(qstring))
+		# Escape the query now for display
+		verbs["text"] = cgi.escape(verbs["text"])
+		
+		self.append_method (self, iter, [match, match_obj.get_verb () % verbs])
 		
 	def clear (self):
 		"""Clears this model of data."""
@@ -517,14 +577,7 @@ class CuemiacTreeView (gtk.TreeView):
 			cell.set_property ("markup", match.get_verb() % match.get_name())
 			return
 		
-		qstring, match_obj = match
-		# Pass unescaped query to the matches
-		verbs = {"text" : qstring}
-		verbs.update(match_obj.get_name(qstring))
-		# Escape the query now for display
-		verbs["text"] = cgi.escape(verbs["text"])
-		
-		cell.set_property ("markup", match_obj.get_verb () % verbs)
+		cell.set_property ("markup", model[iter][model.ACTIONS])
 
 	def __on_click (self, widget, event):
 		model, iter = self.get_selection().get_selected()
@@ -749,11 +802,13 @@ class CuemiacUI (DeskbarUI):
 			self.box.pack_start (self.icon_entry, False)
 			self.box.pack_start (self.scroll_win)
 			self.cview.append_method = gtk.TreeStore.append
+			self.cview.get_model().set_sort_order(gtk.SORT_DESCENDING)
 		else:
 			# We are at a bottom panel. Put entry on bottom, and prepend matches (instead of append).
 			self.box.pack_start (self.scroll_win)
 			self.box.pack_start (self.icon_entry, False)
 			self.cview.append_method = gtk.TreeStore.prepend
+			self.cview.get_model().set_sort_order(gtk.SORT_ASCENDING)
 			
 		# Update icon accordingto direction
 		self.on_change_size (self.applet)

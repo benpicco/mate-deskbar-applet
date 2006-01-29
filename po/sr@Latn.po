@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-28 21:58+0100\n"
+"POT-Creation-Date: 2006-01-29 17:13+0100\n"
 "PO-Revision-Date: 2006-01-29 00:40+0100\n"
 "Last-Translator: Slobodan D. Sredojević <slobo@akrep.be>\n"
 "Language-Team: Serbian (sr) <gnom@prevod.org>\n"
@@ -21,7 +21,6 @@ msgstr ""
 # bug(slobo): grub prevod, nisam mogao isprobati...treba proveriti ...
 # note(slobo): koristio sam prevod Čarobna linija, rasprava na dopisnoj 
 # vezano za imena programa ide uskoro
-
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
 msgstr "Čarobna linija za sve"
@@ -59,8 +58,8 @@ msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
 msgstr ""
-"<i><small><b>Napomena:</b> Za promenu redosleda odvucite i otpustite to proširenje.</"
-"small></i>"
+"<i><small><b>Napomena:</b> Za promenu redosleda odvucite i otpustite to "
+"proširenje.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
 msgid "Button in panel with grouped list"
@@ -104,9 +103,9 @@ msgid ""
 "you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
 msgstr ""
-"<i><small><b>Napomena: </b>Ukoliko je ta prečica samo jedno slovo (npr. <b>t</b>) "
-"takođe možete samo da ukucate \"<b>bilo šta</b>\" praćeno pritiskom na <b>Alt-t</b> "
-"u čarobnoj liniji.</small></i>"
+"<i><small><b>Napomena: </b>Ukoliko je ta prečica samo jedno slovo (npr. "
+"<b>t</b>) takođe možete samo da ukucate \"<b>bilo šta</b>\" praćeno "
+"pritiskom na <b>Alt-t</b> u čarobnoj liniji.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
@@ -114,9 +113,9 @@ msgid ""
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
 msgstr ""
-"<i><small><b>Napomena:</b> Da bi koristili neku prečicu (na primer <b>tr</b>) u "
-"traženju <b>nečega</b>, otkucajte „<b>tr nešto</b>“ u čarobnoj liniji</small></"
-"i>."
+"<i><small><b>Napomena:</b> Da bi koristili neku prečicu (na primer <b>tr</"
+"b>) u traženju <b>nečega</b>, otkucajte „<b>tr nešto</b>“ u čarobnoj liniji</"
+"small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
@@ -147,10 +146,22 @@ msgid "Bookmark Name"
 msgstr "Ime obeleživača"
 
 #: ../deskbar/Categories.py:11
+msgid "Uncategorized"
+msgstr ""
+
+#: ../deskbar/Categories.py:12
+#, fuzzy, python-format
+msgid "%s more result"
+msgid_plural "%s more results"
+msgstr[0] "još %s e-poruka"
+msgstr[1] "još %s e-poruka"
+msgstr[2] "još %s e-poruka"
+
+#: ../deskbar/Categories.py:16
 msgid "Files"
 msgstr "Datoteke"
 
-#: ../deskbar/Categories.py:12
+#: ../deskbar/Categories.py:17
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
@@ -158,11 +169,11 @@ msgstr[0] "još %s datoteka"
 msgstr[1] "još %s datoteke"
 msgstr[2] "još %s datoteka"
 
-#: ../deskbar/Categories.py:16
+#: ../deskbar/Categories.py:21
 msgid "Actions"
 msgstr "Radnje"
 
-#: ../deskbar/Categories.py:17
+#: ../deskbar/Categories.py:22
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
@@ -170,11 +181,11 @@ msgstr[0] "još %s radnja"
 msgstr[1] "još %s radnje"
 msgstr[2] "još %s radnji"
 
-#: ../deskbar/Categories.py:21
+#: ../deskbar/Categories.py:26
 msgid "News"
 msgstr "Vesti"
 
-#: ../deskbar/Categories.py:22
+#: ../deskbar/Categories.py:27
 #, python-format
 msgid "%s more news item"
 msgid_plural "%s more news items"
@@ -182,11 +193,11 @@ msgstr[0] "još %s stavka u vestima"
 msgstr[1] "još %s stavke u vestima"
 msgstr[2] "još %s stavki u vestima"
 
-#: ../deskbar/Categories.py:26
+#: ../deskbar/Categories.py:31
 msgid "Contacts"
 msgstr "Kontakti"
 
-#: ../deskbar/Categories.py:27
+#: ../deskbar/Categories.py:32
 #, python-format
 msgid "%s more contact"
 msgid_plural "%s more contacts"
@@ -194,11 +205,11 @@ msgstr[0] "još %s kontakt"
 msgstr[1] "još %s kontakta"
 msgstr[2] "još %s kontakata"
 
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:36
 msgid "Emails"
 msgstr "E-poruke"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:37
 #, python-format
 msgid "%s more email"
 msgid_plural "%s more emails"
@@ -206,11 +217,11 @@ msgstr[0] "još %s e-poruka"
 msgstr[1] "još %s e-poruka"
 msgstr[2] "još %s e-poruka"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:41
 msgid "Notes"
 msgstr "Beleške"
 
-#: ../deskbar/Categories.py:37
+#: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more note"
 msgid_plural "%s more notes"
@@ -218,11 +229,11 @@ msgstr[0] "još %s beleška"
 msgstr[1] "još %s beleške"
 msgstr[2] "još %s beleški"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:46
 msgid "Volumes"
 msgstr "Sveske"
 
-#: ../deskbar/Categories.py:42
+#: ../deskbar/Categories.py:47
 #, python-format
 msgid "%s more volume"
 msgid_plural "%s more volumes"
@@ -230,11 +241,11 @@ msgstr[0] "još %s sveska"
 msgstr[1] "još %s sveske"
 msgstr[2] "još %s sveski"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:51
 msgid "Google Search"
 msgstr "Gugl pretraga"
 
-#: ../deskbar/Categories.py:47
+#: ../deskbar/Categories.py:52
 #, python-format
 msgid "%s more online hit"
 msgid_plural "%s more online hits"
@@ -242,11 +253,11 @@ msgstr[0] "još %s dodatni pogodak na mreži"
 msgstr[1] "još %s dodatna pogotka na mreži"
 msgstr[2] "još %s dodatnih pogodaka na mreži"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:56
 msgid "Calendar"
 msgstr "Kalendar"
 
-#: ../deskbar/Categories.py:52
+#: ../deskbar/Categories.py:57
 #, python-format
 msgid "%s more calendar item"
 msgid_plural "%s more calendar items"
@@ -254,11 +265,11 @@ msgstr[0] "još %s unos u kalendaru"
 msgstr[1] "još %s unosa u kalendaru"
 msgstr[2] "još %s unosa u kalendaru"
 
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:61
 msgid "Conversation"
 msgstr "Razgovor"
 
-#: ../deskbar/Categories.py:57
+#: ../deskbar/Categories.py:62
 #, python-format
 msgid "%s more conversation"
 msgid_plural "%s more conversations"
@@ -266,11 +277,11 @@ msgstr[0] "još %s razgovor"
 msgstr[1] "još %s razgovora"
 msgstr[2] "još %s razgovora"
 
-#: ../deskbar/Categories.py:61
+#: ../deskbar/Categories.py:66
 msgid "Web Browser"
 msgstr "Veb preglednik"
 
-#: ../deskbar/Categories.py:62
+#: ../deskbar/Categories.py:67
 #, python-format
 msgid "%s more item"
 msgid_plural "%s more items"
@@ -278,11 +289,11 @@ msgstr[0] "još %s stavka"
 msgstr[1] "još %s stavke"
 msgstr[2] "još %s stavki"
 
-#: ../deskbar/Categories.py:66 ../deskbar/handlers/programs.py:14
+#: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
 msgid "Programs"
 msgstr "Programi"
 
-#: ../deskbar/Categories.py:67
+#: ../deskbar/Categories.py:72
 #, python-format
 msgid "%s more program"
 msgid_plural "%s more programs"
@@ -290,11 +301,11 @@ msgstr[0] "još %s program"
 msgstr[1] "još %s programa"
 msgstr[2] "još %s programa"
 
-#: ../deskbar/Categories.py:71 ../deskbar/handlers/history.py:8
+#: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
 msgid "History"
 msgstr "Istorija"
 
-#: ../deskbar/Categories.py:72
+#: ../deskbar/Categories.py:77
 #, python-format
 msgid "%s more match"
 msgid_plural "%s more matches"
@@ -302,12 +313,12 @@ msgstr[0] "još %s podudaranje"
 msgstr[1] "još %s podudaranja"
 msgstr[2] "još %s podudaranja"
 
-#: ../deskbar/Categories.py:76
+#: ../deskbar/Categories.py:81
 msgid "Debug"
 msgstr "Ispitivanje greške"
 
 # bug(slobo): bozmek (hun: basdmeg)
-#: ../deskbar/Categories.py:77
+#: ../deskbar/Categories.py:82
 #, python-format
 msgid "%s more debugging handler"
 msgid_plural "%s more debugging handlers"
@@ -324,8 +335,8 @@ msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
 msgstr ""
-"Verovatno nije opasna no i pored toga bi je trebalo prijaviti "
-"programerima. U daljem radu program može odstupati od uobičajenog ponašanja."
+"Verovatno nije opasna no i pored toga bi je trebalo prijaviti programerima. "
+"U daljem radu program može odstupati od uobičajenog ponašanja."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
@@ -348,7 +359,8 @@ msgstr "Stavka u imeniku za %s"
 #: ../deskbar/handlers/beagle-live.py:56
 #, python-format
 msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "Pogledajte e-poruku koju vam je poslao(la) <i>%(sender)s</i>: <b>%(name)s</b>"
+msgstr ""
+"Pogledajte e-poruku koju vam je poslao(la) <i>%(sender)s</i>: <b>%(name)s</b>"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
@@ -456,8 +468,8 @@ msgid ""
 "choose Edit - Preferences, and then Autocompletion."
 msgstr ""
 "Ne možemo vam dostaviti adrese e-pošte iz vašeg imenika sve dok ne uključite "
-"samodopunu. Za ovo, u meniju vašeg programa za e-poštu izaberite redom stavke "
-"Uređivanje —> Postavke —> Samodopuna."
+"samodopunu. Za ovo, u meniju vašeg programa za e-poštu izaberite redom "
+"stavke Uređivanje —> Postavke —> Samodopuna."
 
 #: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
@@ -466,7 +478,8 @@ msgstr "Pošta (Imenik)"
 #: ../deskbar/handlers/evolution.py:20
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
-"Šalje e-poruku nekome iz imenika kucanjem njenog(njegovog) imena ili adrese e-pošte"
+"Šalje e-poruku nekome iz imenika kucanjem njenog(njegovog) imena ili adrese "
+"e-pošte"
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:45
@@ -507,8 +520,8 @@ msgid ""
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 msgstr ""
-"Za korišćenje usluge „Gugl uživo“ vam je potreban Gugl nalog. Da bi ga dobili "
-"posetite adresu http://api.google.com/\n"
+"Za korišćenje usluge „Gugl uživo“ vam je potreban Gugl nalog. Da bi ga "
+"dobili posetite adresu http://api.google.com/\n"
 "\n"
 "Kada napravite nalog, trebalo bi da primite Gugl API ključ putem elektronske "
 "pošte. Smestite ovaj ključ u datoteku\n"
@@ -516,12 +529,12 @@ msgstr ""
 "~/.gnome2/deskbar-applet/Google.key\n"
 "\n"
 "Ukoliko ne primite jedan API ključ (ili ga izgubite) u e-poruci za potvrdu "
-"tada posetite adresu www.google.com/accounts i prijavite se. Otiđite na "
-"api.google.com, pritisnite „Napravi nalog“ i ukucajte vašu adresu e-pošte i "
+"tada posetite adresu www.google.com/accounts i prijavite se. Otiđite na api."
+"google.com, pritisnite „Napravi nalog“ i ukucajte vašu adresu e-pošte i "
 "lozinku. Ponovo će vam biti poslat ključ.\n"
 "\n"
-"Tada preuzmite razvojni alat i iz njega raspakujte datoteku GoogleSsearch.wsdl."
-"Umnožite ovu datoteku na\n"
+"Tada preuzmite razvojni alat i iz njega raspakujte datoteku GoogleSsearch."
+"wsdl.Umnožite ovu datoteku na\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
@@ -678,6 +691,6 @@ msgstr "_Više..."
 msgid "No History"
 msgstr "Ne postoji istorija"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:54
+#: ../deskbar/ui/cuemiac/Cuemiac.py:44
 msgid "You need Gtk+ version 2.8.0 or higher to use this module"
 msgstr "Za korišćenje ovog modula vam je potrebna Gtk+ verzija novija od 2.8.0"

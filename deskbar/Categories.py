@@ -7,6 +7,11 @@ class UnknownCategory (Exception):
 
 
 CATEGORIES = {
+	"default"	: {	
+		"name": _("Uncategorized"),
+		"nest": lambda n: ngettext("%s more result", "%s more results", n), 
+		"threshold": 10
+	},
 	"files"		: {	
 		"name": _("Files"),
 		"nest": lambda n: ngettext("%s more file", "%s more files", n), 

@@ -10,14 +10,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.9.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-25 21:12+0100\n"
+"POT-Creation-Date: 2006-01-29 17:13+0100\n"
 "PO-Revision-Date: 2006-01-25 22:01+0100\n"
 "Last-Translator: Lukas Novotny <lukasnov@cvs.gnome.org>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;"
+"Content-Transfer-Encoding: 8bitPlural-Forms: nplurals=3; plural=n%10==1 && n%"
+"100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
@@ -137,13 +137,9 @@ msgstr "Otevřít záložku %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
 #: ../deskbar/BrowserMatch.py:81
-#, python-format
-#, fuzzy
-msgid "Search <b>%name</b> for <i>%text</i>"
-msgid_plural "Search <b>%name</b> for <i>%text</i>"
-msgstr[0] "Vyhledá <b>%službu</b>·for·<i>%text</i>"
-msgstr[1] "Vyhledá <b>%služby</b>·for·<i>%texty</i>"
-msgstr[2] "Vyhledá <b>%služeb</b>·for·<i>%textů</i>"
+#, fuzzy, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "Vyhledá <b>%službu</b>·for·<i>%text</i>"
 
 #: ../deskbar/BrowserMatch.py:187
 msgid "Shortcut"
@@ -154,10 +150,22 @@ msgid "Bookmark Name"
 msgstr "Název záložky"
 
 #: ../deskbar/Categories.py:11
+msgid "Uncategorized"
+msgstr ""
+
+#: ../deskbar/Categories.py:12
+#, fuzzy, python-format
+msgid "%s more result"
+msgid_plural "%s more results"
+msgstr[0] "%s e-mail"
+msgstr[1] "%s e-maily"
+msgstr[2] "%s e-maily"
+
+#: ../deskbar/Categories.py:16
 msgid "Files"
 msgstr "Soubory"
 
-#: ../deskbar/Categories.py:12
+#: ../deskbar/Categories.py:17
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
@@ -165,25 +173,24 @@ msgstr[0] "%s e-mail"
 msgstr[1] "%s e-mailů"
 msgstr[2] "%s e-mailů"
 
-#: ../deskbar/Categories.py:16
+#: ../deskbar/Categories.py:21
 msgid "Actions"
 msgstr "Akce"
 
-#: ../deskbar/Categories.py:17
-#, python-format
-#, fuzzy
+#: ../deskbar/Categories.py:22
+#, fuzzy, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "%s akce"
 msgstr[1] "%s akcí"
 msgstr[2] "%s akcí"
 
-#: ../deskbar/Categories.py:21
+#: ../deskbar/Categories.py:26
 #, fuzzy
 msgid "News"
 msgstr "Zpravodajství"
 
-#: ../deskbar/Categories.py:22
+#: ../deskbar/Categories.py:27
 #, fuzzy, python-format
 msgid "%s more news item"
 msgid_plural "%s more news items"
@@ -191,24 +198,23 @@ msgstr[0] "Otevřít položku %s zpravodajství"
 msgstr[1] "Otevřít položky %s zpravodajství"
 msgstr[2] "Otevřít položky %s zpravodajství"
 
-#: ../deskbar/Categories.py:26
+#: ../deskbar/Categories.py:31
 msgid "Contacts"
 msgstr "Kontakty"
 
-#: ../deskbar/Categories.py:27
-#, python-format
-#, fuzzy
+#: ../deskbar/Categories.py:32
+#, fuzzy, python-format
 msgid "%s more contact"
 msgid_plural "%s more contacts"
 msgstr[0] "%s kontakt"
 msgstr[1] "%s kontakty"
 msgstr[2] "%s kontakty"
 
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:36
 msgid "Emails"
 msgstr "E-maily"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:37
 #, python-format
 msgid "%s more email"
 msgid_plural "%s more emails"
@@ -216,11 +222,11 @@ msgstr[0] "%s e-mail"
 msgstr[1] "%s e-maily"
 msgstr[2] "%s e-maily"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:41
 msgid "Notes"
 msgstr "Poznámky"
 
-#: ../deskbar/Categories.py:37
+#: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more note"
 msgid_plural "%s more notes"
@@ -228,52 +234,49 @@ msgstr[0] "%s poznámka"
 msgstr[1] "%s poznámky"
 msgstr[2] "%s poznámky"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:46
 #, fuzzy
 msgid "Volumes"
 msgstr "Hlasitosti"
 
-#: ../deskbar/Categories.py:42
-#, python-format
-#, fuzzy
+#: ../deskbar/Categories.py:47
+#, fuzzy, python-format
 msgid "%s more volume"
 msgid_plural "%s more volumes"
 msgstr[0] "%s hlasitost"
 msgstr[1] "%s více hlasitosti"
 msgstr[2] "%s více hlasitosti"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:51
 #, fuzzy
 msgid "Google Search"
 msgstr "Google Vyhledávání"
 
-#: ../deskbar/Categories.py:47
-#, python-format
-#, fuzzy
+#: ../deskbar/Categories.py:52
+#, fuzzy, python-format
 msgid "%s more online hit"
 msgid_plural "%s more online hits"
 msgstr[0] "%s online hit"
 msgstr[1] "%s online hity"
 msgstr[2] "%s online hity"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:56
 msgid "Calendar"
 msgstr "Kalendář"
 
-#: ../deskbar/Categories.py:52
-#, python-format
-#, fuzzy
+#: ../deskbar/Categories.py:57
+#, fuzzy, python-format
 msgid "%s more calendar item"
 msgid_plural "%s more calendar items"
 msgstr[0] "%s položka kalendáře"
 msgstr[1] "%s položky kalendáře"
 msgstr[2] "%s položky kalendáře"
 
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:61
 msgid "Conversation"
 msgstr "Konverzace"
 
-#: ../deskbar/Categories.py:57
+#: ../deskbar/Categories.py:62
 #, fuzzy, python-format
 msgid "%s more conversation"
 msgid_plural "%s more conversations"
@@ -281,11 +284,11 @@ msgstr[0] "Zobrazit konverzaci s %s"
 msgstr[1] "Zobrazit konverzace s %s"
 msgstr[2] "Zobrazit konverzace s %s"
 
-#: ../deskbar/Categories.py:61
+#: ../deskbar/Categories.py:66
 msgid "Web Browser"
 msgstr "Webový prohlížeč"
 
-#: ../deskbar/Categories.py:62
+#: ../deskbar/Categories.py:67
 #, python-format
 msgid "%s more item"
 msgid_plural "%s more items"
@@ -293,32 +296,57 @@ msgstr[0] "%s položka"
 msgstr[1] "%s položky"
 msgstr[2] "%s položky"
 
-#: ../deskbar/Categories.py:66 ../deskbar/handlers/programs.py:14
+#: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
 msgid "Programs"
 msgstr "Programy"
 
-#: ../deskbar/Categories.py:67
-#, python-format
-#, fuzzy
+#: ../deskbar/Categories.py:72
+#, fuzzy, python-format
 msgid "%s more program"
 msgid_plural "%s more programs"
 msgstr[0] "%s program"
 msgstr[1] "%s programů"
 msgstr[2] "%s programy"
 
-#: ../deskbar/Categories.py:71
+#: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
+#, fuzzy
+msgid "History"
+msgstr "Žádná dostupná historie"
+
+#: ../deskbar/Categories.py:77
+#, fuzzy, python-format
+msgid "%s more match"
+msgid_plural "%s more matches"
+msgstr[0] "%s e-mail"
+msgstr[1] "%s e-maily"
+msgstr[2] "%s e-maily"
+
+#: ../deskbar/Categories.py:81
 #, fuzzy
 msgid "Debug"
 msgstr "Ladit program"
 
-#: ../deskbar/Categories.py:72
-#, python-format
-#, fuzzy
+#: ../deskbar/Categories.py:82
+#, fuzzy, python-format
 msgid "%s more debugging handler"
 msgid_plural "%s more debugging handlers"
 msgstr[0] "%s odlaďuji zařízení"
 msgstr[1] "%s odlaďuji zařízení"
 msgstr[2] "%s odlaďuji zařízení"
+
+#: ../deskbar/gtkexcepthook.py:21
+msgid "A programming error has been detected"
+msgstr ""
+
+#: ../deskbar/gtkexcepthook.py:22
+msgid ""
+"It probably isn't fatal, but should be reported to the developers "
+"nonetheless. The program may behave erratically from now on."
+msgstr ""
+
+#: ../deskbar/gtkexcepthook.py:24
+msgid "Bug Detected"
+msgstr ""
 
 #: ../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
@@ -335,12 +363,9 @@ msgstr "Položka databáze kontaktů %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
 #: ../deskbar/handlers/beagle-live.py:56
-#, python-format
-msgid "View email from <i>%sender</i>: <b>%name</b>"
-msgid_plural "View email from <i>%senders</i>: <b>%names</b>"
-msgstr[0] "Zobrazí e-mail od <i>odesílatele %</i>: s <b>předmětem %</b>"
-msgstr[1] "Zobrazí e-mail od <i>odesílatelů %</i>: s <b>předměty %</b>"
-msgstr[2] "Zobrazí e-mail od <i>odesílatelů %</i>: s <b>předměty %</b>"
+#, fuzzy, python-format
+msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+msgstr "Zobrazí e-mail od <i>odesílatele %</i>: s <b>předmětem %</b>"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
@@ -370,8 +395,8 @@ msgstr "Zobrazit kalendář %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:223
-#: ../deskbar/handlers/beagle-live.py:242
+#: ../deskbar/handlers/beagle-live.py:230
+#: ../deskbar/handlers/beagle-live.py:249
 msgid "?"
 msgstr "?"
 
@@ -466,13 +491,9 @@ msgstr ""
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:45
-#, python-format
-msgid "Send Email to <b>%name</b> (%email)"
-msgid_plural "Send Email to <b>%names</b> (%emails)"
-msgstr[0] "Odeslat e-mail pro <b>příjemce %</b> s (e-mailem %)"
-msgstr[1] "Odeslat e-mail pro <b>příjemce %</b> s (e-maily %)"
-msgstr[2] "Odeslat e-mail pro <b>příjemce %</b> s (e-maily %)"
-
+#, fuzzy, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "Odeslat e-mail pro <b>příjemce %</b> s (e-mailem %)"
 
 #: ../deskbar/handlers/files.py:14
 msgid "Files and Folders"
@@ -563,6 +584,10 @@ msgstr "Otevře soubory a adresáře v záložkách podle jména"
 msgid "Open location %s"
 msgstr "Otevřít umístění %s"
 
+#: ../deskbar/handlers/history.py:9
+msgid "Recognize previously used searches"
+msgstr ""
+
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
 msgstr "Programy (pokročilé)"
@@ -599,12 +624,9 @@ msgstr "Vyhledá soubory a adresáře podle jména"
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
 #: ../deskbar/handlers/programs.py:72
-#, python-format
-msgid "Launch <b>%name</b> (%prog)"
-msgid_plural "Launch <b>%names</b> (%progs)"
-msgstr[0] "Spustit <b>%(jméno programu)</b>·(%název programu)"
-msgstr[1] "Spustit <b>%(jména programů)</b>·(%názvy programů)"
-msgstr[2] "Spustit <b>%(jména programů)</b>·(%názvy programů)"
+#, fuzzy, python-format
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Spustit <b>%(jméno programu)</b>·(%název programu)"
 
 #: ../deskbar/handlers/programs.py:85
 #, python-format
@@ -675,7 +697,7 @@ msgstr "_Více..."
 msgid "No History"
 msgstr "Žádná dostupná historie"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:59
+#: ../deskbar/ui/cuemiac/Cuemiac.py:44
 msgid "You need Gtk+ version 2.8.0 or higher to use this module"
 msgstr "Potřebujete Gtk+ verze 2.8.0 nebo vyšší pro použití tohoto modulu"
 
