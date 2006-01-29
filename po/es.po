@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-27 19:41+0100\n"
-"PO-Revision-Date: 2006-01-27 19:42+0100\n"
+"POT-Creation-Date: 2006-01-29 14:26+0100\n"
+"PO-Revision-Date: 2006-01-29 14:28+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -274,7 +274,7 @@ msgid_plural "%s more programs"
 msgstr[0] "%s programa más"
 msgstr[1] "%s programas más"
 
-#: ../deskbar/Categories.py:71
+#: ../deskbar/Categories.py:71 ../deskbar/handlers/history.py:8
 msgid "History"
 msgstr "Histórico"
 
@@ -295,6 +295,20 @@ msgid "%s more debugging handler"
 msgid_plural "%s more debugging handlers"
 msgstr[0] "%s manipulador de depuración más"
 msgstr[1] "%s manipuladores de depuración más"
+
+#: ../deskbar/gtkexcepthook.py:21
+msgid "A programming error has been detected"
+msgstr "Se ha detectado un error de programación"
+
+#: ../deskbar/gtkexcepthook.py:22
+msgid ""
+"It probably isn't fatal, but should be reported to the developers "
+"nonetheless. The program may behave erratically from now on."
+msgstr "Probablemente no es fatal, pero debería ser informado a los desarrolladores de todas formas. El programa puede comportarse erráticamente desde ahora."
+
+#: ../deskbar/gtkexcepthook.py:24
+msgid "Bug Detected"
+msgstr "Error detectado"
 
 #: ../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
@@ -343,8 +357,8 @@ msgstr "Ver calendario %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:223
-#: ../deskbar/handlers/beagle-live.py:242
+#: ../deskbar/handlers/beagle-live.py:230
+#: ../deskbar/handlers/beagle-live.py:249
 msgid "?"
 msgstr "?"
 
@@ -527,6 +541,10 @@ msgstr "Abra los marcadores de sus archivos y carpetas por nombre"
 #, python-format
 msgid "Open location %s"
 msgstr "Abrir lugar %s"
+
+#: ../deskbar/handlers/history.py:9
+msgid "Recognize previously used searches"
+msgstr "Reconocer búsquedas realizadas previamente"
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
