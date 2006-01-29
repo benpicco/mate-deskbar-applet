@@ -1,0 +1,683 @@
+# Serbian translation of deskbar-applet
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2006.
+#
+# This file is distributed under the same license as the deskbar-applet package
+# Maintainer: Слободан Д. Средојевић <slobo@akrep.be>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: deskbar-applet\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-01-28 21:58+0100\n"
+"PO-Revision-Date: 2006-01-29 00:40+0100\n"
+"Last-Translator: Слободан Д. Средојевић <slobo@akrep.be>\n"
+"Language-Team: Serbian (sr) <gnom@prevod.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3;    plural=n%10==1 && n%100!=11 ? 0 :    n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+# bug(slobo): груб превод, нисам могао испробати...треба проверити ...
+# note(slobo): користио сам превод Чаробна линија, расправа на дописној 
+# везано за имена програма иде ускоро
+
+#: ../data/Deskbar_Applet.server.in.in.h:1
+msgid "An all-in-one action bar"
+msgstr "Чаробна линија за све"
+
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Чаробна линија"
+
+#: ../data/Deskbar_Applet.xml.h:1
+msgid "_About"
+msgstr "_О програму"
+
+#: ../data/Deskbar_Applet.xml.h:2
+msgid "_Preferences"
+msgstr "_Поставке"
+
+#: ../data/prefs-dialog.glade.h:1
+msgid "<b>Focus</b>"
+msgstr "<b>Жижа</b>"
+
+#: ../data/prefs-dialog.glade.h:2
+msgid "<b>Layout</b>"
+msgstr "<b>Изглед</b>"
+
+#: ../data/prefs-dialog.glade.h:3
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Учитана проширења</b>"
+
+#: ../data/prefs-dialog.glade.h:4
+msgid "<b>Width</b>"
+msgstr "<b>Ширина</b>"
+
+#: ../data/prefs-dialog.glade.h:5
+msgid ""
+"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
+"small></i>"
+msgstr ""
+"<i><small><b>Напомена:</b> За промену редоследа одвуците и отпустите то проширење.</"
+"small></i>"
+
+#: ../data/prefs-dialog.glade.h:6
+msgid "Button in panel with grouped list"
+msgstr "Дугме на панелу са груписаним списком"
+
+#: ../data/prefs-dialog.glade.h:7
+msgid "Deskbar Preferences"
+msgstr "Поставке чаробне линије"
+
+#: ../data/prefs-dialog.glade.h:8
+msgid "Entry in panel with flat list"
+msgstr "Ставка на панелу са обичним списком"
+
+#: ../data/prefs-dialog.glade.h:9
+msgid "Fixed _width:"
+msgstr "Утврђена ши_рина:"
+
+#: ../data/prefs-dialog.glade.h:10
+msgid "Searches"
+msgstr "Претраге"
+
+#: ../data/prefs-dialog.glade.h:11
+msgid "Use _all available space"
+msgstr "Користи сав _расположив простор"
+
+#: ../data/prefs-dialog.glade.h:12
+msgid "View"
+msgstr "Преглед"
+
+#: ../data/prefs-dialog.glade.h:13
+msgid "_Keyboard shortcut to focus:"
+msgstr "Пречица на тастат_ури за жижу:"
+
+#: ../data/prefs-dialog.glade.h:14
+msgid "characters"
+msgstr "знаци"
+
+#: ../data/smart-bookmarks.glade.h:1
+msgid ""
+"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
+"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
+"the deskbar.</small></i>"
+msgstr ""
+"<i><small><b>Напомена: </b>Уколико је та пречица само једно слово (нпр. <b>т</b>) "
+"такође можете само да укуцате \"<b>било шта</b>\" праћено притиском на <b>Алт-т</b> "
+"у чаробној линији.</small></i>"
+
+#: ../data/smart-bookmarks.glade.h:2
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>Напомена:</b> Да би користили неку пречицу (на пример <b>тр</b>) у "
+"тражењу <b>нечега</b>, откуцајте „<b>тр нешто</b>“ у чаробној линији</small></"
+"i>."
+
+#: ../data/smart-bookmarks.glade.h:3
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "Пречице за претходно обележене претраге"
+
+#: ../deskbar/BrowserMatch.py:30
+#, python-format
+msgid "Open History Item %s"
+msgstr "Отвори ставку у историји %s"
+
+#: ../deskbar/BrowserMatch.py:32
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "Отвори обележивач %s"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/BrowserMatch.py:81
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "Уз помоћ претраживача <b>%(name)s</b> тражи <i>%(text)s</i>"
+
+#: ../deskbar/BrowserMatch.py:187
+msgid "Shortcut"
+msgstr "Пречица"
+
+#: ../deskbar/BrowserMatch.py:195
+msgid "Bookmark Name"
+msgstr "Име обележивача"
+
+#: ../deskbar/Categories.py:11
+msgid "Files"
+msgstr "Датотеке"
+
+#: ../deskbar/Categories.py:12
+#, python-format
+msgid "%s more file"
+msgid_plural "%s more files"
+msgstr[0] "још %s датотека"
+msgstr[1] "још %s датотеке"
+msgstr[2] "још %s датотека"
+
+#: ../deskbar/Categories.py:16
+msgid "Actions"
+msgstr "Радње"
+
+#: ../deskbar/Categories.py:17
+#, python-format
+msgid "%s more action"
+msgid_plural "%s more actions"
+msgstr[0] "још %s радња"
+msgstr[1] "још %s радње"
+msgstr[2] "још %s радњи"
+
+#: ../deskbar/Categories.py:21
+msgid "News"
+msgstr "Вести"
+
+#: ../deskbar/Categories.py:22
+#, python-format
+msgid "%s more news item"
+msgid_plural "%s more news items"
+msgstr[0] "још %s ставка у вестима"
+msgstr[1] "још %s ставке у вестима"
+msgstr[2] "још %s ставки у вестима"
+
+#: ../deskbar/Categories.py:26
+msgid "Contacts"
+msgstr "Контакти"
+
+#: ../deskbar/Categories.py:27
+#, python-format
+msgid "%s more contact"
+msgid_plural "%s more contacts"
+msgstr[0] "још %s контакт"
+msgstr[1] "још %s контакта"
+msgstr[2] "још %s контаката"
+
+#: ../deskbar/Categories.py:31
+msgid "Emails"
+msgstr "Е-поруке"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more email"
+msgid_plural "%s more emails"
+msgstr[0] "још %s е-порука"
+msgstr[1] "још %s е-порука"
+msgstr[2] "још %s е-порука"
+
+#: ../deskbar/Categories.py:36
+msgid "Notes"
+msgstr "Белешке"
+
+#: ../deskbar/Categories.py:37
+#, python-format
+msgid "%s more note"
+msgid_plural "%s more notes"
+msgstr[0] "још %s белешка"
+msgstr[1] "још %s белешке"
+msgstr[2] "још %s белешки"
+
+#: ../deskbar/Categories.py:41
+msgid "Volumes"
+msgstr "Свеске"
+
+#: ../deskbar/Categories.py:42
+#, python-format
+msgid "%s more volume"
+msgid_plural "%s more volumes"
+msgstr[0] "још %s свеска"
+msgstr[1] "још %s свеске"
+msgstr[2] "још %s свески"
+
+#: ../deskbar/Categories.py:46
+msgid "Google Search"
+msgstr "Гугл претрага"
+
+#: ../deskbar/Categories.py:47
+#, python-format
+msgid "%s more online hit"
+msgid_plural "%s more online hits"
+msgstr[0] "још %s додатни погодак на мрежи"
+msgstr[1] "још %s додатна поготка на мрежи"
+msgstr[2] "још %s додатних погодака на мрежи"
+
+#: ../deskbar/Categories.py:51
+msgid "Calendar"
+msgstr "Календар"
+
+#: ../deskbar/Categories.py:52
+#, python-format
+msgid "%s more calendar item"
+msgid_plural "%s more calendar items"
+msgstr[0] "још %s унос у календару"
+msgstr[1] "још %s уноса у календару"
+msgstr[2] "још %s уноса у календару"
+
+#: ../deskbar/Categories.py:56
+msgid "Conversation"
+msgstr "Разговор"
+
+#: ../deskbar/Categories.py:57
+#, python-format
+msgid "%s more conversation"
+msgid_plural "%s more conversations"
+msgstr[0] "још %s разговор"
+msgstr[1] "још %s разговора"
+msgstr[2] "још %s разговора"
+
+#: ../deskbar/Categories.py:61
+msgid "Web Browser"
+msgstr "Веб прегледник"
+
+#: ../deskbar/Categories.py:62
+#, python-format
+msgid "%s more item"
+msgid_plural "%s more items"
+msgstr[0] "још %s ставка"
+msgstr[1] "још %s ставке"
+msgstr[2] "још %s ставки"
+
+#: ../deskbar/Categories.py:66 ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Програми"
+
+#: ../deskbar/Categories.py:67
+#, python-format
+msgid "%s more program"
+msgid_plural "%s more programs"
+msgstr[0] "још %s програм"
+msgstr[1] "још %s програма"
+msgstr[2] "још %s програма"
+
+#: ../deskbar/Categories.py:71 ../deskbar/handlers/history.py:8
+msgid "History"
+msgstr "Историја"
+
+#: ../deskbar/Categories.py:72
+#, python-format
+msgid "%s more match"
+msgid_plural "%s more matches"
+msgstr[0] "још %s подударање"
+msgstr[1] "још %s подударања"
+msgstr[2] "још %s подударања"
+
+#: ../deskbar/Categories.py:76
+msgid "Debug"
+msgstr "Испитивање грешке"
+
+# bug(slobo): бозмек (hun: basdmeg)
+#: ../deskbar/Categories.py:77
+#, python-format
+msgid "%s more debugging handler"
+msgid_plural "%s more debugging handlers"
+msgstr[0] "још %s додатна ручка за испитивање грешака"
+msgstr[1] "још %s додатне ручке за испитивање грешака"
+msgstr[2] "још %s додатних ручки за испитивање грешака"
+
+#: ../deskbar/gtkexcepthook.py:21
+msgid "A programming error has been detected"
+msgstr "Откривена је грешка у програму"
+
+#: ../deskbar/gtkexcepthook.py:22
+msgid ""
+"It probably isn't fatal, but should be reported to the developers "
+"nonetheless. The program may behave erratically from now on."
+msgstr ""
+"Вероватно није опасна но и поред тога би је требало пријавити "
+"програмерима. У даљем раду програм може одступати од уобичајеног понашања."
+
+#: ../deskbar/gtkexcepthook.py:24
+msgid "Bug Detected"
+msgstr "Откривена је грешка"
+
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Beagle Live"
+msgstr "Живо њушкало"
+
+#: ../deskbar/handlers/beagle-live.py:20
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Како куцате, пас њушкало вам помаже да претражите све ваше документе"
+
+#: ../deskbar/handlers/beagle-live.py:47
+#, python-format
+msgid "Addressbook entry for %s"
+msgstr "Ставка у именику за %s"
+
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:56
+#, python-format
+msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+msgstr "Погледајте е-поруку коју вам је послао(ла) <i>%(sender)s</i>: <b>%(name)s</b>"
+
+#. translators: This is a file.
+#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
+#, python-format
+msgid "Open %s"
+msgstr "Отвори датотеку %s"
+
+#: ../deskbar/handlers/beagle-live.py:69
+#, python-format
+msgid "Open news item %s"
+msgstr "Отвори вест %s"
+
+#: ../deskbar/handlers/beagle-live.py:76
+#, python-format
+msgid "Open note %s"
+msgstr "Отвори белешку %s"
+
+#: ../deskbar/handlers/beagle-live.py:82
+#, python-format
+msgid "View conversation with %s"
+msgstr "Погледај разговор са %s"
+
+#: ../deskbar/handlers/beagle-live.py:88
+#, python-format
+msgid "View calendar %s"
+msgstr "Погледај календар %s"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:230
+#: ../deskbar/handlers/beagle-live.py:249
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle.py:19
+msgid "Beagle"
+msgstr "Пас њушкало"
+
+#: ../deskbar/handlers/beagle.py:20
+msgid "Search all of your documents (using Beagle)"
+msgstr "Претражује све ваше документе (уз помоћ њушкала)"
+
+#: ../deskbar/handlers/beagle.py:36
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "Нека њушкало тражи %s"
+
+#: ../deskbar/handlers/email_address.py:9
+msgid "Mail"
+msgstr "Пошта"
+
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mail by typing a complete e-mail address"
+msgstr "Шаље е-поруку када укуцате потпуну адресу е-поште"
+
+#: ../deskbar/handlers/email_address.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "Пошаљи е-поруку за %s"
+
+#: ../deskbar/handlers/epiphany.py:26
+msgid "You can set shortcuts for your searches."
+msgstr "Можете поставити пречице за ваше претраге."
+
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:33
+msgid "Web Bookmarks"
+msgstr "Веб обележивачи"
+
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:34
+msgid "Open your web bookmarks by name"
+msgstr "Отвара ваше веб обележеваче по имену"
+
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
+msgid "Web History"
+msgstr "Веб историја"
+
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
+msgid "Open your web history by name"
+msgstr "Отвара вашу веб историју по имену"
+
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:38
+msgid "Web Searches"
+msgstr "Претраге веба"
+
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:39
+msgid "Search the web via your browser's search settings"
+msgstr "Претражује веб користећи подешавања вашег веб прегледника"
+
+#: ../deskbar/handlers/evolution.py:11
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "Морате укључити самодопуну у поставкама поште"
+
+#: ../deskbar/handlers/evolution.py:13
+msgid "Autocompletion Needs to be Enabled"
+msgstr "Самодопуна мора да буде укључена"
+
+#: ../deskbar/handlers/evolution.py:14
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"Не можемо вам доставити адресе е-поште из вашег именика све док не укључите "
+"самодопуну. За ово, у менију вашег програма за е-пошту изаберите редом ставке "
+"Уређивање —> Поставке —> Самодопуна."
+
+#: ../deskbar/handlers/evolution.py:19
+msgid "Mail (Address Book)"
+msgstr "Пошта (Именик)"
+
+#: ../deskbar/handlers/evolution.py:20
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr ""
+"Шаље е-поруку некоме из именика куцањем њеног(његовог) имена или адресе е-поште"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:45
+#, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "Поруку прима <b>%(name)s</b> чија је адреса е-поште (%(email)s)"
+
+#: ../deskbar/handlers/files.py:14
+msgid "Files and Folders"
+msgstr "Датотеке и фасцикле"
+
+#: ../deskbar/handlers/files.py:15
+msgid "Open your files and folders by name"
+msgstr "По имену отвара ваше датотеке и фасцикле"
+
+#: ../deskbar/handlers/files.py:51
+#, python-format
+msgid "Open folder %s"
+msgstr "Отвори фасциклу %s"
+
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+"За коришћење услуге „Гугл уживо“ вам је потребан Гугл налог. Да би га добили "
+"посетите адресу http://api.google.com/\n"
+"\n"
+"Када направите налог, требало би да примите Гугл API кључ путем електронске "
+"поште. Сместите овај кључ у датотеку\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"Уколико не примите један API кључ (или га изгубите) у е-поруци за потврду "
+"тада посетите адресу www.google.com/accounts и пријавите се. Отиђите на "
+"api.google.com, притисните „Направи налог“ и укуцајте вашу адресу е-поште и "
+"лозинку. Поново ће вам бити послат кључ.\n"
+"\n"
+"Тада преузмите развојни алат и из њега распакујте датотеку GoogleSsearch.wsdl."
+"Умножите ову датотеку на\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#: ../deskbar/handlers/google-live.py:32
+msgid "Setting Up Google Live"
+msgstr "Постављање Гугл уживо услуге"
+
+#: ../deskbar/handlers/google-live.py:38
+msgid "You need to install the SOAPpy python module."
+msgstr "Морате инсталирати SOAPpy Питон модул"
+
+#: ../deskbar/handlers/google-live.py:40
+msgid "You need the Google WSDL file."
+msgstr "Потребна вам је Google WSDL датотека."
+
+#: ../deskbar/handlers/google-live.py:42
+msgid "You need a Google API key."
+msgstr "Потребан вам је Гугл API кључ."
+
+#: ../deskbar/handlers/google-live.py:48
+msgid "Google Live"
+msgstr "Гугл уживо"
+
+#: ../deskbar/handlers/google-live.py:49
+msgid "Search Google as you type"
+msgstr "Претражује Гугл док ви куцате"
+
+#: ../deskbar/handlers/gtkbookmarks.py:12
+msgid "Files and Folders Bookmarks"
+msgstr "Обележивачи датотека и фасцикли"
+
+#: ../deskbar/handlers/gtkbookmarks.py:13
+msgid "Open your files and folders bookmarks by name"
+msgstr "Отвара ваше обележиваче датотека и фасцикли по имену"
+
+#: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
+#, python-format
+msgid "Open location %s"
+msgstr "Отвори место %s"
+
+#: ../deskbar/handlers/history.py:9
+msgid "Recognize previously used searches"
+msgstr "Препознај претходно коришћене претраге"
+
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Programs (Advanced)"
+msgstr "Програми (напредно)"
+
+#: ../deskbar/handlers/pathprograms.py:15
+msgid "Launch any program present in your $PATH"
+msgstr "Покреће било који програм присутан у пром. окружења $PATH"
+
+#: ../deskbar/handlers/pathprograms.py:60
+#, python-format
+msgid "Execute %s"
+msgstr "Изврши %s"
+
+#: ../deskbar/handlers/programs.py:15
+msgid "Launch a program by its name and/or description"
+msgstr "Покреће неки програм по његовом имену и(или) опису"
+
+#: ../deskbar/handlers/programs.py:18
+msgid "Dictionary"
+msgstr "Речник"
+
+#: ../deskbar/handlers/programs.py:19
+msgid "Look up word definitions in the dictionary"
+msgstr "Тражи дефиницију речи у речнику"
+
+#: ../deskbar/handlers/programs.py:22
+msgid "Files and Folders Search"
+msgstr "Претрага датотека и фасцикли"
+
+#: ../deskbar/handlers/programs.py:23
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Претражује датотеке и фасцикле тражећи узорак имена"
+
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/programs.py:72
+#, python-format
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Покрени програм <b>%(name)s</b> (%(prog)s)"
+
+#: ../deskbar/handlers/programs.py:85
+#, python-format
+msgid "Lookup %s in dictionary"
+msgstr "Потражи термин %s у речнику"
+
+#: ../deskbar/handlers/programs.py:93
+#, python-format
+msgid "Search for file names like %s"
+msgstr "Претражи датотеке које у имену имају реч %s"
+
+#: ../deskbar/handlers/volumes.py:16
+msgid "Disks and Network Places"
+msgstr "Дискови и мрежна места"
+
+#: ../deskbar/handlers/volumes.py:17
+msgid "Open disk drives, shared network places and similar resources by name"
+msgstr "Отвара диск уређаје, мрежна места са дељеним подацима или слично"
+
+#: ../deskbar/handlers/volumes.py:44
+#, python-format
+msgid "Open network place %s"
+msgstr "Отвори мрежно место %s"
+
+#: ../deskbar/handlers/volumes.py:46
+#, python-format
+msgid "Open audio disk %s"
+msgstr "Пусти музику са носача звука %s"
+
+#: ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "Веб"
+
+#: ../deskbar/handlers/web_address.py:10
+msgid "Open web pages by typing a complete web address"
+msgstr "Отвара веб страну када укуцате пуну адресу"
+
+#: ../deskbar/handlers/web_address.py:36
+#, python-format
+msgid "Open the web page %s"
+msgstr "Отвори веб страну %s"
+
+#: ../deskbar/handlers/web_address.py:38
+#, python-format
+msgid "Open the location %s"
+msgstr "Отвори место %s"
+
+#: ../deskbar/ui/About.py:25
+msgid "An all-in-one action bar."
+msgstr "Чаробна линија за све"
+
+#: ../deskbar/ui/About.py:28
+msgid "Deskbar Website"
+msgstr "Интернет страна Чаробне линије"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:36
+msgid "translator-credits"
+msgstr ""
+"Слободан Д. Средојевић <slobo@akrep.be>\n"
+"\n"
+"http://prevod.org — преводи на српски језик"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:54
+msgid "_More..."
+msgstr "_Више..."
+
+#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
+msgid "No History"
+msgstr "Не постоји историја"
+
+#: ../deskbar/ui/cuemiac/Cuemiac.py:54
+msgid "You need Gtk+ version 2.8.0 or higher to use this module"
+msgstr "За коришћење овог модула вам је потребна Гтк+ верзија новија од 2.8.0"
