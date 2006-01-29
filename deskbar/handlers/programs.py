@@ -64,7 +64,7 @@ class GenericProgramMatch(deskbar.Match.Match):
 			self._desktop.launch([])
 	
 	def get_category(self):
-		return "programs"
+		return "actions"
 	
 	def get_verb(self):
 		#translators: First %s is the programs full name, second is the executable name

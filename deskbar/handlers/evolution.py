@@ -32,7 +32,7 @@ class EvolutionMatch(deskbar.Match.Match):
 		gnomevfs.url_show("mailto:"+self.email)
 		
 	def get_category(self):
-		return "contacts"
+		return "people"
 	
 	def get_name(self, text=None):
 		return {

@@ -23,7 +23,7 @@ class GalagoMatch(deskbar.Match.Match):
 		gnomevfs.url_show("mailto:"+self._email)
 		
 	def get_category(self):
-		return "contacts"
+		return "people"
 	
 	def get_verb(self):
 		return "Send Email to %s" % "<b>%(name)s</b>"

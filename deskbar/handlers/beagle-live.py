@@ -131,14 +131,16 @@ class BeagleLiveMatch (deskbar.Match.Match):
 		
 	def get_category (self):
 		t = self.result["type"]
-		if t == "MailMessage" : return "emails"
-		elif t == "Contact": return "contacts"
+		if t == "MailMessage" : return "documents"
+		elif t == "Note": return "documents"
+		elif t == "IMLog": return "documents"
+		elif t == "Calendar": return "documents"
+		elif t == "Contact": return "people"
 		elif t == "File": return "files"
-		elif t == "FeedItem": return "news"
-		elif t == "Note": return "notes"
-		elif t == "IMLog": return "conversation"
-		elif t == "Calendar": return "calendar"
-	
+		elif t == "FeedItem": return "web"
+		
+		return "default"
+		
 	def get_name (self, text=None):
 		# We use the result dict itself to look up words
 		return self.result

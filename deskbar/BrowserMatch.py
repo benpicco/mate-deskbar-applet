@@ -61,7 +61,7 @@ class BrowserSmartMatch(deskbar.Match.Match):
 		return self.url
 	
 	def get_category(self):
-		return "web"
+		return "websearch"
 		
 	def get_name(self, text=None):
 		m = deskbar.Match.Match.get_name(self, text)

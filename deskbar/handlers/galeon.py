@@ -164,11 +164,11 @@ class GaleonBookmarksParser(xml.sax.ContentHandler):
 			if host in self._cache:
 				img = self._cache[host]
 
-			bookmark = BrowserMatch(self.handler, self.title, self.href, img)
+			bookmark = BrowserMatch(self.handler, self.title, self.href, icon=img)
 			self._indexer.add("%s %s" % (self.title, self.href), bookmark)
 
 			if self.smarthref != None:
-				bookmark = BrowserSmartMatch(self.handler, self.title, self.smarthref, img, bookmark=bookmark)
+				bookmark = BrowserSmartMatch(self.handler, self.title, self.smarthref, icon=img, bookmark=bookmark)
 				self._smart_bookmarks.append(bookmark)
 
 class GaleonFaviconCacheParser(xml.sax.ContentHandler):
@@ -254,7 +254,7 @@ class GaleonHistoryParser(xml.sax.ContentHandler):
 				# Most of the time we have an html page here, it could also be an unrecognized format
 				print 'Error:endElement(%s):Title:%s:%s' % (name.encode("utf8"), title, msg)
 
-			item = BrowserMatch(self.handler, title, url, pixbuf, True)
+			item = BrowserMatch(self.handler, title, url, True, icon=pixbuf)
 			self._indexer.add("%s %s" % (title, url), item)
 
 	def characters(self, chars):

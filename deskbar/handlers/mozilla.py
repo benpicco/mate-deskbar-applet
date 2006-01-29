@@ -88,7 +88,7 @@ class MozillaBookmarksHandler(deskbar.Handler.Handler):
 			try:
 				b = self._shortcuts_to_smart_bookmarks_map[prefix]
 				text = query[x+1:]
-				return [BrowserSmartMatch(b.get_handler(), b.name, b.url, b.icon, prefix, b)]
+				return [BrowserSmartMatch(b.get_handler(), b.name, b.url, prefix, b, icon=b.icon)]
 			except KeyError:
 				# Probably from the b = ... line.  Getting here
 				# means that there is no such shortcut.
@@ -210,9 +210,9 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 				# Reset icon data for the following icon
 				self.icon_data = None
 				
-			bookmark = BrowserMatch(self.handler, self.chars, self.href, pixbuf)
+			bookmark = BrowserMatch(self.handler, self.chars, self.href, icon=pixbuf)
 			if self.shortcuturl != None:
-				bookmark = BrowserSmartMatch(self.handler, self.chars, self.href, self.shortcuturl, bookmark)
+				bookmark = BrowserSmartMatch(self.handler, self.chars, self.href, self.shortcuturl, bookmark, icon=pixbuf)
 				self._shortcuts_to_smart_bookmarks_map[self.shortcuturl] = bookmark
 			else:
 				self._indexer.add("%s %s" % (self.chars, self.href), bookmark)
@@ -423,8 +423,8 @@ class MozillaSmartBookmarksDirParser:
 				try:
 					parser.parse()
 					infos = parser.get_infos()
-					bookmark = BrowserMatch(handler, infos["name"], infos["url"], img)
-					bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], img, bookmark=bookmark)
+					bookmark = BrowserMatch(handler, infos["name"], infos["url"], icon=img)
+					bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], icon=img, bookmark=bookmark)
 					self._smart_bookmarks.append(bookmark)
 				except Exception, msg:
 					print 'Error:MozillaSmartBookmarksDirParser:cannot parse smrt bookmark:%s:bookmark %s' % (msg, f)

@@ -6,80 +6,61 @@ class UnknownCategory (Exception):
 		print "** Unknown Category '%s' requested by %s" % (category_name, match.__class__)
 
 
+_generic_nest = lambda n: ngettext("%s more result", "%s more results", n)
+
 CATEGORIES = {
+	# Special categories
 	"default"	: {	
 		"name": _("Uncategorized"),
-		"nest": lambda n: ngettext("%s more result", "%s more results", n), 
-		"threshold": 10
-	},
-	"files"		: {	
-		"name": _("Files"),
-		"nest": lambda n: ngettext("%s more file", "%s more files", n), 
-		"threshold": 3
-	},
-	"actions"	: {
-		"name": _("Actions"),
-		"nest": lambda n: ngettext("%s more action", "%s more actions", n), 
-		"threshold": 1
-	},
-	"news"		: {
-		"name": _("News"),
-		"nest": lambda n: ngettext("%s more news item", "%s more news items", n), 
-		"threshold": 3
-	},
-	"contacts"	: {
-		"name": _("Contacts"),
-		"nest": lambda n: ngettext("%s more contact", "%s more contacts", n), 
-		"threshold": 3
-	},
-	"emails"	: {
-		"name": _("Emails"),
-		"nest": lambda n: ngettext("%s more email", "%s more emails", n), 
-		"threshold": 3
-	},
-	"notes"	: {
-		"name": _("Notes"),
-		"nest": lambda n: ngettext("%s more note", "%s more notes", n), 
-		"threshold": 3
-	},
-	"volumes"	: {
-		"name": _("Volumes"),
-		"nest": lambda n: ngettext("%s more volume", "%s more volumes", n), 
-		"threshold": 3
-	},
-	"google"	: {
-		"name": _("Google Search"),
-		"nest": lambda n: ngettext("%s more online hit", "%s more online hits", n), 
-		"threshold": 2
-	},
-	"calendar"	: {
-		"name": _("Calendar"),
-		"nest": lambda n: ngettext("%s more calendar item", "%s more calendar items", n), 
-		"threshold": 1
-	},
-	"conversation"	: {
-		"name": _("Conversation"),
-		"nest": lambda n: ngettext("%s more conversation", "%s more conversations", n), 
-		"threshold": 1
-	},
-	"web" : {
-		"name": _("Web Browser"),
-		"nest": lambda n: ngettext("%s more item", "%s more items", n), 
-		"threshold": 5,
-	},
-	"programs" : {
-		"name": _("Programs"),
-		"nest": lambda n: ngettext("%s more program", "%s more programs", n), 
-		"threshold": 3,
+		"nest": _generic_nest,
+		"threshold": 5
 	},
 	"history" : {
 		"name": _("History"),
-		"nest": lambda n: ngettext("%s more match", "%s more matches", n), 
-		"threshold": 5,
+		"nest": _generic_nest, 
+		"threshold": 5
 	},
 	"debug" : {
-		"name": _("Debug"),
-		"nest": lambda n: ngettext("%s more debugging handler", "%s more debugging handlers", n), 
-		"threshold": 2,
+		"name": "Debug",
+		"nest": _generic_nest, 
+		"threshold": 5
 	},
+	
+	# Standard handlers
+	"documents"	: {	
+		"name": _("Documents"),
+		"nest": lambda n: ngettext("%s more document", "%s more documents", n), 
+		"threshold": 5
+	},
+	"files"	: {	
+		"name": _("Files"),
+		"nest": lambda n: ngettext("%s more file", "%s more files", n), 
+		"threshold": 5
+	},
+	"people"	: {
+		"name": _("People"),
+		"nest": _generic_nest, 
+		"threshold": 5
+	},
+	"places"	: {	
+		"name": _("Places"),
+		"nest": lambda n: ngettext("%s more place", "%s more places", n), 
+		"threshold": 5
+	},
+	"actions"	: {	
+		"name": _("Actions"),
+		"nest": lambda n: ngettext("%s more action", "%s more actions", n), 
+		"threshold": 5
+	},
+	"web"	: {	
+		"name": _("Web"),
+		"nest": _generic_nest, 
+		"threshold": 5,
+	},
+	"websearch"	: {	
+		"name": _("Web Search"),
+		"nest": _generic_nest, 
+		"threshold": 5
+	},
+	
 }

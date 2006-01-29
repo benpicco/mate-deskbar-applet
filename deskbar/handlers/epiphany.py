@@ -109,7 +109,7 @@ class EpiphanySearchHandler(EpiphanyBookmarksHandler):
 			try:
 				b = shortcuts_to_smart_bookmarks_map[prefix]
 				text = query[x+1:]
-				return [BrowserSmartMatch(b.get_handler(), b.name, b.url, b.icon, prefix, b)]
+				return [BrowserSmartMatch(b.get_handler(), b.name, b.url, prefix, b, icon=b.icon)]
 			except KeyError:
 				# Probably from the b = ... line.  Getting here
 				# means that there is no such shortcut.
@@ -194,9 +194,9 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 			if host in self._cache:
 				icon = self._cache[host]
 
-			bookmark = BrowserMatch(self.handler, self.title, self.href, icon)
+			bookmark = BrowserMatch(self.handler, self.title, self.href, icon=icon)
 			if self.smarthref != None:
-				bookmark = BrowserSmartMatch(self.handler, self.title, self.smarthref, icon, bookmark=bookmark)
+				bookmark = BrowserSmartMatch(self.handler, self.title, self.smarthref, icon=icon, bookmark=bookmark)
 				self._smart_bookmarks.append(bookmark)
 			else:
 				self._indexer.add("%s %s" % (self.title, self.href), bookmark)
@@ -308,5 +308,5 @@ class EpiphanyHistoryParser(xml.sax.ContentHandler):
 			if self.icon in self._cache:
 				icon = self._cache[self.icon]
 
-			item = BrowserMatch(self.handler, self.title, self.url, icon, is_history=True)
+			item = BrowserMatch(self.handler, self.title, self.url, True, icon=icon)
 			self._indexer.add("%s %s" % (self.title, self.url), item)

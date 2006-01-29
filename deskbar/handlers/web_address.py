@@ -29,7 +29,7 @@ class WebAddressMatch(deskbar.Match.Match):
 			gobject.spawn_async(["nautilus", self.name], flags=gobject.SPAWN_SEARCH_PATH)
 			
 	def get_category(self):
-		return "actions"
+		return "web"
 	
 	def get_verb(self):
 		if not self.has_method:

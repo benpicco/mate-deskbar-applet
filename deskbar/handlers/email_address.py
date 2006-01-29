@@ -21,7 +21,7 @@ class EmailAddressMatch(deskbar.Match.Match):
 		gnomevfs.url_show("mailto:"+self.name)
 		
 	def get_category(self):
-		return "emails"
+		return "people"
 	
 	def get_verb(self):
 		return _("Send Email to %s") % "<b>%(name)s</b>"

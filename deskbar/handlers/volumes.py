@@ -32,7 +32,7 @@ class VolumeMatch (Match):
 		gobject.spawn_async(["nautilus", self.drive], flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_category(self):
-		return "files"
+		return "places"
 	 
 	def get_verb(self):
 		if self.drive == None:

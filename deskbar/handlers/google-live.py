@@ -64,7 +64,7 @@ class GoogleMatch (deskbar.Match.Match):
 		gnomevfs.url_show(self.url)
 		
 	def get_category(self):
-		return "google"
+		return "web"
 	
 	def get_hash(self, text=None):
 		return self.url
