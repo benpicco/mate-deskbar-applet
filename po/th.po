@@ -1,18 +1,18 @@
 # Thai translation of deskbar-applet.
-# Copyright (C) 2005 Free Software Foundation, Inc.
+# Copyright (C) 2005-2006 Free Software Foundation, Inc.
 # This file is distributed under the same license as the deskbar-applet package.
-# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005.
+# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2006.
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-29 17:13+0100\n"
-"PO-Revision-Date: 2006-01-29 20:46+0700\n"
+"POT-Creation-Date: 2006-01-30 09:03+0700\n"
+"PO-Revision-Date: 2006-01-30 09:06+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=UTF-9\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "ทางลัดสำหรับการค้นหาที่คั่นหน้าไว้"
 
-#: ../deskbar/BrowserMatch.py:30
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "Open History Item %s"
 msgstr "เปิดรายการ %s จากประวัติการท่องเว็บ"
@@ -136,170 +136,76 @@ msgstr "คีย์ลัด"
 msgid "Bookmark Name"
 msgstr "ชื่อที่คั่นหน้า"
 
-#: ../deskbar/Categories.py:11
-msgid "Uncategorized"
-msgstr ""
-
-#: ../deskbar/Categories.py:12
-#, fuzzy, python-format
+#: ../deskbar/Categories.py:9
+#, python-format
 msgid "%s more result"
 msgid_plural "%s more results"
-msgstr[0] "มีอีเมลอีก %s ฉบับ"
-msgstr[1] "มีอีเมลอีก %s ฉบับ"
+msgstr[0] "มีผลการค้นอีก %s รายการ"
+msgstr[1] "มีผลการค้นอีก %s รายการ"
 
-#: ../deskbar/Categories.py:16
+#: ../deskbar/Categories.py:14
+msgid "Uncategorized"
+msgstr "ไร้หมวด"
+
+#: ../deskbar/Categories.py:19 ../deskbar/handlers/history.py:8
+msgid "History"
+msgstr "ประวัติการค้นหา"
+
+#: ../deskbar/Categories.py:31
+msgid "Documents"
+msgstr "เอกสาร"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more document"
+msgid_plural "%s more documents"
+msgstr[0] "มีเอกสารอีก %s ฉบับ"
+msgstr[1] "มีเอกสารอีก %s ฉบับ"
+
+#: ../deskbar/Categories.py:36
 msgid "Files"
 msgstr "แฟ้ม"
 
-#: ../deskbar/Categories.py:17
+#: ../deskbar/Categories.py:37
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "มีอีก %s แฟ้ม"
 msgstr[1] "มีอีก %s แฟ้ม"
 
-#: ../deskbar/Categories.py:21
+#: ../deskbar/Categories.py:41
+msgid "People"
+msgstr "บุคคล"
+
+#: ../deskbar/Categories.py:46
+msgid "Places"
+msgstr "แหล่ง"
+
+#: ../deskbar/Categories.py:47
+#, python-format
+msgid "%s more place"
+msgid_plural "%s more places"
+msgstr[0] "มีอีก %s แหล่ง"
+msgstr[1] "มีอีก %s แหล่ง"
+
+#: ../deskbar/Categories.py:51
 msgid "Actions"
 msgstr "ปฏิบัติการ"
 
-#: ../deskbar/Categories.py:22
+#: ../deskbar/Categories.py:52
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "มีอีก %s ปฏิบัติการ"
 msgstr[1] "มีอีก %s ปฏิบัติการ"
 
-#: ../deskbar/Categories.py:26
-msgid "News"
-msgstr "ข่าว"
-
-#: ../deskbar/Categories.py:27
-#, python-format
-msgid "%s more news item"
-msgid_plural "%s more news items"
-msgstr[0] "มีอีก %s รายการข่าว"
-msgstr[1] "มีอีก %s รายการข่าว"
-
-#: ../deskbar/Categories.py:31
-msgid "Contacts"
-msgstr "ที่อยู่ติดต่อ"
-
-#: ../deskbar/Categories.py:32
-#, python-format
-msgid "%s more contact"
-msgid_plural "%s more contacts"
-msgstr[0] "มีที่อยู่ติดต่ออีก %s รายการ"
-msgstr[1] "มีที่อยู่ติดต่ออีก %s รายการ"
-
-#: ../deskbar/Categories.py:36
-msgid "Emails"
-msgstr "อีเมล"
-
-#: ../deskbar/Categories.py:37
-#, python-format
-msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] "มีอีเมลอีก %s ฉบับ"
-msgstr[1] "มีอีเมลอีก %s ฉบับ"
-
-#: ../deskbar/Categories.py:41
-msgid "Notes"
-msgstr "บันทึก"
-
-#: ../deskbar/Categories.py:42
-#, python-format
-msgid "%s more note"
-msgid_plural "%s more notes"
-msgstr[0] "มีบันทึกอีก %s ฉบับ"
-msgstr[1] "มีบันทึกอีก %s ฉบับ"
-
-#: ../deskbar/Categories.py:46
-msgid "Volumes"
-msgstr "โวลุม"
-
-#: ../deskbar/Categories.py:47
-#, python-format
-msgid "%s more volume"
-msgid_plural "%s more volumes"
-msgstr[0] "มีอีก %s โวลุม"
-msgstr[1] "มีอีก %s โวลุม"
-
-#: ../deskbar/Categories.py:51
-msgid "Google Search"
-msgstr "การค้น Google"
-
-#: ../deskbar/Categories.py:52
-#, python-format
-msgid "%s more online hit"
-msgid_plural "%s more online hits"
-msgstr[0] "มีรายการค้นเจออีก %s รายการ"
-msgstr[1] "มีรายการค้นเจออีก %s รายการ"
-
-#: ../deskbar/Categories.py:56
-msgid "Calendar"
-msgstr "ปฏิทิน"
-
-#: ../deskbar/Categories.py:57
-#, python-format
-msgid "%s more calendar item"
-msgid_plural "%s more calendar items"
-msgstr[0] "มีรายการปฏิทินอีก %s รายการ"
-msgstr[1] "มีรายการปฏิทินอีก %s รายการ"
+#: ../deskbar/Categories.py:56 ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "เว็บ"
 
 #: ../deskbar/Categories.py:61
-msgid "Conversation"
-msgstr "การสนทนา"
-
-#: ../deskbar/Categories.py:62
-#, python-format
-msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "มีการสนทนาอีก %s รายการ"
-msgstr[1] "มีการสนทนาอีก %s รายการ"
-
-#: ../deskbar/Categories.py:66
-msgid "Web Browser"
-msgstr "เว็บเบราว์เซอร์"
-
-#: ../deskbar/Categories.py:67
-#, python-format
-msgid "%s more item"
-msgid_plural "%s more items"
-msgstr[0] "มีอีก %s รายการ"
-msgstr[1] "มีอีก %s รายการ"
-
-#: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "โปรแกรม"
-
-#: ../deskbar/Categories.py:72
-#, python-format
-msgid "%s more program"
-msgid_plural "%s more programs"
-msgstr[0] "มีอีก %s โปรแกรม"
-msgstr[1] "มีอีก %s โปรแกรม"
-
-#: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
-msgid "History"
-msgstr "ประวัติการค้นหา"
-
-#: ../deskbar/Categories.py:77
-#, python-format
-msgid "%s more match"
-msgid_plural "%s more matches"
-msgstr[0] "มีประวัติการค้นเจออีก %s รายการ"
-msgstr[1] "มีประวัติการค้นเจออีก %s รายการ"
-
-#: ../deskbar/Categories.py:81
-msgid "Debug"
-msgstr "การดีบัก"
-
-#: ../deskbar/Categories.py:82
-#, python-format
-msgid "%s more debugging handler"
-msgid_plural "%s more debugging handlers"
-msgstr[0] "มีการดีบักอีก %s รายการ"
-msgstr[1] "มีการดีบักอีก %s รายการ"
+msgid "Web Search"
+msgstr "การค้นเว็บ"
 
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
@@ -330,41 +236,42 @@ msgid "Addressbook entry for %s"
 msgstr "รายการในสมุดที่อยู่สำหรับ %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:56
+#: ../deskbar/handlers/beagle-live.py:57
 #, python-format
 msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 msgstr "อ่านอีเมลจาก <i>%(sender)s</i>: <b>%(name)s</b>"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:65 ../deskbar/handlers/files.py:33
 #, python-format
 msgid "Open %s"
 msgstr "เปิด %s"
 
-#: ../deskbar/handlers/beagle-live.py:69
+#: ../deskbar/handlers/beagle-live.py:72
 #, python-format
 msgid "Open news item %s"
 msgstr "เปิดรายการข่าว %s"
 
-#: ../deskbar/handlers/beagle-live.py:76
+#: ../deskbar/handlers/beagle-live.py:80
 #, python-format
 msgid "Open note %s"
 msgstr "เปิดบันทึกข้อความ %s"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#. "description": (_("View conversation with %s") + "\n%s") % ("<b>%(name)s</b>","<span foreground='grey' size='small'>%(snippet)s</span>"),
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
 msgid "View conversation with %s"
 msgstr "ดูการสนทนากับ %s"
 
-#: ../deskbar/handlers/beagle-live.py:88
+#: ../deskbar/handlers/beagle-live.py:96
 #, python-format
 msgid "View calendar %s"
 msgstr "ดูปฏิทิน %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:230
-#: ../deskbar/handlers/beagle-live.py:249
+#: ../deskbar/handlers/beagle-live.py:240
+#: ../deskbar/handlers/beagle-live.py:259
 msgid "?"
 msgstr "?"
 
@@ -559,6 +466,10 @@ msgstr "เรียกโปรแกรมใดๆ ที่อยู่ใ�
 msgid "Execute %s"
 msgstr "เรียกใช้ %s"
 
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "โปรแกรม"
+
 #: ../deskbar/handlers/programs.py:15
 msgid "Launch a program by its name and/or description"
 msgstr "เรียกโปรแกรมโดยป้อนชื่อ และ/หรือ คำบรรยาย"
@@ -614,10 +525,6 @@ msgstr "เปิดแหล่งเครือข่าย %s"
 msgid "Open audio disk %s"
 msgstr "เปิดแผ่นเพลง %s"
 
-#: ../deskbar/handlers/web_address.py:9
-msgid "Web"
-msgstr "เว็บ"
-
 #: ../deskbar/handlers/web_address.py:10
 msgid "Open web pages by typing a complete web address"
 msgstr "เปิดหน้าเว็บโดยป้อนที่อยู่เว็บเต็ม"
@@ -655,9 +562,91 @@ msgstr "เ_พิ่มเติม..."
 msgid "No History"
 msgstr "ไม่มีประวัติการค้นหา"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:44
+#: ../deskbar/ui/cuemiac/Cuemiac.py:47
 msgid "You need Gtk+ version 2.8.0 or higher to use this module"
 msgstr "คุณต้องใช้ Gtk+ รุ่น 2.8.0 ขึ้นไป เพื่อจะใช้มอดูลนี้"
+
+#~ msgid "News"
+#~ msgstr "ข่าว"
+
+#~ msgid "%s more news item"
+#~ msgid_plural "%s more news items"
+#~ msgstr[0] "มีอีก %s รายการข่าว"
+#~ msgstr[1] "มีอีก %s รายการข่าว"
+
+#~ msgid "Contacts"
+#~ msgstr "ที่อยู่ติดต่อ"
+
+#~ msgid "%s more contact"
+#~ msgid_plural "%s more contacts"
+#~ msgstr[0] "มีที่อยู่ติดต่ออีก %s รายการ"
+#~ msgstr[1] "มีที่อยู่ติดต่ออีก %s รายการ"
+
+#~ msgid "Emails"
+#~ msgstr "อีเมล"
+
+#~ msgid "%s more email"
+#~ msgid_plural "%s more emails"
+#~ msgstr[0] "มีอีเมลอีก %s ฉบับ"
+#~ msgstr[1] "มีอีเมลอีก %s ฉบับ"
+
+#~ msgid "Notes"
+#~ msgstr "บันทึก"
+
+#~ msgid "%s more note"
+#~ msgid_plural "%s more notes"
+#~ msgstr[0] "มีบันทึกอีก %s ฉบับ"
+#~ msgstr[1] "มีบันทึกอีก %s ฉบับ"
+
+#~ msgid "Google Search"
+#~ msgstr "การค้น Google"
+
+#~ msgid "%s more online hit"
+#~ msgid_plural "%s more online hits"
+#~ msgstr[0] "มีรายการค้นเจออีก %s รายการ"
+#~ msgstr[1] "มีรายการค้นเจออีก %s รายการ"
+
+#~ msgid "Calendar"
+#~ msgstr "ปฏิทิน"
+
+#~ msgid "%s more calendar item"
+#~ msgid_plural "%s more calendar items"
+#~ msgstr[0] "มีรายการปฏิทินอีก %s รายการ"
+#~ msgstr[1] "มีรายการปฏิทินอีก %s รายการ"
+
+#~ msgid "Conversation"
+#~ msgstr "การสนทนา"
+
+#~ msgid "%s more conversation"
+#~ msgid_plural "%s more conversations"
+#~ msgstr[0] "มีการสนทนาอีก %s รายการ"
+#~ msgstr[1] "มีการสนทนาอีก %s รายการ"
+
+#~ msgid "Web Browser"
+#~ msgstr "เว็บเบราว์เซอร์"
+
+#~ msgid "%s more item"
+#~ msgid_plural "%s more items"
+#~ msgstr[0] "มีอีก %s รายการ"
+#~ msgstr[1] "มีอีก %s รายการ"
+
+#~ msgid "%s more program"
+#~ msgid_plural "%s more programs"
+#~ msgstr[0] "มีอีก %s โปรแกรม"
+#~ msgstr[1] "มีอีก %s โปรแกรม"
+
+#~ msgid "%s more match"
+#~ msgid_plural "%s more matches"
+#~ msgstr[0] "มีประวัติการค้นเจออีก %s รายการ"
+#~ msgstr[1] "มีประวัติการค้นเจออีก %s รายการ"
+
+#~ msgid "Debug"
+#~ msgstr "การดีบั๊ก"
+
+#~ msgid "%s more debugging handler"
+#~ msgid_plural "%s more debugging handlers"
+#~ msgstr[0] "มีการดีบั๊กอีก %s รายการ"
+#~ msgstr[1] "มีการดีบั๊กอีก %s รายการ"
 
 #~ msgid "<b>Keyboard Shortcut</b>"
 #~ msgstr "<b>คีย์ลัด</b>"
