@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-29 17:13+0100\n"
-"PO-Revision-Date: 2006-01-23 14:41+0530\n"
+"POT-Creation-Date: 2006-01-30 05:42+0100\n"
+"PO-Revision-Date: 2006-01-30 12:57+0530\n"
 "Last-Translator: Ankit Patel <ankit644@yahoo.com>\n"
 "Language-Team: Gujarati <indianoss-gujarati@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
 "\n"
 "\n"
 "\n"
@@ -57,8 +57,7 @@ msgstr "<b>પહોળાઈ</b>"
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
-msgstr ""
-"<i><small><b>નોંધ:</b> એક્સટેન્સનનો ક્રમ બદલવા માટે તેને ખેંચો અને મૂકો.</small></i>"
+msgstr "<i><small><b>નોંધ:</b> એક્સટેન્સનનો ક્રમ બદલવા માટે તેને ખેંચો અને મૂકો.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
 msgid "Button in panel with grouped list"
@@ -119,7 +118,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "બુકમાર્ક થયેલ શોધો માટેના ટુંકાણો"
 
-#: ../deskbar/BrowserMatch.py:30
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "Open History Item %s"
 msgstr "ઈતિહાસ વસ્તુ %s ખોલો"
@@ -143,185 +142,90 @@ msgstr "ટુંકાણ"
 msgid "Bookmark Name"
 msgstr "બુકમાર્ક નામ"
 
-#: ../deskbar/Categories.py:11
-msgid "Uncategorized"
-msgstr ""
-
-#: ../deskbar/Categories.py:12
-#, fuzzy, python-format
+#: ../deskbar/Categories.py:9
+#, python-format
 msgid "%s more result"
 msgid_plural "%s more results"
-msgstr[0] "%s વધુ ઈમેઈલ"
-msgstr[1] "%s વધુ ઈમેઈલો"
+msgstr[0] "%s વધુ પરિણામ"
+msgstr[1] "%s વધુ પરિણામો"
 
-#: ../deskbar/Categories.py:16
+#: ../deskbar/Categories.py:14
+msgid "Uncategorized"
+msgstr "બિનવર્ગીકૃત"
+
+#: ../deskbar/Categories.py:19 ../deskbar/handlers/history.py:8
+msgid "History"
+msgstr "ઈતિહાસ"
+
+#: ../deskbar/Categories.py:31
+msgid "Documents"
+msgstr "દસ્તાવેજો"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more document"
+msgid_plural "%s more documents"
+msgstr[0] "%s વધુ દસ્તાવેજ"
+msgstr[1] "%s વધુ દસ્તાવેજો"
+
+#: ../deskbar/Categories.py:36
 msgid "Files"
 msgstr "ફાઈલો"
 
-#: ../deskbar/Categories.py:17
+#: ../deskbar/Categories.py:37
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "%s વધુ ફાઈલ"
 msgstr[1] "%s વધુ ફાઈલો"
 
-#: ../deskbar/Categories.py:21
+#: ../deskbar/Categories.py:41
+msgid "People"
+msgstr "લોકો"
+
+#: ../deskbar/Categories.py:46
+msgid "Places"
+msgstr "જગ્યાઓ"
+
+#: ../deskbar/Categories.py:47
+#, python-format
+msgid "%s more place"
+msgid_plural "%s more places"
+msgstr[0] "%s વધુ જગ્યા"
+msgstr[1] "%s વધુ જગ્યાઓ"
+
+#: ../deskbar/Categories.py:51
 msgid "Actions"
 msgstr "ક્રિયાઓ"
 
-#: ../deskbar/Categories.py:22
+#: ../deskbar/Categories.py:52
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "%s વધુ ક્રિયા"
 msgstr[1] "%s વધુ ક્રિયાઓ"
 
-#: ../deskbar/Categories.py:26
-msgid "News"
-msgstr "સમાચારો"
-
-#: ../deskbar/Categories.py:27
-#, python-format
-msgid "%s more news item"
-msgid_plural "%s more news items"
-msgstr[0] "%s વધુ સમાચાર વસ્તુ"
-msgstr[1] "%s વધુ સમાચાર વસ્તુઓ"
-
-#: ../deskbar/Categories.py:31
-msgid "Contacts"
-msgstr "સંપર્કો"
-
-#: ../deskbar/Categories.py:32
-#, python-format
-msgid "%s more contact"
-msgid_plural "%s more contacts"
-msgstr[0] "%s વધુ સંપર્ક"
-msgstr[1] "%s વધુ સંપર્કો"
-
-#: ../deskbar/Categories.py:36
-msgid "Emails"
-msgstr "ઈમેઈલો"
-
-#: ../deskbar/Categories.py:37
-#, python-format
-msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] "%s વધુ ઈમેઈલ"
-msgstr[1] "%s વધુ ઈમેઈલો"
-
-#: ../deskbar/Categories.py:41
-msgid "Notes"
-msgstr "નોંધો"
-
-#: ../deskbar/Categories.py:42
-#, python-format
-msgid "%s more note"
-msgid_plural "%s more notes"
-msgstr[0] "%s વધુ નોંધ"
-msgstr[1] "%s વધુ નોંધો"
-
-#: ../deskbar/Categories.py:46
-msgid "Volumes"
-msgstr "વોલ્યુમો"
-
-#: ../deskbar/Categories.py:47
-#, python-format
-msgid "%s more volume"
-msgid_plural "%s more volumes"
-msgstr[0] "%s વધુ વોલ્યુમ"
-msgstr[1] "%s વધુ વોલ્યુમો"
-
-#: ../deskbar/Categories.py:51
-msgid "Google Search"
-msgstr "ગુગલ શોધ"
-
-#: ../deskbar/Categories.py:52
-#, python-format
-msgid "%s more online hit"
-msgid_plural "%s more online hits"
-msgstr[0] "%s વધુ ઓનલાઈન સંકેત"
-msgstr[1] "%s વધુ ઓનલાઈન સંકેતો"
-
-#: ../deskbar/Categories.py:56
-msgid "Calendar"
-msgstr "કેલેન્ડર"
-
-#: ../deskbar/Categories.py:57
-#, python-format
-msgid "%s more calendar item"
-msgid_plural "%s more calendar items"
-msgstr[0] "%s વધુ કેલેન્ડર વસ્તુ"
-msgstr[1] "%s વધુ કેલેન્ડર વસ્તુઓ"
+#: ../deskbar/Categories.py:56 ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "વેબ"
 
 #: ../deskbar/Categories.py:61
-msgid "Conversation"
-msgstr "રૂપાંતરણ"
-
-#: ../deskbar/Categories.py:62
-#, python-format
-msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "%s વધુ રૂપાંતરણ"
-msgstr[1] "%s વધુ રૂપાંતરણો"
-
-#: ../deskbar/Categories.py:66
-msgid "Web Browser"
-msgstr "વેબ બ્રાઉઝર"
-
-#: ../deskbar/Categories.py:67
-#, python-format
-msgid "%s more item"
-msgid_plural "%s more items"
-msgstr[0] "%s વધુ વસ્તુ"
-msgstr[1] "%s વધુ વસ્તુઓ"
-
-#: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "કાર્યક્રમો"
-
-#: ../deskbar/Categories.py:72
-#, python-format
-msgid "%s more program"
-msgid_plural "%s more programs"
-msgstr[0] "%s વધુ કાર્યક્રમ"
-msgstr[1] "%s વધુ કાર્યક્રમો"
-
-#: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
-#, fuzzy
-msgid "History"
-msgstr "કોઈ ઈતિહાસ નથી"
-
-#: ../deskbar/Categories.py:77
-#, fuzzy, python-format
-msgid "%s more match"
-msgid_plural "%s more matches"
-msgstr[0] "%s વધુ ઈમેઈલ"
-msgstr[1] "%s વધુ ઈમેઈલો"
-
-#: ../deskbar/Categories.py:81
-msgid "Debug"
-msgstr "ડિબગ"
-
-#: ../deskbar/Categories.py:82
-#, python-format
-msgid "%s more debugging handler"
-msgid_plural "%s more debugging handlers"
-msgstr[0] "%s વધુ ડિબગીંગ નિયંત્રક"
-msgstr[1] "%s વધુ ડિબગીંગ નિયંત્રકો"
+msgid "Web Search"
+msgstr "વેબ શોધ"
 
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
-msgstr ""
+msgstr "પ્રોગ્રામીંગ ભૂલ મળી આવી"
 
 #: ../deskbar/gtkexcepthook.py:22
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
-msgstr ""
+msgstr "તે કદાચ ઘાતક નથી, પરંતુ તેની જાણ વિકાસકર્તાઓને થવી જોઈએ. હવે પછીથી કાર્યક્રમ ભૂલભરેલ તરીકે વર્તશે."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
-msgstr ""
+msgstr "ભૂલ મળી આવી"
 
 #: ../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
@@ -337,41 +241,42 @@ msgid "Addressbook entry for %s"
 msgstr "%s માટે સરનામાપુસ્તિકા પ્રવેશ"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:56
+#: ../deskbar/handlers/beagle-live.py:57
 #, python-format
 msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 msgstr "<i>%(sender)s</i> માંથી ઈમેલ જુઓ: <b>%(name)s</b>"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:65 ../deskbar/handlers/files.py:33
 #, python-format
 msgid "Open %s"
 msgstr "%s ખોલો"
 
-#: ../deskbar/handlers/beagle-live.py:69
+#: ../deskbar/handlers/beagle-live.py:72
 #, python-format
 msgid "Open news item %s"
 msgstr "સમાચાર વસ્તુ %s ખોલો"
 
-#: ../deskbar/handlers/beagle-live.py:76
+#: ../deskbar/handlers/beagle-live.py:80
 #, python-format
 msgid "Open note %s"
 msgstr "નોંધ %s ખોલો"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#. "description": (_("View conversation with %s") + "\n%s") % ("<b>%(name)s</b>","<span foreground='grey' size='small'>%(snippet)s</span>"),
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
 msgid "View conversation with %s"
 msgstr "%s સાથેના રૂપાંતરણો જુઓ"
 
-#: ../deskbar/handlers/beagle-live.py:88
+#: ../deskbar/handlers/beagle-live.py:96
 #, python-format
 msgid "View calendar %s"
 msgstr "કેલેન્ડર %s જુઓ"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:230
-#: ../deskbar/handlers/beagle-live.py:249
+#: ../deskbar/handlers/beagle-live.py:240
+#: ../deskbar/handlers/beagle-live.py:259
 msgid "?"
 msgstr "?"
 
@@ -555,7 +460,7 @@ msgstr "સ્થાન %s ખોલો"
 
 #: ../deskbar/handlers/history.py:9
 msgid "Recognize previously used searches"
-msgstr ""
+msgstr "પહેલા વપરાયેલ શોધો ઓળખો"
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
@@ -569,6 +474,10 @@ msgstr "તમારા $PATH માં હાજર કોઈપણ કાર�
 #, python-format
 msgid "Execute %s"
 msgstr "%s ચલાવો"
+
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "કાર્યક્રમો"
 
 #: ../deskbar/handlers/programs.py:15
 msgid "Launch a program by its name and/or description"
@@ -625,10 +534,6 @@ msgstr "નેટવર્ક સ્થાન %s ખોલો"
 msgid "Open audio disk %s"
 msgstr "ઓડિયો ડિસ્ક %s ખોલો"
 
-#: ../deskbar/handlers/web_address.py:9
-msgid "Web"
-msgstr "વેબ"
-
 #: ../deskbar/handlers/web_address.py:10
 msgid "Open web pages by typing a complete web address"
 msgstr "આખું વેબ સરનામું લખીને વેબ પાનાંઓ ખોલો"
@@ -666,6 +571,7 @@ msgstr "વધુ (_M)..."
 msgid "No History"
 msgstr "કોઈ ઈતિહાસ નથી"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:44
+#: ../deskbar/ui/cuemiac/Cuemiac.py:47
 msgid "You need Gtk+ version 2.8.0 or higher to use this module"
 msgstr "આ મોડ્યુલ વાપરવા માટે તમને Gtk+ આવૃત્તિ 2.8.0 અથવા ઊંચી જરૂરી છે"
+
