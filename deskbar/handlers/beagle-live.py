@@ -199,7 +199,10 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 		beagle_query = beagle.Query()
 		beagle_query.add_text(qstring)
 		beagle_query.connect("hits-added", self.hits_added, qstring, MAX_RESULTS)
-		self.beagle.send_request_async(beagle_query)
+		try:
+			self.beagle.send_request_async(beagle_query)
+		except:
+			return
 		self.counter[qstring] = {}
 	
 	def _on_hit_added(self, query, hit, qstring, qmax, snippet=None):

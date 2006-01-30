@@ -3,12 +3,8 @@
 #
 # - Make the pref dialog non modal ?? i tried but it doesn't work.. ?
 #
-# - (TRIVIAL but THINK) Trim category names to as few as possible, and really get the names right
-#
 # - (TRIVIAL) Adjust max hits per handler (especially beagle-live should return a skazillion hits)
-# - Check for pycairo and disable cuemiac if not found in the prefs
-#    - hasattr(gtk.gdk.Drawable, 'cairo_create')
-#    - (better) check for cairo.gtk
+#
 # Would be really really nice:
 #
 # - (EASY) Show nests only for two or more nested results, or something like that
@@ -869,13 +865,29 @@ class CuemiacUI (DeskbarUI):
 			self.deskbar_button.set_active_main (False)
 			return True
 		
+		if 	event.state&gtk.gdk.MOD1_MASK != 0:
+			# Some Handlers want to know about Alt-keypress
+			# combinations, for example.  Here, we notify such
+			# Handlers.
+			text = entry.get_text().strip()
+			if text != "":
+				self.emit('stop-query')
+				self.emit('keyboard-shortcut', text, event.keyval)
+			entry.set_text("")
+			
+			# Broadcast an escape
+			event.state = 0
+			event.keyval = gtk.keysyms.Escape
+			entry.emit('key-press-event', event)
+			return True
+			
 		if event.keyval == 65362: # Up
 			self.cview.grab_focus ()
 			last = self.cview.last_visible_path ()
 			self.cview.set_cursor (last)
 			return True
 			
-		elif event.keyval == 65364: # Down
+		if event.keyval == 65364: # Down
 			self.cview.grab_focus ()
 			self.cview.set_cursor (self.model.get_path(self.model.get_iter_first()))
 			return True

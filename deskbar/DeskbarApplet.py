@@ -44,9 +44,14 @@ class DeskbarApplet:
 		if ui_name == None:
 			ui_name = deskbar.COMPLETION_UI_NAME
 		
+		# Watch out for UI override from command line
 		if deskbar.UI_OVERRIDE != None:
 			ui_name = deskbar.UI_OVERRIDE
-
+		
+		# Check for cairo otherwise cuemiac isn't available at all
+		if not hasattr(gtk.gdk.Drawable, 'cairo_create'):
+			ui_name = deskbar.COMPLETION_UI_NAME
+			
 		if ui_name == deskbar.COMPLETION_UI_NAME:
 			self.ui = CompletionDeskbarUI (applet, self.prefs)
 		elif ui_name == deskbar.CUEMIAC_UI_NAME:
@@ -133,7 +138,6 @@ class DeskbarApplet:
 		self.ui.append_matches (results)
 		
 	def on_stop_query (self, sender=None):
-		print 'Stopping query from applet'
 		if self.start_query_id != 0:
 			gobject.source_remove(self.start_query_id)
 				
@@ -280,7 +284,12 @@ class DeskbarApplet:
 		self.applet.remove (self.ui.get_view())
 		#FIXME: Should we clean up signals and stuff on the old UI?
 		
-		ui_name = value.get_string()			
+		ui_name = value.get_string()	
+
+		# Check for cairo otherwise cuemiac isn't available at all
+		if not hasattr(gtk.gdk.Drawable, 'cairo_create'):
+			ui_name = deskbar.COMPLETION_UI_NAME
+			
 		if ui_name == deskbar.CUEMIAC_UI_NAME:
 			self.ui = CuemiacUI (self.applet, self.prefs)
 			

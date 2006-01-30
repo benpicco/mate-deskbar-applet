@@ -1,6 +1,6 @@
 from gettext import gettext as _
 from os.path import join
-import gtk, gtk.glade, gobject, gconf
+import gtk, gtk.gdk, gtk.glade, gobject, gconf
 import deskbar, deskbar.Utils
 from deskbar.ui.ModuleListView import ModuleListView
 from deskbar import COMPLETION_UI_NAME, CUEMIAC_UI_NAME
@@ -63,8 +63,14 @@ class DeskbarPreferencesUI:
 		self.completion_ui_radio = self.glade.get_widget("completion_radio")
 		self.cuemiac_ui_radio = self.glade.get_widget("cuemiac_radio")
 		self.completion_ui_radio.connect ("toggled", self.on_ui_changed, applet)
+		self.cuemiac_ui_radio.connect ("toggled", self.on_ui_changed, applet)
 		self.ui_change_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_UI_NAME, lambda x, y, z, a: self.on_config_ui(z.value))
 		
+		# Watch out, if cairo isn't available we must set completion UI by force and disable cuemiac option
+		if not hasattr(gtk.gdk.Drawable, 'cairo_create'):
+			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, COMPLETION_UI_NAME)
+			self.cuemiac_ui_radio.set_sensitive (False)
+			
 		self.sync_ui()
 		
 	def show_run_hide(self):
