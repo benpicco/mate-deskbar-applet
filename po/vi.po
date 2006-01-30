@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-29 17:13+0100\n"
-"PO-Revision-Date: 2006-01-29 15:42+1030\n"
+"POT-Creation-Date: 2006-01-30 05:42+0100\n"
+"PO-Revision-Date: 2006-01-30 21:49+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Phím tắt cho việc tìm kiếm đã đánh dấu"
 
-#: ../deskbar/BrowserMatch.py:30
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "Open History Item %s"
 msgstr "Mở mục Lược sử %s"
@@ -139,155 +139,73 @@ msgstr "Phím tắt"
 msgid "Bookmark Name"
 msgstr "Tên Đánh dấu"
 
-#: ../deskbar/Categories.py:11
-msgid "Uncategorized"
-msgstr ""
-
-#: ../deskbar/Categories.py:12
-#, fuzzy, python-format
+#: ../deskbar/Categories.py:9
+#, python-format
 msgid "%s more result"
 msgid_plural "%s more results"
-msgstr[0] "%s thư thêm"
+msgstr[0] "%s kết quả thêm"
 
-#: ../deskbar/Categories.py:16
+#: ../deskbar/Categories.py:14
+msgid "Uncategorized"
+msgstr "Chưa phân loại"
+
+#: ../deskbar/Categories.py:19 ../deskbar/handlers/history.py:8
+msgid "History"
+msgstr "Lược sử"
+
+#: ../deskbar/Categories.py:31
+msgid "Documents"
+msgstr "Tài liệu"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more document"
+msgid_plural "%s more documents"
+msgstr[0] "%s tài liệu thêm"
+
+#: ../deskbar/Categories.py:36
 msgid "Files"
 msgstr "Tập tin"
 
-#: ../deskbar/Categories.py:17
+#: ../deskbar/Categories.py:37
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "%s tập tin thêm"
 
-#: ../deskbar/Categories.py:21
+#: ../deskbar/Categories.py:41
+msgid "People"
+msgstr "Người"
+
+#: ../deskbar/Categories.py:46
+msgid "Places"
+msgstr "Nơi"
+
+#: ../deskbar/Categories.py:47
+#, python-format
+msgid "%s more place"
+msgid_plural "%s more places"
+msgstr[0] "%s nơi thêm"
+
+#: ../deskbar/Categories.py:51
 msgid "Actions"
 msgstr "Hành động"
 
-#: ../deskbar/Categories.py:22
+#: ../deskbar/Categories.py:52
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "%s hành động thêm"
 
-#: ../deskbar/Categories.py:26
-msgid "News"
-msgstr "Tin tức"
-
-#: ../deskbar/Categories.py:27
-#, python-format
-msgid "%s more news item"
-msgid_plural "%s more news items"
-msgstr[0] "%s mục tin tức thêm"
-
-#: ../deskbar/Categories.py:31
-msgid "Contacts"
-msgstr "Liên lạc"
-
-#: ../deskbar/Categories.py:32
-#, python-format
-msgid "%s more contact"
-msgid_plural "%s more contacts"
-msgstr[0] "%s liên lạc thêm"
-
-#: ../deskbar/Categories.py:36
-msgid "Emails"
-msgstr "Thư"
-
-#: ../deskbar/Categories.py:37
-#, python-format
-msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] "%s thư thêm"
-
-#: ../deskbar/Categories.py:41
-msgid "Notes"
-msgstr "Ghi chú"
-
-#: ../deskbar/Categories.py:42
-#, python-format
-msgid "%s more note"
-msgid_plural "%s more notes"
-msgstr[0] "%s ghi chú thêm"
-
-#: ../deskbar/Categories.py:46
-msgid "Volumes"
-msgstr "Khối tin"
-
-#: ../deskbar/Categories.py:47
-#, python-format
-msgid "%s more volume"
-msgid_plural "%s more volumes"
-msgstr[0] "%s khối tin thêm"
-
-#: ../deskbar/Categories.py:51
-msgid "Google Search"
-msgstr "Tìm kiếm Google"
-
-#: ../deskbar/Categories.py:52
-#, python-format
-msgid "%s more online hit"
-msgid_plural "%s more online hits"
-msgstr[0] "%s lần ghé trực tuyến thêm"
-
-#: ../deskbar/Categories.py:56
-msgid "Calendar"
-msgstr "Lịch"
-
-#: ../deskbar/Categories.py:57
-#, python-format
-msgid "%s more calendar item"
-msgid_plural "%s more calendar items"
-msgstr[0] "%s mục lịch thêm"
+# 48x48/emblems/emblem-web.icon.in.h:1
+# 48x48/emblems/emblem-web.icon.in.h:1
+#: ../deskbar/Categories.py:56 ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "Mạng"
 
 #: ../deskbar/Categories.py:61
-msgid "Conversation"
-msgstr "Đối thoại"
-
-#: ../deskbar/Categories.py:62
-#, python-format
-msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "%s cuộc đối thoại thêm"
-
-#: ../deskbar/Categories.py:66
-msgid "Web Browser"
-msgstr "Bộ duyệt Mạng"
-
-#: ../deskbar/Categories.py:67
-#, python-format
-msgid "%s more item"
-msgid_plural "%s more items"
-msgstr[0] "%s mục thêm"
-
-#: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Chương trình"
-
-#: ../deskbar/Categories.py:72
-#, python-format
-msgid "%s more program"
-msgid_plural "%s more programs"
-msgstr[0] "%s chương trình thêm"
-
-#: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
-msgid "History"
-msgstr "Lược sử"
-
-#: ../deskbar/Categories.py:77
-#, python-format
-msgid "%s more match"
-msgid_plural "%s more matches"
-msgstr[0] "%s lần khớp thêm"
-
-#: ../deskbar/Categories.py:81
-msgid "Debug"
-msgstr "Gỡ lỗi"
-
-#: ../deskbar/Categories.py:82
-#, python-format
-msgid "%s more debugging handler"
-msgid_plural "%s more debugging handlers"
-msgstr[0] "%s bộ quản lý gỡ lỗi thêm"
+msgid "Web Search"
+msgstr "Tìm kiếm Mạng"
 
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
@@ -320,41 +238,42 @@ msgid "Addressbook entry for %s"
 msgstr "Mục nhập sổ địa chỉ cho %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:56
+#: ../deskbar/handlers/beagle-live.py:57
 #, python-format
 msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 msgstr "Xem thư từ <i>%(sender)s</i>: <b>%(name)s</b>"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:65 ../deskbar/handlers/files.py:33
 #, python-format
 msgid "Open %s"
 msgstr "Mở %s"
 
-#: ../deskbar/handlers/beagle-live.py:69
+#: ../deskbar/handlers/beagle-live.py:72
 #, python-format
 msgid "Open news item %s"
 msgstr "Mở mục tin tức %s"
 
-#: ../deskbar/handlers/beagle-live.py:76
+#: ../deskbar/handlers/beagle-live.py:80
 #, python-format
 msgid "Open note %s"
 msgstr "Mở ghi chú %s"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#. "description": (_("View conversation with %s") + "\n%s") % ("<b>%(name)s</b>","<span foreground='grey' size='small'>%(snippet)s</span>"),
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
 msgid "View conversation with %s"
 msgstr "Xem cuộc đối thoại với %s"
 
-#: ../deskbar/handlers/beagle-live.py:88
+#: ../deskbar/handlers/beagle-live.py:96
 #, python-format
 msgid "View calendar %s"
 msgstr "Xem lịch %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:230
-#: ../deskbar/handlers/beagle-live.py:249
+#: ../deskbar/handlers/beagle-live.py:240
+#: ../deskbar/handlers/beagle-live.py:259
 msgid "?"
 msgstr "?"
 
@@ -553,6 +472,10 @@ msgstr "Khởi chạy chương trình nào có trong đường dẫn $PATH của
 msgid "Execute %s"
 msgstr "Thực hiện %s"
 
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Chương trình"
+
 #: ../deskbar/handlers/programs.py:15
 msgid "Launch a program by its name and/or description"
 msgstr "Khời chạy chương trình theo tên hay mô ta"
@@ -608,12 +531,6 @@ msgstr "Mở nơi mạng %s"
 msgid "Open audio disk %s"
 msgstr "Mở đĩa âm thanh %s"
 
-# 48x48/emblems/emblem-web.icon.in.h:1
-# 48x48/emblems/emblem-web.icon.in.h:1
-#: ../deskbar/handlers/web_address.py:9
-msgid "Web"
-msgstr "Mạng"
-
 #: ../deskbar/handlers/web_address.py:10
 msgid "Open web pages by typing a complete web address"
 msgstr "Mở trang Mạng nào bằng cách gõ địa chỉ Mạng hoàn thành"
@@ -651,6 +568,6 @@ msgstr "Th_êm..."
 msgid "No History"
 msgstr "Không có lược sử"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:44
+#: ../deskbar/ui/cuemiac/Cuemiac.py:47
 msgid "You need Gtk+ version 2.8.0 or higher to use this module"
 msgstr "Bạn cần thiết Gtk+ phiên bản 2.8.0 hay cao hơn để sử dụng mô-đun này"
