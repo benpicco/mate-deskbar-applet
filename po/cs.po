@@ -11,13 +11,13 @@ msgstr ""
 "Project-Id-Version: deskbar-applet 0.9.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-29 17:13+0100\n"
-"PO-Revision-Date: 2006-01-25 22:01+0100\n"
+"PO-Revision-Date: 2006-01-30 20:27+0100\n"
 "Last-Translator: Lukas Novotny <lukasnov@cvs.gnome.org>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bitPlural-Forms: nplurals=3; plural=n%10==1 && n%"
-"100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
@@ -71,9 +71,8 @@ msgid "Deskbar Preferences"
 msgstr "Předvolby aplikace Deskbar"
 
 #: ../data/prefs-dialog.glade.h:8
-#, fuzzy
 msgid "Entry in panel with flat list"
-msgstr "Položka v panelu s plochým seznamem"
+msgstr "Položka v panelu s plochým zobrazením seznamu"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -139,7 +138,7 @@ msgstr "Otevřít záložku %s"
 #: ../deskbar/BrowserMatch.py:81
 #, fuzzy, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "Vyhledá <b>%službu</b>·for·<i>%text</i>"
+msgstr "Vyhledat <i>%(text)y</i> prostřednictvím <b>%(jméno)a</b>"
 
 #: ../deskbar/BrowserMatch.py:187
 msgid "Shortcut"
@@ -151,15 +150,12 @@ msgstr "Název záložky"
 
 #: ../deskbar/Categories.py:11
 msgid "Uncategorized"
-msgstr ""
+msgstr "Neroztříděno"
 
 #: ../deskbar/Categories.py:12
 #, fuzzy, python-format
 msgid "%s more result"
-msgid_plural "%s more results"
-msgstr[0] "%s e-mail"
-msgstr[1] "%s e-maily"
-msgstr[2] "%s e-maily"
+msgstr "%s e-mail"
 
 #: ../deskbar/Categories.py:16
 msgid "Files"
@@ -168,10 +164,7 @@ msgstr "Soubory"
 #: ../deskbar/Categories.py:17
 #, python-format
 msgid "%s more file"
-msgid_plural "%s more files"
-msgstr[0] "%s e-mail"
-msgstr[1] "%s e-mailů"
-msgstr[2] "%s e-mailů"
+msgstr "%s e-mail"
 
 #: ../deskbar/Categories.py:21
 msgid "Actions"
@@ -180,10 +173,7 @@ msgstr "Akce"
 #: ../deskbar/Categories.py:22
 #, fuzzy, python-format
 msgid "%s more action"
-msgid_plural "%s more actions"
-msgstr[0] "%s akce"
-msgstr[1] "%s akcí"
-msgstr[2] "%s akcí"
+msgstr "%s akce"
 
 #: ../deskbar/Categories.py:26
 #, fuzzy
@@ -193,10 +183,7 @@ msgstr "Zpravodajství"
 #: ../deskbar/Categories.py:27
 #, fuzzy, python-format
 msgid "%s more news item"
-msgid_plural "%s more news items"
-msgstr[0] "Otevřít položku %s zpravodajství"
-msgstr[1] "Otevřít položky %s zpravodajství"
-msgstr[2] "Otevřít položky %s zpravodajství"
+msgstr "Otevřít položku %s zpravodajství"
 
 #: ../deskbar/Categories.py:31
 msgid "Contacts"
@@ -205,10 +192,7 @@ msgstr "Kontakty"
 #: ../deskbar/Categories.py:32
 #, fuzzy, python-format
 msgid "%s more contact"
-msgid_plural "%s more contacts"
-msgstr[0] "%s kontakt"
-msgstr[1] "%s kontakty"
-msgstr[2] "%s kontakty"
+msgstr "%s kontakt"
 
 #: ../deskbar/Categories.py:36
 msgid "Emails"
@@ -217,10 +201,7 @@ msgstr "E-maily"
 #: ../deskbar/Categories.py:37
 #, python-format
 msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] "%s e-mail"
-msgstr[1] "%s e-maily"
-msgstr[2] "%s e-maily"
+msgstr "%s e-mail"
 
 #: ../deskbar/Categories.py:41
 msgid "Notes"
@@ -229,10 +210,7 @@ msgstr "Poznámky"
 #: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more note"
-msgid_plural "%s more notes"
-msgstr[0] "%s poznámka"
-msgstr[1] "%s poznámky"
-msgstr[2] "%s poznámky"
+msgstr "%s poznámka"
 
 #: ../deskbar/Categories.py:46
 #, fuzzy
@@ -242,23 +220,16 @@ msgstr "Hlasitosti"
 #: ../deskbar/Categories.py:47
 #, fuzzy, python-format
 msgid "%s more volume"
-msgid_plural "%s more volumes"
-msgstr[0] "%s hlasitost"
-msgstr[1] "%s více hlasitosti"
-msgstr[2] "%s více hlasitosti"
+msgstr "%s hlasitost"
 
 #: ../deskbar/Categories.py:51
-#, fuzzy
 msgid "Google Search"
-msgstr "Google Vyhledávání"
+msgstr "Vyhledávání prostřednictvím Googlu"
 
 #: ../deskbar/Categories.py:52
 #, fuzzy, python-format
 msgid "%s more online hit"
-msgid_plural "%s more online hits"
-msgstr[0] "%s online hit"
-msgstr[1] "%s online hity"
-msgstr[2] "%s online hity"
+msgstr "%s online hit"
 
 #: ../deskbar/Categories.py:56
 msgid "Calendar"
@@ -267,10 +238,7 @@ msgstr "Kalendář"
 #: ../deskbar/Categories.py:57
 #, fuzzy, python-format
 msgid "%s more calendar item"
-msgid_plural "%s more calendar items"
-msgstr[0] "%s položka kalendáře"
-msgstr[1] "%s položky kalendáře"
-msgstr[2] "%s položky kalendáře"
+msgstr "%s položka kalendáře"
 
 #: ../deskbar/Categories.py:61
 msgid "Conversation"
@@ -279,10 +247,7 @@ msgstr "Konverzace"
 #: ../deskbar/Categories.py:62
 #, fuzzy, python-format
 msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "Zobrazit konverzaci s %s"
-msgstr[1] "Zobrazit konverzace s %s"
-msgstr[2] "Zobrazit konverzace s %s"
+msgstr "Zobrazit konverzaci s %s"
 
 #: ../deskbar/Categories.py:66
 msgid "Web Browser"
@@ -291,10 +256,7 @@ msgstr "Webový prohlížeč"
 #: ../deskbar/Categories.py:67
 #, python-format
 msgid "%s more item"
-msgid_plural "%s more items"
-msgstr[0] "%s položka"
-msgstr[1] "%s položky"
-msgstr[2] "%s položky"
+msgstr "%s položka"
 
 #: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
 msgid "Programs"
@@ -303,50 +265,41 @@ msgstr "Programy"
 #: ../deskbar/Categories.py:72
 #, fuzzy, python-format
 msgid "%s more program"
-msgid_plural "%s more programs"
-msgstr[0] "%s program"
-msgstr[1] "%s programů"
-msgstr[2] "%s programy"
+msgstr "%s program"
 
 #: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
-#, fuzzy
 msgid "History"
-msgstr "Žádná dostupná historie"
+msgstr "Historie"
 
 #: ../deskbar/Categories.py:77
 #, fuzzy, python-format
 msgid "%s more match"
-msgid_plural "%s more matches"
-msgstr[0] "%s e-mail"
-msgstr[1] "%s e-maily"
-msgstr[2] "%s e-maily"
+msgstr "%s e-mail"
 
 #: ../deskbar/Categories.py:81
-#, fuzzy
 msgid "Debug"
 msgstr "Ladit program"
 
 #: ../deskbar/Categories.py:82
 #, fuzzy, python-format
 msgid "%s more debugging handler"
-msgid_plural "%s more debugging handlers"
-msgstr[0] "%s odlaďuji zařízení"
-msgstr[1] "%s odlaďuji zařízení"
-msgstr[2] "%s odlaďuji zařízení"
+msgstr "%s odlaďuji zařízení"
 
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
-msgstr ""
+msgstr "Chyba programu byla nalezena"
 
 #: ../deskbar/gtkexcepthook.py:22
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
 msgstr ""
+"Chyba asi není kritická, ale měla by být nahlášena vývojářům."
+"Od teď se program může chovat nevyzpytatelně."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
-msgstr ""
+msgstr "Chyba nalezena"
 
 #: ../deskbar/handlers/beagle-live.py:19
 msgid "Beagle Live"
@@ -363,9 +316,12 @@ msgstr "Položka databáze kontaktů %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
 #: ../deskbar/handlers/beagle-live.py:56
-#, fuzzy, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "Zobrazí e-mail od <i>odesílatele %</i>: s <b>předmětem %</b>"
+#, python-format
+msgid "View email from <i>sender</i>: <b>%name</b>"
+msgid_plural "View email from <i>%senders</i>: <b>%names</b>"
+msgstr[0] "Zobrazit e-mail od <i>odesílatele %</i>: s předmětem %</b>"
+msgstr[1] "Zobrazit e-mail od <i>odesílatele %</i>: s <b>předmětama %</b>"
+msgstr[2] "Zobrazit e-mail od <i>odesílatelů %</i>: s <b>předmětema %</b>"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
@@ -419,7 +375,7 @@ msgstr "Pošta"
 
 #: ../deskbar/handlers/email_address.py:10
 msgid "Send mail by typing a complete e-mail address"
-msgstr "Vloží do e-mailu kontakt podle vepsané kompletní e-mailové adrese"
+msgstr "Vloží do e-mailu kontakt podle vyhledané kompletní e-mailové adrese"
 
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
@@ -456,13 +412,11 @@ msgstr "Vyhledat webové stránky"
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
 #: ../deskbar/handlers/mozilla.py:39
 msgid "Search the web via your browser's search settings"
-msgstr ""
-"Vyhledá webovou stránku za pomocí vyhledávacího modulu vašeho prohlížeče"
+msgstr "Vyhledá webovou stránku za pomocí vyhledávacího modulu vašeho prohlížeče"
 
 #: ../deskbar/handlers/evolution.py:11
 msgid "You need to enable autocomplete in your mail preferences"
-msgstr ""
-"Nemáte povoleno automatické dokončování adres v předvolbách vašeho "
+msgstr "Nemáte povoleno automatické dokončování adres v předvolbách vašeho "
 "poštovního programu"
 
 #: ../deskbar/handlers/evolution.py:13
@@ -475,7 +429,7 @@ msgid ""
 "autocompletion is enabled.  To do this, from your mail program's menu, "
 "choose Edit - Preferences, and then Autocompletion."
 msgstr ""
-"Nemůžeme vyhledávat e-mailové adresy ve vašem adresáři kontaktů pokud není "
+"Nemůžete vyhledávat e-mailové adresy ve vašem adresáři kontaktů pokud není "
 "automatické dokončování povoleno.  Proto, ve vašem poštovním programu "
 "vyberte v menu položky Úpravy - Předvolby a zde vyberte volbu automatického "
 "doplňování."
@@ -486,14 +440,13 @@ msgstr "Pošta (adresář kontaktů)"
 
 #: ../deskbar/handlers/evolution.py:20
 msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-"Vloží do emailu kontakty podle vyhledávaných jmen nebo e-mailových adres"
+msgstr "Vloží do emailu kontakty podle vyhledávaných jmen nebo e-mailových adres"
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:45
 #, fuzzy, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
-msgstr "Odeslat e-mail pro <b>příjemce %</b> s (e-mailem %)"
+msgstr "Odeslat e-mail pro <b>příjemce %</b> s (e-mailem(y) %)"
 
 #: ../deskbar/handlers/files.py:14
 msgid "Files and Folders"
@@ -509,7 +462,6 @@ msgid "Open folder %s"
 msgstr "Otevřít adresář %s"
 
 #: ../deskbar/handlers/google-live.py:19
-#, fuzzy
 msgid ""
 "You need a Google account to use Google Live.  To get one, go to http://api."
 "google.com/\n"
@@ -542,8 +494,7 @@ msgstr ""
 "stránku api.google.com,·klikněte na \"Create·Account\"·a vložte tam vaší e-"
 "mailovou adresu a heslo.  API klíč vám bude zaslán.\n"
 "\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
-"it.  Nakopírujte tento soubor do\n"
+"Nyní stáhněte developers kit a rozbalte soubor GoogleSearch.wsdl do adresáře\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
@@ -585,8 +536,9 @@ msgid "Open location %s"
 msgstr "Otevřít umístění %s"
 
 #: ../deskbar/handlers/history.py:9
+#, fuzzy
 msgid "Recognize previously used searches"
-msgstr ""
+msgstr "Rozpoznal jsem předtím použité vyhledávání"
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
@@ -626,7 +578,7 @@ msgstr "Vyhledá soubory a adresáře podle jména"
 #: ../deskbar/handlers/programs.py:72
 #, fuzzy, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
-msgstr "Spustit <b>%(jméno programu)</b>·(%název programu)"
+msgstr "Spustit <b>%(jméno programu)ů</b>·(%název programu)"
 
 #: ../deskbar/handlers/programs.py:85
 #, python-format
