@@ -610,6 +610,7 @@ class CuemiacUI (DeskbarUI):
 		DeskbarUI.__init__ (self, applet, prefs)
 		
 		self.default_entry_pixbuf = deskbar.Utils.load_icon("deskbar-applet-small.png", width=-1)
+		self.clipboard = gtk.clipboard_get (selection="PRIMARY")
 		
 		self.deskbar_button = DeskbarAppletButton (applet)
 		self.deskbar_button.connect ("toggled-main", lambda x,y: self.show_entry())
@@ -697,10 +698,13 @@ class CuemiacUI (DeskbarUI):
 	
 	def show_entry (self):
 		if self.deskbar_button.get_active_main ():
-			#if self.entry.get_text().strip() == "":
-			self.entry.set_text("")
-			self.model.clear ()
-			self.scroll_win.hide ()
+			# If the entry is empty or there's something in the middle-click-clipboard
+			# clear the popup so that we can paste into the entry.
+			if self.entry.get_text().strip() == "" or self.clipboard.wait_for_text():
+				self.entry.set_text("")
+				self.model.clear ()
+				self.scroll_win.hide ()
+				
 			self.deskbar_button.button_arrow.set_active (False)
 			self.adjust_popup_size ()
 			self.popup.update_position ()
@@ -728,6 +732,9 @@ class CuemiacUI (DeskbarUI):
 			#self.entry.event(fevent)
 			#self.entry.notify("has-focus")
 			
+			# Unselect what we have in the entry, so we don't occupy the middle-click-clipboard
+			# thus clearing the model on next popup
+			self.entry.select_region (0,0)
 			self.popup.hide ()
 			self.emit ("stop-query")
 	
@@ -861,7 +868,6 @@ class CuemiacUI (DeskbarUI):
 				# If we clear some text, tell async handlers to stop.
 				self.emit ("stop-query")
 			
-			self.entry.set_text("")
 			self.deskbar_button.set_active_main (False)
 			return True
 		

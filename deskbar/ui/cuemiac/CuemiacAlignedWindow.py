@@ -14,14 +14,12 @@ class CuemiacAlignedWindow (gtk.Window):
 		"""
 		gtk.Window.__init__(self, gtk.WINDOW_TOPLEVEL)
 		self.set_decorated (False)
-		self.set_focus_on_map (True) # grab focus when popping up
-		
+
 		# Skip the taskbar, and the pager, stick and stay on top
 		self.stick()
 		self.set_keep_above(True)
 		self.set_skip_pager_hint(True)
 		self.set_skip_taskbar_hint(True)
-		#self.set_type_hint (gtk.gdk.WINDOW_TYPE_HINT_DOCK) # This line makes me unable to focus the window
 		
 		self.widgetToAlignWith = widgetToAlignWith
 		self.alignment = alignment

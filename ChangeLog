@@ -1,4 +1,12 @@
+2006-01-31  Mikkel Kamstrup Erlandsen  <kamstrup@daimi.au.dk>
 
+	* deskbar/ui/cuemiac/Cuemiac.py:
+	Reintroduce the abandoned save-last-search feature of the Cuemiac.
+	The model and entry are only cleared if the X middle click buffer contains some
+	text.
+	The feature was abandoned precisely because middle-click pasting was impossible
+	since the Cuemiac entry already contained highlighted text on popping up.
+	
 ========== Version 2.13.90 released ==========
 
 2006-01-31  Raphael Slinckx  <rslinckx@cvs.gnome.org>
