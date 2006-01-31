@@ -5,7 +5,7 @@ SUBDIRS += evolution
 endif
 	
 deskbar-applet: deskbar-applet.py
-	sed -e "s|\@PYTHONPATH\@|$(pythondir)/deskbar|" $< > $@
+	sed -e "s|\@PYTHONDIR\@|$(pythondir)/deskbar|" $< > $@
 
 deskbarbindir = $(libdir)/deskbar-applet
 deskbarbin_SCRIPTS = deskbar-applet
