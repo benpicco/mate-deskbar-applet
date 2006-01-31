@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-29 17:13+0100\n"
-"PO-Revision-Date: 2006-01-29 00:40+0100\n"
+"POT-Creation-Date: 2006-01-31 14:19+0100\n"
+"PO-Revision-Date: 2006-01-31 14:30+0100\n"
 "Last-Translator: Слободан Д. Средојевић <slobo@akrep.be>\n"
 "Language-Team: Serbian (sr) <gnom@prevod.org>\n"
 "MIME-Version: 1.0\n"
@@ -62,15 +62,15 @@ msgstr ""
 "проширење.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with grouped list"
-msgstr "Дугме на панелу са груписаним списком"
+msgid "Button in panel with categorized list"
+msgstr "Дугме на панелу са списком категорија"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Поставке чаробне линије"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with flat list"
+msgid "Entry in panel with simple list"
 msgstr "Ставка на панелу са обичним списком"
 
 #: ../data/prefs-dialog.glade.h:9
@@ -121,7 +121,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Пречице за претходно обележене претраге"
 
-#: ../deskbar/BrowserMatch.py:30
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Open History Item %s"
 msgstr "Отвори ставку у историји %s"
@@ -145,23 +145,39 @@ msgstr "Пречица"
 msgid "Bookmark Name"
 msgstr "Име обележивача"
 
-#: ../deskbar/Categories.py:11
-msgid "Uncategorized"
-msgstr ""
-
-#: ../deskbar/Categories.py:12
-#, fuzzy, python-format
+#: ../deskbar/Categories.py:9
+#, python-format
 msgid "%s more result"
 msgid_plural "%s more results"
-msgstr[0] "још %s е-порука"
-msgstr[1] "још %s е-порука"
-msgstr[2] "још %s е-порука"
+msgstr[0] "још %s резултат"
+msgstr[1] "још %s резултата"
+msgstr[2] "још %s резултата"
 
-#: ../deskbar/Categories.py:16
+#: ../deskbar/Categories.py:14
+msgid "Uncategorized"
+msgstr "Без категорије"
+
+#: ../deskbar/Categories.py:19 ../deskbar/handlers/history.py:8
+msgid "History"
+msgstr "Историја"
+
+#: ../deskbar/Categories.py:31
+msgid "Documents"
+msgstr "Документи"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more document"
+msgid_plural "%s more documents"
+msgstr[0] "још %s документ"
+msgstr[1] "још %s документа"
+msgstr[2] "још %s докумената"
+
+#: ../deskbar/Categories.py:36
 msgid "Files"
 msgstr "Датотеке"
 
-#: ../deskbar/Categories.py:17
+#: ../deskbar/Categories.py:37
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
@@ -169,11 +185,27 @@ msgstr[0] "још %s датотека"
 msgstr[1] "још %s датотеке"
 msgstr[2] "још %s датотека"
 
-#: ../deskbar/Categories.py:21
+#: ../deskbar/Categories.py:41
+msgid "People"
+msgstr "Људи"
+
+#: ../deskbar/Categories.py:46
+msgid "Places"
+msgstr "Места"
+
+#: ../deskbar/Categories.py:47
+#, python-format
+msgid "%s more place"
+msgid_plural "%s more places"
+msgstr[0] "још %s место"
+msgstr[1] "још %s места"
+msgstr[2] "још %s места"
+
+#: ../deskbar/Categories.py:51
 msgid "Actions"
 msgstr "Радње"
 
-#: ../deskbar/Categories.py:22
+#: ../deskbar/Categories.py:52
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
@@ -181,150 +213,13 @@ msgstr[0] "још %s радња"
 msgstr[1] "још %s радње"
 msgstr[2] "још %s радњи"
 
-#: ../deskbar/Categories.py:26
-msgid "News"
-msgstr "Вести"
-
-#: ../deskbar/Categories.py:27
-#, python-format
-msgid "%s more news item"
-msgid_plural "%s more news items"
-msgstr[0] "још %s ставка у вестима"
-msgstr[1] "још %s ставке у вестима"
-msgstr[2] "још %s ставки у вестима"
-
-#: ../deskbar/Categories.py:31
-msgid "Contacts"
-msgstr "Контакти"
-
-#: ../deskbar/Categories.py:32
-#, python-format
-msgid "%s more contact"
-msgid_plural "%s more contacts"
-msgstr[0] "још %s контакт"
-msgstr[1] "још %s контакта"
-msgstr[2] "још %s контаката"
-
-#: ../deskbar/Categories.py:36
-msgid "Emails"
-msgstr "Е-поруке"
-
-#: ../deskbar/Categories.py:37
-#, python-format
-msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] "још %s е-порука"
-msgstr[1] "још %s е-порука"
-msgstr[2] "још %s е-порука"
-
-#: ../deskbar/Categories.py:41
-msgid "Notes"
-msgstr "Белешке"
-
-#: ../deskbar/Categories.py:42
-#, python-format
-msgid "%s more note"
-msgid_plural "%s more notes"
-msgstr[0] "још %s белешка"
-msgstr[1] "још %s белешке"
-msgstr[2] "још %s белешки"
-
-#: ../deskbar/Categories.py:46
-msgid "Volumes"
-msgstr "Свеске"
-
-#: ../deskbar/Categories.py:47
-#, python-format
-msgid "%s more volume"
-msgid_plural "%s more volumes"
-msgstr[0] "још %s свеска"
-msgstr[1] "још %s свеске"
-msgstr[2] "још %s свески"
-
-#: ../deskbar/Categories.py:51
-msgid "Google Search"
-msgstr "Гугл претрага"
-
-#: ../deskbar/Categories.py:52
-#, python-format
-msgid "%s more online hit"
-msgid_plural "%s more online hits"
-msgstr[0] "још %s додатни погодак на мрежи"
-msgstr[1] "још %s додатна поготка на мрежи"
-msgstr[2] "још %s додатних погодака на мрежи"
-
-#: ../deskbar/Categories.py:56
-msgid "Calendar"
-msgstr "Календар"
-
-#: ../deskbar/Categories.py:57
-#, python-format
-msgid "%s more calendar item"
-msgid_plural "%s more calendar items"
-msgstr[0] "још %s унос у календару"
-msgstr[1] "још %s уноса у календару"
-msgstr[2] "још %s уноса у календару"
+#: ../deskbar/Categories.py:56 ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "Веб"
 
 #: ../deskbar/Categories.py:61
-msgid "Conversation"
-msgstr "Разговор"
-
-#: ../deskbar/Categories.py:62
-#, python-format
-msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "још %s разговор"
-msgstr[1] "још %s разговора"
-msgstr[2] "још %s разговора"
-
-#: ../deskbar/Categories.py:66
-msgid "Web Browser"
-msgstr "Веб прегледник"
-
-#: ../deskbar/Categories.py:67
-#, python-format
-msgid "%s more item"
-msgid_plural "%s more items"
-msgstr[0] "још %s ставка"
-msgstr[1] "још %s ставке"
-msgstr[2] "још %s ставки"
-
-#: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Програми"
-
-#: ../deskbar/Categories.py:72
-#, python-format
-msgid "%s more program"
-msgid_plural "%s more programs"
-msgstr[0] "још %s програм"
-msgstr[1] "још %s програма"
-msgstr[2] "још %s програма"
-
-#: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
-msgid "History"
-msgstr "Историја"
-
-#: ../deskbar/Categories.py:77
-#, python-format
-msgid "%s more match"
-msgid_plural "%s more matches"
-msgstr[0] "још %s подударање"
-msgstr[1] "још %s подударања"
-msgstr[2] "још %s подударања"
-
-#: ../deskbar/Categories.py:81
-msgid "Debug"
-msgstr "Испитивање грешке"
-
-# bug(slobo): бозмек (hun: basdmeg)
-#: ../deskbar/Categories.py:82
-#, python-format
-msgid "%s more debugging handler"
-msgid_plural "%s more debugging handlers"
-msgstr[0] "још %s додатна ручка за испитивање грешака"
-msgstr[1] "још %s додатне ручке за испитивање грешака"
-msgstr[2] "још %s додатних ручки за испитивање грешака"
+msgid "Web Search"
+msgstr "Претрага веба"
 
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
@@ -356,42 +251,42 @@ msgid "Addressbook entry for %s"
 msgstr "Ставка у именику за %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:56
+#: ../deskbar/handlers/beagle-live.py:57
 #, python-format
 msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 msgstr ""
 "Погледајте е-поруку коју вам је послао(ла) <i>%(sender)s</i>: <b>%(name)s</b>"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
 #, python-format
 msgid "Open %s"
 msgstr "Отвори датотеку %s"
 
-#: ../deskbar/handlers/beagle-live.py:69
+#: ../deskbar/handlers/beagle-live.py:75
 #, python-format
 msgid "Open news item %s"
 msgstr "Отвори вест %s"
 
-#: ../deskbar/handlers/beagle-live.py:76
+#: ../deskbar/handlers/beagle-live.py:83
 #, python-format
 msgid "Open note %s"
 msgstr "Отвори белешку %s"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#: ../deskbar/handlers/beagle-live.py:91
 #, python-format
 msgid "View conversation with %s"
 msgstr "Погледај разговор са %s"
 
-#: ../deskbar/handlers/beagle-live.py:88
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "View calendar %s"
 msgstr "Погледај календар %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:230
-#: ../deskbar/handlers/beagle-live.py:249
+#: ../deskbar/handlers/beagle-live.py:268
+#: ../deskbar/handlers/beagle-live.py:287
 msgid "?"
 msgstr "?"
 
@@ -592,6 +487,10 @@ msgstr "Покреће било који програм присутан у пр
 msgid "Execute %s"
 msgstr "Изврши %s"
 
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Програми"
+
 #: ../deskbar/handlers/programs.py:15
 msgid "Launch a program by its name and/or description"
 msgstr "Покреће неки програм по његовом имену и(или) опису"
@@ -647,10 +546,6 @@ msgstr "Отвори мрежно место %s"
 msgid "Open audio disk %s"
 msgstr "Пусти музику са носача звука %s"
 
-#: ../deskbar/handlers/web_address.py:9
-msgid "Web"
-msgstr "Веб"
-
 #: ../deskbar/handlers/web_address.py:10
 msgid "Open web pages by typing a complete web address"
 msgstr "Отвара веб страну када укуцате пуну адресу"
@@ -691,6 +586,100 @@ msgstr "_Више..."
 msgid "No History"
 msgstr "Не постоји историја"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:44
+#: ../deskbar/ui/cuemiac/Cuemiac.py:43
 msgid "You need Gtk+ version 2.8.0 or higher to use this module"
 msgstr "За коришћење овог модула вам је потребна Гтк+ верзија новија од 2.8.0"
+
+#~ msgid "News"
+#~ msgstr "Вести"
+
+#~ msgid "%s more news item"
+#~ msgid_plural "%s more news items"
+#~ msgstr[0] "још %s ставка у вестима"
+#~ msgstr[1] "још %s ставке у вестима"
+#~ msgstr[2] "још %s ставки у вестима"
+
+#~ msgid "Contacts"
+#~ msgstr "Контакти"
+
+#~ msgid "%s more contact"
+#~ msgid_plural "%s more contacts"
+#~ msgstr[0] "још %s контакт"
+#~ msgstr[1] "још %s контакта"
+#~ msgstr[2] "још %s контаката"
+
+#~ msgid "Emails"
+#~ msgstr "Е-поруке"
+
+#~ msgid "%s more email"
+#~ msgid_plural "%s more emails"
+#~ msgstr[0] "још %s е-порука"
+#~ msgstr[1] "још %s е-порука"
+#~ msgstr[2] "још %s е-порука"
+
+#~ msgid "Notes"
+#~ msgstr "Белешке"
+
+#~ msgid "%s more note"
+#~ msgid_plural "%s more notes"
+#~ msgstr[0] "још %s белешка"
+#~ msgstr[1] "још %s белешке"
+#~ msgstr[2] "још %s белешки"
+
+#~ msgid "Google Search"
+#~ msgstr "Гугл претрага"
+
+#~ msgid "%s more online hit"
+#~ msgid_plural "%s more online hits"
+#~ msgstr[0] "још %s додатни погодак на мрежи"
+#~ msgstr[1] "још %s додатна поготка на мрежи"
+#~ msgstr[2] "још %s додатних погодака на мрежи"
+
+#~ msgid "Calendar"
+#~ msgstr "Календар"
+
+#~ msgid "%s more calendar item"
+#~ msgid_plural "%s more calendar items"
+#~ msgstr[0] "још %s унос у календару"
+#~ msgstr[1] "још %s уноса у календару"
+#~ msgstr[2] "још %s уноса у календару"
+
+#~ msgid "Conversation"
+#~ msgstr "Разговор"
+
+#~ msgid "%s more conversation"
+#~ msgid_plural "%s more conversations"
+#~ msgstr[0] "још %s разговор"
+#~ msgstr[1] "још %s разговора"
+#~ msgstr[2] "још %s разговора"
+
+#~ msgid "Web Browser"
+#~ msgstr "Веб прегледник"
+
+#~ msgid "%s more item"
+#~ msgid_plural "%s more items"
+#~ msgstr[0] "још %s ставка"
+#~ msgstr[1] "још %s ставке"
+#~ msgstr[2] "још %s ставки"
+
+#~ msgid "%s more program"
+#~ msgid_plural "%s more programs"
+#~ msgstr[0] "још %s програм"
+#~ msgstr[1] "још %s програма"
+#~ msgstr[2] "још %s програма"
+
+#~ msgid "%s more match"
+#~ msgid_plural "%s more matches"
+#~ msgstr[0] "још %s подударање"
+#~ msgstr[1] "још %s подударања"
+#~ msgstr[2] "још %s подударања"
+
+#~ msgid "Debug"
+#~ msgstr "Испитивање грешке"
+
+# bug(slobo): бозмек (hun: basdmeg)
+#~ msgid "%s more debugging handler"
+#~ msgid_plural "%s more debugging handlers"
+#~ msgstr[0] "још %s додатна ручка за испитивање грешака"
+#~ msgstr[1] "још %s додатне ручке за испитивање грешака"
+#~ msgstr[2] "још %s додатних ручки за испитивање грешака"
