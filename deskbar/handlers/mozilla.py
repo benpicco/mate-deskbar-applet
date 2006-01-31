@@ -103,9 +103,20 @@ class MozillaSearchHandler(deskbar.Handler.Handler):
 	def initialize(self):
 		smart_dirs = None
 		if USING_FIREFOX:
-			smart_dirs = [get_firefox_home_file("searchplugins"), get_firefox_home_file("search"), expanduser("~/.mozilla/searchplugins"), "/usr/lib/mozilla-firefox/searchplugins"]
+			smart_dirs = [
+				get_firefox_home_file("searchplugins"),
+				get_firefox_home_file("search"),
+				expanduser("~/.mozilla/searchplugins"),
+				"/usr/lib/firefox/searchplugins",
+				"/usr/local/lib/firefox/searchplugins",
+				"/usr/lib/mozilla-firefox/searchplugins",
+				"/usr/local/lib/mozilla-firefox/searchplugins"]
 		else:
-			smart_dirs = [get_mozilla_home_file("search"), expanduser("~/.mozilla/searchplugins"), "/usr/lib/mozilla/searchplugins"]
+			smart_dirs = [
+				get_mozilla_home_file("search"),
+				expanduser("~/.mozilla/searchplugins"),
+				"/usr/lib/mozilla/searchplugins",
+				"/usr/local/lib/mozilla/searchplugins"]
 		
 		if not hasattr(self, 'watcher'):
 			self.watcher = DirWatcher()
