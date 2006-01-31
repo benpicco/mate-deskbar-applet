@@ -7,12 +7,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-30 09:03+0700\n"
-"PO-Revision-Date: 2006-01-30 09:06+0700\n"
+"POT-Creation-Date: 2006-01-31 19:02+0700\n"
+"PO-Revision-Date: 2006-01-31 19:04+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-9\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
@@ -55,16 +55,16 @@ msgid ""
 msgstr "<i><small><b>หมายเหตุ:</b> ลากวางส่วนขยายเพื่อเปลี่ยนลำดับ</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with grouped list"
-msgstr "ปุ่มในพาเนลพร้อมรายการจัดตามกลุ่ม"
+msgid "Button in panel with categorized list"
+msgstr "ปุ่มในพาเนลพร้อมรายการจัดตามหมวด"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "ปรับแต่งเดสก์บาร์"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with flat list"
-msgstr "ช่องป้อนข้อความในพาเนลพร้อมรายการเรียงแถว"
+msgid "Entry in panel with simple list"
+msgstr "ช่องป้อนข้อความในพาเนลพร้อมรายการอย่างง่าย"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "ทางลัดสำหรับการค้นหาที่คั่นหน้าไว้"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:103
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Open History Item %s"
 msgstr "เปิดรายการ %s จากประวัติการท่องเว็บ"
@@ -242,36 +242,35 @@ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 msgstr "อ่านอีเมลจาก <i>%(sender)s</i>: <b>%(name)s</b>"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:65 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
 #, python-format
 msgid "Open %s"
 msgstr "เปิด %s"
 
-#: ../deskbar/handlers/beagle-live.py:72
+#: ../deskbar/handlers/beagle-live.py:75
 #, python-format
 msgid "Open news item %s"
 msgstr "เปิดรายการข่าว %s"
 
-#: ../deskbar/handlers/beagle-live.py:80
+#: ../deskbar/handlers/beagle-live.py:83
 #, python-format
 msgid "Open note %s"
 msgstr "เปิดบันทึกข้อความ %s"
 
-#. "description": (_("View conversation with %s") + "\n%s") % ("<b>%(name)s</b>","<span foreground='grey' size='small'>%(snippet)s</span>"),
-#: ../deskbar/handlers/beagle-live.py:88
+#: ../deskbar/handlers/beagle-live.py:91
 #, python-format
 msgid "View conversation with %s"
 msgstr "ดูการสนทนากับ %s"
 
-#: ../deskbar/handlers/beagle-live.py:96
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "View calendar %s"
 msgstr "ดูปฏิทิน %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:240
-#: ../deskbar/handlers/beagle-live.py:259
+#: ../deskbar/handlers/beagle-live.py:268
+#: ../deskbar/handlers/beagle-live.py:287
 msgid "?"
 msgstr "?"
 
@@ -562,7 +561,7 @@ msgstr "เ_พิ่มเติม..."
 msgid "No History"
 msgstr "ไม่มีประวัติการค้นหา"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:47
+#: ../deskbar/ui/cuemiac/Cuemiac.py:43
 msgid "You need Gtk+ version 2.8.0 or higher to use this module"
 msgstr "คุณต้องใช้ Gtk+ รุ่น 2.8.0 ขึ้นไป เพื่อจะใช้มอดูลนี้"
 
