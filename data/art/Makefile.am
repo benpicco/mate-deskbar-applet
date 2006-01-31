@@ -17,6 +17,5 @@ art_DATA = \
 	google.png
 
 EXTRA_DIST = \
-	deskbar-applet-small.xcf \
 	$(pixmaps_DATA) \
 	$(art_DATA)

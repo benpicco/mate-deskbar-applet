@@ -609,7 +609,7 @@ class CuemiacUI (DeskbarUI):
 	def __init__ (self, applet, prefs):
 		DeskbarUI.__init__ (self, applet, prefs)
 		
-		self.default_entry_pixbuf = deskbar.Utils.load_icon("deskbar-applet-small.png")
+		self.default_entry_pixbuf = deskbar.Utils.load_icon("deskbar-applet-small.png", width=-1)
 		
 		self.deskbar_button = DeskbarAppletButton (applet)
 		self.deskbar_button.connect ("toggled-main", lambda x,y: self.show_entry())

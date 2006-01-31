@@ -55,7 +55,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		self.pack_widget(self._evbox, True)
 		self._evbox.show()
 		
-		self._default_pixbuf = deskbar.Utils.load_icon("deskbar-applet-small.png")
+		self._default_pixbuf = deskbar.Utils.load_icon("deskbar-applet-small.png", width=-1)
 		self._image.set_property('pixbuf', self._default_pixbuf)
 
 		# Create the listtore, model for the completion popup
