@@ -223,6 +223,8 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 		if container.snippet == None:
 			self._on_hit_added(query, container.hit, qstring, qmax)
 			
+		container.hit.unref()
+			
 	def _on_hit_added(self, query, hit, qstring, qmax):
 		fire_signal = False
 		snippet = None
@@ -287,7 +289,7 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 					result[prop] = _("?")
 					
 		self.counter[qstring][hit.get_type()] = self.counter[qstring][hit.get_type()] +1
-		
+
 		match = BeagleLiveMatch(self, result)
 		if fire_signal:
 			self.emit_query_ready(qstring, [match])
@@ -303,6 +305,7 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 				req.set_query(query)
 				req.set_hit(hit)
 				container = SnippetContainer(hit)
+				hit.ref()
 				req.connect('response', self._on_snippet_received, query, container, qstring, qmax)
 				req.connect('closed', self._on_snippet_closed, query, container, qstring, qmax)
 				self.beagle.send_request_async(req)
