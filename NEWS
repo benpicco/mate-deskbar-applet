@@ -1,3 +1,65 @@
+======================
+deskbar-applet 2.13.90
+======================
+
+Note: For some unknown reasons, it is not possible to focus the new UI with the
+keybinding in gnome 2.12's panel. Help is appreciated.
+
+Changes:
+	* Bump to 2.13.90 to match gnome version 
+	* Default to completion UI
+	* Change keyboard shortcuts triggering terminal or smart bookmarks to use Alt instead of Ctrl.
+	* beagle-live tries to use text snippets when available
+	* Categories are sorted according to the highest handler priority (as defined in the preferences) found in a match within the category. Matches insides a category are sorted according to their handler preference then relative priority. Finally alphabetic order is used.
+	* Remember collapsed categories in the cuemiac UI	
+	* Add proxy detection code in google-live
+	* More stock icons, so we get theming
+	* New Artwork
+	* History handler, previously hardcoded is now a regular handler (old commands appear as matches)
+	* Add a GTK exception handler dialog for easier debug
+	* Middle click on the cuemiac view to trigger a search with middle-click clipboard content
+	* Add an ui override for window mode: -wc for cuemiac, -w for completion ui
+	* Fix the indexer to return more matches
+	* New preferences UI with both completion and cuemic.
+	* OMG ! The CUEMIAC ! Merci Mikkel Kamstrup Erlandsen <kamstrup@daimi.au.dk> !
+	* Implement Serialization for matches, allows to speedup startup time, and not block on startup
+	  when a handler is blocking.
+	* API changes for the handlers, API is near-final.
+
+Contributors to this release: Raphael Slinckx, Mikkel Kamstrup Erlandsen, Nigel Tao
+
+Translations:
+	* Added Catalan translation by Gil Forcada <gilforcada@guifi.net>
+	* Updated Thai translation.
+	* Added Brazilian Portuguese translation.
+	* Added Serbian translation
+	* Added Traditional Chinese translation(Taiwan).
+	* Added Traditional Chinese translation(Hong Kong).
+	* Added Kurdish translation.
+	* Updated Canadian English translation.
+	* Updated Czech translation.
+	* Updated Bulgarian translation by Alexander Shopov <ash@contact.bg>
+	* Updated Russian translation by Alexandre Prokoudine <alexandre.prokoudine@gmail.com>
+	* Updated Galician Translation.
+	* Updated Vietnamese translation.
+	* Updated Spanish translation.
+	* Updated Norwegian bokmål translation.
+	* Updated Gujarati Translation.
+	* Added Russian translation by Alexandre Prokoudine <alexandre.prokoudine@gmail.com>
+	* Added Czech translation from Lukas Novotny.
+	* Updated German translation.
+	* Updated Finnish translation.
+	* Updated Bulgarian translation by Alexander Shopov <ash@contact.bg>
+	* Updated Japanese translation.
+
+Contributors to the translations: Žygimantas Beručka, Theppitak Karoonboonyanan,
+Kjartan Maraas, Ilkka Tuohela, Nickolay V. Shmyrev, Ankit Patel, Funda Wang,
+Amanpreet Singh Alam, Gabor Kelemen, ChaoHsiung Liao, Ignacio Casal Quinteiro,
+Tommi Vainikainen, Lukas Novotny, Marcel Telka, Josep Puigdemont i Casamajó,
+Erdal Ronahi, Vincent van Adrighem, Clytie Siddall, Raphael Higino, Christian Rose,
+Takeshi AIHANA, Francisco Javier F. Serrador, Alexander Shopov, Adam Weinberger,
+Hendrik Brandt, Stanislav Brabec, Slobodan D. Sredojevic
+
 ====================
 deskbar-applet 0.8.8
 ====================

@@ -563,7 +563,7 @@ class CuemiacTreeView (gtk.TreeView):
 		if match.__class__ == CuemiacCategory:
 			# Look up i18n category name
 			cell.set_property ("cell-background-gdk", self.header_bg)
-			#cell.set_property ("height", 20)
+			cell.set_property ("height", 20)
 			cell.set_property ("category-header", match.get_name())
 			cell.set_property ("match-count", match.get_count ())
 			return

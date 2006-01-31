@@ -228,7 +228,6 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		self._image.set_size_request(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 	
 	def append_matches (self, matches):
-		print 'Appending matches'
 		if self._completion_model_invalid:
 			self._completion_model_invalid = False
 			self._completion_model.clear()
