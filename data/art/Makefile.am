@@ -14,6 +14,7 @@ art_DATA = \
 	deskbar-applet-small.png \
 	folder-bookmark.png \
 	generic.png \
+	yahoo.png \
 	google.png
 
 EXTRA_DIST = \

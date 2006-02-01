@@ -1,6 +1,6 @@
 import deskbar.Handler
 
-import os
+import os, cgi
 import gobject
 import gnomevfs
 from os.path import expanduser, exists, join
@@ -45,7 +45,7 @@ def _check_requirements():
 		
 HANDLERS = {
 	"GoogleLiveHandler" : {
-		"name": _("Google Live"),
+		"name": _("Google Search"),
 		"description": _("Search Google as you type"),
 		"requirements" : _check_requirements
 	}
@@ -125,7 +125,7 @@ class GoogleLiveHandler (deskbar.Handler.AsyncHandler):
 		# better check if we're still valid	
 		self.check_query_changed ()
 		return [
-			GoogleMatch (self, r.title.encode("utf-8"), 
+			GoogleMatch (self, cgi.escape(r.title.encode("utf-8")), 
 					#r.snippet.encode("utf-8"),  # We don't use the description
 					r.URL.encode ("utf-8"))
 			for r in results.resultElements[:qmax-1]

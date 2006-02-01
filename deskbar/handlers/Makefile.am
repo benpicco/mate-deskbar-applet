@@ -14,7 +14,8 @@ deskbar_handlers_PYTHON = \
 	programs.py \
 	pathprograms.py \
 	volumes.py \
-	web_address.py
+	web_address.py \
+	yahoo.py
 
 if ENABLE_EVOLUTION
 deskbar_handlers_PYTHON += evolution.py
