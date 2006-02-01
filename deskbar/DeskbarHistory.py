@@ -48,30 +48,30 @@ class DeskbarHistory (gtk.ListStore) :
 		print 'Loading History'
 		try:
 			saved_history = cPickle.load(file(HISTORY_FILE))
+			
+			def strip_class(name):
+				i = name.rfind(".")
+				if i == -1:
+					return None
+					
+				return name[i+1:]
+						
+			for text, handler_class_name, match_class_name, serialized in saved_history:
+				for modctx in module_list:
+					if strip_class(handler_class_name) != modctx.handler:
+						continue
+					
+					match_class = strip_class(match_class_name)
+					if match_class == None:
+						continue
+						
+					match = modctx.module.deserialize(match_class, serialized)
+					if match != None:
+						self.append ([(text, match)])
+						self.count = self.count + 1
 		except Exception, msg:
 			return
-		
-		def strip_class(name):
-			i = name.rfind(".")
-			if i == -1:
-				return None
-				
-			return name[i+1:]
-					
-		for text, handler_class_name, match_class_name, serialized in saved_history:
-			for modctx in module_list:
-				if strip_class(handler_class_name) != modctx.handler:
-					continue
-				
-				match_class = strip_class(match_class_name)
-				if match_class == None:
-					continue
-					
-				match = modctx.module.deserialize(match_class, serialized)
-				if match != None:
-					self.append ([(text, match)])
-					self.count = self.count + 1
-		
+			
 	def save (self):
 		save = []
 		for text, match in self:
