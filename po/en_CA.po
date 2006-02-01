@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-29 17:13+0100\n"
+"POT-Creation-Date: 2006-01-31 20:50-0500\n"
 "PO-Revision-Date: 2005-11-17 20:55-0500\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -58,16 +58,16 @@ msgstr ""
 "small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with grouped list"
-msgstr "Button in panel with grouped list"
+msgid "Button in panel with categorized list"
+msgstr "Button in panel with categorized list"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Deskbar Preferences"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with flat list"
-msgstr "Entry in panel with flat list"
+msgid "Entry in panel with simple list"
+msgstr "Entry in panel with simple list"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -117,7 +117,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Shortcuts for Bookmarked Searches"
 
-#: ../deskbar/BrowserMatch.py:30
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Open History Item %s"
 msgstr "Open History Item %s"
@@ -141,170 +141,73 @@ msgstr "Shortcut"
 msgid "Bookmark Name"
 msgstr "Bookmark Name"
 
-#: ../deskbar/Categories.py:11
-msgid "Uncategorized"
-msgstr ""
-
-#: ../deskbar/Categories.py:12
-#, fuzzy, python-format
+#: ../deskbar/Categories.py:9
 msgid "%s more result"
-msgid_plural "%s more results"
-msgstr[0] "%s more email"
-msgstr[1] "%s more emails"
+msgstr "%s more result"
 
-#: ../deskbar/Categories.py:16
+#: ../deskbar/Categories.py:14
+msgid "Uncategorized"
+msgstr "Uncategorized"
+
+#: ../deskbar/Categories.py:19 ../deskbar/handlers/history.py:8
+msgid "History"
+msgstr "History"
+
+#: ../deskbar/Categories.py:31
+msgid "Documents"
+msgstr "Documents"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more document"
+msgid_plural "%s more documents"
+msgstr[0] "%s more document"
+msgstr[1] "%s more documents"
+
+#: ../deskbar/Categories.py:36
 msgid "Files"
 msgstr "Files"
 
-#: ../deskbar/Categories.py:17
+#: ../deskbar/Categories.py:37
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "%s more file"
 msgstr[1] "%s more files"
 
-#: ../deskbar/Categories.py:21
+#: ../deskbar/Categories.py:41
+msgid "People"
+msgstr "People"
+
+#: ../deskbar/Categories.py:46
+msgid "Places"
+msgstr "Places"
+
+#: ../deskbar/Categories.py:47
+#, python-format
+msgid "%s more place"
+msgid_plural "%s more places"
+msgstr[0] "%s more place"
+msgstr[1] "%s more places"
+
+#: ../deskbar/Categories.py:51
 msgid "Actions"
 msgstr "Actions"
 
-#: ../deskbar/Categories.py:22
+#: ../deskbar/Categories.py:52
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "%s more action"
 msgstr[1] "%s more actions"
 
-#: ../deskbar/Categories.py:26
-msgid "News"
-msgstr "News"
-
-#: ../deskbar/Categories.py:27
-#, python-format
-msgid "%s more news item"
-msgid_plural "%s more news items"
-msgstr[0] "%s news item"
-msgstr[1] "%s news items"
-
-#: ../deskbar/Categories.py:31
-msgid "Contacts"
-msgstr "Contacts"
-
-#: ../deskbar/Categories.py:32
-#, python-format
-msgid "%s more contact"
-msgid_plural "%s more contacts"
-msgstr[0] "%s more contact"
-msgstr[1] "%s more contacts"
-
-#: ../deskbar/Categories.py:36
-msgid "Emails"
-msgstr "Emails"
-
-#: ../deskbar/Categories.py:37
-#, python-format
-msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] "%s more email"
-msgstr[1] "%s more emails"
-
-#: ../deskbar/Categories.py:41
-msgid "Notes"
-msgstr "Notes"
-
-#: ../deskbar/Categories.py:42
-#, python-format
-msgid "%s more note"
-msgid_plural "%s more notes"
-msgstr[0] "%s more note"
-msgstr[1] "%s more notes"
-
-#: ../deskbar/Categories.py:46
-msgid "Volumes"
-msgstr "Volumes"
-
-#: ../deskbar/Categories.py:47
-#, python-format
-msgid "%s more volume"
-msgid_plural "%s more volumes"
-msgstr[0] "%s more volume"
-msgstr[1] "%s more volumes"
-
-#: ../deskbar/Categories.py:51
-msgid "Google Search"
-msgstr "Google Search"
-
-#: ../deskbar/Categories.py:52
-#, python-format
-msgid "%s more online hit"
-msgid_plural "%s more online hits"
-msgstr[0] "%s more online hit"
-msgstr[1] "%s more online hits"
-
-#: ../deskbar/Categories.py:56
-msgid "Calendar"
-msgstr "Calendar"
-
-#: ../deskbar/Categories.py:57
-#, python-format
-msgid "%s more calendar item"
-msgid_plural "%s more calendar items"
-msgstr[0] "%s more calendar item"
-msgstr[1] "%s more calendar items"
+#: ../deskbar/Categories.py:56 ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "Web"
 
 #: ../deskbar/Categories.py:61
-msgid "Conversation"
-msgstr "Conversation"
-
-#: ../deskbar/Categories.py:62
-#, python-format
-msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "%s more conversation"
-msgstr[1] "%s more conversations"
-
-#: ../deskbar/Categories.py:66
-msgid "Web Browser"
-msgstr "Web Browser"
-
-#: ../deskbar/Categories.py:67
-#, python-format
-msgid "%s more item"
-msgid_plural "%s more items"
-msgstr[0] "%s more item"
-msgstr[1] "%s more items"
-
-#: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Programs"
-
-#: ../deskbar/Categories.py:72
-#, python-format
-msgid "%s more program"
-msgid_plural "%s more programs"
-msgstr[0] "%s more program"
-msgstr[1] "%s more programs"
-
-#: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
-msgid "History"
-msgstr "History"
-
-#: ../deskbar/Categories.py:77
-#, python-format
-msgid "%s more match"
-msgid_plural "%s more matches"
-msgstr[0] "%s more match"
-msgstr[1] "%s more matches"
-
-#: ../deskbar/Categories.py:81
-msgid "Debug"
-msgstr "Debug"
-
-#: ../deskbar/Categories.py:82
-#, python-format
-msgid "%s more debugging handler"
-msgid_plural "%s more debugging handlers"
-msgstr[0] "%s more debugging handler"
-msgstr[1] "%s more debugging handlers"
+msgid "Web Search"
+msgstr "Web Search"
 
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
@@ -336,41 +239,41 @@ msgid "Addressbook entry for %s"
 msgstr "Addressbook entry for %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:56
+#: ../deskbar/handlers/beagle-live.py:57
 #, python-format
 msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 msgstr "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
 #, python-format
 msgid "Open %s"
 msgstr "Open %s"
 
-#: ../deskbar/handlers/beagle-live.py:69
+#: ../deskbar/handlers/beagle-live.py:75
 #, python-format
 msgid "Open news item %s"
 msgstr "Open news item %s"
 
-#: ../deskbar/handlers/beagle-live.py:76
+#: ../deskbar/handlers/beagle-live.py:83
 #, python-format
 msgid "Open note %s"
 msgstr "Open note %s"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#: ../deskbar/handlers/beagle-live.py:91
 #, python-format
 msgid "View conversation with %s"
 msgstr "View conversation with %s"
 
-#: ../deskbar/handlers/beagle-live.py:88
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "View calendar %s"
 msgstr "View calendar %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:230
-#: ../deskbar/handlers/beagle-live.py:249
+#: ../deskbar/handlers/beagle-live.py:270
+#: ../deskbar/handlers/beagle-live.py:289
 msgid "?"
 msgstr "?"
 
@@ -569,6 +472,10 @@ msgstr "Launch any program present in your $PATH"
 msgid "Execute %s"
 msgstr "Execute %s"
 
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Programs"
+
 #: ../deskbar/handlers/programs.py:15
 msgid "Launch a program by its name and/or description"
 msgstr "Launch a program by its name and/or description"
@@ -624,10 +531,6 @@ msgstr "Open network place %s"
 msgid "Open audio disk %s"
 msgstr "Open audio disk %s"
 
-#: ../deskbar/handlers/web_address.py:9
-msgid "Web"
-msgstr "Web"
-
 #: ../deskbar/handlers/web_address.py:10
 msgid "Open web pages by typing a complete web address"
 msgstr "Open web pages by typing a complete web address"
@@ -665,6 +568,6 @@ msgstr "_More..."
 msgid "No History"
 msgstr "No History"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:44
+#: ../deskbar/ui/cuemiac/Cuemiac.py:43
 msgid "You need Gtk+ version 2.8.0 or higher to use this module"
 msgstr "You need Gtk+ version 2.8.0 or higher to use this module"
