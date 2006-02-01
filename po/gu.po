@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-30 05:42+0100\n"
-"PO-Revision-Date: 2006-01-30 12:57+0530\n"
+"POT-Creation-Date: 2006-02-01 05:39+0100\n"
+"PO-Revision-Date: 2006-02-01 12:16+0530\n"
 "Last-Translator: Ankit Patel <ankit644@yahoo.com>\n"
 "Language-Team: Gujarati <indianoss-gujarati@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -60,16 +61,16 @@ msgid ""
 msgstr "<i><small><b>નોંધ:</b> એક્સટેન્સનનો ક્રમ બદલવા માટે તેને ખેંચો અને મૂકો.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with grouped list"
-msgstr "પેનલમાં જૂથવાળી યાદી સાથેના બટન"
+msgid "Button in panel with categorized list"
+msgstr "વર્ગીકૃત યાદી સાથે પેનલમાં તળિયે"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "ડેસ્કપટ્ટી પસંદગીઓ"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with flat list"
-msgstr "સપાટ યાદી સાથે પેનલમાં પ્રવેશ"
+msgid "Entry in panel with simple list"
+msgstr "સાદી યાદી સાથે પેનલમાં પ્રવેશ"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -118,7 +119,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "બુકમાર્ક થયેલ શોધો માટેના ટુંકાણો"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:103
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Open History Item %s"
 msgstr "ઈતિહાસ વસ્તુ %s ખોલો"
@@ -221,7 +222,9 @@ msgstr "પ્રોગ્રામીંગ ભૂલ મળી આવી"
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
-msgstr "તે કદાચ ઘાતક નથી, પરંતુ તેની જાણ વિકાસકર્તાઓને થવી જોઈએ. હવે પછીથી કાર્યક્રમ ભૂલભરેલ તરીકે વર્તશે."
+msgstr ""
+"તે કદાચ ઘાતક નથી, પરંતુ તેની જાણ વિકાસકર્તાઓને થવી જોઈએ. હવે પછીથી કાર્યક્રમ ભૂલભરેલ "
+"તરીકે વર્તશે."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
@@ -247,36 +250,35 @@ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
 msgstr "<i>%(sender)s</i> માંથી ઈમેલ જુઓ: <b>%(name)s</b>"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:65 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
 #, python-format
 msgid "Open %s"
 msgstr "%s ખોલો"
 
-#: ../deskbar/handlers/beagle-live.py:72
+#: ../deskbar/handlers/beagle-live.py:75
 #, python-format
 msgid "Open news item %s"
 msgstr "સમાચાર વસ્તુ %s ખોલો"
 
-#: ../deskbar/handlers/beagle-live.py:80
+#: ../deskbar/handlers/beagle-live.py:83
 #, python-format
 msgid "Open note %s"
 msgstr "નોંધ %s ખોલો"
 
-#. "description": (_("View conversation with %s") + "\n%s") % ("<b>%(name)s</b>","<span foreground='grey' size='small'>%(snippet)s</span>"),
-#: ../deskbar/handlers/beagle-live.py:88
+#: ../deskbar/handlers/beagle-live.py:91
 #, python-format
 msgid "View conversation with %s"
 msgstr "%s સાથેના રૂપાંતરણો જુઓ"
 
-#: ../deskbar/handlers/beagle-live.py:96
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "View calendar %s"
 msgstr "કેલેન્ડર %s જુઓ"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:240
-#: ../deskbar/handlers/beagle-live.py:259
+#: ../deskbar/handlers/beagle-live.py:270
+#: ../deskbar/handlers/beagle-live.py:289
 msgid "?"
 msgstr "?"
 
@@ -571,7 +573,7 @@ msgstr "વધુ (_M)..."
 msgid "No History"
 msgstr "કોઈ ઈતિહાસ નથી"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:47
+#: ../deskbar/ui/cuemiac/Cuemiac.py:43
 msgid "You need Gtk+ version 2.8.0 or higher to use this module"
 msgstr "આ મોડ્યુલ વાપરવા માટે તમને Gtk+ આવૃત્તિ 2.8.0 અથવા ઊંચી જરૂરી છે"
 
