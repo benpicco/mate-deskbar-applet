@@ -170,7 +170,7 @@ class BeagleLiveMatch (deskbar.Match.Match):
 	
 		# Retrieve the associated action
 		action = TYPES[self.result["type"]]["action"] % self.result
-		args = ' '.split(action)
+		args = action.split(" ")
 
 		print "BeagleLive spawning:", action, args
 		gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
