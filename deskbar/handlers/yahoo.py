@@ -56,14 +56,17 @@ class YahooHandler(deskbar.Handler.AsyncHandler):
 				'results': qmax}))
 		dom = xml.dom.minidom.parse(stream)
 		print 'Got yahoo answer for:', qstring
-				
+		
+		self.check_query_changed ()	
 		# The Yahoo! search might have taken a long time
 		# better check if we're still valid
-		self.check_query_changed ()
-		return [
+		matches = [
 			YahooMatch (self, 
 					cgi.escape(r.getElementsByTagName("Title")[0].firstChild.data.encode('utf8')),
 					r.getElementsByTagName("ClickUrl")[0].firstChild.data.encode('utf8')
 			)
 			for r in dom.getElementsByTagName("Result")[:qmax-1]
-		]
+			]
+		self.check_query_changed ()
+		print "Returning yahoo answer for:", qstring
+		return matches

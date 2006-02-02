@@ -124,9 +124,12 @@ class GoogleLiveHandler (deskbar.Handler.AsyncHandler):
 		# The google search might have taken a long time
 		# better check if we're still valid	
 		self.check_query_changed ()
-		return [
+		matches = [
 			GoogleMatch (self, cgi.escape(r.title.encode("utf-8")), 
 					#r.snippet.encode("utf-8"),  # We don't use the description
 					r.URL.encode ("utf-8"))
 			for r in results.resultElements[:qmax-1]
-		]
+			]
+		self.check_query_changed ()
+		print "Returning google answer for:", qstring
+		return matches

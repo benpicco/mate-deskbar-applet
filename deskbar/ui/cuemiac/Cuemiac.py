@@ -779,8 +779,14 @@ class CuemiacUI (DeskbarUI):
 		if self.invalid :
 			self.invalid = False
 			self.model.clear()
-		self.model.append (matches)
-		self.popup.show_all ()
+		entry_text = self.entry.get_text().strip()
+		valid_matches = False
+		for text, match in matches:
+			if text == entry_text: # FIXME: Maybe it will suffice to only check the first match
+				self.model.append ((text,match))
+				valid_matches = True
+		if valid_matches:
+			self.popup.show_all ()
 	
 	def middle_click(self):
 		text = self.clipboard.wait_for_text ()
@@ -850,6 +856,7 @@ class CuemiacUI (DeskbarUI):
 		if qstring == "":
 			self.model.clear()
 			self.scroll_win.hide ()
+			self.emit ("stop-query")
 			return
 		
 		self.invalid = True
