@@ -1,3 +1,12 @@
+2006-02-01  Mikkel Kamstrup Erlandsen  <kamstrup@daimi.au.dk>
+
+	* deskbar/Handler.py:
+	* deskbar/DeskbarApplet.py
+	* deskbar/cuemiac/Cuemiac.py
+	Only enqueue a StopQuery in AsyncHandler if a thread is running (guys; you owe me a beer for this one!)
+	Only stop enabled async handlers
+	Simplify middle-click on DeskbarButton handling
+
 2006-02-01  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/handlers/beagle-live.py:

@@ -783,12 +783,14 @@ class CuemiacUI (DeskbarUI):
 		self.popup.show_all ()
 	
 	def middle_click(self):
-		def clipboard_text_received(clipboard, text, data):
+		text = self.clipboard.wait_for_text ()
+		if text != None:
+			print "Pasting", text
 			self.deskbar_button.button_main.set_active (True)
 			self.entry.grab_focus()
-			if text != None:
-				self.entry.set_text(text)
-		gtk.clipboard_get(gtk.gdk.SELECTION_PRIMARY).request_text(clipboard_text_received)
+			self.entry.set_text(text)
+		else:
+			print "No selection to paste"
 		
 	def recieve_focus (self):
 		# Toggle expandedness of the popup
@@ -853,6 +855,7 @@ class CuemiacUI (DeskbarUI):
 		self.invalid = True
 		self.popup.show ()
 		self.emit ("start-query", qstring, 100)
+		#print "CuemiacUI: Entry changed to", qstring # DEBUG
 	
 	def hide_if_entry_empty (self):
 		"""Checks if the entry is empty, and hides the window if so.

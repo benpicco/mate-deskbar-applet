@@ -200,7 +200,7 @@ class AsyncHandler (Handler, gobject.GObject):
 		if not self.is_running:
 			self.is_running = True
 			Thread (None, self.__query_async, args=(qstring, max)).start ()
-			#print "AsyncHandler: Thread created for %s" % self.__class__
+			#print "AsyncHandler: Thread created for %s" % self.__class__ # DEBUG
 		else:
 			self.__query_queue.put (qstring, False)
 	
@@ -208,7 +208,8 @@ class AsyncHandler (Handler, gobject.GObject):
 		"""
 		Instructs the handler to stop the query the next time it does check_query_changed().
 		"""
-		self.__query_queue.put (QueryStopped)
+		if self.is_running:
+			self.__query_queue.put (QueryStopped)
 	
 	def emit_query_ready (self, qstring, matches):
 		"""
@@ -237,6 +238,7 @@ class AsyncHandler (Handler, gobject.GObject):
 					clean_up ()
 				else:
 					clean_up (args)
+			#print "AsyncHandler: Query stopped", self.__class__ # DEBUG
 			raise QueryStopped()
 		if qstring:
 			# There's a query queued
@@ -246,6 +248,7 @@ class AsyncHandler (Handler, gobject.GObject):
 					clean_up ()
 				else:
 					clean_up (args)
+			#print "AsyncHandler: Query changed", self.__class__ # DEBUG
 			raise QueryChanged (qstring)
 		
 	def __emit_query_ready (self, qstring, matches):
@@ -268,11 +271,11 @@ class AsyncHandler (Handler, gobject.GObject):
 				self.__query_async (query_change.new_query, max)
 			except QueryStopped:
 				self.is_running = False
-				#print "AsyncHandler: %s thread terminated." % str(self.__class__)
+				#print "AsyncHandler: %s thread terminated." % str(self.__class__) # DEBUG
 				
 		except QueryStopped:
 			self.is_running = False
-			#print "AsyncHandler: %s thread terminated." % str(self.__class__)
+			#print "AsyncHandler: %s thread terminated." % str(self.__class__) # DEBUG
 
 	def __get_last_query (self, timeout=None):
 		"""

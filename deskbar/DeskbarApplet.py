@@ -142,7 +142,8 @@ class DeskbarApplet:
 			gobject.source_remove(self.start_query_id)
 				
 		for modctx in self.module_list:
-			if modctx.module.is_async():
+			if modctx.module.is_async() and modctx.enabled:
+				#print "DeskbarApplet: Stopping", modctx.module,"by", sender # DEBUG
 				modctx.module.stop_query()
 				
 	def on_request_keybinding (self, sender, match, keybinding):
