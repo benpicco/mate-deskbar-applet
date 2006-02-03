@@ -257,13 +257,7 @@ class DeskbarApplet:
 		
 	def on_history_item_selection (self, item, match, text):
 		pass
-	
-	def on_keybinding_activated(self, binder, time):
-		# We want to grab focus here
-		print 'Focusing the deskbar-applet entry'
-		self.applet.request_focus(time)
-		# Call receive focus
-		
+			
 	def on_keybinding_changed(self, binder, bound):
 		# FIXME: provide visual clue when not bound
 		# FIXME: should be used in the pref window
