@@ -221,7 +221,7 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 	
 	def _on_snippet_closed(self, request, query, container, qstring, qmax):
 		if container.snippet == None:
-			self._on_hit_added(query, container.hit, qstring, qmax)
+			self._on_hit_added(query, container, qstring, qmax)
 			
 		container.hit.unref()
 			
