@@ -1,35 +1,4 @@
-#
-# Release dependant:
-#
-# - Make the pref dialog non modal ?? i tried but it doesn't work.. ?
-#
-# - (TRIVIAL) Adjust max hits per handler (especially beagle-live should return a skazillion hits)
-#
-# Would be really really nice:
-#
-# - (EASY) Show nests only for two or more nested results, or something like that
-#
-# - (MEDIUM) User defined (non-static) categories *WITHOUT PERFOMANCE HIT*
-#
-# - (?) Optimize memory and speed
-#
-# - (?) Multiscreen logic.
-#
-# - (EASY) Fine tune aligned window behavior for vertical panels
-#   Should probably check the window.gravity and construct the popup window according to that;
-#   - ie. entry at bottom, hits on top, for applets in lower half of the screen, and vice versa
-#   for applets in the top half (this can be read frm the CuemiacAlignedWindow.gravity).
-#
-#
-# Bonus features/Ideas
-#
-# - (HARD) Detach the search window to "save" the search
-#
-# - (MEDIUM) Drag hits onto desktop/nautilus to create links (likely to require additional Match api)
-#
-# - Go into shortcur mode when ctrl is pressed (with entry focus) and show flat list of avail
-#   shortcuts. When match list is focussed bind shortcuts when user hits ctrl-*. 
-#   Give visual clue like : http://raphael.slinckx.net/mocku.png
+# For TODO items previously in this file, see the TODO file in the root
 
 from os.path import *
 from gettext import gettext as _

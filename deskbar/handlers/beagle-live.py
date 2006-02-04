@@ -10,9 +10,10 @@ def _check_requirements():
 	try:
 		import deskbar
 		import beagle
+		beagle.Client()
 		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	except:
-		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Could not load beagle, libbeagle has been compiled without python bindings", None)
+		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Could not load beagle, libbeagle has been compiled without python bindings or beagle isn't running", None)
 	
 HANDLERS = {
 	"BeagleLiveHandler" : {
@@ -55,7 +56,6 @@ TYPES = {
 		"extra": {"sender":("fixme:from_name", "parent:fixme:from_name")},
 		#translators: First %s is mail sender, second %s is mail subject.
 		"description": _("View email from <i>%(sender)s</i>: <b>%(name)s</b>"),
-		"snippet": True,
 		"category": "documents",
 		},
 	"File" 		: {

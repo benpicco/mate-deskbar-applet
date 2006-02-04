@@ -1,8 +1,27 @@
-Warn when jeybinding fails
+Release dependant:
 
-History for long operations
-Options for keyboard only through applet/toggle and popup
-Update icon
+- Make the pref dialog non modal ?? i tried but it doesn't work.. ?
+- (TRIVIAL) Adjust max hits per handler (especially beagle-live should return a skazillion hits)
+
+Would be really really nice:
+- (EASY) Show nests only for two or more nested results, or something like that
+- (MEDIUM) User defined (non-static) categories *WITHOUT PERFOMANCE HIT*
+- (?) Optimize memory and speed
+- (?) Multiscreen logic.
+- (EASY) Fine tune aligned window behavior for vertical panels
+ Should probably check the window.gravity and construct the popup window according to that;
+ - ie. entry at bottom, hits on top, for applets in lower half of the screen, and vice versa
+ for applets in the top half (this can be read frm the CuemiacAlignedWindow.gravity).
+
+
+Bonus features/Ideas
+- (HARD) Detach the search window to "save" the search
+- (MEDIUM) Drag hits onto desktop/nautilus to create links (likely to require additional Match api)
+- Go into shortcur mode when alt is pressed (with entry focus) and show flat list of avail
+ shortcuts. When match list is focussed bind shortcuts when user hits ctrl-*. 
+ Give visual clue like : http://raphael.slinckx.net/mocku.png
+
+Warn when keybinding fails
 
 Keyboard/Keyword shortcut framework:
 	* Smart bookmarks: ctrl+letter => search with xxx(letter) for text
@@ -19,11 +38,7 @@ Ideas from the Net:
 	* Tab completions, where applicable, if it doesn't clash with usability
 
 UI TODOs:
-	* Truncate strings in the completion view
-	* Enable drag-n-drop along with cuemiac, for example dragging file hits to desktop/nautilus
-	* An UI for errors/infos happening during module load/init
 	* Translucency handling in applet mode, see mini-commander patch in bugzilla
-	* Deskbar history matches, history items are matched first
 
 * Cache/Pickle indexes
 * Move indexing in a bonobo factory whatever that means
@@ -31,7 +46,6 @@ UI TODOs:
 
 Backends TODOs:
 	General:
-	* Some icons (.desktop one notably) do not scale down, that's ugly
 			
 	Browsers (ephy, ff, moz): [epiphany.py, mozilla.py]
 	* Use Mozilla/FF's history file to present history items
