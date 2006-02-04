@@ -1,5 +1,5 @@
 import os, sys, pydoc
-from os.path import abspath, expanduser
+from os.path import abspath, expanduser, join
 import traceback
 import gtk, gobject
 
@@ -47,7 +47,7 @@ class ModuleLoader (gobject.GObject):
 		self.watcher.connect('changed', self._on_handler_file_changed)
 		
 		if (dirs):
-			self.dirs = map (lambda s: abspath(expanduser(s)), dirs)
+			self.dirs = [abspath(expanduser(s)) for s in dirs]
 			self.filelist = self.build_filelist ()
 			self.watcher.add(self.dirs)
 		else:
@@ -68,8 +68,7 @@ class ModuleLoader (gobject.GObject):
 		res = []
 		for d in self.dirs:
 			try:
-				tmp = filter (self.is_module, os.listdir (d))
-				res = res + map (lambda s: d+"/"+s, tmp)
+				res += [join(d, m) for m in os.listdir (d) if self.is_module(m)]
 			except OSError, err:
 				print >> sys.stderr, "Error reading directory %s, skipping." % d
 				traceback.print_exc()

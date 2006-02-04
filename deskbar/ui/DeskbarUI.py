@@ -58,9 +58,10 @@ class DeskbarUI (gobject.GObject):
 		"""
 		pass
 		
-	def recieve_focus (self):
+	def receive_focus (self, time):
 		"""
-		Called when the applet recieves focus. Use fx. to pop up a text entry with focus.
+		Called when the applet receives focus. Use fx. to pop up a text entry with focus.
+		time is the event time.
 		"""
 		pass
 	

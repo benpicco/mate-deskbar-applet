@@ -1,7 +1,24 @@
+2006-02-04  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/DeskbarApplet.py:
+	* deskbar/ModuleLoader.py:
+	* deskbar/__init__.py:
+	* deskbar/handlers/files.py:
+	* deskbar/ui/DeskbarUI.py:
+	* deskbar/ui/completion/CompletionDeskbarUI.py:
+	* deskbar/ui/cuemiac/Cuemiac.py:
+	* deskbar/ui/cuemiac/CuemiacAlignedWindow.py:
+	* deskbar/ui/cuemiac/CuemiacHistory.py:
+	Fix focus issues on keyboard shortcut for both ui modes
+	Load handlers in the correct order, and if two same handlers are present
+	in ~ and /usr, load the ~ one
+	Code and prints cleanup
+	First pass at being Xinerama-aware, patch by Davyd Madeley
+
 2006-02-03  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/handlers/beagle-live.py:
-	Repaire the handler when closing without returning a snippet
+	Repair the handler when closing without returning a snippet
 
 2006-02-03  Mikkel Kamstrup Erlandsen  <kamstrup@daimi.au.dk>
 

@@ -38,12 +38,6 @@ import cgi
 import sys
 
 import gtk
-incompatible = gtk.check_version (2,8,0)
-if incompatible:
-	print _("You need Gtk+ version 2.8.0 or higher to use this module")
-	print incompatible
-	sys.exit (1) # FIXME: Throw an appropriate exception instead, so we can use a gui notification
-del incompatible
 
 import gnome, gobject, gconf
 import gnome.ui, gnomeapplet
@@ -616,12 +610,12 @@ class CuemiacUI (DeskbarUI):
 		self.deskbar_button.connect ("toggled-main", lambda x,y: self.show_entry())
 		self.deskbar_button.connect ("toggled-arrow", lambda x,y: self.show_history())
 
-		self.popup = CuemiacAlignedWindow (self.deskbar_button.button_main, applet.get_orient())
+		self.popup = CuemiacAlignedWindow (self.deskbar_button.button_main, applet)
 		self.icon_entry = deskbar.iconentry.IconEntry ()
 		self.entry = self.icon_entry.get_entry ()
 		self.entry_icon = gtk.Image ()
 		self.history = get_deskbar_history ()
-		self.history_popup = CuemiacHistoryPopup (self.history, self.deskbar_button.button_arrow, applet.get_orient ())
+		self.history_popup = CuemiacHistoryPopup (self.history, self.deskbar_button.button_arrow, applet)
 		self.model = CuemiacModel ()
 		self.cview = CuemiacTreeView (self.model)
 		self.scroll_win = gtk.ScrolledWindow ()
@@ -696,7 +690,7 @@ class CuemiacUI (DeskbarUI):
 		else:
 			self.deskbar_button.button_main.set_active (False)
 	
-	def show_entry (self):
+	def show_entry (self, time=None):
 		if self.deskbar_button.get_active_main ():
 			# If the entry is empty or there's something in the middle-click-clipboard
 			# clear the popup so that we can paste into the entry.
@@ -708,36 +702,27 @@ class CuemiacUI (DeskbarUI):
 			self.deskbar_button.button_arrow.set_active (False)
 			self.adjust_popup_size ()
 			self.popup.update_position ()
-			self.popup.show ()
-			self.entry.grab_focus ()
-			
-			#fevent = gtk.gdk.Event(gtk.gdk.FOCUS_CHANGE)
-
-			#self.entry.set_flags(gtk.HAS_FOCUS)
-			#fevent.window = self.entry.window
-			#fevent.in_ = True
-
-			#self.entry.event(fevent)
-			#self.entry.notify("has-focus")
-			#self.entry.grab_focus ()
 			self.update_entry_icon ()
 			
-		else:
-			#fevent = gtk.gdk.Event(gtk.gdk.FOCUS_CHANGE)
-
-			#self.entry.unset_flags(gtk.HAS_FOCUS)
-			#fevent.window = self.entry.window
-			#fevent.in_ = False
-
-			#self.entry.event(fevent)
-			#self.entry.notify("has-focus")
+			if time != None:
+				self.popup.present_with_time (time)
+			else:
+				self.popup.present ()
 			
+			self.entry.grab_focus ()
+		else:
 			# Unselect what we have in the entry, so we don't occupy the middle-click-clipboard
 			# thus clearing the model on next popup
 			self.entry.select_region (0,0)
 			self.popup.hide ()
 			self.emit ("stop-query")
 	
+	def receive_focus (self, time):
+		# Toggle expandedness of the popup
+		self.deskbar_button.button_main.set_active(not self.deskbar_button.button_main.get_active())
+		# This will focus the entry since we are passing the real event time and not the toggling time
+		self.show_entry(time)
+		
 	def show_history (self):
 		if self.deskbar_button.get_active_arrow ():
 			self.deskbar_button.button_main.set_active (False)
@@ -756,7 +741,6 @@ class CuemiacUI (DeskbarUI):
 		
 	def on_change_orient (self, applet):
 		self.set_layout_by_orientation (applet.get_orient())
-		print "CuemiacUI changing orientation to", applet.get_orient()
 	
 	def on_change_size (self, applet):
 		# FIXME: This is ugly, but i don't know how to get it right
@@ -791,18 +775,10 @@ class CuemiacUI (DeskbarUI):
 	def middle_click(self):
 		text = self.clipboard.wait_for_text ()
 		if text != None:
-			print "Pasting", text
 			self.deskbar_button.button_main.set_active (True)
 			self.entry.grab_focus()
 			self.entry.set_text(text)
-		else:
-			print "No selection to paste"
 		
-	def recieve_focus (self):
-		# Toggle expandedness of the popup
-		self.deskbar_button.button_main.set_active (not self.deskbar_button.button_main.get_active())
-		self.icon_entry.grab_focus ()
-
 	def set_layout_by_orientation (self, orient, reshow=True, setup=False):
 		"""orient should be a gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}.
 		reshow indicates whether or not the widget should call show() on all
@@ -846,8 +822,6 @@ class CuemiacUI (DeskbarUI):
 		w = min (w, self.max_window_width)
 		if w > 0 and h > 0:
 			self.popup.resize (w, h)
-		else:
-			print "Deskbar Warning: tried to set window size to (%s, %s)" % (w, h)
 		
 	def on_entry_changed (self, entry):
 		self.history.reset()
@@ -862,7 +836,6 @@ class CuemiacUI (DeskbarUI):
 		self.invalid = True
 		self.popup.show ()
 		self.emit ("start-query", qstring, 100)
-		#print "CuemiacUI: Entry changed to", qstring # DEBUG
 	
 	def hide_if_entry_empty (self):
 		"""Checks if the entry is empty, and hides the window if so.

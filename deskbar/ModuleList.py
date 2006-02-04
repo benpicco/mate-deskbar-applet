@@ -79,7 +79,11 @@ class ModuleList (gtk.ListStore):
 		If iter is not set it will try to obtain an iter pointing
 		to the row containg the context. If there's no such row, it will append it.
 		"""
-		
+		for modctx in self:
+			if modctx.handler == context.handler:
+				# We don't want a duplicate module
+				return
+				
 		if iter is None:
 			res = self.get_position_from_context(context)
 		if res is None or res[0] is None:

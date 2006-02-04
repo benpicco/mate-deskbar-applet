@@ -49,7 +49,7 @@ if not exists(USER_HANDLERS_DIR):
 	except Exception , msg:
 		print 'Error:could not create user handlers dir (%s): %s' % (USER_HANDLERS_DIR, msg)
 
-MODULES_DIRS = [HANDLERS_DIR, USER_HANDLERS_DIR]
+MODULES_DIRS = [USER_HANDLERS_DIR, HANDLERS_DIR]
 # ------------------------------------------------------------------------------
 
 # Set the cwd to the home directory so spawned processes behave correctly

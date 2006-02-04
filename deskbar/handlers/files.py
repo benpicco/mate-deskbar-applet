@@ -55,7 +55,7 @@ class FolderMatch(deskbar.Match.Match):
 		
 class FileFolderHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, "stock_my-documents")
+		deskbar.Handler.Handler.__init__(self, gtk.STOCK_OPEN)
 				
 	def query(self, query, max):
 		result = []

@@ -226,17 +226,11 @@ class DeskbarApplet:
 			get_deskbar_history().load(self.module_list)
 							
 	def on_applet_button_press(self, widget, event):
-		try:
-			# GNOME 2.12
-			self.applet.request_focus(long(event.time))
-		except AttributeError:
-			pass
-			
 		# Left-Mouse-Button should focus the GtkEntry widget (for Fitt's Law
 		# - so that a click on applet border on edge of screen activates the
 		# most important widget).
 		if event.button == 1:
-			self.ui.recieve_focus()
+			self.ui.receive_focus(event.time)
 			return True
 		
 		# Middle click handling, we need this in the cuemiac
@@ -248,12 +242,7 @@ class DeskbarApplet:
 	
 	def on_keybinding_button_press(self, widget, time):
 		print 'Keybinding activated, focusing UI'
-		try:
-			# GNOME 2.12
-			self.applet.request_focus(time)
-		except AttributeError:
-			pass
-		self.ui.recieve_focus()
+		self.ui.receive_focus(time)
 		
 	def on_history_item_selection (self, item, match, text):
 		pass

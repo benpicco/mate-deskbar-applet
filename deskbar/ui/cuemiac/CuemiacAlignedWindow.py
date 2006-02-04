@@ -5,7 +5,7 @@ class CuemiacAlignedWindow (gtk.Window):
 	Borderless window aligning itself to a given widget.
 	Use CuemiacWindow.update_position() to align it.
 	"""
-	def __init__(self, widgetToAlignWith, alignment):
+	def __init__(self, widgetToAlignWith, applet):
 		"""
 		alignment should be one of
 			gnomeapplet.ORIENT_{DOWN,UP,LEFT,RIGHT}
@@ -22,7 +22,8 @@ class CuemiacAlignedWindow (gtk.Window):
 		self.set_skip_taskbar_hint(True)
 		
 		self.widgetToAlignWith = widgetToAlignWith
-		self.alignment = alignment
+		self.applet = applet
+		self.alignment = applet.get_orient ()
 
 		self.is_realized = False
 		self.connect ("realize", lambda win : self.__register_realize ())
@@ -48,20 +49,14 @@ class CuemiacAlignedWindow (gtk.Window):
 		target_h = self.widgetToAlignWith.allocation.height
 
 		screen = self.get_screen()
-
-		found_monitor = False
-		n = screen.get_n_monitors()
-		for i in range(0, n):
-				monitor = screen.get_monitor_geometry(i)
-				if (x >= monitor.x and x <= monitor.x + monitor.width and \
-					y >= monitor.y and y <= monitor.y + monitor.height):
-						found_monitor = True
-						break
+		# XXX: FIXME: we should get the monitor that the applet is on,
+		# not the realised window
+		monitor = screen.get_monitor_geometry (screen.get_monitor_at_window (self.applet.window))
 		
-		if not found_monitor:
-				monitor = gtk.gdk.Rectangle(0, 0, screen.get_width(), screen.get_width())
+		#print "monitor %i" % screen.get_monitor_at_window (self.applet.window)
+		#print "x = %i, y = %i, w = %i, h = %i" % (x, y, target_w, target_h)
+		#print "monitor: x = %i, y = %i, w = %i, h = %i" % (monitor.x, monitor.y, monitor.width, monitor.height)
 		
-		self.alignment
 		if self.alignment == gnomeapplet.ORIENT_RIGHT:
 				x += target_w
 
@@ -83,10 +78,12 @@ class CuemiacAlignedWindow (gtk.Window):
 				else:
 						gravity = gtk.gdk.GRAVITY_NORTH_EAST
 		elif self.alignment == gnomeapplet.ORIENT_DOWN:
+				print "got alignment:DOWN"
 				y += target_h
 
-				if ((x + w) > monitor.x + monitor.width):
-						x -= (x + w) - (monitor.x + monitor.width)
+				if ((x + target_w) > (monitor.x + monitor.width)):
+					print "will exceed monitor"
+					x -= (x + w) - (monitor.x + monitor.width)
 
 				gravity = gtk.gdk.GRAVITY_NORTH_WEST
 		elif self.alignment == gnomeapplet.ORIENT_UP:

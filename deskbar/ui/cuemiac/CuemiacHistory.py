@@ -69,8 +69,8 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
 	}
 	
-	def __init__ (self, deskbar_history, widget_to_align_with, alignment):
-		CuemiacAlignedWindow.__init__ (self, widget_to_align_with, alignment)
+	def __init__ (self, deskbar_history, widget_to_align_with, applet):
+		CuemiacAlignedWindow.__init__ (self, widget_to_align_with, applet)
 		view = CuemaicHistoryView (deskbar_history)
 		self.add (view)
 		

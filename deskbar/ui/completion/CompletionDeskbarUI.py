@@ -190,14 +190,16 @@ class CompletionDeskbarUI (DeskbarUI):
 		"""
 		pass
 		
-	def recieve_focus (self):
-		"""
-		Called when the applet recieves focus. Use fx. to pop up a text entry with focus.
-		"""
-			
+	def receive_focus (self, time):
 		# Left-Mouse-Button should focus the GtkEntry widget (for Fitt's Law
 		# - so that a click on applet border on edge of screen activates the
 		# most important widget).
+		try:
+			# GNOME 2.12
+			self.applet.request_focus(long(time))
+		except AttributeError:
+			pass
+			
 		self.entry.get_entry().select_region(0, -1)
 		self.entry.get_entry().grab_focus()
 	
