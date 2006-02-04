@@ -24,22 +24,25 @@ class EntryHistoryManager(gobject.GObject):
 		up_history_condition = self.history.get_history() != None or (self.history.get_history() == None and self.entry.get_text() == "")
 		# For key DOWN to browse history, we have to be already in history mode. Down cannot trigger history mode in that orient.
 		down_history_condition = self.history.get_history() != None
-					
+		print 'Hist:', self.history.get_history()
 		if event.keyval == gtk.keysyms.Up and up_history_condition:
 			# Browse back history
 			self.history.up()
+			print 'Hup'
 			return True
 				
 		if event.keyval == gtk.keysyms.Down and down_history_condition:
 			# Browse back history
-			self.history.down()			
+			self.history.down()
+			print 'HDown'		
 			return True
 		
 		# If the checks above fail and we come here, let's see if it's right to swallow up/down stroke
 		# to avoid the entry losing focus.
 		if (event.keyval == gtk.keysyms.Down or event.keyval == gtk.keysyms.Up) and entry.get_text() == "":
+			print 'Swalliw'
 			return True
-			
+		print 'nothing'
 		return False
 			
 	def _on_history_move(self, history):
