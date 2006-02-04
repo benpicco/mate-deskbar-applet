@@ -667,20 +667,19 @@ class CuemiacUI (DeskbarUI):
 		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
 		self.applet.set_flags(gtk.CAN_FOCUS)
 		
-	def update_entry_icon (self):
-		path, column = self.cview.get_cursor ()
+	def update_entry_icon (self, icon=None):
+		if icon == None:
+			icon = self.default_entry_pixbuf
+			path, column = self.cview.get_cursor ()
 		
-		if path is None:
-			self.entry_icon.set_property('pixbuf', self.default_entry_pixbuf)
-			
-		else:
-			item = self.model[self.model.get_iter(path)][self.model.MATCHES]
-			if item.__class__ == CuemiacCategory or item.__class__ == Nest:
-				self.entry_icon.set_property('pixbuf', self.default_entry_pixbuf)
-			else:
-				text, match = item
-				self.entry_icon.set_property('pixbuf', match.get_icon())
-	
+			if path != None:
+				item = self.model[self.model.get_iter(path)][self.model.MATCHES]
+				if item.__class__ != CuemiacCategory and item.__class__ != Nest:
+					text, match = item
+					icon=match.get_icon()
+				
+		self.entry_icon.set_property('pixbuf', icon)
+		
 	def on_match_selected (self, cview, match, is_historic=False):
 		if match.__class__ == Nest or match.__class__ == CuemiacCategory:
 			return
@@ -903,8 +902,10 @@ class CuemiacUI (DeskbarUI):
 		if iter is None:
 			# No selection, select top element # FIXME do this
 			iter = self.model.get_iter_first()
-			iter = self.model.iter_next(iter)
-		#FIXME: this seems broken
+			while (not self.model.iter_has_child(iter)) or (not self.cview.row_expanded(self.model.get_path(iter))):
+				iter = self.model.iter_next(iter)
+			iter = self.model.iter_children(iter)
+
 		if iter is None:
 			return
 			
@@ -913,9 +914,11 @@ class CuemiacUI (DeskbarUI):
 
 
 	def on_history_set(self, historymanager, set):
-		if not set:
-			#self.entry.set_text("")
-			pass
+		if set:
+			text, match = historymanager.current_history
+			self.update_entry_icon (icon=match.get_icon())
+		else:
+			self.entry.set_text("")
 			
 	def on_cview_key_press (self, cview, event):
 		# If this is an ordinary keystroke just let the

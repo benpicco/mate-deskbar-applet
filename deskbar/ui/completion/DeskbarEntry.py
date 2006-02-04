@@ -212,8 +212,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			text, match = self._history.current_history
 			self._update_icon(icon=match.get_icon())
 		else:
-			#self.get_entry().set_text("")
-			pass
+			self.get_entry().set_text("")
 			
 	def _update_icon(self, iter=None, icon=None):
 		if self._selected_match_index > -1 and len(self._completion_model) > 0:

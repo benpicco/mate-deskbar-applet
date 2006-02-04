@@ -110,7 +110,6 @@ class DeskbarHistory (gtk.ListStore) :
 		if self._index > -1:
 			self._index = self._index - 1
 			self.emit('changed')
-			print 'Hdownemit'
 	
 	def reset(self):
 		if self._index != -1:
