@@ -45,7 +45,7 @@ TYPES = {
 		"name"	: ("fixme:FileAs",),
 		"action": "evolution %(uri)s",
 		"icon"	: "stock_contact",
-		"description": _("Addressbook entry for %s") % "<b>%(name)s</b>",
+		"description": _("Send Email to %s") % "<b>%(name)s</b>",
 		"category": "people",
 		},
 	
@@ -55,7 +55,7 @@ TYPES = {
 		"icon"	: "stock_mail",
 		"extra": {"sender":("fixme:from_name", "parent:fixme:from_name")},
 		#translators: First %s is mail sender, second %s is mail subject.
-		"description": _("View email from <i>%(sender)s</i>: <b>%(name)s</b>"),
+		"description": (_("Email from %s") % "<i>%(sender)s</i>" ) + "\n<b>%(name)s</b>",
 		"category": "documents",
 		},
 	"File" 		: {
@@ -72,7 +72,7 @@ TYPES = {
 		"extra" : {"identifier": ("dc:identifier",)},
 		"action": "gnome-open %(identifier)s",
 		"icon"	: "stock_news",
-		"description": _("Open news item %s") % "<b>%(name)s</b>",
+		"description": _("News: %s") % "<b>%(name)s</b>",
 		"snippet": True,
 		"category": "web",
 		},
@@ -80,7 +80,7 @@ TYPES = {
 		"name"	: ("dc:title",),
 		"action": "tomboy --open-note %(uri)s",
 		"icon"	:"stock_notes",
-		"description": _("Open note %s") % "<b>%(name)s</b>",
+		"description": _("Note: %s") % "<b>%(name)s</b>",
 		"snippet": True,
 		"category": "documents",
 		},
@@ -88,7 +88,7 @@ TYPES = {
 		"name"	: ("fixme:speakingto",),
 		"action": "beagle-imlogviewer %(uri)s",
 		"icon"	: "im",
-		"description": _("View conversation with %s") % "<b>%(name)s</b>",
+		"description": _("Conversation with %s") % "<b>%(name)s</b>",
 		"snippet": True,
 		"category": "documents",
 		},
@@ -96,7 +96,7 @@ TYPES = {
 		"name"	: ("fixme:summary",),
 		"action": "evolution %(uri)s",
 		"icon"	: "stock_calendar",
-		"description": _("View calendar %s") % "<b>%(name)s</b>",
+		"description": _("Calendar: %s") % "<b>%(name)s</b>",
 		"category": "documents",
 		},
 	"WebHistory": {

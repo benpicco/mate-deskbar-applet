@@ -619,8 +619,8 @@ class CuemiacUI (DeskbarUI):
 		
 		self.screen_height = self.popup.get_screen().get_height ()
 		self.screen_width = self.popup.get_screen().get_width ()
-		self.max_window_height = int (0.6 * self.screen_height)
-		self.max_window_width = int (0.4 * self.screen_width)
+		self.max_window_height = int (0.8 * self.screen_height)
+		self.max_window_width = int (0.6 * self.screen_width)
 
 		self.box.show ()
 		self.icon_entry.show_all ()
