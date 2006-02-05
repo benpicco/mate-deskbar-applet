@@ -27,7 +27,6 @@ class CuemaicHistoryView (gtk.TreeView):
 		self.connect ("button-press-event", self.__on_click)
 		self.connect ("key-press-event", self.__on_key_press)
 		
-		self.set_property ("hover-selection", True)
 		self.set_property ("headers-visible", False)
 		
 	def __get_match_icon_for_cell (self, column, cell, model, iter, data=None):

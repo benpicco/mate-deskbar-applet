@@ -80,6 +80,7 @@ class GenericProgramMatch(deskbar.Match.Match):
 class GnomeDictMatch(GenericProgramMatch):
 	def __init__(self, backend, use_arg=True, **args):
 		GenericProgramMatch.__init__(self, backend, use_arg=use_arg, **args)
+		self._args = ["--look-up"]
 	
 	def get_verb(self):
 		return _("Lookup %s in dictionary") % "<b>%(text)s</b>"

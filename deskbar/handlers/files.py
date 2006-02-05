@@ -38,6 +38,7 @@ class FileMatch(deskbar.Match.Match):
 class FolderMatch(deskbar.Match.Match):
 	def __init__(self, backend, name=None, absname=None, **args):
 		deskbar.Match.Match.__init__(self, backend, name=name, **args)
+		self._icon = deskbar.Utils.load_icon_for_file(absname)
 		
 		self.absname = absname
 		
@@ -107,7 +108,7 @@ def filesystem_possible_completions(prefix, is_file=False):
 	
 	# First if we have an exact file match, and we requested file matches we return it alone,
 	# else, we return the empty file set
-	if isfile(path):
+	if my_isfile(path):
 		if is_file:
 			return ([path], dirname(prefix), relative)
 		else:
@@ -115,6 +116,9 @@ def filesystem_possible_completions(prefix, is_file=False):
 			
 	return ([f
 		for f in map(lambda x: join(path, x), os.listdir(path))
-		if isfile(f) == is_file and not basename(f).startswith(".") and (start == None or basename(f).startswith(start))
+		if my_isfile(f) == is_file and not basename(f).startswith(".") and (start == None or basename(f).startswith(start))
 	], prefix, relative)
 
+#FIXME: gross hack to detect .savedSearches from nautilus as folders
+def my_isfile(path):
+	return isfile(path) and not path.endswith(".savedSearch")

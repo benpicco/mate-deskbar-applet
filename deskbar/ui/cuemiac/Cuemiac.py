@@ -416,7 +416,6 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		self.connect ("cursor-changed", self.__on_cursor_changed)
 		self.set_property ("headers-visible", False)
-		self.set_property ("hover-selection", True)
 		self.connect ("button-press-event", self.__on_click)
 		self.connect ("key-press-event", self.__on_key_press)
 				
