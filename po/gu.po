@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-01 21:47+0100\n"
-"PO-Revision-Date: 2006-02-02 09:24+0530\n"
+"POT-Creation-Date: 2006-02-05 05:53+0100\n"
+"PO-Revision-Date: 2006-02-05 13:38+0530\n"
 "Last-Translator: Ankit Patel <ankit644@yahoo.com>\n"
 "Language-Team: Gujarati <indianoss-gujarati@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -231,24 +232,25 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "ભૂલ મળી આવી"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:20
 msgid "Beagle Live"
 msgstr "બીગલ જીવંત"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:21
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "તમારા બધા દસ્તાવેજો (બીગલની મદદથી) શોધો, જેમ તમે લખો"
 
-#: ../deskbar/handlers/beagle-live.py:47
+#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "%s માટે સરનામાપુસ્તિકા પ્રવેશ"
+msgid "Send Email to %s"
+msgstr "%s ને ઈમેઈલ મોકલો"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:57
+#: ../deskbar/handlers/beagle-live.py:58
 #, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "<i>%(sender)s</i> માંથી ઈમેલ જુઓ: <b>%(name)s</b>"
+msgid "Email from %s"
+msgstr "%s તરફથી ઈમેઈલ"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
@@ -258,23 +260,23 @@ msgstr "%s ખોલો"
 
 #: ../deskbar/handlers/beagle-live.py:75
 #, python-format
-msgid "Open news item %s"
-msgstr "સમાચાર વસ્તુ %s ખોલો"
+msgid "News: %s"
+msgstr "સમાચાર: %s"
 
 #: ../deskbar/handlers/beagle-live.py:83
 #, python-format
-msgid "Open note %s"
-msgstr "નોંધ %s ખોલો"
+msgid "Note: %s"
+msgstr "નોંધ: %s"
 
 #: ../deskbar/handlers/beagle-live.py:91
 #, python-format
-msgid "View conversation with %s"
-msgstr "%s સાથેના રૂપાંતરણો જુઓ"
+msgid "Conversation with %s"
+msgstr "%s સાથેનો વાર્તાલાપ"
 
 #: ../deskbar/handlers/beagle-live.py:99
 #, python-format
-msgid "View calendar %s"
-msgstr "કેલેન્ડર %s જુઓ"
+msgid "Calendar: %s"
+msgstr "કેલેન્ડર: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
@@ -303,11 +305,6 @@ msgstr "મેઈલ"
 #: ../deskbar/handlers/email_address.py:10
 msgid "Send mail by typing a complete e-mail address"
 msgstr "આખું ઈ-મેઈલ સરનામું લખીને મેઈલ મોકલો"
-
-#: ../deskbar/handlers/email_address.py:27
-#, python-format
-msgid "Send Email to %s"
-msgstr "%s ને ઈમેઈલ મોકલો"
 
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
@@ -573,8 +570,4 @@ msgstr "વધુ (_M)..."
 #: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "કોઈ ઈતિહાસ નથી"
-
-#: ../deskbar/ui/cuemiac/Cuemiac.py:43
-msgid "You need Gtk+ version 2.8.0 or higher to use this module"
-msgstr "આ મોડ્યુલ વાપરવા માટે તમને Gtk+ આવૃત્તિ 2.8.0 અથવા ઊંચી જરૂરી છે"
 
