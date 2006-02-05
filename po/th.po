@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-31 19:02+0700\n"
-"PO-Revision-Date: 2006-01-31 19:04+0700\n"
+"POT-Creation-Date: 2006-02-05 15:05+0700\n"
+"PO-Revision-Date: 2006-02-05 15:09+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -222,24 +222,25 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "ตรวจพบข้อบกพร่องของโปรแกรม"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:20
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:21
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "ค้นเอกสารทั้งหมดของคุณ (โดยใช้ Beagle) ไปพร้อมกับการป้อนคำค้น"
 
-#: ../deskbar/handlers/beagle-live.py:47
+#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "รายการในสมุดที่อยู่สำหรับ %s"
+msgid "Send Email to %s"
+msgstr "ส่งอีเมลถึง %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:57
+#: ../deskbar/handlers/beagle-live.py:58
 #, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "อ่านอีเมลจาก <i>%(sender)s</i>: <b>%(name)s</b>"
+msgid "Email from %s"
+msgstr "อีเมลจาก %s"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
@@ -249,28 +250,28 @@ msgstr "เปิด %s"
 
 #: ../deskbar/handlers/beagle-live.py:75
 #, python-format
-msgid "Open news item %s"
-msgstr "เปิดรายการข่าว %s"
+msgid "News: %s"
+msgstr "ข่าว: %s"
 
 #: ../deskbar/handlers/beagle-live.py:83
 #, python-format
-msgid "Open note %s"
-msgstr "เปิดบันทึกข้อความ %s"
+msgid "Note: %s"
+msgstr "บันทึก: %s"
 
 #: ../deskbar/handlers/beagle-live.py:91
 #, python-format
-msgid "View conversation with %s"
-msgstr "ดูการสนทนากับ %s"
+msgid "Conversation with %s"
+msgstr "การสนทนากับ %s"
 
 #: ../deskbar/handlers/beagle-live.py:99
 #, python-format
-msgid "View calendar %s"
-msgstr "ดูปฏิทิน %s"
+msgid "Calendar: %s"
+msgstr "ปฏิทิน: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:268
-#: ../deskbar/handlers/beagle-live.py:287
+#: ../deskbar/handlers/beagle-live.py:270
+#: ../deskbar/handlers/beagle-live.py:289
 msgid "?"
 msgstr "?"
 
@@ -294,11 +295,6 @@ msgstr "เมล"
 #: ../deskbar/handlers/email_address.py:10
 msgid "Send mail by typing a complete e-mail address"
 msgstr "ส่งเมลโดยป้อนที่อยู่อีเมลเต็ม"
-
-#: ../deskbar/handlers/email_address.py:27
-#, python-format
-msgid "Send Email to %s"
-msgstr "ส่งอีเมลถึง %s"
 
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
@@ -428,8 +424,8 @@ msgid "You need a Google API key."
 msgstr "คุณต้องใช้คีย์ API ของ Google"
 
 #: ../deskbar/handlers/google-live.py:48
-msgid "Google Live"
-msgstr "Google Live"
+msgid "Google Search"
+msgstr "การค้น Google"
 
 #: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
@@ -561,12 +557,26 @@ msgstr "เ_พิ่มเติม..."
 msgid "No History"
 msgstr "ไม่มีประวัติการค้นหา"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:43
-msgid "You need Gtk+ version 2.8.0 or higher to use this module"
-msgstr "คุณต้องใช้ Gtk+ รุ่น 2.8.0 ขึ้นไป เพื่อจะใช้มอดูลนี้"
+#~ msgid "Addressbook entry for %s"
+#~ msgstr "รายการในสมุดที่อยู่สำหรับ %s"
 
-#~ msgid "News"
-#~ msgstr "ข่าว"
+#~ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+#~ msgstr "อ่านอีเมลจาก <i>%(sender)s</i>: <b>%(name)s</b>"
+
+#~ msgid "Open news item %s"
+#~ msgstr "เปิดรายการข่าว %s"
+
+#~ msgid "Open note %s"
+#~ msgstr "เปิดบันทึกข้อความ %s"
+
+#~ msgid "View calendar %s"
+#~ msgstr "ดูปฏิทิน %s"
+
+#~ msgid "Google Live"
+#~ msgstr "Google Live"
+
+#~ msgid "You need Gtk+ version 2.8.0 or higher to use this module"
+#~ msgstr "คุณต้องใช้ Gtk+ รุ่น 2.8.0 ขึ้นไป เพื่อจะใช้มอดูลนี้"
 
 #~ msgid "%s more news item"
 #~ msgid_plural "%s more news items"
@@ -589,24 +599,15 @@ msgstr "คุณต้องใช้ Gtk+ รุ่น 2.8.0 ขึ้นไ�
 #~ msgstr[0] "มีอีเมลอีก %s ฉบับ"
 #~ msgstr[1] "มีอีเมลอีก %s ฉบับ"
 
-#~ msgid "Notes"
-#~ msgstr "บันทึก"
-
 #~ msgid "%s more note"
 #~ msgid_plural "%s more notes"
 #~ msgstr[0] "มีบันทึกอีก %s ฉบับ"
 #~ msgstr[1] "มีบันทึกอีก %s ฉบับ"
 
-#~ msgid "Google Search"
-#~ msgstr "การค้น Google"
-
 #~ msgid "%s more online hit"
 #~ msgid_plural "%s more online hits"
 #~ msgstr[0] "มีรายการค้นเจออีก %s รายการ"
 #~ msgstr[1] "มีรายการค้นเจออีก %s รายการ"
-
-#~ msgid "Calendar"
-#~ msgstr "ปฏิทิน"
 
 #~ msgid "%s more calendar item"
 #~ msgid_plural "%s more calendar items"
