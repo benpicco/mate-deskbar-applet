@@ -250,7 +250,8 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 			result["snippet"] = "\n<span foreground='grey' size='small'>%s</span>" % cgi.escape(tmp)
 		else:
 			result["snippet"] = ""
-			
+		
+		name = None
 		for prop in hit_type["name"]:
 			try:
 				name = hit.get_one_property(prop)
@@ -259,18 +260,20 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 					# Beagle < 0.2
 					name = hit.get_property(prop)
 				except:
-					continue
+					pass
 					
 			if name != None:
 				result["name"] = cgi.escape(name)
 				break
-		else:
+		
+		if name == None:
 			#translators: This is used for unknown values returned by beagle
 			#translators: for example unknown email sender, or unknown note title
 			result["name"] = _("?")
 			
 		if "extra" in hit_type:
 			for prop, keys in hit_type["extra"].items():
+				val = None
 				for key in keys:
 					try:
 						val = hit.get_one_property(key)
@@ -279,11 +282,13 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 							# Beagle < 0.2
 							val = hit.get_property(key)
 						except:
-							continue
+							pass
+							
 					if val != None:
 						result[prop] = cgi.escape(val)
 						break
-				else:
+					
+				if val == None:
 					#translators: This is used for unknown values returned by beagle
 					#translators: for example unknown email sender, or unknown note title
 					result[prop] = _("?")

@@ -300,6 +300,9 @@ class CuemiacModel (gtk.TreeStore):
 		
 	def paths_equal (self, path1, path2):
 		"""Returns true if the two paths point to the same cell."""
+		if path1 == None or path2 == None:
+			return False
+			
 		return ( self.get_string_from_iter (self.get_iter(path1)) == self.get_string_from_iter (self.get_iter(path2)) )
 
 class CellRendererCuemiacCategory (gtk.CellRendererText):
