@@ -223,8 +223,6 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 		
 		if icon != None:
 			self._image.set_property('pixbuf', icon)
-		
-		self._image.set_size_request(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
 	
 	def append_matches (self, matches):
 		if self._completion_model_invalid:
