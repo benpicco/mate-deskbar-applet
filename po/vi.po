@@ -6,8 +6,8 @@ msgid ""
 ""
 msgstr "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-03 06:05+0100\n"
-"PO-Revision-Date: 2006-02-03 18:00+1030\n"
+"POT-Creation-Date: 2006-02-05 22:02+0100\n"
+"PO-Revision-Date: 2006-02-06 14:37+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -220,24 +220,25 @@ msgstr "Rất có thể nó không nghiệm trọng, nhưng bạn vẫn nên th�
 msgid "Bug Detected"
 msgstr "Tìm Lỗi"
 
-#:../deskbar/handlers/beagle-live.py:19
+#:../deskbar/handlers/beagle-live.py:20
 msgid "Beagle Live"
 msgstr "Beagle tại chỗ"
 
-#:../deskbar/handlers/beagle-live.py:20
+#:../deskbar/handlers/beagle-live.py:21
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Tìm kiếm trong mọi tài liệu của bạn (bằng Beagle) trong khi gõ"
 
-#:../deskbar/handlers/beagle-live.py:47
+#:../deskbar/handlers/beagle-live.py:48
+#:../deskbar/handlers/email_address.py:27
 #,python-format
-msgid "Addressbook entry for %s"
-msgstr "Mục nhập sổ địa chỉ cho %s"
+msgid "Send Email to %s"
+msgstr "Gởi Thư cho %s"
 
 #.translators: First %s is mail sender, second %s is mail subject.
-#:../deskbar/handlers/beagle-live.py:57
+#:../deskbar/handlers/beagle-live.py:58
 #,python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "Xem thư từ <i>%(sender)s</i>: <b>%(name)s</b>"
+msgid "Email from %s"
+msgstr "Thư từ %s"
 
 #.translators: This is a file.
 #:../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
@@ -247,23 +248,23 @@ msgstr "Mở %s"
 
 #:../deskbar/handlers/beagle-live.py:75
 #,python-format
-msgid "Open news item %s"
-msgstr "Mở mục tin tức %s"
+msgid "News: %s"
+msgstr "Tin tức: %s"
 
 #:../deskbar/handlers/beagle-live.py:83
 #,python-format
-msgid "Open note %s"
-msgstr "Mở ghi chú %s"
+msgid "Note: %s"
+msgstr "Ghi chú : %s"
 
 #:../deskbar/handlers/beagle-live.py:91
 #,python-format
-msgid "View conversation with %s"
-msgstr "Xem cuộc đối thoại với %s"
+msgid "Conversation with %s"
+msgstr "Cuộc đối thoại với %s"
 
 #:../deskbar/handlers/beagle-live.py:99
 #,python-format
-msgid "View calendar %s"
-msgstr "Xem lịch %s"
+msgid "Calendar: %s"
+msgstr "Lịch: %s"
 
 #.translators: This is used for unknown values returned by beagle
 #.translators: for example unknown email sender, or unknown note title
@@ -292,11 +293,6 @@ msgstr "Thư"
 #:../deskbar/handlers/email_address.py:10
 msgid "Send mail by typing a complete e-mail address"
 msgstr "Gởi thư bằng cách gõ địa chỉ thư hoàn thành"
-
-#:../deskbar/handlers/email_address.py:27
-#,python-format
-msgid "Send Email to %s"
-msgstr "Gởi Thư cho %s"
 
 #:../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
@@ -369,7 +365,7 @@ msgstr "Tập tin và Thư mục"
 msgid "Open your files and folders by name"
 msgstr "Mở tập tin và thư mục theo tên"
 
-#:../deskbar/handlers/files.py:51
+#:../deskbar/handlers/files.py:52
 #,python-format
 msgid "Open folder %s"
 msgstr "Mở thư mục %s"
@@ -496,12 +492,12 @@ msgstr "Tìm tập tin và thư mục bằng cách tìm kiếm mẫu tên"
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Khởi chạy <b>%(name)s</b> (%(prog)s)"
 
-#:../deskbar/handlers/programs.py:85
+#:../deskbar/handlers/programs.py:86
 #,python-format
 msgid "Lookup %s in dictionary"
 msgstr "Tra tìm %s trong từ điển"
 
-#:../deskbar/handlers/programs.py:93
+#:../deskbar/handlers/programs.py:94
 #,python-format
 msgid "Search for file names like %s"
 msgstr "Tìm kiếm tên tập tin như %s"
@@ -538,6 +534,14 @@ msgstr "Mở trang Mạng %s"
 msgid "Open the location %s"
 msgstr "Mở địa điểm %s"
 
+#:../deskbar/handlers/yahoo.py:15
+msgid "Yahoo! Search"
+msgstr "Tìm kiếm Yahoo!"
+
+#:../deskbar/handlers/yahoo.py:16
+msgid "Search Yahoo! as you type"
+msgstr "Tìm kiếm trong Yahoo! trong khi gõ"
+
 #:../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Thanh hành động hoàn thanh."
@@ -560,7 +564,3 @@ msgstr "Th_êm..."
 #:../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "Không có lược sử"
-
-#:../deskbar/ui/cuemiac/Cuemiac.py:43
-msgid "You need Gtk+ version 2.8.0 or higher to use this module"
-msgstr "Bạn cần thiết Gtk+ phiên bản 2.8.0 hay cao hơn để sử dụng mô-đun này"
