@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 0.8.7, raphael@slinckx.net)
+AC_INIT(deskbar-applet, 2.13.91, raphael@slinckx.net)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
@@ -23,7 +23,9 @@ fi
 dnl ****************************************************************************
 dnl * Translation & i18n
 dnl ****************************************************************************
-ALL_LINGUAS="bg de el en_CA en_GB es fi gl gu hu ja lt mk nb nl pa sk sv th zh_CN"
+ALL_LINGUAS="bg ca de el en_CA en_GB es fi gl gu hu ja ku lt mk nb nl pa pt_BR
+ru sk sr sr@Latn sv th vi zh_CN zh_HK zh_TW"
+
 GETTEXT_PACKAGE="deskbar-applet"
 AC_PROG_INTLTOOL([0.33])
 AC_SUBST(GETTEXT_PACKAGE)
@@ -54,8 +56,8 @@ AC_SUBST(DATADIR)
 AS_AC_EXPAND(LIBDIR, $libdir)
 AC_SUBST(LIBDIR)
 
-AS_AC_EXPAND(PYTHONPATH, $pythondir)
-AC_SUBST(PYTHONPATH)
+AS_AC_EXPAND(PYTHONDIR, $pythondir)
+AC_SUBST(PYTHONDIR)
 		
 dnl ****************************************************************************
 dnl * PyGTK & co for Gnome Streamer
@@ -64,13 +66,12 @@ PKG_CHECK_MODULES(DESKBAR,
 	gtk+-2.0				>= 2.6
 	pygtk-2.0				>= 2.6
 	pygobject-2.0			>= 2.6
-	gnome-python-2.0			>= 2.10
-	gnome-python-extras-2.0	>= 2.10
-	gnome-python-extras-2.0	>= 2.10
+	gnome-python-2.0		>= 2.10
 	gnome-desktop-2.0		>= 2.10
 )
 AC_SUBST(DESKBAR_CFLAGS)
 AC_SUBST(DESKBAR_LIBS)
+AM_CHECK_PYMOD(gnomeapplet,,,AC_MSG_ERROR([gnomeapplet not found]))
 
 dnl ****************************************************************************
 dnl * Check for evolution's libebook to build the evolution handler
@@ -125,11 +126,14 @@ AC_OUTPUT([
 Makefile
 deskbar/Makefile
 deskbar/defs.py
-deskbar/evolution/Makefile
+deskbar/ui/Makefile
+deskbar/ui/completion/Makefile
+deskbar/ui/cuemiac/Makefile
 deskbar/handlers/Makefile
 deskbar/iconentry/Makefile
 deskbar/keybinder/Makefile
 deskbar/gnomedesktop/Makefile
+deskbar/evolution/Makefile
 data/Makefile
 data/deskbar-applet.pc
 data/art/Makefile
@@ -147,6 +151,8 @@ echo
 echo "Please note that when using gnome-python-extras-2.10, you won't be able"
 echo "to focus the applet, only use it in window mode. Upgrade to 2.12 to get the"
 echo "applet functionnality"
+echo
+echo "You version of gnome-python-extras is : `$PKG_CONFIG --modversion gnome-python-extras-2.0`"
 echo
 
 echo "Now type make to compile"
