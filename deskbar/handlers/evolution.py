@@ -52,7 +52,7 @@ class EvolutionHandler(deskbar.Handler.Handler):
 		deskbar.Handler.Handler.__init__(self, "stock_addressbook")	
 	
 	def initialize(self):
-		deskbar.evolution.set_pixbuf_size(deskbar.ICON_SIZE)
+		deskbar.evolution.set_pixbuf_size(deskbar.ICON_HEIGHT)
 		
 	def query(self, query, max):
 		hits = deskbar.evolution.search_sync(query, max)

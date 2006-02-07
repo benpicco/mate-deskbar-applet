@@ -4,7 +4,7 @@ import deskbar, deskbar.gnomedesktop
 import gtk, gtk.gdk, gnome.ui
 
 ICON_THEME = gtk.icon_theme_get_default()
-factory = gnome.ui.ThumbnailFactory(deskbar.ICON_SIZE)
+factory = gnome.ui.ThumbnailFactory(deskbar.ICON_HEIGHT)
 
 def more_information_dialog(title, content):
 	message_dialog = gtk.MessageDialog(buttons=gtk.BUTTONS_CLOSE)
@@ -34,14 +34,14 @@ def load_icon_for_file(f):
 
 def load_icon_for_desktop_icon(icon):
 	if icon != None:
-		icon = deskbar.gnomedesktop.find_icon(ICON_THEME, icon, deskbar.ICON_SIZE, 0)
+		icon = deskbar.gnomedesktop.find_icon(ICON_THEME, icon, deskbar.ICON_HEIGHT, 0)
 		if icon != None:
 			return load_icon(icon)
 		
 # We load the icon file, and if it fails load an empty one
 # If the iconfile is a path starting with /, load the file
 # else try to load a stock or named icon name
-def load_icon(icon, width=deskbar.ICON_SIZE, height=deskbar.ICON_SIZE):
+def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
 	pixbuf = None
 	if icon != None and icon != "":
 		try:

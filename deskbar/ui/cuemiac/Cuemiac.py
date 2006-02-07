@@ -650,6 +650,7 @@ class CuemiacUI (DeskbarUI):
 					icon=match.get_icon()
 				
 		self.entry_icon.set_property('pixbuf', icon)
+		self.entry_icon.set_size_request(deskbar.ICON_WIDTH, deskbar.ICON_HEIGHT)
 		
 	def on_match_selected (self, cview, match, is_historic=False):
 		if match.__class__ == Nest or match.__class__ == CuemiacCategory:

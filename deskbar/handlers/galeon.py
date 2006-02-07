@@ -249,7 +249,7 @@ class GaleonHistoryParser(xml.sax.ContentHandler):
 			try:
 				host = get_url_host(url)
 				if host in self._cache:
-					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(self._cache[host], deskbar.ICON_SIZE, deskbar.ICON_SIZE)
+					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(self._cache[host], deskbar.ICON_HEIGHT, deskbar.ICON_HEIGHT)
 			except Exception, msg:
 				# Most of the time we have an html page here, it could also be an unrecognized format
 				print 'Error:endElement(%s):Title:%s:%s' % (name.encode("utf8"), title, msg)

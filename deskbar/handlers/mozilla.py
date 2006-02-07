@@ -207,7 +207,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 					# data:text/html;base64 should be the Header
 					header, content = self.icon_data.split(",", 2)
 					loader = gtk.gdk.PixbufLoader()
-					loader.set_size(deskbar.ICON_SIZE, deskbar.ICON_SIZE)
+					loader.set_size(deskbar.ICON_HEIGHT, deskbar.ICON_HEIGHT)
 					try:
 						# Python 2.4
 						loader.write(base64.b64decode(content))

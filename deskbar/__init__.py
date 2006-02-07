@@ -59,7 +59,8 @@ os.chdir(expanduser("~"))
 # Path to images, icons
 ART_DATA_DIR = join(SHARED_DATA_DIR, "art")
 # Default icon size in the entry
-ICON_SIZE = 16
+ICON_WIDTH = 28
+ICON_HEIGHT = 16
 
 #Maximum number of history items
 MAX_HISTORY = 25
