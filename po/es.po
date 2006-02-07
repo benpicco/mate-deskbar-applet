@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-31 13:57+0100\n"
-"PO-Revision-Date: 2006-01-31 13:57+0100\n"
+"POT-Creation-Date: 2006-02-07 20:08+0100\n"
+"PO-Revision-Date: 2006-02-07 20:10+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Combinaciones de teclas para las búsquedas almacenadas"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:107
 #, python-format
 msgid "Open History Item %s"
 msgstr "Abrir el elemento del histórico %s"
@@ -229,24 +229,25 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Error detectado"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:20
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:21
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Busque todos sus documentos (usando Beagle), mientras teclea"
 
-#: ../deskbar/handlers/beagle-live.py:47
+#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "Entrada de libreta de direcciones para %s"
+msgid "Send Email to %s"
+msgstr "Enviar correo-e a %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:57
+#: ../deskbar/handlers/beagle-live.py:58
 #, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "Ver el correo-e de <i>%(sender)s</i>: <b>%(name)s</b>"
+msgid "Email from %s"
+msgstr "Correo-e de %s"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
@@ -256,28 +257,28 @@ msgstr "Abrir %s"
 
 #: ../deskbar/handlers/beagle-live.py:75
 #, python-format
-msgid "Open news item %s"
-msgstr "Abrir elemento de noticias %s"
+msgid "News from %s"
+msgstr "Noticias de %s"
 
-#: ../deskbar/handlers/beagle-live.py:83
+#: ../deskbar/handlers/beagle-live.py:84
 #, python-format
-msgid "Open note %s"
-msgstr "Abrir nota %s"
+msgid "Note: %s"
+msgstr "Nota: %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
-msgid "View conversation with %s"
-msgstr "Ver conversación con %s"
+msgid "Conversation with %s"
+msgstr "Conversación con %s"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:100
 #, python-format
-msgid "View calendar %s"
-msgstr "Ver calendario %s"
+msgid "Calendar: %s"
+msgstr "Calendario: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:268
-#: ../deskbar/handlers/beagle-live.py:287
+#: ../deskbar/handlers/beagle-live.py:273
+#: ../deskbar/handlers/beagle-live.py:295
 msgid "?"
 msgstr "?"
 
@@ -301,11 +302,6 @@ msgstr "Correo"
 #: ../deskbar/handlers/email_address.py:10
 msgid "Send mail by typing a complete e-mail address"
 msgstr "Enviar correo tecleando una dirección de correo-e completa."
-
-#: ../deskbar/handlers/email_address.py:27
-#, python-format
-msgid "Send Email to %s"
-msgstr "Enviar correo-e a %s"
 
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
@@ -381,7 +377,7 @@ msgstr "Archivos y carpetas"
 msgid "Open your files and folders by name"
 msgstr "Abra sus archivos y carpetas por nombre"
 
-#: ../deskbar/handlers/files.py:51
+#: ../deskbar/handlers/files.py:52
 #, python-format
 msgid "Open folder %s"
 msgstr "Abrir carpeta %s"
@@ -441,8 +437,8 @@ msgid "You need a Google API key."
 msgstr "Necesita una clave del API de Google."
 
 #: ../deskbar/handlers/google-live.py:48
-msgid "Google Live"
-msgstr "Google Live"
+msgid "Google Search"
+msgstr "Búsqueda en Google"
 
 #: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
@@ -509,12 +505,12 @@ msgstr "Encuentre los archivos y carpetas buscando por un patrón del nombre"
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Lanzar <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:85
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Buscar %s en el diccionario"
 
-#: ../deskbar/handlers/programs.py:93
+#: ../deskbar/handlers/programs.py:94
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Buscar nombres de archivo como %s"
@@ -553,6 +549,14 @@ msgstr "Abrir la página web %s"
 msgid "Open the location %s"
 msgstr "Abrir el lugar %s"
 
+#: ../deskbar/handlers/yahoo.py:15
+msgid "Yahoo! Search"
+msgstr "Búsqueda en Yahoo!"
+
+#: ../deskbar/handlers/yahoo.py:16
+msgid "Search Yahoo! as you type"
+msgstr "Buscar en Yahoo! mientras teclea"
+
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Una barra de acciones «todo-en-uno»."
@@ -576,9 +580,26 @@ msgstr "_Más…"
 msgid "No History"
 msgstr "Sin histórico"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:43
-msgid "You need Gtk+ version 2.8.0 or higher to use this module"
-msgstr "Necesita GTK+ versión 2.8.0 o superior para usar este módulo"
+#~ msgid "Addressbook entry for %s"
+#~ msgstr "Entrada de libreta de direcciones para %s"
+
+#~ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+#~ msgstr "Ver el correo-e de <i>%(sender)s</i>: <b>%(name)s</b>"
+
+#~ msgid "Open news item %s"
+#~ msgstr "Abrir elemento de noticias %s"
+
+#~ msgid "Open note %s"
+#~ msgstr "Abrir nota %s"
+
+#~ msgid "View calendar %s"
+#~ msgstr "Ver calendario %s"
+
+#~ msgid "Google Live"
+#~ msgstr "Google Live"
+
+#~ msgid "You need Gtk+ version 2.8.0 or higher to use this module"
+#~ msgstr "Necesita GTK+ versión 2.8.0 o superior para usar este módulo"
 
 #~ msgid "News"
 #~ msgstr "Noticias"
@@ -604,24 +625,15 @@ msgstr "Necesita GTK+ versión 2.8.0 o superior para usar este módulo"
 #~ msgstr[0] "%s correo más"
 #~ msgstr[1] "%s correos más"
 
-#~ msgid "Notes"
-#~ msgstr "Notas"
-
 #~ msgid "%s more note"
 #~ msgid_plural "%s more notes"
 #~ msgstr[0] "%s nota más"
 #~ msgstr[1] "%s notas más"
 
-#~ msgid "Google Search"
-#~ msgstr "Búsqueda en Google"
-
 #~ msgid "%s more online hit"
 #~ msgid_plural "%s more online hits"
 #~ msgstr[0] "%s un hit más en línea"
 #~ msgstr[1] "%s hits más en línea"
-
-#~ msgid "Calendar"
-#~ msgstr "Calendario"
 
 #~ msgid "%s more calendar item"
 #~ msgid_plural "%s more calendar items"
