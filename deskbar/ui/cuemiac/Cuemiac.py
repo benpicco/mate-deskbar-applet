@@ -419,7 +419,7 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		self.connect ("cursor-changed", self.__on_cursor_changed)
 		self.set_property ("headers-visible", False)
-		self.connect ("button-press-event", self.__on_click)
+		self.connect ("row-activated", self.__on_activated)
 		self.connect ("key-press-event", self.__on_key_press)
 				
 		self.set_enable_search (False)
@@ -543,7 +543,7 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		cell.set_property ("markup", model[iter][model.ACTIONS])
 
-	def __on_click (self, widget, event):
+	def __on_activated (self, treeview, path, column):
 		model, iter = self.get_selection().get_selected()
 		match = model[iter][model.MATCHES]
 		self.emit ("match-selected", match)
@@ -564,7 +564,7 @@ class CuemiacTreeView (gtk.TreeView):
 					self.expand_row (path, False)
 				return True
 			
-			self.emit ("match-selected", match)
+		return False
 		
 
 class CuemiacUI (DeskbarUI):

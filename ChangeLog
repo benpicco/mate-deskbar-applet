@@ -1,3 +1,10 @@
+2006-02-08  Mikkel Kamstrup Erlandsen <kamstrup@daimi.au.dk>
+
+	* deskbar/ui/cuemiac/Cuemiac.py:
+	* deskbar/ui/cuemiac/CuemiacHistory.py:
+	Use "row-activated" signals to trigger match selection in history and main views.
+	Don't emit a "key-press-event" signal from a signal handler of said signal in CuemiacHistoryPopup (DOH!)
+
 2006-02-07  Kostas Papadimas  <pkst@gnome.org>
 
         * configure.ac: add "el" to ALL_LINGUAS.. 

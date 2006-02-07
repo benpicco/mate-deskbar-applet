@@ -24,8 +24,7 @@ class CuemaicHistoryView (gtk.TreeView):
 		hits.set_cell_data_func(icon, self.__get_match_icon_for_cell)
 		self.append_column (hits)
 		
-		self.connect ("button-press-event", self.__on_click)
-		self.connect ("key-press-event", self.__on_key_press)
+		self.connect ("row-activated", self.__on_activated)
 		
 		self.set_property ("headers-visible", False)
 		
@@ -47,20 +46,10 @@ class CuemaicHistoryView (gtk.TreeView):
 		
 		cell.set_property ("markup", match.get_verb () % verbs)
 
-	def __on_click (self, widget, event):
+	def __on_activated (self, treeview, path, column):
 		model, iter = self.get_selection().get_selected()
 		match = model[iter][0]
 		self.emit ("match-selected", match)
-				
-	def __on_key_press (self, widget, event):
-		model, iter = self.get_selection().get_selected()
-		if iter is None:
-			return False
-		match = model[iter][0]
-		if event.keyval == 65293: # enter
-			self.emit ("match-selected", match)
-			return True
-		
 
 class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 
@@ -70,11 +59,10 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 	
 	def __init__ (self, deskbar_history, widget_to_align_with, applet):
 		CuemiacAlignedWindow.__init__ (self, widget_to_align_with, applet)
-		view = CuemaicHistoryView (deskbar_history)
-		self.add (view)
+		self.list_view = CuemaicHistoryView (deskbar_history)
+		self.add (self.list_view)
 		
-		view.connect ("match-selected", self.on_match_selected)
-		view.connect ("key-press-event", self.on_view_key_press)
+		self.list_view.connect ("match-selected", self.on_match_selected)
 	
 	def show (self):
 		self.update_position ()
@@ -86,9 +74,6 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 		
 	def on_match_selected (self, sender, match):
 		self.emit ("match-selected", match)
-
-	def on_view_key_press (self, view, event):
-		self.emit ("key-press-event", event)
 		
 if gtk.pygtk_version < (2,8,0):	
 	gobject.type_register (CuemiacHistoryView)
