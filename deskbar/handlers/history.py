@@ -19,7 +19,10 @@ class HistoryHandler(deskbar.Handler.Handler):
 		for text, match in get_deskbar_history():
 			if text.startswith(query):
 				match.get_category = lambda: "history"
-				match.get_priority = lambda: (self.get_priority(), match.get_priority()[1])
+				
+				# Beware of the infinite recursion here !
+				match_prio = match.get_priority()[1]
+				match.get_priority = lambda: (self.get_priority(), match_prio)
 				result.append((text, match))
 		
 		return result
