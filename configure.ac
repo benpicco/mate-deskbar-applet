@@ -71,7 +71,23 @@ PKG_CHECK_MODULES(DESKBAR,
 )
 AC_SUBST(DESKBAR_CFLAGS)
 AC_SUBST(DESKBAR_LIBS)
-AM_CHECK_PYMOD(gnomeapplet,,AC_MSG_RESULT([yes]),AC_MSG_ERROR([gnomeapplet not found]))
+
+AM_PATH_PYTHON
+AC_MSG_CHECKING([for gnomeapplet module])
+if AC_RUN_LOG([$PYTHON -c '
+try:
+    import gnomeapplet
+except ImportError, e:
+    if str(e).find('gnomeapplets') >= 0:
+          raise
+except:
+    pass
+']); then
+  AC_MSG_RESULT([yes])
+else
+  AC_MSG_RESULT([no])
+  AC_MSG_ERROR([gnomeapplet module required to build deskbar])
+fi
 
 dnl ****************************************************************************
 dnl * Check for evolution's libebook to build the evolution handler
