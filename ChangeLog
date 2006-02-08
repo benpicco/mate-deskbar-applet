@@ -1,3 +1,9 @@
+2006-02-08  Mikkel Kamstrup Erlandsen <kamstrup@daimi.au.dk>
+
+	* deskbar/ui/cuemiac/Cuemiac.py:
+	Don't clear the cuemiac model on alt-f3 popup. This was caused by the entry having its
+	text selected by a grab_focus() just before calling show_entry(time) from recieve_focus().
+
 2006-02-08  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* configure.ac:

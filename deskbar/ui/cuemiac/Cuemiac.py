@@ -663,6 +663,10 @@ class CuemiacUI (DeskbarUI):
 	
 	def show_entry (self, time=None):
 		if self.deskbar_button.get_active_main ():
+			# Unselect what we have in the entry, so we don't occupy the middle-click-clipboard
+			# thus clearing the model on popup
+			self.entry.select_region (0,0)
+		
 			# If the entry is empty or there's something in the middle-click-clipboard
 			# clear the popup so that we can paste into the entry.
 			if self.entry.get_text().strip() == "" or self.clipboard.wait_for_text():
@@ -682,9 +686,6 @@ class CuemiacUI (DeskbarUI):
 			
 			self.entry.grab_focus ()
 		else:
-			# Unselect what we have in the entry, so we don't occupy the middle-click-clipboard
-			# thus clearing the model on next popup
-			self.entry.select_region (0,0)
 			self.popup.hide ()
 			self.emit ("stop-query")
 	
@@ -692,7 +693,8 @@ class CuemiacUI (DeskbarUI):
 		# Toggle expandedness of the popup
 		self.deskbar_button.button_main.set_active(not self.deskbar_button.button_main.get_active())
 		# This will focus the entry since we are passing the real event time and not the toggling time
-		self.show_entry(time)
+		if self.deskbar_button.button_main.get_active():
+			self.show_entry(time)
 		
 	def show_history (self):
 		if self.deskbar_button.get_active_arrow ():
