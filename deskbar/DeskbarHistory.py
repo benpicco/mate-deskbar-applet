@@ -85,13 +85,21 @@ class DeskbarHistory (gtk.ListStore) :
 		pass
 	
 	def add (self, text, match):
-		idx = 0
-		for htext, hmatch in self:
+		copy_match = True
+		for idx, val in enumerate(self):
+			htext, hmatch = val
 			if (text, match.__class__) == (htext, hmatch.__class__):
+				match = self[self.get_iter_from_string (str(idx))][0][1]
 				self.remove (self.get_iter_from_string (str(idx)))
 				self.count = self.count - 1
-			idx = idx + 1
+				copy_match = False
+				break
 
+		if copy_match:
+			copy = match.copy()
+			if copy != None:
+				match = copy
+				
 		self.prepend ([(text, match)])
 		self.count = self.count + 1
 		if self.count > MAX_HISTORY:

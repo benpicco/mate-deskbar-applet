@@ -71,7 +71,7 @@ PKG_CHECK_MODULES(DESKBAR,
 )
 AC_SUBST(DESKBAR_CFLAGS)
 AC_SUBST(DESKBAR_LIBS)
-AM_CHECK_PYMOD(gnomeapplet,,,AC_MSG_ERROR([gnomeapplet not found]))
+AM_CHECK_PYMOD(gnomeapplet,,AC_MSG_RESULT([yes]),AC_MSG_ERROR([gnomeapplet not found]))
 
 dnl ****************************************************************************
 dnl * Check for evolution's libebook to build the evolution handler

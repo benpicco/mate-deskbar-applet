@@ -244,11 +244,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			# Escape the query now for display
 			verbs["text"] = cgi.escape(verbs["text"])
 			
-			handler_priority = handler.get_priority()
-			if hasattr(match, '_history_priority'):
-				handler_priority = match._history_priority
-				
-			self._completion_model.append([handler_priority, match.get_priority(), match.get_verb() % verbs, icon, match, text])
+			self._completion_model.append([match.get_priority()[0], match.get_priority()[1], match.get_verb() % verbs, icon, match, text])
 					
 		#Set the entry icon accoring to the first match in the completion list
 		self._update_icon(iter=self._completion_model.get_iter_first())

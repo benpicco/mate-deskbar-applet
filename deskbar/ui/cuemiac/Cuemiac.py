@@ -124,7 +124,7 @@ class CuemiacCategory :
 		return self.__priority
 	
 	def set_priority(self, match):
-		p = match.get_handler().get_priority()
+		p = match.get_priority()[0]
 		if self.__priority < p:
 			self.__priority = p
 			
@@ -190,11 +190,11 @@ class CuemiacModel (gtk.TreeStore):
 		text1, match1 = match1
 		text2, match2 = match2
 		
-		diff = match1.get_handler().get_priority() - match2.get_handler().get_priority()
+		diff = match1.get_priority()[0] - match2.get_priority()[0]
 		if diff != 0:
 			return diff
 			
-		diff = match1.get_priority() - match2.get_priority()
+		diff = match1.get_priority()[1] - match2.get_priority()[1]
 		if diff != 0:
 			return diff
 		
@@ -734,15 +734,19 @@ class CuemiacUI (DeskbarUI):
 		if self.invalid :
 			self.invalid = False
 			self.model.clear()
+			
 		entry_text = self.entry.get_text().strip()
-		valid_matches = False
+		#valid_matches = False
+		#for text, match in matches:
+		#	if text == entry_text: # FIXME: Maybe it will suffice to only check the first match
+		#		self.model.append ((text,match))
+		#		valid_matches = True
+		#if valid_matches:
+		#	self.popup.show_all ()
 		for text, match in matches:
-			if text == entry_text: # FIXME: Maybe it will suffice to only check the first match
-				self.model.append ((text,match))
-				valid_matches = True
-		if valid_matches:
-			self.popup.show_all ()
-	
+			self.model.append ((text, match))
+		self.popup.show_all ()
+		
 	def middle_click(self):
 		text = self.clipboard.wait_for_text ()
 		if text != None:

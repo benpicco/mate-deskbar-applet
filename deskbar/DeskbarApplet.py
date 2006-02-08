@@ -51,7 +51,7 @@ class DeskbarApplet:
 		# Check for cairo otherwise cuemiac isn't available at all
 		if not hasattr(gtk.gdk.Drawable, 'cairo_create'):
 			ui_name = deskbar.COMPLETION_UI_NAME
-			
+		
 		if ui_name == deskbar.COMPLETION_UI_NAME:
 			self.ui = CompletionDeskbarUI (applet, self.prefs)
 		elif ui_name == deskbar.CUEMIAC_UI_NAME:
@@ -105,11 +105,11 @@ class DeskbarApplet:
 				modctx.module.query_async(qstring, MAX_RESULTS_PER_HANDLER)
 			else:
 				matches = modctx.module.query(qstring, MAX_RESULTS_PER_HANDLER)
-				for match in matches: # FIXME: This can be optimised
+				for match in matches:
 					text, match = qstring, match
 					if type(match) is tuple:
 						text, match = match
-					
+
 					hsh = match.get_hash(text)
 					if hsh != None:
 						if hsh in self._match_hashes:
@@ -119,7 +119,7 @@ class DeskbarApplet:
 						results.append((text,match))
 					else:
 						results.append((text,match))
-				
+
 		self.ui.append_matches (results)
 	
 	def dispatch_matches (self, matches):

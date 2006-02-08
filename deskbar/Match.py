@@ -58,11 +58,13 @@ class Match:
 		
 	def get_priority(self):
 		"""
-		Returns the priority of the given match as int.
+		Returns the priority of the given match as a tuple (int,int).
 		This number can be used to compare the match from the
 		same handler.
+		The first number in the tuple is the match's handler prio, the second
+		is the prio relative to other matces from the hander
 		"""
-		return self._priority
+		return (self._handler.get_priority(), self._priority)
 	
 	def get_hash(self, text=None):
 		"""
@@ -115,3 +117,9 @@ class Match:
 			serialized[prop] = val
 		
 		return serialized
+
+	def copy(self):
+		try:
+			return self._handler.deserialize(str(self.__class__)[str(self.__class__).rfind(".")+1:], self.serialize())
+		except:
+			return None
