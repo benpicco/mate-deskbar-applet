@@ -78,7 +78,7 @@ if AC_RUN_LOG([$PYTHON -c '
 try:
     import gnomeapplet
 except ImportError, e:
-    if str(e).find('gnomeapplets') >= 0:
+    if str(e).find("gnomeapplet") >= 0:
           raise
 except:
     pass
