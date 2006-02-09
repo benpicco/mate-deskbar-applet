@@ -69,7 +69,8 @@ class CuemiacCategory :
 			if "threshold" in CATEGORIES[id]:
 				self.__threshold = CATEGORIES[id]["threshold"]
 			else:
-				self.__threshold = -1
+				#FIXME: this needs to be a really big number..
+				self.__threshold = 100000
 		except:
 			self.__name = CATEGORIES["default"]["name"]
 			self.__threshold = CATEGORIES["default"]["threshold"]
