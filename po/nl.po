@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-04 21:49+0100\n"
-"PO-Revision-Date: 2006-02-05 02:28+0100\n"
+"POT-Creation-Date: 2006-02-06 14:28+0100\n"
+"PO-Revision-Date: 2006-02-09 01:14+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,9 @@ msgstr "<b>Breedte</b>"
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
-msgstr "<i><small><b>Opmerking:</b> Om de volgorde te wijzigen kunt u de uitbreidingen verslepen.</small></i>"
+msgstr ""
+"<i><small><b>Opmerking:</b> Om de volgorde te wijzigen kunt u de "
+"uitbreidingen verslepen.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
 msgid "Button in panel with categorized list"
@@ -243,15 +245,16 @@ msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Al uw documenten doorzoeken (met Beagle) terwijl u typt"
 
 #: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "Adresboek-item voor %s"
+msgid "Send Email to %s"
+msgstr "E-mail versturen naar %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
 #: ../deskbar/handlers/beagle-live.py:58
 #, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "E-mail van <i>%(sender)s</i> tonen: <b>%(name)s</b>"
+msgid "Email from %s"
+msgstr "E-mail van %s"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
@@ -261,23 +264,24 @@ msgstr "%s openen"
 
 #: ../deskbar/handlers/beagle-live.py:75
 #, python-format
-msgid "Open news item %s"
-msgstr "Nieuws-item %s openen"
+msgid "News: %s"
+msgstr "Nieuws: %s"
 
 #: ../deskbar/handlers/beagle-live.py:83
 #, python-format
-msgid "Open note %s"
-msgstr "Notitie %s openen"
+msgid "Note: %s"
+msgstr "Notities: %s"
 
 #: ../deskbar/handlers/beagle-live.py:91
 #, python-format
-msgid "View conversation with %s"
-msgstr "Gesprek met %s bekijken"
+msgid "Conversation with %s"
+msgstr "Gesprek met %s"
 
+# in overeenstemming met evolution terminologie
 #: ../deskbar/handlers/beagle-live.py:99
 #, python-format
-msgid "View calendar %s"
-msgstr "Kalender %s bekijken"
+msgid "Calendar: %s"
+msgstr "Agenda: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
@@ -306,11 +310,6 @@ msgstr "E-mail"
 #: ../deskbar/handlers/email_address.py:10
 msgid "Send mail by typing a complete e-mail address"
 msgstr "E-mails versturen door een volledig e-mailadres in te typen"
-
-#: ../deskbar/handlers/email_address.py:27
-#, python-format
-msgid "Send Email to %s"
-msgstr "E-mail versturen naar %s"
 
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
@@ -386,7 +385,7 @@ msgstr "Bestanden en mappen"
 msgid "Open your files and folders by name"
 msgstr "Uw bestanden en mappen op naam openen"
 
-#: ../deskbar/handlers/files.py:51
+#: ../deskbar/handlers/files.py:52
 #, python-format
 msgid "Open folder %s"
 msgstr "Map %s openen"
@@ -519,12 +518,12 @@ msgstr "Bestanden en mappen zoeken met gebruik van een naampatroon"
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) opstarten"
 
-#: ../deskbar/handlers/programs.py:85
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s opzoeken in woordenboek"
 
-#: ../deskbar/handlers/programs.py:93
+#: ../deskbar/handlers/programs.py:94
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Zoeken naar bestandsnamen zoals %s"
@@ -562,6 +561,14 @@ msgstr "De webpagina %s openen"
 msgid "Open the location %s"
 msgstr "De locatie %s openen"
 
+#: ../deskbar/handlers/yahoo.py:15
+msgid "Yahoo! Search"
+msgstr "Yahoo!-zoekopdracht"
+
+#: ../deskbar/handlers/yahoo.py:16
+msgid "Search Yahoo! as you type"
+msgstr "Yahoo! doorzoeken terwijl u typt"
+
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Een alles-in-één actiebalk."
@@ -589,8 +596,20 @@ msgstr "_Meer..."
 msgid "No History"
 msgstr "Geen geschiedenis"
 
-#~ msgid "News"
-#~ msgstr "Nieuws"
+#~ msgid "Addressbook entry for %s"
+#~ msgstr "Adresboek-item voor %s"
+
+#~ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+#~ msgstr "E-mail van <i>%(sender)s</i> tonen: <b>%(name)s</b>"
+
+#~ msgid "Open news item %s"
+#~ msgstr "Nieuws-item %s openen"
+
+#~ msgid "Open note %s"
+#~ msgstr "Notitie %s openen"
+
+#~ msgid "View calendar %s"
+#~ msgstr "Kalender %s bekijken"
 
 #~ msgid "%s more news item"
 #~ msgid_plural "%s more news items"
@@ -613,9 +632,6 @@ msgstr "Geen geschiedenis"
 #~ msgstr[0] "%s extra e-mail"
 #~ msgstr[1] "%s extra e-mails"
 
-#~ msgid "Notes"
-#~ msgstr "Notities"
-
 #~ msgid "%s more note"
 #~ msgid_plural "%s more notes"
 #~ msgstr[0] "%s extra notitie"
@@ -625,10 +641,6 @@ msgstr "Geen geschiedenis"
 #~ msgid_plural "%s more online hits"
 #~ msgstr[0] "%s extra online-hit"
 #~ msgstr[1] "%s extra online-hits"
-
-# in overeenstemming met evolution terminologie
-#~ msgid "Calendar"
-#~ msgstr "Agenda"
 
 # in overeenstemming met evolution terminologie
 #~ msgid "%s more calendar item"
