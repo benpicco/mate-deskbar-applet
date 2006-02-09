@@ -53,7 +53,7 @@ class CuemiacCategory :
 	"""
 	A class representing a root node in the cuemiac model/view.
 	"""
-	def __init__ (self, id, parent, threshold=5):
+	def __init__ (self, id, parent):
 		"""
 		name: i18n'ed name for the category
 		parent: CuemiacTreeStore in which this category belongs
@@ -66,12 +66,17 @@ class CuemiacCategory :
 		try:
 			self.__name = CATEGORIES[id]["name"]
 			self.__id = id
+			if "threshold" in CATEGORIES[id]:
+				self.__threshold = CATEGORIES[id]["threshold"]
+			else:
+				self.__threshold = -1
 		except:
 			self.__name = CATEGORIES["default"]["name"]
+			self.__threshold = CATEGORIES["default"]["threshold"]
 			self.__id = "default"
+
 			
 		self.__priority = -1
-		self.__threshold = threshold
 		self.__count = 0
 
 	def get_category_row_path (self):

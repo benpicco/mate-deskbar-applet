@@ -59,8 +59,7 @@ CATEGORIES = {
 	},
 	"websearch"	: {	
 		"name": _("Web Search"),
-		"nest": _generic_nest, 
-		"threshold": 5
+		"nest": _generic_nest,
 	},
 	
 }
