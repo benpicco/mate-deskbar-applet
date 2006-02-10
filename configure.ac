@@ -145,6 +145,7 @@ deskbar/defs.py
 deskbar/ui/Makefile
 deskbar/ui/completion/Makefile
 deskbar/ui/cuemiac/Makefile
+deskbar/ui/entriac/Makefile
 deskbar/handlers/Makefile
 deskbar/iconentry/Makefile
 deskbar/keybinder/Makefile
