@@ -87,6 +87,7 @@ GCONF_KEYBINDING = GCONF_DIR + "/keybinding"
 GCONF_UI_NAME = GCONF_DIR + "/ui_name"
 
 COMPLETION_UI_NAME = "Completion"
+ENTRIAC_UI_NAME = "Entriac"
 CUEMIAC_UI_NAME = "Cuemiac"
 
 # GConf key for list of enabled handlers, when uninstalled, use a debug key to not conflict

@@ -44,7 +44,7 @@ class DeskbarApplet:
 		# Set and retrieve the UI to be used
 		ui_name = deskbar.GCONF_CLIENT.get_string(self.prefs.GCONF_UI_NAME)
 		if ui_name == None:
-			ui_name = deskbar.COMPLETION_UI_NAME
+			ui_name = deskbar.ENTRIAC_UI_NAME
 		
 		# Watch out for UI override from command line
 		if deskbar.UI_OVERRIDE != None:
@@ -57,7 +57,8 @@ class DeskbarApplet:
 		if ui_name == deskbar.COMPLETION_UI_NAME:
 			self.ui = CompletionDeskbarUI (applet, self.prefs)
 		elif ui_name == deskbar.CUEMIAC_UI_NAME:
-			#self.ui = CuemiacUI (applet, self.prefs)
+			self.ui = CuemiacUI (applet, self.prefs)
+		elif ui_name == deskbar.ENTRIAC_UI_NAME:
 			self.ui = CuemiacEntryUI(applet, self.prefs)
 			
 		# Set up the chosen UI
@@ -278,9 +279,9 @@ class DeskbarApplet:
 			ui_name = deskbar.COMPLETION_UI_NAME
 			
 		if ui_name == deskbar.CUEMIAC_UI_NAME:
-		#	self.ui = CuemiacUI (self.applet, self.prefs)
+			self.ui = CuemiacUI (self.applet, self.prefs)
+		elif ui_name == deskbar.ENTRIAC_UI_NAME:
 			self.ui = CuemiacEntryUI(self.applet, self.prefs)
-			
 		elif ui_name == deskbar.COMPLETION_UI_NAME:
 			self.ui = CompletionDeskbarUI (self.applet, self.prefs)
 		

@@ -95,7 +95,7 @@ if __name__ == "__main__":
 		if cuemiac:
 			deskbar.UI_OVERRIDE = deskbar.CUEMIAC_UI_NAME
 		else:
-			deskbar.UI_OVERRIDE = deskbar.COMPLETION_UI_NAME
+			deskbar.UI_OVERRIDE = deskbar.ENTRIAC_UI_NAME
 
 		import gnome
 		gnome.init(deskbar.defs.PACKAGE, deskbar.defs.VERSION)

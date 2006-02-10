@@ -1,4 +1,4 @@
-import gtk, gobject, gnomeapplet
+import gtk, gobject, gnomeapplet, gconf
 
 import deskbar
 from deskbar.ui.DeskbarUI import DeskbarUI
@@ -37,6 +37,22 @@ class CuemiacEntryUI (DeskbarUI):
 			
 		self.popup.add (self.scroll_win)
 		self.scroll_win.add (self.cview)
+		
+		#Gconf config
+		# Set and retreive entry width from gconf
+		self.config_width = deskbar.GCONF_CLIENT.get_int(self.prefs.GCONF_WIDTH)
+		if self.config_width == None:
+			self.config_width = 20
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
+		
+		# Set and retreive expasoion settings
+		self.config_expand = deskbar.GCONF_CLIENT.get_bool(self.prefs.GCONF_EXPAND)
+		if self.config_expand == None:
+			self.config_expand = False
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
+		
+		# Apply gconf values
+		self.sync_applet_size()
 		
 		# Set up the event box for the entry icon
 		self.icon_event_box.set_property('visible-window', False)
@@ -91,7 +107,30 @@ class CuemiacEntryUI (DeskbarUI):
 		
 		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
 		self.applet.set_flags(gtk.CAN_FOCUS)
-		
+	
+	def on_config_width(self, value=None):
+		if value != None and value.type == gconf.VALUE_INT:
+			self.config_width = value.get_int()
+			self.sync_applet_size()
+	
+	def on_config_expand(self, value=None):
+		if value != None and value.type == gconf.VALUE_BOOL:
+			self.config_expand = value.get_bool()
+			self.sync_applet_size()
+
+	def sync_applet_size(self):
+		if self.config_expand:
+			self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR | gnomeapplet.EXPAND_MAJOR)
+		else:
+			self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
+			
+			# Set the new size of the entry
+			if self.applet.get_orient() == gnomeapplet.ORIENT_UP or self.applet.get_orient() == gnomeapplet.ORIENT_DOWN:
+				self.entry.set_width_chars(self.config_width)
+			else:
+				self.entry.set_width_chars(-1)
+				self.icon_entry.queue_resize()
+				
 	def update_entry_icon (self, icon=None):
 		if icon == None:
 			icon = self.default_entry_pixbuf
