@@ -29,6 +29,13 @@ else:
 # Now the path is set, import our applet
 import deskbar, deskbar.DeskbarApplet, deskbar.defs
 
+try:
+	# attempt to set a name for killall
+	import deskbar.osutils
+	deskbar.osutils.set_process_name ("deskbar-applet")
+except:
+	print "Unable to set processName"
+
 import gettext, locale
 gettext.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))
 gettext.textdomain('deskbar-applet')

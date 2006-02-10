@@ -136,6 +136,11 @@ AC_SUBST(PYGTK_DEFSDIR)
 AC_MSG_RESULT($PYGTK_DEFSDIR)
 
 dnl ****************************************************************************
+dnl * Check for prctl()
+dnl ****************************************************************************
+AC_CHECK_FUNCS(prctl)
+
+dnl ****************************************************************************
 dnl * --------------------------------------------------------------------------
 dnl ****************************************************************************
 AC_OUTPUT([
@@ -151,6 +156,7 @@ deskbar/iconentry/Makefile
 deskbar/keybinder/Makefile
 deskbar/gnomedesktop/Makefile
 deskbar/evolution/Makefile
+deskbar/osutils/Makefile
 data/Makefile
 data/deskbar-applet.pc
 data/art/Makefile

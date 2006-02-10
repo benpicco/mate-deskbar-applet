@@ -1,6 +1,19 @@
 2006-02-10  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* configure.ac:
+	* deskbar/Makefile.am:
+	* deskbar/deskbar-applet.py:
+	* deskbar/osutils/.cvsignore:
+	* deskbar/osutils/Makefile.am:
+	* deskbar/osutils/__init__.py:
+	* deskbar/osutils/_osutilsmodule.c: (init_osutils),
+	(osutils_set_process_name):
+	Allow to 'killall deskbar-applet' without taking down other python
+	processes. Courtesy of Davyd Madeley <davyd@madeley.id.au>
+
+2006-02-10  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* configure.ac:
 	* deskbar/ui/Makefile.am:
 
 2006-02-10  Raphael Slinckx  <rslinckx@cvs.gnome.org>

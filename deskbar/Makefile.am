@@ -1,4 +1,4 @@
-SUBDIRS = ui handlers iconentry keybinder gnomedesktop
+SUBDIRS = ui handlers iconentry keybinder gnomedesktop osutils
 
 if ENABLE_EVOLUTION
 SUBDIRS += evolution
