@@ -682,7 +682,7 @@ class CuemiacUI (DeskbarUI):
 				
 			self.deskbar_button.button_arrow.set_active (False)
 			self.adjust_popup_size ()
-			self.popup.update_position ()
+			# self.popup.update_position ()
 			self.update_entry_icon ()
 			
 			if time != None:
@@ -705,7 +705,7 @@ class CuemiacUI (DeskbarUI):
 	def show_history (self):
 		if self.deskbar_button.get_active_arrow ():
 			self.deskbar_button.button_main.set_active (False)
-			self.history_popup.update_position ()
+			# self.history_popup.update_position ()
 			self.history_popup.show_all ()
 		else:
 			self.history_popup.hide ()
