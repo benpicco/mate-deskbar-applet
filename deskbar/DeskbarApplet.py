@@ -14,6 +14,8 @@ from deskbar.DeskbarAppletPreferences import DeskbarAppletPreferences
 from deskbar.Keybinder import get_deskbar_keybinder
 from deskbar.ui.cuemiac.Cuemiac import CuemiacUI
 from deskbar.ui.completion.CompletionDeskbarUI import CompletionDeskbarUI
+from deskbar.ui.entriac.CuemiacEntryUI import CuemiacEntryUI
+
 
 class DeskbarApplet:
 	def __init__(self, applet):
@@ -55,7 +57,8 @@ class DeskbarApplet:
 		if ui_name == deskbar.COMPLETION_UI_NAME:
 			self.ui = CompletionDeskbarUI (applet, self.prefs)
 		elif ui_name == deskbar.CUEMIAC_UI_NAME:
-			self.ui = CuemiacUI (applet, self.prefs)
+			#self.ui = CuemiacUI (applet, self.prefs)
+			self.ui = CuemiacEntryUI(applet, self.prefs)
 			
 		# Set up the chosen UI
 		self.set_up_ui_signals ()
@@ -275,7 +278,8 @@ class DeskbarApplet:
 			ui_name = deskbar.COMPLETION_UI_NAME
 			
 		if ui_name == deskbar.CUEMIAC_UI_NAME:
-			self.ui = CuemiacUI (self.applet, self.prefs)
+		#	self.ui = CuemiacUI (self.applet, self.prefs)
+			self.ui = CuemiacEntryUI(self.applet, self.prefs)
 			
 		elif ui_name == deskbar.COMPLETION_UI_NAME:
 			self.ui = CompletionDeskbarUI (self.applet, self.prefs)

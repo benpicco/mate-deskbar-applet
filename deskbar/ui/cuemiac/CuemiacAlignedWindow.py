@@ -78,11 +78,11 @@ class CuemiacAlignedWindow (gtk.Window):
 				else:
 						gravity = gtk.gdk.GRAVITY_NORTH_EAST
 		elif self.alignment == gnomeapplet.ORIENT_DOWN:
-				print "got alignment:DOWN"
+				#print "got alignment:DOWN"
 				y += target_h
 
 				if ((x + target_w) > (monitor.x + monitor.width)):
-					print "will exceed monitor"
+					#print "will exceed monitor"
 					x -= (x + w) - (monitor.x + monitor.width)
 
 				gravity = gtk.gdk.GRAVITY_NORTH_WEST

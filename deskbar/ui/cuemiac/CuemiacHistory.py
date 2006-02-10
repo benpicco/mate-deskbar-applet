@@ -64,14 +64,20 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 		
 		self.list_view.connect ("match-selected", self.on_match_selected)
 	
-	def show (self):
+	def show (self, time=None):
+		if len(self.list_view.get_model()) <= 0:
+			return
+			
 		self.update_position ()
-		CuemiacAlignedWindow.show (self)
+		if time == None:
+			CuemiacAlignedWindow.show (self)
+		else:
+			CuemiacAlignedWindow.present_with_time (self, time)
 	
 	def show_all (self):
 		self.update_position ()
 		CuemiacAlignedWindow.show_all (self)
-		
+	
 	def on_match_selected (self, sender, match):
 		self.emit ("match-selected", match)
 		
