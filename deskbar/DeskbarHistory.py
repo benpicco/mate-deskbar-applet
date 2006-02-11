@@ -38,7 +38,6 @@ class DeskbarHistory (gtk.ListStore) :
 	
 	def __init__ (self):
 		gtk.ListStore.__init__ (self, gobject.TYPE_PYOBJECT)
-		self.count = 0
 		self._index = -1
 		
 	def __iter__ (self):
@@ -46,6 +45,7 @@ class DeskbarHistory (gtk.ListStore) :
 		
 	def load (self, module_list):
 		print 'Loading History'
+		new_history = []
 		try:
 			saved_history = cPickle.load(file(HISTORY_FILE))
 			
@@ -67,11 +67,15 @@ class DeskbarHistory (gtk.ListStore) :
 						
 					match = modctx.module.deserialize(match_class, serialized)
 					if match != None:
-						self.append ([(text, match)])
-						self.count = self.count + 1
+						new_history.append ([(text, match)])
 		except Exception, msg:
 			return
-			
+		
+		if len(new_history) > 0:
+			self.clear()
+			for hist in new_history:
+				self.append (hist)
+				
 	def save (self):
 		save = []
 		for text, match in self:
@@ -91,7 +95,6 @@ class DeskbarHistory (gtk.ListStore) :
 			if (text, match.__class__) == (htext, hmatch.__class__):
 				match = self[self.get_iter_from_string (str(idx))][0][1]
 				self.remove (self.get_iter_from_string (str(idx)))
-				self.count = self.count - 1
 				copy_match = False
 				break
 
@@ -101,16 +104,15 @@ class DeskbarHistory (gtk.ListStore) :
 				match = copy
 				
 		self.prepend ([(text, match)])
-		self.count = self.count + 1
-		if self.count > MAX_HISTORY:
+		if len(self) > MAX_HISTORY:
 			# Remove the last element
-			last = self.get_iter_from_string (str(self.count - 1))
+			last = self.get_iter_from_string (str(len(self) - 1))
 			self.remove (last)
-			self.count = self.count - 1
 		self._index = -1
+		self.save()
 	
 	def up(self):
-		if self._index < self.count-1:
+		if self._index < len(self)-1:
 			self._index = self._index + 1
 			self.emit('changed')
 	
@@ -125,9 +127,9 @@ class DeskbarHistory (gtk.ListStore) :
 			self.emit('changed')
 	
 	def last(self):
-		if self.count == 0:
+		if len(self) == 0:
 			return None
-		last = self.get_iter_from_string (str(self.count - 1))
+		last = self.get_iter_from_string (str(len(self) - 1))
 		return self[last][0]
 	
 	def get_all_history(self):
