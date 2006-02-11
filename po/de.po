@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-03 21:30+0100\n"
-"PO-Revision-Date: 2006-02-03 21:57+0100\n"
+"POT-Creation-Date: 2006-02-11 21:54+0100\n"
+"PO-Revision-Date: 2006-02-11 21:56+0100\n"
 "Last-Translator: Hendrik Brandt <heb@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -55,19 +55,20 @@ msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
 msgstr ""
-"<i><small><b>Hinweis:</b> Ziehen Sie ein Element mit der Maus um dessen Priorität zu ändern.</small></i>"
+"<i><small><b>Hinweis:</b> Ziehen Sie ein Element mit der Maus um dessen "
+"Priorität zu ändern.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with categorized list"
-msgstr "Schaltfläche im Panel mit kategorisierter Liste"
+msgid "Button in panel"
+msgstr "Schaltfläche im Panel"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Deskbar-Einstellungen"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with simple list"
-msgstr "Schaltfläche im Panel mit einfacher Liste"
+msgid "Entry in panel"
+msgstr "Eintrag im Panel"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -117,7 +118,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Kürzel für Lesezeichensuche"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:107
 #, python-format
 msgid "Open History Item %s"
 msgstr "Chronikeintrag %s öffnen"
@@ -229,24 +230,25 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Programmfehler entdeckt"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:20
 msgid "Beagle Live"
 msgstr "Beagle-Live"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:21
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Alle Dokumente mit Beagle während des Eintippens durchsuchen"
 
-#: ../deskbar/handlers/beagle-live.py:47
+#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "Adressbucheintrag für %s"
+msgid "Send Email to %s"
+msgstr "E-Mail an %s senden"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:57
+#: ../deskbar/handlers/beagle-live.py:58
 #, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "Nachricht von <i>%(sender)s</i>: <b>%(name)s</b> ansehen"
+msgid "Email from %s"
+msgstr "E-Mail von %s"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
@@ -256,28 +258,28 @@ msgstr "%s öffnen"
 
 #: ../deskbar/handlers/beagle-live.py:75
 #, python-format
-msgid "Open news item %s"
-msgstr "News-Eintrag %s öffnen"
+msgid "News from %s"
+msgstr "Meldungen von %s"
 
-#: ../deskbar/handlers/beagle-live.py:83
+#: ../deskbar/handlers/beagle-live.py:84
 #, python-format
-msgid "Open note %s"
-msgstr "Notiz %s öffnen"
+msgid "Note: %s"
+msgstr "Hinweis: %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
-msgid "View conversation with %s"
-msgstr "Unterhaltung mit %s öffnen"
+msgid "Conversation with %s"
+msgstr "Unterhaltung mit %s"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:100
 #, python-format
-msgid "View calendar %s"
-msgstr "Kalender %s anzeigen"
+msgid "Calendar: %s"
+msgstr "Kalender: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:270
-#: ../deskbar/handlers/beagle-live.py:289
+#: ../deskbar/handlers/beagle-live.py:273
+#: ../deskbar/handlers/beagle-live.py:295
 msgid "?"
 msgstr "?"
 
@@ -302,11 +304,6 @@ msgstr "E-Mail"
 msgid "Send mail by typing a complete e-mail address"
 msgstr ""
 "Eine E-Mail über die Eingabe einer vollständigen E-Mail-Adresse verschicken"
-
-#: ../deskbar/handlers/email_address.py:27
-#, python-format
-msgid "Send Email to %s"
-msgstr "E-Mail an %s senden"
 
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
@@ -385,7 +382,7 @@ msgstr "Dateien und Ordner"
 msgid "Open your files and folders by name"
 msgstr "Ihre Dateien und Ordner über den Namen öffnen"
 
-#: ../deskbar/handlers/files.py:51
+#: ../deskbar/handlers/files.py:52
 #, python-format
 msgid "Open folder %s"
 msgstr "Ordner %s öffnen"
@@ -514,12 +511,12 @@ msgstr "Dateien und Ordner über Namensteile finden"
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) starten"
 
-#: ../deskbar/handlers/programs.py:85
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s im Wörterbuch nachschlagen"
 
-#: ../deskbar/handlers/programs.py:93
+#: ../deskbar/handlers/programs.py:94
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Nach Dateinamen ähnlich wie %s suchen"
@@ -559,6 +556,14 @@ msgstr "Internet-Seite %s öffnen"
 msgid "Open the location %s"
 msgstr "Ort %s öffnen"
 
+#: ../deskbar/handlers/yahoo.py:16
+msgid "Yahoo! Search"
+msgstr "Yahoo!-Suche"
+
+#: ../deskbar/handlers/yahoo.py:17
+msgid "Search Yahoo! as you type"
+msgstr "Yahoo! während des Eintippens durchsuchen"
+
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Ein universales Applet für Suchen und das Starten von Anwendungen."
@@ -581,10 +586,4 @@ msgstr "_Mehr..."
 #: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "Keine Chronik"
-
-#: ../deskbar/ui/cuemiac/Cuemiac.py:43
-msgid "You need Gtk+ version 2.8.0 or higher to use this module"
-msgstr ""
-"Sie benötigen GTK+ in Version 2.8.0 oder neuer, um dieses Modul verwenden zu "
-"können"
 
