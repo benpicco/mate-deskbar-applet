@@ -42,7 +42,7 @@ osutils_set_process_name (PyObject *self, PyObject *args)
 		return NULL;
 	}
 #else
-	PyErr_SetString (PyExcPyExc_IOError, "prctl unavailable");
+	PyErr_SetString (PyExc_IOError, "prctl unavailable");
 #endif
 
 	Py_INCREF(Py_None);

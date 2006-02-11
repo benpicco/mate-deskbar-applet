@@ -138,7 +138,13 @@ AC_MSG_RESULT($PYGTK_DEFSDIR)
 dnl ****************************************************************************
 dnl * Check for prctl()
 dnl ****************************************************************************
-AC_CHECK_FUNCS(prctl)
+AC_CHECK_FUNC(prctl, HAVE_PRCTL="yes", HAVE_PRCTL="yes")
+if test "x$HAVE_PRCTL" = "xyes"; then
+	AC_CHECK_DECL(PR_SET_NAME, STILL_HAVE_PRCTL="yes", STILL_HAVE_PRCTL="no", [#include <sys/prctl.h>])
+	if test "x$STILL_HAVE_PRCTL" = "xyes"; then
+		AC_DEFINE(HAVE_PRCTL, 1, [Defined as 1 if prctl and PR_SET_NAME are available])
+	fi
+fi
 
 dnl ****************************************************************************
 dnl * --------------------------------------------------------------------------
