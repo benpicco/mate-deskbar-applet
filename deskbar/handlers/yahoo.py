@@ -1,3 +1,4 @@
+from deskbar.Utils import strip_html
 from gettext import gettext as _
 
 import urllib, cgi
@@ -62,7 +63,7 @@ class YahooHandler(deskbar.Handler.AsyncHandler):
 		# better check if we're still valid
 		matches = [
 			YahooMatch (self, 
-					cgi.escape(r.getElementsByTagName("Title")[0].firstChild.data.encode('utf8')),
+					cgi.escape(strip_html(r.getElementsByTagName("Title")[0].firstChild.data.encode('utf8'))),
 					r.getElementsByTagName("ClickUrl")[0].firstChild.data.encode('utf8')
 			)
 			for r in dom.getElementsByTagName("Result")[:qmax-1]

@@ -1,4 +1,4 @@
-import os, cgi
+import os, cgi, re
 from os.path import *
 import deskbar, deskbar.gnomedesktop
 import gtk, gtk.gdk, gnome.ui
@@ -6,6 +6,9 @@ import gtk, gtk.gdk, gnome.ui
 ICON_THEME = gtk.icon_theme_get_default()
 factory = gnome.ui.ThumbnailFactory(deskbar.ICON_HEIGHT)
 
+def strip_html(string):
+	return re.sub(r"<.*?>|</.*?>","",string)
+	
 def more_information_dialog(title, content):
 	message_dialog = gtk.MessageDialog(buttons=gtk.BUTTONS_CLOSE)
 	message_dialog.set_markup("<span size='larger' weight='bold'>%s</span>\n\n%s" % (cgi.escape(title), cgi.escape(content)))

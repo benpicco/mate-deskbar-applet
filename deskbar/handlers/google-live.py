@@ -1,5 +1,5 @@
 import deskbar.Handler
-
+from deskbar.Utils import strip_html
 import os, cgi
 import gobject
 import gnomevfs
@@ -125,7 +125,7 @@ class GoogleLiveHandler (deskbar.Handler.AsyncHandler):
 		# better check if we're still valid	
 		self.check_query_changed ()
 		matches = [
-			GoogleMatch (self, cgi.escape(r.title.encode("utf-8")), 
+			GoogleMatch (self, cgi.escape(strip_html(r.title.encode("utf-8"))), 
 					#r.snippet.encode("utf-8"),  # We don't use the description
 					r.URL.encode ("utf-8"))
 			for r in results.resultElements[:qmax-1]
