@@ -253,7 +253,7 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 		name = None
 		for prop in hit_type["name"]:
 			try:
-				name = hit.get_one_property(prop)
+				name = hit.get_properties(prop)[0] # get_property_one() would be cleaner, but this works around bug #330053
 			except:
 				try:
 					# Beagle < 0.2
@@ -275,7 +275,7 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 				val = None
 				for key in keys:
 					try:
-						val = hit.get_one_property(key)
+						val = hit.get_properties(key)[0] # get_property_one() would be cleaner, but this works around bug #330053
 					except:
 						try:
 							# Beagle < 0.2

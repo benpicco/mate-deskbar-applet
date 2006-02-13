@@ -1,3 +1,9 @@
+06-02-14  Mikkel Kamstrup Erlandsen <kamstrup@daimi.au.dk>
+
+	* deskbar/handlers/beagle-live.py:
+	Use hit.get_properties(key)[0] instead of hit.get_one_property(key).
+	This works around the beagle-firefox-history-dc:title-bug mentioned in #330053
+
 2006-02-14  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* data/deskbar-applet.schemas.in:
