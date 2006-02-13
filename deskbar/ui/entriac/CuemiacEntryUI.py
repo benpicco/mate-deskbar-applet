@@ -28,8 +28,6 @@ class CuemiacEntryUI (DeskbarUI):
 		self.icon_event_box = gtk.EventBox ()
 		self.history = get_deskbar_history ()
 		self.history_popup = CuemiacHistoryPopup (self.entry_icon, applet)
-		self.history_popup = CuemiacHistoryPopup (self.entry_icon, applet)
-		 self.history_popup = CuemiacHistoryPopup (self.history, self.entry_icon, applet)
 		self.model = CuemiacModel ()
 		self.cview = CuemiacTreeView (self.model)
 		self.scroll_win = gtk.ScrolledWindow ()

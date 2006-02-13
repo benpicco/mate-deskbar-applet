@@ -592,7 +592,7 @@ class CuemiacUI (DeskbarUI):
 		self.entry = self.icon_entry.get_entry ()
 		self.entry_icon = gtk.Image ()
 		self.history = get_deskbar_history ()
-		self.history_popup = CuemiacHistoryPopup (self.history, self.deskbar_button.button_arrow, applet)
+		self.history_popup = CuemiacHistoryPopup (self.deskbar_button.button_arrow, applet)
 		self.model = CuemiacModel ()
 		self.cview = CuemiacTreeView (self.model)
 		self.scroll_win = gtk.ScrolledWindow ()

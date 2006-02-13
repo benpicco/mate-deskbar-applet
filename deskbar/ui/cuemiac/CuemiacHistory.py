@@ -1,18 +1,19 @@
-import gtk, pango, gobject
+import gtk, pango, gobject, gnomeapplet
 import cgi
 
 import deskbar
 from deskbar.ui.cuemiac.CuemiacAlignedWindow import CuemiacAlignedWindow
+from deskbar.DeskbarHistory import get_deskbar_history, SortedDeskbarHistory
 
-class CuemaicHistoryView (gtk.TreeView):
+class CuemiacHistoryView (gtk.TreeView):
 
 	__gsignals__ = {
 		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
 	}
 	
-	def __init__ (self, deskbar_history):
-		gtk.TreeView.__init__ (self, deskbar_history)
-		
+	def __init__ (self):
+		gtk.TreeView.__init__ (self, SortedDeskbarHistory())
+				
 		icon = gtk.CellRendererPixbuf ()
 		title = gtk.CellRendererText ()
 		title.set_property ("ellipsize", pango.ELLIPSIZE_END)
@@ -57,9 +58,10 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
 	}
 	
-	def __init__ (self, deskbar_history, widget_to_align_with, applet):
+	def __init__ (self, widget_to_align_with, applet):
 		CuemiacAlignedWindow.__init__ (self, widget_to_align_with, applet)
-		self.list_view = CuemaicHistoryView (deskbar_history)
+		self.applet = applet
+		self.list_view = CuemiacHistoryView ()
 		self.add (self.list_view)
 		
 		self.list_view.connect ("match-selected", self.on_match_selected)
@@ -67,6 +69,12 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 	def show (self, time=None):
 		if len(self.list_view.get_model()) <= 0:
 			return
+		
+		# Adapt the history popup direction to the applet orient
+		if self.applet.get_orient() in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
+			self.list_view.get_model().set_sort_order(gtk.SORT_DESCENDING)
+		else:
+			self.list_view.get_model().set_sort_order(gtk.SORT_ASCENDING)
 			
 		self.update_position ()
 		if time == None:

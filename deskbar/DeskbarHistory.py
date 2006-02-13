@@ -22,6 +22,23 @@ class DeskbarHistoryIter :
 			raise StopIteration
 		return item
 
+# The sort function ids
+SORT_CHRONOLOGICAL = 1
+
+class SortedDeskbarHistory (gtk.TreeModelSort):	
+	def __init__(self):
+		gtk.TreeModelSort.__init__(self, get_deskbar_history())
+		self.set_sort_func(SORT_CHRONOLOGICAL, self.on_sort_chronological)
+		self.set_sort_column_id(SORT_CHRONOLOGICAL, gtk.SORT_ASCENDING)
+	
+	def set_sort_order(self, order):
+		#self.set_sort_column_id(SORT_CHRONOLOGICAL, order)
+		# Somehow this triggers a segfault !
+		pass
+	
+	def on_sort_chronological(self, model, iter1, iter2):
+		return 1
+
 class DeskbarHistory (gtk.ListStore) :
 	"""
 	Iteraating over a DeskbarHistory with a for loop returns (text,match) pairs.
