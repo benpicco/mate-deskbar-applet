@@ -27,7 +27,9 @@ class CuemiacEntryUI (DeskbarUI):
 		self.entry_icon = gtk.Image ()
 		self.icon_event_box = gtk.EventBox ()
 		self.history = get_deskbar_history ()
-		self.history_popup = CuemiacHistoryPopup (self.history, self.entry_icon, applet)
+		self.history_popup = CuemiacHistoryPopup (self.entry_icon, applet)
+		self.history_popup = CuemiacHistoryPopup (self.entry_icon, applet)
+		 self.history_popup = CuemiacHistoryPopup (self.history, self.entry_icon, applet)
 		self.model = CuemiacModel ()
 		self.cview = CuemiacTreeView (self.model)
 		self.scroll_win = gtk.ScrolledWindow ()
@@ -260,7 +262,7 @@ class CuemiacEntryUI (DeskbarUI):
 		self.cview.set_query_string (qstring)
 		if qstring == "":
 			self.model.clear()
-			self.hide_window (self.popup) # FIXME the entry looses focus here... We really need an event time to fix this
+			self.hide_window (self.popup)
 			self.emit ("stop-query")
 			return
 		
@@ -394,7 +396,12 @@ class CuemiacEntryUI (DeskbarUI):
 			self.applet.emit ("button-press-event", event)
 			return True
 		elif event.button == 1:
-			self.history_popup.show (event.time)
+			if self.history_popup.get_property('visible'):
+				self.history_popup.hide()
+				self.applet.request_focus(event.time)
+			else:
+				self.hide_window (self.popup, event.time)
+				self.history_popup.show (event.time)
 			return True
 		
 		return False	
