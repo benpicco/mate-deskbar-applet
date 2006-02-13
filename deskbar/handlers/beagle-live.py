@@ -101,11 +101,10 @@ TYPES = {
 		"category": "documents",
 		},
 	"WebHistory": {
-		"name"	: ("dc:title",),
+		"name"	: ("dc:title",), # FIX-BEAGLE bug #330053, dc:title returns as None even though it _is_ set
 		"action": "gnome-open %(uri)s",
 		"icon"	: "stock_bookmark",
-		"description": _("Open History Item %s") % "<b>%(name)s</b>",
-		"snippet": True,
+		"description": (_("Open History Item %s") % "<i>%(name)s</i>") + "\n%(uri)s",
 		"category": "web",
 		},
 }
