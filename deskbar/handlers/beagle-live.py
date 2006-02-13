@@ -69,13 +69,12 @@ TYPES = {
 		},
 	"FeedItem"	: {
 		"name"	: ("dc:title",),
-		"extra" : {"identifier": ("dc:identifier",)},
 		"action": "gnome-open %(identifier)s",
 		"icon"	: "stock_news",
 		"description": (_("News from %s") % "<i>%(publisher)s</i>" ) + "\n<b>%(name)s</b>",
 		"snippet": True,
 		"category": "web",
-		"extra": {"publisher":("dc:publisher",)},
+		"extra": {"publisher":("dc:publisher",), "identifier": ("dc:identifier",)},
 		},
 	"Note"		: {
 		"name"	: ("dc:title",),
