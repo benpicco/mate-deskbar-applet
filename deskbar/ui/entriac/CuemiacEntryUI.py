@@ -220,11 +220,7 @@ class CuemiacEntryUI (DeskbarUI):
 		self.show_popup ()
 		
 	def middle_click(self):
-		text = self.clipboard.wait_for_text ()
-		if text != None:
-			self.deskbar_button.button_main.set_active (True)
-			self.entry.grab_focus()
-			self.entry.set_text(text)
+		self.entry.grab_focus()
 		
 	def set_layout_by_orientation (self, orient):
 		"""orient should be a gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}."""
