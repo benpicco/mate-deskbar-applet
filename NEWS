@@ -1,3 +1,45 @@
+======================
+deskbar-applet 2.13.91 -- I hate Mikkel release.
+======================
+
+Changes:
+	* Use hit.get_properties(key)[0] instead of hit.get_one_property(key). This works around the beagle-firefox-history-dc:title-bug mentioned in #330053
+	* Update default handler and order
+	* Allow firefox handler to select wether to display the primary or all search engines
+	* Beagle-live matches beautification
+	* Fix the history items multiplication when history was loaded. Fixes bug #330756
+	* Strip html tags from results of google and yahoo handlers. Fixes bug #330755
+	* Fix osutils by checking PR_SET_NAME declaration. Fixes bug #330707
+	* Xinerama fixes, partially untested. Courtesy of Davyd Madeley <davyd@madeley.id.au>
+	* Allow to 'killall deskbar-applet' without taking down other python processes. Courtesy of Davyd Madeley <davyd@madeley.id.au>
+	* Upgrade entry-in-panel mode to use the categorized dropdown. People without cairo will fallback on completion UI
+	* Display all websearches in the category (no nesting)
+	* Fix build when no X connection is available, fixes bug #330013
+	* Repair history mode and remove some hacks.
+	* Fix the applet resizing itself every time the icon in the entry is changed
+	* Fixes bug #330103 icon in entry clips after a query
+	* Fixes gnome-dictionary 2.13 launching
+	* Workaround problem with gnome-open not opening saved nautilus searches correctly
+	* Add yahoo plugin, similar to google live, but using yahoo
+
+Contributors to this release: Raphael Slinckx, Mikkel Kamstrup Erlandsen, Nigel Tao, Davyd Madeley
+
+Translations:
+	* Updated Spanish translation.
+	* Added Greek translation.
+	* Updated Bulgarian translation
+	* Updated Finnish translation.
+	* Updated Brazilian Portuguese translation.
+	* Updated Russian translation
+	* Updated Lithuanian translation.
+	* Updated Thai translation.
+	* Updated German translation.
+	* Updated Vietnamese translation.
+	* Updated Galician Translation.
+	* Updated Gujarati Translation.
+
+Contributors to the translations: Kostas Papadimas, Žygimantas Beručka, Theppitak Karoonboonyanan, Kjartan Maraas, Ilkka Tuohela, Marcel Telka, Ankit Patel, Funda Wang, Amanpreet Singh Alam, Gabor Kelemen, ChaoHsiung Liao, Ignacio Casal Quinteiro, Tommi Vainikainen, Lukas Novotny, Nickolay V. Shmyrev, Josep Puigdemont i Casamajó, Erdal Ronahi, Vincent van Adrighem, Clytie Siddall, Raphael Higino, Christian Rose, Takeshi AIHANA, Francisco Javier F. Serrador, Alexander Shopov, Adam Weinberger, Hendrik Brandt, Stanislav Brabec, Slobodan D. Sredojevic
+
 ========================
 deskbar-applet 2.13.90.1
 ========================
