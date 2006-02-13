@@ -28,6 +28,7 @@ schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 resourcesdir = $(pkgdatadir)
 resources_DATA = \
 	Deskbar_Applet.xml \
+	mozilla-search.glade \
 	smart-bookmarks.glade \
 	prefs-dialog.glade
 

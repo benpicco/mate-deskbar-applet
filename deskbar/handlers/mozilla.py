@@ -15,15 +15,102 @@ except NameError:
 from deskbar.BrowserMatch import is_preferred_browser
 from deskbar.BrowserMatch import BrowserSmartMatch, BrowserMatch
 
-def _on_customize_search_engines():
-	pass
+# Whether we will index firefox or mozilla bookmarks
+USING_FIREFOX = False
+if is_preferred_browser("firefox"):
+	USING_FIREFOX = True
+		
+# File returned here should be checked for existence
+def get_mozilla_home_file(needed_file):	
+	default_profile_dir = expanduser("~/.mozilla/default")
+	if exists(default_profile_dir):
+		for d in os.listdir(default_profile_dir):
+			return join(default_profile_dir, d, needed_file)
 	
-def _check_requirements():
+	return ""
+	
+def get_firefox_home_file(needed_file):
+	firefox_dir = expanduser("~/.mozilla/firefox/")
+	path_pattern = re.compile("^Path=(.*)")
+	for line in file(join(firefox_dir, "profiles.ini")):
+		match_obj = path_pattern.search(line)
+		if match_obj:
+			if match_obj.group(1).startswith("/"):
+				return join(match_obj.group(1), needed_file)
+			else:
+				return join(firefox_dir, match_obj.group(1), needed_file)
+				
+	return ""
+
+# Whether we offer all of the browser's search engines, or only the primary
+# one (since by default Firefox seems to come with at least half a dozen)			
+GCONF_SHOW_ONLY_PRIMARY = deskbar.GCONF_DIR + "/mozilla/show_only_primary_search"
+SHOW_ONLY_PRIMARY = deskbar.GCONF_CLIENT.get_bool(GCONF_SHOW_ONLY_PRIMARY)
+def _on_gconf_show_only_primary(value):
+	global SHOW_ONLY_PRIMARY
+	SHOW_ONLY_PRIMARY = value
+deskbar.GCONF_CLIENT.notify_add(GCONF_SHOW_ONLY_PRIMARY,
+	lambda x, y, z, a: _on_gconf_show_only_primary(z.value.get_bool()))
+
+# TODO re-load PRIMARY_SEARCH_ENGINE everytime it changes (which should happen
+# only rarely).  One (unavoidable) problem may be that firefox doesn't actually
+# save the change to disk until you quit firefox.
+PRIMARY_SEARCH_ENGINE = None
+try:
+	if USING_FIREFOX:
+		prefs_file = file(get_firefox_home_file("prefs.js"))
+	else:
+		# TODO - similar functionality for old-school mozilla (not firefox)
+		prefs_file = None
+	for line in prefs_file:
+		if line.startswith('user_pref("browser.search.selectedEngine", "'):
+			line = line.strip()
+			PRIMARY_SEARCH_ENGINE = line[len('user_pref("browser.search.selectedEngine", "'):-len('");')]
+			break
+except:
+	pass
+
+def _on_handler_preferences():
+	def toggled_cb(sender, show_all_radio, show_primary_radio):
+		if show_all_radio.get_active() and SHOW_ONLY_PRIMARY:
+			deskbar.GCONF_CLIENT.set_bool(GCONF_SHOW_ONLY_PRIMARY, False)
+		elif show_primary_radio.get_active() and not SHOW_ONLY_PRIMARY:
+			deskbar.GCONF_CLIENT.set_bool(GCONF_SHOW_ONLY_PRIMARY, True)
+	def sync_ui(new_show_only_primary, show_all_radio, show_primary_radio):
+		show_all_radio.set_active(not new_show_only_primary)
+		show_primary_radio.set_active(new_show_only_primary)
+	glade = gtk.glade.XML(os.path.join(deskbar.SHARED_DATA_DIR, "mozilla-search.glade"))
+	dialog = glade.get_widget("prefs-dialog")
+	show_all_radio = glade.get_widget("show_all_radio")
+	show_primary_radio = glade.get_widget("show_primary_radio")
+	if SHOW_ONLY_PRIMARY:
+		show_primary_radio.set_active(True)
+	else:
+		show_all_radio.set_active(True)
+	show_all_radio.connect ("toggled", toggled_cb, show_all_radio, show_primary_radio)
+	show_primary_radio.connect ("toggled", toggled_cb, show_all_radio, show_primary_radio)
+	notify_id = deskbar.GCONF_CLIENT.notify_add(GCONF_SHOW_ONLY_PRIMARY,
+		lambda x, y, z, a: sync_ui(z.value.get_bool(), show_all_radio, show_primary_radio))
+	dialog.set_icon(deskbar.Utils.load_icon("deskbar-applet-small.png"))
+	dialog.show_all()
+	dialog.run()
+	dialog.destroy()
+	deskbar.GCONF_CLIENT.notify_remove(notify_id)
+	
+def _check_requirements_bookmarks():
 #	if deskbar.UNINSTALLED_DESKBAR:
 #		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	
-	#We will need to pass some preference here to select one/all engines
 	if is_preferred_browser("firefox") or is_preferred_browser("mozilla"):
+		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
+	else:
+		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Mozilla/Firefox is not your preferred browser, not using it.", None)
+		
+def _check_requirements_search():
+	if is_preferred_browser("firefox"):
+		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, _("You can customize which search engines are offered."), _on_handler_preferences)
+	elif is_preferred_browser("mozilla"):
+		# TODO - similar functionality for old-school mozilla (not firefox)
 		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	else:
 		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Mozilla/Firefox is not your preferred browser, not using it.", None)
@@ -32,20 +119,15 @@ HANDLERS = {
 	"MozillaBookmarksHandler" : {
 		"name": _("Web Bookmarks"),
 		"description": _("Open your web bookmarks by name"),
-		"requirements": _check_requirements
+		"requirements": _check_requirements_bookmarks
 	},
 	"MozillaSearchHandler" : {
 		"name": _("Web Searches"),
 		"description": _("Search the web via your browser's search settings"),
-		"requirements": _check_requirements
+		"requirements": _check_requirements_search
 	}
 }
 
-# Wether we will index firefox or mozilla bookmarks
-USING_FIREFOX = False
-if is_preferred_browser("firefox"):
-	USING_FIREFOX = True
-			
 class MozillaBookmarksHandler(deskbar.Handler.Handler):
 	def __init__(self):
 		deskbar.Handler.Handler.__init__(self, "stock_bookmark")
@@ -125,15 +207,20 @@ class MozillaSearchHandler(deskbar.Handler.Handler):
 		self.watcher.add(smart_dirs)
 		self._parse_search_engines(smart_dirs)
 		
-	def _parse_search_engines(self, smart_dirs):	
-		#TODO: if using firefox, show a way to enable only active search engine in a pref dialog.
+	def _parse_search_engines(self, smart_dirs):
 		self._smart_bookmarks = MozillaSmartBookmarksDirParser(self, smart_dirs).get_smart_bookmarks()
 
 	def stop(self):
 		self.watcher.remove_all()
 		
 	def query(self, query, max):
-		return self._smart_bookmarks
+		if SHOW_ONLY_PRIMARY:
+			for s in self._smart_bookmarks:
+				if s.name == PRIMARY_SEARCH_ENGINE:
+					return [s]
+			return []
+		else:
+			return self._smart_bookmarks
 		
 class MozillaBookmarksParser(HTMLParser.HTMLParser):
 	def __init__(self, handler):
@@ -446,25 +533,3 @@ class MozillaSmartBookmarksDirParser:
 		Return a list of MozillaSmartMatch instances representing smart bookmarks
 		"""
 		return self._smart_bookmarks
-		
-#File returned here need to be checked for existence
-def get_mozilla_home_file(needed_file):	
-	default_profile_dir = expanduser("~/.mozilla/default")
-	if exists(default_profile_dir):
-		for d in os.listdir(default_profile_dir):
-			return join(default_profile_dir, d, needed_file)
-	
-	return ""
-	
-def get_firefox_home_file(needed_file):
-	firefox_dir = expanduser("~/.mozilla/firefox/")
-	path_pattern = re.compile("^Path=(.*)")
-	for line in file(join(firefox_dir, "profiles.ini")):
-		match_obj = path_pattern.search(line)
-		if match_obj:
-			if match_obj.group(1).startswith("/"):
-				return join(match_obj.group(1), needed_file)
-			else:
-				return join(firefox_dir, match_obj.group(1), needed_file)
-				
-	return ""

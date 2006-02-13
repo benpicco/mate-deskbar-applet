@@ -7,7 +7,7 @@
 			<type>bool</type>
 			<default>FALSE</default>
 			<locale name="C">
-				<short>Wether the applet should take all the available space in the panel. Overrides the width preference.</short>
+				<short>Whether the applet should take all the available space in the panel. Overrides the width preference.</short>
 				<!-- <long></long> -->
 			</locale>
 		</schema>
@@ -65,6 +65,17 @@
         	<default>[]</default>
 			<locale name="C">
 				<short>The list of categories to be collapsed when displayed in the 'Cuemiac' UI. Valid category names are defined in Categories.py</short>
+				<!-- <long></long> -->
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/deskbar/mozilla/show_only_primary_search</key>
+			<applyto>/apps/deskbar/mozilla/show_only_primary_search</applyto>
+			<owner>deskbar</owner>
+			<type>bool</type>
+			<default>FALSE</default>
+			<locale name="C">
+				<short>Whether to show only the preferred search engine, rather than all available engines.  This only affects Mozilla-based web browsers such as Firefox.</short>
 				<!-- <long></long> -->
 			</locale>
 		</schema>
