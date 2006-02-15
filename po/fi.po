@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-07 07:44+0200\n"
-"PO-Revision-Date: 2006-02-07 07:45+0200\n"
+"POT-Creation-Date: 2006-02-15 05:36+0200\n"
+"PO-Revision-Date: 2006-02-15 05:40+0200\n"
 "Last-Translator: Tommi Vainikainen <Tommi.Vainikainen@iki.fi>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
@@ -59,16 +59,16 @@ msgstr ""
 "raahaamalla.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with categorized list"
-msgstr "Painike paneelissa luokitetulla listalla"
+msgid "Button in panel"
+msgstr "Painike paneelissa"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Työpöytäpalkin asetukset"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with simple list"
-msgstr "Paneelin kohta tavallisella listalla"
+msgid "Entry in panel"
+msgstr "Paneelin kohta"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Pikanäppäimet kirjanmerkittyihin hakuihin"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:107
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Open History Item %s"
 msgstr "Avaa historiamerkintä %s"
@@ -245,7 +245,7 @@ msgstr "Lähetä sähköpostia osoitteeseen %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
 #: ../deskbar/handlers/beagle-live.py:58
-#,  python-format
+#, python-format
 msgid "Email from %s"
 msgstr "Sähköposti, lähettänyt %s"
 
@@ -255,30 +255,30 @@ msgstr "Sähköposti, lähettänyt %s"
 msgid "Open %s"
 msgstr "Avaa %s"
 
-#: ../deskbar/handlers/beagle-live.py:75
+#: ../deskbar/handlers/beagle-live.py:74
 #, python-format
 msgid "News from %s"
 msgstr "Uutisia (%s)"
 
-#: ../deskbar/handlers/beagle-live.py:84
+#: ../deskbar/handlers/beagle-live.py:83
 #, python-format
 msgid "Note: %s"
 msgstr "Muistilappu: %s"
 
-#: ../deskbar/handlers/beagle-live.py:92
+#: ../deskbar/handlers/beagle-live.py:91
 #, python-format
 msgid "Conversation with %s"
 msgstr "Keskustelu (%s)"
 
-#: ../deskbar/handlers/beagle-live.py:100
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalenteri: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:273
-#: ../deskbar/handlers/beagle-live.py:295
+#: ../deskbar/handlers/beagle-live.py:271
+#: ../deskbar/handlers/beagle-live.py:293
 msgid "?"
 msgstr "?"
 
@@ -308,12 +308,12 @@ msgid "You can set shortcuts for your searches."
 msgstr "Voit asettaa pikanäppäimiä hauillesi."
 
 #: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:33
+#: ../deskbar/handlers/mozilla.py:120
 msgid "Web Bookmarks"
 msgstr "WWW-kirjanmerkit"
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/mozilla.py:121
 msgid "Open your web bookmarks by name"
 msgstr "Avaa WWW-kirjanmerkkejä nimellä"
 
@@ -326,12 +326,12 @@ msgid "Open your web history by name"
 msgstr "Avaa WWW-historia nimellä"
 
 #: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:38
+#: ../deskbar/handlers/mozilla.py:125
 msgid "Web Searches"
 msgstr "WWW-haut"
 
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:39
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Search the web via your browser's search settings"
 msgstr "Etsi webistä selaimen hakuasetuksin"
 
@@ -460,6 +460,10 @@ msgstr "Avaa sijainti %s"
 msgid "Recognize previously used searches"
 msgstr "Tunnista aiemmin käytetyt haut"
 
+#: ../deskbar/handlers/mozilla.py:111
+msgid "You can customize which search engines are offered."
+msgstr "Voit muokata, mitä hakukoneita tarjotaan."
+
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
 msgstr "Ohjelmat (kehittynyt)"
@@ -548,11 +552,11 @@ msgstr "Avaa www-sivu %s"
 msgid "Open the location %s"
 msgstr "Avaa sijainti %s"
 
-#: ../deskbar/handlers/yahoo.py:15
+#: ../deskbar/handlers/yahoo.py:16
 msgid "Yahoo! Search"
 msgstr "Yahoo!-haku"
 
-#: ../deskbar/handlers/yahoo.py:16
+#: ../deskbar/handlers/yahoo.py:17
 msgid "Search Yahoo! as you type"
 msgstr "Etsi Yahoosta samalla kuin kirjoitat"
 
@@ -582,6 +586,9 @@ msgstr "_Lisää..."
 #: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "Ei historiaa"
+
+#~ msgid "Button in panel with categorized list"
+#~ msgstr "Painike paneelissa luokitetulla listalla"
 
 #~ msgid "Addressbook entry for %s"
 #~ msgstr "Osoitekirjan merkintä %s"
