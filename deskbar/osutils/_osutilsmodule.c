@@ -32,6 +32,7 @@ osutils_set_process_name (PyObject *self, PyObject *args)
 
 	if (!PyArg_ParseTuple (args, "s", &name))
 	{
+		PyErr_SetString (PyExc_TypeError, "set_process_name needs a string as argument");
 		return NULL;
 	}
 
@@ -41,10 +42,11 @@ osutils_set_process_name (PyObject *self, PyObject *args)
 		PyErr_SetString (PyExc_IOError, "prctl() failed");
 		return NULL;
 	}
-#else
-	PyErr_SetString (PyExc_IOError, "prctl unavailable");
-#endif
 
 	Py_INCREF(Py_None);
 	return Py_None;
+#else
+	PyErr_SetString (PyExc_IOError, "prctl unavailable");
+	return NULL;
+#endif
 }
