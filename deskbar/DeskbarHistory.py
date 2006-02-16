@@ -59,6 +59,11 @@ class DeskbarHistory (gtk.ListStore) :
 		
 	def __iter__ (self):
 		return DeskbarHistoryIter (self)				
+	
+	def clear (self):
+		gtk.ListStore.clear(self)
+		self._index = -1
+		self.emit("changed")
 		
 	def load (self, module_list):
 		print 'Loading History'
@@ -92,7 +97,7 @@ class DeskbarHistory (gtk.ListStore) :
 			self.clear()
 			for hist in new_history:
 				self.append (hist)
-				
+		
 	def save (self):
 		save = []
 		for text, match in self:

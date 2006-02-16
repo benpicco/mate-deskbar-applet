@@ -3,7 +3,7 @@ from os.path import abspath, expanduser, join
 import traceback
 import gtk, gobject
 
-import deskbar, deskbar.Handler
+import deskbar, deskbar.Handler, deskbar.Categories
 from deskbar.Watcher import DirWatcher
 from deskbar.ModuleContext import ModuleContext
 
@@ -162,6 +162,11 @@ class ModuleLoader (gobject.GObject):
 		print "Initializing %s" % context.infos["name"]
 		try:
 			context.module.initialize ()
+			
+			# Add necessary categories
+			if "category" in context.infos:
+				catname, catinfo = context.infos["category"]
+				deskbar.Categories.CATEGORIES[catname] = catinfo
 		except Exception, msg:
 			print "Error while initializing %s: %s" % (context.infos["name"],msg)
 			traceback.print_exc()
@@ -182,6 +187,11 @@ class ModuleLoader (gobject.GObject):
 		print "Stopping %s" % context.infos["name"]
 		context.module.stop ()
 		
+		# Remove the category installed by this module
+		if "category" in context.infos:
+			catname, catinfo = context.infos["category"]
+			del deskbar.Categories.CATEGORIES[catname]
+				
 		context.enabled = False
 		self.emit("module-stopped", context)
 			

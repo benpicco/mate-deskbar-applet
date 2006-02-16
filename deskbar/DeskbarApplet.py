@@ -78,7 +78,11 @@ class DeskbarApplet:
 		self.applet.connect('destroy', lambda x: get_deskbar_history().save())
 		self.applet.setup_menu_from_file (
 			deskbar.SHARED_DATA_DIR, "Deskbar_Applet.xml",
-			None, [("About", self.on_about), ("Prefs", self.on_preferences)])
+			None, [
+			("About", self.on_about),
+			("Prefs", self.on_preferences),
+			("Clear", self.on_clear_history),
+			])
 		self.applet.show_all()
 		
 		self.loader.load_all_async()
@@ -168,6 +172,9 @@ class DeskbarApplet:
 	
 	def on_preferences (self, component, verb):
 		show_preferences(self, self.loader, self.module_list)
+	
+	def on_clear_history (self, component, verb):
+		get_deskbar_history().clear()
 	
 	def on_config_handlers (self, value):
 		if value != None and value.type == gconf.VALUE_LIST:

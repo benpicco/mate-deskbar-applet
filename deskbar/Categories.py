@@ -1,11 +1,6 @@
 from gettext import gettext as _
 from gettext import ngettext
 
-class UnknownCategory (Exception):
-	def __init__ (self, category_name, match):
-		print "** Unknown Category '%s' requested by %s" % (category_name, match.__class__)
-
-
 _generic_nest = lambda n: ngettext("%s more result", "%s more results", n)
 
 CATEGORIES = {
