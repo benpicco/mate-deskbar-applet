@@ -1,15 +1,15 @@
-# translation of ru.po to Russian
+# translation of deskbar-applet.HEAD.ru.po to Russian
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Alexandre Prokoudine <alexandre.prokoudine@gmail.com>, 2006.
+# Leonid Kanter <leon@asplinux.ru>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: ru\n"
+"Project-Id-Version: deskbar-applet.HEAD.ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-02 10:12+0300\n"
-"PO-Revision-Date: 2006-02-02 10:20+0300\n"
-"Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
-"Language-Team: Russian <ru@li.org>\n"
+"POT-Creation-Date: 2006-02-17 06:02+0100\n"
+"PO-Revision-Date: 2006-02-17 12:48+0200\n"
+"Last-Translator: Leonid Kanter <leon@asplinux.ru>\n"
+"Language-Team:  <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,8 +29,12 @@ msgid "_About"
 msgstr "_О программе"
 
 #: ../data/Deskbar_Applet.xml.h:2
+msgid "_Clear History"
+msgstr "О_чистить историю"
+
+#: ../data/Deskbar_Applet.xml.h:3
 msgid "_Preferences"
-msgstr "_Настройки"
+msgstr "_Параметры"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Focus</b>"
@@ -57,16 +61,16 @@ msgstr ""
 "вниз или вверх.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with categorized list"
-msgstr "Кнопка в панели со сгруппированным списком в панели"
+msgid "Button in panel"
+msgstr "Конпка в панели"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
-msgstr "Настройки Deskbar"
+msgstr "Настройка Deskbar"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with simple list"
-msgstr "Строка ввода с простым списком в панели"
+msgid "Entry in panel"
+msgstr "Элемент панели"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -99,7 +103,7 @@ msgid ""
 "the deskbar.</small></i>"
 msgstr ""
 "<i><small><b>Примечание: </b>Если вместо комбинации указана одна клавиша "
-"(скажем, <b>t</b>) вы можете просто ввести \"<b>что-нибудь</b>\" и затем "
+"(например, <b>t</b>) вы можете просто ввести \"<b>что-нибудь</b>\" и затем "
 "нажать <b>Alt-t</b> в апплете поиска.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
@@ -130,7 +134,7 @@ msgstr "Открыть закладку %s"
 #: ../deskbar/BrowserMatch.py:81
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "Искать в <b>%(name)s</b> про <i>%(text)s</i>"
+msgstr "Искать в <b>%(name)s</b> <i>%(text)s</i>"
 
 #: ../deskbar/BrowserMatch.py:187
 msgid "Shortcut"
@@ -140,7 +144,7 @@ msgstr "Комбинация клавиш"
 msgid "Bookmark Name"
 msgstr "Имя закладки"
 
-#: ../deskbar/Categories.py:9
+#: ../deskbar/Categories.py:4
 #, python-format
 msgid "%s more result"
 msgid_plural "%s more results"
@@ -148,19 +152,19 @@ msgstr[0] "Ещё %s результат"
 msgstr[1] "Ещё %s результата"
 msgstr[2] "Ещё %s результов"
 
-#: ../deskbar/Categories.py:14
+#: ../deskbar/Categories.py:9
 msgid "Uncategorized"
 msgstr "Не категоризовано"
 
-#: ../deskbar/Categories.py:19 ../deskbar/handlers/history.py:8
+#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:8
 msgid "History"
 msgstr "История"
 
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:26
 msgid "Documents"
 msgstr "Документы"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:27
 #, python-format
 msgid "%s more document"
 msgid_plural "%s more documents"
@@ -168,11 +172,11 @@ msgstr[0] "Ещё %s документ"
 msgstr[1] "Ещё %s документа"
 msgstr[2] "Ещё %s документов"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:31
 msgid "Files"
 msgstr "Файлы"
 
-#: ../deskbar/Categories.py:37
+#: ../deskbar/Categories.py:32
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
@@ -180,15 +184,15 @@ msgstr[0] "Ещё %s файл"
 msgstr[1] "Ещё %s файла"
 msgstr[2] "Ещё %s файлов"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:36
 msgid "People"
 msgstr "Люди"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:41
 msgid "Places"
 msgstr "Места"
 
-#: ../deskbar/Categories.py:47
+#: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more place"
 msgid_plural "%s more places"
@@ -196,11 +200,11 @@ msgstr[0] "Ещё %s мест"
 msgstr[1] "Ещё %s места"
 msgstr[2] "Ещё %s мест"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:46
 msgid "Actions"
 msgstr "Действия"
 
-#: ../deskbar/Categories.py:52
+#: ../deskbar/Categories.py:47
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
@@ -208,11 +212,11 @@ msgstr[0] "Ещё %s действие"
 msgstr[1] "Ещё %s действия"
 msgstr[2] "Ещё %s действий"
 
-#: ../deskbar/Categories.py:56 ../deskbar/handlers/web_address.py:9
+#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
 msgid "Web"
 msgstr "Интернет"
 
-#: ../deskbar/Categories.py:61
+#: ../deskbar/Categories.py:56
 msgid "Web Search"
 msgstr "Поиск по Интернету"
 
@@ -225,31 +229,32 @@ msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
 msgstr ""
-"Возможно, она не критична, но всё же стоит сообщить о ней разработчикам. "
-"С этого момента программа может функционироватьс ошибками."
+"Возможно, она не критична, но всё же стоит сообщить о ней разработчикам. С "
+"этого момента программа может функционироватьс ошибками."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
 msgstr "Обнаружена ошибка"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:20
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:21
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Искать по всем вашим документам при помощи Beagle по мере набора запроса"
 
-#: ../deskbar/handlers/beagle-live.py:47
+#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "Запись в адресной книге для %s"
+msgid "Send Email to %s"
+msgstr "Отправить письмо %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:57
+#: ../deskbar/handlers/beagle-live.py:58
 #, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "Прочитать письмо от <i>%(sender)s</i>: <b>%(name)s</b>"
+msgid "Email from %s"
+msgstr "Письмо от %s"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
@@ -257,30 +262,30 @@ msgstr "Прочитать письмо от <i>%(sender)s</i>: <b>%(name)s</b>"
 msgid "Open %s"
 msgstr "Открыть %s"
 
-#: ../deskbar/handlers/beagle-live.py:75
+#: ../deskbar/handlers/beagle-live.py:74
 #, python-format
-msgid "Open news item %s"
-msgstr "Открыть новость %s"
+msgid "News from %s"
+msgstr "Новости из %s"
 
 #: ../deskbar/handlers/beagle-live.py:83
 #, python-format
-msgid "Open note %s"
-msgstr "Открыть заметку %s"
+msgid "Note: %s"
+msgstr "Примечание: %s"
 
 #: ../deskbar/handlers/beagle-live.py:91
 #, python-format
-msgid "View conversation with %s"
-msgstr "Просмотреть разговор с %s"
+msgid "Conversation with %s"
+msgstr "Диалог с %s"
 
 #: ../deskbar/handlers/beagle-live.py:99
 #, python-format
-msgid "View calendar %s"
-msgstr "Просмотреть календарь %s"
+msgid "Calendar: %s"
+msgstr "Календарь: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:270
-#: ../deskbar/handlers/beagle-live.py:289
+#: ../deskbar/handlers/beagle-live.py:271
+#: ../deskbar/handlers/beagle-live.py:293
 msgid "?"
 msgstr "?"
 
@@ -305,40 +310,35 @@ msgstr "Почта"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "Посылать письма вводом адреса эл. почты полностью"
 
-#: ../deskbar/handlers/email_address.py:27
-#, python-format
-msgid "Send Email to %s"
-msgstr "Послать письмо %s"
-
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
 msgstr "Вы можете указать комбинации клавиш для поиска"
 
 #: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:33
+#: ../deskbar/handlers/mozilla.py:120
 msgid "Web Bookmarks"
 msgstr "Закладки веб-браузера"
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/mozilla.py:121
 msgid "Open your web bookmarks by name"
 msgstr "Открывать ваши закладки из веб-браузера по имени"
 
 #: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
 msgid "Web History"
-msgstr "История браузинга по Интернету"
+msgstr "История просмотра Интернета"
 
 #: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
 msgid "Open your web history by name"
 msgstr "Открывать сайты из истории браузера по имени"
 
 #: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:38
+#: ../deskbar/handlers/mozilla.py:125
 msgid "Web Searches"
-msgstr "Поиск по Интернету"
+msgstr "Поиск в Интернете"
 
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:39
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Search the web via your browser's search settings"
 msgstr "Искать в Интернете, используя настройки браузера"
 
@@ -348,7 +348,7 @@ msgstr "Вам необходимо включить автозавершени�
 
 #: ../deskbar/handlers/evolution.py:13
 msgid "Autocompletion Needs to be Enabled"
-msgstr "Необходимо включить автозавершение"
+msgstr "Необходимо включить автодополнение"
 
 #: ../deskbar/handlers/evolution.py:14
 msgid ""
@@ -357,8 +357,7 @@ msgid ""
 "choose Edit - Preferences, and then Autocompletion."
 msgstr ""
 "Поиск адресов электронной почты из адресной книги невозможен без "
-"автодополнения. Для включения зайдите в «Правка - Параметры - "
-"Автозавершение»."
+"автозавершения. Для включения зайдите в «Правка - Параметры - Автозавершение»."
 
 #: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
@@ -382,7 +381,7 @@ msgstr "Файлы и папки"
 msgid "Open your files and folders by name"
 msgstr "Открывать ваши файлы и папки по имени"
 
-#: ../deskbar/handlers/files.py:51
+#: ../deskbar/handlers/files.py:52
 #, python-format
 msgid "Open folder %s"
 msgstr "Открыть папку %s"
@@ -408,7 +407,7 @@ msgid ""
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 msgstr ""
 "Для использования Google Live вам нужна учётная запись Google .\n"
-"Получить таковую можно по адресу http://api.google.com/\n"
+"Получить её можно по адресу http://api.google.com/\n"
 "\n"
 "Когда учётная запись создана, вы получите по почте ключ Google API key.\n"
 "Сохраните его в файл\n"
@@ -444,11 +443,11 @@ msgstr "Вам нужен ключ Google API."
 
 #: ../deskbar/handlers/google-live.py:48
 msgid "Google Search"
-msgstr "Поиск по Google"
+msgstr "Поиск в Google"
 
 #: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
-msgstr "Искать через Google по мере набора запроса"
+msgstr "Искать в Google по мере набора запроса"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
 msgid "Files and Folders Bookmarks"
@@ -461,11 +460,15 @@ msgstr "Открывать ваши закладки на файлы и папк
 #: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
 #, python-format
 msgid "Open location %s"
-msgstr "Открыть местоположение %s"
+msgstr "Открыть адрес %s"
 
 #: ../deskbar/handlers/history.py:9
 msgid "Recognize previously used searches"
 msgstr "Узнавать вводившиеся раньше запросы"
+
+#: ../deskbar/handlers/mozilla.py:111
+msgid "You can customize which search engines are offered."
+msgstr "Вы можете настроить список предлагаемых поисковых систем."
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
@@ -511,12 +514,12 @@ msgstr "Искать файлы и папки по маске имени"
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Запустить <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:85
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Искать %s в словаре"
 
-#: ../deskbar/handlers/programs.py:93
+#: ../deskbar/handlers/programs.py:94
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Искать файлы с именем, похожим на %s"
@@ -551,7 +554,15 @@ msgstr "Открыть веб-страницу %s"
 #: ../deskbar/handlers/web_address.py:38
 #, python-format
 msgid "Open the location %s"
-msgstr "Открыть местоположение %s"
+msgstr "Открыть адрес %s"
+
+#: ../deskbar/handlers/yahoo.py:16
+msgid "Yahoo! Search"
+msgstr "Поиск в Yahoo!"
+
+#: ../deskbar/handlers/yahoo.py:17
+msgid "Search Yahoo! as you type"
+msgstr "Искать в Google по мере набора запроса"
 
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
@@ -575,10 +586,4 @@ msgstr "_Больше..."
 #: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "История пуста"
-
-#: ../deskbar/ui/cuemiac/Cuemiac.py:43
-msgid "You need Gtk+ version 2.8.0 or higher to use this module"
-msgstr ""
-"Вам нужна бибилиотека Gtk+ версии 2.8.0 или новее для использования этого "
-"расширения"
 
