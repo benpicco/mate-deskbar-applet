@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-31 14:13+0100\n"
-"PO-Revision-Date: 2006-01-31 14:30+0100\n"
+"POT-Creation-Date: 2006-02-19 17:49+0100\n"
+"PO-Revision-Date: 2006-02-19 18:04+0100\n"
 "Last-Translator: Slobodan D. Sredojević <slobo@akrep.be>\n"
 "Language-Team: Serbian (sr) <gnom@prevod.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,6 +34,10 @@ msgid "_About"
 msgstr "_O programu"
 
 #: ../data/Deskbar_Applet.xml.h:2
+msgid "_Clear History"
+msgstr "Očisti istori_ju"
+
+#: ../data/Deskbar_Applet.xml.h:3
 msgid "_Preferences"
 msgstr "_Postavke"
 
@@ -62,16 +66,16 @@ msgstr ""
 "proširenje.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with categorized list"
-msgstr "Dugme na panelu sa spiskom kategorija"
+msgid "Button in panel"
+msgstr "Dugme na panelu"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Postavke čarobne linije"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with simple list"
-msgstr "Stavka na panelu sa običnim spiskom"
+msgid "Entry in panel"
+msgstr "Stavka na panelu"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -145,37 +149,39 @@ msgstr "Prečica"
 msgid "Bookmark Name"
 msgstr "Ime obeleživača"
 
-#: ../deskbar/Categories.py:9
+#: ../deskbar/Categories.py:4
+#, python-format
 msgid "%s more result"
 msgid_plural "%s more results"
 msgstr[0] "još %s rezultat"
 msgstr[1] "još %s rezultata"
 msgstr[2] "još %s rezultata"
 
-#: ../deskbar/Categories.py:14
+#: ../deskbar/Categories.py:9
 msgid "Uncategorized"
 msgstr "Bez kategorije"
 
-#: ../deskbar/Categories.py:19 ../deskbar/handlers/history.py:8
+#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:8
 msgid "History"
 msgstr "Istorija"
 
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:26
 msgid "Documents"
 msgstr "Dokumenti"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:27
+#, python-format
 msgid "%s more document"
 msgid_plural "%s more documents"
 msgstr[0] "još %s dokument"
 msgstr[1] "još %s dokumenta"
 msgstr[2] "još %s dokumenata"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:31
 msgid "Files"
 msgstr "Datoteke"
 
-#: ../deskbar/Categories.py:37
+#: ../deskbar/Categories.py:32
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
@@ -183,26 +189,27 @@ msgstr[0] "još %s datoteka"
 msgstr[1] "još %s datoteke"
 msgstr[2] "još %s datoteka"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:36
 msgid "People"
 msgstr "Ljudi"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:41
 msgid "Places"
 msgstr "Mesta"
 
-#: ../deskbar/Categories.py:47
+#: ../deskbar/Categories.py:42
+#, python-format
 msgid "%s more place"
 msgid_plural "%s more places"
 msgstr[0] "još %s mesto"
 msgstr[1] "još %s mesta"
 msgstr[2] "još %s mesta"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:46
 msgid "Actions"
 msgstr "Radnje"
 
-#: ../deskbar/Categories.py:52
+#: ../deskbar/Categories.py:47
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
@@ -210,11 +217,11 @@ msgstr[0] "još %s radnja"
 msgstr[1] "još %s radnje"
 msgstr[2] "još %s radnji"
 
-#: ../deskbar/Categories.py:56 ../deskbar/handlers/web_address.py:9
+#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
 msgid "Web"
 msgstr "Veb"
 
-#: ../deskbar/Categories.py:61
+#: ../deskbar/Categories.py:56
 msgid "Web Search"
 msgstr "Pretraga veba"
 
@@ -234,25 +241,24 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Otkrivena je greška"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:20
 msgid "Beagle Live"
 msgstr "Živo njuškalo"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:21
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Kako kucate, pas njuškalo vam pomaže da pretražite sve vaše dokumente"
 
-#: ../deskbar/handlers/beagle-live.py:47
+#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "Stavka u imeniku za %s"
+msgid "Send Email to %s"
+msgstr "Pošalji e-poruku za %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:57
-#, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr ""
-"Pogledajte e-poruku koju vam je poslao(la) <i>%(sender)s</i>: <b>%(name)s</b>"
+#: ../deskbar/handlers/beagle-live.py:58
+msgid "Email from %s"
+msgstr "E-poruku šalje %s"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
@@ -260,30 +266,27 @@ msgstr ""
 msgid "Open %s"
 msgstr "Otvori datoteku %s"
 
-#: ../deskbar/handlers/beagle-live.py:75
+#: ../deskbar/handlers/beagle-live.py:74
 #, python-format
-msgid "Open news item %s"
-msgstr "Otvori vest %s"
+msgid "News from %s"
+msgstr "Vest sa %s"
 
 #: ../deskbar/handlers/beagle-live.py:83
-#, python-format
-msgid "Open note %s"
-msgstr "Otvori belešku %s"
+msgid "Note: %s"
+msgstr "Beleška: %s"
 
 #: ../deskbar/handlers/beagle-live.py:91
-#, python-format
-msgid "View conversation with %s"
-msgstr "Pogledaj razgovor sa %s"
+msgid "Conversation with %s"
+msgstr "Razgovor sa %s"
 
 #: ../deskbar/handlers/beagle-live.py:99
-#, python-format
-msgid "View calendar %s"
-msgstr "Pogledaj kalendar %s"
+msgid "Calendar: %s"
+msgstr "Kalendar: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:268
-#: ../deskbar/handlers/beagle-live.py:287
+#: ../deskbar/handlers/beagle-live.py:271
+#: ../deskbar/handlers/beagle-live.py:293
 msgid "?"
 msgstr "?"
 
@@ -308,22 +311,17 @@ msgstr "Pošta"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "Šalje e-poruku kada ukucate potpunu adresu e-pošte"
 
-#: ../deskbar/handlers/email_address.py:27
-#, python-format
-msgid "Send Email to %s"
-msgstr "Pošalji e-poruku za %s"
-
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
 msgstr "Možete postaviti prečice za vaše pretrage."
 
 #: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:33
+#: ../deskbar/handlers/mozilla.py:120
 msgid "Web Bookmarks"
 msgstr "Veb obeleživači"
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/mozilla.py:121
 msgid "Open your web bookmarks by name"
 msgstr "Otvara vaše veb obeleževače po imenu"
 
@@ -336,12 +334,12 @@ msgid "Open your web history by name"
 msgstr "Otvara vašu veb istoriju po imenu"
 
 #: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:38
+#: ../deskbar/handlers/mozilla.py:125
 msgid "Web Searches"
 msgstr "Pretrage veba"
 
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:39
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Search the web via your browser's search settings"
 msgstr "Pretražuje veb koristeći podešavanja vašeg veb preglednika"
 
@@ -387,7 +385,7 @@ msgstr "Datoteke i fascikle"
 msgid "Open your files and folders by name"
 msgstr "Po imenu otvara vaše datoteke i fascikle"
 
-#: ../deskbar/handlers/files.py:51
+#: ../deskbar/handlers/files.py:52
 #, python-format
 msgid "Open folder %s"
 msgstr "Otvori fasciklu %s"
@@ -447,8 +445,8 @@ msgid "You need a Google API key."
 msgstr "Potreban vam je Gugl API ključ."
 
 #: ../deskbar/handlers/google-live.py:48
-msgid "Google Live"
-msgstr "Gugl uživo"
+msgid "Google Search"
+msgstr "Gugl pretraga"
 
 #: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
@@ -470,6 +468,10 @@ msgstr "Otvori mesto %s"
 #: ../deskbar/handlers/history.py:9
 msgid "Recognize previously used searches"
 msgstr "Prepoznaj prethodno korišćene pretrage"
+
+#: ../deskbar/handlers/mozilla.py:111
+msgid "You can customize which search engines are offered."
+msgstr "Možete da prilagodite ponudu sistema za pretragu."
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
@@ -515,12 +517,12 @@ msgstr "Pretražuje datoteke i fascikle tražeći uzorak imena"
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Pokreni program <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:85
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Potraži termin %s u rečniku"
 
-#: ../deskbar/handlers/programs.py:93
+#: ../deskbar/handlers/programs.py:94
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Pretraži datoteke koje u imenu imaju reč %s"
@@ -557,6 +559,14 @@ msgstr "Otvori veb stranu %s"
 msgid "Open the location %s"
 msgstr "Otvori mesto %s"
 
+#: ../deskbar/handlers/yahoo.py:16
+msgid "Yahoo! Search"
+msgstr "Jahu pretraga"
+
+#: ../deskbar/handlers/yahoo.py:17
+msgid "Search Yahoo! as you type"
+msgstr "Pretražuje Jahu dok vi kucate"
+
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Čarobna linija za sve"
@@ -583,9 +593,32 @@ msgstr "_Više..."
 msgid "No History"
 msgstr "Ne postoji istorija"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:43
-msgid "You need Gtk+ version 2.8.0 or higher to use this module"
-msgstr "Za korišćenje ovog modula vam je potrebna Gtk+ verzija novija od 2.8.0"
+#~ msgid "Button in panel with categorized list"
+#~ msgstr "Dugme na panelu sa spiskom kategorija"
+
+#~ msgid "Addressbook entry for %s"
+#~ msgstr "Stavka u imeniku za %s"
+
+#~ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+#~ msgstr ""
+#~ "Pogledajte e-poruku koju vam je poslao(la) <i>%(sender)s</i>: <b>%(name)"
+#~ "s</b>"
+
+#~ msgid "Open news item %s"
+#~ msgstr "Otvori vest %s"
+
+#~ msgid "Open note %s"
+#~ msgstr "Otvori belešku %s"
+
+#~ msgid "View calendar %s"
+#~ msgstr "Pogledaj kalendar %s"
+
+#~ msgid "Google Live"
+#~ msgstr "Gugl uživo"
+
+#~ msgid "You need Gtk+ version 2.8.0 or higher to use this module"
+#~ msgstr ""
+#~ "Za korišćenje ovog modula vam je potrebna Gtk+ verzija novija od 2.8.0"
 
 #~ msgid "News"
 #~ msgstr "Vesti"
@@ -614,26 +647,17 @@ msgstr "Za korišćenje ovog modula vam je potrebna Gtk+ verzija novija od 2.8.0
 #~ msgstr[1] "još %s e-poruka"
 #~ msgstr[2] "još %s e-poruka"
 
-#~ msgid "Notes"
-#~ msgstr "Beleške"
-
 #~ msgid "%s more note"
 #~ msgid_plural "%s more notes"
 #~ msgstr[0] "još %s beleška"
 #~ msgstr[1] "još %s beleške"
 #~ msgstr[2] "još %s beleški"
 
-#~ msgid "Google Search"
-#~ msgstr "Gugl pretraga"
-
 #~ msgid "%s more online hit"
 #~ msgid_plural "%s more online hits"
 #~ msgstr[0] "još %s dodatni pogodak na mreži"
 #~ msgstr[1] "još %s dodatna pogotka na mreži"
 #~ msgstr[2] "još %s dodatnih pogodaka na mreži"
-
-#~ msgid "Calendar"
-#~ msgstr "Kalendar"
 
 #~ msgid "%s more calendar item"
 #~ msgid_plural "%s more calendar items"
