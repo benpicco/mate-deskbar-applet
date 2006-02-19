@@ -188,6 +188,7 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 		deskbar.Handler.SignallingHandler.__init__(self, ("system-search", "best"))
 		self.counter = {}
 		self.snippets = {}
+		self.set_delay (500)
 		
 	def initialize (self):
 		import beagle

@@ -1,3 +1,12 @@
+2006-02-19  Mikkel Kamstrup Erlandsen  <kamstrup@daimi.au.dk>
+
+	* deskbar/Handler.py:
+	* deskbar/handlers/beagle-live.py:
+	Add a set_delay(timeout) method to SignallingHandler, and make beagle-live use it.
+	We where spawning beagle-queries galore, which was quite noticable performance wise.
+	Each (signalling) handler can now individually decide how long they will wait for 
+	query changes before starting.
+
 2006-02-19  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/ModuleLoader.py:

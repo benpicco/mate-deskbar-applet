@@ -119,8 +119,23 @@ class SignallingHandler (Handler, gobject.GObject):
 		Handler.__init__ (self, iconfile)
 		gobject.GObject.__init__ (self)
 		self.__last_query = None
+		self.__start_query_id = 0
+		self.__delay = 0
+
+	def set_delay (self, timeout):
+		self.__delay = timeout
 
 	def query_async (self, qstring, max):
+		if self.__delay == 0:
+			self.__query_async_real (qstring, max)
+			return
+		# Check if there is a query delayed, and remove it if so
+		if self.__start_query_id != 0:
+			gobject.source_remove(self.__start_query_id)
+
+		self.__start_query_id = gobject.timeout_add(self.__delay, self.__query_async_real, qstring, max) 
+
+	def __query_async_real (self, qstring, max):
 		"""
 		When we receive an async call, we first register the most current search string.
 		Then we call with a little delay the actual query() method, implemented by the handler.
