@@ -1,6 +1,8 @@
 import cPickle, os
 import gtk, gobject
 from deskbar import MAX_HISTORY, HISTORY_FILE, MAX_RESULTS_PER_HANDLER
+from deskbar.Utils import load_icon
+from gettext import gettext as _
 
 class DeskbarHistoryIter : 
 	"""An iter type to iterate over a DeskbarHistory.
@@ -39,6 +41,20 @@ class SortedDeskbarHistory (gtk.TreeModelSort):
 	def on_sort_chronological(self, model, iter1, iter2):
 		return 1
 
+empty_history_icon = load_icon(gtk.STOCK_STOP)
+class EmptyHistoryMatch:
+	def get_icon(self):
+		return empty_history_icon
+	
+	def action(self, text=None):
+		pass
+		
+	def get_name(self, text=None):
+		return {"msg": _("No History")}
+		
+	def get_verb(self):
+		return "%(msg)s"
+		
 class DeskbarHistory (gtk.ListStore) :
 	"""
 	Iteraating over a DeskbarHistory with a for loop returns (text,match) pairs.
@@ -62,8 +78,13 @@ class DeskbarHistory (gtk.ListStore) :
 	
 	def clear (self):
 		gtk.ListStore.clear(self)
+		self.append([("", EmptyHistoryMatch())])
 		self._index = -1
 		self.emit("changed")
+	
+	def clear_stub(self):
+		if len(self) == 1 and self[self.get_iter_first()][0][1].__class__ == EmptyHistoryMatch:
+			gtk.ListStore.clear(self)
 		
 	def load (self, module_list):
 		print 'Loading History'
@@ -93,14 +114,18 @@ class DeskbarHistory (gtk.ListStore) :
 		except Exception, msg:
 			return
 		
+		self.clear()
 		if len(new_history) > 0:
-			self.clear()
+			self.clear_stub()
 			for hist in new_history:
 				self.append (hist)
-		
+
 	def save (self):
 		save = []
 		for text, match in self:
+			if match.__class__ == EmptyHistoryMatch:
+				continue
+				
 			hsh = match.get_hash(text)
 			save.append((text, str(match.get_handler().__class__), str(match.__class__), match.serialize()))
 			
@@ -111,6 +136,11 @@ class DeskbarHistory (gtk.ListStore) :
 		pass
 	
 	def add (self, text, match):
+		if match.__class__ == EmptyHistoryMatch:
+			return
+			
+		self.clear_stub()
+		
 		copy_match = True
 		for idx, val in enumerate(self):
 			htext, hmatch = val

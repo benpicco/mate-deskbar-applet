@@ -15,6 +15,8 @@ class CuemiacHistoryView (gtk.TreeView):
 		gtk.TreeView.__init__ (self, SortedDeskbarHistory())
 				
 		icon = gtk.CellRendererPixbuf ()
+		icon.set_property("xpad", 4)
+		icon.set_property("xalign", 0.1)
 		title = gtk.CellRendererText ()
 		title.set_property ("ellipsize", pango.ELLIPSIZE_END)
 		title.set_property ("width-chars", 50) #FIXME: Pick width according to screen size
