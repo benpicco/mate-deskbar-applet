@@ -1,5 +1,13 @@
 2006-02-19  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/ModuleLoader.py:
+	* deskbar/__init__.py:
+	* deskbar/handlers/files.py:
+	Really fix duplicate module loading
+	Return URIS in file and folder handler to correctly detect duplicates
+
+2006-02-19  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/DeskbarHistory.py:
 	* deskbar/ui/cuemiac/CuemiacHistory.py:
 	Add a 'No History' item in the history dropdown when there is no history.

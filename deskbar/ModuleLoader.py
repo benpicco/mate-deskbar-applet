@@ -1,5 +1,5 @@
 import os, sys, pydoc
-from os.path import abspath, expanduser, join
+from os.path import abspath, expanduser, join, basename
 import traceback
 import gtk, gobject
 
@@ -68,7 +68,9 @@ class ModuleLoader (gobject.GObject):
 		res = []
 		for d in self.dirs:
 			try:
-				res += [join(d, m) for m in os.listdir (d) if self.is_module(m)]
+				for i in [join(d, m) for m in os.listdir (d) if self.is_module(m)]:
+					if basename(i) not in [basename(j) for j in res]:
+						res.append(i)
 			except OSError, err:
 				print >> sys.stderr, "Error reading directory %s, skipping." % d
 				traceback.print_exc()
@@ -164,9 +166,9 @@ class ModuleLoader (gobject.GObject):
 			context.module.initialize ()
 			
 			# Add necessary categories
-			if "category" in context.infos:
-				catname, catinfo = context.infos["category"]
-				deskbar.Categories.CATEGORIES[catname] = catinfo
+			if "categories" in context.infos:
+				for catname, catinfo in context.infos["categories"].items():
+					deskbar.Categories.CATEGORIES[catname] = catinfo
 		except Exception, msg:
 			print "Error while initializing %s: %s" % (context.infos["name"],msg)
 			traceback.print_exc()

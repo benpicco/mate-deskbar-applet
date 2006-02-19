@@ -29,11 +29,11 @@ else:
 	SHARED_DATA_DIR = join(DATA_DIR, "deskbar-applet")
 print "Data Dir: %s" % SHARED_DATA_DIR
 
+HANDLERS_DIR = []
 if UNINSTALLED_DESKBAR:
-	HANDLERS_DIR = abspath(join(dirname(__file__), 'handlers'))
-else:
-	HANDLERS_DIR = join(LIB_DIR, "deskbar-applet", "handlers")
-print "Handlers Dir: %s" % HANDLERS_DIR
+	HANDLERS_DIR += [abspath(join(dirname(__file__), 'handlers'))]
+
+HANDLERS_DIR += [join(LIB_DIR, "deskbar-applet", "handlers")]
 
 USER_DESKBAR_DIR = expanduser("~/.gnome2/deskbar-applet")
 if not exists(USER_DESKBAR_DIR):
@@ -48,8 +48,10 @@ if not exists(USER_HANDLERS_DIR):
 		os.makedirs(USER_HANDLERS_DIR, 0744)
 	except Exception , msg:
 		print 'Error:could not create user handlers dir (%s): %s' % (USER_HANDLERS_DIR, msg)
+USER_HANDLERS_DIR = [USER_HANDLERS_DIR]
 
-MODULES_DIRS = [USER_HANDLERS_DIR, HANDLERS_DIR]
+MODULES_DIRS = USER_HANDLERS_DIR+HANDLERS_DIR
+print "Handlers Dir: %s" % MODULES_DIRS
 # ------------------------------------------------------------------------------
 
 # Set the cwd to the home directory so spawned processes behave correctly

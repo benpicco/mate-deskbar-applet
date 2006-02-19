@@ -33,7 +33,7 @@ class FileMatch(deskbar.Match.Match):
 		return _("Open %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
-		return self.absname
+		return "file://"+self.absname
 
 class FolderMatch(deskbar.Match.Match):
 	def __init__(self, backend, name=None, absname=None, **args):
@@ -52,7 +52,7 @@ class FolderMatch(deskbar.Match.Match):
 		return _("Open folder %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
-		return self.absname
+		return "file://"+self.absname
 		
 class FileFolderHandler(deskbar.Handler.Handler):
 	def __init__(self):
