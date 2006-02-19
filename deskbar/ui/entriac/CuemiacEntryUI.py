@@ -1,4 +1,5 @@
 import gtk, gobject, gnomeapplet, gconf
+from gettext import gettext as _
 
 import deskbar
 from deskbar.ui.DeskbarUI import DeskbarUI
@@ -102,6 +103,9 @@ class CuemiacEntryUI (DeskbarUI):
 			self.applet.set_background_widget(self.icon_entry)
 		except Exception, msg:
 			pass
+		
+		self.tooltips = gtk.Tooltips()
+		self.tooltips.set_tip(self.icon_event_box, _("Show previous actions"))
 		
 		self.invalid = True
 		

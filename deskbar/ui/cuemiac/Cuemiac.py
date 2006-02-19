@@ -425,7 +425,9 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		self.connect ("cursor-changed", self.__on_cursor_changed)
 		self.set_property ("headers-visible", False)
-		self.connect ("row-activated", self.__on_activated)
+		self.connect ("row-activated", lambda w,p,c: self.__on_activated())
+		self.connect ("button-press-event", lambda w,e: self.__on_activated(self.get_path_at_pos(int(e.x), int(e.y))[0]))
+		
 		self.connect ("key-press-event", self.__on_key_press)
 				
 		self.set_enable_search (False)
@@ -549,11 +551,16 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		cell.set_property ("markup", model[iter][model.ACTIONS])
 
-	def __on_activated (self, treeview, path, column):
-		model, iter = self.get_selection().get_selected()
+	def __on_activated (self, path=None):
+		if path == None:
+			model, iter = self.get_selection().get_selected()
+		else:
+			model, iter = self.get_model(), path
 		match = model[iter][model.MATCHES]
 		self.emit ("match-selected", match)
-	
+		
+		return True
+		
 	def __on_key_press (self, widget, event):
 		# FIXME: In the future we should check for ctrl being pressed to create shortcuts
 		model, iter = self.get_selection().get_selected()

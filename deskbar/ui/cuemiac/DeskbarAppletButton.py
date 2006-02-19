@@ -1,6 +1,7 @@
 import gtk
 import gnomeapplet
 import gobject
+from gettext import gettext as _
 
 class DeskbarAppletButton (gtk.HBox):
 	"""
@@ -56,6 +57,10 @@ class DeskbarAppletButton (gtk.HBox):
 		self.connect("button-press-event", self.on_button_press_event)
 		self.button_arrow.connect("button-press-event", self.on_button_press_event)
 		self.button_main.connect("button-press-event", self.on_button_press_event)
+		
+		self.tooltips = gtk.Tooltips()
+		self.tooltips.set_tip(self.button_main, _("Show search entry"))
+		self.tooltips.set_tip(self.button_arrow, _("Show previous actions"))
 	
 	def on_button_press_event(self, widget, event):
 		if not self.get_property('sensitive'):

@@ -25,9 +25,11 @@ class CuemiacHistoryView (gtk.TreeView):
 		hits.set_cell_data_func(icon, self.__get_match_icon_for_cell)
 		self.append_column (hits)
 		
-		self.connect ("row-activated", self.__on_activated)
-		
+		self.connect ("row-activated", lambda w,p,c: self.__on_activated())
+		self.connect ("button-press-event", lambda w,e: self.__on_activated())             
+        
 		self.set_property ("headers-visible", False)
+		self.set_property ("hover-selection", True)
 		
 	def __get_match_icon_for_cell (self, column, cell, model, iter, data=None):
 	
@@ -47,11 +49,12 @@ class CuemiacHistoryView (gtk.TreeView):
 		
 		cell.set_property ("markup", match.get_verb () % verbs)
 
-	def __on_activated (self, treeview, path, column):
+	def __on_activated (self):
 		model, iter = self.get_selection().get_selected()
 		match = model[iter][0]
 		self.emit ("match-selected", match)
-
+		return True
+		
 class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 
 	__gsignals__ = {
