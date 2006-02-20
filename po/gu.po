@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-09 22:39+0100\n"
-"PO-Revision-Date: 2006-02-12 16:37+0530\n"
+"POT-Creation-Date: 2006-02-19 17:51+0100\n"
+"PO-Revision-Date: 2006-02-20 15:10+0530\n"
 "Last-Translator: Ankit Patel <ankit644@yahoo.com>\n"
 "Language-Team: Gujarati <indianoss-gujarati@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -39,6 +40,10 @@ msgid "_About"
 msgstr "વિશે (_A)"
 
 #: ../data/Deskbar_Applet.xml.h:2
+msgid "_Clear History"
+msgstr "ઈતિહાસ સાફ કરો (_C)"
+
+#: ../data/Deskbar_Applet.xml.h:3
 msgid "_Preferences"
 msgstr "પસંદગીઓ (_P)"
 
@@ -65,16 +70,16 @@ msgid ""
 msgstr "<i><small><b>નોંધ:</b> એક્સટેન્સનનો ક્રમ બદલવા માટે તેને ખેંચો અને મૂકો.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with categorized list"
-msgstr "વર્ગીકૃત યાદી સાથે પેનલમાં તળિયે"
+msgid "Button in panel"
+msgstr "પેનલમાં બટન"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "ડેસ્કપટ્ટી પસંદગીઓ"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with simple list"
-msgstr "સાદી યાદી સાથે પેનલમાં પ્રવેશ"
+msgid "Entry in panel"
+msgstr "પેનલમાં પ્રવેશ"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -123,7 +128,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "બુકમાર્ક થયેલ શોધો માટેના ટુંકાણો"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:107
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Open History Item %s"
 msgstr "ઈતિહાસ વસ્તુ %s ખોલો"
@@ -147,76 +152,81 @@ msgstr "ટુંકાણ"
 msgid "Bookmark Name"
 msgstr "બુકમાર્ક નામ"
 
-#: ../deskbar/Categories.py:9
+#: ../deskbar/Categories.py:4
 #, python-format
 msgid "%s more result"
 msgid_plural "%s more results"
 msgstr[0] "%s વધુ પરિણામ"
 msgstr[1] "%s વધુ પરિણામો"
 
-#: ../deskbar/Categories.py:14
+#: ../deskbar/Categories.py:9
 msgid "Uncategorized"
 msgstr "બિનવર્ગીકૃત"
 
-#: ../deskbar/Categories.py:19 ../deskbar/handlers/history.py:8
+#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:8
 msgid "History"
 msgstr "ઈતિહાસ"
 
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:26
 msgid "Documents"
 msgstr "દસ્તાવેજો"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:27
 #, python-format
 msgid "%s more document"
 msgid_plural "%s more documents"
 msgstr[0] "%s વધુ દસ્તાવેજ"
 msgstr[1] "%s વધુ દસ્તાવેજો"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:31
 msgid "Files"
 msgstr "ફાઈલો"
 
-#: ../deskbar/Categories.py:37
+#: ../deskbar/Categories.py:32
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "%s વધુ ફાઈલ"
 msgstr[1] "%s વધુ ફાઈલો"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:36
 msgid "People"
 msgstr "લોકો"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:41
 msgid "Places"
 msgstr "જગ્યાઓ"
 
-#: ../deskbar/Categories.py:47
+#: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more place"
 msgid_plural "%s more places"
 msgstr[0] "%s વધુ જગ્યા"
 msgstr[1] "%s વધુ જગ્યાઓ"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:46
 msgid "Actions"
 msgstr "ક્રિયાઓ"
 
-#: ../deskbar/Categories.py:52
+#: ../deskbar/Categories.py:47
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "%s વધુ ક્રિયા"
 msgstr[1] "%s વધુ ક્રિયાઓ"
 
-#: ../deskbar/Categories.py:56 ../deskbar/handlers/web_address.py:9
+#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
 msgid "Web"
 msgstr "વેબ"
 
-#: ../deskbar/Categories.py:61
+#: ../deskbar/Categories.py:56
 msgid "Web Search"
 msgstr "વેબ શોધ"
+
+#: ../deskbar/DeskbarHistory.py:53
+#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
+msgid "No History"
+msgstr "કોઈ ઈતિહાસ નથી"
 
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
@@ -260,30 +270,30 @@ msgstr "%s તરફથી ઈમેઈલ"
 msgid "Open %s"
 msgstr "%s ખોલો"
 
-#: ../deskbar/handlers/beagle-live.py:75
+#: ../deskbar/handlers/beagle-live.py:74
 #, python-format
 msgid "News from %s"
 msgstr "%s માંથી સમાચાર"
 
-#: ../deskbar/handlers/beagle-live.py:84
+#: ../deskbar/handlers/beagle-live.py:83
 #, python-format
 msgid "Note: %s"
 msgstr "નોંધ: %s"
 
-#: ../deskbar/handlers/beagle-live.py:92
+#: ../deskbar/handlers/beagle-live.py:91
 #, python-format
 msgid "Conversation with %s"
 msgstr "%s સાથેનો વાર્તાલાપ"
 
-#: ../deskbar/handlers/beagle-live.py:100
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "Calendar: %s"
 msgstr "કેલેન્ડર: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:273
-#: ../deskbar/handlers/beagle-live.py:295
+#: ../deskbar/handlers/beagle-live.py:271
+#: ../deskbar/handlers/beagle-live.py:293
 msgid "?"
 msgstr "?"
 
@@ -313,12 +323,12 @@ msgid "You can set shortcuts for your searches."
 msgstr "તમે તમારી શોધો માટે ટુંકાણો સુયોજિત કરી શકો છો."
 
 #: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:33
+#: ../deskbar/handlers/mozilla.py:120
 msgid "Web Bookmarks"
 msgstr "વેબ બુકમાર્કો"
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/mozilla.py:121
 msgid "Open your web bookmarks by name"
 msgstr "તમારી વેબ બુકમાર્કો નામ દ્વારા ખોલો"
 
@@ -331,12 +341,12 @@ msgid "Open your web history by name"
 msgstr "તમારો વેબ ઈતિહાસ નામ પ્રમાણે ખોલો"
 
 #: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:38
+#: ../deskbar/handlers/mozilla.py:125
 msgid "Web Searches"
 msgstr "વેબ શોધો"
 
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:39
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Search the web via your browser's search settings"
 msgstr "તમારા બ્રાઉઝરના શોધ સુયોજનો મુજબ વેબમાં શોધો"
 
@@ -464,6 +474,10 @@ msgstr "સ્થાન %s ખોલો"
 msgid "Recognize previously used searches"
 msgstr "પહેલા વપરાયેલ શોધો ઓળખો"
 
+#: ../deskbar/handlers/mozilla.py:111
+msgid "You can customize which search engines are offered."
+msgstr "તમે એ વૈવિધ્યપૂર્ણ કરી શકો છો કે જે શોધ યંત્રોની તક અપાયેલ છે."
+
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
 msgstr "કાર્યક્રમો (અદ્યતન)"
@@ -550,11 +564,11 @@ msgstr "વેબ પાનું %s ખોલો"
 msgid "Open the location %s"
 msgstr "સ્થાન %s ખોલો"
 
-#: ../deskbar/handlers/yahoo.py:15
+#: ../deskbar/handlers/yahoo.py:16
 msgid "Yahoo! Search"
 msgstr "Yahoo! શોધ"
 
-#: ../deskbar/handlers/yahoo.py:16
+#: ../deskbar/handlers/yahoo.py:17
 msgid "Search Yahoo! as you type"
 msgstr "તમે જેમ લખો તેમ Yahoo! શોધો"
 
@@ -577,7 +591,11 @@ msgstr "અંકિત પટેલ <ankit644@yahoo.com>"
 msgid "_More..."
 msgstr "વધુ (_M)..."
 
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
-msgid "No History"
-msgstr "કોઈ ઈતિહાસ નથી"
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:62
+msgid "Show search entry"
+msgstr "શોધ પ્રવેશ બતાવો"
+
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:63
+msgid "Show previous actions"
+msgstr "પહેલાંની ક્રિયાઓ બતાવો"
 
