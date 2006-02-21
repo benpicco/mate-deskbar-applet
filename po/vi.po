@@ -6,8 +6,8 @@ msgid ""
 ""
 msgstr "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-16 06:04+0100\n"
-"PO-Revision-Date: 2006-02-16 18:13+1030\n"
+"POT-Creation-Date: 2006-02-21 05:48+0100\n"
+"PO-Revision-Date: 2006-02-21 17:47+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,10 @@ msgid "_About"
 msgstr "_Giới thiệu"
 
 #:../data/Deskbar_Applet.xml.h:2
+msgid "_Clear History"
+msgstr "_Xoá Lược sử"
+
+#:../data/Deskbar_Applet.xml.h:3
 msgid "_Preferences"
 msgstr "Tù_y thích"
 
@@ -136,59 +140,59 @@ msgstr "Phím tắt"
 msgid "Bookmark Name"
 msgstr "Tên Đánh dấu"
 
-#:../deskbar/Categories.py:9
+#:../deskbar/Categories.py:4
 #,python-format
 msgid "%s more result"
 msgid_plural "%s more results"
 msgstr[0] "%s kết quả thêm"
 
-#:../deskbar/Categories.py:14
+#:../deskbar/Categories.py:9
 msgid "Uncategorized"
 msgstr "Chưa phân loại"
 
-#:../deskbar/Categories.py:19 ../deskbar/handlers/history.py:8
+#:../deskbar/Categories.py:14 ../deskbar/handlers/history.py:8
 msgid "History"
 msgstr "Lược sử"
 
-#:../deskbar/Categories.py:31
+#:../deskbar/Categories.py:26
 msgid "Documents"
 msgstr "Tài liệu"
 
-#:../deskbar/Categories.py:32
+#:../deskbar/Categories.py:27
 #,python-format
 msgid "%s more document"
 msgid_plural "%s more documents"
 msgstr[0] "%s tài liệu thêm"
 
-#:../deskbar/Categories.py:36
+#:../deskbar/Categories.py:31
 msgid "Files"
 msgstr "Tập tin"
 
-#:../deskbar/Categories.py:37
+#:../deskbar/Categories.py:32
 #,python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "%s tập tin thêm"
 
-#:../deskbar/Categories.py:41
+#:../deskbar/Categories.py:36
 msgid "People"
 msgstr "Người"
 
-#:../deskbar/Categories.py:46
+#:../deskbar/Categories.py:41
 msgid "Places"
 msgstr "Nơi"
 
-#:../deskbar/Categories.py:47
+#:../deskbar/Categories.py:42
 #,python-format
 msgid "%s more place"
 msgid_plural "%s more places"
 msgstr[0] "%s nơi thêm"
 
-#:../deskbar/Categories.py:51
+#:../deskbar/Categories.py:46
 msgid "Actions"
 msgstr "Hành động"
 
-#:../deskbar/Categories.py:52
+#:../deskbar/Categories.py:47
 #,python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
@@ -196,13 +200,18 @@ msgstr[0] "%s hành động thêm"
 
 # 48x48/emblems/emblem-web.icon.in.h:1
 # 48x48/emblems/emblem-web.icon.in.h:1
-#:../deskbar/Categories.py:56 ../deskbar/handlers/web_address.py:9
+#:../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
 msgid "Web"
 msgstr "Mạng"
 
-#:../deskbar/Categories.py:61
+#:../deskbar/Categories.py:56
 msgid "Web Search"
 msgstr "Tìm kiếm Mạng"
+
+#:../deskbar/DeskbarHistory.py:53
+#:../deskbar/ui/completion/CompletionDeskbarUI.py:166
+msgid "No History"
+msgstr "Không có lược sử"
 
 #:../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
@@ -268,8 +277,8 @@ msgstr "Lịch: %s"
 
 #.translators: This is used for unknown values returned by beagle
 #.translators: for example unknown email sender, or unknown note title
-#:../deskbar/handlers/beagle-live.py:271
-#:../deskbar/handlers/beagle-live.py:293
+#:../deskbar/handlers/beagle-live.py:272
+#:../deskbar/handlers/beagle-live.py:294
 msgid "?"
 msgstr "?"
 
@@ -564,7 +573,3 @@ msgstr "Nhóm Việt hóa Gnome <gnomevi-list@lists.sourceforge.net>"
 #:../deskbar/ui/DeskbarPreferencesUI.py:54
 msgid "_More..."
 msgstr "Th_êm..."
-
-#:../deskbar/ui/completion/CompletionDeskbarUI.py:166
-msgid "No History"
-msgstr "Không có lược sử"
