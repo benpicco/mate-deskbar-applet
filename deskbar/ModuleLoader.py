@@ -68,6 +68,9 @@ class ModuleLoader (gobject.GObject):
 		res = []
 		for d in self.dirs:
 			try:
+				if not os.path.exists(d):
+					continue
+
 				for i in [join(d, m) for m in os.listdir (d) if self.is_module(m)]:
 					if basename(i) not in [basename(j) for j in res]:
 						res.append(i)

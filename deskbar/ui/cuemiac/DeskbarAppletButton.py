@@ -59,8 +59,8 @@ class DeskbarAppletButton (gtk.HBox):
 		self.button_main.connect("button-press-event", self.on_button_press_event)
 		
 		self.tooltips = gtk.Tooltips()
-		self.tooltips.set_tip(self.button_main, _("Show search entry"))
-		self.tooltips.set_tip(self.button_arrow, _("Show previous actions"))
+		#self.tooltips.set_tip(self.button_main, "Show search entry")
+		#self.tooltips.set_tip(self.button_arrow, "Show previous actions")
 	
 	def on_button_press_event(self, widget, event):
 		if not self.get_property('sensitive'):
