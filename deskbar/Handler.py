@@ -79,7 +79,7 @@ class Handler:
 		"""
 		pass
 		
-	def query(self, query, max):
+	def query(self, query):
 		"""
 		Searches the handler for the given query string.
 		Returns a list of

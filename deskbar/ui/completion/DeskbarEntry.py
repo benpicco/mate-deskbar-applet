@@ -205,7 +205,7 @@ class DeskbarEntry(deskbar.iconentry.IconEntry):
 			return
 		
 		self._completion_model_invalid = True
-		self.ui.emit('start-query', qstring, MAX_RESULTS_PER_HANDLER)
+		self.ui.emit('start-query', qstring)
 	
 	def on_history_set(self, historymanager, set):
 		if set:

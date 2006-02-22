@@ -1,5 +1,39 @@
 2006-02-22  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/DeskbarApplet.py:
+	* deskbar/Handler.py:
+	* deskbar/__init__.py:
+	* deskbar/handlers/beagle-live.py:
+	* deskbar/handlers/beagle.py:
+	* deskbar/handlers/debug-async_handler.py:
+	* deskbar/handlers/debug-requirements.py:
+	* deskbar/handlers/debug-signal_handler.py:
+	* deskbar/handlers/email_address.py:
+	* deskbar/handlers/epiphany.py:
+	* deskbar/handlers/evolution.py:
+	* deskbar/handlers/files.py:
+	* deskbar/handlers/galago.py:
+	* deskbar/handlers/galeon.py:
+	* deskbar/handlers/google-live.py:
+	* deskbar/handlers/gtkbookmarks.py:
+	* deskbar/handlers/history.py:
+	* deskbar/handlers/mozilla.py:
+	* deskbar/handlers/pathprograms.py:
+	* deskbar/handlers/programs.py:
+	* deskbar/handlers/volumes.py:
+	* deskbar/handlers/web_address.py:
+	* deskbar/handlers/yahoo.py:
+	* deskbar/ui/DeskbarUI.py:
+	* deskbar/ui/completion/DeskbarEntry.py:
+	* deskbar/ui/cuemiac/Cuemiac.py:
+	* deskbar/ui/entriac/CuemiacEntryUI.py:
+	API change: removed the 'max' argument to the Handler.query() method. The
+	handlers can now return any number of mathes or use the hardwired
+	deskbar.DEFAULT_RESULTS_PER_HANDLER variable to trim the results.
+	Fixes bug #331884
+
+2006-02-22  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/ui/completion/CompletionDeskbarUI.py:
 	Fix bug #332080, empty history borking completion UI
 

@@ -97,22 +97,27 @@ class DeskbarApplet:
 		match.action(text)
 		get_deskbar_history().add(text, match)
 		
-	def on_start_query (self, sender, qstring, max_hits):
+	def on_start_query (self, sender, qstring):
 		if self.start_query_id != 0:
 			gobject.source_remove(self.start_query_id)
 			
-		self.start_query_id = gobject.timeout_add(150, self.on_start_query_real, sender, qstring, max_hits)
+		self.start_query_id = gobject.timeout_add(150, self.on_start_query_real, sender, qstring)
 		
-	def on_start_query_real (self, sender, qstring, max_hits):
+	def on_start_query_real (self, sender, qstring):
 		self._match_hashes = {}
 		results = []
 		for modctx in self.module_list:
 			if not modctx.enabled:
 				continue
 			if modctx.module.is_async():
-				modctx.module.query_async(qstring, MAX_RESULTS_PER_HANDLER)
+				modctx.module.query_async(qstring)
 			else:
-				matches = modctx.module.query(qstring, MAX_RESULTS_PER_HANDLER)
+			
+				try:
+					matches = modctx.module.query(qstring)
+				except TypeError:
+					matches = modctx.module.query(qstring, deskbar.DEFAULT_RESULTS_PER_HANDLER)
+					
 				for match in matches:
 					text, match = qstring, match
 					if type(match) is tuple:
