@@ -1,6 +1,6 @@
 import sys
 import gtk, gobject
-import deskbar.Utils
+import deskbar.Utils, deskbar
 
 # Most Handlers will be HANDLER_IS_HAPPY, and this the assumed default state.
 # Some Handlers will require configuration, or need to notify the user in some
@@ -85,7 +85,6 @@ class Handler:
 		Returns a list of
 			(string, match object) tuple or
 			match object, when the string is the same as the passed one.
-		of maximum length "max".
 		"""
 		raise NotImplementedError
 
@@ -125,23 +124,26 @@ class SignallingHandler (Handler, gobject.GObject):
 	def set_delay (self, timeout):
 		self.__delay = timeout
 
-	def query_async (self, qstring, max):
+	def query_async (self, qstring):
 		if self.__delay == 0:
-			self.__query_async_real (qstring, max)
+			self.__query_async_real (qstring)
 			return
 		# Check if there is a query delayed, and remove it if so
 		if self.__start_query_id != 0:
 			gobject.source_remove(self.__start_query_id)
 
-		self.__start_query_id = gobject.timeout_add(self.__delay, self.__query_async_real, qstring, max) 
+		self.__start_query_id = gobject.timeout_add(self.__delay, self.__query_async_real, qstring) 
 
-	def __query_async_real (self, qstring, max):
+	def __query_async_real (self, qstring):
 		"""
 		When we receive an async call, we first register the most current search string.
 		Then we call with a little delay the actual query() method, implemented by the handler.
 		"""
 		self.__last_query = qstring
-		self.query (qstring, max)
+		try:
+			self.query (qstring)
+		except TypeError:
+			self.query (qstring, deskbar.DEFAULT_RESULTS_PER_HANDLER)
 
 	def emit_query_ready (self, qstring, matches):
 		if qstring == self.__last_query:
@@ -199,7 +201,7 @@ class AsyncHandler (Handler, gobject.GObject):
 		self.__query_queue = Queue ()
 		self.is_running = False
 	
-	def query_async (self, qstring, max):
+	def query_async (self, qstring):
 		"""
 		This method is the one to be called by the object wanting to start a new query.
 		If there's an already running query that one will be cancelled if possible.
@@ -214,7 +216,7 @@ class AsyncHandler (Handler, gobject.GObject):
 		"""
 		if not self.is_running:
 			self.is_running = True
-			Thread (None, self.__query_async, args=(qstring, max)).start ()
+			Thread (None, self.__query_async, args=(qstring,)).start ()
 			#print "AsyncHandler: Thread created for %s" % self.__class__ # DEBUG
 		else:
 			self.__query_queue.put (qstring, False)
@@ -271,19 +273,23 @@ class AsyncHandler (Handler, gobject.GObject):
 		self.emit ("query-ready", qstring, matches)
 		return False
 
-	def __query_async (self, qstring, max):
+	def __query_async (self, qstring):
 		"""
 		The magic happens here.
 		"""
 		try:
-			res = self.query (qstring, max)
+			try:
+				res = self.query (qstring)
+			except TypeError:
+				res = self.query (qstring, deskbar.DEFAULT_RESULTS_PER_HANDLER)
+				
 			if (res and res != []):
 				self.emit_query_ready (qstring, res)
 			self.is_running = False
 			
 		except QueryChanged, query_change:
 			try:
-				self.__query_async (query_change.new_query, max)
+				self.__query_async (query_change.new_query)
 			except QueryStopped:
 				self.is_running = False
 				#print "AsyncHandler: %s thread terminated." % str(self.__class__) # DEBUG

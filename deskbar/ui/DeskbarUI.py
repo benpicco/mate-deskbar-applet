@@ -19,8 +19,8 @@ class DeskbarUI (gobject.GObject):
 		"request-history-hide" ():
 			Request that the history window will be hidden.
 		
-		"start-query" (query_string, max_hits):
-			Request a query on the given string returning maximally max_hits hits.
+		"start-query" (query_string):
+			Request a query on the given string.
 			
 		"stop-query" ():
 			Signal that we no longer will handle returned queries. Fx. when the user hits
@@ -35,7 +35,7 @@ class DeskbarUI (gobject.GObject):
 	"""
 	__gsignals__ = {
 		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT]),
-		"start-query" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
+		"start-query" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING]),
 		"stop-query" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
 		"request-keybinding" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
 		"keyboard-shortcut" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_UINT]),

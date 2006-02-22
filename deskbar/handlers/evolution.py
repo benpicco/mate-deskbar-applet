@@ -54,8 +54,8 @@ class EvolutionHandler(deskbar.Handler.Handler):
 	def initialize(self):
 		deskbar.evolution.set_pixbuf_size(deskbar.ICON_HEIGHT)
 		
-	def query(self, query, max):
-		hits = deskbar.evolution.search_sync(query, max)
+	def query(self, query):
+		hits = deskbar.evolution.search_sync(query, deskbar.DEFAULT_RESULTS_PER_HANDLER)
 		matches = []
 		for name, email, pixbuf in hits:
 			if name == None or email == None:

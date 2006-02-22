@@ -107,7 +107,7 @@ class SpecialProgramHandler(deskbar.Handler.Handler):
 	def create_match(self, desktop, f):
 		raise NotImplementedError
 		
-	def query(self, qstring, qmax):
+	def query(self, qstring):
 		if self._match != None:
 			return [self._match]
 		else:
@@ -145,8 +145,8 @@ class ProgramsHandler(deskbar.Handler.Handler):
 	def initialize(self):
 		self._scan_desktop_files()
 		
-	def query(self, query, max):
-		return self._indexer.look_up(query)[:max]
+	def query(self, query):
+		return self._indexer.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
 		
 	def _scan_desktop_files(self):
 		for dir in get_xdg_data_dirs():

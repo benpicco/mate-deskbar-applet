@@ -58,10 +58,10 @@ class FileFolderHandler(deskbar.Handler.Handler):
 	def __init__(self):
 		deskbar.Handler.Handler.__init__(self, gtk.STOCK_OPEN)
 				
-	def query(self, query, max):
+	def query(self, query):
 		result = []
-		result += self.query_filefolder(query, False)[:max]
-		result += self.query_filefolder(query, True)[:max]
+		result += self.query_filefolder(query, False)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		result += self.query_filefolder(query, True)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
 		return result
 	
 	def query_filefolder(self, query, is_file):

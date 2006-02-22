@@ -46,14 +46,14 @@ class GtkBookmarkHandler(deskbar.Handler.Handler):
 		self.watcher.add(GTK_BOOKMARKS_FILE)
 		self._scan_bookmarks_files()
 		
-	def query(self, query, max):
+	def query(self, query):
 		result = []
 		query = query.lower()
 		for bmk, (name, loc) in self._locations.items():
 			if bmk.startswith(query):
 				result.append(GtkBookmarkMatch(self, name, loc))
 		
-		return result[:max]
+		return result
 	
 	def stop(self):
 		self.watcher.remove(GTK_BOOKMARKS_FILE)

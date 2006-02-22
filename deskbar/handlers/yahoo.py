@@ -3,7 +3,7 @@ from gettext import gettext as _
 
 import urllib, cgi
 import gnomevfs
-import deskbar.Handler
+import deskbar.Handler, deskbar
 import xml.dom.minidom
 
 YAHOO_API_KEY = 'deskbar-applet'
@@ -42,7 +42,7 @@ class YahooHandler(deskbar.Handler.AsyncHandler):
 
 	def query(self, qstring, qmax):
 		# Just to ensure we don't bork anything
-		qmax = min (qmax, MAX_QUERIES)
+		qmax = min (deskbar.DEFAULT_RESULTS_PER_HANDLER, MAX_QUERIES)
 
 		# Delay before we query so we *don't* make four queries
 		# "s", "sp", "spa", "spam".

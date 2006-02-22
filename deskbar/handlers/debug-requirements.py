@@ -41,8 +41,5 @@ class DebugRequirementsModule(deskbar.Handler.Handler):
 	def __init__ (self):
 		deskbar.Handler.Handler.__init__ (self, "stock_script")
 		
-	def query (self, qstring, max):
-		if max > 0:
-			return [DebugRequirementsMatch(self, name="TestMatch")]
-		else:
-			return []	
+	def query (self, qstring):
+		return [DebugRequirementsMatch(self, name="TestMatch")]

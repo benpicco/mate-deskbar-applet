@@ -4,7 +4,6 @@ import cgi
 import gtk, gobject
 
 import deskbar, deskbar.iconentry
-from deskbar import MAX_RESULTS_PER_HANDLER
 from deskbar.ModuleList import ModuleList
 from deskbar.Handler import *
 from deskbar.Match import *

@@ -77,15 +77,15 @@ class GaleonBookmarksHandler(GaleonHandler):
 			bookmarks = parser.get_indexer()
 			smart_bookmarks = parser.get_smart_bookmarks()
 	
-	def query(self, query, max):
+	def query(self, query):
 		global bookmarks
-		return bookmarks.look_up(query)[:max]
+		return bookmarks.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
 
 class GaleonSearchHandler(GaleonBookmarksHandler):
 	def __init__(self):
 		GaleonBookmarksHandler.__init__(self)
 	
-	def query(self, query, max):
+	def query(self, query):
 		global smart_bookmarks
 		return smart_bookmarks
 		
@@ -102,8 +102,8 @@ class GaleonHistoryHandler(GaleonHandler):
 		global favicon_cache
 		self._history = GaleonHistoryParser(self, favicon_cache).get_indexer()
 			
-	def query(self, query, max):
-		return self._history.look_up(query)[:max]
+	def query(self, query):
+		return self._history.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
 
 class GaleonBookmarksParser(xml.sax.ContentHandler):
 	def __init__(self, handler, cache):

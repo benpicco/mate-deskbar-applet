@@ -4,7 +4,6 @@ import gnomeapplet, gtk, gtk.gdk, gconf, gobject
 from gettext import gettext as _
 
 import deskbar, deskbar.ui
-from deskbar import MAX_RESULTS_PER_HANDLER
 from deskbar.DeskbarHistory import get_deskbar_history
 from deskbar.ModuleList import ModuleList
 from deskbar.ModuleLoader import ModuleLoader

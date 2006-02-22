@@ -89,9 +89,9 @@ class EpiphanyBookmarksHandler(EpiphanyHandler):
 			smart_bookmarks = parser.get_smart_bookmarks()
 			load_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map)
 		
-	def query(self, query, max):
+	def query(self, query):
 		global bookmarks
-		return bookmarks.look_up(query)[:max]
+		return bookmarks.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
 
 class EpiphanySearchHandler(EpiphanyBookmarksHandler):
 	def __init__(self):
@@ -100,7 +100,7 @@ class EpiphanySearchHandler(EpiphanyBookmarksHandler):
 	def on_key_press(self, query, shortcut):
 		return on_entry_key_press(query, shortcut, shortcuts_to_smart_bookmarks_map)
 	
-	def query(self, query, max):
+	def query(self, query):
 		# if one of the smart bookmarks' shortcuts matches as a prefix,
 		# then only return that bookmark
 		x = query.find(" ")
@@ -130,8 +130,8 @@ class EpiphanyHistoryHandler(EpiphanyHandler):
 		global favicon_cache
 		self._history = EpiphanyHistoryParser(self, favicon_cache).get_indexer()
 			
-	def query(self, query, max):
-		return self._history.look_up(query)[:max]
+	def query(self, query):
+		return self._history.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
 		
 class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 	def __init__(self, handler, cache):

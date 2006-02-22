@@ -43,5 +43,5 @@ class BeagleHandler(deskbar.Handler.Handler):
 	def __init__(self):
 		deskbar.Handler.Handler.__init__(self, ("system-search", "best"))
 				
-	def query(self, query, max):
+	def query(self, query):
 		return [BeagleMatch(self, name=query)]

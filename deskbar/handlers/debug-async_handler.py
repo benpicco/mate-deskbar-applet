@@ -32,7 +32,7 @@ class AsyncDebugHandler (AsyncHandler):
 	def __init__ (self):
 		AsyncHandler.__init__ (self, "stock_script")
 		
-	def query (self, qstring, max):
+	def query (self, qstring):
 		
 		for i in range (NUM_QUERIES):
 			sleep (QUERY_TIME)

@@ -44,7 +44,7 @@ class WebAddressHandler(deskbar.Handler.Handler):
 	def __init__(self):
 		deskbar.Handler.Handler.__init__(self, "stock_internet")
 	
-	def query(self, query, max):
+	def query(self, query):
 		match = AUTH_REGEX.match(query)
 		if match != None:
 			return [WebAddressMatch(self, query)]

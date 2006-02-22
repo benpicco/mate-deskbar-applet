@@ -1,4 +1,4 @@
-import deskbar.Handler
+import deskbar.Handler, deskbar
 from deskbar.Utils import strip_html
 import os, cgi
 import gobject
@@ -99,11 +99,11 @@ class GoogleLiveHandler (deskbar.Handler.AsyncHandler):
 		self.api_key = api_key_file.readline()
 		api_key_file.close ()
 			
-	def query (self, qstring, qmax):
+	def query (self, qstring):
 		"""Behold the true power of the AsyncHandler!"""
 		
 		# Just to ensure we don't bork anything
-		qmax = min (qmax, MAX_QUERIES)
+		qmax = min (deskbar.DEFAULT_RESULTS_PER_HANDLER, MAX_QUERIES)
 		
 		# Delay before we query so we *don't* make four queries
 		# "s", "sp", "spa", "spam".

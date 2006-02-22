@@ -1,6 +1,6 @@
 import cPickle, os
 import gtk, gobject
-from deskbar import MAX_HISTORY, HISTORY_FILE, MAX_RESULTS_PER_HANDLER
+from deskbar import MAX_HISTORY, HISTORY_FILE 
 from deskbar.Utils import load_icon
 from gettext import gettext as _
 

@@ -109,7 +109,6 @@ class CuemiacEntryUI (DeskbarUI):
 		
 		self.invalid = True
 		
-		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
 		self.applet.set_flags(gtk.CAN_FOCUS)
 	
 	def on_config_width(self, value=None):
@@ -265,7 +264,7 @@ class CuemiacEntryUI (DeskbarUI):
 			return
 		
 		self.invalid = True
-		self.emit ("start-query", qstring, 100)
+		self.emit ("start-query", qstring)
 	
 	def on_entry_key_press (self, entry, event):
 		

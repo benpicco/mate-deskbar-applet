@@ -56,7 +56,7 @@ class VolumeHandler (Handler):
 		deskbar.Handler.Handler.__init__(self, "gnome-dev-harddisk")
 		self.__locations = []
 		
-	def query(self, query, max):
+	def query(self, query):
 		result = []
 		query = query.lower()
 		
@@ -72,4 +72,4 @@ class VolumeHandler (Handler):
 			
 			result.append (VolumeMatch (self, drive.get_display_name(), drive.get_activation_uri(), drive.get_icon()))
 		
-		return result[:max]
+		return result

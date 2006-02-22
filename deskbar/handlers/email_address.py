@@ -34,7 +34,7 @@ class EmailAddressHandler(deskbar.Handler.Handler):
 	def __init__(self):
 		deskbar.Handler.Handler.__init__(self, "stock_mail")
 		
-	def query(self, query, max):
+	def query(self, query):
 		if REGEX.match(query) != None:
 			return [EmailAddressMatch(self, name=query)]
 		else:

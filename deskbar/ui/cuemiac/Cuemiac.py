@@ -824,7 +824,7 @@ class CuemiacUI (DeskbarUI):
 		
 		self.invalid = True
 		self.popup.show ()
-		self.emit ("start-query", qstring, 100)
+		self.emit ("start-query", qstring)
 	
 	def hide_if_entry_empty (self):
 		"""Checks if the entry is empty, and hides the window if so.

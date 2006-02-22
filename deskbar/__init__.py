@@ -69,7 +69,7 @@ MAX_HISTORY = 25
 HISTORY_FILE = join(USER_DESKBAR_DIR, "history.pickle")
 
 # FIXME: this , here ?
-MAX_RESULTS_PER_HANDLER = 6
+DEFAULT_RESULTS_PER_HANDLER = 6
 
 #Gconf client
 GCONF_CLIENT = gconf.client_get_default()

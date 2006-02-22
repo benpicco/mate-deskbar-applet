@@ -150,10 +150,10 @@ class MozillaBookmarksHandler(deskbar.Handler.Handler):
 	def stop(self):
 		self.watcher.remove_all()
 		
-	def query(self, query, max):
+	def query(self, query):
 		# First, check the smart bookmarks, or "keywords", where
 		# "wp Foo" takes you to the wikipedia entry for Foo.
-		x = self.query_smart_bookmarks(query, max)
+		x = self.query_smart_bookmarks(query, deskbar.DEFAULT_RESULTS_PER_HANDLER)
 		if x != None:
 			return x
 		else:
@@ -213,7 +213,7 @@ class MozillaSearchHandler(deskbar.Handler.Handler):
 	def stop(self):
 		self.watcher.remove_all()
 		
-	def query(self, query, max):
+	def query(self, query):
 		if SHOW_ONLY_PRIMARY:
 			for s in self._smart_bookmarks:
 				if s.name == PRIMARY_SEARCH_ENGINE:

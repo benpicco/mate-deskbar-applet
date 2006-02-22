@@ -203,7 +203,7 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 			res[t] = deskbar.Utils.load_icon(icon_file)
 		return res
 		
-	def query (self, qstring, qmax):
+	def query (self, qstring):
 		import beagle
 		beagle_query = beagle.Query()
 		beagle_query.add_text(qstring)

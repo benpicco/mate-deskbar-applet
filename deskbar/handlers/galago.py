@@ -40,5 +40,5 @@ class GalagoHandler(deskbar.Handler.Handler):
 		#self._indexer.add("Bill Joy <bjoy@sun.com>", GalagoMatch(self, "Bill Joy", "bjoy@sun.com"))
 		pass
 		
-	def query(self, query, max):
+	def query(self, query):
 		return self._indexer.look_up(query)[:5]

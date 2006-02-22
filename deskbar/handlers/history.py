@@ -14,7 +14,7 @@ class HistoryHandler(deskbar.Handler.Handler):
 	def __init__(self):
 		deskbar.Handler.Handler.__init__(self, "stock_redo")
 		
-	def query(self, query, max):
+	def query(self, query):
 		result = []
 		for text, match in get_deskbar_history():
 			if text.startswith(query):

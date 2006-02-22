@@ -66,7 +66,7 @@ class PathProgramsHandler(deskbar.Handler.Handler):
 	def initialize(self):
 		self._path = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip() != "" and exists(path) and isdir(path)]
 		
-	def query(self, query, max):
+	def query(self, query):
 		args = query.split(" ")
 		match = self._check_program(args[0])
 
