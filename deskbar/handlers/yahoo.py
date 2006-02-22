@@ -40,7 +40,7 @@ class YahooHandler(deskbar.Handler.AsyncHandler):
 		deskbar.Handler.AsyncHandler.__init__(self, "yahoo.png")
 		self.server = None
 
-	def query(self, qstring, qmax):
+	def query(self, qstring):
 		# Just to ensure we don't bork anything
 		qmax = min (deskbar.DEFAULT_RESULTS_PER_HANDLER, MAX_QUERIES)
 
