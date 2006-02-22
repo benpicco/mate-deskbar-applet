@@ -105,7 +105,7 @@ class CuemiacEntryUI (DeskbarUI):
 			pass
 		
 		self.tooltips = gtk.Tooltips()
-		self.tooltips.set_tip(self.icon_event_box, _("Show previous actions"))
+		#self.tooltips.set_tip(self.icon_event_box, _("Show previous actions"))
 		
 		self.invalid = True
 		
