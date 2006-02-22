@@ -130,7 +130,6 @@ class CompletionDeskbarUI (DeskbarUI):
 		def on_match_selection(item, text, match):
 			self.emit("match-selected", text, match)
 			
-		i = 0
 		for text, match in get_deskbar_history().get_all_history():
 			# Recreate the action
 			verbs = {"text" : text}
@@ -138,13 +137,8 @@ class CompletionDeskbarUI (DeskbarUI):
 			verb = match.get_verb() % verbs
 			
 			# Retreive the icon
-			icon = None
-			handler = match.get_handler()
-			if match.get_icon() != None:
-				icon = match.get_icon()
-			else:
-				icon = handler.get_icon()
-				
+			icon = match.get_icon()
+
 			label = gtk.Label()
 			label.set_markup(verb)
 			label.set_alignment(0.0, 0.0)
@@ -160,11 +154,6 @@ class CompletionDeskbarUI (DeskbarUI):
 			item.add(box)
 			item.connect('activate', on_match_selection, text, match)
 			menu.attach(item, 0, 1, i, i+1)
-			i = i+1
-		
-		if i == 0:
-			item = gtk.MenuItem(_("No History"))
-			menu.attach(item, 0, 1, 0, 1)
 
 		menu.show_all()
 		menu.popup(None, None, self.position_history_menu, event.button, event.time)
