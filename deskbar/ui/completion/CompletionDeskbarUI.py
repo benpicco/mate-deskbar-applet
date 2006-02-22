@@ -130,7 +130,9 @@ class CompletionDeskbarUI (DeskbarUI):
 		def on_match_selection(item, text, match):
 			self.emit("match-selected", text, match)
 			
-		for text, match in get_deskbar_history().get_all_history():
+		for i, item in enumerate(get_deskbar_history().get_all_history()):
+			text, match = item
+			
 			# Recreate the action
 			verbs = {"text" : text}
 			verbs.update(match.get_name(text))

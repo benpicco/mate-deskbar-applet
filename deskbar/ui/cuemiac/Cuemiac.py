@@ -559,7 +559,6 @@ class CuemiacTreeView (gtk.TreeView):
 		match = model[iter][model.MATCHES]
 		self.emit ("match-selected", match)
 		
-		return True
 		
 	def __on_key_press (self, widget, event):
 		# FIXME: In the future we should check for ctrl being pressed to create shortcuts
