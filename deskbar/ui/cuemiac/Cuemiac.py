@@ -737,7 +737,7 @@ class CuemiacUI (DeskbarUI):
 		
 		if applet.get_size() <= 36:
 			image_name += ".png"
-			s = 24
+			s = -1
 		else:
 			image_name += ".svg"
 			s = applet.get_size()-12

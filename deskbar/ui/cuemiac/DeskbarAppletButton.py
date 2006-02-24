@@ -3,6 +3,31 @@ import gnomeapplet
 import gobject
 from gettext import gettext as _
 
+class ToggleEventBox(gtk.EventBox):
+	__gsignals__ = {
+		"toggled" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
+	}
+	
+	def __init__(self):
+		gtk.EventBox.__init__(self)
+		self.active = False
+		self.connect('button-press-event', self.on_button_press)
+	
+	def on_button_press(self, widget, event):
+		if event.button == 1:
+			self.set_active(not self.active)
+			return True
+		
+	def get_active(self):
+		return self.active
+	
+	def set_active(self, active):
+		changed = (self.active != active)
+		self.active = active
+		
+		if changed:
+			self.emit("toggled")
+		
 class DeskbarAppletButton (gtk.HBox):
 	"""
 	Button consisting of two toggle buttons. A "main" with and image, and an "arrow"
@@ -37,14 +62,16 @@ class DeskbarAppletButton (gtk.HBox):
 		else:
 			self.box = gtk.VBox ()
 			
-		self.button_main = gtk.ToggleButton ()
-		self.button_main.set_relief (gtk.RELIEF_NONE)
+		#self.button_main = gtk.ToggleButton ()
+		#self.button_main.set_relief (gtk.RELIEF_NONE)
+		self.button_main = ToggleEventBox()
 		self.image = gtk.Image ()
 		self.button_main.add (self.image)
 		self.button_main.connect ("toggled", lambda widget: self.emit ("toggled-main", widget))
 		
-		self.button_arrow = gtk.ToggleButton ()
-		self.button_arrow.set_relief (gtk.RELIEF_NONE)
+		#self.button_arrow = gtk.ToggleButton ()
+		#self.button_arrow.set_relief (gtk.RELIEF_NONE)
+		self.button_arrow = ToggleEventBox()
 		self.arrow = gtk.Arrow (self.gnomeapplet_dir_to_arrow_dir(self.popup_dir), gtk.SHADOW_IN)
 		self.button_arrow.add (self.arrow)
 		self.button_arrow.connect ("toggled", lambda widget: self.emit ("toggled-arrow", widget))
@@ -67,18 +94,11 @@ class DeskbarAppletButton (gtk.HBox):
 			return False
 			
 		if event.button != 1:
-			print 'Got middle click'
 			self.applet.emit("button-press-event", event)
 			return True
 		
 		return False
-		
-	def toggle_main (self):
-		self.button_main.toggled ()
-		
-	def toggle_arrow (self):
-		self.button_arrow.toggled ()
-	
+			
 	def get_active_main (self):
 		return self.button_main.get_active ()
 	
@@ -92,10 +112,6 @@ class DeskbarAppletButton (gtk.HBox):
 		self.button_arrow.set_active (is_active)
 			
 	def set_button_image_from_file (self, filename, size):
-		# FIXME: Take self.popup_dir into account. Rotate img if necesary
-		# Take into account the margins of the button
-		size -= 10
-		print '---size', size
 		# We use an intermediate pixbuf to scale the image
 		if self.popup_dir in [gnomeapplet.ORIENT_DOWN, gnomeapplet.ORIENT_UP]:
 			pixbuf = gtk.gdk.pixbuf_new_from_file_at_size (filename, -1, size)
@@ -146,6 +162,7 @@ class DeskbarAppletButton (gtk.HBox):
 			
 if gtk.pygtk_version < (2,8,0):			
 	gobject.type_register(DeskbarAppletButton)
+	gobject.type_register(ToggleEventBox)
 			
 if __name__ == "__main__":
 	button = DeskbarAppletButton (gnomeapplet.ORIENT_RIGHT)

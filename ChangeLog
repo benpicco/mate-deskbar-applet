@@ -1,3 +1,14 @@
+2006-02-24  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/handlers/files.py:
+	* deskbar/ui/cuemiac/Cuemiac.py:
+	* deskbar/ui/cuemiac/DeskbarAppletButton.py:
+	Fixes bug #332418, now we use EventBoxes instead of ToggleButton, reducing
+	the needed panel vertical space
+
+	Fixes bug #332470, index up to 4 level deep the home directory's files and
+	folders in a separate thread
+
 2006-02-24  Mikkel Kamstrup Erlandsen  <kamstrup@daimi.au.dk>
  
  	* deskbar/handlers/mozilla.py:

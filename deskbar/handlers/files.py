@@ -1,6 +1,6 @@
 import os
 from os.path import join, basename, normpath, abspath, dirname
-from os.path import split, expanduser, exists, isfile
+from os.path import split, expanduser, exists, isfile, isdir
 
 from gettext import gettext as _
 
@@ -8,6 +8,8 @@ import gobject
 import gtk, gnome.ui
 import deskbar, deskbar.Indexer
 import deskbar.Handler
+
+from threading import Thread
 
 HANDLERS = {
 	"FileFolderHandler" : {
@@ -57,11 +59,54 @@ class FolderMatch(deskbar.Match.Match):
 class FileFolderHandler(deskbar.Handler.Handler):
 	def __init__(self):
 		deskbar.Handler.Handler.__init__(self, gtk.STOCK_OPEN)
+		self.cache = {}
+		
+	def initialize(self):
+		def add_files(files):
+			for f in files:
+				self.cache[basename(f).lower()] = f
+			
+		def add_files_dirs(dir, depth=0):
+			if depth >= 4:
+				return
+			
+			files = []
+			for f in os.listdir(dir):
+				if f.startswith("."):
+					continue
+					
+				f = join(dir, f)
+				if isdir(f):
+					add_files_dirs(f, depth+1)
 				
+				files.append(f)
+			
+			gobject.idle_add(add_files, files)
+		
+		Thread (None, add_files_dirs, args=(abspath(expanduser("~")),)).start ()
+
+		
 	def query(self, query):
+		query = query.lower()
+		
 		result = []
 		result += self.query_filefolder(query, False)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
 		result += self.query_filefolder(query, True)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		
+		for key, absname in self.cache.items():
+			if len(result) >= 50:
+				break
+			
+			if not exists(absname):
+				del self.cache[key]
+				continue
+			
+			if key.startswith(query):
+				if isdir(absname):
+					result += [FolderMatch(self, basename(absname), absname)]
+				else:
+					result += [FileMatch(self, basename(absname), absname)]
+				
 		return result
 	
 	def query_filefolder(self, query, is_file):
