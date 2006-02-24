@@ -159,7 +159,7 @@ class MozillaBookmarksHandler(deskbar.Handler.Handler):
 		else:
 			# If none of the smart bookmarks matched as a prefix,
 			# then we'll just look up all bookmarks.
-			return self._bookmarks.look_up(query)[:max]
+			return self._bookmarks.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
 	
 	def query_smart_bookmarks(self, query, max):
 		# if one of the smart bookmarks' shortcuts matches as a prefix,
