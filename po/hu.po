@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-29 17:13+0100\n"
+"POT-Creation-Date: 2006-02-17 06:02+0100\n"
 "PO-Revision-Date: 2005-12-11 23:15+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
@@ -30,17 +30,20 @@ msgid "_About"
 msgstr "_Névjegy"
 
 #: ../data/Deskbar_Applet.xml.h:2
+msgid "_Clear History"
+msgstr "_Előzmények törlése"
+
+#: ../data/Deskbar_Applet.xml.h:3
 msgid "_Preferences"
 msgstr "_Beállítások"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Focus</b>"
-msgstr ""
+msgstr "<b>Fókusz</b>"
 
 #: ../data/prefs-dialog.glade.h:2
-#, fuzzy
 msgid "<b>Layout</b>"
-msgstr "<b>Szélesség</b>"
+msgstr "<b>Elrendezés</b>"
 
 #: ../data/prefs-dialog.glade.h:3
 msgid "<b>Loaded Extensions</b>"
@@ -59,25 +62,24 @@ msgstr ""
 "kiterjesztések prioritását.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with grouped list"
-msgstr ""
+msgid "Button in panel"
+msgstr "Gomb a panelen"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Deskbar tulajdonságai"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with flat list"
-msgstr ""
+msgid "Entry in panel"
+msgstr "Beviteli mező a panelen"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
 msgstr "_Rögzített szélesség:"
 
 #: ../data/prefs-dialog.glade.h:10
-#, fuzzy
 msgid "Searches"
-msgstr "Webkeresések"
+msgstr "Keresések"
 
 #: ../data/prefs-dialog.glade.h:11
 msgid "Use _all available space"
@@ -85,27 +87,24 @@ msgstr "A teljes _rendelkezésre álló terület használata"
 
 #: ../data/prefs-dialog.glade.h:12
 msgid "View"
-msgstr ""
+msgstr "Nézet"
 
 #: ../data/prefs-dialog.glade.h:13
-#, fuzzy
 msgid "_Keyboard shortcut to focus:"
-msgstr "A következő gy_orsbillentyű használata:"
+msgstr "Gy_orsbillentyű a fókuszhoz:"
 
 #: ../data/prefs-dialog.glade.h:14
 msgid "characters"
 msgstr "karakter"
 
 #: ../data/smart-bookmarks.glade.h:1
-#, fuzzy
 msgid ""
 "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
 "you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
 msgstr ""
-"<i><small><b>Megjegyzés:</b> Gyorsbillentyű (például </b>wp<b>) "
-"használatához a </b>valami</b> kereséséhez írja be a \"<b>wp valami</b>\" "
-"karaktersorozatot a deskbarba.</small></i>"
+"<i><small><b>Megjegyzés:</b> Ha ez a gyorsbillentyű egyetlen betű (például </b>t<b>), akkor "
+"a \"</b>valami</b>\" kereséséhez írja be a \"<b>Alt-t valami</b>\" karaktersorozatot a deskbarba.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
@@ -121,7 +120,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Könyvjelzős keresések parancsikonjai"
 
-#: ../deskbar/BrowserMatch.py:30
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Open History Item %s"
 msgstr "%s előzményelem megnyitása"
@@ -135,7 +134,7 @@ msgstr "%s könyvjelző megnyitása"
 #: ../deskbar/BrowserMatch.py:81
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr ""
+msgstr "<i>%(text)s</i> keresése ezzel: <b>%(name)s</b>"
 
 #: ../deskbar/BrowserMatch.py:187
 msgid "Shortcut"
@@ -145,223 +144,142 @@ msgstr "Gyorsbillentyű"
 msgid "Bookmark Name"
 msgstr "Könyvjelzőnév"
 
-#: ../deskbar/Categories.py:11
-msgid "Uncategorized"
-msgstr ""
-
-#: ../deskbar/Categories.py:12
+#: ../deskbar/Categories.py:4
 #, python-format
 msgid "%s more result"
 msgid_plural "%s more results"
-msgstr[0] ""
+msgstr[0] "%s "
 
-#: ../deskbar/Categories.py:16
-msgid "Files"
-msgstr ""
+#: ../deskbar/Categories.py:9
+msgid "Uncategorized"
+msgstr "Kategorizálatlan"
 
-#: ../deskbar/Categories.py:17
-#, python-format
-msgid "%s more file"
-msgid_plural "%s more files"
-msgstr[0] ""
-
-#: ../deskbar/Categories.py:21
-msgid "Actions"
-msgstr ""
-
-#: ../deskbar/Categories.py:22
-#, python-format
-msgid "%s more action"
-msgid_plural "%s more actions"
-msgstr[0] ""
+#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:8
+msgid "History"
+msgstr "Előzmények"
 
 #: ../deskbar/Categories.py:26
-msgid "News"
-msgstr ""
+msgid "Documents"
+msgstr "Dokumentumok"
 
 #: ../deskbar/Categories.py:27
-#, fuzzy, python-format
-msgid "%s more news item"
-msgid_plural "%s more news items"
-msgstr[0] "%s hírelem megnyitása"
+#, python-format
+msgid "%s more document"
+msgid_plural "%s more documents"
+msgstr[0] "%s további dokumentum"
+msgstr[1] "%s további dokumentum"
 
 #: ../deskbar/Categories.py:31
-msgid "Contacts"
-msgstr ""
+msgid "Files"
+msgstr "Fájlok"
 
 #: ../deskbar/Categories.py:32
 #, python-format
-msgid "%s more contact"
-msgid_plural "%s more contacts"
-msgstr[0] ""
+msgid "%s more file"
+msgid_plural "%s more files"
+msgstr[0] "%s további fájl"
+msgstr[1] "%s további fájl"
 
 #: ../deskbar/Categories.py:36
-#, fuzzy
-msgid "Emails"
-msgstr "Levél"
-
-#: ../deskbar/Categories.py:37
-#, python-format
-msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] ""
+msgid "People"
+msgstr "Emberek"
 
 #: ../deskbar/Categories.py:41
-msgid "Notes"
-msgstr ""
+msgid "Places"
+msgstr "Helyek"
 
 #: ../deskbar/Categories.py:42
 #, python-format
-msgid "%s more note"
-msgid_plural "%s more notes"
-msgstr[0] ""
+msgid "%s more place"
+msgid_plural "%s more places"
+msgstr[0] "%s további hely"
+msgstr[1] "%s további hely"
 
 #: ../deskbar/Categories.py:46
-msgid "Volumes"
-msgstr ""
+msgid "Actions"
+msgstr "Műveletek"
 
 #: ../deskbar/Categories.py:47
 #, python-format
-msgid "%s more volume"
-msgid_plural "%s more volumes"
-msgstr[0] ""
+msgid "%s more action"
+msgid_plural "%s more actions"
+msgstr[0] "%s további tevékenység"
+msgstr[1] "%s további tevékenység"
 
-#: ../deskbar/Categories.py:51
-#, fuzzy
-msgid "Google Search"
-msgstr "Google Live"
-
-#: ../deskbar/Categories.py:52
-#, python-format
-msgid "%s more online hit"
-msgid_plural "%s more online hits"
-msgstr[0] ""
+#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "Web"
 
 #: ../deskbar/Categories.py:56
-msgid "Calendar"
-msgstr ""
-
-#: ../deskbar/Categories.py:57
-#, python-format
-msgid "%s more calendar item"
-msgid_plural "%s more calendar items"
-msgstr[0] ""
-
-#: ../deskbar/Categories.py:61
-msgid "Conversation"
-msgstr ""
-
-#: ../deskbar/Categories.py:62
-#, fuzzy, python-format
-msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "Beszélgetések megtekintése a következővel: %s"
-
-#: ../deskbar/Categories.py:66
-msgid "Web Browser"
-msgstr ""
-
-#: ../deskbar/Categories.py:67
-#, python-format
-msgid "%s more item"
-msgid_plural "%s more items"
-msgstr[0] ""
-
-#: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Programok"
-
-#: ../deskbar/Categories.py:72
-#, python-format
-msgid "%s more program"
-msgid_plural "%s more programs"
-msgstr[0] ""
-
-#: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
-#, fuzzy
-msgid "History"
-msgstr "Előzmények nélkül"
-
-#: ../deskbar/Categories.py:77
-#, python-format
-msgid "%s more match"
-msgid_plural "%s more matches"
-msgstr[0] ""
-
-#: ../deskbar/Categories.py:81
-msgid "Debug"
-msgstr ""
-
-#: ../deskbar/Categories.py:82
-#, python-format
-msgid "%s more debugging handler"
-msgid_plural "%s more debugging handlers"
-msgstr[0] ""
+msgid "Web Search"
+msgstr "Webkeresések"
 
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
-msgstr ""
+msgstr "A program programozási hibát észlelt"
 
 #: ../deskbar/gtkexcepthook.py:22
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
 msgstr ""
+"Ez valószínűleg nem végzetes, de ettől függetlenül jelentse a fejlesztőknek. "
+"A program mostantól hibásan viselkedhet."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
-msgstr ""
+msgstr "Programhiba"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:20
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:21
 msgid "Search all of your documents (using Beagle), as you type"
-msgstr ""
-"Keresés az összes dokumentumban (a Beagle használatával), gépelés közben"
+msgstr "Keresés az összes dokumentumban (a Beagle használatával), gépelés közben"
 
-#: ../deskbar/handlers/beagle-live.py:47
+#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "Címjegyzékbejegyzés a következőhöz: %s"
+msgid "Send Email to %s"
+msgstr "E-mail küldése a következőnek: %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:56
-#, fuzzy, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "E-mail megtekintése a következőtől: %s: %s"
+#: ../deskbar/handlers/beagle-live.py:58
+#, python-format
+msgid "Email from %s"
+msgstr "E-mail a következőtől: %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
 #, python-format
 msgid "Open %s"
 msgstr "%s megnyitása"
 
-#: ../deskbar/handlers/beagle-live.py:69
+#: ../deskbar/handlers/beagle-live.py:74
 #, python-format
-msgid "Open news item %s"
-msgstr "%s hírelem megnyitása"
+msgid "News from %s"
+msgstr "Hírek a következőtől: %s"
 
-#: ../deskbar/handlers/beagle-live.py:76
+#: ../deskbar/handlers/beagle-live.py:83
 #, python-format
-msgid "Open note %s"
-msgstr "%s jegyzet megnyitása"
+msgid "Note: %s"
+msgstr "Megjegyzés: %s"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#: ../deskbar/handlers/beagle-live.py:91
 #, python-format
-msgid "View conversation with %s"
-msgstr "Beszélgetések megtekintése a következővel: %s"
+msgid "Conversation with %s"
+msgstr "Beszélgetés a következővel: %s"
 
-#: ../deskbar/handlers/beagle-live.py:88
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
-msgid "View calendar %s"
-msgstr "%s naptár megtekintése"
+msgid "Calendar: %s"
+msgstr "Naptár: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:230
-#: ../deskbar/handlers/beagle-live.py:249
+#: ../deskbar/handlers/beagle-live.py:271
+#: ../deskbar/handlers/beagle-live.py:293
 msgid "?"
 msgstr "?"
 
@@ -386,23 +304,17 @@ msgstr "Levél"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "Levél küldése egy teljes e-mail cím begépelésével"
 
-#: ../deskbar/handlers/email_address.py:27
-#, python-format
-msgid "Send Email to %s"
-msgstr "E-mail küldése a következőnek: %s"
-
 #: ../deskbar/handlers/epiphany.py:26
-#, fuzzy
 msgid "You can set shortcuts for your searches."
-msgstr "Könyvjelzős keresések parancsikonjai"
+msgstr "Beállíthat parancsikonokat a keresésekhez."
 
 #: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:33
+#: ../deskbar/handlers/mozilla.py:120
 msgid "Web Bookmarks"
 msgstr "Webkönyvjelzők"
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/mozilla.py:121
 msgid "Open your web bookmarks by name"
 msgstr "Webkönyvjelzők megnyitása név alapján"
 
@@ -415,12 +327,12 @@ msgid "Open your web history by name"
 msgstr "A webes előzmények megnyitása név alapján"
 
 #: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:38
+#: ../deskbar/handlers/mozilla.py:125
 msgid "Web Searches"
 msgstr "Webkeresések"
 
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:39
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Search the web via your browser's search settings"
 msgstr "Keresés a weben a böngésző keresési beállításainak használatával"
 
@@ -454,9 +366,9 @@ msgstr ""
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:45
-#, fuzzy, python-format
+#, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
-msgstr "Levél küldése a következőnek: %s (%s)"
+msgstr "Levél küldése a következőnek: <b>%(name)s</b> (%(email)s)"
 
 #: ../deskbar/handlers/files.py:14
 msgid "Files and Folders"
@@ -466,7 +378,7 @@ msgstr "Fájlok és mappák"
 msgid "Open your files and folders by name"
 msgstr "Fájlok és mappák megnyitása név alapján"
 
-#: ../deskbar/handlers/files.py:51
+#: ../deskbar/handlers/files.py:52
 #, python-format
 msgid "Open folder %s"
 msgstr "%s mappa megnyitása"
@@ -494,7 +406,7 @@ msgstr ""
 "A Google Live használatához szüksége van egy Google fiókra. Ezt a http://api."
 "google.com/ címen szerezheti be.\n"
 "\n"
-"A fiók létrehozásakor levélben kap egy Google API kulcsot.Helyezze el ezt a "
+"A fiók létrehozásakor levélben kap egy Google API kulcsot. Helyezze el ezt a "
 "kulcsot a \n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
@@ -526,8 +438,8 @@ msgid "You need a Google API key."
 msgstr "Szükség van egy Google API kulcsra."
 
 #: ../deskbar/handlers/google-live.py:48
-msgid "Google Live"
-msgstr "Google Live"
+msgid "Google Search"
+msgstr "Google keresés"
 
 #: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
@@ -548,7 +460,11 @@ msgstr "%s hely megnyitása"
 
 #: ../deskbar/handlers/history.py:9
 msgid "Recognize previously used searches"
-msgstr ""
+msgstr "Korábban használt keresések felismerése"
+
+#: ../deskbar/handlers/mozilla.py:111
+msgid "You can customize which search engines are offered."
+msgstr "Testreszabhatja a felajánlott keresőmotorokat."
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
@@ -562,6 +478,10 @@ msgstr "A $PATH változó alapján megtalálható program indítása"
 #, python-format
 msgid "Execute %s"
 msgstr "%s indítása"
+
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Programok"
 
 #: ../deskbar/handlers/programs.py:15
 msgid "Launch a program by its name and/or description"
@@ -588,14 +508,14 @@ msgstr "Fájlok és mappák keresése névminta alapján"
 #: ../deskbar/handlers/programs.py:72
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
-msgstr ""
+msgstr "<b>%(name)s</b> (%(prog)s) indítása"
 
-#: ../deskbar/handlers/programs.py:85
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s keresése a szótárban"
 
-#: ../deskbar/handlers/programs.py:93
+#: ../deskbar/handlers/programs.py:94
 #, python-format
 msgid "Search for file names like %s"
 msgstr "A következőhöz hasonló fájlnevek keresése: %s"
@@ -620,10 +540,6 @@ msgstr "%s hálózati hely megnyitása"
 msgid "Open audio disk %s"
 msgstr "%s hanglemez megnyitása"
 
-#: ../deskbar/handlers/web_address.py:9
-msgid "Web"
-msgstr "Web"
-
 #: ../deskbar/handlers/web_address.py:10
 msgid "Open web pages by typing a complete web address"
 msgstr "Weboldalak megnyitása egy teljes webcím begépelésével"
@@ -638,6 +554,14 @@ msgstr "%s weboldal megnyitása"
 msgid "Open the location %s"
 msgstr "%s hely megnyitása"
 
+#: ../deskbar/handlers/yahoo.py:16
+msgid "Yahoo! Search"
+msgstr "Yahoo! keresés"
+
+#: ../deskbar/handlers/yahoo.py:17
+msgid "Search Yahoo! as you type"
+msgstr "Keresés a Yahoo! használatával gépelés közben"
+
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Egy \"minden egyben\" műveletsáv."
@@ -651,7 +575,7 @@ msgstr "A Deskbar webhelye"
 #. translators: These appear in the About dialog, usual format applies.
 #: ../deskbar/ui/About.py:36
 msgid "translator-credits"
-msgstr ""
+msgstr "Kelemen Gábor <kelemeng@gnome.hu>"
 
 #: ../deskbar/ui/DeskbarPreferencesUI.py:54
 msgid "_More..."
@@ -661,16 +585,3 @@ msgstr "_Több..."
 msgid "No History"
 msgstr "Előzmények nélkül"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:44
-msgid "You need Gtk+ version 2.8.0 or higher to use this module"
-msgstr ""
-
-#~ msgid "<b>Keyboard Shortcut</b>"
-#~ msgstr "<b>Billentyűzet-parancsikon</b>"
-
-# sorrendet megcserélni
-#~ msgid "Search %s for %s"
-#~ msgstr "%s keresés a következőre: %s"
-
-#~ msgid "Launch %s (%s)"
-#~ msgstr "%s (%s) indítása"
