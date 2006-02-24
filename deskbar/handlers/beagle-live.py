@@ -6,6 +6,13 @@ from os.path import exists
 
 MAX_RESULTS = 20 # per handler
 
+try:
+	import beagle
+except:
+	# If this fails we complain about it in _check_requirements()
+	# so do nothing now
+	pass
+
 def _check_requirements():
 	try:
 		import deskbar
@@ -191,7 +198,6 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 		self.set_delay (500)
 		
 	def initialize (self):
-		import beagle
 		self.beagle = beagle.Client()
 		self.ICONS = self.__load_icons()
 	
@@ -204,7 +210,6 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 		return res
 		
 	def query (self, qstring):
-		import beagle
 		beagle_query = beagle.Query()
 		beagle_query.add_text(qstring)
 		beagle_query.connect("hits-added", self.hits_added, qstring, MAX_RESULTS)
@@ -302,7 +307,6 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 			return match
 		
 	def hits_added(self, query, response, qstring, qmax):
-		import beagle
 		hit_matches = []
 		for hit in response.get_hits():
 			if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:

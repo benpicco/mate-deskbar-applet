@@ -1,3 +1,9 @@
+2006-02-24  Mikkel Kamstrup Erlandsen  <kamstrup@daimi.au.dk>
+
+	* deskbar/handlers/beagle-live.py:
+	Don't import beagle each time we need it. Only when loading the module. This wastly increases
+	beagle-live performance.
+	
 2006-02-22  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/handlers/yahoo.py:
