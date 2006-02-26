@@ -1,0 +1,591 @@
+# deskbar-applet korean translation.
+# Copyright (C) 2006 THE deskbar-applet'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the deskbar-applet package.
+# Young-Ho Cha <ganadist@gmail.com>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: deskbar-applet\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-02-26 12:53+0900\n"
+"PO-Revision-Date: 2006-02-26 14:02+0900\n"
+"Last-Translator: Young-Ho Cha <ganadist@gmail.com>\n"
+"Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../data/Deskbar_Applet.server.in.in.h:1
+msgid "An all-in-one action bar"
+msgstr "모두 포함된 실행 막대"
+
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Deskbar"
+
+#: ../data/Deskbar_Applet.xml.h:1
+msgid "_About"
+msgstr "정보(_A)"
+
+#: ../data/Deskbar_Applet.xml.h:2
+msgid "_Clear History"
+msgstr "방문기록 지우기(_C)"
+
+#: ../data/Deskbar_Applet.xml.h:3
+msgid "_Preferences"
+msgstr "기본 설정(_P)"
+
+#: ../data/prefs-dialog.glade.h:1
+msgid "<b>Focus</b>"
+msgstr "<b>포커스</b>"
+
+#: ../data/prefs-dialog.glade.h:2
+msgid "<b>Layout</b>"
+msgstr "<b>배치</b>"
+
+#: ../data/prefs-dialog.glade.h:3
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>읽어들인 확장</b>"
+
+#: ../data/prefs-dialog.glade.h:4
+msgid "<b>Width</b>"
+msgstr "<b>너비</b>"
+
+#: ../data/prefs-dialog.glade.h:5
+msgid ""
+"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
+"small></i>"
+msgstr ""
+"<i><small><b>Note:</b> 순서를 바꾸려면 확장을 끌어 놓으십시오.</small></i>"
+
+#: ../data/prefs-dialog.glade.h:6
+msgid "Button in panel"
+msgstr "패널에 단추 보이기"
+
+#: ../data/prefs-dialog.glade.h:7
+msgid "Deskbar Preferences"
+msgstr "Deskbar 기본 설정"
+
+#: ../data/prefs-dialog.glade.h:8
+msgid "Entry in panel"
+msgstr "패널에 입력창 보이기"
+
+#: ../data/prefs-dialog.glade.h:9
+msgid "Fixed _width:"
+msgstr "고정폭(_W):"
+
+#: ../data/prefs-dialog.glade.h:10
+msgid "Searches"
+msgstr "검색"
+
+#: ../data/prefs-dialog.glade.h:11
+msgid "Use _all available space"
+msgstr "가능한 모든 공간 쓰기(_A)"
+
+#: ../data/prefs-dialog.glade.h:12
+msgid "View"
+msgstr "보기"
+
+#: ../data/prefs-dialog.glade.h:13
+msgid "_Keyboard shortcut to focus:"
+msgstr "포커스를 옮기는 키보드 바로가기(_K):"
+
+#: ../data/prefs-dialog.glade.h:14
+msgid "characters"
+msgstr "글자"
+
+#: ../data/smart-bookmarks.glade.h:1
+msgid ""
+"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
+"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
+"the deskbar.</small></i>"
+msgstr ""
+"<i><small><b>알림: </b>바로가기가 (<b>t</b>처럼) 한 글자면 \"<b>아무거나</b>"
+"\" 입력한 다음 deskbar에서 <b>Alt-t</b>를 누르면 됩니다.</small></i>"
+
+#: ../data/smart-bookmarks.glade.h:2
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>알림:</b> <b>아무거나</b> 검색을 바로가기(예: <b>wp</b>)로 "
+"하려면, \"<b>wp 아무거나</b>\"를 deskbar에 입력하십시오</small></i>."
+
+#: ../data/smart-bookmarks.glade.h:3
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "책갈피에 들어있는 검색의 바로가기"
+
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:113
+#, python-format
+msgid "Open History Item %s"
+msgstr "방문 기록 항목 %s 열기"
+
+#: ../deskbar/BrowserMatch.py:32
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "책갈피 %s 열기"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/BrowserMatch.py:81
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "<i>%(name)s</i>에서 <b>%(text)s</b> 찾기"
+
+#: ../deskbar/BrowserMatch.py:187
+msgid "Shortcut"
+msgstr "바로 가기"
+
+#: ../deskbar/BrowserMatch.py:195
+msgid "Bookmark Name"
+msgstr "책갈피 이름"
+
+#: ../deskbar/Categories.py:4
+#, python-format
+msgid "%s more result"
+msgid_plural "%s more results"
+msgstr[0] "%s개의 더 많은 결과"
+
+#: ../deskbar/Categories.py:9
+msgid "Uncategorized"
+msgstr "분류되지 않음"
+
+#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:8
+msgid "History"
+msgstr "방문기록"
+
+#: ../deskbar/Categories.py:26
+msgid "Documents"
+msgstr "문서"
+
+#: ../deskbar/Categories.py:27
+#, python-format
+msgid "%s more document"
+msgid_plural "%s more documents"
+msgstr[0] "%s개의 더 많은 문서"
+
+#: ../deskbar/Categories.py:31
+msgid "Files"
+msgstr "파일"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more file"
+msgid_plural "%s more files"
+msgstr[0] "%s개의  더 많은 파일"
+
+#: ../deskbar/Categories.py:36
+msgid "People"
+msgstr "사람"
+
+#: ../deskbar/Categories.py:41
+msgid "Places"
+msgstr "위치"
+
+#: ../deskbar/Categories.py:42
+#, python-format
+msgid "%s more place"
+msgid_plural "%s more places"
+msgstr[0] "%s개의 더 많은 위치"
+
+#: ../deskbar/Categories.py:46
+msgid "Actions"
+msgstr "동작"
+
+#: ../deskbar/Categories.py:47
+#, python-format
+msgid "%s more action"
+msgid_plural "%s more actions"
+msgstr[0] "%s개의 더 많은 동작"
+
+#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "웹"
+
+#: ../deskbar/Categories.py:56
+msgid "Web Search"
+msgstr "웹 검색"
+
+#: ../deskbar/DeskbarHistory.py:53
+msgid "No History"
+msgstr "방문 기록 없음"
+
+#: ../deskbar/gtkexcepthook.py:21
+msgid "A programming error has been detected"
+msgstr "프로그램 오류가 발견되었습니다"
+
+#: ../deskbar/gtkexcepthook.py:22
+msgid ""
+"It probably isn't fatal, but should be reported to the developers "
+"nonetheless. The program may behave erratically from now on."
+msgstr ""
+"심각하지는 않지만 개발자에게 알려줘야 합니다. 이제부터 프로그램이 "
+"이상하게 동작할 수 있습니다."
+
+#: ../deskbar/gtkexcepthook.py:24
+msgid "Bug Detected"
+msgstr "버그 발견됨"
+
+#: ../deskbar/handlers/beagle-live.py:27
+msgid "Beagle Live"
+msgstr "Beagle Live"
+
+#: ../deskbar/handlers/beagle-live.py:28
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "(Beagle을 써서) 입력하는대로 모든 문서를 검색합니다"
+
+#: ../deskbar/handlers/beagle-live.py:55
+#: ../deskbar/handlers/email_address.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "%s에게 메일 보내기"
+
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:65
+#, python-format
+msgid "Email from %s"
+msgstr "%s(이)가 보낸 메일"
+
+#. translators: This is a file.
+#: ../deskbar/handlers/beagle-live.py:73 ../deskbar/handlers/files.py:35
+#, python-format
+msgid "Open %s"
+msgstr "%s 열기"
+
+#: ../deskbar/handlers/beagle-live.py:81
+#, python-format
+msgid "News from %s"
+msgstr "새소식: %s"
+
+#: ../deskbar/handlers/beagle-live.py:90
+#, python-format
+msgid "Note: %s"
+msgstr "알림: %s"
+
+#: ../deskbar/handlers/beagle-live.py:98
+#, python-format
+msgid "Conversation with %s"
+msgstr "%s님과 대화"
+
+#: ../deskbar/handlers/beagle-live.py:106
+#, python-format
+msgid "Calendar: %s"
+msgstr "달력: %s"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:277
+#: ../deskbar/handlers/beagle-live.py:299
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle.py:19
+msgid "Beagle"
+msgstr "Beagle"
+
+#: ../deskbar/handlers/beagle.py:20
+msgid "Search all of your documents (using Beagle)"
+msgstr "(Beagle을 써서) 모든 문서를 찾습니다"
+
+#: ../deskbar/handlers/beagle.py:36
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "Beagle에서 %s 찾기"
+
+#: ../deskbar/handlers/email_address.py:9
+msgid "Mail"
+msgstr "메일"
+
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mail by typing a complete e-mail address"
+msgstr "e-mail 주소를 입력하여 메일을 보냅니다"
+
+#: ../deskbar/handlers/epiphany.py:26
+msgid "You can set shortcuts for your searches."
+msgstr "찾은 결과에 대한 바로가기를 설정할 수 있습니다."
+
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:120
+msgid "Web Bookmarks"
+msgstr "웹 책갈피"
+
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:121
+msgid "Open your web bookmarks by name"
+msgstr "이름으로 웹 책갈피를 엽니다"
+
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
+msgid "Web History"
+msgstr "웹 방문기록"
+
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
+msgid "Open your web history by name"
+msgstr "이름으로 웹 방문기록을 엽니다"
+
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:125
+msgid "Web Searches"
+msgstr "웹 검색"
+
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:126
+msgid "Search the web via your browser's search settings"
+msgstr "브라우저의 검색 설정으로 웹을 검색합니다"
+
+#: ../deskbar/handlers/evolution.py:11
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "메일 기본 설정에서 자동완성 기능을 켜야 합니다"
+
+#: ../deskbar/handlers/evolution.py:13
+msgid "Autocompletion Needs to be Enabled"
+msgstr "자동 완성 기능이 필요합니다"
+
+#: ../deskbar/handlers/evolution.py:14
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"자동 완성기능이 켜지지 않으면 주소록에서 e-mail 주소를 가져올 수 없습니다."
+"자동완성 기능을 켜려면, 메일 프로그램 메뉴에서 편집 - 기본 설정 - 자동 완성 "
+"을 선택하십시오."
+
+#: ../deskbar/handlers/evolution.py:19
+msgid "Mail (Address Book)"
+msgstr "메일 (주소록)"
+
+#: ../deskbar/handlers/evolution.py:20
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr "이름이나 메일 주소를 입력해서 메일을 보냅니다"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:45
+#, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "<b>%(name)s</b>(%(email)s)에게 메일을 보냅니다"
+
+#: ../deskbar/handlers/files.py:16
+msgid "Files and Folders"
+msgstr "파일과 폴더"
+
+#: ../deskbar/handlers/files.py:17
+msgid "Open your files and folders by name"
+msgstr "이름으로 파일과 폴더를 엽니다"
+
+#: ../deskbar/handlers/files.py:54
+#, python-format
+msgid "Open folder %s"
+msgstr "%s 폴더를 엽니다"
+
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+"Google Live를 쓰려면 구글 계정이 있어야합니다. 구글 계정을 만드려면, http://"
+"api.google.com/를 방문하십시오\n"
+"\n"
+"구글 계정을 만들었으면, 메일로 구글 API 키를 받게 됩니다. API 키를 다음 파일"
+"에 넣으십시오.\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"API 키를 받지 못했거나 잊어버렸을 때는, www.google.com/accounts로 가서 로그인"
+"한 다음 api.google.com으로 가서 \"Create Account\"에 들어간 다음 메일 주소와 "
+"열쇠글을 입력합니다. 그러면 API 키가 다시 보내집니다.\n"
+"\n"
+"이제 개발자 킷을 내려 받고, 개발자 킷에서 GoogleSearch.wsdl파일을 푼 다음 다"
+"음으로 복사하십시오.\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#: ../deskbar/handlers/google-live.py:32
+msgid "Setting Up Google Live"
+msgstr "Google Live 설정"
+
+#: ../deskbar/handlers/google-live.py:38
+msgid "You need to install the SOAPpy python module."
+msgstr "SOAPpy 파이썬 모듈을 설치하여야 합니다."
+
+#: ../deskbar/handlers/google-live.py:40
+msgid "You need the Google WSDL file."
+msgstr "구글 WSDL파일이 있어야 합니다."
+
+#: ../deskbar/handlers/google-live.py:42
+msgid "You need a Google API key."
+msgstr "구글 API 키가 있어야 합니다."
+
+#: ../deskbar/handlers/google-live.py:48
+msgid "Google Search"
+msgstr "구글 검색"
+
+#: ../deskbar/handlers/google-live.py:49
+msgid "Search Google as you type"
+msgstr "입력하는 대로 구글에서 찾습니다"
+
+#: ../deskbar/handlers/gtkbookmarks.py:12
+msgid "Files and Folders Bookmarks"
+msgstr "파일과 폴더 책갈피"
+
+#: ../deskbar/handlers/gtkbookmarks.py:13
+msgid "Open your files and folders bookmarks by name"
+msgstr "이름으로 파일과 폴더 책갈피를 엽니다"
+
+#: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
+#, python-format
+msgid "Open location %s"
+msgstr "%s 위치 열기"
+
+#: ../deskbar/handlers/history.py:9
+msgid "Recognize previously used searches"
+msgstr "이전에 썼던 검색을 씁니다"
+
+#: ../deskbar/handlers/mozilla.py:111
+msgid "You can customize which search engines are offered."
+msgstr "제공되는 검색엔진을 고를 수 있습니다."
+
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Programs (Advanced)"
+msgstr "프로그램 (고급)"
+
+#: ../deskbar/handlers/pathprograms.py:15
+msgid "Launch any program present in your $PATH"
+msgstr "경로에 있는 아무 프로그램이나 실행합니다"
+
+#: ../deskbar/handlers/pathprograms.py:60
+#, python-format
+msgid "Execute %s"
+msgstr "%s 실행"
+
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "프로그램"
+
+#: ../deskbar/handlers/programs.py:15
+msgid "Launch a program by its name and/or description"
+msgstr "이름이나 설명으로 프로그램을 실행합니다"
+
+#: ../deskbar/handlers/programs.py:18
+msgid "Dictionary"
+msgstr "사전"
+
+#: ../deskbar/handlers/programs.py:19
+msgid "Look up word definitions in the dictionary"
+msgstr "사전에서 단어 정의를 찾습니다"
+
+#: ../deskbar/handlers/programs.py:22
+msgid "Files and Folders Search"
+msgstr "파일과 폴더 검색"
+
+#: ../deskbar/handlers/programs.py:23
+msgid "Find files and folders by searching for a name pattern"
+msgstr "이름 규칙으로 파일과 폴더를 찾습니다"
+
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/programs.py:72
+#, python-format
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "<b>%(name)s</b> (%(prog)s) 실행"
+
+#: ../deskbar/handlers/programs.py:86
+#, python-format
+msgid "Lookup %s in dictionary"
+msgstr "사전에서 %s 찾기"
+
+#: ../deskbar/handlers/programs.py:94
+#, python-format
+msgid "Search for file names like %s"
+msgstr "%s(와)과 비슷한 파일이름을 찾습니다"
+
+#: ../deskbar/handlers/volumes.py:16
+msgid "Disks and Network Places"
+msgstr "디스크와 네트워크 위치"
+
+#: ../deskbar/handlers/volumes.py:17
+msgid "Open disk drives, shared network places and similar resources by name"
+msgstr ""
+"이름으로 디스크 드라이브, 공유 네트워크 위치, 그리고 유사한 파일을 엽니다"
+
+#: ../deskbar/handlers/volumes.py:44
+#, python-format
+msgid "Open network place %s"
+msgstr "네트워크 위치 %s 열기"
+
+#: ../deskbar/handlers/volumes.py:46
+#, python-format
+msgid "Open audio disk %s"
+msgstr "오디오 디스크 %s 열기"
+
+#: ../deskbar/handlers/web_address.py:10
+msgid "Open web pages by typing a complete web address"
+msgstr "완전히 입력된 웹 주소로 웹 페이지를 엽니다"
+
+#: ../deskbar/handlers/web_address.py:36
+#, python-format
+msgid "Open the web page %s"
+msgstr "웹 페이지 %s 열기"
+
+#: ../deskbar/handlers/web_address.py:38
+#, python-format
+msgid "Open the location %s"
+msgstr "위치 %s 열기"
+
+#: ../deskbar/handlers/yahoo.py:16
+msgid "Yahoo! Search"
+msgstr "야후! 검색"
+
+#: ../deskbar/handlers/yahoo.py:17
+msgid "Search Yahoo! as you type"
+msgstr "입력하는 대로 야후!에서 찾습니다"
+
+#: ../deskbar/ui/About.py:25
+msgid "An all-in-one action bar."
+msgstr "모두 포함된 실행 막대."
+
+#: ../deskbar/ui/About.py:28
+msgid "Deskbar Website"
+msgstr "Deskbar 웹사이트"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:36
+msgid "translator-credits"
+msgstr "차영호 <ganadist@gmail.com>, 2006"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:54
+msgid "_More..."
+msgstr "더 많은 결과(_M)..."
+
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>검색 엔진</b>"
+
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Deskbar 기본 설정 - 웹 검색"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "쓸 수 있는 모든 검색 엔진 보이기"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "기본 검색 엔진만 보이기"
