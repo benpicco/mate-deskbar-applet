@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-21 05:48+0100\n"
-"PO-Revision-Date: 2006-02-21 10:38+0100\n"
-"Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
+"POT-Creation-Date: 2006-02-26 13:34+0100\n"
+"PO-Revision-Date: 2006-02-26 15:25+0100\n"
+"Last-Translator: Reinout van Schouwen <reinout@cs.vu.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Afkortingen voor bladwijzer-zoekopdrachten"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:113
 #, python-format
 msgid "Open History Item %s"
 msgstr "Geschiedenis-item %s openen"
@@ -224,7 +224,6 @@ msgid "Web Search"
 msgstr "Web-zoekopdracht"
 
 #: ../deskbar/DeskbarHistory.py:53
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "Geen geschiedenis"
 
@@ -245,57 +244,57 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Programmafout gevonden"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:27
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:21
+#: ../deskbar/handlers/beagle-live.py:28
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Al uw documenten doorzoeken (met Beagle) terwijl u typt"
 
-#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/beagle-live.py:55
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "E-mail versturen naar %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:65
 #, python-format
 msgid "Email from %s"
 msgstr "E-mail van %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:73 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "%s openen"
 
-#: ../deskbar/handlers/beagle-live.py:74
+#: ../deskbar/handlers/beagle-live.py:81
 #, python-format
 msgid "News from %s"
 msgstr "Nieuws van %s"
 
-#: ../deskbar/handlers/beagle-live.py:83
+#: ../deskbar/handlers/beagle-live.py:90
 #, python-format
 msgid "Note: %s"
 msgstr "Notities: %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Conversation with %s"
 msgstr "Gesprek met %s"
 
 # in overeenstemming met evolution terminologie
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Calendar: %s"
 msgstr "Agenda: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:272
-#: ../deskbar/handlers/beagle-live.py:294
+#: ../deskbar/handlers/beagle-live.py:277
+#: ../deskbar/handlers/beagle-live.py:299
 msgid "?"
 msgstr "?"
 
@@ -386,15 +385,15 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "E-mail versturen naar <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "Bestanden en mappen"
 
-#: ../deskbar/handlers/files.py:15
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
 msgstr "Uw bestanden en mappen op naam openen"
 
-#: ../deskbar/handlers/files.py:52
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "Map %s openen"
@@ -605,6 +604,22 @@ msgstr ""
 msgid "_More..."
 msgstr "_Meer..."
 
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Zoekmachines</b>"
+
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Actiebalk-voorkeuren - Webzoekacties"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "Alle beschikbare zoekmachines tonen"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "Alleen de primaire zoekmachine tonen"
+
 #~ msgid "Button in panel with categorized list"
 #~ msgstr "Knop in paneel met gecategoriseerde lijst"
 
@@ -739,12 +754,6 @@ msgstr "_Meer..."
 
 #~ msgid "Open folders by their names."
 #~ msgstr "Mappen openen op naam."
-
-#~ msgid "Search Engines"
-#~ msgstr "Zoekmachines"
-
-#~ msgid "Index your search engines"
-#~ msgstr "Uw zoekmachines indexeren"
 
 #~ msgid "Type a filename pattern and find matching files on your disk."
 #~ msgstr ""
