@@ -105,7 +105,8 @@ class CuemiacEntryUI (DeskbarUI):
 			pass
 		
 		self.tooltips = gtk.Tooltips()
-		#self.tooltips.set_tip(self.icon_event_box, _("Show previous actions"))
+		#FIXME: Add these to translations
+		self.tooltips.set_tip(self.icon_event_box, "Show previous actions")
 		
 		self.invalid = True
 		
