@@ -62,28 +62,29 @@ class FileFolderHandler(deskbar.Handler.Handler):
 		self.cache = {}
 		
 	def initialize(self):
-		def add_files(files):
-			for f in files:
-				self.cache[basename(f).lower()] = f
-			
-		def add_files_dirs(dir, depth=0):
-			if depth >= 4:
-				return
-			
-			files = []
-			for f in os.listdir(dir):
-				if f.startswith("."):
-					continue
-					
-				f = join(dir, f)
-				if isdir(f):
-					add_files_dirs(f, depth+1)
-				
-				files.append(f)
-			
-			gobject.idle_add(add_files, files)
-		
-		Thread (None, add_files_dirs, args=(abspath(expanduser("~")),)).start ()
+		# Disables the file indexing functionnality as it's too slow
+#		def add_files(files):
+#			for f in files:
+#				self.cache[basename(f).lower()] = f
+#			
+#		def add_files_dirs(dir, depth=0):
+#			if depth >= 4:
+#				return
+#			
+#			files = []
+#			for f in os.listdir(dir):
+#				if f.startswith("."):
+#					continue
+#					
+#				f = join(dir, f)
+#				if isdir(f):
+#					add_files_dirs(f, depth+1)
+#				
+#				files.append(f)
+#			
+#			gobject.idle_add(add_files, files)
+#		
+#		Thread (None, add_files_dirs, args=(abspath(expanduser("~")),)).start ()
 
 		
 	def query(self, query):
@@ -93,20 +94,20 @@ class FileFolderHandler(deskbar.Handler.Handler):
 		result += self.query_filefolder(query, False)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
 		result += self.query_filefolder(query, True)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
 		
-		for key, absname in self.cache.items():
-			if len(result) >= 50:
-				break
-			
-			if not exists(absname):
-				del self.cache[key]
-				continue
-			
-			if key.startswith(query):
-				if isdir(absname):
-					result += [FolderMatch(self, basename(absname), absname)]
-				else:
-					result += [FileMatch(self, basename(absname), absname)]
-				
+#		for key, absname in self.cache.items():
+#			if len(result) >= 50:
+#				break
+#			
+#			if not exists(absname):
+#				del self.cache[key]
+#				continue
+#			
+#			if key.startswith(query):
+#				if isdir(absname):
+#					result += [FolderMatch(self, basename(absname), absname)]
+#				else:
+#					result += [FileMatch(self, basename(absname), absname)]
+#				
 		return result
 	
 	def query_filefolder(self, query, is_file):
