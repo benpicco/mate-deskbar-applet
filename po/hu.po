@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-17 06:02+0100\n"
+"POT-Creation-Date: 2006-02-26 07:25+0100\n"
 "PO-Revision-Date: 2005-12-11 23:15+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
@@ -103,8 +103,9 @@ msgid ""
 "you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
 msgstr ""
-"<i><small><b>Megjegyzés:</b> Ha ez a gyorsbillentyű egyetlen betű (például </b>t<b>), akkor "
-"a \"</b>valami</b>\" kereséséhez írja be a \"<b>Alt-t valami</b>\" karaktersorozatot a deskbarba.</small></i>"
+"<i><small><b>Megjegyzés:</b> Ha ez a gyorsbillentyű egyetlen betű (például </"
+"b>t<b>), akkor a \"</b>valami</b>\" kereséséhez írja be a \"<b>Alt-t valami</"
+"b>\" karaktersorozatot a deskbarba.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
@@ -120,7 +121,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Könyvjelzős keresések parancsikonjai"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:113
 #, python-format
 msgid "Open History Item %s"
 msgstr "%s előzményelem megnyitása"
@@ -214,6 +215,10 @@ msgstr "Web"
 msgid "Web Search"
 msgstr "Webkeresések"
 
+#: ../deskbar/DeskbarHistory.py:53
+msgid "No History"
+msgstr "Előzmények nélkül"
+
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
 msgstr "A program programozási hibát észlelt"
@@ -230,56 +235,56 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Programhiba"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:27
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:21
+#: ../deskbar/handlers/beagle-live.py:28
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Keresés az összes dokumentumban (a Beagle használatával), gépelés közben"
 
-#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/beagle-live.py:55
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "E-mail küldése a következőnek: %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:65
 #, python-format
 msgid "Email from %s"
 msgstr "E-mail a következőtől: %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:73 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "%s megnyitása"
 
-#: ../deskbar/handlers/beagle-live.py:74
+#: ../deskbar/handlers/beagle-live.py:81
 #, python-format
 msgid "News from %s"
 msgstr "Hírek a következőtől: %s"
 
-#: ../deskbar/handlers/beagle-live.py:83
+#: ../deskbar/handlers/beagle-live.py:90
 #, python-format
 msgid "Note: %s"
 msgstr "Megjegyzés: %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Conversation with %s"
 msgstr "Beszélgetés a következővel: %s"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Calendar: %s"
 msgstr "Naptár: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:271
-#: ../deskbar/handlers/beagle-live.py:293
+#: ../deskbar/handlers/beagle-live.py:277
+#: ../deskbar/handlers/beagle-live.py:299
 msgid "?"
 msgstr "?"
 
@@ -370,15 +375,15 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Levél küldése a következőnek: <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "Fájlok és mappák"
 
-#: ../deskbar/handlers/files.py:15
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
 msgstr "Fájlok és mappák megnyitása név alapján"
 
-#: ../deskbar/handlers/files.py:52
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "%s mappa megnyitása"
@@ -581,7 +586,19 @@ msgstr "Kelemen Gábor <kelemeng@gnome.hu>"
 msgid "_More..."
 msgstr "_Több..."
 
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
-msgid "No History"
-msgstr "Előzmények nélkül"
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Keresőmotorok</b>"
+
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Deskbar tulajdonságai - Webkeresések"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "Az összes rendelkezésre álló keresőmotor megjelenítése"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "Csak az elsődleges keresőmotor megjelenítése"
 
