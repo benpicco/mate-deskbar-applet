@@ -63,6 +63,7 @@ class FileFolderHandler(deskbar.Handler.Handler):
 		
 	def initialize(self):
 		# Disables the file indexing functionnality as it's too slow
+		pass
 #		def add_files(files):
 #			for f in files:
 #				self.cache[basename(f).lower()] = f
