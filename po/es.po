@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-19 22:28+0100\n"
-"PO-Revision-Date: 2006-02-19 22:28+0100\n"
+"POT-Creation-Date: 2006-02-27 19:21+0100\n"
+"PO-Revision-Date: 2006-02-27 19:22+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Combinaciones de teclas para las búsquedas almacenadas"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:113
 #, python-format
 msgid "Open History Item %s"
 msgstr "Abrir el elemento del histórico %s"
@@ -218,7 +218,6 @@ msgid "Web Search"
 msgstr "Búsquedas web"
 
 #: ../deskbar/DeskbarHistory.py:53
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "Sin histórico"
 
@@ -238,56 +237,56 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Error detectado"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:27
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:21
+#: ../deskbar/handlers/beagle-live.py:28
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Busque todos sus documentos (usando Beagle), mientras teclea"
 
-#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/beagle-live.py:55
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "Enviar correo-e a %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:65
 #, python-format
 msgid "Email from %s"
 msgstr "Correo-e de %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:73 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "Abrir %s"
 
-#: ../deskbar/handlers/beagle-live.py:74
+#: ../deskbar/handlers/beagle-live.py:81
 #, python-format
 msgid "News from %s"
 msgstr "Noticias de %s"
 
-#: ../deskbar/handlers/beagle-live.py:83
+#: ../deskbar/handlers/beagle-live.py:90
 #, python-format
 msgid "Note: %s"
 msgstr "Nota: %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Conversation with %s"
 msgstr "Conversación con %s"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Calendar: %s"
 msgstr "Calendario: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:271
-#: ../deskbar/handlers/beagle-live.py:293
+#: ../deskbar/handlers/beagle-live.py:277
+#: ../deskbar/handlers/beagle-live.py:299
 msgid "?"
 msgstr "?"
 
@@ -378,15 +377,15 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Enviar correo-e a <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "Archivos y carpetas"
 
-#: ../deskbar/handlers/files.py:15
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
 msgstr "Abra sus archivos y carpetas por nombre"
 
-#: ../deskbar/handlers/files.py:52
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "Abrir carpeta %s"
@@ -589,13 +588,27 @@ msgstr "Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2006"
 msgid "_More..."
 msgstr "_Más…"
 
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:62
-msgid "Show search entry"
-msgstr "Mostrar entrada de búsqueda"
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Motores de búsqueda</b>"
 
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:63
-msgid "Show previous actions"
-msgstr "Mostrar acciones anteriores"
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Preferencias de Deskbar - Búsquedas por web"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "Mostrar todos los motores de búsqueda disponibles"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "Mostrar sólo el motor de búsqueda primario"
+
+#~ msgid "Show search entry"
+#~ msgstr "Mostrar entrada de búsqueda"
+
+#~ msgid "Show previous actions"
+#~ msgstr "Mostrar acciones anteriores"
 
 #~ msgid "Button in panel with categorized list"
 #~ msgstr "Botón en el panel con lista categorizada"
@@ -729,12 +742,6 @@ msgstr "Mostrar acciones anteriores"
 
 #~ msgid "Open folders by their names."
 #~ msgstr "Abra carpetas por sus nombres."
-
-#~ msgid "Search Engines"
-#~ msgstr "Motores de búsqueda"
-
-#~ msgid "Index your search engines"
-#~ msgstr "Indexe sus motores de búsqueda"
 
 #~ msgid "Type a filename pattern and find matching files on your disk."
 #~ msgstr ""
