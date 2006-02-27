@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-20 08:53+0700\n"
-"PO-Revision-Date: 2006-02-20 09:20+0700\n"
+"POT-Creation-Date: 2006-02-27 22:58+0700\n"
+"PO-Revision-Date: 2006-02-27 23:00+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -116,7 +116,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "ทางลัดสำหรับการค้นหาที่คั่นหน้าไว้"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:113
 #, python-format
 msgid "Open History Item %s"
 msgstr "เปิดรายการ %s จากประวัติการท่องเว็บ"
@@ -212,7 +212,6 @@ msgid "Web Search"
 msgstr "การค้นเว็บ"
 
 #: ../deskbar/DeskbarHistory.py:53
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "ไม่มีประวัติการค้นหา"
 
@@ -231,56 +230,56 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "ตรวจพบข้อบกพร่องของโปรแกรม"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:27
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:21
+#: ../deskbar/handlers/beagle-live.py:28
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "ค้นเอกสารทั้งหมดของคุณ (โดยใช้ Beagle) ไปพร้อมกับการป้อนคำค้น"
 
-#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/beagle-live.py:55
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "ส่งอีเมลถึง %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:65
 #, python-format
 msgid "Email from %s"
 msgstr "อีเมลจาก %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:73 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "เปิด %s"
 
-#: ../deskbar/handlers/beagle-live.py:74
+#: ../deskbar/handlers/beagle-live.py:81
 #, python-format
 msgid "News from %s"
 msgstr "ข่าวจาก %s"
 
-#: ../deskbar/handlers/beagle-live.py:83
+#: ../deskbar/handlers/beagle-live.py:90
 #, python-format
 msgid "Note: %s"
 msgstr "บันทึก: %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Conversation with %s"
 msgstr "การสนทนากับ %s"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Calendar: %s"
 msgstr "ปฏิทิน: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:272
-#: ../deskbar/handlers/beagle-live.py:294
+#: ../deskbar/handlers/beagle-live.py:277
+#: ../deskbar/handlers/beagle-live.py:299
 msgid "?"
 msgstr "?"
 
@@ -368,15 +367,15 @@ msgstr "ส่งเมลไปยังผู้ที่ติดต่อก
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "ส่งเมลถึง <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "แฟ้มและโฟลเดอร์"
 
-#: ../deskbar/handlers/files.py:15
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
 msgstr "เปิดแฟ้มและโฟลเดอร์ของคุณตามชื่อ"
 
-#: ../deskbar/handlers/files.py:52
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "เปิดโฟลเดอร์ %s"
@@ -574,13 +573,27 @@ msgstr "เทพพิทักษ์ การุญบุญญานัน�
 msgid "_More..."
 msgstr "เ_พิ่มเติม..."
 
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:62
-msgid "Show search entry"
-msgstr "แสดงช่องป้อนคำค้น"
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>เครื่องมือค้นหา</b>"
 
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:63
-msgid "Show previous actions"
-msgstr "แสดงปฏิบัติการก่อนหน้า"
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "ปรับแต่งเดสก์บาร์ - การค้นเว็บ"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "แสดงเครื่องมือค้นหาที่มีทั้งหมด"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "แสดงเฉพาะเครื่องมือค้นหาหลักเท่านั้น"
+
+#~ msgid "Show search entry"
+#~ msgstr "แสดงช่องป้อนคำค้น"
+
+#~ msgid "Show previous actions"
+#~ msgstr "แสดงปฏิบัติการก่อนหน้า"
 
 #~ msgid "Button in panel with categorized list"
 #~ msgstr "ปุ่มในพาเนลพร้อมรายการจัดตามหมวด"
