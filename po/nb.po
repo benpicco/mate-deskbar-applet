@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-29 17:13+0100\n"
-"PO-Revision-Date: 2006-02-18 11:27+0100\n"
-"Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
+"POT-Creation-Date: 2006-02-28 02:50+0100\n"
+"PO-Revision-Date: 2006-02-28 03:06+0100\n"
+"Last-Translator: Øivind Hoel <oivind.hoel@gmail.com>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,15 +20,20 @@ msgstr ""
 msgid "An all-in-one action bar"
 msgstr "Panelprogram for handlinger"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
+#: ../data/Deskbar_Applet.server.in.in.h:2
+#: ../deskbar/ui/About.py:22
 msgid "Deskbar"
-msgstr ""
+msgstr "Skrivebordslinje"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
 msgstr "_Om"
 
 #: ../data/Deskbar_Applet.xml.h:2
+msgid "_Clear History"
+msgstr "_Tøm historikk"
+
+#: ../data/Deskbar_Applet.xml.h:3
 msgid "_Preferences"
 msgstr "_Brukervalg"
 
@@ -49,22 +54,20 @@ msgid "<b>Width</b>"
 msgstr "<b>Bredde</b>"
 
 #: ../data/prefs-dialog.glade.h:5
-msgid ""
-"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
-"small></i>"
-msgstr ""
+msgid "<i><small><b>Note:</b> Drag and drop an extension to change its order.</small></i>"
+msgstr "<i><small>Dra og slipp utvidelser for å endre rekkefølgen.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with grouped list"
-msgstr ""
+msgid "Button in panel"
+msgstr "Knapp på panel"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Brukervalg for skrivebordslinje"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with flat list"
-msgstr ""
+msgid "Entry in panel"
+msgstr "Tekstboks på panel"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -91,24 +94,19 @@ msgid "characters"
 msgstr "tegn"
 
 #: ../data/smart-bookmarks.glade.h:1
-msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
+msgid "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in the deskbar.</small></i>"
 msgstr ""
 
 #: ../data/smart-bookmarks.glade.h:2
-msgid ""
-"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
-"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
-"i>."
+msgid "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></i>."
 msgstr ""
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
-msgstr ""
+msgstr "Snarveier for lagrede søk"
 
 #: ../deskbar/BrowserMatch.py:30
+#: ../deskbar/handlers/beagle-live.py:113
 #, python-format
 msgid "Open History Item %s"
 msgstr "Åpne historikkoppføring %s"
@@ -132,234 +130,146 @@ msgstr "Snarvei"
 msgid "Bookmark Name"
 msgstr "Navn på bokmerke"
 
-#: ../deskbar/Categories.py:11
-msgid "Uncategorized"
-msgstr ""
-
-#: ../deskbar/Categories.py:12
+#: ../deskbar/Categories.py:4
 #, python-format
 msgid "%s more result"
 msgid_plural "%s more results"
 msgstr[0] "%s resultat til"
 msgstr[1] "%s resultater til"
 
-#: ../deskbar/Categories.py:16
+#: ../deskbar/Categories.py:9
+msgid "Uncategorized"
+msgstr "Ukategorisert"
+
+#: ../deskbar/Categories.py:14
+#: ../deskbar/handlers/history.py:8
+msgid "History"
+msgstr "Historikk"
+
+#: ../deskbar/Categories.py:26
+msgid "Documents"
+msgstr "Dokumenter"
+
+#: ../deskbar/Categories.py:27
+#, python-format
+msgid "%s more document"
+msgid_plural "%s more documents"
+msgstr[0] "%s dokument til"
+msgstr[1] "%s dokumenter til"
+
+#: ../deskbar/Categories.py:31
 msgid "Files"
 msgstr "Filer"
 
-#: ../deskbar/Categories.py:17
+#: ../deskbar/Categories.py:32
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "%s fil til"
 msgstr[1] "%s filer til"
 
-#: ../deskbar/Categories.py:21
+#: ../deskbar/Categories.py:36
+msgid "People"
+msgstr "Personer"
+
+#: ../deskbar/Categories.py:41
+msgid "Places"
+msgstr "Steder"
+
+#: ../deskbar/Categories.py:42
+#, python-format
+msgid "%s more place"
+msgid_plural "%s more places"
+msgstr[0] "%s sted til"
+msgstr[1] "%s flere steder"
+
+#: ../deskbar/Categories.py:46
 msgid "Actions"
 msgstr "Handlinger"
 
-#: ../deskbar/Categories.py:22
+#: ../deskbar/Categories.py:47
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "%s handling til"
 msgstr[1] "%s handlinger til"
 
-#: ../deskbar/Categories.py:26
-msgid "News"
-msgstr "Nyheter"
-
-#: ../deskbar/Categories.py:27
-#, python-format
-msgid "%s more news item"
-msgid_plural "%s more news items"
-msgstr[0] "%s nyhetsoppføring til"
-msgstr[1] "%s nyhetsoppføringer til"
-
-#: ../deskbar/Categories.py:31
-msgid "Contacts"
-msgstr "Kontakter"
-
-#: ../deskbar/Categories.py:32
-#, python-format
-msgid "%s more contact"
-msgid_plural "%s more contacts"
-msgstr[0] "%s kontakt til"
-msgstr[1] "%s kontakter til"
-
-#: ../deskbar/Categories.py:36
-msgid "Emails"
-msgstr "E-post"
-
-#: ../deskbar/Categories.py:37
-#, python-format
-msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] "%s melding til"
-msgstr[1] "%s meldinger til"
-
-#: ../deskbar/Categories.py:41
-msgid "Notes"
-msgstr "Notater"
-
-#: ../deskbar/Categories.py:42
-#, python-format
-msgid "%s more note"
-msgid_plural "%s more notes"
-msgstr[0] "%s notat til"
-msgstr[1] "%s notater til"
-
-#: ../deskbar/Categories.py:46
-msgid "Volumes"
-msgstr "Volumer"
-
-#: ../deskbar/Categories.py:47
-#, python-format
-msgid "%s more volume"
-msgid_plural "%s more volumes"
-msgstr[0] "%s volum til"
-msgstr[1] "%s volumer til"
-
 #: ../deskbar/Categories.py:51
-msgid "Google Search"
-msgstr "Google søk"
-
-#: ../deskbar/Categories.py:52
-#, python-format
-msgid "%s more online hit"
-msgid_plural "%s more online hits"
-msgstr[0] "%s treff til"
-msgstr[1] "%s treff til"
+#: ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "Web"
 
 #: ../deskbar/Categories.py:56
-msgid "Calendar"
-msgstr "Kalender"
+msgid "Web Search"
+msgstr "Søk på nettet"
 
-#: ../deskbar/Categories.py:57
-#, python-format
-msgid "%s more calendar item"
-msgid_plural "%s more calendar items"
-msgstr[0] "%s kalenderoppføring til"
-msgstr[1] "%s kalenderoppføringer til"
-
-#: ../deskbar/Categories.py:61
-msgid "Conversation"
-msgstr "Samtale"
-
-#: ../deskbar/Categories.py:62
-#, python-format
-msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "%s samtale til"
-msgstr[1] "%s samtaler til"
-
-#: ../deskbar/Categories.py:66
-msgid "Web Browser"
-msgstr "Nettleser"
-
-#: ../deskbar/Categories.py:67
-#, python-format
-msgid "%s more item"
-msgid_plural "%s more items"
-msgstr[0] "%s oppføring til"
-msgstr[1] "%s oppføringer til"
-
-#: ../deskbar/Categories.py:71 ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Programmer"
-
-#: ../deskbar/Categories.py:72
-#, python-format
-msgid "%s more program"
-msgid_plural "%s more programs"
-msgstr[0] "%s program til"
-msgstr[1] "%s programmer til"
-
-#: ../deskbar/Categories.py:76 ../deskbar/handlers/history.py:8
-msgid "History"
-msgstr "Historikk"
-
-#: ../deskbar/Categories.py:77
-#, python-format
-msgid "%s more match"
-msgid_plural "%s more matches"
-msgstr[0] "%s treff til"
-msgstr[1] "%s treff til"
-
-#: ../deskbar/Categories.py:81
-msgid "Debug"
-msgstr "Feilsøk"
-
-#: ../deskbar/Categories.py:82
-#, python-format
-msgid "%s more debugging handler"
-msgid_plural "%s more debugging handlers"
-msgstr[0] "%s feilhåndterer til"
-msgstr[1] "%s feilhåndterere til"
+#: ../deskbar/DeskbarHistory.py:53
+msgid "No History"
+msgstr "Ingen historikk"
 
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
 msgstr "En programmeringsfeil ble funnet"
 
 #: ../deskbar/gtkexcepthook.py:22
-msgid ""
-"It probably isn't fatal, but should be reported to the developers "
-"nonetheless. The program may behave erratically from now on."
-msgstr ""
+msgid "It probably isn't fatal, but should be reported to the developers nonetheless. The program may behave erratically from now on."
+msgstr "Dette er sannsynligvis ikke noe å bekymre seg over, men bør rapporteres til utviklerne likevel. Programmet kan oppføre seg merkelig fra nå av."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
 msgstr "Feil funnet"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:27
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:28
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Søk gjennom alle dine dokumenter med Beagle mens du skriver"
 
-#: ../deskbar/handlers/beagle-live.py:47
+#: ../deskbar/handlers/beagle-live.py:55
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "Adressebokoppføring for %s"
+msgid "Send Email to %s"
+msgstr "Send e-post til %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:56
+#: ../deskbar/handlers/beagle-live.py:65
 #, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "Vis e-post fra <i>%(sender)s</i>: <b>%(name)s</b>"
+msgid "Email from %s"
+msgstr "E-post fra %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:63 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:73
+#: ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "Åpne %s"
 
-#: ../deskbar/handlers/beagle-live.py:69
+#: ../deskbar/handlers/beagle-live.py:81
 #, python-format
-msgid "Open news item %s"
-msgstr "Åpne nyhetsoppføring %s"
+msgid "News from %s"
+msgstr "Nyheter fra %s"
 
-#: ../deskbar/handlers/beagle-live.py:76
-#, python-format
-msgid "Open note %s"
-msgstr "Åpne notat %s"
+#: ../deskbar/handlers/beagle-live.py:90
+#, fuzzy, python-format
+msgid "Note: %s"
+msgstr "Notater"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
-msgid "View conversation with %s"
-msgstr "Vis samtale med %s"
+msgid "Conversation with %s"
+msgstr "Samtale med %s"
 
-#: ../deskbar/handlers/beagle-live.py:88
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
-msgid "View calendar %s"
-msgstr "Vis kalender %s"
+msgid "Calendar: %s"
+msgstr "Kalender: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:230
-#: ../deskbar/handlers/beagle-live.py:249
+#: ../deskbar/handlers/beagle-live.py:277
+#: ../deskbar/handlers/beagle-live.py:299
 msgid "?"
 msgstr "?"
 
@@ -384,40 +294,41 @@ msgstr "E-post"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "Send e-post ved å skrive inn en komplett e-postadresse"
 
-#: ../deskbar/handlers/email_address.py:27
-#, python-format
-msgid "Send Email to %s"
-msgstr "Send e-post til %s"
-
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
 msgstr "Du kan lage snarveier for dine søk."
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:33
+#: ../deskbar/handlers/epiphany.py:32
+#: ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:120
 msgid "Web Bookmarks"
 msgstr "Bokmerker på nettet"
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/epiphany.py:33
+#: ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:121
 msgid "Open your web bookmarks by name"
 msgstr "Åpne bokmerker i nettleseren etter navn"
 
-#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:37
+#: ../deskbar/handlers/galeon.py:26
 msgid "Web History"
 msgstr "Historikk for nettleser"
 
-#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:38
+#: ../deskbar/handlers/galeon.py:27
 msgid "Open your web history by name"
 msgstr "Åpne historikk for nettleser etter navn"
 
-#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:38
+#: ../deskbar/handlers/epiphany.py:42
+#: ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:125
 msgid "Web Searches"
 msgstr "Søk på nettet"
 
-#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:39
+#: ../deskbar/handlers/epiphany.py:43
+#: ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Search the web via your browser's search settings"
 msgstr "Søk på nettet med nettleserens innstillinger for søk"
 
@@ -430,10 +341,7 @@ msgid "Autocompletion Needs to be Enabled"
 msgstr "Automatisk fullføring må være aktivert"
 
 #: ../deskbar/handlers/evolution.py:14
-msgid ""
-"We cannot provide e-mail addresses from your address book unless "
-"autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit - Preferences, and then Autocompletion."
+msgid "We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion."
 msgstr ""
 
 #: ../deskbar/handlers/evolution.py:19
@@ -442,7 +350,7 @@ msgstr "E-post (adressebok)"
 
 #: ../deskbar/handlers/evolution.py:20
 msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
+msgstr "Send e-post til kontaktene dine ved å skrive inn deres navn eller e-post-adresse"
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:45
@@ -450,39 +358,44 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Send e-post til <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "Filer og mapper"
 
-#: ../deskbar/handlers/files.py:15
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
 msgstr "Åpne dine filer og mapper etter navn"
 
-#: ../deskbar/handlers/files.py:51
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "Åpne mappe %s"
 
 #: ../deskbar/handlers/google-live.py:19
 msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
+"You need a Google account to use Google Live.  To get one, go to http://api.google.com/\n"
 "\n"
-"When you have created your account, you should recieve a Google API key by "
-"mail.  Place this key in the file\n"
+"When you have created your account, you should recieve a Google API key by mail.  Place this key in the file\n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
 "\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
+"If you do not receive an API key (or you have lost it) in your account verification mail, then go to www.google.com/accounts and log in.  Go to api.google.com, click \"Create Account\" and enter your e-mail address and password.  Your API key will be re-sent.\n"
 "\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from it.  Copy this file to\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 msgstr ""
+"Du trenger en Google-konto for å bruke Google Live. For å skaffe dette, kan du åpne http://api.google.com/ i nettleseren din.\n"
+"\n"
+"Når du har opprettet en konto, vil du få tilsendt en Google API-nøkkel via e-post. Plasser denne i filen\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"Hvis du ikke mottar en API-nøkkel (eller har mistet den) i bekreftelsesbrevet, kan du gå til http://www.google.com/accounts og logge inn. Gå til http://api.google.com/, klikk \"Create Account\" og skriv inn din e-post-adresse og passord. API-nøkkelen skal nå bli sendt på nytt.\n"
+"\n"
+"Last så ned \"developers kit\" og pakk ut filen GoogleSearch.wsdl til mappen\n"
+"\n"
+"~/.gnome2/deskbar-applet/"
 
 #: ../deskbar/handlers/google-live.py:32
 msgid "Setting Up Google Live"
@@ -494,15 +407,15 @@ msgstr ""
 
 #: ../deskbar/handlers/google-live.py:40
 msgid "You need the Google WSDL file."
-msgstr ""
+msgstr "Du trenger WSDL-filen fra Google"
 
 #: ../deskbar/handlers/google-live.py:42
 msgid "You need a Google API key."
-msgstr ""
+msgstr "Du trenger en API-nøkkel fra Google"
 
 #: ../deskbar/handlers/google-live.py:48
-msgid "Google Live"
-msgstr "Google Live"
+msgid "Google Search"
+msgstr "Google søk"
 
 #: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
@@ -516,7 +429,8 @@ msgstr "Bokmerker for filer og mapper"
 msgid "Open your files and folders bookmarks by name"
 msgstr "Åpne dine bokmerker for filer og mapper etter navn"
 
-#: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
+#: ../deskbar/handlers/gtkbookmarks.py:31
+#: ../deskbar/handlers/volumes.py:48
 #, python-format
 msgid "Open location %s"
 msgstr "Åpne lokasjon %s"
@@ -524,6 +438,10 @@ msgstr "Åpne lokasjon %s"
 #: ../deskbar/handlers/history.py:9
 msgid "Recognize previously used searches"
 msgstr "Husk tidligere brukte søk"
+
+#: ../deskbar/handlers/mozilla.py:111
+msgid "You can customize which search engines are offered."
+msgstr "Du kan stille inn hvilke søkemotorer som skal tilbys."
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
@@ -537,6 +455,10 @@ msgstr "Start et program som finnes i søkestiene"
 #, python-format
 msgid "Execute %s"
 msgstr "Kjør %s"
+
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Programmer"
 
 #: ../deskbar/handlers/programs.py:15
 msgid "Launch a program by its name and/or description"
@@ -565,12 +487,12 @@ msgstr "Finn filer og mapper ved å søke etter et navnemønster"
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Start <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:85
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Slå opp %s i ordbok"
 
-#: ../deskbar/handlers/programs.py:93
+#: ../deskbar/handlers/programs.py:94
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Søk etter filnavn som %s"
@@ -581,7 +503,7 @@ msgstr "Disker og nettverkslokasjoner"
 
 #: ../deskbar/handlers/volumes.py:17
 msgid "Open disk drives, shared network places and similar resources by name"
-msgstr ""
+msgstr "Åpne harddisker, delte nettverkssteder og lignende ressurser etter navn"
 
 #: ../deskbar/handlers/volumes.py:44
 #, python-format
@@ -592,10 +514,6 @@ msgstr "Åpne nettverkslokasjon %s"
 #, python-format
 msgid "Open audio disk %s"
 msgstr "Åpne lydplate %s"
-
-#: ../deskbar/handlers/web_address.py:9
-msgid "Web"
-msgstr "Web"
 
 #: ../deskbar/handlers/web_address.py:10
 msgid "Open web pages by typing a complete web address"
@@ -610,6 +528,14 @@ msgstr "Åpne nettside %s"
 #, python-format
 msgid "Open the location %s"
 msgstr "Åpne lokasjon %s"
+
+#: ../deskbar/handlers/yahoo.py:16
+msgid "Yahoo! Search"
+msgstr "Yahoo-søk"
+
+#: ../deskbar/handlers/yahoo.py:17
+msgid "Search Yahoo! as you type"
+msgstr "Søk i Yahoo mens du skriver"
 
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
@@ -630,10 +556,91 @@ msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 msgid "_More..."
 msgstr "_Mer..."
 
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
-msgid "No History"
-msgstr "Ingen historikk"
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Søkemotorer</b>"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:44
-msgid "You need Gtk+ version 2.8.0 or higher to use this module"
-msgstr "Du må ha Gtk+ versjon 2.8.0 eller høyere for å bruke denne modulen"
+#: ../data/mozilla-search.glade.h:2
+#, fuzzy
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Brukervalg for skrivebordslinje"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "Bruk alle tilgjengelige søkemotorer"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "Bare vis primær søkemotor"
+
+#~ msgid "News"
+#~ msgstr "Nyheter"
+#~ msgid "%s more news item"
+#~ msgid_plural "%s more news items"
+#~ msgstr[0] "%s nyhetsoppføring til"
+#~ msgstr[1] "%s nyhetsoppføringer til"
+#~ msgid "Contacts"
+#~ msgstr "Kontakter"
+#~ msgid "%s more contact"
+#~ msgid_plural "%s more contacts"
+#~ msgstr[0] "%s kontakt til"
+#~ msgstr[1] "%s kontakter til"
+#~ msgid "Emails"
+#~ msgstr "E-post"
+#~ msgid "%s more email"
+#~ msgid_plural "%s more emails"
+#~ msgstr[0] "%s melding til"
+#~ msgstr[1] "%s meldinger til"
+#~ msgid "%s more note"
+#~ msgid_plural "%s more notes"
+#~ msgstr[0] "%s notat til"
+#~ msgstr[1] "%s notater til"
+#~ msgid "%s more online hit"
+#~ msgid_plural "%s more online hits"
+#~ msgstr[0] "%s treff til"
+#~ msgstr[1] "%s treff til"
+#~ msgid "%s more calendar item"
+#~ msgid_plural "%s more calendar items"
+#~ msgstr[0] "%s kalenderoppføring til"
+#~ msgstr[1] "%s kalenderoppføringer til"
+#~ msgid "Conversation"
+#~ msgstr "Samtale"
+#~ msgid "%s more conversation"
+#~ msgid_plural "%s more conversations"
+#~ msgstr[0] "%s samtale til"
+#~ msgstr[1] "%s samtaler til"
+#~ msgid "Web Browser"
+#~ msgstr "Nettleser"
+#~ msgid "%s more item"
+#~ msgid_plural "%s more items"
+#~ msgstr[0] "%s oppføring til"
+#~ msgstr[1] "%s oppføringer til"
+#~ msgid "%s more program"
+#~ msgid_plural "%s more programs"
+#~ msgstr[0] "%s program til"
+#~ msgstr[1] "%s programmer til"
+#~ msgid "%s more match"
+#~ msgid_plural "%s more matches"
+#~ msgstr[0] "%s treff til"
+#~ msgstr[1] "%s treff til"
+#~ msgid "Debug"
+#~ msgstr "Feilsøk"
+#~ msgid "%s more debugging handler"
+#~ msgid_plural "%s more debugging handlers"
+#~ msgstr[0] "%s feilhåndterer til"
+#~ msgstr[1] "%s feilhåndterere til"
+#~ msgid "Addressbook entry for %s"
+#~ msgstr "Adressebokoppføring for %s"
+#~ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+#~ msgstr "Vis e-post fra <i>%(sender)s</i>: <b>%(name)s</b>"
+#~ msgid "Open news item %s"
+#~ msgstr "Åpne nyhetsoppføring %s"
+#~ msgid "Open note %s"
+#~ msgstr "Åpne notat %s"
+#~ msgid "View calendar %s"
+#~ msgstr "Vis kalender %s"
+#~ msgid "Google Live"
+#~ msgstr "Google Live"
+#~ msgid "You need Gtk+ version 2.8.0 or higher to use this module"
+#~ msgstr "Du må ha Gtk+ versjon 2.8.0 eller høyere for å bruke denne modulen"
+
