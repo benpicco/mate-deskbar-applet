@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-20 11:28+0200\n"
-"PO-Revision-Date: 2006-02-20 11:30+0200\n"
+"POT-Creation-Date: 2006-02-28 21:25+0200\n"
+"PO-Revision-Date: 2006-02-28 21:27+0200\n"
 "Last-Translator: Tommi Vainikainen <Tommi.Vainikainen@iki.fi>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Pikanäppäimet kirjanmerkittyihin hakuihin"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:113
 #, python-format
 msgid "Open History Item %s"
 msgstr "Avaa historiamerkintä %s"
@@ -218,7 +218,6 @@ msgid "Web Search"
 msgstr "WWW-haku"
 
 #: ../deskbar/DeskbarHistory.py:53
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "Ei historiaa"
 
@@ -238,56 +237,56 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Havaittiin vika ohjelmassa"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:27
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:21
+#: ../deskbar/handlers/beagle-live.py:28
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Etsi asiakirjojasi (Beaglella) samalla kuin kirjoitat"
 
-#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/beagle-live.py:55
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "Lähetä sähköpostia osoitteeseen %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:65
 #, python-format
 msgid "Email from %s"
 msgstr "Sähköposti, lähettänyt %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:73 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "Avaa %s"
 
-#: ../deskbar/handlers/beagle-live.py:74
+#: ../deskbar/handlers/beagle-live.py:81
 #, python-format
 msgid "News from %s"
 msgstr "Uutisia (%s)"
 
-#: ../deskbar/handlers/beagle-live.py:83
+#: ../deskbar/handlers/beagle-live.py:90
 #, python-format
 msgid "Note: %s"
 msgstr "Muistilappu: %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Conversation with %s"
 msgstr "Keskustelu (%s)"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalenteri: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:272
-#: ../deskbar/handlers/beagle-live.py:294
+#: ../deskbar/handlers/beagle-live.py:277
+#: ../deskbar/handlers/beagle-live.py:299
 msgid "?"
 msgstr "?"
 
@@ -377,15 +376,15 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Lähetä sähköpostia: <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "Tiedostot ja kansiot"
 
-#: ../deskbar/handlers/files.py:15
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
 msgstr "Avaa tiedostoja ja kansioita nimellä"
 
-#: ../deskbar/handlers/files.py:52
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "Avaa kansio %s"
@@ -592,13 +591,27 @@ msgstr ""
 msgid "_More..."
 msgstr "_Lisää..."
 
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:62
-msgid "Show search entry"
-msgstr "Näytä hakukenttä"
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Hakupalvelut</b>"
 
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:63
-msgid "Show previous actions"
-msgstr "Näytä edelliset toiminnot"
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Työpöytäpalkin asetukset - Web-haut"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "Näytä kaikki tarjolla olevat hakupalvelut"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "Näytä vain ensisijainen hakupalvelu"
+
+#~ msgid "Show search entry"
+#~ msgstr "Näytä hakukenttä"
+
+#~ msgid "Show previous actions"
+#~ msgstr "Näytä edelliset toiminnot"
 
 #~ msgid "Button in panel with categorized list"
 #~ msgstr "Painike paneelissa luokitetulla listalla"
@@ -735,12 +748,6 @@ msgstr "Näytä edelliset toiminnot"
 
 #~ msgid "Open folders by their names."
 #~ msgstr "Avaa kansiot nimellä."
-
-#~ msgid "Search Engines"
-#~ msgstr "Hakupalvelut"
-
-#~ msgid "Index your search engines"
-#~ msgstr "Laadi hakupalveluista hakemisto"
 
 #~ msgid "Type a filename pattern and find matching files on your disk."
 #~ msgstr "Kirjoita tiedostonimihahmo ja etsi täsmääviä tiedostoja levyltäsi."
