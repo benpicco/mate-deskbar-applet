@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-07 11:14+0200\n"
-"PO-Revision-Date: 2006-02-07 12:11+0200\n"
+"POT-Creation-Date: 2006-02-28 18:44+0200\n"
+"PO-Revision-Date: 2006-02-28 18:45+0200\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,10 @@ msgid "_About"
 msgstr "_Относно"
 
 #: ../data/Deskbar_Applet.xml.h:2
+msgid "_Clear History"
+msgstr "_Изчистване на историята"
+
+#: ../data/Deskbar_Applet.xml.h:3
 msgid "_Preferences"
 msgstr "_Настройки"
 
@@ -57,16 +61,16 @@ msgstr ""
 "приставките.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with categorized list"
-msgstr "Бутон в панела с категоризиран списък"
+msgid "Button in panel"
+msgstr "Бутон в панел"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Настройки"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with simple list"
-msgstr "Елемент в панела с обикновен списък"
+msgid "Entry in panel"
+msgstr "Елемент в панел"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -115,7 +119,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Бързи клавиши за отметките за търсене"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:107
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:113
 #, python-format
 msgid "Open History Item %s"
 msgstr "Отваряне от историята: %s"
@@ -139,76 +143,80 @@ msgstr "Бърз клавиш"
 msgid "Bookmark Name"
 msgstr "Име на отметка"
 
-#: ../deskbar/Categories.py:9
+#: ../deskbar/Categories.py:4
 #, python-format
 msgid "%s more result"
 msgid_plural "%s more results"
 msgstr[0] "Още %s резултат"
 msgstr[1] "Още %s резултата"
 
-#: ../deskbar/Categories.py:14
+#: ../deskbar/Categories.py:9
 msgid "Uncategorized"
 msgstr "Без категория"
 
-#: ../deskbar/Categories.py:19 ../deskbar/handlers/history.py:8
+#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:8
 msgid "History"
 msgstr "История"
 
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:26
 msgid "Documents"
 msgstr "Документи"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:27
 #, python-format
 msgid "%s more document"
 msgid_plural "%s more documents"
 msgstr[0] "Още %s документ"
 msgstr[1] "Още %s  документа"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:31
 msgid "Files"
 msgstr "Файлове"
 
-#: ../deskbar/Categories.py:37
+#: ../deskbar/Categories.py:32
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "Още %s файл"
 msgstr[1] "Още %s файла"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:36
 msgid "People"
 msgstr "Хора"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:41
 msgid "Places"
 msgstr "Места"
 
-#: ../deskbar/Categories.py:47
+#: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more place"
 msgid_plural "%s more places"
 msgstr[0] "Още %s място"
 msgstr[1] "Още %s места"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:46
 msgid "Actions"
 msgstr "Действия"
 
-#: ../deskbar/Categories.py:52
+#: ../deskbar/Categories.py:47
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "Още %s действие"
 msgstr[1] "Още %s действия"
 
-#: ../deskbar/Categories.py:56 ../deskbar/handlers/web_address.py:9
+#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
 msgid "Web"
 msgstr "Уеб"
 
-#: ../deskbar/Categories.py:61
+#: ../deskbar/Categories.py:56
 msgid "Web Search"
 msgstr "Търсене по уеб"
+
+#: ../deskbar/DeskbarHistory.py:53
+msgid "No History"
+msgstr "Няма история"
 
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
@@ -218,62 +226,64 @@ msgstr "Възникна програмна грешка"
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
-msgstr "Вероятно не е фатална, но трябва да я докладвате на разработчиците. Възможно е програмата да не се държи стабилно."
+msgstr ""
+"Вероятно не е фатална, но трябва да я докладвате на разработчиците. Възможно "
+"е програмата да не се държи стабилно."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
 msgstr "Засечена е грешка"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:27
 msgid "Beagle Live"
 msgstr "Beagle на живо"
 
-#: ../deskbar/handlers/beagle-live.py:21
+#: ../deskbar/handlers/beagle-live.py:28
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Претърсване на всичките Ви документи (с Beagle) докато пишете"
 
-#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/beagle-live.py:55
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "Пращане на е-поща на %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:65
 #, python-format
 msgid "Email from %s"
 msgstr "Е-писмо от %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:73 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "Отваряне на %s"
 
-#: ../deskbar/handlers/beagle-live.py:75
+#: ../deskbar/handlers/beagle-live.py:81
 #, python-format
 msgid "News from %s"
 msgstr "Новини от %s"
 
-#: ../deskbar/handlers/beagle-live.py:84
+#: ../deskbar/handlers/beagle-live.py:90
 #, python-format
 msgid "Note: %s"
 msgstr "Бележка: %s"
 
-#: ../deskbar/handlers/beagle-live.py:92
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Conversation with %s"
 msgstr "Разговор с %s"
 
-#: ../deskbar/handlers/beagle-live.py:100
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Calendar: %s"
 msgstr "Календар: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:273
-#: ../deskbar/handlers/beagle-live.py:295
+#: ../deskbar/handlers/beagle-live.py:277
+#: ../deskbar/handlers/beagle-live.py:299
 msgid "?"
 msgstr "?"
 
@@ -303,12 +313,12 @@ msgid "You can set shortcuts for your searches."
 msgstr "Можете да задавате бързи клавиши за търсенето"
 
 #: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:33
+#: ../deskbar/handlers/mozilla.py:120
 msgid "Web Bookmarks"
 msgstr "Отметки в уеб"
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/mozilla.py:121
 msgid "Open your web bookmarks by name"
 msgstr "Отваряне на отметките по име"
 
@@ -321,12 +331,12 @@ msgid "Open your web history by name"
 msgstr "Отваряне на елементите в историята по име"
 
 #: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:38
+#: ../deskbar/handlers/mozilla.py:125
 msgid "Web Searches"
 msgstr "Търсене по уеб"
 
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:39
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Search the web via your browser's search settings"
 msgstr "Търсене в уеб чрез настройките на уеб браузъра"
 
@@ -366,15 +376,15 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Пращане на е-писмо до <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "Файлове и папки"
 
-#: ../deskbar/handlers/files.py:15
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
 msgstr "Отваряне на файлове и папки по име"
 
-#: ../deskbar/handlers/files.py:52
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "Отваряне на папка %s"
@@ -457,6 +467,10 @@ msgstr "Отваряне на местоположението %s"
 #: ../deskbar/handlers/history.py:9
 msgid "Recognize previously used searches"
 msgstr "Разпознаване на предишни търсения"
+
+#: ../deskbar/handlers/mozilla.py:111
+msgid "You can customize which search engines are offered."
+msgstr "Може да персонализирате кои търсачки да се използват."
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
@@ -546,11 +560,11 @@ msgstr "Отваряне на уеб страницата %s"
 msgid "Open the location %s"
 msgstr "Отваряне на местоположението %s"
 
-#: ../deskbar/handlers/yahoo.py:15
+#: ../deskbar/handlers/yahoo.py:16
 msgid "Yahoo! Search"
 msgstr "Търсене с Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:16
+#: ../deskbar/handlers/yahoo.py:17
 msgid "Search Yahoo! as you type"
 msgstr "Претърсване на Yahoo! докато пишете"
 
@@ -578,7 +592,18 @@ msgstr ""
 msgid "_More..."
 msgstr "_Допълнителни..."
 
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
-msgid "No History"
-msgstr "Няма история"
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Търсачки</b>"
 
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Настройки - Търсене в Интернет"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "Показване на всички налични търсачки"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "Показване само на основната търсачка"
