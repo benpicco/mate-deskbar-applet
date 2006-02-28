@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-19 17:51+0100\n"
-"PO-Revision-Date: 2006-02-20 15:10+0530\n"
+"POT-Creation-Date: 2006-02-28 05:27+0100\n"
+"PO-Revision-Date: 2006-02-28 11:44+0530\n"
 "Last-Translator: Ankit Patel <ankit644@yahoo.com>\n"
 "Language-Team: Gujarati <indianoss-gujarati@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -128,7 +129,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "બુકમાર્ક થયેલ શોધો માટેના ટુંકાણો"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:113
 #, python-format
 msgid "Open History Item %s"
 msgstr "ઈતિહાસ વસ્તુ %s ખોલો"
@@ -224,7 +225,6 @@ msgid "Web Search"
 msgstr "વેબ શોધ"
 
 #: ../deskbar/DeskbarHistory.py:53
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "કોઈ ઈતિહાસ નથી"
 
@@ -244,56 +244,56 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "ભૂલ મળી આવી"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:27
 msgid "Beagle Live"
 msgstr "બીગલ જીવંત"
 
-#: ../deskbar/handlers/beagle-live.py:21
+#: ../deskbar/handlers/beagle-live.py:28
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "તમારા બધા દસ્તાવેજો (બીગલની મદદથી) શોધો, જેમ તમે લખો"
 
-#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/beagle-live.py:55
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "%s ને ઈમેઈલ મોકલો"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:65
 #, python-format
 msgid "Email from %s"
 msgstr "%s તરફથી ઈમેઈલ"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:73 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "%s ખોલો"
 
-#: ../deskbar/handlers/beagle-live.py:74
+#: ../deskbar/handlers/beagle-live.py:81
 #, python-format
 msgid "News from %s"
 msgstr "%s માંથી સમાચાર"
 
-#: ../deskbar/handlers/beagle-live.py:83
+#: ../deskbar/handlers/beagle-live.py:90
 #, python-format
 msgid "Note: %s"
 msgstr "નોંધ: %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Conversation with %s"
 msgstr "%s સાથેનો વાર્તાલાપ"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Calendar: %s"
 msgstr "કેલેન્ડર: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:271
-#: ../deskbar/handlers/beagle-live.py:293
+#: ../deskbar/handlers/beagle-live.py:277
+#: ../deskbar/handlers/beagle-live.py:299
 msgid "?"
 msgstr "?"
 
@@ -382,15 +382,15 @@ msgstr "તમારા સંપર્કોને તેમના નામ �
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "<b>%(name)s</b> ને ઈમેઈલ મોકલો (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "ફાઈલો અને ફોલ્ડરો"
 
-#: ../deskbar/handlers/files.py:15
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
 msgstr "નામ પ્રમાણે તમારી ફાઈલો અને ફોલ્ડરો ખોલો"
 
-#: ../deskbar/handlers/files.py:52
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "ફોલ્ડર %s ખોલો"
@@ -591,11 +591,19 @@ msgstr "અંકિત પટેલ <ankit644@yahoo.com>"
 msgid "_More..."
 msgstr "વધુ (_M)..."
 
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:62
-msgid "Show search entry"
-msgstr "શોધ પ્રવેશ બતાવો"
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>શોધ યંત્રો</b>"
 
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:63
-msgid "Show previous actions"
-msgstr "પહેલાંની ક્રિયાઓ બતાવો"
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "ડેસ્કપટ્ટી પસંદગીઓ - વેબ શોધો"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "બધા ઉપલબ્ધ શોધ યંત્રો બતાવો"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "માત્ર પ્રાથમિક શોધ યંત્ર બતાવો"
 
