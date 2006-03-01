@@ -1,4 +1,47 @@
 ======================
+deskbar-applet 2.13.92
+======================
+
+Changes:
+	* Fixes bug #332418, now we use Icons instead of buttons in the panel reducing the needed panel vertical space
+	* Don't import beagle each time we need it. Only when loading the module. This wastly increases beagle-live performance.
+	* Fixes the applet not remembering 'take all available space on panel' setting on startup
+	* API change: removed the 'max' argument to the Handler.query() method. The handlers can now return any number of mathes or use the hardwired deskbar.DEFAULT_RESULTS_PER_HANDLER variable to trim the results. Fixes bug #331884
+	* Fix bug #332080, empty history borking completion UI
+	* Really fix duplicate module loading Return URIS in file and folder handler to correctly detect duplicates
+	* Add a 'No History' item in the history dropdown when there is no history.
+	* Implement single-click selection for history and cuemiac dropdown.
+	* Add focus-follow-pointer for history dropdown
+	* Add a "Clear History" button in the applet menu
+	* Fix wrong exception raising in C code of set_process_name for people who don't have prctl
+
+Contributors to this release: Raphael Slinckx, Mikkel Kamstrup Erlandsen
+
+Translations:
+	* Updated Gujarati Translation.
+	* Updated Vietnamese translation.
+	* Updated Norwegian bokmål translation.
+	* Updated French translation.
+	* Updated Spanish translation.
+	* Updated Thai translation.
+	* Hungarian translation updated.
+	* Updated Japanese translation.
+	* Updated German translation.
+	* Updated Greek translation.
+	* Updated Polish translation.
+	* Korean translation added.
+	* Updated Traditional Chinese translation(Taiwan).
+	* Updated Traditional Chinese translation(Hong Kong).
+	* Added Georgian translation by Gia Shervashidze <giasher@telenet.ge>.
+	* Updated Finnish translation.
+	* Updated Galician Translation.
+	* Updated Serbian translation
+	* Updated Lithuanian translation.
+	* Updated Russian translations
+
+Contributors to the translations: Kostas Papadimas, Artur Flinta, Žygimantas Beručka, Theppitak Karoonboonyanan, Øivind Hoel, Kjartan Maraas, Ilkka Tuohela, Gabor Kelemen, Ankit Patel, Funda Wang, Amanpreet Singh Alam, ChaoHsiung Liao, Ignacio Casal Quinteiro, Tommi Vainikainen, Lukas Novotny, Nickolay V. Shmyrev, Josep Puigdemont i Casamajó, Erdal Ronahi, Satoru SATOH, Benoît Dejean, Marcel Telka, Vincent van Adrighem, Clytie Siddall, Raphael Higino, Christian Rose, Takeshi AIHANA, Leonid Kanter, Francisco Javier F. Serrador, Alexander Shopov, Adam Weinberger, Hendrik Brandt, Stanislav Brabec, Slobodan D. Sredojevic, Kang JeongHee
+
+======================
 deskbar-applet 2.13.91 -- I hate Mikkel release.
 ======================
 
