@@ -17,10 +17,18 @@ def _check_requirements():
 	try:
 		import deskbar
 		import beagle
-		beagle.Client()
+	except Exception, e:
+		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Could not load beagle, libbeagle has been compiled without python bindings:"+str(e), None)
+	
+	try:	
+		client = beagle.Client()
+		request = beagle.DaemonInformationRequest()
+		response = client.send_request(request)
+		
 		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-	except:
-		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Could not load beagle, libbeagle has been compiled without python bindings or beagle isn't running", None)
+	except Exception, e:
+		# FIXME: This string will need translation sooner or later
+		return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS, "The beagle daemon isn't running.", None)
 	
 HANDLERS = {
 	"BeagleLiveHandler" : {
