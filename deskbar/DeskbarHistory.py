@@ -87,7 +87,6 @@ class DeskbarHistory (gtk.ListStore) :
 			gtk.ListStore.clear(self)
 		
 	def load (self, module_list):
-		print 'Loading History'
 		new_history = []
 		try:
 			saved_history = cPickle.load(file(HISTORY_FILE))
@@ -160,7 +159,8 @@ class DeskbarHistory (gtk.ListStore) :
 			# Remove the last element
 			last = self.get_iter_from_string (str(len(self) - 1))
 			self.remove (last)
-		self._index = -1
+
+		self.reset()
 		self.save()
 	
 	def up(self):

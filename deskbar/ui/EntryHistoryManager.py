@@ -45,7 +45,7 @@ class EntryHistoryManager(gobject.GObject):
 	def _on_history_move(self, history):
 		item = self.history.get_history()
 		entry = self.entry
-		
+
 		self.current_history = item
 		if item != None:
 			entry.handler_block(self.changed_id)
