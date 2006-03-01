@@ -23,7 +23,7 @@ fi
 dnl ****************************************************************************
 dnl * Translation & i18n
 dnl ****************************************************************************
-ALL_LINGUAS="bg ca de el en_CA en_GB es fi fr gl gu hu ja ko ku lt mk nb nl pa pl 
+ALL_LINGUAS="bg ca de el en_CA en_GB es fi fr gl gu hu ja ka ko ku lt mk nb nl pa pl 
 pt_BR ru sk sr sr@Latn sv th vi zh_CN zh_HK zh_TW"
 
 GETTEXT_PACKAGE="deskbar-applet"
