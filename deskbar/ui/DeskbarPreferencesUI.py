@@ -76,7 +76,9 @@ class DeskbarPreferencesUI:
 	def show_run_hide(self):
 		self.dialog.show_all()
 		self.moduleview.grab_focus()
-		self.dialog.run()
+		self.dialog.connect("response", self.on_dialog_response)
+	
+	def on_dialog_response(self, dialog, response):
 		self.dialog.destroy()
 		
 		deskbar.GCONF_CLIENT.notify_remove(self.width_notify_id)
