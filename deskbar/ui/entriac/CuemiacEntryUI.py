@@ -344,6 +344,8 @@ class CuemiacEntryUI (DeskbarUI):
 		if iter is None:
 			# No selection, select top element # FIXME do this
 			iter = self.model.get_iter_first()
+			if iter == None:
+				return
 			while (not self.model.iter_has_child(iter)) or (not self.cview.row_expanded(self.model.get_path(iter))):
 				iter = self.model.iter_next(iter)
 			iter = self.model.iter_children(iter)
