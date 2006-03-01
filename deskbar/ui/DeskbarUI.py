@@ -94,6 +94,12 @@ class DeskbarUI (gobject.GObject):
 		Return the widget to be displayed for this UI.
 		"""
 		raise NotImplementedError
+	
+	def close_view(self):
+		"""
+		Closes every popup or window owned by the UI, because the ui is going to change
+		"""
+		pass
 		
 if gtk.pygtk_version < (2,8,0):
 	gobject.type_register(DeskbarUI)

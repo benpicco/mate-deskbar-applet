@@ -112,6 +112,10 @@ class CuemiacEntryUI (DeskbarUI):
 		
 		self.applet.set_flags(gtk.CAN_FOCUS)
 	
+	def close_view(self):
+		self.hide_window (self.popup)
+		self.emit ("stop-query")
+		
 	def on_config_width(self, value=None):
 		if value != None and value.type == gconf.VALUE_INT:
 			self.config_width = value.get_int()

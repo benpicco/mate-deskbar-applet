@@ -91,7 +91,7 @@ class DeskbarApplet:
 			context.module.connect ('query-ready', lambda sender, qstring, matches: self.dispatch_matches([(qstring, match) for match in matches]))	
 	
 	def on_match_selected (self, sender, text, match):
-		print "match selected",match
+		print "Match selected: ",match
 		self.on_stop_query()
 		match.action(text)
 		get_deskbar_history().add(text, match)
@@ -279,11 +279,12 @@ class DeskbarApplet:
 	def on_ui_changed (self, value):
 		if value is None or value.type != gconf.VALUE_STRING:
 			return
-			
+		
+		self.ui.close_view()
 		self.applet.remove (self.ui.get_view())
 		#FIXME: Should we clean up signals and stuff on the old UI?
 		
-		ui_name = value.get_string()	
+		ui_name = value.get_string()
 
 		# Check for cairo otherwise cuemiac isn't available at all
 		if not hasattr(gtk.gdk.Drawable, 'cairo_create'):

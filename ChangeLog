@@ -1,5 +1,15 @@
 2006-03-01  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/DeskbarApplet.py:
+	* deskbar/ui/DeskbarUI.py:
+	* deskbar/ui/cuemiac/Cuemiac.py:
+	* deskbar/ui/entriac/CuemiacEntryUI.py:
+	Hide all UI parts before switching the UI. Avoids things like: in button
+	view open the popup, change the UI in the prefs, now you have two entries
+	floating around.
+
+2006-03-01  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/DeskbarHistory.py:
 	* deskbar/ui/EntryHistoryManager.py:
 	Fix the bug #333024, history was broken.

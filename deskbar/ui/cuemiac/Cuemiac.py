@@ -649,6 +649,11 @@ class CuemiacUI (DeskbarUI):
 		
 		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
 		self.applet.set_flags(gtk.CAN_FOCUS)
+	
+	def close_view(self):
+		self.deskbar_button.button_arrow.set_active (False)
+		self.deskbar_button.button_main.set_active (False)
+		self.emit ("stop-query")
 		
 	def update_entry_icon (self, icon=None):
 		if icon == None:
