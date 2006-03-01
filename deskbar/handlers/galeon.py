@@ -34,7 +34,9 @@ HANDLERS = {
 	}
 }
 
-GALEON_HISTORY_FILE = expanduser("~/.galeon/history.xml")
+GALEON_HISTORY_FILE = expanduser("~/.galeon/history2.xml")
+if not exists(GALEON_HISTORY_FILE):
+	GALEON_HISTORY_FILE = expanduser("~/.galeon/history.xml")
 GALEON_BOOKMARKS_FILE = expanduser("~/.galeon/bookmarks.xbel")
 
 favicon_cache = None
