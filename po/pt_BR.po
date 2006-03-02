@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-01 21:47+0100\n"
-"PO-Revision-Date: 2006-02-05 12:01-0200\n"
+"POT-Creation-Date: 2006-02-26 13:34+0100\n"
+"PO-Revision-Date: 2006-02-27 18:50-0300\n"
 "Last-Translator: Leonardo Silva Amaral <leonardosilv@yahoo.com.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,10 @@ msgid "_About"
 msgstr "_Sobre"
 
 #: ../data/Deskbar_Applet.xml.h:2
+msgid "_Clear History"
+msgstr "_Limpar Histórico"
+
+#: ../data/Deskbar_Applet.xml.h:3
 msgid "_Preferences"
 msgstr "_Preferências"
 
@@ -57,16 +61,16 @@ msgstr ""
 "</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with categorized list"
-msgstr "Botão no painel com lista categorizada"
+msgid "Button in panel"
+msgstr "Botão no painel"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Preferências do Deskbar"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with simple list"
-msgstr "Entrada no painel com lista simples"
+msgid "Entry in panel"
+msgstr "Entrada no painel"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -97,20 +101,26 @@ msgid ""
 "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
 "you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
-msgstr "<i><small><b>Nota: </b>Se o atalho for uma única letra (como <b>t</b>), você pode digitar somente \"<b>algumacoisa</b>\" e pressionar <b>Alt-t</b> na deskbar.</small></i>"
+msgstr ""
+"<i><small><b>Nota: </b>Se o atalho for uma única letra (como <b>t</b>), você "
+"pode digitar somente \"<b>algumacoisa</b>\" e pressionar <b>Alt-t</b> na "
+"deskbar.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
-msgstr "<i><small><b>Nota:</b> Para usar um atalho (por exemplo <b>wp</b>) para procurar por <b>algumacoisa</b>, digite \"<b>wp algumacoisa</b>\" na deskbar</small></i>."
+msgstr ""
+"<i><small><b>Nota:</b> Para usar um atalho (por exemplo <b>wp</b>) para "
+"procurar por <b>algumacoisa</b>, digite \"<b>wp algumacoisa</b>\" na "
+"deskbar</small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Atalhos para buscas gravadas"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:113
 #, python-format
 msgid "Open History Item %s"
 msgstr "Abrir %s do Histórico"
@@ -134,76 +144,80 @@ msgstr "Atalho"
 msgid "Bookmark Name"
 msgstr "Nome do Marcador"
 
-#: ../deskbar/Categories.py:9
+#: ../deskbar/Categories.py:4
 #, python-format
 msgid "%s more result"
 msgid_plural "%s more results"
 msgstr[0] "Mais %s resultado"
 msgstr[1] "Mais %s resultados"
 
-#: ../deskbar/Categories.py:14
+#: ../deskbar/Categories.py:9
 msgid "Uncategorized"
 msgstr "Não categorizado"
 
-#: ../deskbar/Categories.py:19 ../deskbar/handlers/history.py:8
+#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:8
 msgid "History"
 msgstr "Histórico"
 
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:26
 msgid "Documents"
 msgstr "Documentos"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:27
 #, python-format
 msgid "%s more document"
 msgid_plural "%s more documents"
 msgstr[0] "Mais %s documento"
 msgstr[1] "Mais %s documentos"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:31
 msgid "Files"
 msgstr "Arquivos"
 
-#: ../deskbar/Categories.py:37
+#: ../deskbar/Categories.py:32
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "Mais %s arquivo"
 msgstr[1] "Mais %s arquivos"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:36
 msgid "People"
 msgstr "Pessoas"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:41
 msgid "Places"
 msgstr "Locais"
 
-#: ../deskbar/Categories.py:47
+#: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more place"
 msgid_plural "%s more places"
 msgstr[0] "Mais %s local"
 msgstr[1] "Mais %s locais"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:46
 msgid "Actions"
 msgstr "Ações"
 
-#: ../deskbar/Categories.py:52
+#: ../deskbar/Categories.py:47
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "Mais %s ação"
 msgstr[1] "Mais %s ações"
 
-#: ../deskbar/Categories.py:56 ../deskbar/handlers/web_address.py:9
+#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
 msgid "Web"
 msgstr "Internet"
 
-#: ../deskbar/Categories.py:61
+#: ../deskbar/Categories.py:56
 msgid "Web Search"
 msgstr "Busca na Internet"
+
+#: ../deskbar/DeskbarHistory.py:53
+msgid "No History"
+msgstr "Sem Histórico"
 
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
@@ -213,61 +227,65 @@ msgstr "Um erro de programação foi detectado"
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
-msgstr "Isto provavelmente não é fatal, mas no entando deve ser relatado aos desenvolvedores. O programa pode se comportar erraticamente de agora em diante."
+msgstr ""
+"Isto provavelmente não é fatal, mas no entando deve ser relatado aos "
+"desenvolvedores. O programa pode se comportar erraticamente de agora em "
+"diante."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
 msgstr "Erro Detectado"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:27
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:28
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Procure todos os seus documentos (usando o Beagle), enquanto digita"
 
-#: ../deskbar/handlers/beagle-live.py:47
+#: ../deskbar/handlers/beagle-live.py:55
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "Entrada do livro de endereços para %s"
+msgid "Send Email to %s"
+msgstr "Enviar E-mail para %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:57
+#: ../deskbar/handlers/beagle-live.py:65
 #, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "Ver email de <i>%(sender)s</i>: <b>%(name)s</b>"
+msgid "Email from %s"
+msgstr "E-mail de %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:73 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "Abrir %s"
 
-#: ../deskbar/handlers/beagle-live.py:75
+#: ../deskbar/handlers/beagle-live.py:81
 #, python-format
-msgid "Open news item %s"
-msgstr "Abre itens de notícia com %s"
+msgid "News from %s"
+msgstr "Notícia de %s"
 
-#: ../deskbar/handlers/beagle-live.py:83
+#: ../deskbar/handlers/beagle-live.py:90
 #, python-format
-msgid "Open note %s"
-msgstr "Abrir nota %s"
+msgid "Note: %s"
+msgstr "Nota: %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
-msgid "View conversation with %s"
-msgstr "Ver conversação com %s"
+msgid "Conversation with %s"
+msgstr "Conversa com %s"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
-msgid "View calendar %s"
-msgstr "Ver calendário %s"
+msgid "Calendar: %s"
+msgstr "Calendário: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:270
-#: ../deskbar/handlers/beagle-live.py:289
+#: ../deskbar/handlers/beagle-live.py:277
+#: ../deskbar/handlers/beagle-live.py:299
 msgid "?"
 msgstr "?"
 
@@ -292,22 +310,17 @@ msgstr "E-mail"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "Envia e-mail digitando o endereço completo"
 
-#: ../deskbar/handlers/email_address.py:27
-#, python-format
-msgid "Send Email to %s"
-msgstr "Enviar E-mail para %s"
-
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
 msgstr "Você pode definir atalhos para suas buscas."
 
 #: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:33
+#: ../deskbar/handlers/mozilla.py:120
 msgid "Web Bookmarks"
 msgstr "Marcadores da Internet"
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/mozilla.py:121
 msgid "Open your web bookmarks by name"
 msgstr "Abre seus marcadores por nome"
 
@@ -320,20 +333,18 @@ msgid "Open your web history by name"
 msgstr "Abre seu historico da Internet por nome"
 
 #: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:38
+#: ../deskbar/handlers/mozilla.py:125
 msgid "Web Searches"
 msgstr "Buscas na Internet"
 
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:39
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Search the web via your browser's search settings"
 msgstr "Busca na Internet usando as configurações de busca do seu navegador"
 
 #: ../deskbar/handlers/evolution.py:11
 msgid "You need to enable autocomplete in your mail preferences"
-msgstr ""
-"Você precisa habilitar o recurso de Auto Preenchimento nas suas preferencias "
-"de E-Mail"
+msgstr "Você precisa habilitar o recurso de Auto Preenchimento nas suas preferencias de E-mail"
 
 #: ../deskbar/handlers/evolution.py:13
 msgid "Autocompletion Needs to be Enabled"
@@ -344,7 +355,11 @@ msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
 "choose Edit - Preferences, and then Autocompletion."
-msgstr "Não é possível fornecer endereços de e-mail do seu catálogo de endereços a não ser que o Auto Preenchimento esteja habilitado. Para fazer isto, do menu do seu programa de e-mail, escolha Editar - Preferências, e Auto Preenchimento."
+msgstr ""
+"Não é possível fornecer endereços de e-mail do seu catálogo de endereços a "
+"não ser que o Auto Preenchimento esteja habilitado. Para fazer isto, do menu "
+"do seu programa de e-mail, escolha Editar - Preferências, e Auto "
+"Preenchimento."
 
 #: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
@@ -362,19 +377,18 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Enviar email para <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "Arquivos e Pastas"
 
 # Será talvez:
 # s/Abrir/Organizar ?
 # - (Raphael) Eu chutaria que sim.
-#: ../deskbar/handlers/files.py:15
-#, fuzzy
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
-msgstr "Abrir seus arquivos e pastas por nome"
+msgstr "Organiza seus arquivos e pastas por nome"
 
-#: ../deskbar/handlers/files.py:51
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "Abrir pasta %s"
@@ -399,15 +413,21 @@ msgid ""
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 msgstr ""
-"Você precisa de uma conta no Google para usar o Google Live. Para obter uma, vá a http://api.google.com/\n"
+"Você precisa de uma conta no Google para usar o Google Live. Para obter uma, "
+"vá a http://api.google.com/\n"
 "\n"
-"Quando você tiver criado sua conta, você deve receber uma chave da API do Google por e-mail. Salve essa chave em\n"
+"Quando você tiver criado sua conta, você deve receber uma chave da API do "
+"Google por e-mail. Salve essa chave em\n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
 "\n"
-"Se você não recebeu uma chave da API (ou você a perdeu) no endereço de verificação da sua conta, vá a www.google.com/accounts e logue-se. Vá a api.google.com, clique em \"Criar Conta\" e insira seu e-mail e senha. Sua chave da API será reenviada.\n"
+"Se você não recebeu uma chave da API (ou você a perdeu) no endereço de "
+"verificação da sua conta, vá a www.google.com/accounts e logue-se. Vá a api."
+"google.com, clique em \"Criar Conta\" e insira seu e-mail e senha. Sua chave "
+"da API será reenviada.\n"
 "\n"
-"Agora baixe o kit de desenvolvimento e extraia o arquivo GoogleSearch.wsdl dele. Copie este arquivo para\n"
+"Agora baixe o kit de desenvolvimento e extraia o arquivo GoogleSearch.wsdl "
+"dele. Copie este arquivo para\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
@@ -437,14 +457,13 @@ msgstr "Procure no Google enquanto você digita"
 
 #: ../deskbar/handlers/gtkbookmarks.py:12
 msgid "Files and Folders Bookmarks"
-msgstr "Pastas e Arquivos Favoritos"
+msgstr "Pastas e Arquivos Marcadores"
 
 # Será talvez:
 # s/Abrir/Organizar ?
 #: ../deskbar/handlers/gtkbookmarks.py:13
-#, fuzzy
 msgid "Open your files and folders bookmarks by name"
-msgstr "Abrir seus arquivos e pastas por nome"
+msgstr "Organiza seus arquivos e pastas marcadores por nome"
 
 #: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
 #, python-format
@@ -454,6 +473,10 @@ msgstr "Abrir endereço %s"
 #: ../deskbar/handlers/history.py:9
 msgid "Recognize previously used searches"
 msgstr "Reconhecer buscas usadas anteriormente"
+
+#: ../deskbar/handlers/mozilla.py:111
+msgid "You can customize which search engines are offered."
+msgstr "Você pode personalizar quais mecanismos de busca são oferecidos."
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
@@ -499,12 +522,12 @@ msgstr "Encontra arquivos e pastas procurando por um padrão de nome"
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Executar <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:85
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Consultar %s no dicionário"
 
-#: ../deskbar/handlers/programs.py:93
+#: ../deskbar/handlers/programs.py:94
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Procurar por nomes parecidos com %s"
@@ -541,6 +564,14 @@ msgstr "Abrir a página %s"
 msgid "Open the location %s"
 msgstr "Abrir o local %s"
 
+#: ../deskbar/handlers/yahoo.py:16
+msgid "Yahoo! Search"
+msgstr "Busca do Yahoo!"
+
+#: ../deskbar/handlers/yahoo.py:17
+msgid "Search Yahoo! as you type"
+msgstr "Procure no Yahoo! enquanto você digita"
+
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Uma barra de ação unificada."
@@ -560,13 +591,37 @@ msgstr "Leonardo Silva Amaral <leonardosilv@yahoo.com.br>"
 msgid "_More..."
 msgstr "_Mais..."
 
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
-msgid "No History"
-msgstr "Sem Histórico"
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Mecanismos de Busca</b>"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:43
-msgid "You need Gtk+ version 2.8.0 or higher to use this module"
-msgstr "Você precisa do Gtk+ na versão 2.8.0 ou superior para usar este módulo"
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Preferências do Deskbar - Buscas na Internet"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "Mostrar todos os mecanismos de busca disponíveis"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "Mostrar apenas o mecanismo de busca primário"
+
+#~ msgid "Button in panel with categorized list"
+#~ msgstr "Botão no painel com lista categorizada"
+
+#~ msgid "Addressbook entry for %s"
+#~ msgstr "Entrada do livro de endereços para %s"
+
+#~ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+#~ msgstr "Ver email de <i>%(sender)s</i>: <b>%(name)s</b>"
+
+#~ msgid "Open news item %s"
+#~ msgstr "Abre itens de notícia com %s"
+
+#~ msgid "You need Gtk+ version 2.8.0 or higher to use this module"
+#~ msgstr ""
+#~ "Você precisa do Gtk+ na versão 2.8.0 ou superior para usar este módulo"
 
 #~ msgid "<b>Keyboard Shortcut</b>"
 #~ msgstr "<b>Atalho de Teclado</b>"
