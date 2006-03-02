@@ -1,0 +1,589 @@
+# Ukrainian translation of deskbar-applet
+# This file is distributed under the same license as the deskbar-applet package.
+# Maxim Dziumanenko <mvd@mylinux.ua>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: deskbar-applet\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-02-22 12:36+0200\n"
+"PO-Revision-Date: 2006-03-02 12:58+0000\n"
+"Last-Translator: Maxim Dziumanenko <mvd@mylinux.ua>\n"
+"Language-Team:  <i18n@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../data/Deskbar_Applet.server.in.in.h:1
+msgid "An all-in-one action bar"
+msgstr "Панель дій все-в-одному"
+
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Deskbar"
+
+#: ../data/Deskbar_Applet.xml.h:1
+msgid "_About"
+msgstr "_Про програму"
+
+#: ../data/Deskbar_Applet.xml.h:2
+msgid "_Clear History"
+msgstr "О_чистити історію"
+
+#: ../data/Deskbar_Applet.xml.h:3
+msgid "_Preferences"
+msgstr "_Параметри"
+
+#: ../data/prefs-dialog.glade.h:1
+msgid "<b>Focus</b>"
+msgstr "<b>Фокус</b>"
+
+#: ../data/prefs-dialog.glade.h:2
+msgid "<b>Layout</b>"
+msgstr "<b>Зовнішній вигляд</b>"
+
+#: ../data/prefs-dialog.glade.h:3
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Завантажені розширення</b>"
+
+#: ../data/prefs-dialog.glade.h:4
+msgid "<b>Width</b>"
+msgstr "<b>Ширина</b>"
+
+#: ../data/prefs-dialog.glade.h:5
+msgid ""
+"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
+"small></i>"
+msgstr ""
+"<i><small><b>Примітка:</b> Порядок змінюється перетягуванням розширення "
+"вниз або вверх.</small></i>"
+
+#: ../data/prefs-dialog.glade.h:6
+msgid "Button in panel"
+msgstr "Кнопка в панелі"
+
+#: ../data/prefs-dialog.glade.h:7
+msgid "Deskbar Preferences"
+msgstr "Параметри Deskbar"
+
+#: ../data/prefs-dialog.glade.h:8
+msgid "Entry in panel"
+msgstr "Ввід в панелі"
+
+#: ../data/prefs-dialog.glade.h:9
+msgid "Fixed _width:"
+msgstr "_Фіксована ширина:"
+
+#: ../data/prefs-dialog.glade.h:10
+msgid "Searches"
+msgstr "Пошук"
+
+#: ../data/prefs-dialog.glade.h:11
+msgid "Use _all available space"
+msgstr "_Використовувати весь доступний простір"
+
+#: ../data/prefs-dialog.glade.h:12
+msgid "View"
+msgstr "Вигляд"
+
+#: ../data/prefs-dialog.glade.h:13
+msgid "_Keyboard shortcut to focus:"
+msgstr "_Комбінація клавіш:"
+
+#: ../data/prefs-dialog.glade.h:14
+msgid "characters"
+msgstr "символів"
+
+#: ../data/smart-bookmarks.glade.h:1
+msgid ""
+"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
+"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
+"the deskbar.</small></i>"
+msgstr ""
+"<i><small><b>Примітка: </b>Якщо замість комбінації вказано одну клавішу "
+"(наприклад, <b>t</b>) ви можете просто ввести \"<b>щось</b>\" і потім "
+"натиснути <b>Alt-t</b> в аплеті пошуку.</small></i>"
+
+#: ../data/smart-bookmarks.glade.h:2
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>Примітка:</b> Щоб використати скорочення "
+"(наприклад, <b>wp</b>) для пошуку <b>чогось</b>, наберіть \"<b>wp щось</b>\" у аплеті Deskbar</small></i>."
+
+#: ../data/smart-bookmarks.glade.h:3
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "Комбінації клавіш для скорочень у пошуку Scribus"
+
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#, python-format
+msgid "Open History Item %s"
+msgstr "Відкрити елемент історії %s"
+
+#: ../deskbar/BrowserMatch.py:32
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "Відкрити закладку %s"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/BrowserMatch.py:81
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "Шукати у <b>%(name)s</b> <i>%(text)s</i>"
+
+#: ../deskbar/BrowserMatch.py:187
+msgid "Shortcut"
+msgstr "Комбінація клавіш"
+
+#: ../deskbar/BrowserMatch.py:195
+msgid "Bookmark Name"
+msgstr "Назва закладки"
+
+#: ../deskbar/Categories.py:4
+#, python-format
+msgid "%s more result"
+msgid_plural "%s more results"
+msgstr[0] "Ще %s результат"
+msgstr[1] "Ще %s результати"
+msgstr[2] "Ще %s результатів"
+
+#: ../deskbar/Categories.py:9
+msgid "Uncategorized"
+msgstr "Без категорії"
+
+#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:8
+msgid "History"
+msgstr "Історія"
+
+#: ../deskbar/Categories.py:26
+msgid "Documents"
+msgstr "Документи"
+
+#: ../deskbar/Categories.py:27
+#, python-format
+msgid "%s more document"
+msgid_plural "%s more documents"
+msgstr[0] "Ще %s документ"
+msgstr[1] "Ще %s документи"
+msgstr[2] "Ще %s документів"
+
+#: ../deskbar/Categories.py:31
+msgid "Files"
+msgstr "Файли"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more file"
+msgid_plural "%s more files"
+msgstr[0] "Ще %s файл"
+msgstr[1] "Ще %s файла"
+msgstr[2] "Ще %s файлів"
+
+#: ../deskbar/Categories.py:36
+msgid "People"
+msgstr "Люди"
+
+#: ../deskbar/Categories.py:41
+msgid "Places"
+msgstr "Місця"
+
+#: ../deskbar/Categories.py:42
+#, python-format
+msgid "%s more place"
+msgid_plural "%s more places"
+msgstr[0] "Ще %s місце"
+msgstr[1] "Ще %s місця"
+msgstr[2] "Ще %s місць"
+
+#: ../deskbar/Categories.py:46
+msgid "Actions"
+msgstr "Дії"
+
+#: ../deskbar/Categories.py:47
+#, python-format
+msgid "%s more action"
+msgid_plural "%s more actions"
+msgstr[0] "Ще %s дія"
+msgstr[1] "Ще %s дії"
+msgstr[2] "Ще %s дій"
+
+#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
+msgid "Web"
+msgstr "Інтернет"
+
+#: ../deskbar/Categories.py:56
+msgid "Web Search"
+msgstr "Пошук в Інтернеті"
+
+#: ../deskbar/DeskbarHistory.py:53
+#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
+msgid "No History"
+msgstr "Історія пуста"
+
+#: ../deskbar/gtkexcepthook.py:21
+msgid "A programming error has been detected"
+msgstr "Виявлено помилку у коді програми"
+
+#: ../deskbar/gtkexcepthook.py:22
+msgid ""
+"It probably isn't fatal, but should be reported to the developers "
+"nonetheless. The program may behave erratically from now on."
+msgstr ""
+"Можливо, вона не критична, але все ж слід повідомити про неї розробників. З цього "
+"моменту програма може функціонувати з помилками."
+
+#: ../deskbar/gtkexcepthook.py:24
+msgid "Bug Detected"
+msgstr "Виявлено помилку"
+
+#: ../deskbar/handlers/beagle-live.py:20
+msgid "Beagle Live"
+msgstr "Beagle Live"
+
+#: ../deskbar/handlers/beagle-live.py:21
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr ""
+"Шукати в усіх ваших документах за допомогою Beagle під час набору запиту"
+
+#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/email_address.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "Надіслати лист %s"
+
+#. translators: First %s is mail sender, second %s is mail subject.
+#: ../deskbar/handlers/beagle-live.py:58
+#, python-format
+msgid "Email from %s"
+msgstr "Лист від %s"
+
+#. translators: This is a file.
+#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
+#, python-format
+msgid "Open %s"
+msgstr "Відкрити %s"
+
+#: ../deskbar/handlers/beagle-live.py:74
+#, python-format
+msgid "News from %s"
+msgstr "Новини від %s"
+
+#: ../deskbar/handlers/beagle-live.py:83
+#, python-format
+msgid "Note: %s"
+msgstr "Примітка: %s"
+
+#: ../deskbar/handlers/beagle-live.py:91
+#, python-format
+msgid "Conversation with %s"
+msgstr "Діалог з %s"
+
+#: ../deskbar/handlers/beagle-live.py:99
+#, python-format
+msgid "Calendar: %s"
+msgstr "Календар: %s"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:272
+#: ../deskbar/handlers/beagle-live.py:294
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle.py:19
+msgid "Beagle"
+msgstr "Beagle"
+
+#: ../deskbar/handlers/beagle.py:20
+msgid "Search all of your documents (using Beagle)"
+msgstr "Пошук по усім вашим документам (використовуючи Beagle)"
+
+#: ../deskbar/handlers/beagle.py:36
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "Шукати %s, використовуючи Beagle"
+
+#: ../deskbar/handlers/email_address.py:9
+msgid "Mail"
+msgstr "Пошта"
+
+#: ../deskbar/handlers/email_address.py:10
+msgid "Send mail by typing a complete e-mail address"
+msgstr "Надсилати листи вводом адреси эл. пошти повністю"
+
+#: ../deskbar/handlers/epiphany.py:26
+msgid "You can set shortcuts for your searches."
+msgstr "Ви можете вказати комбінації клавіш для пошуку"
+
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
+#: ../deskbar/handlers/mozilla.py:120
+msgid "Web Bookmarks"
+msgstr "Закладки веб-переглядача"
+
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
+#: ../deskbar/handlers/mozilla.py:121
+msgid "Open your web bookmarks by name"
+msgstr "Відкривати ваші закладки з веб-переглядача за назвою"
+
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
+msgid "Web History"
+msgstr "Історія перегляду Інтернету"
+
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
+msgid "Open your web history by name"
+msgstr "Відкривати сайти з історії веб-переглядача за назвою"
+
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:125
+msgid "Web Searches"
+msgstr "Пошук в Інтернеті"
+
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
+#: ../deskbar/handlers/mozilla.py:126
+msgid "Search the web via your browser's search settings"
+msgstr "Шукати в Інтернеті, використовуючи параметри веб-переглядача"
+
+#: ../deskbar/handlers/evolution.py:11
+msgid "You need to enable autocomplete in your mail preferences"
+msgstr "Вам слід увімкнути автодоповнення у параметрах поштового клієнта"
+
+#: ../deskbar/handlers/evolution.py:13
+msgid "Autocompletion Needs to be Enabled"
+msgstr "Необхідно увімкнути автодоповнення"
+
+#: ../deskbar/handlers/evolution.py:14
+msgid ""
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"Пошук адрес електронної пошти з адресної книги неможливий без "
+"автодоповнення. Для вмикання зайдіть у «Правка - Параметри - "
+"Автодоповнення»."
+
+#: ../deskbar/handlers/evolution.py:19
+msgid "Mail (Address Book)"
+msgstr "Пошта (адресна книга)"
+
+#: ../deskbar/handlers/evolution.py:20
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr "Надсилати листи вашим контактам, набрав їх ім'я або адресу эл. пошти"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:45
+#, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "Надіслати лист <b>%(name)s</b> (%(email)s)"
+
+#: ../deskbar/handlers/files.py:14
+msgid "Files and Folders"
+msgstr "Файли та теки"
+
+#: ../deskbar/handlers/files.py:15
+msgid "Open your files and folders by name"
+msgstr "Відкривати ваші файли та теки за назвами"
+
+#: ../deskbar/handlers/files.py:52
+#, python-format
+msgid "Open folder %s"
+msgstr "Відкрити теку %s"
+
+#: ../deskbar/handlers/google-live.py:19
+msgid ""
+"You need a Google account to use Google Live.  To get one, go to http://api."
+"google.com/\n"
+"\n"
+"When you have created your account, you should recieve a Google API key by "
+"mail.  Place this key in the file\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"If you do not receive an API key (or you have lost it) in your account "
+"verification mail, then go to www.google.com/accounts and log in.  Go to api."
+"google.com, click \"Create Account\" and enter your e-mail address and "
+"password.  Your API key will be re-sent.\n"
+"\n"
+"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"it.  Copy this file to\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+msgstr ""
+"Для використання Google Live вам потрібний обліковий рахунок Google .\n"
+"Отримати його можна за адресою http://api.google.com/\n"
+"\n"
+"Коли обліковий рахунок створено, ви отримаєте поштою ключ Google API.\n"
+"Збережіть його у файл\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"Якщо не отримали не або втратили його, зайдіть на сторінку \n"
+"www.google.com/accounts та увійдіть як зареєстрований користувач.\n"
+"Потім перейдіть на сторінку api.google.com, клацніть на кнопці \n"
+"\"Create Account\" та введіть адресу власної електронної пошти та пароль.\n"
+"Ваш ключ API буде заново надісланий вам.\n"
+"\n"
+"Потім скачайте засоби розробки (developers kit) та розпакуйте\n"
+"файл GoogleSearch.wsdl. Скопіюйте його в цей каталог\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#: ../deskbar/handlers/google-live.py:32
+msgid "Setting Up Google Live"
+msgstr "Триває настройка Google Live"
+
+#: ../deskbar/handlers/google-live.py:38
+msgid "You need to install the SOAPpy python module."
+msgstr "Вам потрібен модуль SOAPpy на Python."
+
+#: ../deskbar/handlers/google-live.py:40
+msgid "You need the Google WSDL file."
+msgstr "Вам потрібен файл Google WSDL."
+
+#: ../deskbar/handlers/google-live.py:42
+msgid "You need a Google API key."
+msgstr "Вам потрібен ключ Google API."
+
+#: ../deskbar/handlers/google-live.py:48
+msgid "Google Search"
+msgstr "Пошук у Google"
+
+#: ../deskbar/handlers/google-live.py:49
+msgid "Search Google as you type"
+msgstr "Шукати у Google під час набору запиту"
+
+#: ../deskbar/handlers/gtkbookmarks.py:12
+msgid "Files and Folders Bookmarks"
+msgstr "Закладки на файли та теки"
+
+#: ../deskbar/handlers/gtkbookmarks.py:13
+msgid "Open your files and folders bookmarks by name"
+msgstr "Відкривати ваші закладки на файли та теки за назвою"
+
+#: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
+#, python-format
+msgid "Open location %s"
+msgstr "Відкрити адресу %s"
+
+#: ../deskbar/handlers/history.py:9
+msgid "Recognize previously used searches"
+msgstr "Розпізнавати запити, що вводились раніше"
+
+#: ../deskbar/handlers/mozilla.py:111
+msgid "You can customize which search engines are offered."
+msgstr "Ви можете налаштувати список пропонованих пошукових систем."
+
+#: ../deskbar/handlers/pathprograms.py:14
+msgid "Programs (Advanced)"
+msgstr "Програми (додатково)"
+
+#: ../deskbar/handlers/pathprograms.py:15
+msgid "Launch any program present in your $PATH"
+msgstr "Запускати будь-які програми з $PATH"
+
+#: ../deskbar/handlers/pathprograms.py:60
+#, python-format
+msgid "Execute %s"
+msgstr "Виконати %s"
+
+#: ../deskbar/handlers/programs.py:14
+msgid "Programs"
+msgstr "Програми"
+
+#: ../deskbar/handlers/programs.py:15
+msgid "Launch a program by its name and/or description"
+msgstr "Запускати програми за їх назвами та/або описом"
+
+#: ../deskbar/handlers/programs.py:18
+msgid "Dictionary"
+msgstr "Словник"
+
+#: ../deskbar/handlers/programs.py:19
+msgid "Look up word definitions in the dictionary"
+msgstr "Шукати визначення та переклад слів у словнику"
+
+#: ../deskbar/handlers/programs.py:22
+msgid "Files and Folders Search"
+msgstr "Пошук файлів та тек"
+
+#: ../deskbar/handlers/programs.py:23
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Шукати файли та теки за маскою назви"
+
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/programs.py:72
+#, python-format
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Запустити <b>%(name)s</b> (%(prog)s)"
+
+#: ../deskbar/handlers/programs.py:86
+#, python-format
+msgid "Lookup %s in dictionary"
+msgstr "Шукати %s у словнику"
+
+#: ../deskbar/handlers/programs.py:94
+#, python-format
+msgid "Search for file names like %s"
+msgstr "Шукати файли з назвою, що схожа на %s"
+
+#: ../deskbar/handlers/volumes.py:16
+msgid "Disks and Network Places"
+msgstr "Диски та мережні ресурси"
+
+#: ../deskbar/handlers/volumes.py:17
+msgid "Open disk drives, shared network places and similar resources by name"
+msgstr "Відкривати диски, спільні мережні ресурси та т.і. на назвою"
+
+#: ../deskbar/handlers/volumes.py:44
+#, python-format
+msgid "Open network place %s"
+msgstr "Відкрити мережний ресурс %s"
+
+#: ../deskbar/handlers/volumes.py:46
+#, python-format
+msgid "Open audio disk %s"
+msgstr "Відкрити аудіодиск %s"
+
+#: ../deskbar/handlers/web_address.py:10
+msgid "Open web pages by typing a complete web address"
+msgstr "Відкривати веб-сторінки, вводячи їх повну адресу"
+
+#: ../deskbar/handlers/web_address.py:36
+#, python-format
+msgid "Open the web page %s"
+msgstr "Відкрити веб-сторінку %s"
+
+#: ../deskbar/handlers/web_address.py:38
+#, python-format
+msgid "Open the location %s"
+msgstr "Відкрити адресу %s"
+
+#: ../deskbar/handlers/yahoo.py:16
+msgid "Yahoo! Search"
+msgstr "Пошук у Yahoo!"
+
+#: ../deskbar/handlers/yahoo.py:17
+msgid "Search Yahoo! as you type"
+msgstr "Пошук у Yahoo! при наборі запиту"
+
+#: ../deskbar/ui/About.py:25
+msgid "An all-in-one action bar."
+msgstr "Панель дій все-в-одному"
+
+#: ../deskbar/ui/About.py:28
+msgid "Deskbar Website"
+msgstr "Веб-сайт Deskbar"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:36
+msgid "translator-credits"
+msgstr "Максим Дзюманенко <mvd@mylinux.ua>"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:54
+msgid "_More..."
+msgstr "_Більше..."
