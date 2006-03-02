@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-17 23:56+0200\n"
-"PO-Revision-Date: 2006-02-17 23:58+0200\n"
+"POT-Creation-Date: 2006-03-03 00:41+0200\n"
+"PO-Revision-Date: 2006-03-03 00:42+0200\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -121,7 +121,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Kombinacijos žymelėse esančioms paieškoms"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:121
 #, python-format
 msgid "Open History Item %s"
 msgstr "Atverti istorijos elementą %s"
@@ -221,6 +221,10 @@ msgstr "Žiniatinklis"
 msgid "Web Search"
 msgstr "Žiniatinklio paieška"
 
+#: ../deskbar/DeskbarHistory.py:53
+msgid "No History"
+msgstr "Nėra istorijos"
+
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
 msgstr "Buvo aptikta programavimo klaida"
@@ -237,68 +241,68 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Aptikta klaida"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:35
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:21
+#: ../deskbar/handlers/beagle-live.py:36
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Ieškoti visuose Jūsų dokumentuose (naudojant Beagle) rašymo metu"
 
-#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/beagle-live.py:63
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "Siųsti %s el. laišką"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:73
 #, python-format
 msgid "Email from %s"
 msgstr "El. laiškas nuo %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:81 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "Atverti %s"
 
-#: ../deskbar/handlers/beagle-live.py:74
+#: ../deskbar/handlers/beagle-live.py:89
 #, python-format
 msgid "News from %s"
 msgstr "Naujienos iš %s"
 
-#: ../deskbar/handlers/beagle-live.py:83
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Note: %s"
 msgstr "Raštelis: %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Conversation with %s"
 msgstr "Pokalbis su %s"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalendorius: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:271
-#: ../deskbar/handlers/beagle-live.py:293
+#: ../deskbar/handlers/beagle-live.py:285
+#: ../deskbar/handlers/beagle-live.py:307
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle.py:19
+#: ../deskbar/handlers/beagle-static.py:19
 msgid "Beagle"
 msgstr "Beagle"
 
-#: ../deskbar/handlers/beagle.py:20
+#: ../deskbar/handlers/beagle-static.py:20
 msgid "Search all of your documents (using Beagle)"
 msgstr "Ieškoti visuose Jūsų dokumentuose (naudojant Beagle)"
 
-#: ../deskbar/handlers/beagle.py:36
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Ieškoti %s naudojant Beagle"
@@ -376,15 +380,15 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Siųsti <b>%(name)s</b> el. laišką (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "Rinkmenos ir aplankai"
 
-#: ../deskbar/handlers/files.py:15
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
 msgstr "Atverti rinkmenas ir aplankus pagal vardus"
 
-#: ../deskbar/handlers/files.py:52
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "Atverti aplanką %s"
@@ -585,44 +589,18 @@ msgstr "Žygimantas Beručka <zygis@gnome.org>"
 msgid "_More..."
 msgstr "_Daugiau..."
 
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
-msgid "No History"
-msgstr "Nėra istorijos"
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Paieškos varikliukai</b>"
 
-#~ msgid "Button in panel with categorized list"
-#~ msgstr "Mygtukas skydelyje su kategorijų sąrašu"
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Deskbar nustatymai - Žiniatinklio paieškos"
 
-#, fuzzy
-#~ msgid "%s more news item"
-#~ msgid_plural "%s more news items"
-#~ msgstr[0] "Atverti naujieną %s"
-#~ msgstr[1] "Atverti naujieną %s"
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "Rodyti visus prieinamus paieškos varikliukus"
 
-#, fuzzy
-#~ msgid "Emails"
-#~ msgstr "Paštas"
-
-#~ msgid "Addressbook entry for %s"
-#~ msgstr "Adresų knygos įrašas %s"
-
-#, fuzzy
-#~ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-#~ msgstr "Žiūrėti el.laišką nuo %s: %s"
-
-#~ msgid "Open news item %s"
-#~ msgstr "Atverti naujieną %s"
-
-#~ msgid "Google Live"
-#~ msgstr "Google Live"
-
-#~ msgid "<b>Keyboard Shortcut</b>"
-#~ msgstr "<b>Klavišų kombinacija</b>"
-
-#~ msgid "Search %s for %s"
-#~ msgstr "%s ieškoti %s"
-
-#~ msgid "Launch %s (%s)"
-#~ msgstr "Paleisti %s (%s)"
-
-#~ msgid "<b>Active Handlers</b>"
-#~ msgstr "<b>Aktyvūs valdikliai</b>"
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "Rodyti tik pirminį paieškos varikliuką"
