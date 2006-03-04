@@ -89,12 +89,12 @@ class FileFolderHandler(deskbar.Handler.Handler):
 
 		
 	def query(self, query):
-		query = query.lower()
 		
 		result = []
-		result += self.query_filefolder(query, False)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
-		result += self.query_filefolder(query, True)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		result += self.query_filefolder(query, False)
+		result += self.query_filefolder(query, True)
 		
+#		query = query.lower()
 #		for key, absname in self.cache.items():
 #			if len(result) >= 50:
 #				break
@@ -113,6 +113,7 @@ class FileFolderHandler(deskbar.Handler.Handler):
 	
 	def query_filefolder(self, query, is_file):
 		completions, prefix, relative = filesystem_possible_completions(query, is_file)
+		print completions
 		if is_file:
 			return [FileMatch(self, join(prefix, basename(completion)), completion) for completion in completions]
 		else:
@@ -133,11 +134,14 @@ def filesystem_possible_completions(prefix, is_file=False):
 		relative = True
 		prefix = join("~/", prefix)
 	# Path starting with ~test are considered in ~/test
-	if prefix.startswith("~") and not prefix.startswith("~/"):
+	if prefix.startswith("~") and not prefix.startswith("~/") and len(prefix) > 1:
 		prefix = join("~/", prefix[1:])
 	if prefix.endswith("/"):
 		prefix = prefix[:-1]
 		
+	if prefix == "~":
+		return ([expanduser(prefix)], dirname(expanduser(prefix)), relative)
+
 	# Now we see if the typed name matches exactly a file/directory, or
 	# If we must take the parent directory and match the beginning of each file
 	start = None
@@ -156,11 +160,12 @@ def filesystem_possible_completions(prefix, is_file=False):
 	# First if we have an exact file match, and we requested file matches we return it alone,
 	# else, we return the empty file set
 	if my_isfile(path):
+		print 'Myisfile:', is_file
 		if is_file:
 			return ([path], dirname(prefix), relative)
 		else:
 			return ([], prefix, relative)
-			
+
 	return ([f
 		for f in map(lambda x: join(path, x), os.listdir(path))
 		if my_isfile(f) == is_file and not basename(f).startswith(".") and (start == None or basename(f).startswith(start))
