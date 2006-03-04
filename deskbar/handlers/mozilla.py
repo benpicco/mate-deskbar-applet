@@ -44,13 +44,14 @@ def get_firefox_home_file(needed_file):
 
 # Whether we offer all of the browser's search engines, or only the primary
 # one (since by default Firefox seems to come with at least half a dozen)			
-GCONF_SHOW_ONLY_PRIMARY = deskbar.GCONF_DIR + "/mozilla/show_only_primary_search"
-SHOW_ONLY_PRIMARY = deskbar.GCONF_CLIENT.get_bool(GCONF_SHOW_ONLY_PRIMARY)
+GCONF_SHOW_ONLY_PRIMARY_KEY = deskbar.GCONF_DIR + "/mozilla/show_only_primary_search"
+SHOW_ONLY_PRIMARY = deskbar.GCONF_CLIENT.get_bool(GCONF_SHOW_ONLY_PRIMARY_KEY)
+if SHOW_ONLY_PRIMARY == None:
+	SHOW_ONLY_PRIMARY = False
 def _on_gconf_show_only_primary(value):
 	global SHOW_ONLY_PRIMARY
 	SHOW_ONLY_PRIMARY = value
-deskbar.GCONF_CLIENT.notify_add(GCONF_SHOW_ONLY_PRIMARY,
-	lambda x, y, z, a: _on_gconf_show_only_primary(z.value.get_bool()))
+deskbar.GCONF_CLIENT.notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, lambda x, y, z, a: _on_gconf_show_only_primary(z.value.get_bool()))
 
 # TODO re-load PRIMARY_SEARCH_ENGINE everytime it changes (which should happen
 # only rarely).  One (unavoidable) problem may be that firefox doesn't actually
@@ -72,25 +73,24 @@ except:
 
 def _on_handler_preferences():
 	def toggled_cb(sender, show_all_radio, show_primary_radio):
-		if show_all_radio.get_active() and SHOW_ONLY_PRIMARY:
-			deskbar.GCONF_CLIENT.set_bool(GCONF_SHOW_ONLY_PRIMARY, False)
-		elif show_primary_radio.get_active() and not SHOW_ONLY_PRIMARY:
-			deskbar.GCONF_CLIENT.set_bool(GCONF_SHOW_ONLY_PRIMARY, True)
+		deskbar.GCONF_CLIENT.set_bool(GCONF_SHOW_ONLY_PRIMARY_KEY, show_primary_radio.get_active())
+		
 	def sync_ui(new_show_only_primary, show_all_radio, show_primary_radio):
 		show_all_radio.set_active(not new_show_only_primary)
 		show_primary_radio.set_active(new_show_only_primary)
+	
 	glade = gtk.glade.XML(os.path.join(deskbar.SHARED_DATA_DIR, "mozilla-search.glade"))
 	dialog = glade.get_widget("prefs-dialog")
 	show_all_radio = glade.get_widget("show_all_radio")
 	show_primary_radio = glade.get_widget("show_primary_radio")
-	if SHOW_ONLY_PRIMARY:
-		show_primary_radio.set_active(True)
-	else:
-		show_all_radio.set_active(True)
+	
+	show_primary_radio.set_active(SHOW_ONLY_PRIMARY)
+	show_all_radio.set_active(not SHOW_ONLY_PRIMARY)
+	
 	show_all_radio.connect ("toggled", toggled_cb, show_all_radio, show_primary_radio)
 	show_primary_radio.connect ("toggled", toggled_cb, show_all_radio, show_primary_radio)
-	notify_id = deskbar.GCONF_CLIENT.notify_add(GCONF_SHOW_ONLY_PRIMARY,
-		lambda x, y, z, a: sync_ui(z.value.get_bool(), show_all_radio, show_primary_radio))
+	
+	notify_id = deskbar.GCONF_CLIENT.notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, lambda x, y, z, a: sync_ui(z.value.get_bool(), show_all_radio, show_primary_radio))
 	dialog.set_icon(deskbar.Utils.load_icon("deskbar-applet-small.png"))
 	dialog.show_all()
 	dialog.run()
@@ -214,11 +214,11 @@ class MozillaSearchHandler(deskbar.Handler.Handler):
 		self.watcher.remove_all()
 		
 	def query(self, query):
-		if SHOW_ONLY_PRIMARY:
+		if SHOW_ONLY_PRIMARY and PRIMARY_SEARCH_ENGINE != None:
 			for s in self._smart_bookmarks:
 				if s.name == PRIMARY_SEARCH_ENGINE:
 					return [s]
-			return []
+			return self._smart_bookmarks
 		else:
 			return self._smart_bookmarks
 		

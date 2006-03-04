@@ -113,7 +113,6 @@ class FileFolderHandler(deskbar.Handler.Handler):
 	
 	def query_filefolder(self, query, is_file):
 		completions, prefix, relative = filesystem_possible_completions(query, is_file)
-		print completions
 		if is_file:
 			return [FileMatch(self, join(prefix, basename(completion)), completion) for completion in completions]
 		else:
