@@ -772,6 +772,7 @@ class CuemiacUI (DeskbarUI):
 			self.deskbar_button.button_main.set_active (True)
 			self.entry.grab_focus()
 			self.entry.set_text(text)
+			return True
 		
 	def set_layout_by_orientation (self, orient, reshow=True, setup=False):
 		"""orient should be a gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}.

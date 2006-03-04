@@ -250,8 +250,7 @@ class DeskbarApplet:
 		
 		# Middle click handling, we need this in the cuemiac
 		if event.button == 2:
-			if self.ui.middle_click():
-				return True
+			return self.ui.middle_click()
 			
 		return False
 	

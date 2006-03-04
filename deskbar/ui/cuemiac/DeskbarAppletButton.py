@@ -17,7 +17,7 @@ class ToggleEventBox(gtk.EventBox):
 		if event.button == 1:
 			self.set_active(not self.active)
 			return True
-		
+				
 	def get_active(self):
 		return self.active
 	
@@ -80,25 +80,11 @@ class DeskbarAppletButton (gtk.HBox):
 		self.box.pack_end (self.button_arrow, False, False)
 		
 		self.add (self.box)
-	
-		self.connect("button-press-event", self.on_button_press_event)
-		self.button_arrow.connect("button-press-event", self.on_button_press_event)
-		self.button_main.connect("button-press-event", self.on_button_press_event)
 		
 		self.tooltips = gtk.Tooltips()
 		# FIXME: Add translation
 		self.tooltips.set_tip(self.button_main, "Show search entry")
 		self.tooltips.set_tip(self.button_arrow, "Show previous actions")
-	
-	def on_button_press_event(self, widget, event):
-		if not self.get_property('sensitive'):
-			return False
-			
-		if event.button != 1:
-			self.applet.emit("button-press-event", event)
-			return True
-		
-		return False
 			
 	def get_active_main (self):
 		return self.button_main.get_active ()
