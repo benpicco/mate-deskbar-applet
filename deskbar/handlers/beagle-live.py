@@ -144,7 +144,7 @@ class BeagleLiveMatch (deskbar.Match.Match):
 
 		# IM Log viewer take loca paths only		
 		action = TYPES[self.result["type"]]["action"]
-		if action.startswith("beagle-imlogviewer"):
+		if not callable(action) and action.startswith("beagle-imlogviewer"):
 			# Strip the uti descriptor, because imlogviewer takes a local path
 			self.result["uri"] = gnomevfs.get_local_path_from_uri(self.result["uri"])
 		

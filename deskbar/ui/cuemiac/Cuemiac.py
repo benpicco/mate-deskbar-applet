@@ -641,7 +641,7 @@ class CuemiacUI (DeskbarUI):
 		
 		self.set_sensitive(False)
 		try:
-			self.applet.set_background_widget(self.deskbar_button)
+			self.applet.set_background_widget(applet)
 		except Exception, msg:
 			pass
 		
