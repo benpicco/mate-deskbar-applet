@@ -1,16 +1,16 @@
 # Catalan translation of deskbar-applet.
-# Copyright (C) 2006 The Free Software Foundation, Inc.
+# Copyright © 2006 The Free Software Foundation, Inc.
 # This file is distributed under the same license as the deskbar package.
 #
 # Gil Forcada Codinachs <gilforcada@guifi.net>, 2006.
-# 
-# 
+#
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-30 21:09+0100\n"
-"PO-Revision-Date: 2006-01-30 20:48+0100\n"
+"POT-Creation-Date: 2006-03-05 23:23+0100\n"
+"PO-Revision-Date: 2006-03-05 23:27+0100\n"
 "Last-Translator: Gil Forcada Codinachs <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.net>\n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,10 @@ msgid "_About"
 msgstr "_Quant a"
 
 #: ../data/Deskbar_Applet.xml.h:2
+msgid "_Clear History"
+msgstr "_Neteja l'historial"
+
+#: ../data/Deskbar_Applet.xml.h:3
 msgid "_Preferences"
 msgstr "_Preferències"
 
@@ -59,16 +63,16 @@ msgstr ""
 "l'ordre.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "Button in panel with grouped list"
-msgstr "Botó en el quadre amb una llista agrupada"
+msgid "Button in panel"
+msgstr "Botó al quadre"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Preferències de la barra d'escriptori"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Entry in panel with flat list"
-msgstr "Entrada al quadre amb una llista plana"
+msgid "Entry in panel"
+msgstr "Entrada al quadre"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -100,8 +104,8 @@ msgid ""
 "you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
 msgstr ""
-"<i><small><b>Nota: </b> si aquesta drecera és una sola lletra (com <b>t</b>) "
-"podeu escriure \"<b>quelcom</b>\" i llavors prémer <b>Alt-t</b> a la barra "
+"<i><small><b>Nota: </b> si aquesta drecera és una sola lletra (com ara <b>t</"
+"b>) podeu escriure «<b>quelcom</b>» i llavors prémer <b>Alt-t</b> a la barra "
 "d'escriptori.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
@@ -111,14 +115,14 @@ msgid ""
 "i>."
 msgstr ""
 "<i><small><b>Nota: </b> Per a utilitzar una drecera (per exemple <b>wp</b>) "
-"per a cercar <b>algú</b>, escriviu \"<b>wp algú</b>\" a la barra "
-"d'escriptori</small></i>."
+"per a cercar <b>algú</b>, escriviu «<b>wp algú</b>» a la barra d'escriptori</"
+"small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Dreceres per a cerques indexades"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:103
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:121
 #, python-format
 msgid "Open History Item %s"
 msgstr "Obre l'element de l'historial %s"
@@ -142,76 +146,80 @@ msgstr "Drecera"
 msgid "Bookmark Name"
 msgstr "Nom de l'adreça d'interès"
 
-#: ../deskbar/Categories.py:9
+#: ../deskbar/Categories.py:4
 #, python-format
 msgid "%s more result"
 msgid_plural "%s more results"
 msgstr[0] "%s resultat més"
 msgstr[1] "%s resultats més"
 
-#: ../deskbar/Categories.py:14
+#: ../deskbar/Categories.py:9
 msgid "Uncategorized"
 msgstr "Sense categoritzar"
 
-#: ../deskbar/Categories.py:19 ../deskbar/handlers/history.py:8
+#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:8
 msgid "History"
 msgstr "Historial"
 
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:26
 msgid "Documents"
 msgstr "Documents"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:27
 #, python-format
 msgid "%s more document"
 msgid_plural "%s more documents"
 msgstr[0] "%s document més"
 msgstr[1] "%s documents més"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:31
 msgid "Files"
 msgstr "Fitxers"
 
-#: ../deskbar/Categories.py:37
+#: ../deskbar/Categories.py:32
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "%s fitxer més"
 msgstr[1] "%s fitxers més"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:36
 msgid "People"
 msgstr "Gent"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:41
 msgid "Places"
 msgstr "Llocs"
 
-#: ../deskbar/Categories.py:47
+#: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more place"
 msgid_plural "%s more places"
 msgstr[0] "%s lloc més"
 msgstr[1] "%s llocs més"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:46
 msgid "Actions"
 msgstr "Accions"
 
-#: ../deskbar/Categories.py:52
+#: ../deskbar/Categories.py:47
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "%s acció més"
 msgstr[1] "%s accions més"
 
-#: ../deskbar/Categories.py:56 ../deskbar/handlers/web_address.py:9
+#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
 msgid "Web"
 msgstr "Web"
 
-#: ../deskbar/Categories.py:61
+#: ../deskbar/Categories.py:56
 msgid "Web Search"
 msgstr "Cerques a la web"
+
+#: ../deskbar/DeskbarHistory.py:53
+msgid "No History"
+msgstr "L'historial està buit"
 
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
@@ -222,76 +230,76 @@ msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
 msgstr ""
-"Segurament no és fatal, no obstant, seria bo que informéssiu als "
+"Segurament no és fatal, tanmateix, seria bo que informéssiu als "
 "desenvolupadors. El programa pot funcionar erràticament a partir d'ara."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
 msgstr "S'ha detectat un error"
 
-#: ../deskbar/handlers/beagle-live.py:19
+#: ../deskbar/handlers/beagle-live.py:35
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:36
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr ""
 "Cerqueu en tots els vostres documents (utilitzant el Beagle), mentre escriviu"
 
-#: ../deskbar/handlers/beagle-live.py:47
+#: ../deskbar/handlers/beagle-live.py:63
+#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Addressbook entry for %s"
-msgstr "Entrada a la llibreta d'adreces per a %s"
+msgid "Send Email to %s"
+msgstr "Envieu un correu a %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:57
+#: ../deskbar/handlers/beagle-live.py:73
 #, python-format
-msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
-msgstr "Visualitza el correu de <i>%(sender)s</i>: <b>%(name)s</b>"
+msgid "Email from %s"
+msgstr "Correu de %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:65 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:81 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "Obre %s"
 
-#: ../deskbar/handlers/beagle-live.py:72
+#: ../deskbar/handlers/beagle-live.py:89
 #, python-format
-msgid "Open news item %s"
-msgstr "Obre la notícia %s"
+msgid "News from %s"
+msgstr "Notícies de %s"
 
-#: ../deskbar/handlers/beagle-live.py:80
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
-msgid "Open note %s"
-msgstr "Obre la nota %s"
+msgid "Note: %s"
+msgstr "Note: %s"
 
-#. "description": (_("View conversation with %s") + "\n%s") % ("<b>%(name)s</b>","<span foreground='grey' size='small'>%(snippet)s</span>"),
-#: ../deskbar/handlers/beagle-live.py:88
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
-msgid "View conversation with %s"
-msgstr "Visualitza la conversa amb %s"
+msgid "Conversation with %s"
+msgstr "Conversa amb %s"
 
-#: ../deskbar/handlers/beagle-live.py:96
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
-msgid "View calendar %s"
-msgstr "Visualitza el calendari %s"
+msgid "Calendar: %s"
+msgstr "Calendari: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:240
-#: ../deskbar/handlers/beagle-live.py:259
+#: ../deskbar/handlers/beagle-live.py:289
+#: ../deskbar/handlers/beagle-live.py:311
 msgid "?"
 msgstr "(desconegut)"
 
-#: ../deskbar/handlers/beagle.py:19
+#: ../deskbar/handlers/beagle-static.py:19
 msgid "Beagle"
 msgstr "Beagle"
 
-#: ../deskbar/handlers/beagle.py:20
+#: ../deskbar/handlers/beagle-static.py:20
 msgid "Search all of your documents (using Beagle)"
 msgstr "Cerqueu en tots els vostres documents (utilitzant el Beagle)"
 
-#: ../deskbar/handlers/beagle.py:36
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Cerca %s utilitzant el Beagle"
@@ -304,22 +312,17 @@ msgstr "Correu"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "Envieu un correu escrivint una adreça de correu completa"
 
-#: ../deskbar/handlers/email_address.py:27
-#, python-format
-msgid "Send Email to %s"
-msgstr "Envieu un correu a %s"
-
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
 msgstr "Podeu posar dreceres a les vostres cerques."
 
 #: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:33
+#: ../deskbar/handlers/mozilla.py:120
 msgid "Web Bookmarks"
 msgstr "Adreces d'interès de webs"
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:34
+#: ../deskbar/handlers/mozilla.py:121
 msgid "Open your web bookmarks by name"
 msgstr "Obre les vostres adreces d'interès de webs per nom"
 
@@ -332,12 +335,12 @@ msgid "Open your web history by name"
 msgstr "Obre el seu historial web per nom"
 
 #: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:38
+#: ../deskbar/handlers/mozilla.py:125
 msgid "Web Searches"
 msgstr "Cerques a la web"
 
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:39
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Search the web via your browser's search settings"
 msgstr ""
 "Cerqueu a la web a través dels paràmetres de cerca del vostre navegador"
@@ -377,15 +380,15 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Envieu un correu a <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "Fitxers i directoris"
 
-#: ../deskbar/handlers/files.py:15
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
 msgstr "Obriu els vostres fitxers i directoris per nom"
 
-#: ../deskbar/handlers/files.py:51
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "Obre el directori %s"
@@ -444,8 +447,8 @@ msgid "You need a Google API key."
 msgstr "Necessiteu una clau de l'API de Google."
 
 #: ../deskbar/handlers/google-live.py:48
-msgid "Google Live"
-msgstr "Google Live"
+msgid "Google Search"
+msgstr "Cerca al Google"
 
 #: ../deskbar/handlers/google-live.py:49
 msgid "Search Google as you type"
@@ -467,6 +470,10 @@ msgstr "Obre la ubicació %s"
 #: ../deskbar/handlers/history.py:9
 msgid "Recognize previously used searches"
 msgstr "Reconeix les cerques fetes prèviament"
+
+#: ../deskbar/handlers/mozilla.py:111
+msgid "You can customize which search engines are offered."
+msgstr "Podeu personalitzar els motors de cerca que s'ofereixen."
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
@@ -512,12 +519,12 @@ msgstr "Troba fitxers i directoris a partir d'un patró"
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Executa <b>%(name)s<b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:85
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Consulta %s al diccionari"
 
-#: ../deskbar/handlers/programs.py:93
+#: ../deskbar/handlers/programs.py:94
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Cerca per noms de fitxer semblants a %s"
@@ -556,6 +563,14 @@ msgstr "Obre la pàgina web %s"
 msgid "Open the location %s"
 msgstr "Obre la ubicació %s"
 
+#: ../deskbar/handlers/yahoo.py:16
+msgid "Yahoo! Search"
+msgstr "Cerca al Yahoo!"
+
+#: ../deskbar/handlers/yahoo.py:17
+msgid "Search Yahoo! as you type"
+msgstr "Cerqueu amb el Yahoo! mentre escriviu"
+
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Barra d'accions tot en un."
@@ -575,15 +590,44 @@ msgstr "Gil Forcada <gilforcada@guifi.net>"
 msgid "_More..."
 msgstr "_Més..."
 
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
-msgid "No History"
-msgstr "L'historial està buit"
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Motors de cerca</b>"
 
-#: ../deskbar/ui/cuemiac/Cuemiac.py:47
-msgid "You need Gtk+ version 2.8.0 or higher to use this module"
-msgstr ""
-"Necessiteu la versió 2.8.0 o superior del Gtk+ per poder utilitzar aquest "
-"mòdul"
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Preferències de la barra d'escriptori - Cerques a la web"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "Mostra tots els motors de cerca disponibles"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "Mostra només el motor de cerca primari"
+
+#~ msgid "Addressbook entry for %s"
+#~ msgstr "Entrada a la llibreta d'adreces per a %s"
+
+#~ msgid "View email from <i>%(sender)s</i>: <b>%(name)s</b>"
+#~ msgstr "Visualitza el correu de <i>%(sender)s</i>: <b>%(name)s</b>"
+
+#~ msgid "Open news item %s"
+#~ msgstr "Obre la notícia %s"
+
+#~ msgid "Open note %s"
+#~ msgstr "Obre la nota %s"
+
+#~ msgid "View calendar %s"
+#~ msgstr "Visualitza el calendari %s"
+
+#~ msgid "Google Live"
+#~ msgstr "Google Live"
+
+#~ msgid "You need Gtk+ version 2.8.0 or higher to use this module"
+#~ msgstr ""
+#~ "Necessiteu la versió 2.8.0 o superior del Gtk+ per poder utilitzar aquest "
+#~ "mòdul"
 
 #~ msgid "News"
 #~ msgstr "Notícies"
@@ -604,24 +648,15 @@ msgstr ""
 #~ msgid "Emails"
 #~ msgstr "Correus"
 
-#~ msgid "Notes"
-#~ msgstr "Notes"
-
 #~ msgid "%s more note"
 #~ msgid_plural "%s more notes"
 #~ msgstr[0] "%s nota més"
 #~ msgstr[1] "%s notes més"
 
-#~ msgid "Google Search"
-#~ msgstr "Cerca al Google"
-
 #~ msgid "%s more online hit"
 #~ msgid_plural "%s more online hits"
 #~ msgstr[0] "%s resultat en línia més"
 #~ msgstr[1] "%s resultats en línia més"
-
-#~ msgid "Calendar"
-#~ msgstr "Calendari"
 
 #~ msgid "%s more calendar item"
 #~ msgid_plural "%s more calendar items"
