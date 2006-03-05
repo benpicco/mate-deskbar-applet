@@ -1,5 +1,5 @@
 import os, sys, cgi, re
-import gobject,gtk, gnome.ui, gnomevfs
+import gobject,gtk, gnome, gnome.ui, gnomevfs
 import deskbar, deskbar.Handler, deskbar.Utils
 from gettext import gettext as _
 from os.path import exists
@@ -75,7 +75,7 @@ TYPES = {
 		},
 	"File" 		: {
 		"name"	: ("beagle:ExactFilename",), 
-		"action": "gnome-open %(uri)s",
+		"action": lambda d: gnome.url_show(d["uri"]),
 		"icon"	: "stock_new",
 		#translators: This is a file.
 		"description": _("Open %s") % "<b>%(name)s</b>",
@@ -84,7 +84,7 @@ TYPES = {
 		},
 	"FeedItem"	: {
 		"name"	: ("dc:title",),
-		"action": "gnome-open %(identifier)s",
+		"action": lambda d: gnome.url_show(d["identifier"]),
 		"icon"	: "stock_news",
 		"description": (_("News from %s") % "<i>%(publisher)s</i>" ) + "\n<b>%(name)s</b>",
 		"snippet": True,
@@ -116,7 +116,7 @@ TYPES = {
 		},
 	"WebHistory": {
 		"name"	: ("dc:title",), # FIX-BEAGLE bug #330053, dc:title returns as None even though it _is_ set
-		"action": "gnome-open %(uri)s",
+		"action": lambda d: gnome.url_show(d["uri"]),
 		"icon"	: "stock_bookmark",
 		"description": (_("Open History Item %s") % "<i>%(name)s</i>") + "\n%(uri)s",
 		"category": "web",
@@ -181,13 +181,17 @@ class BeagleLiveMatch (deskbar.Match.Match):
 		return TYPES[self.result["type"]]["description"]
 		
 	def action(self, text=None):
-	
-		# Retrieve the associated action
-		action = TYPES[self.result["type"]]["action"] % self.result
-		args = action.split(" ")
+		action = TYPES[self.result["type"]]["action"]
+		if callable(action):
+			print "BeagleLive url_show()", self.result
+			action(self.result)
+		else:
+			# Retrieve the associated action
+			action = action % self.result
+			args = action.split(" ")
 
-		print "BeagleLive spawning:", action, args
-		gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
+			print "BeagleLive spawning:", action, args
+			gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
 	
 	def get_hash(self, text=None):
 		if "uri" in self.result:

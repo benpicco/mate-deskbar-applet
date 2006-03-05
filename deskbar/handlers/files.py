@@ -5,7 +5,7 @@ from os.path import split, expanduser, exists, isfile, isdir
 from gettext import gettext as _
 
 import gobject
-import gtk, gnome.ui
+import gtk, gnome, gnome.ui
 import deskbar, deskbar.Indexer
 import deskbar.Handler
 
@@ -26,7 +26,7 @@ class FileMatch(deskbar.Match.Match):
 		self.absname = absname
 				
 	def action(self, text=None):
-		gobject.spawn_async(["gnome-open", self.absname], flags=gobject.SPAWN_SEARCH_PATH)
+		gnome.url_show(self.absname)
 		
 	def get_category(self):
 		return "files"
@@ -35,7 +35,7 @@ class FileMatch(deskbar.Match.Match):
 		return _("Open %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
-		return "file://"+self.absname
+		return self.absname
 
 class FolderMatch(deskbar.Match.Match):
 	def __init__(self, backend, name=None, absname=None, **args):
@@ -45,7 +45,7 @@ class FolderMatch(deskbar.Match.Match):
 		self.absname = absname
 		
 	def action(self, text=None):
-		gobject.spawn_async(["nautilus", self.absname], flags=gobject.SPAWN_SEARCH_PATH)
+		gnome.url_show(self.absname)
 	
 	def get_category(self):
 		return "places"
@@ -54,7 +54,7 @@ class FolderMatch(deskbar.Match.Match):
 		return _("Open folder %s") % "<b>%(name)s</b>"
 	
 	def get_hash(self, text=None):
-		return "file://"+self.absname
+		return self.absname
 		
 class FileFolderHandler(deskbar.Handler.Handler):
 	def __init__(self):
@@ -114,9 +114,9 @@ class FileFolderHandler(deskbar.Handler.Handler):
 	def query_filefolder(self, query, is_file):
 		completions, prefix, relative = filesystem_possible_completions(query, is_file)
 		if is_file:
-			return [FileMatch(self, join(prefix, basename(completion)), completion) for completion in completions]
+			return [FileMatch(self, join(prefix, basename(completion)), "file://"+completion) for completion in completions]
 		else:
-			return [FolderMatch(self, join(prefix, basename(completion)), completion) for completion in completions]
+			return [FolderMatch(self, join(prefix, basename(completion)), "file://"+completion) for completion in completions]
 			
 def filesystem_possible_completions(prefix, is_file=False):
 	"""
