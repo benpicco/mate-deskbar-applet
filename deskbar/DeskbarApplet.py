@@ -74,6 +74,7 @@ class DeskbarApplet:
 		get_deskbar_keybinder().connect('activated', self.on_keybinding_button_press)
 		
 		self.applet.connect("button-press-event", self.on_applet_button_press)
+		self.applet.connect("button-release-event", self.on_applet_button_release)
 		self.applet.connect('destroy', lambda x: get_deskbar_history().save())
 		self.applet.setup_menu_from_file (
 			deskbar.SHARED_DATA_DIR, "Deskbar_Applet.xml",
@@ -250,10 +251,19 @@ class DeskbarApplet:
 		
 		# Middle click handling, we need this in the cuemiac
 		if event.button == 2:
-			return self.ui.middle_click()
+			self.middle_click = (event.x_root, event.y_root)
 			
 		return False
 	
+	def on_applet_button_release(self, widget, event):
+		if event.button == 2:
+			x, y = self.middle_click
+			diffx, diffy = abs(x-event.x_root), abs(y-event.y_root)
+			if diffx <= 3 and diffy <=3:
+				self.ui.middle_click()
+			
+			self.middle_click = None
+			
 	def on_keybinding_button_press(self, widget, time):
 		print 'Keybinding activated, focusing UI'
 		self.ui.receive_focus(time)

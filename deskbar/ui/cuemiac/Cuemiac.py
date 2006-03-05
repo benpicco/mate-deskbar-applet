@@ -755,13 +755,6 @@ class CuemiacUI (DeskbarUI):
 			self.model.clear()
 			
 		entry_text = self.entry.get_text().strip()
-		#valid_matches = False
-		#for text, match in matches:
-		#	if text == entry_text: # FIXME: Maybe it will suffice to only check the first match
-		#		self.model.append ((text,match))
-		#		valid_matches = True
-		#if valid_matches:
-		#	self.popup.show_all ()
 		for text, match in matches:
 			self.model.append ((text, match))
 		self.popup.show_all ()
