@@ -133,7 +133,8 @@ class DeskbarApplet:
 					else:
 						results.append((text,match))
 
-		self.ui.append_matches (results)
+		if len(results) != 0:
+			self.ui.append_matches (results)
 	
 	def dispatch_matches (self, matches):
 		results = []

@@ -822,7 +822,6 @@ class CuemiacUI (DeskbarUI):
 			return
 		
 		self.invalid = True
-		self.popup.show ()
 		self.emit ("start-query", qstring)
 	
 	def hide_if_entry_empty (self):
