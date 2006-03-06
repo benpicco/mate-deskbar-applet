@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-22 12:36+0200\n"
+"POT-Creation-Date: 2006-03-06 12:12+0200\n"
 "PO-Revision-Date: 2006-03-02 12:58+0000\n"
 "Last-Translator: Maxim Dziumanenko <mvd@mylinux.ua>\n"
 "Language-Team:  <i18n@li.org>\n"
@@ -56,8 +56,8 @@ msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
 msgstr ""
-"<i><small><b>Примітка:</b> Порядок змінюється перетягуванням розширення "
-"вниз або вверх.</small></i>"
+"<i><small><b>Примітка:</b> Порядок змінюється перетягуванням розширення вниз "
+"або вверх.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
 msgid "Button in panel"
@@ -111,14 +111,15 @@ msgid ""
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
 msgstr ""
-"<i><small><b>Примітка:</b> Щоб використати скорочення "
-"(наприклад, <b>wp</b>) для пошуку <b>чогось</b>, наберіть \"<b>wp щось</b>\" у аплеті Deskbar</small></i>."
+"<i><small><b>Примітка:</b> Щоб використати скорочення (наприклад, <b>wp</b>) "
+"для пошуку <b>чогось</b>, наберіть \"<b>wp щось</b>\" у аплеті Deskbar</"
+"small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Комбінації клавіш для скорочень у пошуку Scribus"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:121
 #, python-format
 msgid "Open History Item %s"
 msgstr "Відкрити елемент історії %s"
@@ -219,7 +220,6 @@ msgid "Web Search"
 msgstr "Пошук в Інтернеті"
 
 #: ../deskbar/DeskbarHistory.py:53
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
 msgid "No History"
 msgstr "Історія пуста"
 
@@ -232,76 +232,76 @@ msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
 msgstr ""
-"Можливо, вона не критична, але все ж слід повідомити про неї розробників. З цього "
-"моменту програма може функціонувати з помилками."
+"Можливо, вона не критична, але все ж слід повідомити про неї розробників. З "
+"цього моменту програма може функціонувати з помилками."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
 msgstr "Виявлено помилку"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:35
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:21
+#: ../deskbar/handlers/beagle-live.py:36
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr ""
 "Шукати в усіх ваших документах за допомогою Beagle під час набору запиту"
 
-#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/beagle-live.py:63
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "Надіслати лист %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:73
 #, python-format
 msgid "Email from %s"
 msgstr "Лист від %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:81 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "Відкрити %s"
 
-#: ../deskbar/handlers/beagle-live.py:74
+#: ../deskbar/handlers/beagle-live.py:89
 #, python-format
 msgid "News from %s"
 msgstr "Новини від %s"
 
-#: ../deskbar/handlers/beagle-live.py:83
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Note: %s"
 msgstr "Примітка: %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Conversation with %s"
 msgstr "Діалог з %s"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
 msgid "Calendar: %s"
 msgstr "Календар: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:272
-#: ../deskbar/handlers/beagle-live.py:294
+#: ../deskbar/handlers/beagle-live.py:289
+#: ../deskbar/handlers/beagle-live.py:311
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle.py:19
+#: ../deskbar/handlers/beagle-static.py:19
 msgid "Beagle"
 msgstr "Beagle"
 
-#: ../deskbar/handlers/beagle.py:20
+#: ../deskbar/handlers/beagle-static.py:20
 msgid "Search all of your documents (using Beagle)"
 msgstr "Пошук по усім вашим документам (використовуючи Beagle)"
 
-#: ../deskbar/handlers/beagle.py:36
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Шукати %s, використовуючи Beagle"
@@ -361,8 +361,7 @@ msgid ""
 "choose Edit - Preferences, and then Autocompletion."
 msgstr ""
 "Пошук адрес електронної пошти з адресної книги неможливий без "
-"автодоповнення. Для вмикання зайдіть у «Правка - Параметри - "
-"Автодоповнення»."
+"автодоповнення. Для вмикання зайдіть у «Правка - Параметри - Автодоповнення»."
 
 #: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
@@ -378,15 +377,15 @@ msgstr "Надсилати листи вашим контактам, набра�
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Надіслати лист <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "Файли та теки"
 
-#: ../deskbar/handlers/files.py:15
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
 msgstr "Відкривати ваші файли та теки за назвами"
 
-#: ../deskbar/handlers/files.py:52
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "Відкрити теку %s"
@@ -587,3 +586,19 @@ msgstr "Максим Дзюманенко <mvd@mylinux.ua>"
 #: ../deskbar/ui/DeskbarPreferencesUI.py:54
 msgid "_More..."
 msgstr "_Більше..."
+
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Пошукові системи</b>"
+
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Параметри Deskbar - Веб-пошук"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "Показувати усі доступні пошукові системи"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "Показувати лише головні пошукові системи"
