@@ -180,7 +180,12 @@ def parse_desktop_filename(desktop, only_if_visible=True):
 
 
 def parse_desktop_file(desktop, only_if_visible=True):
-	desktop = deskbar.gnomedesktop.item_new_from_file(desktop, deskbar.gnomedesktop.LOAD_ONLY_IF_EXISTS)
+	try:
+		desktop = deskbar.gnomedesktop.item_new_from_file(desktop, deskbar.gnomedesktop.LOAD_ONLY_IF_EXISTS)
+	except Exception, e:
+		print 'Couldn\'t read desktop file:%s:%s' % (desktop, e)
+		return None
+	
 	if desktop == None or desktop.get_entry_type() != deskbar.gnomedesktop.TYPE_APPLICATION:
 		return None
 	if desktop.get_boolean(deskbar.gnomedesktop.KEY_TERMINAL):
