@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-19 17:49+0100\n"
-"PO-Revision-Date: 2006-02-19 18:04+0100\n"
+"POT-Creation-Date: 2006-03-11 17:05+0100\n"
+"PO-Revision-Date: 2006-03-11 17:07+0100\n"
 "Last-Translator: Slobodan D. Sredojević <slobo@akrep.be>\n"
 "Language-Team: Serbian (sr) <gnom@prevod.org>\n"
 "MIME-Version: 1.0\n"
@@ -125,7 +125,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Prečice za prethodno obeležene pretrage"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:121
 #, python-format
 msgid "Open History Item %s"
 msgstr "Otvori stavku u istoriji %s"
@@ -225,6 +225,10 @@ msgstr "Veb"
 msgid "Web Search"
 msgstr "Pretraga veba"
 
+#: ../deskbar/DeskbarHistory.py:53
+msgid "No History"
+msgstr "Ne postoji istorija"
+
 #: ../deskbar/gtkexcepthook.py:21
 msgid "A programming error has been detected"
 msgstr "Otkrivena je greška u programu"
@@ -241,64 +245,68 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Otkrivena je greška"
 
-#: ../deskbar/handlers/beagle-live.py:20
+#: ../deskbar/handlers/beagle-live.py:35
 msgid "Beagle Live"
 msgstr "Živo njuškalo"
 
-#: ../deskbar/handlers/beagle-live.py:21
+#: ../deskbar/handlers/beagle-live.py:36
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Kako kucate, pas njuškalo vam pomaže da pretražite sve vaše dokumente"
 
-#: ../deskbar/handlers/beagle-live.py:48
+#: ../deskbar/handlers/beagle-live.py:63
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "Pošalji e-poruku za %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:73
+#, python-format
 msgid "Email from %s"
 msgstr "E-poruku šalje %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:66 ../deskbar/handlers/files.py:33
+#: ../deskbar/handlers/beagle-live.py:81 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "Otvori datoteku %s"
 
-#: ../deskbar/handlers/beagle-live.py:74
+#: ../deskbar/handlers/beagle-live.py:89
 #, python-format
 msgid "News from %s"
 msgstr "Vest sa %s"
 
-#: ../deskbar/handlers/beagle-live.py:83
+#: ../deskbar/handlers/beagle-live.py:98
+#, python-format
 msgid "Note: %s"
 msgstr "Beleška: %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:106
+#, python-format
 msgid "Conversation with %s"
 msgstr "Razgovor sa %s"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:114
+#, python-format
 msgid "Calendar: %s"
 msgstr "Kalendar: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:271
-#: ../deskbar/handlers/beagle-live.py:293
+#: ../deskbar/handlers/beagle-live.py:289
+#: ../deskbar/handlers/beagle-live.py:311
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle.py:19
+#: ../deskbar/handlers/beagle-static.py:19
 msgid "Beagle"
 msgstr "Pas njuškalo"
 
-#: ../deskbar/handlers/beagle.py:20
+#: ../deskbar/handlers/beagle-static.py:20
 msgid "Search all of your documents (using Beagle)"
 msgstr "Pretražuje sve vaše dokumente (uz pomoć njuškala)"
 
-#: ../deskbar/handlers/beagle.py:36
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Neka njuškalo traži %s"
@@ -377,15 +385,15 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Poruku prima <b>%(name)s</b> čija je adresa e-pošte (%(email)s)"
 
-#: ../deskbar/handlers/files.py:14
+#: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
 msgstr "Datoteke i fascikle"
 
-#: ../deskbar/handlers/files.py:15
+#: ../deskbar/handlers/files.py:17
 msgid "Open your files and folders by name"
 msgstr "Po imenu otvara vaše datoteke i fascikle"
 
-#: ../deskbar/handlers/files.py:52
+#: ../deskbar/handlers/files.py:54
 #, python-format
 msgid "Open folder %s"
 msgstr "Otvori fasciklu %s"
@@ -589,9 +597,21 @@ msgstr ""
 msgid "_More..."
 msgstr "_Više..."
 
-#: ../deskbar/ui/completion/CompletionDeskbarUI.py:166
-msgid "No History"
-msgstr "Ne postoji istorija"
+#: ../data/mozilla-search.glade.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Pretraživači</b>"
+
+#: ../data/mozilla-search.glade.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Postavke čarobne linije — pretrage veba"
+
+#: ../data/mozilla-search.glade.h:3
+msgid "Show all available search engines"
+msgstr "Prikaži sve dostupne pretraživače"
+
+#: ../data/mozilla-search.glade.h:4
+msgid "Show only the primary search engine"
+msgstr "Prikaži samo osnovni pretraživač"
 
 #~ msgid "Button in panel with categorized list"
 #~ msgstr "Dugme na panelu sa spiskom kategorija"
