@@ -24,7 +24,7 @@ dnl ****************************************************************************
 dnl * Translation & i18n
 dnl ****************************************************************************
 ALL_LINGUAS="bg ca da de el en_CA en_GB es fi fr gl gu hi hu it ja ka ko ku lt mk nb nl pa pl 
-pt_BR ru sk sq sr sr@Latn sv th vi uk zh_CN zh_HK zh_TW"
+pt pt_BR ru sk sq sr sr@Latn sv th vi uk zh_CN zh_HK zh_TW"
 
 GETTEXT_PACKAGE="deskbar-applet"
 AC_PROG_INTLTOOL([0.33])
