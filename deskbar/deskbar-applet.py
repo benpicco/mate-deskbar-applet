@@ -38,9 +38,11 @@ except:
 
 import gettext, locale
 gettext.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))
+gettext.bind_textdomain_codeset('deskbar-applet','UTF-8')
 gettext.textdomain('deskbar-applet')
 
 locale.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))
+locale.bind_textdomain_codeset('deskbar-applet','UTF-8')
 locale.textdomain('deskbar-applet')
 
 import gtkexcepthook
