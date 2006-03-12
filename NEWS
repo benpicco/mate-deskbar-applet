@@ -1,3 +1,49 @@
+=====================
+deskbar-applet 2.14.0
+=====================
+
+Changes:
+	* Fix problems when using a latin locale with bonobo crashing. Fixes bug #332545
+	* Fix handling of problematic desktop files with try/catch, fixes bug #334149
+	* Don't display a white popup when there are no results to display
+	* Change gnome-open calls to gnome.url_show calls
+	* Repair middle-click. Now you have to use double-middle click to paste text so that middle click works as usual for applets.
+	* Add failsafe to mozilla/firefox single/multi-engines detection code Remove a print statement in files.py
+	* Fix the file and folder handler to correctly return non-lowercase paths. Fix so that entering ~ or ~/ correctly returns home dir as a match
+	* Hide all UI parts before switching the UI. 
+	* Fix the bug #333024, history was broken.
+	* Make the prefs dialog non-modal, fixes bug #332940
+	* Fix Galeon handler to use history2.xml file
+	* Re-fix bug #332141, error when hitting enter before any matches appear
+	* Fix detection and handling of beagle daemon/python bindings. Fixes bug #332891
+	* Rename beagle.py to beagle-static.py to not confuse the python module loader
+
+Contributors to this release: Raphael Slinckx
+
+Translations:
+	* Updated Czech translation.
+	* Updated Serbian translations.
+	* Added Portuguese translation.
+	* Updated Hindi Translation.
+	* Updated Swedish translation.
+	* Added Danish translation.
+	* Added Italian translation.
+	* Added Albanian translation.
+	* Updated Hindi translation.
+	* Updated Ukrainian translation.
+	* Updated Catalan translation.
+	* Updated Lithuanian translation.
+	* Fixed typos in Russian translation
+	* Added Ukrainian translation.
+	* Updated Norwegian bokmål translation.
+	* Updated Brazilian Portuguese translation.
+	* Added Georgian.
+	* Updated Galician Translation.
+	* Updated Finnish translation.
+	* Updated Bulgarian translation.
+
+Contributors to the translations: Kostas Papadimas, Vladimer Sichinava, Rajesh Ranjan, Artur Flinta, Žygimantas Beručka, Duarte Loreto, Theppitak Karoonboonyanan, Øivind Hoel, Kjartan Maraas, Ilkka Tuohela, Gabor Kelemen, Ankit Patel, Funda Wang, Amanpreet Singh Alam, ChaoHsiung Liao, Ignacio Casal Quinteiro, Tommi Vainikainen, Lukas Novotny, Nickolay V. Shmyrev, Josep Puigdemont i Casamajó, Erdal Ronahi, Alessio Frusciante, Satoru SATOH, Danilo Šegan, Benoît Dejean, Marcel Telka, Leonid Kanter, Daniel Nylander, Vincent van Adrighem, Francisco Javier F. Serrador, Raphael Higino, Christian Rose, Takeshi AIHANA, Laurent Dhima, Clytie Siddall, Miloslav Trmac, Maxim Dziumanenko, Alexander Shopov, Adam Weinberger, Hendrik Brandt, Ole Laursen, Stanislav Brabec, Slobodan D. Sredojevic, Kang JeongHee
+
 ======================
 deskbar-applet 2.13.92
 ======================
