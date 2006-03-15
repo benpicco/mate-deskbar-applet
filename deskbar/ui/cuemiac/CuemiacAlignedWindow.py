@@ -55,7 +55,7 @@ class CuemiacAlignedWindow (gtk.Window):
 		screen = self.get_screen()
 		monitor = screen.get_monitor_geometry (screen.get_monitor_at_window (self.applet.window))
 		
-		if self.alignment == gnomeapplet.ORIENT_RIGHT:
+		if self.alignment == gnomeapplet.ORIENT_LEFT:
 				x = ax - ww
 				y = ay
 
@@ -70,7 +70,7 @@ class CuemiacAlignedWindow (gtk.Window):
 				else:
 					gravity = gtk.gdk.GRAVITY_NORTH_WEST
 					
-		elif self.alignment == gnomeapplet.ORIENT_LEFT:
+		elif self.alignment == gnomeapplet.ORIENT_RIGHT:
 				x = ax + aw
 				y = ay
 
