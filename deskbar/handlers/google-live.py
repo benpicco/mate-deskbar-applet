@@ -89,6 +89,8 @@ class GoogleLiveHandler (deskbar.Handler.AsyncHandler):
 			proxy = os.environ['http_proxy']
 			if proxy.startswith('http://'):
 				proxy = proxy[len('http://'):]
+			if proxy.endswith('/'):
+				proxy = proxy[:len(proxy)-1]
 				
 			self.server.soapproxy.http_proxy = proxy
 			print "Using http_proxy '%s' for google live" % proxy
