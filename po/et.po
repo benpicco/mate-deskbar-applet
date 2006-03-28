@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Deskbar Applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-13 05:45+0100\n"
-"PO-Revision-Date: 2006-03-20 14:13+0200\n"
+"PO-Revision-Date: 2006-03-27 15:42+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <et-gnome@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "Kõik-ühes toiminguriba"
 #: ../data/Deskbar_Applet.server.in.in.h:2
 #: ../deskbar/ui/About.py:22
 msgid "Deskbar"
-msgstr ""
+msgstr "Deskbar"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -106,10 +106,15 @@ msgstr "märki"
 #: ../data/smart-bookmarks.glade.h:1
 msgid "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in the deskbar.</small></i>"
 msgstr ""
+"<i><small><b>Märkus: </b>Kui see kiirkorraldus on ühetäheline (näiteks "
+"<b>t</b>), siis võid sa deskbar'il alati tippida \"<b>tulemus</b>\" ja "
+"vajutada <b>Alt-t</b>.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></i>."
 msgstr ""
+"<i><small><b>Märkus:</b> Kiirkorralduse (näiteks <b>wp</b>) kasutamine "
+"<b>tulemuse</b> otsimiseks tipi deskbar'il \"<b>wp tulemus</b>\"</small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
@@ -130,7 +135,7 @@ msgstr "Järjehoidja %s avamine"
 #: ../deskbar/BrowserMatch.py:81
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr ""
+msgstr "<i>%(text)s</i> otsimine mootorist <b>%(name)s</b>"
 
 #: ../deskbar/BrowserMatch.py:187
 msgid "Shortcut"
@@ -224,18 +229,20 @@ msgstr "Tuvastati programmeerimisviga"
 #: ../deskbar/gtkexcepthook.py:22
 msgid "It probably isn't fatal, but should be reported to the developers nonetheless. The program may behave erratically from now on."
 msgstr ""
+"See pole arvatavasti saatuslik, kuid sellest tuleks ikkagi arendajatele "
+"teada anda. Programm võib nüüd kohati vigaselt toimida."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
-msgstr ""
+msgstr "Leiti programmiviga"
 
 #: ../deskbar/handlers/beagle-live.py:35
 msgid "Beagle Live"
-msgstr ""
+msgstr "Beagle Live"
 
 #: ../deskbar/handlers/beagle-live.py:36
 msgid "Search all of your documents (using Beagle), as you type"
-msgstr ""
+msgstr "Sisestatud stringi otsimine Sinu dokumentidest (Beagle'i abil)"
 
 #: ../deskbar/handlers/beagle-live.py:63
 #: ../deskbar/handlers/email_address.py:27
@@ -247,7 +254,7 @@ msgstr "E-kirja saatmine aadressile %s"
 #: ../deskbar/handlers/beagle-live.py:73
 #, python-format
 msgid "Email from %s"
-msgstr ""
+msgstr "E-kiri aadressilt %s"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:81
@@ -259,7 +266,7 @@ msgstr "Faili %s avamine"
 #: ../deskbar/handlers/beagle-live.py:89
 #, python-format
 msgid "News from %s"
-msgstr ""
+msgstr "Uudis aadressilt %s"
 
 #: ../deskbar/handlers/beagle-live.py:98
 #, python-format
@@ -269,7 +276,7 @@ msgstr "Märkus: %s"
 #: ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Conversation with %s"
-msgstr ""
+msgstr "Vestlus %s'ga"
 
 #: ../deskbar/handlers/beagle-live.py:114
 #, python-format
@@ -289,12 +296,12 @@ msgstr "Beagle"
 
 #: ../deskbar/handlers/beagle-static.py:20
 msgid "Search all of your documents (using Beagle)"
-msgstr ""
+msgstr "Kõigist sinu dokumentidest otsimine (Beagle'i abil)"
 
 #: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
-msgstr ""
+msgstr "%s otsimine Beagle'i abil"
 
 #: ../deskbar/handlers/email_address.py:9
 msgid "Mail"
@@ -306,7 +313,7 @@ msgstr "E-kirja saatmine täieliku e-posti aadressi sisestamisel"
 
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
-msgstr ""
+msgstr "Sa võid oma otsingutele määrata kiirklahve."
 
 #: ../deskbar/handlers/epiphany.py:32
 #: ../deskbar/handlers/galeon.py:21
@@ -340,19 +347,22 @@ msgstr "Veebiotsingud"
 #: ../deskbar/handlers/galeon.py:32
 #: ../deskbar/handlers/mozilla.py:126
 msgid "Search the web via your browser's search settings"
-msgstr ""
+msgstr "Veebiotsing veebisirvija sätete kohaselt"
 
 #: ../deskbar/handlers/evolution.py:11
 msgid "You need to enable autocomplete in your mail preferences"
-msgstr ""
+msgstr "Sa pead oma e-posti eelistustes lubama automaatlõpetamise"
 
 #: ../deskbar/handlers/evolution.py:13
 msgid "Autocompletion Needs to be Enabled"
-msgstr ""
+msgstr "Automaatlõpetamine peab olema lubatud"
 
 #: ../deskbar/handlers/evolution.py:14
 msgid "We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion."
 msgstr ""
+"Enne automaatlõpetamise lubamist pole võimalik aadresside aadressiraamatust "
+"võtmist tagada. Selle jaoks peab postiprogrammi menüüst valima Redaktor - "
+"Eelistused ja siis Automaatlõpetamine."
 
 #: ../deskbar/handlers/evolution.py:19
 msgid "Mail (Address Book)"
@@ -366,7 +376,7 @@ msgstr "E-kirja saatmine kontaktide hulgas olevale aadressile"
 #: ../deskbar/handlers/evolution.py:45
 #, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
-msgstr ""
+msgstr "E-kirja saatmine adressaadile <b>%(name)s</b> (%(email)s)"
 
 #: ../deskbar/handlers/files.py:16
 msgid "Files and Folders"
@@ -395,6 +405,23 @@ msgid ""
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 msgstr ""
+"Google Live kasutamiseks peab Sul olema Google konto.  Seda saab hankida "
+"aadressilt http://api.google.com/\n"
+"\n"
+"Peale konto loomist peaks Sulle e-posti teel laekuma Google API võti.  "
+"Paiguta see faili\n"
+"\n"
+"~/.gnome2/deskbar-applet/Google.key\n"
+"\n"
+"Kui API võtit sulle ei laeku (või oled Sa selle kautanus), siis külasta "
+"aadressi www.google.com/accounts ja logi sisse.  Siis ava aadress "
+"api.google.com, klõpsa viidal \"Create Account\" ja sisesta oma e-posti "
+"aadress ja parool.  Sinu API võti saadetakse sulle uuesti.\n"
+"\n"
+"Nüüd pead sa alla laadima arenduskomplekti (developer kit) ja sealt võtma "
+"faili GoogleSearch.wsdl ning kopeerima selle asukohale\n"
+"\n"
+"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
 #: ../deskbar/handlers/google-live.py:32
 msgid "Setting Up Google Live"
@@ -402,7 +429,7 @@ msgstr "Google Live ülessättimine"
 
 #: ../deskbar/handlers/google-live.py:38
 msgid "You need to install the SOAPpy python module."
-msgstr ""
+msgstr "Sa pead paigaldama Python'i SOAPpy mooduli."
 
 #: ../deskbar/handlers/google-live.py:40
 msgid "You need the Google WSDL file."
@@ -440,7 +467,7 @@ msgstr "Eeelmiste otsingute äratundmine"
 
 #: ../deskbar/handlers/mozilla.py:111
 msgid "You can customize which search engines are offered."
-msgstr ""
+msgstr "Sul on võimalik pakutavaid otsingumootoreid kohandada."
 
 #: ../deskbar/handlers/pathprograms.py:14
 msgid "Programs (Advanced)"
@@ -540,7 +567,7 @@ msgstr "Sisestatud stringi otsimine Yahoo! otsingumootorist"
 
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
-msgstr ""
+msgstr "Kõik-ühes toiminguriba."
 
 #: ../deskbar/ui/About.py:28
 msgid "Deskbar Website"
