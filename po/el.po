@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-26 18:56+0200\n"
+"POT-Creation-Date: 2006-04-03 00:29+0300\n"
 "PO-Revision-Date: 2006-02-26 18:58+0200\n"
 "Last-Translator: Kostas Papadimas <pkst@gnome.org>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: ../data/prefs-dialog.glade.h:6
 msgid "Button in panel"
-msgstr "Κουμπί στο πίνακα εφαρμογών"
+msgstr "Κουμπί στον πίνακα εφαρμογών"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
@@ -71,7 +71,7 @@ msgstr "Προτιμήσεις Deskbar"
 
 #: ../data/prefs-dialog.glade.h:8
 msgid "Entry in panel"
-msgstr "Εγγραφή στο πίνακα εφαρμογών"
+msgstr "Εγγραφή στον πίνακα εφαρμογών"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
@@ -121,7 +121,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Συντομεύσεις για σελιδοδείκτες αναζητήσεων"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:113
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:121
 #, python-format
 msgid "Open History Item %s"
 msgstr "Άνοιγμα αντικείμενου ιστορικού %s"
@@ -236,68 +236,69 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Εντοπίστηκε σφάλμα προγράμματος"
 
-#: ../deskbar/handlers/beagle-live.py:27
+#: ../deskbar/handlers/beagle-live.py:35
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:28
+#: ../deskbar/handlers/beagle-live.py:36
 msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Αναζήτηση, ενώ πληκτρολογείτε, όλων των εγγράφων σας (με τη χρήση του Beagle)"
+msgstr ""
+"Αναζήτηση, ενώ πληκτρολογείτε, όλων των εγγράφων σας (με τη χρήση του Beagle)"
 
-#: ../deskbar/handlers/beagle-live.py:55
+#: ../deskbar/handlers/beagle-live.py:63
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "Αποστολή Email σε %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:65
+#: ../deskbar/handlers/beagle-live.py:73
 #, python-format
 msgid "Email from %s"
 msgstr "Email από %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:73 ../deskbar/handlers/files.py:35
+#: ../deskbar/handlers/beagle-live.py:81 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "Άνοιγμα %s"
 
-#: ../deskbar/handlers/beagle-live.py:81
+#: ../deskbar/handlers/beagle-live.py:89
 #, python-format
 msgid "News from %s"
 msgstr "Νέα από %s"
 
-#: ../deskbar/handlers/beagle-live.py:90
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Note: %s"
 msgstr "Σημείωση: %s"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Conversation with %s"
 msgstr "Συνομιλίας με %s"
 
-#: ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
 msgid "Calendar: %s"
 msgstr "Ημερολόγιο: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:277
-#: ../deskbar/handlers/beagle-live.py:299
+#: ../deskbar/handlers/beagle-live.py:289
+#: ../deskbar/handlers/beagle-live.py:311
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle.py:19
+#: ../deskbar/handlers/beagle-static.py:19
 msgid "Beagle"
 msgstr "Beagle"
 
-#: ../deskbar/handlers/beagle.py:20
+#: ../deskbar/handlers/beagle-static.py:20
 msgid "Search all of your documents (using Beagle)"
 msgstr "Αναζήτηση όλων των εγγράφων σας (με τη χρήση Beagle)"
 
-#: ../deskbar/handlers/beagle.py:36
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Αναζήτηση για %s με τη χρήση του Beagle"
@@ -340,7 +341,8 @@ msgstr "Αναζητήσεις στο διαδίκτυο"
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
 #: ../deskbar/handlers/mozilla.py:126
 msgid "Search the web via your browser's search settings"
-msgstr "Αναζήτηση στο διαδίκτυο μέσω των ρυθμίσεων αναζήτησης του περιηγητή σας"
+msgstr ""
+"Αναζήτηση στο διαδίκτυο μέσω των ρυθμίσεων αναζήτησης του περιηγητή σας"
 
 #: ../deskbar/handlers/evolution.py:11
 msgid "You need to enable autocomplete in your mail preferences"
@@ -359,7 +361,7 @@ msgid ""
 "choose Edit - Preferences, and then Autocompletion."
 msgstr ""
 "Δεν είναι δυνατή η παροχή διευθύνσεων e-mail από το ευρετήριο διευθύνσεων "
-"σας αν δενέχει ενεργοποιηθεί η αυτόματη συμπλήρωση. Για να την "
+"σας αν δεν έχει ενεργοποιηθεί η αυτόματη συμπλήρωση. Για να την "
 "ενεργοποιήσετε, επιλέξτε από το μενού της εφαρμογής αλληλογραφίας σας, "
 "Επεξεργασία - Προτιμήσεις και μετά Αυτόματη συμπλήρωση."
 
@@ -422,7 +424,7 @@ msgstr ""
 "\n"
 "Αν δεν λάβετε ένα API key (ή το έχετε χάσει), πηγαίνετε στο www.google.com/"
 "accounts και συνδεθείτε.  Μετά στο api.google.com, πατήστε \"Create Account"
-"\" και εισάγετε την διεύθυνση e-mail και τον κωδικόσας.  Το API key θα σας "
+"\" και εισάγετε την διεύθυνση e-mail και τον κωδικό σας.  Το API key θα σας "
 "σταλθεί ξανά.\n"
 "\n"
 "Τώρα μεταφορτώστε το developers kit και αποσυμπιέστε το αρχείο GoogleSearch."
@@ -605,4 +607,3 @@ msgstr "Εμφάνιση όλων των διαθέσιμων μηχανών α�
 #: ../data/mozilla-search.glade.h:4
 msgid "Show only the primary search engine"
 msgstr "Εμφάνιση μόνο της κύριας μηχανής αναζήτησης"
-
