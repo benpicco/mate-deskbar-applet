@@ -12,7 +12,7 @@ import gnome, gobject, gconf
 import gnome.ui, gnomeapplet
 import pango
 
-import deskbar
+import deskbar, deskbar.iconentry
 from deskbar.Categories import CATEGORIES
 from deskbar.ui import EntryHistoryManager
 from deskbar.ui.DeskbarUI import DeskbarUI

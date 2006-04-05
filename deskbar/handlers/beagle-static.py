@@ -3,7 +3,7 @@ from os.path import exists, join
 from gettext import gettext as _
 
 import gobject
-import deskbar.Handler, deskbar.Utils
+import deskbar.Handler, deskbar.Utils, deskbar.Match
 from deskbar.Utils import get_xdg_data_dirs
 
 #FIXME: better way to detect beagle ?

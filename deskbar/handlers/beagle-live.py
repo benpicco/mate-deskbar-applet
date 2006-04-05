@@ -1,6 +1,6 @@
 import os, sys, cgi, re
 import gobject,gtk, gnome, gnome.ui, gnomevfs
-import deskbar, deskbar.Handler, deskbar.Utils
+import deskbar, deskbar.Handler, deskbar.Utils, deskbar.Match
 from gettext import gettext as _
 from os.path import exists
 
