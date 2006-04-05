@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the deskbar-applet package.
 #
 # Tommi Vainikainen <Tommi.Vainikainen@iki.fi>, 2005.
-# Ilkka Tuohela  <hile@iki.fi>, 2005.
+# Ilkka Tuohela  <hile@iki.fi>, 2005-2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-28 21:25+0200\n"
-"PO-Revision-Date: 2006-02-28 21:27+0200\n"
+"POT-Creation-Date: 2006-04-05 08:04+0300\n"
+"PO-Revision-Date: 2006-04-05 08:05+0300\n"
 "Last-Translator: Tommi Vainikainen <Tommi.Vainikainen@iki.fi>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Pikanäppäimet kirjanmerkittyihin hakuihin"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:113
+#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:121
 #, python-format
 msgid "Open History Item %s"
 msgstr "Avaa historiamerkintä %s"
@@ -237,68 +237,68 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Havaittiin vika ohjelmassa"
 
-#: ../deskbar/handlers/beagle-live.py:27
+#: ../deskbar/handlers/beagle-live.py:35
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:28
+#: ../deskbar/handlers/beagle-live.py:36
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Etsi asiakirjojasi (Beaglella) samalla kuin kirjoitat"
 
-#: ../deskbar/handlers/beagle-live.py:55
+#: ../deskbar/handlers/beagle-live.py:63
 #: ../deskbar/handlers/email_address.py:27
 #, python-format
 msgid "Send Email to %s"
 msgstr "Lähetä sähköpostia osoitteeseen %s"
 
 #. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:65
+#: ../deskbar/handlers/beagle-live.py:73
 #, python-format
 msgid "Email from %s"
 msgstr "Sähköposti, lähettänyt %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:73 ../deskbar/handlers/files.py:35
+#: ../deskbar/handlers/beagle-live.py:81 ../deskbar/handlers/files.py:35
 #, python-format
 msgid "Open %s"
 msgstr "Avaa %s"
 
-#: ../deskbar/handlers/beagle-live.py:81
+#: ../deskbar/handlers/beagle-live.py:89
 #, python-format
 msgid "News from %s"
 msgstr "Uutisia (%s)"
 
-#: ../deskbar/handlers/beagle-live.py:90
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Note: %s"
 msgstr "Muistilappu: %s"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
 msgid "Conversation with %s"
 msgstr "Keskustelu (%s)"
 
-#: ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalenteri: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:277
-#: ../deskbar/handlers/beagle-live.py:299
+#: ../deskbar/handlers/beagle-live.py:289
+#: ../deskbar/handlers/beagle-live.py:311
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle.py:19
+#: ../deskbar/handlers/beagle-static.py:19
 msgid "Beagle"
 msgstr "Beagle"
 
-#: ../deskbar/handlers/beagle.py:20
+#: ../deskbar/handlers/beagle-static.py:20
 msgid "Search all of your documents (using Beagle)"
 msgstr "Etsi kaikkia asiakirjoja (Beaglella)"
 
-#: ../deskbar/handlers/beagle.py:36
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Etsi termiä %s Beaglella"
@@ -409,21 +409,21 @@ msgid ""
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 msgstr ""
-"Tarvitse Google-tunnuksen Google Liven käytttämiseen. Sellaisen saa "
-"osoitteesta http://api.google.com/\n"
+"Tarvitset Google-tunnuksen Google Live -palvelun käytttämiseen. Sellaisen "
+"saa osoitteesta http://api.google.com/\n"
 "\n"
 "Kun tunnus on luotu, Google API -avain lähetetään sähköpostilla. Tämä avain "
 "täytyy lisätä tiedostoon\n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
 "\n"
-"Mikäli API-avainta ei tule (tai se on hukkunut) tunnuksen varmistuspostissa, "
-"kirjaudu sisään osoitteessa www.google.com/accounts. Valitse api.google.com "
-"ja napsauta \"Create Account\" ja syötä sähköpostiosoite sekä salasana. API-"
-"avain lähetetään uudelleen.\n"
+"Mikäli et saa avainta tunnuksen varmistuspostissa tai avain hukkuu, kirjaudu "
+"sisään osoitteessa www.google.com/accounts. Valitse kohta api.google.com, "
+"napsauta \"Create Account\" ja syötä sähköpostiosoite sekä salasana, jolloin "
+"API-avain lähetetään uudestaan sähköpostilla.\n"
 "\n"
-"Nyt imuroi kehittäjäpakki ja pura GoogleSearch.wsdl-tiedosto sieltä. Kopioi "
-"tämä tiedostoksi\n"
+"Hae seuraavaksi kehittäjäpakettija kopioi paketin sisältömä tiedosto "
+"GoogleSearch.wsdl tiedostostoksi\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
