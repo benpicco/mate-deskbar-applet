@@ -1,4 +1,4 @@
-SUBDIRS = completion cuemiac entriac
+SUBDIRS = cuemiac entriac
 
 deskbardir = $(pythondir)/deskbar/ui
 deskbar_PYTHON = \

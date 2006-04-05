@@ -88,7 +88,6 @@ GCONF_KEYBINDING = GCONF_DIR + "/keybinding"
 # GConf key for UI name
 GCONF_UI_NAME = GCONF_DIR + "/ui_name"
 
-COMPLETION_UI_NAME = "Completion"
 ENTRIAC_UI_NAME = "Entriac"
 CUEMIAC_UI_NAME = "Cuemiac"
 

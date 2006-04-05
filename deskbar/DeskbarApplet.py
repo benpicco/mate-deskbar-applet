@@ -12,7 +12,6 @@ from deskbar.ui.DeskbarPreferencesUI import show_preferences
 from deskbar.DeskbarAppletPreferences import DeskbarAppletPreferences
 from deskbar.Keybinder import get_deskbar_keybinder
 from deskbar.ui.cuemiac.Cuemiac import CuemiacUI
-from deskbar.ui.completion.CompletionDeskbarUI import CompletionDeskbarUI
 from deskbar.ui.entriac.CuemiacEntryUI import CuemiacEntryUI
 
 
@@ -49,13 +48,7 @@ class DeskbarApplet:
 		if deskbar.UI_OVERRIDE != None:
 			ui_name = deskbar.UI_OVERRIDE
 		
-		# Check for cairo otherwise cuemiac isn't available at all
-		if not hasattr(gtk.gdk.Drawable, 'cairo_create'):
-			ui_name = deskbar.COMPLETION_UI_NAME
-		
-		if ui_name == deskbar.COMPLETION_UI_NAME:
-			self.ui = CompletionDeskbarUI (applet, self.prefs)
-		elif ui_name == deskbar.CUEMIAC_UI_NAME:
+		if ui_name == deskbar.CUEMIAC_UI_NAME:
 			self.ui = CuemiacUI (applet, self.prefs)
 		elif ui_name == deskbar.ENTRIAC_UI_NAME:
 			self.ui = CuemiacEntryUI(applet, self.prefs)
@@ -296,16 +289,10 @@ class DeskbarApplet:
 		
 		ui_name = value.get_string()
 
-		# Check for cairo otherwise cuemiac isn't available at all
-		if not hasattr(gtk.gdk.Drawable, 'cairo_create'):
-			ui_name = deskbar.COMPLETION_UI_NAME
-			
 		if ui_name == deskbar.CUEMIAC_UI_NAME:
 			self.ui = CuemiacUI (self.applet, self.prefs)
 		elif ui_name == deskbar.ENTRIAC_UI_NAME:
 			self.ui = CuemiacEntryUI(self.applet, self.prefs)
-		elif ui_name == deskbar.COMPLETION_UI_NAME:
-			self.ui = CompletionDeskbarUI (self.applet, self.prefs)
 		
 		self.set_up_ui_signals ()
 		self.applet.add (self.ui.get_view())

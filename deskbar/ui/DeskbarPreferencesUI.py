@@ -3,7 +3,7 @@ from os.path import join
 import gtk, gtk.gdk, gtk.glade, gobject, gconf
 import deskbar, deskbar.Utils
 from deskbar.ui.ModuleListView import ModuleListView
-from deskbar import COMPLETION_UI_NAME, CUEMIAC_UI_NAME, ENTRIAC_UI_NAME
+from deskbar import CUEMIAC_UI_NAME, ENTRIAC_UI_NAME
 
 class DeskbarPreferencesUI:
 	def __init__(self, applet, module_loader, module_list):
@@ -66,11 +66,6 @@ class DeskbarPreferencesUI:
 		self.cuemiac_ui_radio.connect ("toggled", self.on_ui_changed, applet)
 		self.ui_change_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_UI_NAME, lambda x, y, z, a: self.on_config_ui(z.value))
 		
-		# Watch out, if cairo isn't available we must set completion UI by force and disable cuemiac option
-		if not hasattr(gtk.gdk.Drawable, 'cairo_create'):
-			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, COMPLETION_UI_NAME)
-			self.cuemiac_ui_radio.set_sensitive (False)
-			
 		self.sync_ui()
 		
 	def show_run_hide(self):
@@ -103,7 +98,7 @@ class DeskbarPreferencesUI:
 		else:
 			self.keyboard_shortcut_entry.set_text("<Alt>F3")
 		
-		if self.ui_name == COMPLETION_UI_NAME or self.ui_name == ENTRIAC_UI_NAME:
+		if self.ui_name == ENTRIAC_UI_NAME:
 			self.completion_ui_radio.set_active (True)
 			self.set_width_settings_sensitive(True)
 		elif self.ui_name == CUEMIAC_UI_NAME:
@@ -143,10 +138,7 @@ class DeskbarPreferencesUI:
 			
 	def on_ui_changed (self, sender, applet):
 		if self.completion_ui_radio.get_active ():
-			if not hasattr(gtk.gdk.Drawable, 'cairo_create'):
-				deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, COMPLETION_UI_NAME)
-			else:
-				deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, ENTRIAC_UI_NAME)
+			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, ENTRIAC_UI_NAME)
 		elif self.cuemiac_ui_radio.get_active ():
 			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, CUEMIAC_UI_NAME)
 			
