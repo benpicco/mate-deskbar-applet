@@ -2,6 +2,14 @@
 
        * deskbar/ui/cuemiac/Cuemiac.py:
        * deskbar/ui/entriac/CuemiacEntryUI.py:
+       Fix bug #335367. Activate the bottom hit of the view when the cuem/entr-iac
+       is at a bottom panel.
+
+
+2006-04-06  Mikkel Kamstrup Erlandsen  <kamstrup@daimi.au.dk>
+
+       * deskbar/ui/cuemiac/Cuemiac.py:
+       * deskbar/ui/entriac/CuemiacEntryUI.py:
        Fix bug #335446 where deskbar crashes when the user hits up/down
        immediately after entering some text.
        This is done by adding a CuemiacView.is_ready() method that returns

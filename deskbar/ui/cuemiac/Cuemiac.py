@@ -895,12 +895,18 @@ class CuemiacUI (DeskbarUI):
 			iter = self.model.get_iter (path)
 			
 		if iter is None:
-			# No selection, select top element # FIXME do this
-			iter = self.model.get_iter_first()
-			while (not self.model.iter_has_child(iter)) or (not self.cview.row_expanded(self.model.get_path(iter))):
-				iter = self.model.iter_next(iter)
-			iter = self.model.iter_children(iter)
+			if self.applet.get_orient () in [gnomeapplet.ORIENT_DOWN, gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT]:
+				# No selection, select top element # FIXME do this
+				iter = self.model.get_iter_first()
+				while (not self.model.iter_has_child(iter)) or (not self.cview.row_expanded(self.model.get_path(iter))):
+					iter = self.model.iter_next(iter)
+				iter = self.model.iter_children(iter)
 
+			else:
+				# We are on a bottom panel - select the bottom element in the list 
+				#FIXME: Should we iterate backwards up the list if the hit is a category?
+				iter = self.model.get_iter (self.cview.last_visible_path())
+				
 		if iter is None:
 			return
 			
