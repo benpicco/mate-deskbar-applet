@@ -101,7 +101,8 @@ TYPES = {
 		},
 	"IMLog"		: {
 		"name"	: ("fixme:speakingto",),
-		"action": "beagle-imlogviewer %(uri)s",
+		"extra" : {"client": ("fixme:client",)},
+		"action": "beagle-imlogviewer --client %(client)s %(uri)s",
 		"icon"	: "im",
 		"description": _("Conversation with %s") % "<b>%(name)s</b>",
 		"snippet": True,
