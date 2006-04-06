@@ -9,8 +9,8 @@ factory = gnome.ui.ThumbnailFactory(deskbar.ICON_HEIGHT)
 def strip_html(string):
 	return re.sub(r"<.*?>|</.*?>","",string)
 	
-def more_information_dialog(title, content):
-	message_dialog = gtk.MessageDialog(buttons=gtk.BUTTONS_CLOSE)
+def more_information_dialog(parent, title, content):
+	message_dialog = gtk.MessageDialog(parent=parent, buttons=gtk.BUTTONS_CLOSE)
 	message_dialog.set_markup("<span size='larger' weight='bold'>%s</span>\n\n%s" % (cgi.escape(title), cgi.escape(content)))
 	resp = message_dialog.run()
 	if resp == gtk.RESPONSE_CLOSE:

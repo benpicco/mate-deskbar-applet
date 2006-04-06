@@ -1,6 +1,6 @@
 import deskbar.Handler, deskbar.Utils
 
-def _on_more():
+def _on_more(dialog):
 	print "More..."
 
 def _check_requirements():

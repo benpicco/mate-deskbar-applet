@@ -28,8 +28,8 @@ Now download the developers kit and extract the GoogleSearch.wsdl file from it. 
 
 ~/.gnome2/deskbar-applet/GoogleSearch.wsdl""")
 
-def _on_more_information():
-	deskbar.Utils.more_information_dialog(_("Setting Up Google Live"), HELP_TEXT)
+def _on_more_information(dialog):
+	deskbar.Utils.more_information_dialog(dialog, _("Setting Up Google Live"), HELP_TEXT)
 
 def _check_requirements():
 	try:

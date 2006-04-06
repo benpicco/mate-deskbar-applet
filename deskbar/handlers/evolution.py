@@ -9,7 +9,8 @@ def _check_requirements():
 	else:
 		return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS,
 		_("You need to enable autocomplete in your mail preferences"),
-		lambda: deskbar.Utils.more_information_dialog(
+		lambda dialog: deskbar.Utils.more_information_dialog(
+			dialog,
 			_("Autocompletion Needs to be Enabled"),
 			_("We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion.")
 			))

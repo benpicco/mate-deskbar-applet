@@ -153,7 +153,7 @@ class DeskbarPreferencesUI:
 	
 	def on_more_button_clicked(self, button):
 		if self.more_button_callback != None:
-			self.more_button_callback()
+			self.more_button_callback(self.dialog)
 	
 	def on_module_selected(self, selection):
 		module_context = self.moduleview.get_selected_module_context()
