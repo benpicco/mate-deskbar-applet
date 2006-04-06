@@ -125,6 +125,11 @@ HANDLERS = {
 		"name": _("Web Searches"),
 		"description": _("Search the web via your browser's search settings"),
 		"requirements": _check_requirements_search
+	},
+	"MozillaHistoryHandler" : {
+		"name": _("Web History"),
+		"description": _("Open your web history by name"),
+		"requirements": _check_requirements_bookmarks
 	}
 }
 
@@ -533,3 +538,37 @@ class MozillaSmartBookmarksDirParser:
 		Return a list of MozillaSmartMatch instances representing smart bookmarks
 		"""
 		return self._smart_bookmarks
+
+MOZILLA_HISTORY_REGEX = re.compile("\=http[0-9a-zA-Z\-\&\%\=\?\:\/\.]*\)")
+class MozillaHistoryHandler(deskbar.Handler.Handler):
+	def __init__(self):
+		deskbar.Handler.Handler.__init__(self, "stock_bookmark")
+		self._history = None
+	
+	def initialize(self):
+		self._indexer = deskbar.Indexer.Indexer()
+		self._history = self._parse_history()
+		for history_url in self._history:
+			history_wo_http = history_url[history_url.find('//')+2:]
+			if history_wo_http.find('www.') == -1:
+				history_wo_www = history_wo_http
+			else:
+				history_wo_www = history_wo_http[history_wo_http.find('www.')+4:]
+			self._indexer.add("%s %s %s" % (history_wo_www, history_wo_http, history_url), BrowserMatch(self, history_wo_www, history_url, True))
+		
+	def _parse_history(self):
+		if USING_FIREFOX:
+			historydat = get_firefox_home_file("history.dat")
+		else:
+			historydat = get_mozilla_home_file("history.dat")
+		try:
+			historycontents = file(historydat).read()
+			historycontents = re.findall(MOZILLA_HISTORY_REGEX, historycontents)
+			historycontents = [x[1:-1] for x in historycontents]
+			return historycontents
+		except:
+			return ""
+	
+	def query(self, query):
+		return self._indexer.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+
