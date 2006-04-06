@@ -27,6 +27,16 @@ CATEGORIES = {
 		"nest": lambda n: ngettext("%s more document", "%s more documents", n), 
 		"threshold": 5
 	},
+	"emails"	: {	
+		"name": _("Emails"),
+		"nest": lambda n: ngettext("%s more email", "%s more emails", n), 
+		"threshold": 5
+	},
+	"conversations"	: {	
+		"name": _("Conversations"),
+		"nest": lambda n: ngettext("%s more conversation", "%s more conversations", n), 
+		"threshold": 5
+	},
 	"files"	: {	
 		"name": _("Files"),
 		"nest": lambda n: ngettext("%s more file", "%s more files", n), 

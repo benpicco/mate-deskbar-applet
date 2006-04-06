@@ -69,9 +69,8 @@ TYPES = {
 		"action": "evolution %(uri)s",
 		"icon"	: "stock_mail",
 		"extra": {"sender":("fixme:from_name", "parent:fixme:from_name")},
-		#translators: First %s is mail sender, second %s is mail subject.
-		"description": (_("Email from %s") % "<i>%(sender)s</i>" ) + "\n<b>%(name)s</b>",
-		"category": "documents",
+		"description": (_("From %s") % "<i>%(sender)s</i>" ) + "\n<b>%(name)s</b>",
+		"category": "emails",
 		},
 	"File" 		: {
 		"name"	: ("beagle:ExactFilename",), 
@@ -104,9 +103,9 @@ TYPES = {
 		"extra" : {"client": ("fixme:client",)},
 		"action": "beagle-imlogviewer --client %(client)s %(uri)s",
 		"icon"	: "im",
-		"description": _("Conversation with %s") % "<b>%(name)s</b>",
+		"description": _("With %s") % "<b>%(name)s</b>",
 		"snippet": True,
-		"category": "documents",
+		"category": "conversations",
 		},
 	"Calendar"	: {
 		"name"	: ("fixme:summary",),
