@@ -453,6 +453,11 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		self.qstring = ""
 
+	def is_ready (self):
+		""" Returns True if the view is ready for user interaction """
+		num_children = self.get_model().iter_n_children (None)
+		return self.get_property ("visible") and num_children
+
 	def clear (self):
 		self.model.clear ()
 	
@@ -858,12 +863,14 @@ class CuemiacUI (DeskbarUI):
 			return True
 			
 		if event.keyval == 65362: # Up
+			if not self.cview.is_ready () : return
 			self.cview.grab_focus ()
 			last = self.cview.last_visible_path ()
 			self.cview.set_cursor (last)
 			return True
 			
 		if event.keyval == 65364: # Down
+			if not self.cview.is_ready () : return
 			self.cview.grab_focus ()
 			self.cview.set_cursor (self.model.get_path(self.model.get_iter_first()))
 			return True

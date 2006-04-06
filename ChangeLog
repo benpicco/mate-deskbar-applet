@@ -1,3 +1,12 @@
+2006-04-06  Mikkel Kamstrup Erlandsen  <kamstrup@daimi.au.dk>
+
+       * deskbar/ui/cuemiac/Cuemiac.py:
+       * deskbar/ui/entriac/CuemiacEntryUI.py:
+       Fix bug #335446 where deskbar crashes when the user hits up/down
+       immediately after entering some text.
+       This is done by adding a CuemiacView.is_ready() method that returns
+       True when the view is ready for user interaction.
+
 2006-04-06  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/handlers/mozilla.py:

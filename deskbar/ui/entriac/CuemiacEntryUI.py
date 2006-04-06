@@ -298,11 +298,13 @@ class CuemiacEntryUI (DeskbarUI):
 			return True
 			
 		if event.keyval == 65362: # Up
+			if not self.cview.is_ready () : return
 			self.focus_last_match (event.time)
 			self.focus_out_from_cuemiac = True
 			return True
 			
 		if event.keyval == 65364: # Down
+			if not self.cview.is_ready () : return
 			self.focus_first_match (event.time)
 			self.focus_out_from_cuemiac = True
 			return True
