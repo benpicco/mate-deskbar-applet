@@ -54,8 +54,8 @@ smart_bookmarks = None
 shortcuts_to_smart_bookmarks_map = {}
 
 class EpiphanyHandler(deskbar.Handler.Handler):
-	def __init__(self, watched_file, callback):
-		deskbar.Handler.Handler.__init__(self, "stock_bookmark")
+	def __init__(self, watched_file, callback, icon="stock_bookmark"):
+		deskbar.Handler.Handler.__init__(self, icon)
 		self.watched_file = watched_file
 		self.watch_callback = callback
 		
@@ -119,7 +119,7 @@ class EpiphanySearchHandler(EpiphanyBookmarksHandler):
 		
 class EpiphanyHistoryHandler(EpiphanyHandler):
 	def __init__(self):
-		EpiphanyHandler.__init__(self, EPHY_HISTORY_FILE, self._parse_history)
+		EpiphanyHandler.__init__(self, EPHY_HISTORY_FILE, self._parse_history, "epiphany-history.png")
 		self._history = None
 		
 	def initialize(self):

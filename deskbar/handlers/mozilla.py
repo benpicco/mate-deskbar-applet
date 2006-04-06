@@ -542,7 +542,7 @@ class MozillaSmartBookmarksDirParser:
 MOZILLA_HISTORY_REGEX = re.compile("\=http[0-9a-zA-Z\-\&\%\=\?\:\/\.]*\)")
 class MozillaHistoryHandler(deskbar.Handler.Handler):
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, "stock_bookmark")
+		deskbar.Handler.Handler.__init__(self, "epiphany-history.png")
 		self._history = None
 	
 	def initialize(self):

@@ -44,8 +44,8 @@ bookmarks = None
 smart_bookmarks = None
 
 class GaleonHandler(deskbar.Handler.Handler):
-	def __init__(self, watched_file, callback):
-		deskbar.Handler.Handler.__init__(self, "stock_bookmark")
+	def __init__(self, watched_file, callback, icon="stock_bookmark"):
+		deskbar.Handler.Handler.__init__(self, icon)
 		self.watched_file = watched_file
 		self.watch_callback = callback
 		
@@ -93,7 +93,7 @@ class GaleonSearchHandler(GaleonBookmarksHandler):
 		
 class GaleonHistoryHandler(GaleonHandler):
 	def __init__(self):
-		GaleonHandler.__init__(self, GALEON_HISTORY_FILE, self._parse_history)
+		GaleonHandler.__init__(self, GALEON_HISTORY_FILE, self._parse_history, "epiphany-history.png")
 		self._history = None
 		
 	def initialize(self):

@@ -15,7 +15,8 @@ art_DATA = \
 	folder-bookmark.png \
 	generic.png \
 	yahoo.png \
-	google.png
+	google.png \
+	epiphany-history.png
 
 EXTRA_DIST = \
 	$(pixmaps_DATA) \
