@@ -143,7 +143,7 @@ class DeskbarHistory (gtk.ListStore) :
 		copy_match = True
 		for idx, val in enumerate(self):
 			htext, hmatch = val
-			if (text, match.__class__) == (htext, hmatch.__class__):
+			if (match.get_hash(text), match.__class__) == (match.get_hash(htext), hmatch.__class__):
 				match = self[self.get_iter_from_string (str(idx))][0][1]
 				self.remove (self.get_iter_from_string (str(idx)))
 				copy_match = False
