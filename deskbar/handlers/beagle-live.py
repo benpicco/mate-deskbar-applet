@@ -321,6 +321,10 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 	def hits_added(self, query, response, qstring, qmax):
 		hit_matches = []
 		for hit in response.get_hits():
+			if hit.get_type() not in TYPES:
+				print 'WARNING: Beagle live seen an unknown type:', hit.get_type()
+				continue
+
 			if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
 				req = beagle.SnippetRequest()
 				req.set_query(query)
