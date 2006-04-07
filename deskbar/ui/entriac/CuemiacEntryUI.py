@@ -235,10 +235,12 @@ class CuemiacEntryUI (DeskbarUI):
 		if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
 			self.cview.append_method = gtk.TreeStore.append
 			self.cview.get_model().set_sort_order(gtk.SORT_DESCENDING)
+			self.history.set_sort_order (gtk.SORT_DESCENDING)
 		else:
 			# We are at a bottom panel. Put entry on bottom, and prepend matches (instead of append).
 			self.cview.append_method = gtk.TreeStore.prepend
 			self.cview.get_model().set_sort_order(gtk.SORT_ASCENDING)
+			self.history.set_sort_order (gtk.SORT_ASCENDING)
 		
 		# Update how the popups is aligned
 		self.popup.alignment = self.applet.get_orient ()
@@ -334,6 +336,7 @@ class CuemiacEntryUI (DeskbarUI):
 			self.update_entry_icon (icon=match.get_icon())
 		else:
 			self.entry.set_text("")
+			self.update_entry_icon ()
 	
 	def on_entry_activate(self, widget):
 		# if we have an active history item, use it
@@ -351,9 +354,10 @@ class CuemiacEntryUI (DeskbarUI):
 			if self.applet.get_orient () in [gnomeapplet.ORIENT_DOWN, gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT]:
 				# No selection, select top element # FIXME do this
 				iter = self.model.get_iter_first()
-				while (not self.model.iter_has_child(iter)) or (not self.cview.row_expanded(self.model.get_path(iter))):
+				while iter != None and ((not self.model.iter_has_child(iter)) or (not self.cview.row_expanded(self.model.get_path(iter)))):
 					iter = self.model.iter_next(iter)
-				iter = self.model.iter_children(iter)
+				if iter != None:
+					iter = self.model.iter_children(iter)
 
 			else:
 				# We are on a bottom panel - select the bottom element in the list 

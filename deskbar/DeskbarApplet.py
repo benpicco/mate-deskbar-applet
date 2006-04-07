@@ -145,6 +145,7 @@ class DeskbarApplet:
 		self.ui.append_matches (results)
 		
 	def on_stop_query (self, sender=None):
+		get_deskbar_history().reset()
 		if self.start_query_id != 0:
 			gobject.source_remove(self.start_query_id)
 				

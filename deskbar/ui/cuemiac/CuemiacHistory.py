@@ -3,7 +3,7 @@ import cgi
 
 import deskbar
 from deskbar.ui.cuemiac.CuemiacAlignedWindow import CuemiacAlignedWindow
-from deskbar.DeskbarHistory import get_deskbar_history, SortedDeskbarHistory
+from deskbar.DeskbarHistory import get_deskbar_history
 
 class CuemiacHistoryView (gtk.TreeView):
 
@@ -12,7 +12,7 @@ class CuemiacHistoryView (gtk.TreeView):
 	}
 	
 	def __init__ (self):
-		gtk.TreeView.__init__ (self, SortedDeskbarHistory())
+		gtk.TreeView.__init__ (self, get_deskbar_history())
 				
 		icon = gtk.CellRendererPixbuf ()
 		icon.set_property("xpad", 4)
@@ -53,8 +53,10 @@ class CuemiacHistoryView (gtk.TreeView):
 
 	def __on_activated (self):
 		model, iter = self.get_selection().get_selected()
-		match = model[iter][0]
-		self.emit ("match-selected", match)
+		if iter != None:
+			match = model[iter][0]
+			self.emit ("match-selected", match)
+
 		return True
 		
 class CuemiacHistoryPopup (CuemiacAlignedWindow) :

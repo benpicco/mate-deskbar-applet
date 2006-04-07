@@ -24,24 +24,8 @@ class DeskbarHistoryIter :
 			raise StopIteration
 		return item
 
-# The sort function ids
-SORT_CHRONOLOGICAL = 1
-
-class SortedDeskbarHistory (gtk.TreeModelSort):	
-	def __init__(self):
-		gtk.TreeModelSort.__init__(self, get_deskbar_history())
-		self.set_sort_func(SORT_CHRONOLOGICAL, self.on_sort_chronological)
-		self.set_sort_column_id(SORT_CHRONOLOGICAL, gtk.SORT_ASCENDING)
-	
-	def set_sort_order(self, order):
-		#self.set_sort_column_id(SORT_CHRONOLOGICAL, order)
-		# Somehow this triggers a segfault !
-		pass
-	
-	def on_sort_chronological(self, model, iter1, iter2):
-		return 1
-
 empty_history_icon = load_icon(gtk.STOCK_STOP)
+
 class EmptyHistoryMatch:
 	def get_icon(self):
 		return empty_history_icon
@@ -57,9 +41,12 @@ class EmptyHistoryMatch:
 		
 class DeskbarHistory (gtk.ListStore) :
 	"""
-	Iteraating over a DeskbarHistory with a for loop returns (text,match) pairs.
+	Iterating over a DeskbarHistory with a for loop returns (text,match) pairs.
 	Keeps an internal pointer to a history index which you can move with up(), down(),
 	and reset(). You retrieve the item in question by get_history().
+	
+	Text-Match pairs are stored in column 0, while a timestamp (a simple counter really)
+	is stored in column 1. The timestamp is used for sorting purposes.
 	
 	Signals:
 		"changed" : emitted when the internal pointer has changed
@@ -70,15 +57,29 @@ class DeskbarHistory (gtk.ListStore) :
 	}
 	
 	def __init__ (self):
-		gtk.ListStore.__init__ (self, gobject.TYPE_PYOBJECT)
+		gtk.ListStore.__init__ (self, gobject.TYPE_PYOBJECT, gobject.TYPE_INT)
+		self.set_sort_column_id (1, gtk.SORT_ASCENDING)
+		self.set_sort_func (1, self.sort_matches)
+		self.timestamp = 0
 		self._index = -1
 		
 	def __iter__ (self):
 		return DeskbarHistoryIter (self)				
 	
+	def set_sort_order (self, order):
+		"""order should be one of gtk.SORT_{ASCENDING,DESCENDING}"""
+		self.set_sort_column_id (1, order)
+	
+	def sort_matches (self, model, iter1, iter2):
+		if self[iter1][1] > self[iter2][1] :
+			return 1
+		else:
+			return -1
+	
 	def clear (self):
 		gtk.ListStore.clear(self)
-		self.append([("", EmptyHistoryMatch())])
+		self.timestamp = 0
+		self.append(("", EmptyHistoryMatch()))
 		self._index = -1
 		self.emit("changed")
 	
@@ -109,7 +110,8 @@ class DeskbarHistory (gtk.ListStore) :
 						
 					match = modctx.module.deserialize(match_class, serialized)
 					if match != None:
-						new_history.append ([(text, match)])
+						new_history.append ((text, match))
+		
 		except Exception, msg:
 			return
 		
@@ -120,10 +122,14 @@ class DeskbarHistory (gtk.ListStore) :
 				self.append (hist)
 
 	def save (self):
+		# FIXME: We do not save the timestamp. 
+		# This is because we can't break history 
+		# file format in the 2.14 series.
+		# Is it needed anyway?
 		save = []
 		for text, match in self:
 			if match.__class__ == EmptyHistoryMatch:
-				continue
+				return
 				
 			hsh = match.get_hash(text)
 			save.append((text, str(match.get_handler().__class__), str(match.__class__), match.serialize()))
@@ -133,6 +139,14 @@ class DeskbarHistory (gtk.ListStore) :
 		except Exception, msg:
 			print 'Error:History.save:%s', msg
 		pass
+	
+	def append (self, match_obj):
+		gtk.ListStore.append (self, (match_obj, self.timestamp))
+		self.timestamp = self.timestamp + 1
+	
+	def prepend (self, match_obj):
+		print "ERROR: DeskbarHistory does not support prepending of matches, use append() instead."
+		raise Exception
 	
 	def add (self, text, match):
 		if match.__class__ == EmptyHistoryMatch:
@@ -154,7 +168,7 @@ class DeskbarHistory (gtk.ListStore) :
 			if copy != None:
 				match = copy
 				
-		self.prepend ([(text, match)])
+		self.append ((text, match))
 		if len(self) > MAX_HISTORY:
 			# Remove the last element
 			last = self.get_iter_from_string (str(len(self) - 1))
@@ -164,16 +178,19 @@ class DeskbarHistory (gtk.ListStore) :
 		self.save()
 	
 	def up(self):
+		print 'Up:', self._index
 		if self._index < len(self)-1:
 			self._index = self._index + 1
 			self.emit('changed')
 	
 	def down(self):
+		print 'Down:', self._index
 		if self._index > -1:
 			self._index = self._index - 1
 			self.emit('changed')
 	
 	def reset(self):
+		print 'Reset', self._index
 		if self._index != -1:
 			self._index = -1
 			self.emit('changed')
