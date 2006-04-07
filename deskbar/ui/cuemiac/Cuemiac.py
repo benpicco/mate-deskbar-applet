@@ -647,17 +647,23 @@ class CuemiacUI (DeskbarUI):
 		self.box.show ()
 		self.icon_entry.show_all ()
 		
-		self.set_sensitive(False)
-		try:
-			self.applet.set_background_widget(applet)
-		except Exception, msg:
-			pass
-		
+		self.set_sensitive(False)		
 		self.invalid = True
 		
 		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
 		self.applet.set_flags(gtk.CAN_FOCUS)
+		self.applet.connect('change-background', self.on_change_background)
+		self.on_change_background()
 	
+	def on_change_background (self, *args):
+		pixmap = self.applet.get_background()
+		if pixmap:
+			for widget in (self.applet, self.deskbar_button.button_main, self.deskbar_button.button_arrow):
+				style = widget.get_style().copy()
+				style.bg_pixmap[gtk.STATE_NORMAL] = pixmap
+				style.bg_pixmap[gtk.STATE_INSENSITIVE]  = pixmap
+				widget.set_style(style)
+
 	def close_view(self):
 		self.deskbar_button.button_arrow.set_active (False)
 		self.deskbar_button.button_main.set_active (False)

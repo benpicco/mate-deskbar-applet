@@ -99,11 +99,6 @@ class CuemiacEntryUI (DeskbarUI):
 		self.history_popup.get_child().show ()
 		self.popup.set_focus_on_map (False)
 		
-		try:
-			self.applet.set_background_widget(self.icon_entry)
-		except Exception, msg:
-			pass
-		
 		self.tooltips = gtk.Tooltips()
 		#FIXME: Add these to translations
 		self.tooltips.set_tip(self.icon_event_box, "Show previous actions")
