@@ -22,6 +22,10 @@ HANDLERS = {
 		"name": _("Files and Folders Search"),
 		"description": _("Find files and folders by searching for a name pattern"),
 	},
+	"DevhelpHandler" : {
+		"name": _("Developper Documentation"),
+		"description": _("Search Devhelp for a function name"),
+	},
 }
 
 class GenericProgramMatch(deskbar.Match.Match):
@@ -93,6 +97,14 @@ class GnomeSearchMatch(GenericProgramMatch):
 	def get_verb(self):
 		return _("Search for file names like %s") % "<b>%(text)s</b>"
 
+class DevhelpMatch(GenericProgramMatch):
+	def __init__(self, backend, use_arg=True, **args):
+		GenericProgramMatch.__init__(self, backend, use_arg=use_arg, **args)
+		self._args = ["-s"]
+		
+	def get_verb(self):
+		return _("Search in Devhelp for %s") % "<b>%(text)s</b>"
+
 class SpecialProgramHandler(deskbar.Handler.Handler):
 	def __init__(self, desktop, icon=gtk.STOCK_EXECUTE):
 		deskbar.Handler.Handler.__init__(self, icon)
@@ -131,6 +143,18 @@ class GnomeSearchHandler(SpecialProgramHandler):
 	
 	def create_match(self, desktop, f):
 		return GnomeSearchMatch(
+					self,
+					name=cgi.escape(desktop.get_localestring(deskbar.gnomedesktop.KEY_NAME)),
+					icon=desktop.get_string(deskbar.gnomedesktop.KEY_ICON),
+					desktop=desktop,
+					desktop_file=f)
+		
+class DevhelpHandler(SpecialProgramHandler):
+	def __init__(self):
+		SpecialProgramHandler.__init__(self, "devhelp.desktop", "devhelp")
+	
+	def create_match(self, desktop, f):
+		return DevhelpMatch(
 					self,
 					name=cgi.escape(desktop.get_localestring(deskbar.gnomedesktop.KEY_NAME)),
 					icon=desktop.get_string(deskbar.gnomedesktop.KEY_ICON),

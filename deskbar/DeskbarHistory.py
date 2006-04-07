@@ -178,19 +178,16 @@ class DeskbarHistory (gtk.ListStore) :
 		self.save()
 	
 	def up(self):
-		print 'Up:', self._index
 		if self._index < len(self)-1:
 			self._index = self._index + 1
 			self.emit('changed')
 	
 	def down(self):
-		print 'Down:', self._index
 		if self._index > -1:
 			self._index = self._index - 1
 			self.emit('changed')
 	
 	def reset(self):
-		print 'Reset', self._index
 		if self._index != -1:
 			self._index = -1
 			self.emit('changed')
