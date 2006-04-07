@@ -60,7 +60,7 @@ TYPES = {
 		"name"	: ("fixme:FileAs",),
 		"action": "evolution %(uri)s",
 		"icon"	: "stock_contact",
-		"description": _("Send Email to %s") % "<b>%(name)s</b>",
+		"description": _("Edit contact %s") % "<b>%(name)s</b>",
 		"category": "people",
 		},
 	
