@@ -1,7 +1,9 @@
 import xml.sax
+import re, urllib
 from os.path import join, expanduser, exists
 from gettext import gettext as _
 import gtk
+import gnomevfs
 import deskbar, deskbar.Indexer, deskbar.Handler
 from deskbar.Watcher import FileWatcher
 from deskbar.BrowserMatch import get_url_host, is_preferred_browser
@@ -31,7 +33,7 @@ HANDLERS = {
 		"name": _("Web Searches"),
 		"description": _("Search the web via your browser's search settings"),
 		"requirements": _check_requirements
-	}
+	},
 }
 
 GALEON_HISTORY_FILE = expanduser("~/.galeon/history2.xml")
@@ -42,6 +44,7 @@ GALEON_BOOKMARKS_FILE = expanduser("~/.galeon/bookmarks.xbel")
 favicon_cache = None
 bookmarks = None
 smart_bookmarks = None
+quicksearches = None
 
 class GaleonHandler(deskbar.Handler.Handler):
 	def __init__(self, watched_file, callback, icon="stock_bookmark"):
@@ -73,11 +76,12 @@ class GaleonBookmarksHandler(GaleonHandler):
 		self._parse_bookmarks()
 	
 	def _parse_bookmarks(self, force=False):
-		global favicon_cache, bookmarks, smart_bookmarks
+		global favicon_cache, bookmarks, smart_bookmarks, quicksearches
 		if force or bookmarks == None:
 			parser = GaleonBookmarksParser(self, favicon_cache)
 			bookmarks = parser.get_indexer()
 			smart_bookmarks = parser.get_smart_bookmarks()
+			quicksearches = parser.get_quicksearches()
 	
 	def query(self, query):
 		global bookmarks
@@ -89,7 +93,12 @@ class GaleonSearchHandler(GaleonBookmarksHandler):
 	
 	def query(self, query):
 		global smart_bookmarks
-		return smart_bookmarks
+		global quicksearches
+		query_a = query.split(" ")
+		if len(query_a) > 1 and quicksearches.has_key(query_a[0]):
+			return (quicksearches[query_a[0]],)
+		else:
+			return smart_bookmarks
 		
 class GaleonHistoryHandler(GaleonHandler):
 	def __init__(self):
@@ -119,7 +128,9 @@ class GaleonBookmarksParser(xml.sax.ContentHandler):
 		self.smarthref = None
 		
 		self._indexer = deskbar.Indexer.Indexer()
+		self._qsindexer = {}
 		self._smart_bookmarks = []
+
 		
 		self._cache = cache
 		self._index_bookmarks()
@@ -129,6 +140,9 @@ class GaleonBookmarksParser(xml.sax.ContentHandler):
 		Returns a completed indexer with the contents of bookmark file
 		"""
 		return self._indexer
+	
+	def get_quicksearches(self):
+		return self._qsindexer
 	
 	def get_smart_bookmarks(self):
 		"""
@@ -151,12 +165,16 @@ class GaleonBookmarksParser(xml.sax.ContentHandler):
 			self.title = None
 			self.href = attrs['href'].encode('latin1')
 			self.smarthref = None
+			self.nick = None
 
 	def endElement(self, name):
 		if name == "title":
 			self.title = self.chars.encode('utf8')
 		elif name == "smarturl":
 			self.smarthref = self.chars.encode('latin1')
+			self.smarthref = re.sub('{.*}','',self.smarthref)
+		elif name == "nick":
+			self.nick = self.chars.encode('latin1')
 		elif name == "bookmark":
 			if self.href.startswith("javascript:"):
 				return
@@ -168,6 +186,9 @@ class GaleonBookmarksParser(xml.sax.ContentHandler):
 
 			bookmark = BrowserMatch(self.handler, self.title, self.href, icon=img)
 			self._indexer.add("%s %s" % (self.title, self.href), bookmark)
+			if self.nick != None and self.smarthref != None:
+				quicksearch = BrowserSmartMatch(self.handler, self.title, self.smarthref, icon=img, bookmark=bookmark, prefix_to_strip=self.nick)
+				self._qsindexer[self.nick] = quicksearch
 
 			if self.smarthref != None:
 				bookmark = BrowserSmartMatch(self.handler, self.title, self.smarthref, icon=img, bookmark=bookmark)
