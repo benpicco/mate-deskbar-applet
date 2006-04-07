@@ -1,4 +1,4 @@
-import re,cgi, urllib
+import re,cgi, urllib, os
 from gettext import gettext as _
 import gnomevfs, gconf, gtk, gobject, os.path
 import deskbar, deskbar.Match, deskbar.Utils
@@ -11,6 +11,20 @@ def is_preferred_browser(test):
 	
 	if http_handler.find(test) != -1:
 		return True
+	
+	paths = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip() != "" and os.path.exists(path) and os.path.isdir(path)]
+	for directory in paths:
+		if http_handler.startswith("/"):
+			program_path = http_handler
+		else:
+			program_path = os.path.join(directory, http_handler)
+		
+		while os.path.islink(program_path):
+			program_path = os.path.join(directory, os.readlink(program_path))
+			directory = os.path.dirname(program_path)
+		
+		if program_path.find(test) != -1:
+			return True
 	
 	return False
 		
