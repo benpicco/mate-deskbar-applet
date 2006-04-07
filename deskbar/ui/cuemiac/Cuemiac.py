@@ -468,6 +468,9 @@ class CuemiacTreeView (gtk.TreeView):
 		"""Returns the path to the last visible cell."""
 		model = self.get_model ()
 		iter = model.get_iter_first ()
+		if iter == None:
+			return None
+
 		next = model.iter_next (iter)
 		
 		# Find last category node (they are always visible)
@@ -866,7 +869,8 @@ class CuemiacUI (DeskbarUI):
 			if not self.cview.is_ready () : return
 			self.cview.grab_focus ()
 			last = self.cview.last_visible_path ()
-			self.cview.set_cursor (last)
+			if last != None:
+				self.cview.set_cursor (last)
 			return True
 			
 		if event.keyval == 65364: # Down
@@ -905,7 +909,9 @@ class CuemiacUI (DeskbarUI):
 			else:
 				# We are on a bottom panel - select the bottom element in the list 
 				#FIXME: Should we iterate backwards up the list if the hit is a category?
-				iter = self.model.get_iter (self.cview.last_visible_path())
+				path = self.cview.last_visible_path()
+				if path != None:
+					iter = self.model.get_iter (self.cview.last_visible_path())
 				
 		if iter is None:
 			return
