@@ -62,7 +62,7 @@ class GenericProgramMatch(deskbar.Match.Match):
 			#self._desktop.launch(text.split(" "), deskbar.gnomedesktop.LAUNCH_APPEND_PATHS|deskbar.gnomedesktop.LAUNCH_ONLY_ONE)
 		else:
 			self._desktop.launch([])
-	
+
 	def get_category(self):
 		return "actions"
 	

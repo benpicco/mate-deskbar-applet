@@ -44,10 +44,13 @@ class Handler:
 	
 	def deserialize(self, class_name, serialized):
 		try:
-			return getattr(sys.modules[self.__module__], class_name)(self, **serialized)
+			match = getattr(sys.modules[self.__module__], class_name)(self, **serialized)
+			if match.is_valid():
+				return match
 		except Exception, msg:
 			print 'Warning:Error while deserializing match:', class_name, serialized, msg
-			return None
+
+		return None
 		
 	def get_icon(self):
 		"""

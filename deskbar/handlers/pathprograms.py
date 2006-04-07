@@ -52,7 +52,7 @@ class PathProgramMatch(deskbar.Match.Match):
 				pass
 		
 		gobject.spawn_async(text.split(" "), flags=gobject.SPAWN_SEARCH_PATH)			
-	
+
 	def get_category(self):
 		return "actions"
 	

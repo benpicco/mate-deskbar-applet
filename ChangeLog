@@ -1,5 +1,17 @@
 2006-04-07  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/Handler.py:
+	* deskbar/Match.py:
+	* deskbar/handlers/files.py:
+	* deskbar/handlers/gtkbookmarks.py:
+	* deskbar/handlers/pathprograms.py:
+	* deskbar/handlers/programs.py:
+	* deskbar/handlers/volumes.py:
+	Implement a is_valid method to ask a match if it's still valid, to
+	evaluate if it should be stored in history
+
+2006-04-07  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/BrowserMatch.py:
 	Follow symlinks to detect the browser
 

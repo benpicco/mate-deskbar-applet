@@ -1,6 +1,6 @@
 import os, sys, cgi
 import ConfigParser
-from os.path import join
+from os.path import join, exists
 from gettext import gettext as _
 
 import gobject
@@ -31,6 +31,9 @@ class VolumeMatch (Match):
 	def action(self, text=None):
 		gobject.spawn_async(["nautilus", self.drive], flags=gobject.SPAWN_SEARCH_PATH)
 	
+	def is_valid(self, text=None):
+		return exists(self.drive)
+		
 	def get_category(self):
 		return "places"
 	 

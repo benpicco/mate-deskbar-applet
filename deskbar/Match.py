@@ -109,6 +109,14 @@ class Match:
 		"""
 		raise NotImplementedError
 	
+	def is_valid(self, text=None):
+		"""
+		Tests wether the match is still valid, by default it's True.
+		For example if a file has moved, the file match is invalid
+		The optional text is the additional argument entered in the entry
+		"""
+		return True
+		
 	def serialize(self):
 		serialized = {}
 		for prop, val in [(prop, getattr(self, prop)) for prop in dir(self)

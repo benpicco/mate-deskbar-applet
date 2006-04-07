@@ -23,6 +23,9 @@ class GtkBookmarkMatch(deskbar.Match.Match):
 		
 	def action(self, text=None):
 		gobject.spawn_async(["nautilus", self.path], flags=gobject.SPAWN_SEARCH_PATH)
+	
+	def is_valid(self, text=None):
+		return exists(self.path)
 		
 	def get_category(self):
 		return "places"

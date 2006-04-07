@@ -27,6 +27,9 @@ class FileMatch(deskbar.Match.Match):
 				
 	def action(self, text=None):
 		gnome.url_show(self.absname)
+	
+	def is_valid(self, text=None):
+		return exists(self.absname)
 		
 	def get_category(self):
 		return "files"
@@ -47,6 +50,9 @@ class FolderMatch(deskbar.Match.Match):
 	def action(self, text=None):
 		gnome.url_show(self.absname)
 	
+	def is_valid(self, text=None):
+		return exists(self.absname)
+		
 	def get_category(self):
 		return "places"
 	
