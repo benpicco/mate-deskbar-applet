@@ -111,7 +111,10 @@ class DeskbarHistory (gtk.ListStore) :
 					match = modctx.module.deserialize(match_class, serialized)
 					if match != None:
 						new_history.append ((text, match))
-		
+		except IOError:
+			# There's probably no history file
+			pass
+			
 		except Exception, msg:
 			return
 		
