@@ -150,7 +150,7 @@ class DeskbarPreferencesUI:
 	
 	def on_keyboard_shortcut_focus_out_event(self, entry, event, applet):
 		keyval, modifier = gtk.accelerator_parse(entry.get_text())
-		if gtk.accelerator_valid(keyval, modifier):
+		if keyval != gtk.keysyms.VoidSymbol and gtk.accelerator_valid(keyval, modifier):
 			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_KEYBINDING, entry.get_text())
 		else:
 			error = gtk.MessageDialog(parent=self.dialog,
