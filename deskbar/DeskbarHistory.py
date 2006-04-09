@@ -129,6 +129,11 @@ class DeskbarHistory (gtk.ListStore) :
 		# This is because we can't break history 
 		# file format in the 2.14 series.
 		# Is it needed anyway?
+		
+		# We need ascending sort order for save/load to work correctly
+		column_id, old_order = self.get_sort_column_id () # Store the old sort order
+		self.set_sort_column_id (1, gtk.SORT_ASCENDING)
+		
 		save = []
 		for text, match in self:
 			if match.__class__ == EmptyHistoryMatch:
@@ -142,6 +147,9 @@ class DeskbarHistory (gtk.ListStore) :
 		except Exception, msg:
 			print 'Error:History.save:%s', msg
 		pass
+		
+		# Restore sort order
+		self.set_sort_column_id (1, old_order)
 	
 	def append (self, match_obj):
 		gtk.ListStore.append (self, (match_obj, self.timestamp))
