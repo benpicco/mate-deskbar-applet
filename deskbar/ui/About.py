@@ -23,7 +23,7 @@ def show_about():
 		"logo" : deskbar_logo,
 		"version" : VERSION,
 		"comments" : _("An all-in-one action bar."),
-		"copyright" : "Copyright © 2004-2005 Nigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen.",
+		"copyright" : "Copyright © 2004-2006 Nigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen.",
 		"website" : "http://raphael.slinckx.net/deskbar",
 		"website-label" : _("Deskbar Website"),
 	}
