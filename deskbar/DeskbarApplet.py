@@ -39,6 +39,8 @@ class DeskbarApplet:
 		self.loader.connect ("module-stopped", self.module_list.module_toggled_cb)
 		self.loader.connect ("module-initialized", self._connect_if_async)
 
+		gtk.window_set_default_icon_name("deskbar-applet")
+		
 		# Set and retrieve the UI to be used
 		ui_name = deskbar.GCONF_CLIENT.get_string(self.prefs.GCONF_UI_NAME)
 		if ui_name == None:

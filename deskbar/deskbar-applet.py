@@ -101,7 +101,7 @@ if __name__ == "__main__":
 			standalone = True
 		elif o in ("-c", "--cuemiac"):
 			cuemiac = True
-			
+	
 	if standalone:
 		if cuemiac:
 			deskbar.UI_OVERRIDE = deskbar.CUEMIAC_UI_NAME

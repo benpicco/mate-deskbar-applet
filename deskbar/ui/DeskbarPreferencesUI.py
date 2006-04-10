@@ -12,11 +12,6 @@ class DeskbarPreferencesUI:
 		self.glade = gtk.glade.XML(join(deskbar.SHARED_DATA_DIR, "prefs-dialog.glade"))
 
 		self.dialog = self.glade.get_widget("preferences")
-		
-		pixbuf = deskbar.Utils.load_icon("deskbar-applet-small.png")
-		if pixbuf != None:
-			self.dialog.set_icon(pixbuf)
-
 		# Retreive current values
 		self.width = deskbar.GCONF_CLIENT.get_int(applet.prefs.GCONF_WIDTH)
 		self.expand = deskbar.GCONF_CLIENT.get_bool(applet.prefs.GCONF_EXPAND)

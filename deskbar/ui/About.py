@@ -20,7 +20,7 @@ def show_about():
 	about = gtk.AboutDialog()
 	infos = {
 		"name" : _("Deskbar"),
-		"logo" : deskbar_logo,
+		"logo-icon-name" : "deskbar-applet",
 		"version" : VERSION,
 		"comments" : _("An all-in-one action bar."),
 		"copyright" : "Copyright © 2004-2006 Nigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen.",
