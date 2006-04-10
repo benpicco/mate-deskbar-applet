@@ -23,8 +23,8 @@ fi
 dnl ****************************************************************************
 dnl * Translation & i18n
 dnl ****************************************************************************
-ALL_LINGUAS="bg bn ca cs cy da de el en_CA en_GB es et fi fr gl gu hi hu it ja ka ko ku lt mk nb nl pa pl 
-pt pt_BR ru sk sq sr sr@Latn sv th vi uk zh_CN zh_HK zh_TW"
+ALL_LINGUAS="`grep -v '^#' "$srcdir/po/LINGUAS"`"
+AC_SUBST([CONFIG_STATUS_DEPENDENCIES],['$(top_srcdir)/po/LINGUAS'])
 
 GETTEXT_PACKAGE="deskbar-applet"
 AC_PROG_INTLTOOL([0.33])
