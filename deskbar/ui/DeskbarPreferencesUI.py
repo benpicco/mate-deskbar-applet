@@ -29,6 +29,7 @@ class DeskbarPreferencesUI:
 		self.keyboard_shortcut_entry = self.glade.get_widget("keyboard_shortcut_entry")
 		self.keyboard_shortcut_entry.connect('focus-out-event', self.on_keyboard_shortcut_focus_out_event, applet)
 		self.keybinding_notify_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_KEYBINDING, lambda x, y, z, a: self.on_config_keybinding(z.value))
+		self.shortcut_error = self.glade.get_widget("label_shortcut_error")
 		
 		container = self.glade.get_widget("handlers")
 		self.moduleview = ModuleListView(module_list)
@@ -65,10 +66,14 @@ class DeskbarPreferencesUI:
 		
 	def show_run_hide(self):
 		self.dialog.show_all()
+		self.shortcut_error.hide()
 		self.moduleview.grab_focus()
 		self.dialog.connect("response", self.on_dialog_response)
 	
 	def on_dialog_response(self, dialog, response):
+		if not self.validate_shortcut_key():
+			return
+			
 		self.dialog.destroy()
 		
 		deskbar.GCONF_CLIENT.notify_remove(self.width_notify_id)
@@ -144,17 +149,22 @@ class DeskbarPreferencesUI:
 		deskbar.GCONF_CLIENT.set_int(applet.prefs.GCONF_WIDTH, int(spinner.get_value()))
 	
 	def on_keyboard_shortcut_focus_out_event(self, entry, event, applet):
-		keyval, modifier = gtk.accelerator_parse(entry.get_text())
-		if keyval != gtk.keysyms.VoidSymbol and gtk.accelerator_valid(keyval, modifier):
-			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_KEYBINDING, entry.get_text())
+		if self.validate_shortcut_key():
+			self.shortcut_error.hide()
+			if entry.get_text() != "":
+				deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_KEYBINDING, entry.get_text())
 		else:
-			error = gtk.MessageDialog(parent=self.dialog,
-							    type=gtk.MESSAGE_ERROR, buttons=gtk.BUTTONS_OK,
-							    message_format= _('Invalid shortcut provided')
-							   )
-			error.run()
-			error.destroy()
+			self.shortcut_error.show()
+		return False
 	
+	def validate_shortcut_key(self):
+		text = self.keyboard_shortcut_entry.get_text()
+		if text == "":
+			return True
+			
+		keyval, modifier = gtk.accelerator_parse(text)
+		return (keyval != gtk.keysyms.VoidSymbol and gtk.accelerator_valid(keyval, modifier))
+		
 	def on_more_button_clicked(self, button):
 		if self.more_button_callback != None:
 			self.more_button_callback(self.dialog)
