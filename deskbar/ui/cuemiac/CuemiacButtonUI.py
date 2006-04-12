@@ -88,16 +88,21 @@ class CuemiacButtonUI (DeskbarUI):
 		self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
 		self.applet.set_flags(gtk.CAN_FOCUS)
 		self.applet.connect('change-background', self.on_change_background)
-		self.on_change_background()
+		#self.on_change_background()
 	
-	def on_change_background (self, *args):
-		pixmap = self.applet.get_background()
-		if pixmap:
-			for widget in (self.applet, self.cbutton.button_main, self.cbutton.button_arrow):
-				style = widget.get_style().copy()
-				style.bg_pixmap[gtk.STATE_NORMAL] = pixmap
-				style.bg_pixmap[gtk.STATE_INSENSITIVE]  = pixmap
-				widget.set_style(style)
+	def on_change_background (self, widget, background, colour, pixmap):
+		widgets = (self.applet, self.cbutton.button_main, self.cbutton.button_arrow)
+		if background == gnomeapplet.NO_BACKGROUND:
+			pass
+		elif background == gnomeapplet.COLOR_BACKGROUND:
+			for widget in widgets:
+				widget.modify_bg(gtk.STATE_NORMAL, colour)
+		elif background == gnomeapplet.PIXMAP_BACKGROUND:
+			for widget in widgets:
+				copy = widget.get_style().copy()
+				copy.bg_pixmap[gtk.STATE_NORMAL] = pixmap
+				copy.bg_pixmap[gtk.STATE_INSENSITIVE]  = pixmap
+				widget.set_style(copy)
 
 	def close_view(self):
 		self.cbutton.button_arrow.set_active (False)

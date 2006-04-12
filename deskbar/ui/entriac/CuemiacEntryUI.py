@@ -105,6 +105,22 @@ class CuemiacEntryUI (DeskbarUI):
 		self.invalid = True
 		
 		self.applet.set_flags(gtk.CAN_FOCUS)
+		self.applet.connect('change-background', self.on_change_background)
+	
+	def on_change_background (self, widget, background, colour, pixmap):
+		# This does not work..
+		widgets = (self.applet, self.icon_entry)
+		if background == gnomeapplet.NO_BACKGROUND:
+			pass
+		elif background == gnomeapplet.COLOR_BACKGROUND:
+			for widget in widgets:
+				widget.modify_bg(gtk.STATE_NORMAL, colour)
+		elif background == gnomeapplet.PIXMAP_BACKGROUND:
+			for widget in widgets:
+				copy = widget.get_style().copy()
+				copy.bg_pixmap[gtk.STATE_NORMAL] = pixmap
+				copy.bg_pixmap[gtk.STATE_INSENSITIVE]  = pixmap
+				widget.set_style(copy)
 	
 	def close_view(self):
 		self.hide_window (self.popup)
