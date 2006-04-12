@@ -4,10 +4,9 @@ from gettext import gettext as _
 import deskbar
 from deskbar.ui.DeskbarUI import DeskbarUI
 from deskbar.ui.cuemiac.CuemiacAlignedWindow import CuemiacAlignedWindow
-from deskbar.ui.cuemiac.Cuemiac import CuemiacModel
-from deskbar.ui.cuemiac.Cuemiac import CuemiacTreeView
-from deskbar.ui.cuemiac.Cuemiac import Nest
-from deskbar.ui.cuemiac.Cuemiac import CuemiacCategory
+from deskbar.ui.cuemiac.CuemiacModel import CuemiacModel
+from deskbar.ui.cuemiac.CuemiacTreeView import CuemiacTreeView
+from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory, Nest
 from deskbar.ui.cuemiac.CuemiacHistory import CuemiacHistoryPopup
 from deskbar.DeskbarHistory import get_deskbar_history
 from deskbar.ui.EntryHistoryManager import EntryHistoryManager

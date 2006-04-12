@@ -11,7 +11,7 @@ from deskbar.ui.About import show_about
 from deskbar.ui.DeskbarPreferencesUI import show_preferences
 from deskbar.DeskbarAppletPreferences import DeskbarAppletPreferences
 from deskbar.Keybinder import get_deskbar_keybinder
-from deskbar.ui.cuemiac.Cuemiac import CuemiacUI
+from deskbar.ui.cuemiac.CuemiacButtonUI import CuemiacButtonUI
 from deskbar.ui.entriac.CuemiacEntryUI import CuemiacEntryUI
 
 
@@ -51,7 +51,7 @@ class DeskbarApplet:
 			ui_name = deskbar.UI_OVERRIDE
 		
 		if ui_name == deskbar.CUEMIAC_UI_NAME:
-			self.ui = CuemiacUI (applet, self.prefs)
+			self.ui = CuemiacButtonUI (applet, self.prefs)
 		elif ui_name == deskbar.ENTRIAC_UI_NAME:
 			self.ui = CuemiacEntryUI(applet, self.prefs)
 			
@@ -293,7 +293,7 @@ class DeskbarApplet:
 		ui_name = value.get_string()
 
 		if ui_name == deskbar.CUEMIAC_UI_NAME:
-			self.ui = CuemiacUI (self.applet, self.prefs)
+			self.ui = CuemiacButtonUI (self.applet, self.prefs)
 		elif ui_name == deskbar.ENTRIAC_UI_NAME:
 			self.ui = CuemiacEntryUI(self.applet, self.prefs)
 		

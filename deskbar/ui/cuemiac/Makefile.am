@@ -1,8 +1,10 @@
 deskbardir = $(pythondir)/deskbar/ui/cuemiac
 deskbar_PYTHON = \
-	Cuemiac.py \
 	CuemiacAlignedWindow.py \
+	CuemiacAppletButton.py \
+	CuemiacButtonUI.py \
 	CuemiacHistory.py \
+	CuemiacItems.py  \
 	DeskbarAppletButton.py \
 	__init__.py
 
