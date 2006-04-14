@@ -1,5 +1,6 @@
 import os
 from os.path import exists, join
+from glob import glob
 from gettext import gettext as _
 
 import gobject
@@ -9,7 +10,7 @@ from deskbar.Utils import get_xdg_data_dirs
 #FIXME: better way to detect beagle ?
 def _check_requirements():
 	for dir in get_xdg_data_dirs():
-		if exists(join(dir, "applications", "best.desktop")) or exists(join(dir, "applications", "beagle-search.desktop")):
+		if glob(join(dir, "applications", "*best.desktop")) or glob(join(dir, "applications", "*beagle-search.desktop")):
 			return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	
 	return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Beagle does not seem to be installed, skipping", None)
