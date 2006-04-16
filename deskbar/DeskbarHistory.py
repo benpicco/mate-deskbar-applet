@@ -140,7 +140,9 @@ class DeskbarHistory (gtk.ListStore) :
 				return
 				
 			hsh = match.get_hash(text)
-			save.append((text, str(match.get_handler().__class__), str(match.__class__), match.serialize()))
+			serialized = match.serialize()
+			if serialized != None:
+				save.append((text, str(match.get_handler().__class__), str(match.__class__), serialized))
 			
 		try:
 			cPickle.dump(save, file(HISTORY_FILE, 'w'), cPickle.HIGHEST_PROTOCOL)
@@ -161,6 +163,9 @@ class DeskbarHistory (gtk.ListStore) :
 	
 	def add (self, text, match):
 		if match.__class__ == EmptyHistoryMatch:
+			return
+		if match.skip_history():
+			self.reset()
 			return
 			
 		self.clear_stub()

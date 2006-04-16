@@ -10,6 +10,7 @@ deskbar_handlers_PYTHON = \
 	gtkbookmarks.py \
 	google-live.py \
 	history.py \
+	iswitch-window.py \
 	mozilla.py \
 	programs.py \
 	pathprograms.py \

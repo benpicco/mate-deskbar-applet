@@ -1,5 +1,18 @@
 2006-04-16  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/DeskbarHistory.py:
+	* deskbar/Match.py:
+	* deskbar/handlers/Makefile.am:
+	* deskbar/handlers/iswitch-window.py:
+	New handler by Travis B. Hartwell <nafai@travishartwell.net>
+	Add the skip_history() method to matches API, and allow None to be
+	returned from serialize.
+
+	This handler allows to switch between windows by typing part of their
+	name/titles
+
+2006-04-16  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/handlers/mozilla.py:
 	Correctly handle multiple profiles in mozilla/ff.
 	Patch by  Michael Hofmann <mh21@piware.de>

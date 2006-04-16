@@ -125,7 +125,13 @@ class Match:
 			serialized[prop] = val
 		
 		return serialized
-
+	
+	def skip_history():
+		"""
+		Wether the match should appear or not in the history dropdown (and thus be saved as history is saved)
+		"""
+		return False
+		
 	def copy(self):
 		try:
 			return self._handler.deserialize(str(self.__class__)[str(self.__class__).rfind(".")+1:], self.serialize())
