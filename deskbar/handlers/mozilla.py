@@ -1,6 +1,7 @@
 import os, re, HTMLParser, base64, glob
 from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
+from ConfigParser import RawConfigParser
 
 import gtk
 from deskbar.Watcher import FileWatcher, DirWatcher
@@ -31,16 +32,24 @@ def get_mozilla_home_file(needed_file):
 	
 def get_firefox_home_file(needed_file):
 	firefox_dir = expanduser("~/.mozilla/firefox/")
-	path_pattern = re.compile("^Path=(.*)")
-	for line in file(join(firefox_dir, "profiles.ini")):
-		match_obj = path_pattern.search(line)
-		if match_obj:
-			if match_obj.group(1).startswith("/"):
-				return join(match_obj.group(1), needed_file)
-			else:
-				return join(firefox_dir, match_obj.group(1), needed_file)
-				
-	return ""
+	config = RawConfigParser({"Default" : 0})
+	config.read(expanduser(join(firefox_dir, "profiles.ini")))
+	path = None
+
+	for section in config.sections():
+		if config.get (section, "Default") == 1:
+			path = config.get (section, "Path")
+			break
+		elif path == None and config.has_option(section, "Path"):
+			path = config.get (section, "Path")
+		
+	if path == None:
+		return ""
+
+	if path.startswith("/"):
+		return join(path, needed_file)
+
+	return join(firefox_dir, path, needed_file)
 
 # Whether we offer all of the browser's search engines, or only the primary
 # one (since by default Firefox seems to come with at least half a dozen)			
