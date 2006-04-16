@@ -71,7 +71,7 @@ try:
 except:
 	pass
 
-def _on_handler_preferences():
+def _on_handler_preferences(dialog):
 	def toggled_cb(sender, show_all_radio, show_primary_radio):
 		deskbar.GCONF_CLIENT.set_bool(GCONF_SHOW_ONLY_PRIMARY_KEY, show_primary_radio.get_active())
 		

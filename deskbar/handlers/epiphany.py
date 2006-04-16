@@ -17,7 +17,7 @@ def _check_requirements():
 		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Epiphany is not your preferred browser, not using it.", None)
 	
 def _check_requirements_search():
-	callback = lambda: on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map)
+	callback = lambda dialog: on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map)
 	
 #	if deskbar.UNINSTALLED_DESKBAR:
 #		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, "You can set shortcuts for your searches.", callback)
