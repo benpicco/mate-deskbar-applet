@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-28 05:27+0100\n"
-"PO-Revision-Date: 2006-02-28 11:44+0530\n"
+"POT-Creation-Date: 2006-04-18 05:39+0200\n"
+"PO-Revision-Date: 2006-04-18 10:01+0530\n"
 "Last-Translator: Ankit Patel <ankit644@yahoo.com>\n"
 "Language-Team: Gujarati <indianoss-gujarati@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -71,38 +72,42 @@ msgid ""
 msgstr "<i><small><b>નોંધ:</b> એક્સટેન્સનનો ક્રમ બદલવા માટે તેને ખેંચો અને મૂકો.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
+msgid "<i><span color=\"red\">Invalid shortcut</span></i>"
+msgstr "<i><span color=\"red\">અયોગ્ય ટૂંકાણ</span></i>"
+
+#: ../data/prefs-dialog.glade.h:7
 msgid "Button in panel"
 msgstr "પેનલમાં બટન"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "ડેસ્કપટ્ટી પસંદગીઓ"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Entry in panel"
 msgstr "પેનલમાં પ્રવેશ"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "ચોક્કસ પહોળાઈ (_w):"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "Searches"
 msgstr "શોધો"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
 msgid "Use _all available space"
 msgstr "બધી ઉપલબ્ધ જગ્યા વાપરો (_a)"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
 msgid "View"
 msgstr "દેખાવ"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Keyboard shortcut to focus:"
 msgstr "ફોકસ કરવા માટેના કીબોર્ડ ટુંકાણો (_K):"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "characters"
 msgstr "અક્ષરો"
 
@@ -129,27 +134,27 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "બુકમાર્ક થયેલ શોધો માટેના ટુંકાણો"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:113
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:121
 #, python-format
 msgid "Open History Item %s"
 msgstr "ઈતિહાસ વસ્તુ %s ખોલો"
 
-#: ../deskbar/BrowserMatch.py:32
+#: ../deskbar/BrowserMatch.py:48
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "બુકમાર્ક %s ખોલો"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:81
+#: ../deskbar/BrowserMatch.py:97
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<b>%(name)s</b> ને <i>%(text)s</i> માટે શોધો"
 
-#: ../deskbar/BrowserMatch.py:187
+#: ../deskbar/BrowserMatch.py:203
 msgid "Shortcut"
 msgstr "ટુંકાણ"
 
-#: ../deskbar/BrowserMatch.py:195
+#: ../deskbar/BrowserMatch.py:211
 msgid "Bookmark Name"
 msgstr "બુકમાર્ક નામ"
 
@@ -180,51 +185,73 @@ msgstr[0] "%s વધુ દસ્તાવેજ"
 msgstr[1] "%s વધુ દસ્તાવેજો"
 
 #: ../deskbar/Categories.py:31
+msgid "Emails"
+msgstr "ઈમેઈલો"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more email"
+msgid_plural "%s more emails"
+msgstr[0] "%s વધુ ઈમેઈલ"
+msgstr[1] "%s વધુ ઈમેઈલો"
+
+#: ../deskbar/Categories.py:36
+msgid "Conversations"
+msgstr "વાર્તાલાપો"
+
+#: ../deskbar/Categories.py:37
+#, python-format
+msgid "%s more conversation"
+msgid_plural "%s more conversations"
+msgstr[0] "%s વધુ વાર્તાલાપ"
+msgstr[1] "%s વધુ વાર્તાલાપો"
+
+#: ../deskbar/Categories.py:41
 msgid "Files"
 msgstr "ફાઈલો"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "%s વધુ ફાઈલ"
 msgstr[1] "%s વધુ ફાઈલો"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:46
 msgid "People"
 msgstr "લોકો"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:51
 msgid "Places"
 msgstr "જગ્યાઓ"
 
-#: ../deskbar/Categories.py:42
+#: ../deskbar/Categories.py:52
 #, python-format
 msgid "%s more place"
 msgid_plural "%s more places"
 msgstr[0] "%s વધુ જગ્યા"
 msgstr[1] "%s વધુ જગ્યાઓ"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:56
 msgid "Actions"
 msgstr "ક્રિયાઓ"
 
-#: ../deskbar/Categories.py:47
+#: ../deskbar/Categories.py:57
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "%s વધુ ક્રિયા"
 msgstr[1] "%s વધુ ક્રિયાઓ"
 
-#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
+#: ../deskbar/Categories.py:61 ../deskbar/handlers/web_address.py:9
 msgid "Web"
 msgstr "વેબ"
 
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:66
 msgid "Web Search"
 msgstr "વેબ શોધ"
 
-#: ../deskbar/DeskbarHistory.py:53
+#: ../deskbar/DeskbarHistory.py:37
 msgid "No History"
 msgstr "કોઈ ઈતિહાસ નથી"
 
@@ -244,68 +271,66 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "ભૂલ મળી આવી"
 
-#: ../deskbar/handlers/beagle-live.py:27
+#: ../deskbar/handlers/beagle-live.py:35
 msgid "Beagle Live"
 msgstr "બીગલ જીવંત"
 
-#: ../deskbar/handlers/beagle-live.py:28
+#: ../deskbar/handlers/beagle-live.py:36
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "તમારા બધા દસ્તાવેજો (બીગલની મદદથી) શોધો, જેમ તમે લખો"
 
-#: ../deskbar/handlers/beagle-live.py:55
-#: ../deskbar/handlers/email_address.py:27
+#: ../deskbar/handlers/beagle-live.py:63
 #, python-format
-msgid "Send Email to %s"
-msgstr "%s ને ઈમેઈલ મોકલો"
+msgid "Edit contact %s"
+msgstr "સંપર્ક %s માં ફેરફાર કરો"
 
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:65
+#: ../deskbar/handlers/beagle-live.py:72
 #, python-format
-msgid "Email from %s"
-msgstr "%s તરફથી ઈમેઈલ"
+msgid "From %s"
+msgstr "%s તરફથી"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:73 ../deskbar/handlers/files.py:35
+#: ../deskbar/handlers/beagle-live.py:80 ../deskbar/handlers/files.py:38
 #, python-format
 msgid "Open %s"
 msgstr "%s ખોલો"
 
-#: ../deskbar/handlers/beagle-live.py:81
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
 msgid "News from %s"
 msgstr "%s માંથી સમાચાર"
 
-#: ../deskbar/handlers/beagle-live.py:90
+#: ../deskbar/handlers/beagle-live.py:97
 #, python-format
 msgid "Note: %s"
 msgstr "નોંધ: %s"
 
-#: ../deskbar/handlers/beagle-live.py:98
-#, python-format
-msgid "Conversation with %s"
-msgstr "%s સાથેનો વાર્તાલાપ"
-
 #: ../deskbar/handlers/beagle-live.py:106
+#, python-format
+msgid "With %s"
+msgstr "%s સાથે"
+
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
 msgid "Calendar: %s"
 msgstr "કેલેન્ડર: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:277
-#: ../deskbar/handlers/beagle-live.py:299
+#: ../deskbar/handlers/beagle-live.py:289
+#: ../deskbar/handlers/beagle-live.py:311
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle.py:19
+#: ../deskbar/handlers/beagle-static.py:20
 msgid "Beagle"
 msgstr "બીગલ"
 
-#: ../deskbar/handlers/beagle.py:20
+#: ../deskbar/handlers/beagle-static.py:21
 msgid "Search all of your documents (using Beagle)"
 msgstr "તમારા બધા દસ્તાવેજો શોધો (બીગલની મદદથી)"
 
-#: ../deskbar/handlers/beagle.py:36
+#: ../deskbar/handlers/beagle-static.py:37
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "બીગલની મદદથી %s માટે શોધો"
@@ -318,35 +343,42 @@ msgstr "મેઈલ"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "આખું ઈ-મેઈલ સરનામું લખીને મેઈલ મોકલો"
 
+#: ../deskbar/handlers/email_address.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "%s ને ઈમેઈલ મોકલો"
+
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
 msgstr "તમે તમારી શોધો માટે ટુંકાણો સુયોજિત કરી શકો છો."
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:23
+#: ../deskbar/handlers/mozilla.py:129
 msgid "Web Bookmarks"
 msgstr "વેબ બુકમાર્કો"
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
+#: ../deskbar/handlers/mozilla.py:130
 msgid "Open your web bookmarks by name"
 msgstr "તમારી વેબ બુકમાર્કો નામ દ્વારા ખોલો"
 
-#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:28
+#: ../deskbar/handlers/mozilla.py:139
 msgid "Web History"
 msgstr "વેબ ઈતિહાસ"
 
-#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:29
+#: ../deskbar/handlers/mozilla.py:140
 msgid "Open your web history by name"
 msgstr "તમારો વેબ ઈતિહાસ નામ પ્રમાણે ખોલો"
 
-#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:125
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:33
+#: ../deskbar/handlers/mozilla.py:134
 msgid "Web Searches"
 msgstr "વેબ શોધો"
 
-#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:126
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:34
+#: ../deskbar/handlers/mozilla.py:135
 msgid "Search the web via your browser's search settings"
 msgstr "તમારા બ્રાઉઝરના શોધ સુયોજનો મુજબ વેબમાં શોધો"
 
@@ -354,11 +386,11 @@ msgstr "તમારા બ્રાઉઝરના શોધ સુયોજન
 msgid "You need to enable autocomplete in your mail preferences"
 msgstr "તમારે તમારી મેઈલ પસંદગીઓમાં આપોઆપ પૂર્ણ સક્રિય કરવાની જરૂર છે"
 
-#: ../deskbar/handlers/evolution.py:13
+#: ../deskbar/handlers/evolution.py:14
 msgid "Autocompletion Needs to be Enabled"
 msgstr "આપોઆપ પૂર્ણાહૂતિને સક્રિય કરવાની જરૂર છે"
 
-#: ../deskbar/handlers/evolution.py:14
+#: ../deskbar/handlers/evolution.py:15
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
@@ -368,16 +400,16 @@ msgstr ""
 "પૂર્ણાહૂતિ સક્રિય કરેલ નહિં હોય.  આમ કરવા માટે, તમારા મેઈલ કાર્યક્રમના મેનુમાંથી, ફેરફાર - "
 "પસંદગીઓ, અને પછી આપોઆપ પૂર્ણાંહૂતિ પસંદ કરો."
 
-#: ../deskbar/handlers/evolution.py:19
+#: ../deskbar/handlers/evolution.py:20
 msgid "Mail (Address Book)"
 msgstr "મેઈલ (સરનામા પુસ્તિકા)"
 
-#: ../deskbar/handlers/evolution.py:20
+#: ../deskbar/handlers/evolution.py:21
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "તમારા સંપર્કોને તેમના નામ અથવા ઈ-મેઈલ સરનામા લખીને મેઈલ મોકલો"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:45
+#: ../deskbar/handlers/evolution.py:46
 #, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "<b>%(name)s</b> ને ઈમેઈલ મોકલો (%(email)s)"
@@ -390,7 +422,7 @@ msgstr "ફાઈલો અને ફોલ્ડરો"
 msgid "Open your files and folders by name"
 msgstr "નામ પ્રમાણે તમારી ફાઈલો અને ફોલ્ડરો ખોલો"
 
-#: ../deskbar/handlers/files.py:54
+#: ../deskbar/handlers/files.py:60
 #, python-format
 msgid "Open folder %s"
 msgstr "ફોલ્ડર %s ખોલો"
@@ -465,7 +497,7 @@ msgstr "ફાઈલો અને ફોલ્ડરો બુકમાર્ક
 msgid "Open your files and folders bookmarks by name"
 msgstr "નામ પ્રમાણે તમારી ફાઈલો અને ફોલ્ડરો બુકમાર્કો ખોલો"
 
-#: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
+#: ../deskbar/handlers/gtkbookmarks.py:34 ../deskbar/handlers/volumes.py:51
 #, python-format
 msgid "Open location %s"
 msgstr "સ્થાન %s ખોલો"
@@ -474,7 +506,7 @@ msgstr "સ્થાન %s ખોલો"
 msgid "Recognize previously used searches"
 msgstr "પહેલા વપરાયેલ શોધો ઓળખો"
 
-#: ../deskbar/handlers/mozilla.py:111
+#: ../deskbar/handlers/mozilla.py:120
 msgid "You can customize which search engines are offered."
 msgstr "તમે એ વૈવિધ્યપૂર્ણ કરી શકો છો કે જે શોધ યંત્રોની તક અપાયેલ છે."
 
@@ -515,22 +547,35 @@ msgstr "ફાઈલો અને ફોલ્ડરો શોધ"
 msgid "Find files and folders by searching for a name pattern"
 msgstr "નામ ભાત માટે શોધ કરીને ફાઈલો અને ફોલ્ડરો શોધો"
 
+#: ../deskbar/handlers/programs.py:26
+msgid "Developper Documentation"
+msgstr "વિકાસકર્તા દસ્તાવેજીકરણ"
+
+#: ../deskbar/handlers/programs.py:27
+msgid "Search Devhelp for a function name"
+msgstr "વિધેય નામ માટે Devhelp શોધો"
+
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:72
+#: ../deskbar/handlers/programs.py:76
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> લાવો (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:86
+#: ../deskbar/handlers/programs.py:90
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s માટે શબ્દકોષમાં જુઓ"
 
-#: ../deskbar/handlers/programs.py:94
+#: ../deskbar/handlers/programs.py:98
 #, python-format
 msgid "Search for file names like %s"
 msgstr "%s જેવા ફાઈલ નામો માટે શોધો"
+
+#: ../deskbar/handlers/programs.py:106
+#, python-format
+msgid "Search in Devhelp for %s"
+msgstr "Devhelp માં %s માટે શોધો"
 
 #: ../deskbar/handlers/volumes.py:16
 msgid "Disks and Network Places"
@@ -540,12 +585,12 @@ msgstr "ડિસ્ક અને નેટવર્ક સ્થાનો"
 msgid "Open disk drives, shared network places and similar resources by name"
 msgstr "નામ પ્રમાણે ડિસ્ક ડ્રાઈવો, વહેંચાયેલ નેટવર્ક સ્થાનો અને એવા જ સ્રોતો ખોલો"
 
-#: ../deskbar/handlers/volumes.py:44
+#: ../deskbar/handlers/volumes.py:47
 #, python-format
 msgid "Open network place %s"
 msgstr "નેટવર્ક સ્થાન %s ખોલો"
 
-#: ../deskbar/handlers/volumes.py:46
+#: ../deskbar/handlers/volumes.py:49
 #, python-format
 msgid "Open audio disk %s"
 msgstr "ઓડિયો ડિસ્ક %s ખોલો"
@@ -587,7 +632,7 @@ msgstr "ડેસ્કપટ્ટી વેબસાઈટ"
 msgid "translator-credits"
 msgstr "અંકિત પટેલ <ankit644@yahoo.com>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:54
+#: ../deskbar/ui/DeskbarPreferencesUI.py:50
 msgid "_More..."
 msgstr "વધુ (_M)..."
 
