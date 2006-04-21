@@ -61,17 +61,18 @@ class EpiphanyHandler(deskbar.Handler.Handler):
 		
 	def initialize(self):
 		global favicon_cache
+		if favicon_cache == None:
+			favicon_cache = EpiphanyFaviconCacheParser().get_cache()
+			
 		if not hasattr(self, 'watcher'):
 			self.watcher = FileWatcher()
 			self.watcher.connect('changed', lambda watcher, f: self.watch_callback())
 			
 		self.watcher.add(self.watched_file)
-		
-		if favicon_cache == None:
-			favicon_cache = EpiphanyFaviconCacheParser().get_cache()
 	
 	def stop(self):
 		self.watcher.remove(self.watched_file)
+		del self.watcher
 		
 class EpiphanyBookmarksHandler(EpiphanyHandler):
 	def __init__(self):
