@@ -23,7 +23,7 @@ HANDLERS = {
 		"description": _("Find files and folders by searching for a name pattern"),
 	},
 	"DevhelpHandler" : {
-		"name": _("Developper Documentation"),
+		"name": _("Developer Documentation"),
 		"description": _("Search Devhelp for a function name"),
 	},
 }

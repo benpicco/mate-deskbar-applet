@@ -126,7 +126,7 @@ class Match:
 		
 		return serialized
 	
-	def skip_history():
+	def skip_history(self):
 		"""
 		Wether the match should appear or not in the history dropdown (and thus be saved as history is saved)
 		"""

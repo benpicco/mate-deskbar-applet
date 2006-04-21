@@ -23,11 +23,9 @@ fi
 dnl ****************************************************************************
 dnl * Translation & i18n
 dnl ****************************************************************************
-ALL_LINGUAS="`grep -v '^#' "$srcdir/po/LINGUAS"`"
-AC_SUBST([CONFIG_STATUS_DEPENDENCIES],['$(top_srcdir)/po/LINGUAS'])
 
 GETTEXT_PACKAGE="deskbar-applet"
-AC_PROG_INTLTOOL([0.33])
+IT_PROG_INTLTOOL([0.34.90])
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [The gettext package])
 AM_GLIB_GNU_GETTEXT
