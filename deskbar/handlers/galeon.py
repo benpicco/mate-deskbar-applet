@@ -1,4 +1,4 @@
-import xml.sax
+import xml.sax, traceback
 import re, urllib
 from os.path import join, expanduser, exists
 from gettext import gettext as _
@@ -154,7 +154,11 @@ class GaleonBookmarksParser(xml.sax.ContentHandler):
 		if exists(GALEON_BOOKMARKS_FILE):
 			parser = xml.sax.make_parser()
 			parser.setContentHandler(self)
-			parser.parse(GALEON_BOOKMARKS_FILE)
+			try:
+				parser.parse(GALEON_BOOKMARKS_FILE)
+			except Exception, e:
+				print "Failed to parse galeon bookmarks, this is a know bug #338762:", e
+				traceback.print_exc()
 	
 	def characters(self, chars):
 		self.chars = self.chars + chars
