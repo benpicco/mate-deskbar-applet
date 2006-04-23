@@ -19,8 +19,8 @@ HANDLERS = {
 }
 
 class YahooMatch(deskbar.Match.Match):
-	def __init__(self, handler, name, url, **args):
-		deskbar.Match.Match.__init__ (self, handler, name=name, **args)
+	def __init__(self, handler, url=None, **args):
+		deskbar.Match.Match.__init__ (self, handler, **args)
 		self.url = url
 
 	def get_verb(self):
@@ -41,9 +41,6 @@ class YahooHandler(deskbar.Handler.AsyncHandler):
 		self.server = None
 
 	def query(self, qstring):
-		# Just to ensure we don't bork anything
-		qmax = min (deskbar.DEFAULT_RESULTS_PER_HANDLER, MAX_QUERIES)
-
 		# Delay before we query so we *don't* make four queries
 		# "s", "sp", "spa", "spam".
 		self.check_query_changed (timeout=QUERY_DELAY)
@@ -54,7 +51,7 @@ class YahooHandler(deskbar.Handler.AsyncHandler):
 			urllib.urlencode(
 				{'appid': YAHOO_API_KEY,
 				'query': qstring,
-				'results': qmax}))
+				'results': 15}))
 		dom = xml.dom.minidom.parse(stream)
 		print 'Got yahoo answer for:', qstring
 		
@@ -63,11 +60,10 @@ class YahooHandler(deskbar.Handler.AsyncHandler):
 		# better check if we're still valid
 		matches = [
 			YahooMatch (self, 
-					cgi.escape(strip_html(r.getElementsByTagName("Title")[0].firstChild.data.encode('utf8'))),
-					r.getElementsByTagName("ClickUrl")[0].firstChild.data.encode('utf8')
+					name=cgi.escape(strip_html(r.getElementsByTagName("Title")[0].firstChild.data.encode('utf8'))),
+					url=r.getElementsByTagName("ClickUrl")[0].firstChild.data.encode('utf8')
 			)
-			for r in dom.getElementsByTagName("Result")[:qmax-1]
-			]
+			for r in dom.getElementsByTagName("Result")]
 		self.check_query_changed ()
 		print "Returning yahoo answer for:", qstring
 		return matches
