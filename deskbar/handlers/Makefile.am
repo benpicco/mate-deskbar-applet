@@ -2,6 +2,7 @@ deskbar_handlersdir = $(libdir)/deskbar-applet/handlers
 deskbar_handlers_PYTHON = \
 	beagle-static.py \
 	beagle-live.py \
+	desklicious.py \
 	email_address.py \
 	epiphany.py \
 	files.py \
