@@ -1,9 +1,134 @@
 from gettext import gettext as _
 from os.path import join
+import struct
 import gtk, gtk.gdk, gtk.glade, gobject, gconf
 import deskbar, deskbar.Utils
 from deskbar.ui.ModuleListView import ModuleListView
 from deskbar import CUEMIAC_UI_NAME, ENTRIAC_UI_NAME
+
+MAXINT = 2 ** ((8 * struct.calcsize('i')) - 1) - 1
+
+class AccelEntry( gobject.GObject ):
+
+	__gsignals__ = {
+		'accel-edited': (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE,
+						 [gobject.TYPE_STRING, gobject.TYPE_UINT, gobject.TYPE_UINT, gobject.TYPE_UINT]),
+	}
+	__gproperties__ = {
+		'message': (gobject.TYPE_STRING, 'Prompt message', 'Message that prompts the user to assign a new accelerator', _('New accelerator...'), gobject.PARAM_READWRITE|gobject.PARAM_CONSTRUCT),
+		'accel_key': ( gobject.TYPE_UINT, "Accelerator key", "Accelerator key", 0, MAXINT, 0, gobject.PARAM_READWRITE ),
+		'accel_mask': ( gobject.TYPE_FLAGS, "Accelerator modifiers", "Accelerator modifiers", 0, gobject.PARAM_READWRITE ),
+		'keycode': ( gobject.TYPE_UINT, "Accelerator keycode", "Accelerator keycode", 0, MAXINT, 0, gobject.PARAM_READWRITE ),
+	}
+
+	def __init__(self, accel_name=''):
+		self.__old_value = None
+		self._attributes = {'accel_key': 0, 'accel_mask': 0, 'keycode': 0}
+		gobject.GObject.__init__(self)
+		
+		self.entry = gtk.Entry()
+		self.entry.set_property('editable', False)
+		self.entry.connect('button-press-event', self.__on_button_press_event)
+		self.entry.connect('key-press-event', self.__on_key_press_event)
+
+		self.set_accelerator_name(accel_name)
+
+	def do_get_property(self, pspec):
+		if pspec.name in ('message', 'accel_key', 'accel_mask', 'keycode'):
+			return self._attributes[pspec.name]
+	
+	def do_set_property(self, pspec, value):
+		if pspec.name == 'message':
+			self._attributes['message'] = value
+		elif pspec.name == 'accel_key':
+			self.set_accelerator(int(value), self.get_property('keycode'), self.get_property('accel_mask'))
+		elif pspec.name == 'accel_mask':
+			self.set_accelerator(self.get_property('accel_key'), self.get_property('keycode'), int(value))
+		elif pspec.name == 'keycode':
+			self.set_accelerator(self.get_property('accel_key'), int(value), self.get_property('accel_mask'))
+
+	def get_accelerator_name(self):
+		return self.entry.get_text()
+
+	def set_accelerator_name(self, value):
+		(keyval, mods) = gtk.accelerator_parse(value)
+		if gtk.accelerator_valid(keyval, mods):
+			self.entry.set_text(value)
+		return
+
+	def get_accelerator(self):
+		return ( self.get_property('accel_key'), self.get_property('keycode'), self.get_property('accel_mask') )
+
+	def set_accelerator(self, keyval, keycode, mask):
+		changed = False
+		self.freeze_notify()
+		if keyval != self._attributes['accel_key']:
+			self._attributes['accel_key'] = keyval
+			self.notify('accel_key')
+			changed = True
+			
+		if mask != self._attributes['accel_mask']:
+			self._attributes['accel_mask'] = mask
+			self.notify('accel_mask')
+			changed = True
+			
+		if keycode != self._attributes['keycode']:
+			self._attributes['keycode'] = keycode
+			self.notify('keycode')
+			changed = True
+			
+		self.thaw_notify()
+		if changed:
+			text = self.__convert_keysym_state_to_string (keyval, keycode, mask)
+			self.entry.set_text(text)
+			
+	def __convert_keysym_state_to_string(self, keysym, keycode, mask):
+		if (keysym != 0 and keycode != 0):
+			return gtk.accelerator_name(keysym, mask)
+
+	def get_widget(self):
+		return self.entry
+
+	def __on_button_press_event(self, entry, event):
+		self.__old_value = self.entry.get_text()
+		entry.set_text(self.get_property('message'))
+		entry.grab_focus()
+		return True
+
+	def __on_key_press_event(self, entry, event):
+		edited = False
+		
+		keymap = gtk.gdk.keymap_get_default()
+		(keyval, egroup, level, consumed_modifiers) = keymap.translate_keyboard_state(event.hardware_keycode, event.state, event.group)
+
+		upper = event.keyval
+		accel_keyval = gtk.gdk.keyval_to_lower(upper)
+
+		# Put shift back if it changed the case of the key, not otherwise.
+		if upper != accel_keyval and (consumed_modifiers & gtk.gdk.SHIFT_MASK):
+			consumed_modifiers &= ~(gtk.gdk.SHIFT_MASK)
+
+		# filter consumed/ignored modifiers
+		ignored_modifiers = gtk.gdk.MOD2_MASK | gtk.gdk.MOD5_MASK
+		accel_mods = event.state & gtk.gdk.MODIFIER_MASK & ~(consumed_modifiers | ignored_modifiers)
+		
+		if accel_mods == 0 and accel_keyval == gtk.keysyms.Escape:
+			self.__cancel()
+			return # cancel
+		
+		if not gtk.accelerator_valid(accel_keyval, accel_mods):
+			self.__cancel()
+			return # cancel
+
+		accel_name = gtk.accelerator_name(accel_keyval, accel_mods)
+		self.set_accelerator(accel_keyval, event.hardware_keycode, accel_mods)
+		self.emit('accel-edited', accel_name, accel_keyval, accel_mods, event.hardware_keycode)
+		return True
+
+	def __cancel(self):
+		self.set_accelerator_name(self.__old_value)
+		return
+		
 
 class DeskbarPreferencesUI:
 	def __init__(self, applet, module_loader, module_list):
@@ -26,10 +151,10 @@ class DeskbarPreferencesUI:
 		self.expand_notify_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
 		self.fixed_width_radio = self.glade.get_widget("fixed_width_radio")
 		
-		self.keyboard_shortcut_entry = self.glade.get_widget("keyboard_shortcut_entry")
-		self.keyboard_shortcut_entry.connect('focus-out-event', self.on_keyboard_shortcut_focus_out_event, applet)
+		self.keyboard_shortcut_entry = AccelEntry()
+		self.keyboard_shortcut_entry.connect('accel-edited', self.on_keyboard_shortcut_entry_changed, applet)
+		self.glade.get_widget("keybinding_entry_container").pack_start(self.keyboard_shortcut_entry.get_widget(), False)
 		self.keybinding_notify_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_KEYBINDING, lambda x, y, z, a: self.on_config_keybinding(z.value))
-		self.shortcut_error = self.glade.get_widget("label_shortcut_error")
 		
 		container = self.glade.get_widget("handlers")
 		self.moduleview = ModuleListView(module_list)
@@ -66,14 +191,10 @@ class DeskbarPreferencesUI:
 		
 	def show_run_hide(self):
 		self.dialog.show_all()
-		self.shortcut_error.hide()
 		self.moduleview.grab_focus()
 		self.dialog.connect("response", self.on_dialog_response)
 	
-	def on_dialog_response(self, dialog, response):
-		if not self.validate_shortcut_key():
-			return
-			
+	def on_dialog_response(self, dialog, response):	
 		self.dialog.destroy()
 		
 		deskbar.GCONF_CLIENT.notify_remove(self.width_notify_id)
@@ -94,9 +215,9 @@ class DeskbarPreferencesUI:
 		self.width_spin.set_value(self.width)
 		
 		if self.keybinding != None:
-			self.keyboard_shortcut_entry.set_text(self.keybinding)
+			self.keyboard_shortcut_entry.set_accelerator_name(self.keybinding)
 		else:
-			self.keyboard_shortcut_entry.set_text("<Alt>F3")
+			self.keyboard_shortcut_entry.set_accelerator_name("<Alt>F3")
 		
 		if self.ui_name == ENTRIAC_UI_NAME:
 			self.completion_ui_radio.set_active (True)
@@ -148,23 +269,11 @@ class DeskbarPreferencesUI:
 	def on_spin_width_change(self, spinner, applet):
 		deskbar.GCONF_CLIENT.set_int(applet.prefs.GCONF_WIDTH, int(spinner.get_value()))
 	
-	def on_keyboard_shortcut_focus_out_event(self, entry, event, applet):
-		if self.validate_shortcut_key():
-			self.shortcut_error.hide()
-			if entry.get_text() != "":
-				deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_KEYBINDING, entry.get_text())
-		else:
-			self.shortcut_error.show()
+	def on_keyboard_shortcut_entry_changed(self, entry, accel_name, keyval, mods, keycode, applet):		
+		if accel_name != "":
+				deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_KEYBINDING, accel_name)
 		return False
-	
-	def validate_shortcut_key(self):
-		text = self.keyboard_shortcut_entry.get_text()
-		if text == "":
-			return True
-			
-		keyval, modifier = gtk.accelerator_parse(text)
-		return (keyval != gtk.keysyms.VoidSymbol and gtk.accelerator_valid(keyval, modifier))
-		
+
 	def on_more_button_clicked(self, button):
 		if self.more_button_callback != None:
 			self.more_button_callback(self.dialog)
