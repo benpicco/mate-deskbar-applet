@@ -2,9 +2,34 @@ import os, cgi, re
 from os.path import *
 import deskbar, deskbar.gnomedesktop
 import gtk, gtk.gdk, gnome.ui
+from htmlentitydefs import name2codepoint
 
 ICON_THEME = gtk.icon_theme_get_default()
 factory = gnome.ui.ThumbnailFactory(deskbar.ICON_HEIGHT)
+
+# This pattern matches a character entity reference (a decimal numeric
+# references, a hexadecimal numeric reference, or a named reference).
+charrefpat = re.compile(r'&(#(\d+|x[\da-fA-F]+)|[\w.:-]+);?')
+
+def htmldecode(text):
+	"""Decode HTML entities in the given text."""
+	if type(text) is unicode:
+		uchr = unichr
+	else:
+		uchr = lambda value: value > 255 and unichr(value) or chr(value)
+	
+	def entitydecode(match, uchr=uchr):
+		entity = match.group(1)
+		if entity.startswith('#x'):
+			return uchr(int(entity[2:], 16))
+		elif entity.startswith('#'):
+			return uchr(int(entity[1:]))
+		elif entity in name2codepoint:
+			return uchr(name2codepoint[entity])
+		else:
+			return match.group(0)
+	
+	return charrefpat.sub(entitydecode, text)
 
 def strip_html(string):
 	return re.sub(r"<.*?>|</.*?>","",string)

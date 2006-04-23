@@ -32,10 +32,12 @@ def _on_config_account(dialog):
 	
 	table = gtk.Table(rows=2, columns=2)
 	
-	table.attach(gtk.Label(_("Enter your deli.icio.us username and password below")), 0, 2, 0, 1)
+	table.attach(gtk.Label(_("Enter your deli.icio.us username below")), 0, 2, 0, 1)
 
 	user_entry = gtk.Entry()
-	user_entry.set_text(deskbar.GCONF_CLIENT.get_string(GCONF_DELICIOUS_USER))
+	t = deskbar.GCONF_CLIENT.get_string(GCONF_DELICIOUS_USER)
+	if t != None:
+		user_entry.set_text(t)
 	table.attach(gtk.Label(_("Username: ")), 0, 1, 1, 2)
 	table.attach(user_entry, 1, 2, 1, 2)
 	
