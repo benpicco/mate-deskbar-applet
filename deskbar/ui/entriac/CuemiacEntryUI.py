@@ -109,7 +109,7 @@ class CuemiacEntryUI (DeskbarUI):
 	
 	def on_change_background (self, widget, background, colour, pixmap):
 		# This does not work..
-		widgets = (self.applet, self.icon_entry)
+		widgets = (self.applet,)# self.icon_entry)
 		if background == gnomeapplet.NO_BACKGROUND:
 			pass
 		elif background == gnomeapplet.COLOR_BACKGROUND:
