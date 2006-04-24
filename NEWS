@@ -1,46 +1,54 @@
 =====================
-deskbar-applet 2.14.0
+deskbar-applet 2.15.1
 =====================
 
 Changes:
-	* Fix problems when using a latin locale with bonobo crashing. Fixes bug #332545
-	* Fix handling of problematic desktop files with try/catch, fixes bug #334149
-	* Don't display a white popup when there are no results to display
-	* Change gnome-open calls to gnome.url_show calls
-	* Repair middle-click. Now you have to use double-middle click to paste text so that middle click works as usual for applets.
-	* Add failsafe to mozilla/firefox single/multi-engines detection code Remove a print statement in files.py
-	* Fix the file and folder handler to correctly return non-lowercase paths. Fix so that entering ~ or ~/ correctly returns home dir as a match
-	* Hide all UI parts before switching the UI. 
-	* Fix the bug #333024, history was broken.
-	* Make the prefs dialog non-modal, fixes bug #332940
-	* Fix Galeon handler to use history2.xml file
-	* Re-fix bug #332141, error when hitting enter before any matches appear
-	* Fix detection and handling of beagle daemon/python bindings. Fixes bug #332891
-	* Rename beagle.py to beagle-static.py to not confuse the python module loader
+	* Implement a new widget to select the accelerator, providing also validation in real time. Patch by Sebastian Pölsterl <marduk@k-d-w.org>
+	* Fix some errors in desklicious, add a html entities decoder
+	* Tidy up the yahoo handler
+	* Add the del.icio.us handler merged from two sources. Thanks to Stuart Langridge and Francisco Jesús Jordano Jiménez
+	* New handler by Travis B. Hartwell <nafai@travishartwell.net>
+	* dd the skip_history() method to matches API, and allow None to be returned from serialize. This handler allows to switch between windows by typing part of their name/titles
+	* Correctly handle multiple profiles in mozilla/ff. Patch by Michael Hofmann <mh21@piware.de>
+	* Added artdir to the pkgconfig file.
+	* Better detection of Beagle .desktop files (e.g. now works on Fedora).
+	* Refactoring the Cuemiac part 1, splitting of files
+	* Use the new icon theme specifications. Patch by Sebastian Pölsterl <marduk@k-d-w.org>
+	* Use po/LINGUAS instead of including all languages directly in this file. See the wiki for more information: http://live.gnome.org/GnomeGoals/PoLinguas
+	* Repair the no-history not appearing when history.pickle was not present
+	* Add devhelp handler 
+	* Add transparency to Cuemiac mode Patch by Joachim Breitner <mail@joachim-breitner.de>
+	* Implement galeon nicknames in the search handler. Patch by Joachim Breitner <mail@joachim-breitner.de>
+	* Fix the history order, and update order when switching form bottom to top panel
+	* Change the contact label to say what we really do, open the contact editor in evolution
+	* Implement a is_valid method to ask a match if it's still valid, to evaluate if it should be stored in history
+	* Follow symlinks to detect the browser
+	* Use the history icon when displaying history items and bookmark when displaying bookmarks
+	* Classify emails and conversations in separate categories. Patch by Alejandro Vera <alejandro.vera@gmail.com>
+	* Pass the preferences dialog to the "more" callback to allow info dialogs to be transient
+	* Correctly use imlogviewer passing client name to it
+	* Bump up the python required version to 2.4
+	* Fix bug #335367. Activate the bottom hit of the view when the cuem/entr-iac is at a bottom panel.
+	* Fix bug #335446 where deskbar crashes when the user hits up/down immediately after entering some text. This is done by adding a CuemiacView.is_ready() method that returns True when the view is ready for user interaction.
+	* Implement mozilla/firefox history search, only the url. Patch by Flavio Gargiulo <flagar@gmail.com>
+	* Get rid of completion UI, now we require Cairo with pygtk.
+	* Fixes the proxy detection code for google-live. Patch by Sebastian Dröge <mail@slomosnail.de>
+	* Fix entry in button mode placement for vertical panels Patch by Joachim Breitner <joachim@breitner.de> Fixes bug #334492
+	* Fix for people that haven't locale/gettext.bind_textdomain_codeset
 
-Contributors to this release: Raphael Slinckx
+Contributors to this release: Raphael Slinckx, Nigel Tao, Rhys Jones, Brian Pepple, Runa Bhattacharjee, Ignacio VazquezAbrams, Mikkel Kamstrup Erlandsen
 
 Translations:
-	* Updated Czech translation.
-	* Updated Serbian translations.
-	* Added Portuguese translation.
-	* Updated Hindi Translation.
-	* Updated Swedish translation.
-	* Added Danish translation.
-	* Added Italian translation.
-	* Added Albanian translation.
-	* Updated Hindi translation.
-	* Updated Ukrainian translation.
-	* Updated Catalan translation.
-	* Updated Lithuanian translation.
-	* Fixed typos in Russian translation
-	* Added Ukrainian translation.
-	* Updated Norwegian bokmål translation.
-	* Updated Brazilian Portuguese translation.
-	* Added Georgian.
-	* Updated Galician Translation.
 	* Updated Finnish translation.
-	* Updated Bulgarian translation.
+	* Updated Gujarati Translation.
+	* Updated Galician Translation.
+	* Updated Vietnamese translation.
+	* Updated Simplified Chinese translation.
+	* Updated Czech translation.
+	* Updated Finnish translation.
+	* Updated Greek translation.
+	* Added Welsh translation.
+	* Added Bengali Translation by Mahay Alam Khan
 
 Contributors to the translations: Kostas Papadimas, Vladimer Sichinava, Rajesh Ranjan, Artur Flinta, Žygimantas Beručka, Duarte Loreto, Theppitak Karoonboonyanan, Øivind Hoel, Kjartan Maraas, Ilkka Tuohela, Gabor Kelemen, Ankit Patel, Funda Wang, Amanpreet Singh Alam, ChaoHsiung Liao, Ignacio Casal Quinteiro, Tommi Vainikainen, Lukas Novotny, Nickolay V. Shmyrev, Josep Puigdemont i Casamajó, Erdal Ronahi, Alessio Frusciante, Satoru SATOH, Danilo Šegan, Benoît Dejean, Marcel Telka, Leonid Kanter, Daniel Nylander, Vincent van Adrighem, Francisco Javier F. Serrador, Raphael Higino, Christian Rose, Takeshi AIHANA, Laurent Dhima, Clytie Siddall, Miloslav Trmac, Maxim Dziumanenko, Alexander Shopov, Adam Weinberger, Hendrik Brandt, Ole Laursen, Stanislav Brabec, Slobodan D. Sredojevic, Kang JeongHee
 

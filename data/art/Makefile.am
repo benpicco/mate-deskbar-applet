@@ -33,5 +33,7 @@ install-data-hook:
 	fi
 
 EXTRA_DIST = \
-	$(art_DATA)
+	$(art_DATA) \
+	$(icon_DATA) \
+	$(svgicon_DATA) 
 	
