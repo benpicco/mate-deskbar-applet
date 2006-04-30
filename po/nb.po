@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-02 13:07+0100\n"
-"PO-Revision-Date: 2006-03-02 13:13+0100\n"
+"POT-Creation-Date: 2006-04-30 14:24+0200\n"
+"PO-Revision-Date: 2006-04-30 14:30+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -99,40 +99,46 @@ msgid ""
 "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
 "you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
-msgstr "<i><small><b>Merk: </b>Hvis denne snarveien er en enkelt bokstav (som <b>t</b>) kan du også skrive «<b>ett eller annet</b>» og så trykke <b>Alt-t</b> i skrivebordslinjen.</small></i>"
+msgstr ""
+"<i><small><b>Merk: </b>Hvis denne snarveien er en enkelt bokstav (som <b>t</"
+"b>) kan du også skrive «<b>ett eller annet</b>» og så trykke <b>Alt-t</b> i "
+"skrivebordslinjen.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
-msgstr "<i><small><b>Merk:</b> For å bruke en snarvei (for eksempel <b>wp</b>) for å søke etter <b>ett eller annet</b> skriver du «<b>wp ett eller annet</b>» i skrivebordslinjen</small></i>."
+msgstr ""
+"<i><small><b>Merk:</b> For å bruke en snarvei (for eksempel <b>wp</b>) for å "
+"søke etter <b>ett eller annet</b> skriver du «<b>wp ett eller annet</b>» i "
+"skrivebordslinjen</small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Snarveier for lagrede søk"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:121
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:121
 #, python-format
 msgid "Open History Item %s"
 msgstr "Åpne historikkoppføring %s"
 
-#: ../deskbar/BrowserMatch.py:32
+#: ../deskbar/BrowserMatch.py:48
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Åpne bokmerke %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:81
+#: ../deskbar/BrowserMatch.py:97
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Søk i <b>%(name)s</b> etter <i>%(text)s</i>"
 
-#: ../deskbar/BrowserMatch.py:187
+#: ../deskbar/BrowserMatch.py:203
 msgid "Shortcut"
 msgstr "Snarvei"
 
-#: ../deskbar/BrowserMatch.py:195
+#: ../deskbar/BrowserMatch.py:211
 msgid "Bookmark Name"
 msgstr "Navn på bokmerke"
 
@@ -163,51 +169,73 @@ msgstr[0] "%s dokument til"
 msgstr[1] "%s dokumenter til"
 
 #: ../deskbar/Categories.py:31
+msgid "Emails"
+msgstr "E-post"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more email"
+msgid_plural "%s more emails"
+msgstr[0] "%s e-post til"
+msgstr[1] "%s e-post til"
+
+#: ../deskbar/Categories.py:36
+msgid "Conversations"
+msgstr "Samtaler"
+
+#: ../deskbar/Categories.py:37
+#, python-format
+msgid "%s more conversation"
+msgid_plural "%s more conversations"
+msgstr[0] "%s samtale til"
+msgstr[1] "%s samtaler til"
+
+#: ../deskbar/Categories.py:41
 msgid "Files"
 msgstr "Filer"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "%s fil til"
 msgstr[1] "%s filer til"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:46
 msgid "People"
 msgstr "Personer"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:51
 msgid "Places"
 msgstr "Steder"
 
-#: ../deskbar/Categories.py:42
+#: ../deskbar/Categories.py:52
 #, python-format
 msgid "%s more place"
 msgid_plural "%s more places"
 msgstr[0] "%s sted til"
 msgstr[1] "%s flere steder"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:56
 msgid "Actions"
 msgstr "Handlinger"
 
-#: ../deskbar/Categories.py:47
+#: ../deskbar/Categories.py:57
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "%s handling til"
 msgstr[1] "%s handlinger til"
 
-#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
+#: ../deskbar/Categories.py:61 ../deskbar/handlers/web_address.py:9
 msgid "Web"
 msgstr "Web"
 
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:66
 msgid "Web Search"
 msgstr "Søk på nettet"
 
-#: ../deskbar/DeskbarHistory.py:53
+#: ../deskbar/DeskbarHistory.py:37
 msgid "No History"
 msgstr "Ingen historikk"
 
@@ -236,37 +264,35 @@ msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Søk gjennom alle dine dokumenter med Beagle mens du skriver"
 
 #: ../deskbar/handlers/beagle-live.py:63
-#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Send Email to %s"
-msgstr "Send e-post til %s"
+msgid "Edit contact %s"
+msgstr "Rediger kontakt %s"
 
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:73
+#: ../deskbar/handlers/beagle-live.py:72
 #, python-format
-msgid "Email from %s"
-msgstr "E-post fra %s"
+msgid "From %s"
+msgstr "Fra %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:81 ../deskbar/handlers/files.py:35
+#: ../deskbar/handlers/beagle-live.py:80 ../deskbar/handlers/files.py:38
 #, python-format
 msgid "Open %s"
 msgstr "Åpne %s"
 
-#: ../deskbar/handlers/beagle-live.py:89
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
 msgid "News from %s"
 msgstr "Nyheter fra %s"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:97
 #, python-format
 msgid "Note: %s"
 msgstr "Notat: %s"
 
 #: ../deskbar/handlers/beagle-live.py:106
 #, python-format
-msgid "Conversation with %s"
-msgstr "Samtale med %s"
+msgid "With %s"
+msgstr "Med %s"
 
 #: ../deskbar/handlers/beagle-live.py:114
 #, python-format
@@ -275,23 +301,51 @@ msgstr "Kalender: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:285
-#: ../deskbar/handlers/beagle-live.py:307
+#: ../deskbar/handlers/beagle-live.py:289
+#: ../deskbar/handlers/beagle-live.py:311
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-static.py:19
+#: ../deskbar/handlers/beagle-static.py:20
 msgid "Beagle"
 msgstr "Beagle"
 
-#: ../deskbar/handlers/beagle-static.py:20
+#: ../deskbar/handlers/beagle-static.py:21
 msgid "Search all of your documents (using Beagle)"
 msgstr "Søk i alle dine dokumenter (med Beagle)"
 
-#: ../deskbar/handlers/beagle-static.py:36
+#: ../deskbar/handlers/beagle-static.py:37
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Søk etter %s med Beagle"
+
+#: ../deskbar/handlers/desklicious.py:15
+msgid "You need to configure your deli.icio.us account."
+msgstr "Du må konfigurere din del.icio.us konto."
+
+#: ../deskbar/handlers/desklicious.py:17
+msgid "You can modify your deli.icio.us account."
+msgstr "Du kan endre din del.icio.us konto."
+
+#: ../deskbar/handlers/desklicious.py:21
+msgid "del.icio.us Bookmarks"
+msgstr "del.icio.us bokmerker"
+
+#: ../deskbar/handlers/desklicious.py:22
+msgid "Search your del.icio.us bookmarks by tag name"
+msgstr "Søk i dine de.icio.us-bokmerker etter navn på etikett"
+
+#: ../deskbar/handlers/desklicious.py:28
+msgid "del.icio.us Account"
+msgstr "del.icio.us konto"
+
+#: ../deskbar/handlers/desklicious.py:35
+msgid "Enter your deli.icio.us username below"
+msgstr "Oppgi ditt brukernavn for del.icio.us under"
+
+#: ../deskbar/handlers/desklicious.py:41
+msgid "Username: "
+msgstr "Brukernavn: "
 
 #: ../deskbar/handlers/email_address.py:9
 msgid "Mail"
@@ -301,35 +355,42 @@ msgstr "E-post"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "Send e-post ved å skrive inn en komplett e-postadresse"
 
+#: ../deskbar/handlers/email_address.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "Send e-post til %s"
+
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
 msgstr "Du kan lage snarveier for dine søk."
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:23
+#: ../deskbar/handlers/mozilla.py:129
 msgid "Web Bookmarks"
 msgstr "Bokmerker på nettet"
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
+#: ../deskbar/handlers/mozilla.py:130
 msgid "Open your web bookmarks by name"
 msgstr "Åpne bokmerker i nettleseren etter navn"
 
-#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:28
+#: ../deskbar/handlers/mozilla.py:139
 msgid "Web History"
 msgstr "Historikk for nettleser"
 
-#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:29
+#: ../deskbar/handlers/mozilla.py:140
 msgid "Open your web history by name"
 msgstr "Åpne historikk for nettleser etter navn"
 
-#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:125
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:33
+#: ../deskbar/handlers/mozilla.py:134
 msgid "Web Searches"
 msgstr "Søk på nettet"
 
-#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:126
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:34
+#: ../deskbar/handlers/mozilla.py:135
 msgid "Search the web via your browser's search settings"
 msgstr "Søk på nettet med nettleserens innstillinger for søk"
 
@@ -337,29 +398,32 @@ msgstr "Søk på nettet med nettleserens innstillinger for søk"
 msgid "You need to enable autocomplete in your mail preferences"
 msgstr "Du må aktivere automatisk fullføring i brukervalg for e-post"
 
-#: ../deskbar/handlers/evolution.py:13
+#: ../deskbar/handlers/evolution.py:14
 msgid "Autocompletion Needs to be Enabled"
 msgstr "Automatisk fullføring må være aktivert"
 
-#: ../deskbar/handlers/evolution.py:14
+#: ../deskbar/handlers/evolution.py:15
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
 "choose Edit - Preferences, and then Autocompletion."
-msgstr "Kan ikke hente adresser fra din adressebok med mindre automatisk fullføring er aktivert. For å aktivere dette velger du Rediger -> Brukervalg og deretter Autofullføring."
+msgstr ""
+"Kan ikke hente adresser fra din adressebok med mindre automatisk fullføring "
+"er aktivert. For å aktivere dette velger du Rediger -> Brukervalg og "
+"deretter Autofullføring."
 
-#: ../deskbar/handlers/evolution.py:19
+#: ../deskbar/handlers/evolution.py:20
 msgid "Mail (Address Book)"
 msgstr "E-post (adressebok)"
 
-#: ../deskbar/handlers/evolution.py:20
+#: ../deskbar/handlers/evolution.py:21
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Send e-post til kontaktene dine ved å skrive inn deres navn eller e-post-"
 "adresse"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:45
+#: ../deskbar/handlers/evolution.py:46
 #, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Send e-post til <b>%(name)s</b> (%(email)s)"
@@ -372,7 +436,7 @@ msgstr "Filer og mapper"
 msgid "Open your files and folders by name"
 msgstr "Åpne dine filer og mapper etter navn"
 
-#: ../deskbar/handlers/files.py:54
+#: ../deskbar/handlers/files.py:60
 #, python-format
 msgid "Open folder %s"
 msgstr "Åpne mappe %s"
@@ -447,7 +511,7 @@ msgstr "Bokmerker for filer og mapper"
 msgid "Open your files and folders bookmarks by name"
 msgstr "Åpne dine bokmerker for filer og mapper etter navn"
 
-#: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
+#: ../deskbar/handlers/gtkbookmarks.py:34 ../deskbar/handlers/volumes.py:51
 #, python-format
 msgid "Open location %s"
 msgstr "Åpne lokasjon %s"
@@ -456,7 +520,31 @@ msgstr "Åpne lokasjon %s"
 msgid "Recognize previously used searches"
 msgstr "Husk tidligere brukte søk"
 
-#: ../deskbar/handlers/mozilla.py:111
+#: ../deskbar/handlers/iswitch-window.py:11
+msgid "Window Switcher"
+msgstr "Vindubytter"
+
+#: ../deskbar/handlers/iswitch-window.py:12
+msgid "Switch to an existing window by name."
+msgstr "Bytt til et eksisterende vindu etter navn."
+
+#: ../deskbar/handlers/iswitch-window.py:16
+msgid "Windows"
+msgstr "Vinduer"
+
+#: ../deskbar/handlers/iswitch-window.py:17
+#, python-format
+msgid "%s more window"
+msgid_plural "%s more windows"
+msgstr[0] "%s vindu til"
+msgstr[1] "%s vinduer til"
+
+#: ../deskbar/handlers/iswitch-window.py:32
+#, python-format
+msgid "Switch to <b>%(name)s</b>"
+msgstr "Bytt til <b>%(name)s</b> "
+
+#: ../deskbar/handlers/mozilla.py:120
 msgid "You can customize which search engines are offered."
 msgstr "Du kan stille inn hvilke søkemotorer som skal tilbys."
 
@@ -497,22 +585,35 @@ msgstr "Søk etter filer og mapper"
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Finn filer og mapper ved å søke etter et navnemønster"
 
+#: ../deskbar/handlers/programs.py:26
+msgid "Developer Documentation"
+msgstr "Dokumentasjon for utviklere"
+
+#: ../deskbar/handlers/programs.py:27
+msgid "Search Devhelp for a function name"
+msgstr "Søk etter funksjonsnavn i Devhelp"
+
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:72
+#: ../deskbar/handlers/programs.py:76
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Start <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:86
+#: ../deskbar/handlers/programs.py:90
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Slå opp %s i ordbok"
 
-#: ../deskbar/handlers/programs.py:94
+#: ../deskbar/handlers/programs.py:98
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Søk etter filnavn som %s"
+
+#: ../deskbar/handlers/programs.py:106
+#, python-format
+msgid "Search in Devhelp for %s"
+msgstr "Søk etter %s i Devhelp"
 
 #: ../deskbar/handlers/volumes.py:16
 msgid "Disks and Network Places"
@@ -523,12 +624,12 @@ msgid "Open disk drives, shared network places and similar resources by name"
 msgstr ""
 "Åpne harddisker, delte nettverkssteder og lignende ressurser etter navn"
 
-#: ../deskbar/handlers/volumes.py:44
+#: ../deskbar/handlers/volumes.py:47
 #, python-format
 msgid "Open network place %s"
 msgstr "Åpne nettverkslokasjon %s"
 
-#: ../deskbar/handlers/volumes.py:46
+#: ../deskbar/handlers/volumes.py:49
 #, python-format
 msgid "Open audio disk %s"
 msgstr "Åpne lydplate %s"
@@ -570,7 +671,11 @@ msgstr "Nettsted for Deskbar"
 msgid "translator-credits"
 msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:54
+#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+msgid "New accelerator..."
+msgstr "Ny snarveitast..."
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:175
 msgid "_More..."
 msgstr "_Mer..."
 
