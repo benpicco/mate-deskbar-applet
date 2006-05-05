@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-16 04:26+0200\n"
-"PO-Revision-Date: 2006-04-16 12:54+0800\n"
+"POT-Creation-Date: 2006-05-05 05:45+0200\n"
+"PO-Revision-Date: 2006-05-05 17:25+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
@@ -115,27 +115,27 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "加入书签的搜索的快捷键"
 
-#: ../deskbar/BrowserMatch.py:44 ../deskbar/handlers/beagle-live.py:122
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:121
 #, python-format
 msgid "Open History Item %s"
 msgstr "打开历史项 %s"
 
-#: ../deskbar/BrowserMatch.py:46
+#: ../deskbar/BrowserMatch.py:48
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "打开书签 %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:95
+#: ../deskbar/BrowserMatch.py:97
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "在 <b>%(name)s</b> 中搜索 <i>%(text)s</i>"
 
-#: ../deskbar/BrowserMatch.py:201
+#: ../deskbar/BrowserMatch.py:203
 msgid "Shortcut"
 msgstr "快捷键"
 
-#: ../deskbar/BrowserMatch.py:209
+#: ../deskbar/BrowserMatch.py:211
 msgid "Bookmark Name"
 msgstr "书签名称"
 
@@ -164,44 +164,64 @@ msgid_plural "%s more documents"
 msgstr[0] "其它 %s 个文档"
 
 #: ../deskbar/Categories.py:31
+msgid "Emails"
+msgstr "电子邮件"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more email"
+msgid_plural "%s more emails"
+msgstr[0] "其它 %s 封电子邮件"
+
+#: ../deskbar/Categories.py:36
+msgid "Conversations"
+msgstr "对话"
+
+#: ../deskbar/Categories.py:37
+#, python-format
+msgid "%s more conversation"
+msgid_plural "%s more conversations"
+msgstr[0] "其它 %s 组对话"
+
+#: ../deskbar/Categories.py:41
 msgid "Files"
 msgstr "文件"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
 msgstr[0] "其它 %s 个文件"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:46
 msgid "People"
 msgstr "人"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:51
 msgid "Places"
 msgstr "位置"
 
-#: ../deskbar/Categories.py:42
+#: ../deskbar/Categories.py:52
 #, python-format
 msgid "%s more place"
 msgid_plural "%s more places"
 msgstr[0] "其它 %s 个位置"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:56
 msgid "Actions"
 msgstr "动作"
 
-#: ../deskbar/Categories.py:47
+#: ../deskbar/Categories.py:57
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
 msgstr[0] "其它 %s 个动作"
 
-#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
+#: ../deskbar/Categories.py:61 ../deskbar/handlers/web_address.py:9
 msgid "Web"
 msgstr "Web"
 
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:66
 msgid "Web Search"
 msgstr "Web 搜索"
 
@@ -232,47 +252,45 @@ msgid "Search all of your documents (using Beagle), as you type"
 msgstr "(通过 Beagel)随时搜索您所有的文档"
 
 #: ../deskbar/handlers/beagle-live.py:63
-#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Send Email to %s"
-msgstr "给 %s 发送电子邮件"
+msgid "Edit contact %s"
+msgstr "编辑联系人 %s"
 
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:73
+#: ../deskbar/handlers/beagle-live.py:72
 #, python-format
-msgid "Email from %s"
-msgstr "%s 发来的电子邮件"
+msgid "From %s"
+msgstr "来自 %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:81 ../deskbar/handlers/files.py:38
+#: ../deskbar/handlers/beagle-live.py:80 ../deskbar/handlers/files.py:38
 #, python-format
 msgid "Open %s"
 msgstr "打开 %s"
 
-#: ../deskbar/handlers/beagle-live.py:89
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
 msgid "News from %s"
 msgstr "%s 的新闻"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:97
 #, python-format
 msgid "Note: %s"
 msgstr "备忘：%s"
 
-#: ../deskbar/handlers/beagle-live.py:107
+#: ../deskbar/handlers/beagle-live.py:106
 #, python-format
-msgid "Conversation with %s"
-msgstr "与 %s 的对话"
+msgid "With %s"
+msgstr "与 %s"
 
-#: ../deskbar/handlers/beagle-live.py:115
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
 msgid "Calendar: %s"
 msgstr "日历 %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:290
-#: ../deskbar/handlers/beagle-live.py:312
+#: ../deskbar/handlers/beagle-live.py:289
+#: ../deskbar/handlers/beagle-live.py:311
 msgid "?"
 msgstr "?"
 
@@ -289,6 +307,34 @@ msgstr "(使用 Beagle)搜索您所有的文档"
 msgid "Search for %s using Beagle"
 msgstr "使用 Beagle 搜索 %s"
 
+#: ../deskbar/handlers/desklicious.py:15
+msgid "You need to configure your deli.icio.us account."
+msgstr "您需要重新配置您的 deli.icio.us 账户。"
+
+#: ../deskbar/handlers/desklicious.py:17
+msgid "You can modify your deli.icio.us account."
+msgstr "您可以修改您的 deli.icio.us 账户。"
+
+#: ../deskbar/handlers/desklicious.py:21
+msgid "del.icio.us Bookmarks"
+msgstr "deli.icio.us 书签"
+
+#: ../deskbar/handlers/desklicious.py:22
+msgid "Search your del.icio.us bookmarks by tag name"
+msgstr "按标签名称搜索您的 deli.icio.us 书签"
+
+#: ../deskbar/handlers/desklicious.py:28
+msgid "del.icio.us Account"
+msgstr "deli.icio.us 账户"
+
+#: ../deskbar/handlers/desklicious.py:35
+msgid "Enter your deli.icio.us username below"
+msgstr "在下面输入您的 deli.icio.us 用户名"
+
+#: ../deskbar/handlers/desklicious.py:41
+msgid "Username: "
+msgstr "用户名："
+
 #: ../deskbar/handlers/email_address.py:9
 msgid "Mail"
 msgstr "邮件"
@@ -297,37 +343,42 @@ msgstr "邮件"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "输入完整的电子邮件地址以发送邮件"
 
+#: ../deskbar/handlers/email_address.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "给 %s 发送电子邮件"
+
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
 msgstr "您可以为您的搜索设定快捷键。"
 
 #: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:23
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:129
 msgid "Web Bookmarks"
 msgstr "Web 书签"
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/mozilla.py:130
 msgid "Open your web bookmarks by name"
 msgstr "按名称打开您的 Web 书签"
 
 #: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:28
-#: ../deskbar/handlers/mozilla.py:130
+#: ../deskbar/handlers/mozilla.py:139
 msgid "Web History"
 msgstr "Web 历史"
 
 #: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:29
-#: ../deskbar/handlers/mozilla.py:131
+#: ../deskbar/handlers/mozilla.py:140
 msgid "Open your web history by name"
 msgstr "按名称打开您的 Web 历史"
 
 #: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:33
-#: ../deskbar/handlers/mozilla.py:125
+#: ../deskbar/handlers/mozilla.py:134
 msgid "Web Searches"
 msgstr "Web 搜索"
 
 #: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:34
-#: ../deskbar/handlers/mozilla.py:126
+#: ../deskbar/handlers/mozilla.py:135
 msgid "Search the web via your browser's search settings"
 msgstr "通过您浏览器搜索设置搜索 Web"
 
@@ -452,7 +503,30 @@ msgstr "打开位置 %s"
 msgid "Recognize previously used searches"
 msgstr "识别先前使用过的搜索"
 
-#: ../deskbar/handlers/mozilla.py:111
+#: ../deskbar/handlers/iswitch-window.py:11
+msgid "Window Switcher"
+msgstr "窗口切换器"
+
+#: ../deskbar/handlers/iswitch-window.py:12
+msgid "Switch to an existing window by name."
+msgstr "按照名称切换到已有窗口。"
+
+#: ../deskbar/handlers/iswitch-window.py:16
+msgid "Windows"
+msgstr "窗口"
+
+#: ../deskbar/handlers/iswitch-window.py:17
+#, python-format
+msgid "%s more window"
+msgid_plural "%s more windows"
+msgstr[0] "其它 %s 个窗口"
+
+#: ../deskbar/handlers/iswitch-window.py:32
+#, python-format
+msgid "Switch to <b>%(name)s</b>"
+msgstr "切换到 <b>%(name)s</b>"
+
+#: ../deskbar/handlers/mozilla.py:120
 msgid "You can customize which search engines are offered."
 msgstr "您可以自定义提供哪些搜索引擎。"
 
@@ -493,22 +567,35 @@ msgstr "文件和文件夹搜索"
 msgid "Find files and folders by searching for a name pattern"
 msgstr "搜索匹配名称模式的文件和文件夹"
 
+#: ../deskbar/handlers/programs.py:26
+msgid "Developer Documentation"
+msgstr "开发者文档"
+
+#: ../deskbar/handlers/programs.py:27
+msgid "Search Devhelp for a function name"
+msgstr "在 Devhelp 中搜索函数名称"
+
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:72
+#: ../deskbar/handlers/programs.py:76
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "调用 <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:86
+#: ../deskbar/handlers/programs.py:90
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "在字典中查阅 %s"
 
-#: ../deskbar/handlers/programs.py:94
+#: ../deskbar/handlers/programs.py:98
 #, python-format
 msgid "Search for file names like %s"
 msgstr "搜索文件名类似 %s 的文件"
+
+#: ../deskbar/handlers/programs.py:106
+#, python-format
+msgid "Search in Devhelp for %s"
+msgstr "在 Devhelp 中搜索 %s"
 
 #: ../deskbar/handlers/volumes.py:16
 msgid "Disks and Network Places"
@@ -565,7 +652,11 @@ msgstr "桌面栏网站"
 msgid "translator-credits"
 msgstr "Funda Wang <fundawang@linux.net.cn>, 2005."
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:54
+#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+msgid "New accelerator..."
+msgstr "信件加速器..."
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:175
 msgid "_More..."
 msgstr "更多(_M)..."
 
