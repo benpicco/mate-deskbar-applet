@@ -37,7 +37,7 @@ def get_firefox_home_file(needed_file):
 	path = None
 
 	for section in config.sections():
-		if config.get (section, "Default") == 1:
+		if config.has_option(section, "Default") and config.get(section, "Default") == 1:
 			path = config.get (section, "Path")
 			break
 		elif path == None and config.has_option(section, "Path"):
