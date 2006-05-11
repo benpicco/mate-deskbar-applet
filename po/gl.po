@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-17 22:07+0200\n"
-"PO-Revision-Date: 2006-04-17 22:10+0200\n"
+"POT-Creation-Date: 2006-05-11 09:56+0200\n"
+"PO-Revision-Date: 2006-05-11 09:58+0200\n"
 "Last-Translator: Ignacio Casal Quinteiro <nacho.resa@gmail.com>\n"
 "Language-Team: Galego <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
@@ -62,42 +62,38 @@ msgstr ""
 "orde.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "<i><span color=\"red\">Invalid shortcut</span></i>"
-msgstr "<i><span color=\"red\">Atallo inválido</span></i>"
-
-#: ../data/prefs-dialog.glade.h:7
 msgid "Button in panel"
 msgstr "Botón no panel"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Preferencias de Deskbar"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:8
 msgid "Entry in panel"
 msgstr "Entrada no panel"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
 msgstr "_Anchura fixa:"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:10
 msgid "Searches"
 msgstr "Buscas"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:11
 msgid "Use _all available space"
 msgstr "Usar _todo o espazo dispoñible"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:12
 msgid "View"
 msgstr "Vista"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Keyboard shortcut to focus:"
 msgstr "A_tallos de teclado para enfocar:"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:14
 msgid "characters"
 msgstr "caracteres"
 
@@ -326,6 +322,34 @@ msgstr "Buscar todos os seus documentos (con Beagle)"
 msgid "Search for %s using Beagle"
 msgstr "Buscar %s usando Beagle"
 
+#: ../deskbar/handlers/desklicious.py:15
+msgid "You need to configure your deli.icio.us account."
+msgstr "Necesita configurar a súa conta deli.icio.us."
+
+#: ../deskbar/handlers/desklicious.py:17
+msgid "You can modify your deli.icio.us account."
+msgstr "Pode configurar a súa conta deli.icio.us."
+
+#: ../deskbar/handlers/desklicious.py:21
+msgid "del.icio.us Bookmarks"
+msgstr "Marcadores del.icio.us"
+
+#: ../deskbar/handlers/desklicious.py:22
+msgid "Search your del.icio.us bookmarks by tag name"
+msgstr "Busque os seus marcadores del.icio.us por nome de etiqueta"
+
+#: ../deskbar/handlers/desklicious.py:28
+msgid "del.icio.us Account"
+msgstr "Conta del.icio.us"
+
+#: ../deskbar/handlers/desklicious.py:35
+msgid "Enter your deli.icio.us username below"
+msgstr "Introduza o seu nome de usuario de del.icio.us embaixo"
+
+#: ../deskbar/handlers/desklicious.py:41
+msgid "Username: "
+msgstr "Nome de usuario: "
+
 #: ../deskbar/handlers/email_address.py:9
 msgid "Mail"
 msgstr "Correo"
@@ -497,6 +521,30 @@ msgstr "Abrir ubicación %s"
 msgid "Recognize previously used searches"
 msgstr "Recoñecer buscas realizadas previamente"
 
+#: ../deskbar/handlers/iswitch-window.py:11
+msgid "Window Switcher"
+msgstr "Selector de fiestra"
+
+#: ../deskbar/handlers/iswitch-window.py:12
+msgid "Switch to an existing window by name."
+msgstr "Cambie a unha fiestra existente por nome."
+
+#: ../deskbar/handlers/iswitch-window.py:16
+msgid "Windows"
+msgstr "Fiestras"
+
+#: ../deskbar/handlers/iswitch-window.py:17
+#, python-format
+msgid "%s more window"
+msgid_plural "%s more windows"
+msgstr[0] "%s fiestra máis"
+msgstr[1] "%s fiestras máis"
+
+#: ../deskbar/handlers/iswitch-window.py:32
+#, python-format
+msgid "Switch to <b>%(name)s</b>"
+msgstr "Cambiar a <b>%(name)s</b>"
+
 #: ../deskbar/handlers/mozilla.py:120
 msgid "You can customize which search engines are offered."
 msgstr "Pode personalizar qué motores se ofrecen de busca."
@@ -539,8 +587,8 @@ msgid "Find files and folders by searching for a name pattern"
 msgstr "Atopar os ficheiros e cartafoles buscando por un patrón do nome"
 
 #: ../deskbar/handlers/programs.py:26
-msgid "Developper Documentation"
-msgstr "Documentación de desenrolo"
+msgid "Developer Documentation"
+msgstr "Documentación do desenrolador"
 
 #: ../deskbar/handlers/programs.py:27
 msgid "Search Devhelp for a function name"
@@ -625,7 +673,11 @@ msgstr "Sitio web de Deskbar"
 msgid "translator-credits"
 msgstr "Ignacio Casal Quinteiro  <nacho.resa@gmail.com>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:50
+#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+msgid "New accelerator..."
+msgstr "Acelerador novo..."
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:175
 msgid "_More..."
 msgstr "_Máis..."
 
