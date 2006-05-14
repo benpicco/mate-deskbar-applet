@@ -117,13 +117,16 @@ def get_url_host(url):
 # on the right triggers (e.g. Ctrl-something).
 
 def on_entry_key_press(query, shortcut, shortcuts_to_smart_bookmarks_map):
-	key = chr(shortcut)
-	try:
-		bookmark = shortcuts_to_smart_bookmarks_map[key]
-		return bookmark
-	except KeyError:
-		# There was no shortcut defined for this keypress
+	if shortcut > 255:
 		return None
+	else:
+		key = chr(shortcut)
+		try:
+			bookmark = shortcuts_to_smart_bookmarks_map[key]
+			return bookmark
+		except KeyError:
+			# There was no shortcut defined for this keypress
+			return None
 
 def _sync_shortcuts_map_from_list_store(list_store, smart_bookmarks, shortcuts_to_smart_bookmarks_map):
 	shortcuts_to_smart_bookmarks_map.clear()
