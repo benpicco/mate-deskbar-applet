@@ -121,7 +121,7 @@ class CuemiacTreeView (gtk.TreeView):
 		self.connect ("cursor-changed", self.__on_cursor_changed)
 		self.set_property ("headers-visible", False)
 		self.connect ("row-activated", lambda w,p,c: self.__on_activated())
-		self.connect ("button-press-event", lambda w,e: self.__on_activated(self.get_path_at_pos(int(e.x), int(e.y))[0]))
+		self.connect ("button-press-event", self.__on_button_press_event)
 		
 		self.connect ("key-press-event", self.__on_key_press)
 				
@@ -280,6 +280,11 @@ class CuemiacTreeView (gtk.TreeView):
 				return True
 			
 		return False
+	
+	def __on_button_press_event(self, widget, event):
+		path = self.get_path_at_pos(int(event.x), int(event.y))
+		if path != None:
+			self.__on_activated(path[0])
 
 if gtk.pygtk_version < (2,8,0):	
 	gobject.type_register (CuemiacTreeView)
