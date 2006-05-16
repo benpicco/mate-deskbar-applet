@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 2.15.2, raphael@slinckx.net)
+AC_INIT(deskbar-applet, 2.15.3, raphael@slinckx.net)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
@@ -25,7 +25,7 @@ dnl * Translation & i18n
 dnl ****************************************************************************
 
 GETTEXT_PACKAGE="deskbar-applet"
-IT_PROG_INTLTOOL([0.34.90])
+IT_PROG_INTLTOOL([0.35.0])
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [The gettext package])
 AM_GLIB_GNU_GETTEXT
