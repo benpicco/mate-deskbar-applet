@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 2.15.3, raphael@slinckx.net)
+AC_INIT(deskbar-applet, 2.15.2.1, raphael@slinckx.net)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
