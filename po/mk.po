@@ -1,24 +1,24 @@
-# translation of mk.po to Macedonian
-# translation of deskbar-applet.HEAD.po to Macedonian
+# translation of deskbar-applet.HEAD.mk.po to Macedonian
 # translation of PACKAGE.
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+#
 # Јован Наумовски <jove.mk@gmail.com>, 2005.
 # Arangel Angov <ufo@linux.net.mk>, 2005, 2006.
-#
+# Jovan Naumovski <jovan@lugola.net>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: mk\n"
+"Project-Id-Version: deskbar-applet.HEAD.mk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-02 13:45+0100\n"
-"PO-Revision-Date: 2006-03-02 20:41+0100\n"
-"Last-Translator: Arangel Angov <ufo@linux.net.mk>\n"
+"POT-Creation-Date: 2006-05-19 14:03+0200\n"
+"PO-Revision-Date: 2006-05-19 17:43+0200\n"
+"Last-Translator: Jovan Naumovski <jovan@lugola.net>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural= n==1 || n%10==1 ? 0 : 1\n"
-"X-Generator: KBabel 1.10.2\n"
+"X-Generator: KBabel 1.11.2\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
@@ -106,8 +106,8 @@ msgid ""
 "you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
 msgstr ""
-"<i><small><b>Забелешка: </b>Ако кратенката е една буква (како <b>t</b>) "
-"исто така можете да искуцате \"<b>нешто</b>\" и потоа да притиснете <b>Alt-t</b> "
+"<i><small><b>Забелешка: </b>Ако кратенката е една буква (како <b>t</b>) исто "
+"така можете да искуцате \"<b>нешто</b>\" и потоа да притиснете <b>Alt-t</b> "
 "во работната лента.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
@@ -124,27 +124,27 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Кратенки за барањата на обележувачите"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:121
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:121
 #, python-format
 msgid "Open History Item %s"
 msgstr "Отвори предмет од историја %s"
 
-#: ../deskbar/BrowserMatch.py:32
+#: ../deskbar/BrowserMatch.py:48
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Отвори обележувач %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:81
+#: ../deskbar/BrowserMatch.py:97
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Барај <b>%(name)s</b> for <i>%(text)s</i>"
 
-#: ../deskbar/BrowserMatch.py:187
+#: ../deskbar/BrowserMatch.py:206
 msgid "Shortcut"
 msgstr "Кратенка"
 
-#: ../deskbar/BrowserMatch.py:195
+#: ../deskbar/BrowserMatch.py:214
 msgid "Bookmark Name"
 msgstr "Име на обележувач"
 
@@ -177,10 +177,34 @@ msgstr[1] "Уште %s документи"
 msgstr[2] "Уште %s документи"
 
 #: ../deskbar/Categories.py:31
+msgid "Emails"
+msgstr "Е-пошта"
+
+#: ../deskbar/Categories.py:32
+#, python-format
+msgid "%s more email"
+msgid_plural "%s more emails"
+msgstr[0] "Уште %s е-пошта"
+msgstr[1] "Уште %s датотеки"
+msgstr[2] "Уште %s датотеки"
+
+#: ../deskbar/Categories.py:36
+msgid "Conversations"
+msgstr "Разговори"
+
+#: ../deskbar/Categories.py:37
+#, python-format
+msgid "%s more conversation"
+msgid_plural "%s more conversations"
+msgstr[0] "Уште %s разговори"
+msgstr[1] "Уште %s разговори"
+msgstr[2] "Уште %s разговори"
+
+#: ../deskbar/Categories.py:41
 msgid "Files"
 msgstr "Датотеки"
 
-#: ../deskbar/Categories.py:32
+#: ../deskbar/Categories.py:42
 #, python-format
 msgid "%s more file"
 msgid_plural "%s more files"
@@ -188,15 +212,15 @@ msgstr[0] "Уште %s датотека"
 msgstr[1] "Уште %s датотеки"
 msgstr[2] "Уште %s датотеки"
 
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:46
 msgid "People"
 msgstr "Луѓе"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:51
 msgid "Places"
 msgstr "Места"
 
-#: ../deskbar/Categories.py:42
+#: ../deskbar/Categories.py:52
 #, python-format
 msgid "%s more place"
 msgid_plural "%s more places"
@@ -204,11 +228,11 @@ msgstr[0] "Уште %s место"
 msgstr[1] "Уште %s места"
 msgstr[2] "Уште %s места"
 
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:56
 msgid "Actions"
 msgstr "Дејствија"
 
-#: ../deskbar/Categories.py:47
+#: ../deskbar/Categories.py:57
 #, python-format
 msgid "%s more action"
 msgid_plural "%s more actions"
@@ -216,15 +240,15 @@ msgstr[0] "Уште %s дејство"
 msgstr[1] "Уште %s дејства"
 msgstr[2] "Уште %s дејства"
 
-#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
+#: ../deskbar/Categories.py:61 ../deskbar/handlers/web_address.py:9
 msgid "Web"
 msgstr "Веб"
 
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:66
 msgid "Web Search"
 msgstr "Веб пребарување"
 
-#: ../deskbar/DeskbarHistory.py:53
+#: ../deskbar/DeskbarHistory.py:37
 msgid "No History"
 msgstr "Нема историја"
 
@@ -237,8 +261,8 @@ msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
 msgstr ""
-"Најверојатно не е фатална но сепак пријавете ја напрограмерите. "
-"Програмата може да се однесува чудно одсега па натаму."
+"Најверојатно не е фатална но сепак пријавете ја напрограмерите. Програмата "
+"може да се однесува чудно одсега па натаму."
 
 #: ../deskbar/gtkexcepthook.py:24
 msgid "Bug Detected"
@@ -253,37 +277,35 @@ msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Пребарај ги сите документи (користејќи го Бигл), како што пишуваш"
 
 #: ../deskbar/handlers/beagle-live.py:63
-#: ../deskbar/handlers/email_address.py:27
 #, python-format
-msgid "Send Email to %s"
-msgstr "Испрати е-пошта до %s"
+msgid "Edit contact %s"
+msgstr "Уреди го контактот %s"
 
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:73
+#: ../deskbar/handlers/beagle-live.py:72
 #, python-format
-msgid "Email from %s"
-msgstr "Е-пошта од %s"
+msgid "From %s"
+msgstr "Од %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:81 ../deskbar/handlers/files.py:35
+#: ../deskbar/handlers/beagle-live.py:80 ../deskbar/handlers/files.py:38
 #, python-format
 msgid "Open %s"
 msgstr "Отвори %s"
 
-#: ../deskbar/handlers/beagle-live.py:89
+#: ../deskbar/handlers/beagle-live.py:88
 #, python-format
 msgid "News from %s"
 msgstr "Вести од %s"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:97
 #, python-format
 msgid "Note: %s"
 msgstr "Забелешка: %s"
 
 #: ../deskbar/handlers/beagle-live.py:106
 #, python-format
-msgid "Conversation with %s"
-msgstr "Разговор со %s"
+msgid "With %s"
+msgstr "Со %s"
 
 #: ../deskbar/handlers/beagle-live.py:114
 #, python-format
@@ -292,23 +314,51 @@ msgstr "Календар: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:285
-#: ../deskbar/handlers/beagle-live.py:307
+#: ../deskbar/handlers/beagle-live.py:289
+#: ../deskbar/handlers/beagle-live.py:311
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-static.py:19
+#: ../deskbar/handlers/beagle-static.py:20
 msgid "Beagle"
 msgstr "Бигл"
 
-#: ../deskbar/handlers/beagle-static.py:20
+#: ../deskbar/handlers/beagle-static.py:21
 msgid "Search all of your documents (using Beagle)"
 msgstr "Пребарај ги сите документи (користејќи го Бигл)"
 
-#: ../deskbar/handlers/beagle-static.py:36
+#: ../deskbar/handlers/beagle-static.py:37
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Барај %s користејќи го Бигл"
+
+#: ../deskbar/handlers/desklicious.py:15
+msgid "You need to configure your deli.icio.us account."
+msgstr "Треба да ја конфигурирате вашата deli.icio.us сметка"
+
+#: ../deskbar/handlers/desklicious.py:17
+msgid "You can modify your deli.icio.us account."
+msgstr "Можете да ја модифицирате вашата deli.icio.us сметка."
+
+#: ../deskbar/handlers/desklicious.py:21
+msgid "del.icio.us Bookmarks"
+msgstr "del.icio.us обележувачи"
+
+#: ../deskbar/handlers/desklicious.py:22
+msgid "Search your del.icio.us bookmarks by tag name"
+msgstr "Пребарувајте ги Вашите del.icio.us обележувачи по име на етикета"
+
+#: ../deskbar/handlers/desklicious.py:28
+msgid "del.icio.us Account"
+msgstr "deli.icio.us сметка"
+
+#: ../deskbar/handlers/desklicious.py:35
+msgid "Enter your deli.icio.us username below"
+msgstr "Внесете го вашето deli.icio.us корисничко име подолу"
+
+#: ../deskbar/handlers/desklicious.py:41
+msgid "Username: "
+msgstr "Корисничко име: "
 
 #: ../deskbar/handlers/email_address.py:9
 msgid "Mail"
@@ -318,35 +368,42 @@ msgstr "Пошта"
 msgid "Send mail by typing a complete e-mail address"
 msgstr "Испрати е-пошта со пишување на целосната адреса на е-пошта"
 
+#: ../deskbar/handlers/email_address.py:27
+#, python-format
+msgid "Send Email to %s"
+msgstr "Испрати е-пошта до %s"
+
 #: ../deskbar/handlers/epiphany.py:26
 msgid "You can set shortcuts for your searches."
 msgstr "Можете да поставувате кратенки за Вашите пребарувања."
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:23
+#: ../deskbar/handlers/mozilla.py:129
 msgid "Web Bookmarks"
 msgstr "Веб обележувачи"
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
+#: ../deskbar/handlers/mozilla.py:130
 msgid "Open your web bookmarks by name"
 msgstr "Отвори ги веб обележувачите по име"
 
-#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:28
+#: ../deskbar/handlers/mozilla.py:139
 msgid "Web History"
 msgstr "Веб историја"
 
-#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:29
+#: ../deskbar/handlers/mozilla.py:140
 msgid "Open your web history by name"
 msgstr "Отвори ја веб историјата по име"
 
-#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:125
+#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:33
+#: ../deskbar/handlers/mozilla.py:134
 msgid "Web Searches"
 msgstr "Веб пребарувања"
 
-#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:126
+#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:34
+#: ../deskbar/handlers/mozilla.py:135
 msgid "Search the web via your browser's search settings"
 msgstr ""
 "Пребарајте го веб просторот преку поставувањата за пребарување на "
@@ -356,11 +413,11 @@ msgstr ""
 msgid "You need to enable autocomplete in your mail preferences"
 msgstr "Треба да вклучите автоматско поплнување во вашите преференци за пошта"
 
-#: ../deskbar/handlers/evolution.py:13
+#: ../deskbar/handlers/evolution.py:14
 msgid "Autocompletion Needs to be Enabled"
 msgstr "Автоматското довршување мора да биде вклучено"
 
-#: ../deskbar/handlers/evolution.py:14
+#: ../deskbar/handlers/evolution.py:15
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
@@ -371,18 +428,18 @@ msgstr ""
 "Вашата програма за пошта изберете Уреди - Преференци па потоа автоматско "
 "довршување."
 
-#: ../deskbar/handlers/evolution.py:19
+#: ../deskbar/handlers/evolution.py:20
 msgid "Mail (Address Book)"
 msgstr "Пошта (Адресар)"
 
-#: ../deskbar/handlers/evolution.py:20
+#: ../deskbar/handlers/evolution.py:21
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Испратите пошта до Вашите контакти со пишување на нивното име или адреса за "
 "е-пошта"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:45
+#: ../deskbar/handlers/evolution.py:46
 #, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Испрати е-пошта до <b>%(name)s</b> (%(email)s)"
@@ -395,7 +452,7 @@ msgstr "Датотеки и папки"
 msgid "Open your files and folders by name"
 msgstr "Отворај ги датотеките и папките по име"
 
-#: ../deskbar/handlers/files.py:54
+#: ../deskbar/handlers/files.py:60
 #, python-format
 msgid "Open folder %s"
 msgstr "Отвори папка %s"
@@ -470,7 +527,7 @@ msgstr "Обележувачи на датотеки и папки"
 msgid "Open your files and folders bookmarks by name"
 msgstr "Отвори ги обележувачите на датотеки и папки по име"
 
-#: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
+#: ../deskbar/handlers/gtkbookmarks.py:34 ../deskbar/handlers/volumes.py:51
 #, python-format
 msgid "Open location %s"
 msgstr "Отвори локација %s"
@@ -479,7 +536,32 @@ msgstr "Отвори локација %s"
 msgid "Recognize previously used searches"
 msgstr "Препознавај претходни пребарувања"
 
-#: ../deskbar/handlers/mozilla.py:111
+#: ../deskbar/handlers/iswitch-window.py:11
+msgid "Window Switcher"
+msgstr "Променувач на прозорци"
+
+#: ../deskbar/handlers/iswitch-window.py:12
+msgid "Switch to an existing window by name."
+msgstr "Преминувај на постоечки прозорец по име."
+
+#: ../deskbar/handlers/iswitch-window.py:16
+msgid "Windows"
+msgstr "Прозорци"
+
+#: ../deskbar/handlers/iswitch-window.py:17
+#, python-format
+msgid "%s more window"
+msgid_plural "%s more windows"
+msgstr[0] "Уште %s прозорец"
+msgstr[1] "Уште %s прозорци"
+msgstr[2] "Уште %s прозорци"
+
+#: ../deskbar/handlers/iswitch-window.py:32
+#, python-format
+msgid "Switch to <b>%(name)s</b>"
+msgstr "Испрати е-пошта до <b>%(name)s</b>"
+
+#: ../deskbar/handlers/mozilla.py:120
 msgid "You can customize which search engines are offered."
 msgstr "Можете да изберете кои пребарувачки машини да бидат понудени."
 
@@ -520,22 +602,35 @@ msgstr "Барај датотеки и папки"
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Барај датотеки и папки со барање на дел од името"
 
+#: ../deskbar/handlers/programs.py:26
+msgid "Developer Documentation"
+msgstr "Документација за развивачите на софтвер"
+
+#: ../deskbar/handlers/programs.py:27
+msgid "Search Devhelp for a function name"
+msgstr "Барај во Devhelp за име на функција"
+
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:72
+#: ../deskbar/handlers/programs.py:76
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Подигни <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:86
+#: ../deskbar/handlers/programs.py:90
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Побарај %s во речникот"
 
-#: ../deskbar/handlers/programs.py:94
+#: ../deskbar/handlers/programs.py:98
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Барај зборови како %s"
+
+#: ../deskbar/handlers/programs.py:106
+#, python-format
+msgid "Search in Devhelp for %s"
+msgstr "Барај во Devhelp за %s"
 
 #: ../deskbar/handlers/volumes.py:16
 msgid "Disks and Network Places"
@@ -545,12 +640,12 @@ msgstr "Дискови и места на мрежата"
 msgid "Open disk drives, shared network places and similar resources by name"
 msgstr "Отвори уреди со диск, заеднички места на мрежата и слични ресурси по име"
 
-#: ../deskbar/handlers/volumes.py:44
+#: ../deskbar/handlers/volumes.py:47
 #, python-format
 msgid "Open network place %s"
 msgstr "Отвори место на мрежата %s"
 
-#: ../deskbar/handlers/volumes.py:46
+#: ../deskbar/handlers/volumes.py:49
 #, python-format
 msgid "Open audio disk %s"
 msgstr "Отвори аудио диск %s"
@@ -594,7 +689,11 @@ msgstr ""
 "Јован Наумовски <jove.mk@gmail.com>\n"
 "http://gnome.softver.org.mk"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:54
+#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+msgid "New accelerator..."
+msgstr "Нов забрзувач..."
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:175
 msgid "_More..."
 msgstr "_Повеќе..."
 
