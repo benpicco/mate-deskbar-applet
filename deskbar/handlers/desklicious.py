@@ -12,9 +12,9 @@ QUERY_DELAY = 1
 def _check_requirements():
 	#We need user and password
 	if not deskbar.GCONF_CLIENT.get_string(GCONF_DELICIOUS_USER):
-		return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS, _("You need to configure your deli.icio.us account."), _on_config_account)
+		return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS, _("You need to configure your del.icio.us account."), _on_config_account)
 	else:
-		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, _("You can modify your deli.icio.us account."), _on_config_account)
+		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, _("You can modify your del.icio.us account."), _on_config_account)
 
 HANDLERS = {
 	"DeliciousHandler" : {
