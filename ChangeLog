@@ -1,5 +1,25 @@
 2006-05-31  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* configure.ac:
+	* deskbar/Makefile.am:
+	* deskbar/gdmclient/.cvsignore:
+	* deskbar/gdmclient/Makefile.am:
+	* deskbar/gdmclient/__init__.py:
+	* deskbar/gdmclient/_gdmclient.defs:
+	* deskbar/gdmclient/_gdmclient.override:
+	* deskbar/gdmclient/_gdmclientmodule.c: (init_gdmclient):
+	* deskbar/gdmclient/gdm-logout-action.c: (gdm_send_protocol_msg),
+	(get_display_number), (gdm_authenticate_connection),
+	(gdm_shutdown_protocol_connection), (gdm_init_protocol_connection),
+	(gdm_parse_query_response), (gdm_update_logout_actions),
+	(gdm_supports_logout_action), (gdm_get_logout_action),
+	(gdm_set_logout_action), (gdm_new_login):
+	* deskbar/gdmclient/gdm-logout-action.h:
+	Import the gdmclient module from gimmie. It will be used for the
+	shutdown/restart actions handler
+
+2006-05-31  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/handlers/pathprograms.py:
 	Fix the hashing of programs so they won't show pathprograms and programs
 	duplicate

@@ -1,0 +1,38 @@
+;; -*- scheme -*-
+
+(define-flags LogoutAction
+  (in-module "GdmClient")
+  (c-name "GdmLogoutAction")
+  (values
+    '("none" "GDM_LOGOUT_ACTION_NONE")
+    '("shutdown" "GDM_LOGOUT_ACTION_SHUTDOWN")
+    '("reboot" "GDM_LOGOUT_ACTION_REBOOT")
+    '("suspend" "GDM_LOGOUT_ACTION_SUSPEND")
+  )
+)
+
+(define-function supports_logout_action
+  (c-name "gdm_supports_logout_action")
+  (return-type gboolean)
+  (parameters
+    '("GdmLogoutAction" "action")
+  )
+)
+
+(define-function set_logout_action
+  (c-name "gdm_set_logout_action")
+  (return-type "none")
+  (parameters
+    '("GdmLogoutAction" "action")
+  )
+)
+
+(define-function get_logout_action
+  (c-name "gdm_get_logout_action")
+  (return-type "GdmLogoutAction")
+)
+
+(define-function new_login
+  (c-name "gdm_new_login")
+  (return-type "none")
+)

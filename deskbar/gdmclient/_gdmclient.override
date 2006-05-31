@@ -1,0 +1,18 @@
+/* -*- Mode: C; c-basic-offset: 4 -*- */
+%%
+headers
+#include <Python.h>
+
+#define NO_IMPORT_PYGOBJECT
+#include "pygobject.h"
+
+#include <gdm-logout-action.h>
+
+%%
+modulename _iconentry
+%%
+import gtk.Bin as PyGtkBin_Type
+import gtk.Widget as PyGtkWidget_Type
+%%
+ignore-glob
+        *_get_type
