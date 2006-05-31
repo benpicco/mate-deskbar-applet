@@ -40,7 +40,13 @@ class DeskbarApplet:
 		self.loader.connect ("module-initialized", self._connect_if_async)
 
 		gtk.window_set_default_icon_name("deskbar-applet")
-		
+
+		self.minchars = deskbar.GCONF_CLIENT.get_int(self.prefs.GCONF_MINCHARS)
+		if self.minchars == None:
+			self.minchars = 1
+
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_MINCHARS, lambda x, y, z, a: self.on_minchars_changed (z.value))
+
 		# Set and retrieve the UI to be used
 		ui_name = deskbar.GCONF_CLIENT.get_string(self.prefs.GCONF_UI_NAME)
 		if ui_name == None:
@@ -93,6 +99,8 @@ class DeskbarApplet:
 		get_deskbar_history().add(text, match)
 		
 	def on_start_query (self, sender, qstring):
+		if len(qstring) < self.minchars:
+			return
 		if self.start_query_id != 0:
 			gobject.source_remove(self.start_query_id)
 			
@@ -281,6 +289,12 @@ class DeskbarApplet:
 		self.ui.connect ("keyboard-shortcut", self.on_keyboard_shortcut)
 		self.applet.connect('change-orient', lambda applet, orient: self.ui.on_change_orient(applet))
 		self.applet.connect('change-size', lambda applet, orient: self.ui.on_change_size(applet))
+
+	def on_minchars_changed (self, value):
+		if value is None or value.type != gconf.VALUE_INT:
+			return
+
+		self.minchars = value.get_int()
 
 	def on_ui_changed (self, value):
 		if value is None or value.type != gconf.VALUE_STRING:

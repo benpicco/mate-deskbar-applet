@@ -1,5 +1,15 @@
 2006-05-31  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* data/deskbar-applet.schemas.in:
+	* deskbar/DeskbarApplet.py:
+	* deskbar/DeskbarAppletPreferences.py:
+	* deskbar/__init__.py:
+	Add a hidden gconf setting to set the minimal number of chars to type
+	before deskbar starts to react. Defaults to 1 as previsouly used.
+	Patch by Maxime Henrion <mux@FreeBSD.org>
+
+2006-05-31  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* configure.ac:
 	* deskbar/Makefile.am:
 	* deskbar/gdmclient/.cvsignore:

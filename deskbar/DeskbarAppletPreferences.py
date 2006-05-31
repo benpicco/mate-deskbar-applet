@@ -12,9 +12,10 @@ class DeskbarAppletPreferences:
 		self.GCONF_EXPAND = deskbar.GCONF_EXPAND
 		self.GCONF_UI_NAME = deskbar.GCONF_UI_NAME
 		
-		# This preference is shared across all applet instances, unlike
-		# width, which is per-instance.
+		# These preferences are shared across all applet instances
+		# unlike width, which is per-instance.
 		self.GCONF_KEYBINDING = deskbar.GCONF_KEYBINDING
+		self.GCONF_MINCHARS = deskbar.GCONF_MINCHARS
 		
 		# Retreive this applet's pref folder
 		path = applet.get_preferences_key()

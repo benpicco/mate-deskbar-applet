@@ -82,6 +82,8 @@ GCONF_WIDTH =  GCONF_DIR + "/width"
 # GConf key to the per applet entry expand setting
 GCONF_EXPAND = GCONF_DIR + "/expand"
 
+# GConf key to the setting for the minimum number of chars of a query
+GCONF_MINCHARS = GCONF_DIR + "/minchars"
 # GConf key for global keybinding
 GCONF_KEYBINDING = GCONF_DIR + "/keybinding"
 
