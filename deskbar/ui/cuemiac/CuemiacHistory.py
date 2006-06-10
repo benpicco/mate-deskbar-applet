@@ -65,10 +65,20 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
 	}
 	
-	def __init__ (self, widget_to_align_with, applet):
+	def __init__ (self, widget_to_align_with, applet, history_view=None):
+		"""
+		@param widget_to_align_with: A widget the popup should align itself to.
+		@param applet: A gnomeapplet.Applet instance. However - all that is needed is a .window attribute and a get_orient() method.
+		@param history_view: A L{CuemiacHistoryView} instance. If C{None} or nothing as passed, a new one will be created.
+		"""
 		CuemiacAlignedWindow.__init__ (self, widget_to_align_with, applet)
 		self.applet = applet
-		self.list_view = CuemiacHistoryView ()
+		
+		if not history_view:
+			self.list_view = CuemiacHistoryView ()
+		else:
+			self.list_view = history_view
+			
 		self.add (self.list_view)
 		
 		self.list_view.connect ("match-selected", self.on_match_selected)

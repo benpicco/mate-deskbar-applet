@@ -122,7 +122,7 @@ class DeskbarAppletButton (gtk.HBox):
 		else:
 			return gtk.ARROW_RIGHT
 	
-	def set_orientation (self, orientation, reshow=True):
+	def set_layout_by_orientation (self, orientation, reshow=True):
 		"""orientation should be a gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}.
 		reshow indicates whether or not the widget should call show() on all
 		its children."""

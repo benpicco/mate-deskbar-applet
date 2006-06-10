@@ -1,3 +1,29 @@
+2006-06-10  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+	* deskbar/ui/cuemiac/CuemiacAlignedWindow.py:
+	* deskbar/ui/cuemiac/CuemiacAppletButton.py:
+	* deskbar/ui/cuemiac/CuemiacButtonUI.py:
+	* deskbar/ui/cuemiac/CuemiacHistory.py:
+	* deskbar/ui/cuemiac/CuemiacLayoutProvider.py:
+	* deskbar/ui/cuemiac/CuemiacPopupEntry.py:
+	* deskbar/ui/cuemiac/CuemiacTreeView.py:
+	* deskbar/ui/cuemiac/CuemiacUIManager.py:
+	* deskbar/ui/cuemiac/DeskbarAppletButton.py:
+	* deskbar/ui/cuemiac/LingeringSelectionWindow.py:
+	* deskbar/ui/cuemiac/Makefile.am:
+	* deskbar/ui/entriac/CuemiacEntryUI.py:
+	
+	WARNING: Breakage introduced as agreed on IRC. Mainly in entriac ui.
+	
+	Merge the Cuemiac rework. Highlights:
+	- Introduce a CuemiacUIManager to handle the common tasks for uis using the C.
+	- Introduce a CuemiacLayoutProvider abstract class to provide hooks for the
+	  common layout tasks.
+	- Introductory work on a CuemiacPopupEntry in the style of gtk.EntryCompletion,
+	  problems in the navigational model relating to bug #326254 breaks entriac ui.
+	- Add a LingeringSelectionWindow that leaves a "shadow" behind when a match
+	  is selected. See fixme in CuemiacTreeView.__on_button_press.
+
 2006-05-31  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* data/deskbar-applet.schemas.in:

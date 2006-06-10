@@ -120,9 +120,9 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		self.connect ("cursor-changed", self.__on_cursor_changed)
 		self.set_property ("headers-visible", False)
-		self.connect ("row-activated", lambda w,p,c: self.__on_activated())
-		self.connect ("button-press-event", self.__on_button_press_event)
-		
+
+		self.connect ("row-activated", self.__on_activated)
+		self.connect ("button-press-event", self.__on_button_press)		
 		self.connect ("key-press-event", self.__on_key_press)
 				
 		self.set_enable_search (False)
@@ -190,6 +190,23 @@ class CuemiacTreeView (gtk.TreeView):
 		iter = model.iter_nth_child (iter, num_children - 1)
 		return model.get_path (iter)
 	
+	def focus_bottom_match (self):
+		last = self.last_visible_path ()
+		self.set_cursor (last)
+	
+	def focus_top_match (self):
+		model = self.get_model ()
+		first = model.get_path(model.get_iter_first())
+		self.set_cursor (first)
+
+	def __on_button_press (self, treeview, event):
+		"""
+		We want to activate rows by single clicks
+		"""
+		path, col, x, y = self.get_path_at_pos(int(event.x), int(event.y))
+		# FIXME: Don't emit signal when we have a category or nest!
+		self.emit ("row-activated", path, col)
+	
 	def __on_config_expanded_cat (self, value):
 		if value != None and value.type == gconf.VALUE_LIST:
 			self.__collapsed_rows = [h.get_string() for h in value.get_list()]
@@ -254,12 +271,19 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		cell.set_property ("markup", model[iter][model.ACTIONS])
 
-	def __on_activated (self, path=None):
-		if path == None:
-			model, iter = self.get_selection().get_selected()
-		else:
-			model, iter = self.get_model(), path
+	def __on_activated (self, treeview, path, col):
+		#if path == None:
+		#	model, iter = self.get_selection().get_selected()
+		#else:
+		model = self.get_model()
+		iter = model.get_iter (path)
 		match = model[iter][model.MATCHES]
+		
+		# Check if this s really a match and not just
+		# a nest or category
+		if match.__class__ == Nest or match.__class__ == CuemiacCategory:
+			return
+		
 		self.emit ("match-selected", match)
 		
 		

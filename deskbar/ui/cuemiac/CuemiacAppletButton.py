@@ -122,10 +122,12 @@ class CuemiacAppletButton (gtk.HBox):
 		else:
 			return gtk.ARROW_RIGHT
 	
-	def set_orientation (self, orientation, reshow=True):
-		"""orientation should be a gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}.
-		reshow indicates whether or not the widget should call show() on all
-		its children."""
+	def set_layout_by_orientation (self, orientation):
+		"""
+		@param orientation: should be a gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}.
+		
+		This method calls self.show_all()
+		"""
 		self.remove (self.box)	
 		self.box.remove (self.button_arrow)
 		self.box.remove (self.button_main)
@@ -144,8 +146,7 @@ class CuemiacAppletButton (gtk.HBox):
 		self.box.pack_start (self.button_main)
 		self.box.pack_end (self.button_arrow, False, False)
 				
-		if reshow:
-			self.show_all ()
+		self.show_all ()
 			
 if gtk.pygtk_version < (2,8,0):			
 	gobject.type_register(DeskbarAppletButton)

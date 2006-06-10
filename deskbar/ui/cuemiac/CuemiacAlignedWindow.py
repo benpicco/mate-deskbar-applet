@@ -5,14 +5,14 @@ class CuemiacAlignedWindow (gtk.Window):
 	Borderless window aligning itself to a given widget.
 	Use CuemiacWindow.update_position() to align it.
 	"""
-	def __init__(self, widgetToAlignWith, applet):
+	def __init__(self, widgetToAlignWith, applet, window_type=gtk.WINDOW_TOPLEVEL):
 		"""
 		alignment should be one of
 			gnomeapplet.ORIENT_{DOWN,UP,LEFT,RIGHT}
 		
 		Call CuemiacWindow.update_position () to position the window.
 		"""
-		gtk.Window.__init__(self, gtk.WINDOW_TOPLEVEL)
+		gtk.Window.__init__(self, window_type)
 		self.set_decorated (False)
 
 		# Skip the taskbar, and the pager, stick and stay on top
@@ -20,7 +20,8 @@ class CuemiacAlignedWindow (gtk.Window):
 		self.set_keep_above(True)
 		self.set_skip_pager_hint(True)
 		self.set_skip_taskbar_hint(True)
-		
+		self.set_border_width (1)
+				
 		self.widgetToAlignWith = widgetToAlignWith
 		self.applet = applet
 		self.alignment = applet.get_orient ()
