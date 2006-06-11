@@ -6,6 +6,7 @@ import deskbar, deskbar.Indexer, deskbar.Handler
 from deskbar.Watcher import FileWatcher
 from deskbar.BrowserMatch import get_url_host, is_preferred_browser, on_customize_search_shortcuts, on_entry_key_press, load_shortcuts
 from deskbar.BrowserMatch import BrowserSmartMatch, BrowserMatch
+from deskbar.defs import VERSION
 
 def _check_requirements():
 #	if deskbar.UNINSTALLED_DESKBAR:
@@ -31,17 +32,20 @@ HANDLERS = {
 	"EpiphanyBookmarksHandler": {
 		"name": _("Web Bookmarks"),
 		"description": _("Open your web bookmarks by name"),
-		"requirements": _check_requirements
+		"requirements": _check_requirements,
+		"version": VERSION,
 	},
 	"EpiphanyHistoryHandler": {
 		"name": _("Web History"),
 		"description": _("Open your web history by name"),
-		"requirements": _check_requirements
+		"requirements": _check_requirements,
+		"version": VERSION,
 	},
 	"EpiphanySearchHandler": {
 		"name": _("Web Searches"),
 		"description": _("Search the web via your browser's search settings"),
-		"requirements": _check_requirements_search
+		"requirements": _check_requirements_search,
+		"version": VERSION,
 	},
 }
 

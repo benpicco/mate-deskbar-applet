@@ -8,6 +8,7 @@ import deskbar, deskbar.Indexer, deskbar.Handler
 from deskbar.Watcher import FileWatcher
 from deskbar.BrowserMatch import get_url_host, is_preferred_browser
 from deskbar.BrowserMatch import BrowserSmartMatch, BrowserMatch
+from deskbar.defs import VERSION
 
 def _check_requirements():
 #	if deskbar.UNINSTALLED_DESKBAR:
@@ -22,17 +23,20 @@ HANDLERS = {
 	"GaleonBookmarksHandler" : {
 		"name": _("Web Bookmarks"),
 		"description": _("Open your web bookmarks by name"),
-		"requirements": _check_requirements
+		"requirements": _check_requirements,
+		"version": VERSION,
 	},
 	"GaleonHistoryHandler" : {
 		"name": _("Web History"),
 		"description": _("Open your web history by name"),
-		"requirements": _check_requirements
+		"requirements": _check_requirements,
+		"version": VERSION,
 	},
 	"GaleonSearchHandler" : {
 		"name": _("Web Searches"),
 		"description": _("Search the web via your browser's search settings"),
-		"requirements": _check_requirements
+		"requirements": _check_requirements,
+		"version": VERSION,
 	},
 }
 

@@ -3,6 +3,7 @@ from gettext import gettext as _
 import gnomevfs
 import deskbar, deskbar.Indexer
 import deskbar.Handler
+from deskbar.defs import VERSION
 
 # FIXME: Waiting for python bindings of galago. This class is not ready
 HANDLERS = {
@@ -10,6 +11,7 @@ HANDLERS = {
 		"name": "Instant Messaging (IM) Buddies",
 		"description": "Send messages to your buddies by typing their name",
 		"requirements": lambda: (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Waiting for python bindings of galago. Should allow to send IM by typing name.", None),
+		"version": VERSION,
 	}
 }
 

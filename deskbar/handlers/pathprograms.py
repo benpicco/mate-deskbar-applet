@@ -3,7 +3,7 @@ import glob
 from os.path import join, isfile, abspath, splitext, expanduser, exists, isdir
 from gettext import gettext as _
 import subprocess
-
+from deskbar.defs import VERSION
 import gobject
 import gtk
 import deskbar, deskbar.Indexer
@@ -13,6 +13,7 @@ HANDLERS = {
 	"PathProgramsHandler" : {
 		"name": _("Programs (Advanced)"),
 		"description": _("Launch any program present in your $PATH"),
+		"version": VERSION,
 	}
 }
 

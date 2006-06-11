@@ -3,6 +3,7 @@ import gobject,gtk, gnome, gnome.ui, gnomevfs
 import deskbar, deskbar.Handler, deskbar.Utils, deskbar.Match
 from gettext import gettext as _
 from os.path import exists
+from deskbar.defs import VERSION
 
 MAX_RESULTS = 20 # per handler
 
@@ -37,6 +38,7 @@ HANDLERS = {
 		# We must see how to detect properly beagle, for now it will fail on creating a new client
 		# when beagle is not available.
 		"requirements" : _check_requirements,
+		"version": VERSION,
 	}
 }
 

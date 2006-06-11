@@ -2,7 +2,7 @@ import os, re, HTMLParser, base64, glob
 from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
 from ConfigParser import RawConfigParser
-
+from deskbar.defs import VERSION
 import gtk
 from deskbar.Watcher import FileWatcher, DirWatcher
 import deskbar, deskbar.Indexer, deskbar.Handler
@@ -128,17 +128,20 @@ HANDLERS = {
 	"MozillaBookmarksHandler" : {
 		"name": _("Web Bookmarks"),
 		"description": _("Open your web bookmarks by name"),
-		"requirements": _check_requirements_bookmarks
+		"requirements": _check_requirements_bookmarks,
+		"version": VERSION,
 	},
 	"MozillaSearchHandler" : {
 		"name": _("Web Searches"),
 		"description": _("Search the web via your browser's search settings"),
-		"requirements": _check_requirements_search
+		"requirements": _check_requirements_search,
+		"version": VERSION,
 	},
 	"MozillaHistoryHandler" : {
 		"name": _("Web History"),
 		"description": _("Open your web history by name"),
-		"requirements": _check_requirements_bookmarks
+		"requirements": _check_requirements_bookmarks,
+		"version": VERSION,
 	}
 }
 

@@ -3,11 +3,13 @@ from gettext import gettext as _
 import gnomevfs
 import deskbar.Handler
 import re
+from deskbar.defs import VERSION
 
 HANDLERS = {
 	"EmailAddressHandler" : {
 		"name": _("Mail"),
 		"description": _("Send mail by typing a complete e-mail address"),
+		"version": VERSION,
 	}
 }
 

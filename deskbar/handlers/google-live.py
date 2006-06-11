@@ -5,6 +5,7 @@ import gobject
 import gnomevfs
 from os.path import expanduser, exists, join
 from gettext import gettext as _
+from deskbar.defs import VERSION
 
 try:
 	from SOAPpy import WSDL
@@ -47,7 +48,8 @@ HANDLERS = {
 	"GoogleLiveHandler" : {
 		"name": _("Google Search"),
 		"description": _("Search Google as you type"),
-		"requirements" : _check_requirements
+		"requirements" : _check_requirements,
+		"version": VERSION,
 	}
 }
 

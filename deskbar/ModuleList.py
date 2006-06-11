@@ -85,7 +85,7 @@ class ModuleList (gtk.ListStore):
 				return
 				
 		if iter is None:
-			res = self.get_position_from_context(context)
+			res, index = self.get_position_from_context(context)
 		if res is None or res[0] is None:
 			iter = self.append ()
 		
@@ -93,6 +93,12 @@ class ModuleList (gtk.ListStore):
 		self.set_value(iter, self.ENABLED_COL, context.enabled)
 		self.set_value(iter, self.MODULE_CTX_COL, context)
 	
+	def remove_module(self, context):
+		iter, index = self.get_position_from_context(context)
+		if iter != None:
+			print 'Removing from modulelist:', context.handler
+			self.remove(iter)
+		
 	def module_changed(self, context):
 		iter, index = self.get_position_from_context(context)
 		if iter != None:
@@ -113,6 +119,72 @@ class ModuleList (gtk.ListStore):
 		self[self.get_position_from_context(context)[0]][self.ENABLED_COL] = context.enabled
 
 gobject.type_register(ModuleList)
+
+class WebModuleList (gtk.ListStore):
+	MODULE_CTX_COL = 0
+	
+	def __init__ (self):
+		gtk.ListStore.__init__ (self, gobject.TYPE_PYOBJECT)
+		
+	def __iter__ (self):
+		return ModuleListIter (self)
+	
+	def get_position_from_context (self, attr, value=None):
+		"""Returns a tuple (iter, index)
+		
+		iter is a gtk.TreeIter pointing to the row containing the given module context.
+		index is the index of the module in the list.
+		
+		If the module context is not found return (None, None).
+		"""
+		i = 0
+		iter = self.get_iter_first ()
+		while (iter is not None):
+			if value == None:
+				if self[iter][self.MODULE_CTX_COL] == attr:
+					return (iter, i)
+			else:
+				if getattr(self[iter][self.MODULE_CTX_COL], attr) == value:
+					return (iter, i)
+			
+			iter = self.iter_next (iter)
+			i = i+1
+		
+		return (None, 0)
+				
+	def add (self, context, iter=None):
+		"""If iter is set this method updates the row pointed to by iter with the 
+		values of context. 
+		
+		If iter is not set it will try to obtain an iter pointing
+		to the row containg the context. If there's no such row, it will append it.
+		"""
+		for modctx in self:
+			if modctx.id == context.id:
+				# We don't want a duplicate module
+				return
+				
+		if iter is None:
+			res = self.get_position_from_context(context)
+		if res is None or res[0] is None:
+			iter = self.append ()
+		
+		self.set_value(iter, self.MODULE_CTX_COL, context)
+	
+	def module_changed(self, context):
+		iter, index = self.get_position_from_context(context)
+		if iter != None:
+			self.emit('row-changed', self.get_path(iter), iter)
+		
+	def update_row_cb (self, sender, context, iter=None):
+		"""
+		Callback for updating the row containing context.
+		If iter is set the row to which it points to will be
+		updated with the context.
+		"""
+		self.add(context, iter)
+
+gobject.type_register(WebModuleList)
 
 class ModuleListIter : 
 	"""An iter type to iterate over the of *enabled* module contexts in a ModuleList object.

@@ -8,13 +8,14 @@ import gobject
 import gtk, gnome, gnome.ui
 import deskbar, deskbar.Indexer
 import deskbar.Handler
-
+from deskbar.defs import VERSION
 from threading import Thread
 
 HANDLERS = {
 	"FileFolderHandler" : {
 		"name": _("Files and Folders"),
 		"description": _("Open your files and folders by name"),
+		"version": VERSION,
 	},
 }
 

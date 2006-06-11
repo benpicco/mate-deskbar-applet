@@ -1,6 +1,6 @@
 from deskbar.Utils import strip_html
 from gettext import gettext as _
-
+from deskbar.defs import VERSION
 import urllib, cgi
 import gnomevfs
 import deskbar.Handler, deskbar
@@ -15,6 +15,7 @@ HANDLERS = {
 	"YahooHandler" : {
     	"name": _("Yahoo! Search"),
     	"description": _("Search Yahoo! as you type"),
+    	"version": VERSION,
 	}
 }
 

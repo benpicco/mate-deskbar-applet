@@ -2,10 +2,12 @@ from deskbar.Handler import *
 from deskbar.Match import *
 from time import sleep
 import gobject
+from deskbar.defs import VERSION
 
 HANDLERS = {
 	"SignallingDebugHandler" : {
 		"name": "Debug (Signalling)",
+		"version": VERSION,
 	}
 }
 

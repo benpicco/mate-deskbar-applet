@@ -6,11 +6,13 @@ import gobject
 import gnomevfs
 import deskbar.Handler
 from deskbar.Watcher import FileWatcher
+from deskbar.defs import VERSION
 
 HANDLERS = {
 	"GtkBookmarkHandler" : {
 		"name": _("Files and Folders Bookmarks"),
 		"description": _("Open your files and folders bookmarks by name"),
+		"version": VERSION,
 	}
 }
 

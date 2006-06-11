@@ -2,11 +2,13 @@ from gettext import gettext as _
 
 import deskbar.Handler
 from deskbar.DeskbarHistory import get_deskbar_history
+from deskbar.defs import VERSION
 
 HANDLERS = {
 	"HistoryHandler" : {
 		"name": _("History"),
 		"description": _("Recognize previously used searches"),
+		"version": VERSION,
 	}
 }
 

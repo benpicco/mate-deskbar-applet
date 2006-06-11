@@ -2,6 +2,7 @@ from gettext import gettext as _
 import cgi
 import gnomevfs
 import deskbar, deskbar.Indexer, deskbar.Handler, deskbar.evolution, deskbar.Utils
+from deskbar.defs import VERSION
 
 def _check_requirements():
 	if deskbar.evolution.num_address_books_with_completion() > 0:
@@ -19,7 +20,8 @@ HANDLERS = {
 	"EvolutionHandler" : {
 		"name": _("Mail (Address Book)"),
 		"description": _("Send mail to your contacts by typing their name or e-mail address"),
-		"requirements" : _check_requirements
+		"requirements" : _check_requirements,
+		"version": VERSION,
 	}
 }
 

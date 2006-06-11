@@ -3,11 +3,13 @@ import re, os
 import gobject
 import gnomevfs
 import deskbar.Handler
+from deskbar.defs import VERSION
 
 HANDLERS = {
 	"WebAddressHandler" : {
 		"name": _("Web"),
 		"description": _("Open web pages by typing a complete web address"),
+		"version": VERSION,
 	}
 }
 

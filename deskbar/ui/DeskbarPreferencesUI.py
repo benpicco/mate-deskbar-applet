@@ -4,7 +4,8 @@ import struct
 import gtk, gtk.gdk, gtk.glade, gobject, gconf
 import deskbar, deskbar.Utils
 from deskbar.updater.NewStuffUpdater import NewStuffUpdater
-from deskbar.ui.ModuleListView import ModuleListView
+from deskbar.ui.ModuleListView import ModuleListView, WebModuleListView
+from deskbar.ModuleList import WebModuleList
 from deskbar import CUEMIAC_UI_NAME, ENTRIAC_UI_NAME
 
 MAXINT = 2 ** ((8 * struct.calcsize('i')) - 1) - 1
@@ -134,10 +135,11 @@ class AccelEntry( gobject.GObject ):
 class DeskbarPreferencesUI:
 	def __init__(self, applet, module_loader, module_list):
 		self.module_list = module_list
+		self.web_module_list = WebModuleList()
 		self.module_loader = module_loader
 		self.glade = gtk.glade.XML(join(deskbar.SHARED_DATA_DIR, "prefs-dialog.glade"))
 		
-		self.newstuff = NewStuffUpdater(module_list)
+		self.newstuff = NewStuffUpdater(module_loader, module_list, self.web_module_list)
 		
 		self.dialog = self.glade.get_widget("preferences")
 		# Retreive current values
@@ -193,8 +195,11 @@ class DeskbarPreferencesUI:
 		self.ui_change_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_UI_NAME, lambda x, y, z, a: self.on_config_ui(z.value))
 		
 		container = self.glade.get_widget("newhandlers")
-		self.newmoduleview = ModuleListView(module_list)
-		container.add(self.newmoduleview)
+		self.webmoduleview = WebModuleListView(self.web_module_list)
+		self.webmoduleview.get_selection().connect("changed", self.on_webmodule_selected)
+		self.web_module_list.connect('row-changed', lambda list, path, iter: self.on_webmodule_selected(self.webmoduleview.get_selection()))
+		
+		container.add(self.webmoduleview)
 		
 		self.install = self.glade.get_widget("install")
 		self.check = self.glade.get_widget("check")
@@ -305,7 +310,11 @@ class DeskbarPreferencesUI:
 			
 		# Check if we can update
 		self.update.set_sensitive(module_context != None and module_context.update_infos[0])				
-			
+	
+	def on_webmodule_selected(self, selection):
+		module_context = self.webmoduleview.get_selected_module_context()
+		self.install.set_sensitive(module_context != None and not module_context.installing)
+		
 	def poll_requirements(self, module_context):
 		try:
 			if module_context != self.moduleview.get_selected_module_context():
@@ -366,9 +375,10 @@ class DeskbarPreferencesUI:
 		
 	def on_install_handler(self, button):
 		# Install the selected new handler
-		module_context = self.newmoduleview.get_selected_module_context()
+		module_context = self.webmoduleview.get_selected_module_context()
 		if module_context != None:
 			self.newstuff.install(module_context)
+			button.set_sensitive(False)
 			
 def show_preferences(applet, loader, model):
 	DeskbarPreferencesUI(applet, loader, model).show_run_hide()

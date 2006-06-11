@@ -2,10 +2,12 @@ from deskbar.Handler import *
 from deskbar.Match import *
 from time import sleep
 import gtk
+from deskbar.defs import VERSION
 
 HANDLERS = {
 	"AsyncDebugHandler" : {
 		"name": "Debug (Async)",
+		"version": VERSION,
 	}
 }
 

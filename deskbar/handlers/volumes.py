@@ -3,6 +3,8 @@ import ConfigParser
 from os.path import join, exists
 from gettext import gettext as _
 
+from deskbar.defs import VERSION
+
 import gobject
 
 import deskbar
@@ -15,6 +17,7 @@ HANDLERS = {
 	"VolumeHandler" : {
 		"name": _("Disks and Network Places"),
 		"description": _("Open disk drives, shared network places and similar resources by name"),
+		"version": VERSION,
 	}
 }
 

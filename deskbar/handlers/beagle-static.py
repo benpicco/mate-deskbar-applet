@@ -2,7 +2,7 @@ import os
 from os.path import exists, join
 from glob import glob
 from gettext import gettext as _
-
+from deskbar.defs import VERSION
 import gobject
 import deskbar.Handler, deskbar.Utils, deskbar.Match
 from deskbar.Utils import get_xdg_data_dirs
@@ -20,6 +20,7 @@ HANDLERS = {
 		"name": _("Beagle"),
 		"description": _("Search all of your documents (using Beagle)"),
 		"requirements": _check_requirements,
+		"version": VERSION,
 	}
 }
 

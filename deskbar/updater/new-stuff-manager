@@ -74,8 +74,12 @@ class Decompresser:
 		mime_type = gnomevfs.get_mime_type(self.path)
 		if mime_type == 'application/x-bzip-compressed-tar':
 			self.__extract_tarbz2()
+			return True
 		elif mime_type == 'application/x-compressed-tar':
 			self.__extract_targz()
+			return True
+		elif mime_type == 'text/x-python':
+			return False
 		else:
 			raise FormatNotSupportedError, self.path
 	
@@ -103,7 +107,7 @@ class Decompresser:
 		gzfile = gzip.GzipFile(self.path, 'r')
 		self.__untar(gzfile)
 		gzfile.close()
-	
+		
 SPAWNED_OBJECTS = {}
 """
 @type: {I{object_path}: I{object_instance}}
@@ -133,6 +137,8 @@ class NewStuffManager(dbus.service.Object):
 		Create dbus object at L{self.OBJECT_PATH}
 		"""
 		dbus.service.Object.__init__(self, bus_name, self.OBJECT_PATH)
+		#FIXME: Safeguard for not living too long (5 min):
+		gobject.timeout_add(5*60*1000, mainloop.quit)
 	
 	@dbus.service.method('org.gnome.NewStuffManager')
 	def GetNewStuff(self, application_name):
@@ -256,9 +262,10 @@ class NewStuff(dbus.service.Object):
 		
 		print 'Extracting %s to %s' % (download_dest, self.INSTALLPATH)
 		archive = Decompresser(download_dest, self.INSTALLPATH)
-		archive.extract()
+		delete_original = archive.extract()
 		
-		os.unlink(download_dest)
+		if delete_original:
+			os.unlink(download_dest)
 		
 		self.Updated(plugin_id)
 		return

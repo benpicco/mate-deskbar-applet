@@ -2,7 +2,7 @@ import os, ConfigParser, cgi, re
 import glob
 from os.path import join, isfile, abspath, splitext, expanduser, exists
 from gettext import gettext as _
-
+from deskbar.defs import VERSION
 import gobject
 import gtk
 import deskbar, deskbar.Indexer, deskbar.Utils
@@ -13,18 +13,22 @@ HANDLERS = {
 	"ProgramsHandler" : {
 		"name": _("Programs"),
 		"description": _("Launch a program by its name and/or description"),
+		"version": VERSION,
 	},
 	"GnomeDictHandler" : {
 		"name": _("Dictionary"),
 		"description": _("Look up word definitions in the dictionary"),
+		"version": VERSION,
 	},
 	"GnomeSearchHandler" : {
 		"name": _("Files and Folders Search"),
 		"description": _("Find files and folders by searching for a name pattern"),
+		"version": VERSION,
 	},
 	"DevhelpHandler" : {
 		"name": _("Developer Documentation"),
 		"description": _("Search Devhelp for a function name"),
+		"version": VERSION,
 	},
 }
 

@@ -44,16 +44,16 @@ class ModuleLoader (gobject.GObject):
 		gobject.GObject.__init__ (self)
 		self.ext = extension
 		self.watcher = DirWatcher()
-		self.watcher.connect('changed', self._on_handler_file_changed)
+		self.watch_id = self.watcher.connect('changed', self._on_handler_file_changed)
 		
 		if (dirs):
 			self.dirs = [abspath(expanduser(s)) for s in dirs]
-			self.filelist = self.build_filelist ()
+			self.build_filelist ()
 			self.watcher.add(self.dirs)
 		else:
 			self.dirs = None
 			self.filelist = []
-	
+		
 	def _on_handler_file_changed(self, watcher, f):
 		if f in self.filelist or not self.is_module(f):
 			return
@@ -77,7 +77,8 @@ class ModuleLoader (gobject.GObject):
 			except OSError, err:
 				print >> sys.stderr, "Error reading directory %s, skipping." % d
 				traceback.print_exc()
-		return res
+		
+		self.filelist = res
 			
 	def is_module (self, filename):
 		"""Tests whether the filename has the appropriate extension."""
@@ -139,6 +140,8 @@ class ModuleLoader (gobject.GObject):
 			context = ModuleContext (mod_instance.get_icon(), False, mod_instance, filename, handler, infos)
 					
 			self.emit("module-loaded", context)
+		
+		return context
 	
 	def load_all (self):
 		"""Tries to load all qualified modules detected by the ModuleLoader.

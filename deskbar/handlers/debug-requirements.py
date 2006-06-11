@@ -1,4 +1,5 @@
 import deskbar.Handler, deskbar.Utils
+from deskbar.defs import VERSION
 
 def _on_more(dialog):
 	print "More..."
@@ -21,6 +22,7 @@ HANDLERS = {
 	"DebugRequirementsModule" : {
 		"name": "Debug (Requirements)",
 		"requirements": _check_requirements,
+		"version": VERSION,
 	}
 }
 

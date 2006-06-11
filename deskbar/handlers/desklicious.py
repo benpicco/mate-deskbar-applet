@@ -3,6 +3,7 @@ import gnomevfs, gtk
 
 from gettext import gettext as _
 import xml.dom.minidom, urllib
+from deskbar.defs import VERSION
 
 GCONF_DELICIOUS_USER  = deskbar.GCONF_DIR+"/desklicious/user"
 
@@ -20,7 +21,8 @@ HANDLERS = {
 	"DeliciousHandler" : {
 		"name": _("del.icio.us Bookmarks"),
 		"description": _("Search your del.icio.us bookmarks by tag name"),
-		"requirements" : _check_requirements
+		"requirements" : _check_requirements,
+		"version": VERSION,
 	}
 }
 

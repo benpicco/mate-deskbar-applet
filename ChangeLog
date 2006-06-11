@@ -1,3 +1,57 @@
+2006-06-12  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/ModuleContext.py:
+	* deskbar/ModuleList.py:
+	* deskbar/ModuleLoader.py:
+	* deskbar/handlers/beagle-live.py:
+	* deskbar/handlers/beagle-static.py:
+	* deskbar/handlers/debug-async_handler.py:
+	* deskbar/handlers/debug-requirements.py:
+	* deskbar/handlers/debug-signal_handler.py:
+	* deskbar/handlers/desklicious.py:
+	* deskbar/handlers/email_address.py:
+	* deskbar/handlers/epiphany.py:
+	* deskbar/handlers/evolution.py:
+	* deskbar/handlers/files.py:
+	* deskbar/handlers/galago.py:
+	* deskbar/handlers/galeon.py:
+	* deskbar/handlers/google-live.py:
+	* deskbar/handlers/gtkbookmarks.py:
+	* deskbar/handlers/history.py:
+	* deskbar/handlers/iswitch-window.py:
+	* deskbar/handlers/mozilla.py:
+	* deskbar/handlers/pathprograms.py:
+	* deskbar/handlers/programs.py:
+	* deskbar/handlers/volumes.py:
+	* deskbar/handlers/web_address.py:
+	* deskbar/handlers/yahoo.py:
+	* deskbar/ui/DeskbarPreferencesUI.py:
+	* deskbar/ui/ModuleListView.py:
+	* deskbar/updater/NewStuffUpdater.py:
+	* deskbar/updater/new-stuff-manager:
+	* deskbar/updater/specs/deskbarapplet.py:
+	Moved repository to the official website repository, added more tesing
+	modules to the remote repository.
+
+	Fix updates, they should work really well.
+
+	Add version information to every handler we ship in the core package
+	(although we may move some handlers to the web-repo later on)
+
+	Allow the downloader to handle compressed tarballs as well as single-file
+	python scripts
+
+	Add the downloader feature. There is a second tab presenting available
+	handlers that you don't have already installed, you can choose one of
+	them, and install it. It will be downloaded and unpacked in the deskbar
+	user directory.
+
+	Normally every action should require no restart or anything, the buttons
+	should be sensitive when possible, the plugins should be unloaded/reloaded
+	without problems, etc. Anything else is a big.
+
+	This needs heavy love, and probably an UI discussion..
+
 2006-06-11  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* configure.ac:

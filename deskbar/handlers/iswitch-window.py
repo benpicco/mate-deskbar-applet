@@ -1,6 +1,6 @@
 from gettext import gettext as _
 from gettext import ngettext
-
+from deskbar.defs import VERSION
 import wnck, gtk
 import deskbar.Handler, deskbar
 import re
@@ -17,7 +17,9 @@ HANDLERS = {
 				"nest": lambda n: ngettext("%s more window", "%s more windows", n),
 				"threshold": 10
 				}
-			}
+			},
+		"version": VERSION,
+			
 		}
 	}
 
