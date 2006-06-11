@@ -1,0 +1,332 @@
+#!/usr/bin/env python
+"""
+Plugin Manager for Deskbar (and possibly other applications)
+====================
+	
+	Specification
+	------------
+		- At least one spec file in L{NewStuffManager.SPECS_DIR}
+		- Respository's XML file has the following format::
+			<items>
+				<item>
+					<id></id>
+					<name></name>
+					<description></description>
+					<tags></tags>
+					<author></author>
+					<version></version>
+					<url></url>
+				</item>
+			</items>
+		- id must be a unique identifier
+		- url must point to a tar.bz2 or tar.gz file
+		
+	How it works
+	------------
+		- First of all, the respository must be parsed (L{NewStuff.GetNewStuff})
+		- You can then check if an update for the given items in available (L{NewStuff.getUpdates})		
+		- Calling L{NewStuff.Update} starts the update process
+		
+	@see: http://live.gnome.org/DeskbarApplet/PluginManager
+	@todo: Emit download status (L{NewStuff.report)
+"""
+from elementtree import ElementTree
+import bz2
+import dbus
+import dbus.service
+import gobject
+import gnomevfs
+import gzip
+import os
+import os.path
+import pydoc
+import tarfile
+import urllib
+if getattr(dbus, 'version', (0,0,0)) >= (0,41,0):
+	import dbus.glib
+
+from deskbar.defs import DATA_DIR
+
+def is_outdated(old_version, new_version):
+	old = old_version.split('.')
+	new = new_version.split('.')
+	
+	return ( old[0] < new[0] or old[1] < new[1] or old[2] < old[2] )
+	
+class FormatNotSupportedError(Exception):
+	pass
+	
+class Decompresser:
+	
+	def __init__(self, path, dest_dir):
+		"""
+		@param path: path pointing to archive
+		@param dest_dir: Folder to extract contents to
+		@raise FormatNotSupportedError: If C{path} isn't of MIME type I{application/x-bzip-compressed-tar} or I{application/x-compressed-tar}
+		"""
+		self.path = path
+		self.dest_dir = dest_dir
+	
+	def extract(self):
+		"""
+		Extract the contents of the file to C{self.dest_dir}
+		"""
+		mime_type = gnomevfs.get_mime_type(self.path)
+		if mime_type == 'application/x-bzip-compressed-tar':
+			self.__extract_tarbz2()
+		elif mime_type == 'application/x-compressed-tar':
+			self.__extract_targz()
+		else:
+			raise FormatNotSupportedError, self.path
+	
+	def __untar(self, tar_fileobj):
+		"""
+		@param tar_fileobj: A file object of the tar file
+		"""
+		tararchive = tarfile.TarFile(fileobj=tar_fileobj)
+		for member in tararchive.getmembers():
+			tararchive.extract(member, self.dest_dir)		
+		tararchive.close()
+
+	def __extract_tarbz2(self):
+		"""
+		Extract bz2 compressed tar archive
+		"""		
+		bz2file = bz2.BZ2File(self.path, 'r')
+		self.__untar(bz2file)
+		bz2file.close()
+	
+	def __extract_targz(self):
+		"""
+		Extract gzipped tar archive
+		"""
+		gzfile = gzip.GzipFile(self.path, 'r')
+		self.__untar(gzfile)
+		gzfile.close()
+	
+SPAWNED_OBJECTS = {}
+"""
+@type: {I{object_path}: I{object_instance}}
+"""
+	
+class NewStuffManager(dbus.service.Object):
+	
+	SPECS_DIR = os.path.join(DATA_DIR, "deskbar-applet", "specs")
+	"""
+	Directory where the spec files are stored
+	"""
+	OBJECT_PATH='/org/gnome/NewStuffManager'
+	"""
+	Path of dbus object
+	"""
+	NEW_STUFF_SERVICE = 'org.gnome.NewStuffManager.NewStuff'
+	"""
+	Service of the application specific L{NewStuff} object
+	"""
+	NEW_STUFF_PATH = '/org/gnome/NewStuffManager/%s'
+	"""
+	Path of the application specific L{NewStuff} object
+	"""	
+	
+	def __init__(self, bus_name):
+		"""
+		Create dbus object at L{self.OBJECT_PATH}
+		"""
+		dbus.service.Object.__init__(self, bus_name, self.OBJECT_PATH)
+	
+	@dbus.service.method('org.gnome.NewStuffManager')
+	def GetNewStuff(self, application_name):
+		"""
+		- Ask the plugin manager to spawn a new object
+		- This object is setup for application 'application_name'
+		
+		Adds the instance of the spawned object to L{SPAWNED_OBJECTS}
+		If the application's object has been spawned already
+		an update is forced calling L{NewStuff.GetNewStuff}
+		
+		@todo: The plugin manager service can shutdown after a small timeout (not the spawned object, though)
+		
+		@param application_name: the name of the spec file without the .spec suffix
+		@type application_name: str regarding to the dbus naming conventions
+		@return: path of the form /org/gnome/NewStuffManager/<ApplicationName>
+		"""
+		new_stuff_path = self.NEW_STUFF_PATH % application_name		
+		if (SPAWNED_OBJECTS.has_key(new_stuff_path)):
+			#print 'Already spawned'
+			obj, refcount = SPAWNED_OBJECTS[new_stuff_path]
+			obj.Refresh()
+			SPAWNED_OBJECTS[new_stuff_path] = obj, refcount +1
+		else:
+			app = pydoc.importfile(os.path.join(self.SPECS_DIR, '%s.py' % application_name))
+			
+			bus_name = dbus.service.BusName('org.gnome.NewStuffManager.NewStuff', bus=session_bus)
+			obj = NewStuff(app.OPTIONS, bus_name, new_stuff_path)
+			SPAWNED_OBJECTS[new_stuff_path] = (obj, 1)
+		
+		return (self.NEW_STUFF_SERVICE, new_stuff_path)
+	
+class NewStuff(dbus.service.Object):
+	
+	repo_items = {}
+	"""
+	A dict that contains all available items of the repository.
+	The keys are C{(id, name, description, tags, author, version, url)}
+	"""
+	
+	def __init__(self, options, bus_name, object_path='/org/gnome/NewStuffManager/NewStuff'):
+		"""
+		Create application specific update manager
+		"""
+		dbus.service.Object.__init__(self, bus_name, object_path)
+		self.object_path = object_path
+		self.REPO = options['repo']
+		self.INSTALLPATH = os.path.expanduser(options['install-path'])
+		
+		#self.Refresh()
+		
+	def __filter_none_values(self, item_dict):
+		"""
+		Replace values of type None with ''
+		
+		@type item_dict: dict
+		"""
+		for key, value in item_dict.items():
+			if value == None:
+				item_dict[key] = ''
+		return
+		
+	def __load_repository(self):
+		"""
+		Parses the XML file and saves its values to the L{self.repo_items} dict
+		
+		Updates L{self.repo_items} dict
+		"""
+		tree = ElementTree.parse(urllib.urlopen(self.REPO))
+		for item in tree.findall('item'):
+			id = item.findtext('id')
+			item_dict = {}
+			item_dict['id'] = item.findtext('id')
+			item_dict['name'] = item.findtext('name')
+			item_dict['description'] = item.findtext('description')
+			item_dict['tags'] = item.findtext('tags')
+			item_dict['author'] = item.findtext('author')
+			item_dict['version'] = item.findtext('version')
+			item_dict['url'] = item.findtext('url')
+			self.__filter_none_values(item_dict)
+			self.repo_items[id] = item_dict
+	
+#	@dbus.service.signal('org.gnome.NewStuffManager.NewStuff')
+#	def Available(self, new_stuff_dict):
+#		"""
+#		@type new_stuff_dict: {"id": string, "name": string, "description":pango-string}
+#		"""
+#		pass
+	
+#	@dbus.service.signal('org.gnome.NewStuffManager.NewStuff')
+#	def CanUpdate(self, plugin_id, changelog):
+#		"""
+#		@type changelog: str
+#		"""
+#		pass
+	
+	@dbus.service.signal('org.gnome.NewStuffManager.NewStuff')
+	def Updated(self, plugin):
+		"""
+		@type plugin: str
+		"""
+		pass
+	
+	@dbus.service.method('org.gnome.NewStuffManager.NewStuff')
+	def Update(self, plugin_id):
+		"""
+		- Ask the plugins to update/install a specific plugin. This will trigger the download, and unpack.
+		- The method emits the L{self.Updated} signal when it has finished installing the new plugin.
+
+		@type plugin_id: str
+		"""
+		download_url = self.repo_items[plugin_id]['url']
+		download_dest = os.path.join(self.INSTALLPATH, os.path.basename(download_url))
+		
+		if os.path.exists(download_dest):
+			print 'Deleting old file %s' % download_dest
+			os.remove(download_dest)
+			
+		print 'Downloading %s' % download_url
+		urllib.urlretrieve(download_url, download_dest, self.report)
+		
+		print 'Extracting %s to %s' % (download_dest, self.INSTALLPATH)
+		archive = Decompresser(download_dest, self.INSTALLPATH)
+		archive.extract()
+		
+		os.unlink(download_dest)
+		
+		self.Updated(plugin_id)
+		return
+	
+	@dbus.service.method('org.gnome.NewStuffManager.NewStuff')
+	def Refresh(self):
+		if len(self.repo_items) == 0:
+			self.__load_repository()
+			
+	@dbus.service.method('org.gnome.NewStuffManager.NewStuff', out_signature='a(sss)')
+	def GetAvailableNewStuff(self):
+		"""
+		- For each available plugin the signal L{self.Available} is emitted
+		- Either we let the server do a diff by passing the existing plugins to the method, or we do a diff on client side
+		
+		@param force: Whether to force loading repository
+		@return: a list of dictionaries representing available new plugins from the remote repository
+		"""	   
+		# Returns info tuples for new items:
+		#id, name, description
+		return [(item_dict['id'], item_dict['name'], item_dict['description']) for item_dict in self.repo_items.values()]
+			
+	@dbus.service.method('org.gnome.NewStuffManager.NewStuff', out_signature='a(ss)')
+	def GetAvailableUpdates(self, plugins):
+		"""
+		- Ask the plugins of a specific application wether the given list of plugins can be updated
+		- For each plugin the L{self.CanUpdate} signal is fired
+		- The plugin is identified by a common id (used in the xml file, and known by the app)
+		
+		@type plugins: list containing (string: plugin_id, string: version) tuples
+		"""
+		updates = []
+		for plugin_id, version in plugins:			
+			if self.repo_items.has_key(plugin_id) and is_outdated(version, self.repo_items[plugin_id]['version']):
+				changelog = self.repo_items[plugin_id]['description']
+				updates.append((plugin_id, changelog))
+
+		return updates
+		
+	@dbus.service.method('org.gnome.NewStuffManager.NewStuff')
+	def Close(self):
+		"""
+		Tell the plugins they can shutdown because they are no more needed. Generally causes the process to exit and release the dbus object
+		"""
+		obj, refcount = SPAWNED_OBJECTS[self.object_path]
+		if refcount-1 == 0:
+			# FIXME: do something here, this mainloop.quit is quite harmful
+			# because if other program use the updater, they will crash..
+			del SPAWNED_OBJECTS[self.object_path]
+			if len(SPAWNED_OBJECTS) == 0:
+				print 'FIXME: About to exit NewStuffManager'
+				gobject.idle_add(mainloop.quit)
+		else:
+			SPAWNED_OBJECTS[self.object_path] = obj, refcount-1
+		
+		return
+	
+	def report(self, blocks, blocksize, filesize):
+		"""
+		Hook function to urrllib.urlretrieve in L{self.Update}
+		"""
+		print blocks * blocksize / float(filesize)
+		return
+
+mainloop = gobject.MainLoop()
+if __name__=='__main__':
+	session_bus = dbus.SessionBus()
+	bus_name = dbus.service.BusName('org.gnome.NewStuffManager', bus=session_bus)
+	object = NewStuffManager(bus_name)
+	
+	mainloop.run()

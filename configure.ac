@@ -144,6 +144,13 @@ if test "x$HAVE_PRCTL" = "xyes"; then
 fi
 
 dnl ****************************************************************************
+dnl * Check for DBUS Services directory
+dnl ****************************************************************************
+DBUS_SERVICES_DIR="$DATADIR/dbus-1/services"
+AC_SUBST(DBUS_SERVICES_DIR)
+AC_DEFINE_UNQUOTED(DBUS_SERVICES_DIR, "$DBUS_SERVICES_DIR", [DBus services directory])
+
+dnl ****************************************************************************
 dnl * --------------------------------------------------------------------------
 dnl ****************************************************************************
 AC_OUTPUT([
@@ -154,6 +161,8 @@ deskbar/ui/Makefile
 deskbar/ui/cuemiac/Makefile
 deskbar/ui/entriac/Makefile
 deskbar/handlers/Makefile
+deskbar/updater/Makefile
+deskbar/updater/specs/Makefile
 deskbar/iconentry/Makefile
 deskbar/keybinder/Makefile
 deskbar/gnomedesktop/Makefile
@@ -172,6 +181,7 @@ echo
 
 echo Prefix............... : $prefix
 echo Evolution Support.... : $enable_libebook
+echo Dbus Services Dir.... : $DBUS_SERVICES_DIR
 
 echo
 echo "Please note that when using gnome-python-extras-2.10, you won't be able"

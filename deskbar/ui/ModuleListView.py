@@ -1,4 +1,5 @@
 import gtk, gobject
+from gettext import gettext as _
 
 class ModuleListView (gtk.TreeView):
 	"""A versatile list widget that displays the contents of a ModuleList.
@@ -47,8 +48,13 @@ class ModuleListView (gtk.TreeView):
 		description = ""
 		if "description" in modctx.infos:	
 			description = modctx.infos["description"]
+
+		description = "<b>%s</b>\n%s" % (name, description)
+		can_update, changelog = modctx.update_infos
+		if can_update:
+			description = "%s\n<i><b><small>%s</small></b></i>" % (description, _("Update Available"))
 			
-		cell.set_property ("markup", "<b>%s</b>\n%s" % (name, description))
+		cell.set_property ("markup", description)
 		
 	def get_selected_module_context (self):
 		model, iter = self.get_selection().get_selected()

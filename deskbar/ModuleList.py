@@ -92,6 +92,11 @@ class ModuleList (gtk.ListStore):
 		self.set_value(iter, self.ICON_COL, context.icon)
 		self.set_value(iter, self.ENABLED_COL, context.enabled)
 		self.set_value(iter, self.MODULE_CTX_COL, context)
+	
+	def module_changed(self, context):
+		iter, index = self.get_position_from_context(context)
+		if iter != None:
+			self.emit('row-changed', self.get_path(iter), iter)
 		
 	def update_row_cb (self, sender, context, iter=None):
 		"""

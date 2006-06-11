@@ -3,6 +3,7 @@ from os.path import join
 import struct
 import gtk, gtk.gdk, gtk.glade, gobject, gconf
 import deskbar, deskbar.Utils
+from deskbar.updater.NewStuffUpdater import NewStuffUpdater
 from deskbar.ui.ModuleListView import ModuleListView
 from deskbar import CUEMIAC_UI_NAME, ENTRIAC_UI_NAME
 
@@ -135,7 +136,9 @@ class DeskbarPreferencesUI:
 		self.module_list = module_list
 		self.module_loader = module_loader
 		self.glade = gtk.glade.XML(join(deskbar.SHARED_DATA_DIR, "prefs-dialog.glade"))
-
+		
+		self.newstuff = NewStuffUpdater(module_list)
+		
 		self.dialog = self.glade.get_widget("preferences")
 		# Retreive current values
 		self.width = deskbar.GCONF_CLIENT.get_int(applet.prefs.GCONF_WIDTH)
@@ -160,6 +163,7 @@ class DeskbarPreferencesUI:
 		self.moduleview = ModuleListView(module_list)
 		self.moduleview.connect ("row-toggled", self.on_module_toggled, module_loader)
 		self.moduleview.get_selection().connect("changed", self.on_module_selected)
+		self.module_list.connect('row-changed', lambda list, path, iter: self.on_module_selected(self.moduleview.get_selection()))
 		container.add(self.moduleview)
 
 		self.default_info = self.glade.get_widget("default_info")
@@ -172,10 +176,11 @@ class DeskbarPreferencesUI:
 		self.other_info_label.set_alignment(0.0, 0.5)
 		self.other_info_label.set_justify(gtk.JUSTIFY_LEFT)
 		self.other_info.pack_start(self.other_info_label, expand=True, fill=True)
-		self.more_button = gtk.Button(_("_More..."))
+		
+		self.more_button = self.glade.get_widget("more")
+		self.more_button.set_sensitive(False)
 		self.more_button.connect("clicked", self.on_more_button_clicked)
 		self.more_button_callback = None
-		self.other_info.pack_start(self.more_button, expand=False, fill=False)
 
 		self.info_area = self.glade.get_widget("info_area")
 		self.old_info_message = None
@@ -187,6 +192,19 @@ class DeskbarPreferencesUI:
 		self.cuemiac_ui_radio.connect ("toggled", self.on_ui_changed, applet)
 		self.ui_change_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_UI_NAME, lambda x, y, z, a: self.on_config_ui(z.value))
 		
+		container = self.glade.get_widget("newhandlers")
+		self.newmoduleview = ModuleListView(module_list)
+		container.add(self.newmoduleview)
+		
+		self.install = self.glade.get_widget("install")
+		self.check = self.glade.get_widget("check")
+		self.update = self.glade.get_widget("update")
+		
+		self.check.connect('clicked', self.on_check_handlers)
+		self.update.connect('clicked', self.on_update_handler)
+		self.update.set_sensitive(False)
+		self.install.connect('clicked', self.on_install_handler)
+		
 		self.sync_ui()
 		
 	def show_run_hide(self):
@@ -196,6 +214,7 @@ class DeskbarPreferencesUI:
 	
 	def on_dialog_response(self, dialog, response):	
 		self.dialog.destroy()
+		self.newstuff.close()
 		
 		deskbar.GCONF_CLIENT.notify_remove(self.width_notify_id)
 		deskbar.GCONF_CLIENT.notify_remove(self.expand_notify_id)
@@ -283,7 +302,10 @@ class DeskbarPreferencesUI:
 		if module_context != None:
 			self.check_requirements(module_context)
 			gobject.timeout_add(1000, self.poll_requirements, module_context)
-	
+			
+		# Check if we can update
+		self.update.set_sensitive(module_context != None and module_context.update_infos[0])				
+			
 	def poll_requirements(self, module_context):
 		try:
 			if module_context != self.moduleview.get_selected_module_context():
@@ -322,17 +344,31 @@ class DeskbarPreferencesUI:
 			self.other_info_label.set_text(message)
 			self.info_area.add(self.other_info)
 			self.other_info.show_all()
-			if self.more_button_callback != None:
-				self.more_button.show()
-			else:
-				self.more_button.hide()
+			self.more_button.set_sensitive(self.more_button_callback != None)
+
 	
 	def on_module_toggled(self, moduleview, context, loader):
 		if (context.enabled):
 			loader.stop_module_async (context)
 		else:
 			loader.initialize_module_async (context)
-				
+			
+	def on_check_handlers(self, button):
+		#Update all handlers
+		self.newstuff.check_all()
+		
+	def on_update_handler(self, button):
+		module_context = self.moduleview.get_selected_module_context()
+		if module_context != None:
+			# Trigger module update
+			self.newstuff.update(module_context)
+			button.set_sensitive(False)
+		
+	def on_install_handler(self, button):
+		# Install the selected new handler
+		module_context = self.newmoduleview.get_selected_module_context()
+		if module_context != None:
+			self.newstuff.install(module_context)
 			
 def show_preferences(applet, loader, model):
 	DeskbarPreferencesUI(applet, loader, model).show_run_hide()

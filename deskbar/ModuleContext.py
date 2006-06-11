@@ -9,3 +9,5 @@ class ModuleContext:
 		self.filename = filename
 		self.handler = handler
 		self.infos = infos
+		self.version = '0.0.0'
+		self.update_infos = (False, None)

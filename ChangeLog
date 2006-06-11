@@ -1,3 +1,34 @@
+2006-06-11  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* configure.ac:
+	* data/prefs-dialog.glade:
+	* deskbar/Makefile.am:
+	* deskbar/ModuleContext.py:
+	* deskbar/ModuleList.py:
+	* deskbar/ui/DeskbarPreferencesUI.py:
+	* deskbar/ui/ModuleListView.py:
+	* deskbar/updater/.cvsignore:
+	* deskbar/updater/Makefile.am:
+	* deskbar/updater/NewStuffUpdater.py:
+	* deskbar/updater/new-stuff-manager:
+	* deskbar/updater/org.gnome.NewStuffManager.service.in:
+	* deskbar/updater/specs/.cvsignore:
+	* deskbar/updater/specs/Makefile.am:
+	* deskbar/updater/specs/deskbarapplet.py:
+	Introduction of the plugin updater/downloader, so it will be possible to
+	update and download new plugins from internet, right in deskbar.
+
+	Current commit includes build system patches (with dbus dependency, if
+	someone can't build because of that, it can be made optional, but no
+	updater)
+
+	Also included is first raw patch for updates to work in the preference
+	panel. It is not possible to download new handlers at the moment.
+
+	The plugin updater is generic and can be hopefully made useful in some
+	ways for other applications using python or non-compiled files, like
+	gedit, rhythmbox, epiphany, gnumeric, the theme/icons/metacity dialog, etc
+
 2006-06-10  Mikkel Kamstrup Erlandsen   <kamstrup@cvs.gnome.org>
 
 	* deskbar/ui/cuemiac/CuemiacEntry.py:
