@@ -3,6 +3,7 @@ deskbar_PYTHON = \
 	CuemiacAlignedWindow.py \
 	CuemiacAppletButton.py \
 	CuemiacButtonUI.py \
+	CuemiacEntry.py \
 	CuemiacHistory.py \
 	CuemiacItems.py  \
 	CuemiacLayoutProvider.py \
