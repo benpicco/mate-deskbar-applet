@@ -21,6 +21,13 @@ class LingeringSelectionWindow (gtk.Window):
 		view.connect ("row-activated", self._on_view_activated)
 		
 	def _on_view_activated (self, view, path, column):
+		# Check if this row has children, if it does
+		# do nothing
+		model = view.get_model()
+		if model.iter_has_child (model.get_iter(path)) :
+			"linger block"
+			return
+			
 		pixmap = view.create_row_drag_icon (path)
 		image = gtk.Image()
 		image.set_from_pixmap (pixmap, None)

@@ -98,8 +98,9 @@ class CuemiacLayoutProvider :
 		This defaults to focussing the entry.
 		@param cuim: C{CuemiacUIManager}
 		"""
+		cuim.unselect_all ()
 		gobject.timeout_add (10, lambda : cuim.get_entry().grab_focus() )
-		
+			
 	def on_down_from_view_bottom (self, cuim, event):
 		"""
 		The user hits the Up key, when the bottom match is selected in the
@@ -107,6 +108,7 @@ class CuemiacLayoutProvider :
 		This defaults to focussing the entry.
 		@param cuim: C{CuemiacUIManager}
 		"""
+		cuim.unselect_all ()
 		gobject.timeout_add (10, lambda : cuim.get_entry().grab_focus() )
 
 	def on_up_from_entry (self, cuim, event):

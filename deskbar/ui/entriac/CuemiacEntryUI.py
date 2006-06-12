@@ -17,23 +17,18 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		DeskbarUI.__init__ (self, applet, prefs)
 		CuemiacLayoutProvider.__init__ (self)
 		
-		# This block is responsible for using the CuemiacPopupEntry for layout
-		# Uncomment to use
-		self.cuemiac = CuemiacUIManager ()
-		self.entry = CuemiacPopupEntry (self.cuemiac.get_entry().entry, self.cuemiac.get_view(), applet)
-		self.cuemiac.set_layout (self.entry)
-
-		#self.cuemiac = CuemiacUIManager(self) # Use self as layout provider
+		self.cuemiac = CuemiacUIManager (self) # Use self as layout provider
+		self.entry = CuemiacPopupEntry (self.cuemiac.get_entry().entry, self.cuemiac.get_view(), applet) 
 		self.cuemiac.forward_deskbar_ui_signals (self) # Let the manager handle the usual ui signals
 		
 		LingeringSelectionWindow (self.cuemiac.get_view())
 				
 		# Create the popup windows for results and history
-		self.popup = CuemiacAlignedWindow (self.cuemiac.get_entry(), applet)
-		self.scroll_view = gtk.ScrolledWindow ()
-		self.scroll_view.set_policy (gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
-		self.scroll_view.add (self.cuemiac.get_view ())
-		self.popup.add (self.scroll_view)
+		#self.popup = CuemiacAlignedWindow (self.cuemiac.get_entry(), applet)
+		#self.scroll_view = gtk.ScrolledWindow ()
+		#self.scroll_view.set_policy (gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+		#self.scroll_view.add (self.cuemiac.get_view ())
+		#self.popup.add (self.scroll_view)
 		
 		self.history_popup = CuemiacAlignedWindow (self.cuemiac.get_entry().get_image(), applet)
 		self.history_popup.add (self.cuemiac.get_history_view ())
@@ -54,20 +49,20 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		# Apply gconf values
 		self.sync_applet_size()
 		
-		self.cuemiac.get_view().connect ("size-request", lambda box, event: self.adjust_popup_size())
+		#self.cuemiac.get_view().connect ("size-request", lambda box, event: self.adjust_popup_size())
 		self.cuemiac.get_entry().connect ("icon-clicked", self.on_icon_button_press)
 		self.cuemiac.get_entry().connect ("button-press-event", self.on_entry_button_press)
 		self.cuemiac.get_history_view().connect ("key-press-event", self.on_history_key_press)		
 		
-		self.screen_height = self.popup.get_screen().get_height ()
-		self.screen_width = self.popup.get_screen().get_width ()
-		self.max_window_height = int (0.8 * self.screen_height)
-		self.max_window_width = int (0.6 * self.screen_width)
+		#self.screen_height = self.popup.get_screen().get_height ()
+		#self.screen_width = self.popup.get_screen().get_width ()
+		#self.max_window_height = int (0.8 * self.screen_height)
+		#self.max_window_width = int (0.6 * self.screen_width)
 
-		self.scroll_view.show_all ()
+		#self.scroll_view.show_all ()
 		self.cuemiac.get_entry().show ()
 		self.cuemiac.get_history_view().show ()
-		self.popup.set_focus_on_map (False)
+		#self.popup.set_focus_on_map (False)
 		
 		self.cuemiac.get_entry().set_icon_tooltip ("Show previous actions") # FIXME: Translate
 		
@@ -92,7 +87,7 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 				widget.set_style(copy)
 	
 	def close_view(self):
-		self.hide_window (self.popup)
+		self.entry.popdown ()
 		self.emit ("stop-query")
 		
 	def on_config_width(self, value=None):
@@ -118,17 +113,7 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 				self.cuemiac.get_entry().set_width_chars(-1)
 				self.cuemiac.get_entry().queue_resize()
 				
-		print "Set entry width:", self.cuemiac.get_entry().get_width_chars()
-		
-	def focus_popup (self, time=None):
-		self.adjust_popup_size ()
-		self.popup.update_position ()
-		
-		if time:
-			self.popup.present_with_time (time)
-		elif not self.popup.get_property("visible"):
-			self.popup.present_with_time (gtk.get_current_event_time())
-			
+		print "Set entry width:", self.cuemiac.get_entry().get_width_chars()		
 	
 	def hide_window (self, window, time=None):
 		self.cuemiac.unselect_all ()
@@ -162,13 +147,14 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 	def on_change_size (self, applet):
 		pass
 	
-	def on_match_selected (self, cview, match, is_historic=False):
-		self.cuemiac.unselect_all()
-		self.popup.hide()
+	def on_match_selected (self, cuim, match):
+		self.entry.popdown ()
+	
+	def on_history_match_selected (self, cuim, match):
 		self.history_popup.hide()
 	
 	def on_matches_added (self, cuim):
-		self.popup.show ()
+		self.entry.popup ()
 	
 	def append_matches (self, matches):
 		self.cuemiac.append_matches (matches)
@@ -179,27 +165,14 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 	def set_layout_by_orientation (self, cuim, orient):
 		"""orient should be a gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}."""
 		# Update how the popups is aligned
-		self.popup.alignment = self.applet.get_orient ()
+		self.entry.set_layout_by_orientation (orient)
 		self.history_popup.alignment = self.applet.get_orient ()
 		
 		print "Layout changed to", self.applet.get_orient ()
 		
-	def adjust_popup_size (self):
-		"""adjust window size to the size of the children"""
-		# FIXME: Should we handle width intelligently also?
-		w, h = self.cuemiac.get_view().size_request ()
-		h = min (h, self.max_window_height) + 4
-		w = min (w, self.max_window_width)
-		if w > 0 and h > 0:
-			self.popup.resize (w, h)
-		
 	def on_stop (self, cuim):
-		self.hide_window (self.popup)
+		self.entry.popdown ()
 		self.hide_window (self.history_popup)
-		
-	def on_focus_loss (self, cuim, widget):
-		self.popup.hide ()
-		self.history_popup.hide ()
 		
 	def on_icon_button_press (self, widget, event):
 		if not self.cuemiac.get_entry().get_property ("sensitive"):
@@ -213,7 +186,7 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 			if self.history_popup.get_property('visible'):
 				pass # The popup will be hidden by on_focus_loss
 			else:
-				self.hide_window (self.popup)
+				#self.hide_window (self.popup)
 				self.history_popup.present_with_time (event.time)
 			return True
 		
@@ -232,17 +205,12 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 			self.hide_window (self.history_popup)
 
 	def on_up_from_view_top (self, cuim, event):
+		self.cuemiac.unselect_all ()
 		self.receive_focus (event.time)
 		
 	def on_down_from_view_bottom (self, cuim, event):
+		self.cuemiac.unselect_all ()
 		self.receive_focus (event.time)
 
-	def on_up_from_entry (self, cuim, event):
-		self.focus_popup (event.time)
-		CuemiacLayoutProvider.on_up_from_entry (self, cuim, event) # Call super class method
-		
-	def on_down_from_entry (self, cuim, event):
-		self.focus_popup (event.time)
-		CuemiacLayoutProvider.on_down_from_entry (self, cuim, event) # Call super class method
 
 gobject.type_register (CuemiacEntryUI)

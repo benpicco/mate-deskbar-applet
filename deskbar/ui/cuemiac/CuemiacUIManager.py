@@ -64,7 +64,7 @@ class CuemiacUIManager (gobject.GObject) :
 	}
 
 	
-	navigation_keys = [65364, 65362, 43, 45, 65293] # Down, Up, +, -, Enter
+	navigation_keys = [65364, 65362]#, 43, 45, 65293] # Down, Up, +, -, Enter
 	
 	def __init__(self, layout=None):
 		"""
@@ -232,7 +232,6 @@ class CuemiacUIManager (gobject.GObject) :
 		self.entry.set_icon (icon)
 		
 	def _on_match_selected (self, cview, match, is_historic=False):
-		
 		if is_historic:
 			self.layout.on_history_match_selected (self, match)
 			self.emit ("history-match-selected", match)
@@ -257,7 +256,6 @@ class CuemiacUIManager (gobject.GObject) :
 		self.emit ("start-query", qstring)
 	
 	def _on_entry_key_press (self, entry, event):
-		
 		if event.keyval == gtk.keysyms.Escape:
 			# bind Escape to clear the GtkEntry
 			self.model.clear ()
@@ -342,29 +340,25 @@ class CuemiacUIManager (gobject.GObject) :
 			
 		# FIXME check that selection is not cat or nest, and then activate			
 		self._on_match_selected (widget, self.model[iter][self.model.MATCHES])
+		self.cview.emit ("row-activated", path, column)
 		
 	def _on_focus_out_event(self, widget, event):
 		# Stop the event from propagating if
 		# this was an internal focus operation view <-> entry.
 		if self._internal_refocus :
-			print "CUIM irf"
 			self._internal_refocus = False
 		else:
-			if not self._has_focus ():
-				print "CUIM fl", widget
-				gobject.timeout_add (100, self.layout.on_focus_loss, self, widget)
-				# We add a tiny delay so that events like button presses
-				# outside the cuemiac scope are handled before
-				# layout.on_focus_loss().
-				# See CuemiacLayoutProvider.on_focus_loss doc for futher comments.
-			else:
-				print "CUIM still has focus"
-	
-	def _has_focus (self):
-		return False#( self.entry.get_toplevel().is_active() or \
-			 #self.cview.get_toplevel().is_active() or \
-			 #self.history_view.get_toplevel().is_active() )
+			gobject.timeout_add (100, self.layout.on_focus_loss, self, widget)
+			# We add a tiny delay so that events like button presses
+			# outside the cuemiac scope are handled before
+			# layout.on_focus_loss().
+			# See CuemiacLayoutProvider.on_focus_loss doc for futher comments.
 		
+	def _view_has_selection (self):
+		path, col = self.cview.get_cursor ()
+		if path is None:
+			return None
+	
 	def _on_cview_key_press (self, cview, event):
 		path, column = cview.get_cursor ()
 		# If this is an ordinary keystroke, or there is no selection in the cview,
@@ -372,20 +366,30 @@ class CuemiacUIManager (gobject.GObject) :
 		if not event.keyval in self.navigation_keys or path is None:
 			self.entry.event (event)
 			return True
-
+		
 		model = cview.get_model ()
-		if model.paths_equal (path, model.get_path(model.get_iter_first())):
-			if event.keyval == 65362: # Up
-				#self.applet.request_focus (long(event.time))
+		if event.keyval == 65362: # Up
+			if model.paths_equal (path, model.get_path(model.get_iter_first())):		
 				self._internal_refocus = True
-				self.layout.on_up_from_view_top (self, event)
-				
-		elif model.paths_equal (path, cview.last_visible_path()):
-			if event.keyval == 65364: # Down
-				#self.applet.request_focus (long(event.time))
+				if not self._view_has_selection():
+					self.layout.on_up_from_entry (self, event)
+				else:
+					self.layout.on_up_from_view_top (self, event)
+			else:
+				self.cview.move_cursor_up_down (-1)
+			return True
+			
+		elif event.keyval == 65364: # Down				
+			if model.paths_equal (path, cview.last_visible_path()):
 				self._internal_refocus = True
-				self.layout.on_down_from_view_bottom (self, event)
-				
+				if not self._view_has_selection():
+					self.layout.on_down_from_entry (self, event)
+				else:
+					self.layout.on_down_from_view_bottom (self, event)
+			else:
+				self.cview.move_cursor_up_down (1)
+			return True
+			
 		return False
 				
 	def _on_entry_button_press (self, widget, event):

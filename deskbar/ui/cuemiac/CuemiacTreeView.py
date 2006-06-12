@@ -189,7 +189,42 @@ class CuemiacTreeView (gtk.TreeView):
 		num_children = model.iter_n_children (iter)
 		iter = model.iter_nth_child (iter, num_children - 1)
 		return model.get_path (iter)
-	
+
+	def move_cursor_up_down (self, count):
+		"""
+		Move cursor one step up or down in the tree.
+		@param count: 1 for up/next, -1 for down/previous.
+		@return: True if the move was succesful.
+		"""
+		# The implementation of this method is one big hack. 
+		# This method is needed because gtk.TreeView does not handle events
+		# correctly when unfocused (and we need to forward events to it).
+		# See bug #326254.
+		# We cannot simply port the navigational model because 
+		# gtk.TreeView uses a GtkRBTree, which is not a part of the public api,
+		# to implement the navigational model.
+		path, col = self.get_cursor ()
+		rect = self.get_cell_area (path, col)
+		
+		new_cell_y = 0
+		if count == -1:
+			# Select a point in the cell above the cursor
+			new_cell_y = rect.y - 5
+		else:
+			if count != 1:
+				print "WARNING in CuemiacTreeView - in move_cursor_up_down, the count must be 1 or -1."
+			# Select a point in the cell below the cursor
+			new_cell_y = rect.height + rect.y + 5
+				
+		# Select the cell meeting the point (rect.x, new_cell_y)
+		cell_ctx = self.get_path_at_pos (rect.x, new_cell_y)
+		if cell_ctx is None:
+			return False
+		path, col, x, y = cell_ctx
+		self.set_cursor (path, col)
+		
+		return True
+		
 	def focus_bottom_match (self):
 		last = self.last_visible_path ()
 		self.set_cursor (last)
@@ -199,13 +234,24 @@ class CuemiacTreeView (gtk.TreeView):
 		first = model.get_path(model.get_iter_first())
 		self.set_cursor (first)
 
+	def coord_is_category_or_nest (self, x, y):
+		path_ctx = self.get_path_at_pos(int(x), int(y))
+		if path_ctx is None:
+			return False
+		path, col, x, y = path_ctx
+		model = self.get_model()
+		match = model[model.get_iter(path)][model.MATCHES]
+		if match.__class__ == Nest or match.__class__ == CuemiacCategory:
+			return True
+		else:
+			return False
+
 	def __on_button_press (self, treeview, event):
-		"""
-		We want to activate rows by single clicks
-		"""
-		path, col, x, y = self.get_path_at_pos(int(event.x), int(event.y))
-		# FIXME: Don't emit signal when we have a category or nest!
-		self.emit ("row-activated", path, col)
+		# We want to activate items on single click
+		path_ctx = self.get_path_at_pos (int(event.x), int(event.y))
+		if path_ctx is not None:
+			path, col, x, y = path_ctx
+			self.emit ("row-activated", path, col)
 	
 	def __on_config_expanded_cat (self, value):
 		if value != None and value.type == gconf.VALUE_LIST:
@@ -283,8 +329,6 @@ class CuemiacTreeView (gtk.TreeView):
 		# a nest or category
 		if match.__class__ == Nest or match.__class__ == CuemiacCategory:
 			return
-		
-		self.emit ("match-selected", match)
 		
 		
 	def __on_key_press (self, widget, event):

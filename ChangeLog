@@ -1,3 +1,22 @@
+2006-06-12  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+	* deskbar/ui/cuemiac/CuemiacLayoutProvider.py:
+	* deskbar/ui/cuemiac/CuemiacPopupEntry.py:
+	* deskbar/ui/cuemiac/CuemiacTreeView.py:
+	* deskbar/ui/cuemiac/CuemiacUIManager.py:
+	* deskbar/ui/cuemiac/LingeringSelectionWindow.py:
+	* deskbar/ui/entriac/CuemiacEntryUI.py:
+	Fix CuemiacPopupEntry navigation with an evil hack.
+	The hack is encapsulated in the method CuemiacTreeView.move_cursor_up_down.
+	
+	Loads of general polish to the cuemiac stack.
+	I think the history popup is still broken a bit. I plan
+	to make it use some xgrab magic (like the popupentry).
+	
+	Don't popup a lingering selection when we activate something
+	that has children in the treeview.
+	
+
 2006-06-12  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/ui/cuemiac/Makefile.am:
