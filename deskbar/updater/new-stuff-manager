@@ -42,6 +42,7 @@ import os.path
 import pydoc
 import tarfile
 import urllib
+import zipfile
 if getattr(dbus, 'version', (0,0,0)) >= (0,41,0):
 	import dbus.glib
 
@@ -78,6 +79,9 @@ class Decompresser:
 		elif mime_type == 'application/x-compressed-tar':
 			self.__extract_targz()
 			return True
+		elif mime_type == 'application/zip':
+			self.__extract_zip()
+			return True
 		elif mime_type == 'text/x-python':
 			return False
 		else:
@@ -107,6 +111,18 @@ class Decompresser:
 		gzfile = gzip.GzipFile(self.path, 'r')
 		self.__untar(gzfile)
 		gzfile.close()
+		
+	def __extract_zip(self):
+		"""
+		Extract zip archive
+		"""
+		archive = zipfile.ZipFile(self.path, 'r')        
+		for name in archive.namelist():
+			outpath = os.path.join(self.dest_dir, name)
+			outfile = file(outpath, 'w')
+			outfile.write(archive.read(name))
+			outfile.close()
+		archive.close()
 		
 SPAWNED_OBJECTS = {}
 """
@@ -242,6 +258,13 @@ class NewStuff(dbus.service.Object):
 		"""
 		pass
 	
+	@dbus.service.signal('org.gnome.NewStuffManager.NewStuff')
+	def DownloadStatus(self, blocks, blocksize, filesize):
+		"""
+		Hook function to urrllib.urlretrieve in L{self.Update}
+		"""
+		return
+	
 	@dbus.service.method('org.gnome.NewStuffManager.NewStuff')
 	def Update(self, plugin_id):
 		"""
@@ -258,7 +281,7 @@ class NewStuff(dbus.service.Object):
 			os.remove(download_dest)
 			
 		print 'Downloading %s' % download_url
-		urllib.urlretrieve(download_url, download_dest, self.report)
+		urllib.urlretrieve(download_url, download_dest, self.DownloadStatus)
 		
 		print 'Extracting %s to %s' % (download_dest, self.INSTALLPATH)
 		archive = Decompresser(download_dest, self.INSTALLPATH)
@@ -321,13 +344,6 @@ class NewStuff(dbus.service.Object):
 		else:
 			SPAWNED_OBJECTS[self.object_path] = obj, refcount-1
 		
-		return
-	
-	def report(self, blocks, blocksize, filesize):
-		"""
-		Hook function to urrllib.urlretrieve in L{self.Update}
-		"""
-		print blocks * blocksize / float(filesize)
 		return
 
 mainloop = gobject.MainLoop()

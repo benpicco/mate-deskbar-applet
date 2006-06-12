@@ -6,7 +6,8 @@ updaterbin_SCRIPTS = new-stuff-manager
 updaterdir = $(pythondir)/deskbar/updater
 updater_PYTHON = \
 	__init__.py \
-	NewStuffUpdater.py
+	NewStuffUpdater.py \
+	ProgressbarDialog.py
 	
 # Dbus service file
 servicedir = $(DBUS_SERVICES_DIR)

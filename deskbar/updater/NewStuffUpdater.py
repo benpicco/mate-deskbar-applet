@@ -12,10 +12,12 @@ Updater for handlers
 		- Each handler should have its own file (highly recommended)
 	
 """
+from gettext import gettext as _
 from deskbar.ModuleLoader import ModuleLoader
 from deskbar.ModuleList import ModuleList
 from deskbar.ModuleContext import WebModuleContext
 from deskbar.ui.ModuleListView import ModuleListView
+from deskbar.updater.ProgressbarDialog import ProgressbarDialog
 import deskbar
 import gobject
 import gtk
@@ -249,9 +251,11 @@ if getattr(dbus, 'version', (0,0,0)) >= (0,41,0):
 # 						
 def global_error_handler(e):
 	print 'DBUS ERROR:', e
+		
 	
 class NewStuffUpdater:
-	def __init__(self, module_loader, module_list, web_module_list):
+	def __init__(self, parent, module_loader, module_list, web_module_list):
+		self.parent = parent
 		self.module_list = module_list
 		self.module_loader = module_loader
 		self.web_module_list = web_module_list
@@ -268,12 +272,21 @@ class NewStuffUpdater:
 		proxy_obj_stuff = self.bus.get_object(service, path)
 		self.newstuff = dbus.Interface(proxy_obj_stuff, 'org.gnome.NewStuffManager.NewStuff')
 		self.newstuff.connect_to_signal('Updated', self.on_newstuff_updated)
+		self.newstuff.connect_to_signal('DownloadStatus', self.on_newstuff_downloadstatus)
 		self.newstuff.Refresh(reply_handler=self.check_new, error_handler=global_error_handler)
 	
 	def check_new(self):
 		if self.check_for_newstuff:
 			self.check_for_newstuff = False
 			self.newstuff.GetAvailableNewStuff(reply_handler=self.on_available_newstuff, error_handler=global_error_handler)
+	
+	def on_newstuff_downloadstatus(self, blocks, blocksize, filesize):
+		fraction = blocks * blocksize / float(filesize)
+		if fraction < 1.0:
+			self.progressdialog.set_fraction(fraction)
+		else:
+			self.progressdialog.set_current_operation(_('Extracting'))
+			self.progressdialog.set_fraction(0.0)
 	
 	def on_available_newstuff(self, newstuff):
 		self.web_module_list.clear()
@@ -318,10 +331,15 @@ class NewStuffUpdater:
 				
 	def update(self, mod_ctx):
 		print 'Updating:', self.id_for_module_context(mod_ctx)
+		self.progressdialog = ProgressbarDialog(self.parent)
+		self.progressdialog.set_text(_('Updating %s') % mod_ctx.infos['name'], _('The update is being downloaded from the internet. Please wait until the update is complete'))
+		self.progressdialog.set_current_operation(_('Downloading'))
+		self.progressdialog.run_nonblocked()
 		self.newstuff.Update(self.id_for_module_context(mod_ctx), reply_handler=lambda: None, error_handler=global_error_handler)
 	
 	def on_newstuff_updated(self, plugin_id):
 		print 'Plugin updated:', plugin_id
+		self.progressdialog.destroy()
 		mod_ctx = self.module_context_for_id(plugin_id)
 		print mod_ctx
 		if mod_ctx != None:
@@ -339,6 +357,11 @@ class NewStuffUpdater:
 		
 	def install(self, mod_ctx):
 		print 'Installing:', mod_ctx
+		self.progressdialog = ProgressbarDialog(self.parent)
+		self.progressdialog.set_text(_('Installing %s') % mod_ctx.name, _('The handler is being downloaded from the internet. Please wait until the installation is complete'))
+		self.progressdialog.set_current_operation(_('Downloading'))
+		self.progressdialog.run_nonblocked()
+		
 		self.newstuff.Update(mod_ctx.id, reply_handler=lambda: None, error_handler=global_error_handler)
 		mod_ctx.installing = True
 		self.web_module_list.module_changed(mod_ctx)

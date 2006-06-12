@@ -139,9 +139,10 @@ class DeskbarPreferencesUI:
 		self.module_loader = module_loader
 		self.glade = gtk.glade.XML(join(deskbar.SHARED_DATA_DIR, "prefs-dialog.glade"))
 		
-		self.newstuff = NewStuffUpdater(module_loader, module_list, self.web_module_list)
-		
 		self.dialog = self.glade.get_widget("preferences")
+		
+		self.newstuff = NewStuffUpdater(self.dialog, module_loader, module_list, self.web_module_list)
+		
 		# Retreive current values
 		self.width = deskbar.GCONF_CLIENT.get_int(applet.prefs.GCONF_WIDTH)
 		self.expand = deskbar.GCONF_CLIENT.get_bool(applet.prefs.GCONF_EXPAND)
