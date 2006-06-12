@@ -1,4 +1,39 @@
 =====================
+deskbar-applet 2.15.3
+=====================
+
+Changes:
+	* Fix CuemiacPopupEntry navigation with an evil hack. The hack is encapsulated in the method CuemiacTreeView.move_cursor_up_down. Loads of general polish to the cuemiac stack. I think the history popup is still broken a bit. I plan to make it use some xgrab magic (like the popupentry). Don't popup a lingering selection when we activate something that has children in the treeview.
+	* Introduction of the plugin updater/downloader, so it will be possible to update and download new plugins from internet, right in deskbar. Current commit includes build system patches (with dbus dependency, if someone can't build because of that, it can be made optional, but no updater) Also included is first raw patch for updates to work in the preference panel. The plugin updater is generic and can be hopefully made useful in some ways for other applications using python or non-compiled files, like gedit, rhythmbox, epiphany, gnumeric, the theme/icons/metacity dialog, etc
+	* Moved web-repository to the official website repository, added testing modules to the remote repository. Allow the downloader to handle compressed tarballs as well as single-file python scripts. 
+	* There is a second tab presenting available handlers that you don't have already installed, you can choose one of them, and install it. It will be downloaded and unpacked in the deskbar user directory. Normally every action should require no restart or anything, the buttons should be sensitive when possible, the plugins should be unloaded/reloaded without problems, etc. Anything else is a big. This needs heavy love, and probably an UI discussion..
+	* WARNING: Breakage introduced as agreed on IRC. Mainly in entriac ui. Merge the Cuemiac rework. Highlights: - Introduce a CuemiacUIManager to handle the common tasks for uis using the C. - Introduce a CuemiacLayoutProvider abstract class to provide hooks for the common layout tasks. - Introductory work on a CuemiacPopupEntry in the style of gtk.EntryCompletion, problems in the navigational model relating to bug #326254 breaks entriac ui. - Add a LingeringSelectionWindow that leaves a "shadow" behind when a match is selected. See fixme in CuemiacTreeView.__on_button_press.
+	* Add a hidden gconf setting to set the minimal number of chars to type before deskbar starts to react. Defaults to 1 as previsouly used. Patch by Maxime Henrion <mux@FreeBSD.org>
+	* Import the gdmclient module from gimmie. It will be used for the shutdown/restart actions handler
+	* Fix the hashing of programs so they won't show pathprograms and programs duplicate
+
+Contributors to this release: Raphael Slinckx, Mikkel Kamstrup Erlandsen, Sebastian Pölsterl
+
+Translations:
+	* Updated Spanish translation.
+	* Updated Galician Translation.
+	* Updated Catalan translation by Gil Forcada <gilforcada@guifi.net>
+	* Updated Thai translation.
+	* Added Dzongkha Translation.
+	* Updated Spanish translation.
+	* Updated Vietnamese translation.
+	* Added nepali translation
+	* Updated Gujarati Translation.
+	* Updated Brazilian Portuguese translation.
+	* Updated Bulgarian translation by Alexander Shopov <ash@contact.bg>
+	* Updated Traditional Chinese translation(Hong Kong).
+	* Updated Traditional Chinese translation(Taiwan).
+	* Added Indonesian Translation.
+	* Updated Norwegian bokmål translation.
+
+Contributors to the translations: Kostas Papadimas, Vladimer Sichinava, Kjartan Maraas, Rajesh Ranjan, Artur Flinta, Josep Puigdemont Casamajó, Žygimantas Beručka, Duarte Loreto, Theppitak Karoonboonyanan, Øivind Hoel, Runa Bhattacharjee, Ilkka Tuohela, Gabor Kelemen, Ankit Patel, Funda Wang, Amanpreet Singh Alam, Raphael Higino, ChaoHsiung Liao, Ignacio Casal Quinteiro, Tommi Vainikainen, Lukas Novotny, Rhys Jones, Josep Puigdemont i Casamajó, Erdal Ronahi, Alessio Frusciante, Satoru SATOH, Danilo Šegan, Ahmad Riza H Nst, Benoît Dejean, Marcel Telka, Leonid Kanter, Pawan Chitrakar, Daniel Nylander, Vincent van Adrighem, Clytie Siddall, Priit Laes, Christian Rose, Takeshi AIHANA, Laurent Dhima, Francisco Javier F. Serrador, Miloslav Trmac, Nickolay V. Shmyrev, Maxim Dziumanenko, Pema Geyleg, Adam Weinberger, Hendrik Brandt, Ole Laursen, Stanislav Brabec, Alexander Shopov, Slobodan D. Sredojevic, Kang JeongHee, Nikos Charonitakis
+
+=====================
 deskbar-applet 2.15.1
 =====================
 

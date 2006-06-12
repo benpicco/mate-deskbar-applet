@@ -20,4 +20,4 @@ $(service_DATA): $(service_in_files) Makefile
 
 BUILT_FILES = $(service_in_files:.service.in=.service)
 CLEANFILES = $(BUILT_FILES)
-EXTRA_DIST = $(service_in_files)
+EXTRA_DIST = new-stuff-manager $(service_in_files)
