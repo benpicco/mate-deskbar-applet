@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-2.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-06-12 19:26+0200\n"
-"PO-Revision-Date: 2006-06-12 19:27+0200\n"
+"POT-Creation-Date: 2006-06-13 23:49+0200\n"
+"PO-Revision-Date: 2006-06-13 23:51+0200\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -705,8 +705,47 @@ msgstr "Acelerador nuevo..."
 
 #: ../deskbar/ui/ModuleListView.py:55
 msgid "Update Available"
-msgstr ""
+msgstr "Actualización disponible"
 
+#: ../deskbar/updater/NewStuffUpdater.py:288
+msgid "Extracting"
+msgstr "Extrayendo"
+
+#: ../deskbar/updater/NewStuffUpdater.py:335
+#, python-format
+msgid "Updating %s"
+msgstr "Actualizando %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:335
+msgid ""
+"The update is being downloaded from the internet. Please wait until the "
+"update is complete"
+msgstr "La actualización se está descargando de Internet. Espere hasta que esté completa"
+
+#: ../deskbar/updater/NewStuffUpdater.py:336
+#: ../deskbar/updater/NewStuffUpdater.py:362
+msgid "Downloading"
+msgstr "Descargando"
+
+#: ../deskbar/updater/NewStuffUpdater.py:361
+#, python-format
+msgid "Installing %s"
+msgstr "Instalando %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:361
+msgid ""
+"The handler is being downloaded from the internet. Please wait until the "
+"installation is complete"
+msgstr "El manejador se está descargando de internet. Por favor espera hasta que la instalación esté completa"
+
+#. if __name__ == '__main__':
+#. #createXML()
+#. loader = ModuleLoader (deskbar.MODULES_DIRS)
+#. updater = Updater(loader)
+#. loader.connect ("module-loaded", updater.on_module_loaded)
+#. loader.load_all()
+#. updater.run()
+#. gtk.main()
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
 msgstr "<b>Motores de búsqueda</b>"
