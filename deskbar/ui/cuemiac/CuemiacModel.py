@@ -137,7 +137,8 @@ class CuemiacModel (gtk.TreeStore):
 		cat.set_priority(match_obj)
 		row_iter = None
 		
-		if cat.get_count() < cat.get_threshold() :
+		# Test to remove nesting temporarily
+		if True:#cat.get_count() < cat.get_threshold() :
 			# We havent reached threshold, append normally
 			cat.inc_count ()
 			self.__append_match_to_iter (cat.get_category_iter(), match)
