@@ -23,13 +23,6 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		
 		LingeringSelectionWindow (self.cuemiac.get_view())
 				
-		# Create the popup windows for results and history
-		#self.popup = CuemiacAlignedWindow (self.cuemiac.get_entry(), applet)
-		#self.scroll_view = gtk.ScrolledWindow ()
-		#self.scroll_view.set_policy (gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
-		#self.scroll_view.add (self.cuemiac.get_view ())
-		#self.popup.add (self.scroll_view)
-		
 		self.history_popup = CuemiacAlignedWindow (self.cuemiac.get_entry().get_image(), applet)
 		self.history_popup.add (self.cuemiac.get_history_view ())
 		
@@ -53,16 +46,9 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		self.cuemiac.get_entry().connect ("icon-clicked", self.on_icon_button_press)
 		self.cuemiac.get_entry().connect ("button-press-event", self.on_entry_button_press)
 		self.cuemiac.get_history_view().connect ("key-press-event", self.on_history_key_press)		
-		
-		#self.screen_height = self.popup.get_screen().get_height ()
-		#self.screen_width = self.popup.get_screen().get_width ()
-		#self.max_window_height = int (0.8 * self.screen_height)
-		#self.max_window_width = int (0.6 * self.screen_width)
 
-		#self.scroll_view.show_all ()
 		self.cuemiac.get_entry().show ()
 		self.cuemiac.get_history_view().show ()
-		#self.popup.set_focus_on_map (False)
 		
 		self.cuemiac.get_entry().set_icon_tooltip ("Show previous actions") # FIXME: Translate
 		

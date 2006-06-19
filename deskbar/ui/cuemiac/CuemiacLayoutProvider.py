@@ -98,8 +98,7 @@ class CuemiacLayoutProvider :
 		This defaults to focussing the entry.
 		@param cuim: C{CuemiacUIManager}
 		"""
-		cuim.unselect_all ()
-		gobject.timeout_add (10, lambda : cuim.get_entry().grab_focus() )
+		gobject.timeout_add (10, lambda : self._focus_entry(cuim, event))
 			
 	def on_down_from_view_bottom (self, cuim, event):
 		"""
@@ -108,8 +107,7 @@ class CuemiacLayoutProvider :
 		This defaults to focussing the entry.
 		@param cuim: C{CuemiacUIManager}
 		"""
-		cuim.unselect_all ()
-		gobject.timeout_add (10, lambda : cuim.get_entry().grab_focus() )
+		gobject.timeout_add (10, lambda : self._focus_entry(cuim, event))
 
 	def on_up_from_entry (self, cuim, event):
 		"""
@@ -167,3 +165,8 @@ class CuemiacLayoutProvider :
 		@param orient: One of gnomeapplet.ORIENT_{LEFT,RIGHT,UP,DOWN}.
 		"""
 		pass
+
+	def _focus_entry (self, cuim, event):
+		cuim.get_entry().grab_focus()
+		cuim.unselect_all ()
+		

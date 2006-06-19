@@ -214,13 +214,19 @@ class CuemiacUIManager (gobject.GObject) :
 		and updates the icon to reflect this.
 		"""
 		self.cview.get_selection().unselect_all()
-		self.history_view.get_selection().unselect_all ()
+		self.history_view.get_selection().unselect_all()
 		self.entry.select_region (0,0)
 		self._update_entry_icon ()
 
 	def _update_entry_icon (self, icon=None):
+		
 		if icon == None:
 			icon = self.default_entry_pixbuf
+			if not (self.cview.get_toplevel().flags() & gtk.MAPPED):
+				# The view is hidden, just show default icon
+				self.entry.set_icon (icon)
+				return
+				
 			path, column = self.cview.get_cursor ()
 		
 			if path != None:
@@ -239,8 +245,8 @@ class CuemiacUIManager (gobject.GObject) :
 			# This is a normal match
 			self.layout.on_match_selected (self, match)
 			self.emit ("match-selected", match)
-		
-		self._update_entry_icon ()
+			
+		self.unselect_all () # This call updates the entry icon
 	
 	def _on_entry_changed (self, entry):
 		self.history.reset()
@@ -279,6 +285,12 @@ class CuemiacUIManager (gobject.GObject) :
 			event.keyval = gtk.keysyms.Escape
 			entry.emit('key-press-event', event)
 			return True
+			
+		model, iter = self.cview.get_selection().get_selected ()
+		if iter:
+			# We have a selection in the view
+			if event.keyval in self.navigation_keys:
+				return self._on_cview_key_press (self.cview, event)
 			
 		if event.keyval == 65362: # Up
 			if not self.cview.is_ready () : return
@@ -339,7 +351,7 @@ class CuemiacUIManager (gobject.GObject) :
 			return
 			
 		# FIXME check that selection is not cat or nest, and then activate			
-		self._on_match_selected (widget, self.model[iter][self.model.MATCHES])
+		#self._on_match_selected (widget, self.model[iter][self.model.MATCHES])
 		self.cview.emit ("row-activated", path, column)
 		
 	def _on_focus_out_event(self, widget, event):
@@ -357,24 +369,27 @@ class CuemiacUIManager (gobject.GObject) :
 	def _view_has_selection (self):
 		path, col = self.cview.get_cursor ()
 		if path is None:
-			return None
+			return False
+		else:
+			return True
 	
 	def _on_cview_key_press (self, cview, event):
-		path, column = cview.get_cursor ()
 		# If this is an ordinary keystroke, or there is no selection in the cview,
 		# just let the entry handle it.
-		if not event.keyval in self.navigation_keys or path is None:
+		if not event.keyval in self.navigation_keys:# and not self._view_has_selection():
 			self.entry.event (event)
 			return True
 		
-		model = cview.get_model ()
+		model, iter = cview.get_selection().get_selected ()
+		if iter is None:
+			# We have no selection
+			return False
+		path = model.get_path (iter)
+		
 		if event.keyval == 65362: # Up
 			if model.paths_equal (path, model.get_path(model.get_iter_first())):		
 				self._internal_refocus = True
-				if not self._view_has_selection():
-					self.layout.on_up_from_entry (self, event)
-				else:
-					self.layout.on_up_from_view_top (self, event)
+				self.layout.on_up_from_view_top (self, event)
 			else:
 				self.cview.move_cursor_up_down (-1)
 			return True
@@ -382,10 +397,7 @@ class CuemiacUIManager (gobject.GObject) :
 		elif event.keyval == 65364: # Down				
 			if model.paths_equal (path, cview.last_visible_path()):
 				self._internal_refocus = True
-				if not self._view_has_selection():
-					self.layout.on_down_from_entry (self, event)
-				else:
-					self.layout.on_down_from_view_bottom (self, event)
+				self.layout.on_down_from_view_bottom (self, event)
 			else:
 				self.cview.move_cursor_up_down (1)
 			return True

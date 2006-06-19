@@ -38,13 +38,10 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 		self.selection.unselect_all()
 		
 		# Signals setup
-		self.selection.connect("changed", self.on_selection_changed)
 		self.view.connect('button-press-event', self.on_view_button_press)
-		#self.view.connect('key-press-event', self.on_view_key_press)
 		self.view.connect('enter-notify-event', self.on_view_enter)
 		self.view.connect('motion-notify-event', self.on_view_motion)
 		self.view.connect ("size-request", lambda box, event: self.adjust_popup_size())
-		#self.entry.connect("changed", self.on_entry_changed)
 		self.entry.connect("key-press-event", self.on_entry_key_press)
 		
 		self.popup_window.connect('key-press-event', self.on_popup_key_press)		
@@ -83,12 +80,6 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 		self.ignore_enter = False
 		return False
 			
-	def on_selection_changed (self, selection):
-		if self.first_sel_changed:
-			self.first_sel_changed = False
-			if self.view.is_focus():
-				self.selection.unselect_all()
-			
 	def on_entry_key_press (self, widget, event):			
 		return False
 		# IDEA: PG_UP/DOWN could skip categories
@@ -99,6 +90,7 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 		if not (self.entry.flags()&gtk.MAPPED):
 			return
 		if not (self.entry.flags()&gtk.HAS_FOCUS):
+			self.selection.unselect_all()
 			return
 		self.ignore_enter = True
 		
@@ -116,8 +108,6 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 				return
 
 		self.view.realize()
-		self.selection.unselect_all()
-		
 		self.popup_window.update_position()
 		self.popup_window.show_all ()
 		self.view.grab_focus()
@@ -130,6 +120,8 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 				gtk.gdk.BUTTON_RELEASE_MASK|
 				gtk.gdk.POINTER_MOTION_MASK,
 			None, None, gtk.get_current_event_time())
+			
+		self.selection.unselect_all() # We need to do this again after showing
 	
 	def popdown (self):
 		if not (self.popup_window.flags()&gtk.MAPPED):

@@ -251,7 +251,11 @@ class CuemiacTreeView (gtk.TreeView):
 		path_ctx = self.get_path_at_pos (int(event.x), int(event.y))
 		if path_ctx is not None:
 			path, col, x, y = path_ctx
-			self.emit ("row-activated", path, col)
+			model = self.get_model ()
+			match = model[model.get_iter(path)][model.MATCHES]
+			if match.__class__ != Nest and match.__class__ != CuemiacCategory:
+				self.emit ("row-activated", path, col)
+				#self.emit ("match-selected", match)
 	
 	def __on_config_expanded_cat (self, value):
 		if value != None and value.type == gconf.VALUE_LIST:
@@ -318,9 +322,6 @@ class CuemiacTreeView (gtk.TreeView):
 		cell.set_property ("markup", model[iter][model.ACTIONS])
 
 	def __on_activated (self, treeview, path, col):
-		#if path == None:
-		#	model, iter = self.get_selection().get_selected()
-		#else:
 		model = self.get_model()
 		iter = model.get_iter (path)
 		match = model[iter][model.MATCHES]
@@ -329,6 +330,9 @@ class CuemiacTreeView (gtk.TreeView):
 		# a nest or category
 		if match.__class__ == Nest or match.__class__ == CuemiacCategory:
 			return
+			
+		# So we have a Match, tell the world
+		self.emit ("match-selected", match)
 		
 		
 	def __on_key_press (self, widget, event):
@@ -348,11 +352,6 @@ class CuemiacTreeView (gtk.TreeView):
 				return True
 			
 		return False
-	
-	def __on_button_press_event(self, widget, event):
-		path = self.get_path_at_pos(int(event.x), int(event.y))
-		if path != None:
-			self.__on_activated(path[0])
 
 if gtk.pygtk_version < (2,8,0):	
 	gobject.type_register (CuemiacTreeView)
