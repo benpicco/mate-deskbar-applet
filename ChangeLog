@@ -1,5 +1,18 @@
 2006-06-26  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
+	* deskbar/Handler.py:
+	* deskbar/ui/cuemiac/CuemiacUIManager.py:
+	* deskbar/ui/entriac/CuemiacEntryUI.py:
+	SignallingHandler did not remove the gobject source
+	on stop_query(). It does now. This should close #344049 and #344045.
+	Make sure entriac emits a "stop-query" when the popup is hidden.
+	CuemiacUIManager did not set proper path and column for the "row-acivated"
+	signal on the treeview, in on_entry_activated, this caused trouble for
+	the LingeringSelection. Fix this.
+	
+
+2006-06-26  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
 	* deskbar/ui/cuemiac/CuemiacHistory.py:
 	* deskbar/ui/cuemiac/CuemiacLayoutProvider.py:
 	* deskbar/ui/cuemiac/CuemiacPopupEntry.py:

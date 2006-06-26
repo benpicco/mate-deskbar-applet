@@ -47,7 +47,7 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		self.cuemiac.get_entry().connect ("icon-clicked", self.on_icon_button_press)
 		self.cuemiac.get_entry().connect ("button-press-event", self.on_entry_button_press)
 		self.cuemiac.get_history_view().connect ("key-press-event", self.on_history_key_press)		
-
+		self.entry.popup_window.connect ("hide", lambda widget: self.emit("stop-query"))
 		self.cuemiac.get_entry().show ()
 		self.cuemiac.get_history_view().show ()
 		

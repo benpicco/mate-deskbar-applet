@@ -334,10 +334,10 @@ class CuemiacUIManager (gobject.GObject) :
 
 		if iter is None:
 			return
-			
-		# FIXME check that selection is not cat or nest, and then activate			
-		#self._on_match_selected (widget, self.model[iter][self.model.MATCHES])
-		self.cview.emit ("row-activated", path, column)
+		# retrieve new path-col pair, since it might have been None to start out
+		path = self.model.get_path (iter)
+		column = self.cview.get_column (0)
+		self.cview.emit ("row-activated", path, column) # This emits a match-selected from the cview
 		
 	def _view_has_selection (self):
 		path, col = self.cview.get_cursor ()

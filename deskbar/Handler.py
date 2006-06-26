@@ -153,6 +153,8 @@ class SignallingHandler (Handler, gobject.GObject):
 			self.emit ("query-ready", qstring, matches)
 
 	def stop_query (self):
+		if self.__start_query_id != 0:
+			gobject.source_remove(self.__start_query_id)
 		self.__last_query = None
 		
 	def is_async (self):
