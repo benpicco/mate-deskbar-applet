@@ -4,6 +4,7 @@ deskbar_PYTHON = \
 	CuemiacAppletButton.py \
 	CuemiacButtonUI.py \
 	CuemiacEntry.py \
+	CuemiacHeader.py \
 	CuemiacHistory.py \
 	CuemiacItems.py  \
 	CuemiacLayoutProvider.py \

@@ -23,6 +23,7 @@ from deskbar.DeskbarHistory import get_deskbar_history
 from deskbar.ui.EntryHistoryManager import EntryHistoryManager
 from deskbar.ui.cuemiac.CuemiacUIManager import CuemiacUIManager
 from deskbar.ui.cuemiac.CuemiacLayoutProvider import CuemiacLayoutProvider
+from deskbar.ui.cuemiac.CuemiacHeader import CuemiacHeader
 from deskbar.ui.cuemiac.LingeringSelectionWindow import LingeringSelectionWindow
 
 class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
@@ -35,7 +36,6 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 		
 		self.cuemiac = CuemiacUIManager (self) # Use self as CuemiacLayoutProvider
 		
-		## EXPERIMENTAL
 		LingeringSelectionWindow (self.cuemiac.get_view())
 			
 		# Pass along signals from the cuemiac
@@ -52,6 +52,7 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 		self.popup = CuemiacAlignedWindow (self.cbutton.button_main, applet)
 		self.history_popup = CuemiacAlignedWindow (self.cbutton.button_arrow, applet)
 		self.box = gtk.VBox ()
+		self.cuemiac_header = CuemiacHeader (self.cuemiac.get_entry())
 			
 		self.popup.add (self.box)
 		self.history_popup.add (self.cuemiac.get_history_view())
@@ -80,6 +81,7 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 		self.on_history_match_selected = self.on_match_selected
 		
 		self.box.show ()
+		self.cuemiac_header.show_all ()
 		self.cuemiac.get_entry().show ()
 		self.cuemiac.get_view().show ()
 		# don't show scroll_view just yet
@@ -205,17 +207,17 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 		if len (self.box.get_children()) > 0:
 			# We have already added items to the box
 			# ie. this is not the initial setup
-			self.box.remove (self.cuemiac.get_entry())
+			self.box.remove (self.cuemiac_header)
 			self.box.remove (self.scroll_view)
 			should_reshow = True
 		
 		if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
-			self.box.pack_start (self.cuemiac.get_entry(), False)
+			self.box.pack_start (self.cuemiac_header, False)
 			self.box.pack_start (self.scroll_view)
 		else:
 			# We are at a bottom panel. Put entry on bottom, and prepend matches (instead of append).
 			self.box.pack_start (self.scroll_view)
-			self.box.pack_start (self.cuemiac.get_entry(), False)
+			self.box.pack_start (self.cuemiac_header, False)
 			
 		self.cbutton.set_layout_by_orientation (orient)
 		
@@ -227,6 +229,7 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 		self.history_popup.alignment = self.applet.get_orient ()
 		
 		if should_reshow :
+			self.cuemiac_header.show_all ()
 			self.cuemiac.get_entry().show ()
 			self.scroll_view.show ()
 		
@@ -234,7 +237,7 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 		"""adjust window size to the size of the children"""
 		# FIXME: Should we handle width intelligently also?
 		w, h = self.cuemiac.get_view().size_request ()
-		h = h + self.cuemiac.get_entry().allocation.height + 2 # To ensure we don't always show scrollbars
+		h = h + self.cuemiac_header.allocation.height + 2 # To ensure we don't always show scrollbars
 		h = min (h, self.max_window_height)
 		w = min (w, self.max_window_width)
 		if w > 0 and h > 0:
