@@ -7,6 +7,7 @@ from deskbar.ui.cuemiac.CuemiacAlignedWindow import CuemiacAlignedWindow
 from deskbar.ui.cuemiac.CuemiacUIManager import CuemiacUIManager
 from deskbar.ui.cuemiac.CuemiacLayoutProvider import CuemiacLayoutProvider
 from deskbar.ui.cuemiac.CuemiacPopupEntry import CuemiacPopupEntry
+from deskbar.ui.cuemiac.CuemiacHistory import CuemiacHistoryPopup
 from deskbar.ui.cuemiac.LingeringSelectionWindow import LingeringSelectionWindow
 
 class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
@@ -23,8 +24,9 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		
 		LingeringSelectionWindow (self.cuemiac.get_view())
 				
-		self.history_popup = CuemiacAlignedWindow (self.cuemiac.get_entry().get_image(), applet)
-		self.history_popup.add (self.cuemiac.get_history_view ())
+		self.history_popup = CuemiacHistoryPopup (self.cuemiac.get_entry().get_image(),
+							applet,
+							self.cuemiac.get_history_view())
 		
 		#Gconf config
 		# Set and retreive entry width from gconf
@@ -42,7 +44,6 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		# Apply gconf values
 		self.sync_applet_size()
 		
-		#self.cuemiac.get_view().connect ("size-request", lambda box, event: self.adjust_popup_size())
 		self.cuemiac.get_entry().connect ("icon-clicked", self.on_icon_button_press)
 		self.cuemiac.get_entry().connect ("button-press-event", self.on_entry_button_press)
 		self.cuemiac.get_history_view().connect ("key-press-event", self.on_history_key_press)		
@@ -74,6 +75,7 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 	
 	def close_view(self):
 		self.entry.popdown ()
+		self.history_popup.popdown()
 		self.emit ("stop-query")
 		
 	def on_config_width(self, value=None):
@@ -137,7 +139,11 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		self.entry.popdown ()
 	
 	def on_history_match_selected (self, cuim, match):
-		self.history_popup.hide()
+		print "cpeui hist match sel"
+		self.history_popup.popdown ()
+	
+	def on_history_match_selected (self, cuim, match):
+		self.history_popup.popdown()
 	
 	def on_matches_added (self, cuim):
 		self.entry.popup ()
@@ -158,7 +164,7 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		
 	def on_stop (self, cuim):
 		self.entry.popdown ()
-		self.hide_window (self.history_popup)
+		self.history_popup.popdown()
 		
 	def on_icon_button_press (self, widget, event):
 		if not self.cuemiac.get_entry().get_property ("sensitive"):
@@ -169,11 +175,7 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 			return True
 			
 		elif event.button == 1:
-			if self.history_popup.get_property('visible'):
-				pass # The popup will be hidden by on_focus_loss
-			else:
-				#self.hide_window (self.popup)
-				self.history_popup.present_with_time (event.time)
+			self.history_popup.popup ()
 			return True
 		
 		return False
@@ -188,7 +190,7 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 
 	def on_history_key_press (self, history, event):
 		if event.keyval == gtk.keysyms.Escape:
-			self.hide_window (self.history_popup)
+			self.history_popup.popdown()
 
 	def on_up_from_view_top (self, cuim, event):
 		self.cuemiac.unselect_all ()

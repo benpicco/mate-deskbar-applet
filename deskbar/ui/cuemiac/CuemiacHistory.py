@@ -56,55 +56,99 @@ class CuemiacHistoryView (gtk.TreeView):
 		if iter != None:
 			match = model[iter][0]
 			self.emit ("match-selected", match)
-
-		return True
+		return False
 		
 class CuemiacHistoryPopup (CuemiacAlignedWindow) :
-
-	__gsignals__ = {
-		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
-	}
 	
-	def __init__ (self, widget_to_align_with, applet, history_view=None):
+	def __init__ (self, widget_to_align_with, applet, history_view):
 		"""
 		@param widget_to_align_with: A widget the popup should align itself to.
 		@param applet: A gnomeapplet.Applet instance. However - all that is needed is a .window attribute and a get_orient() method.
 		@param history_view: A L{CuemiacHistoryView} instance. If C{None} or nothing as passed, a new one will be created.
 		"""
-		CuemiacAlignedWindow.__init__ (self, widget_to_align_with, applet)
+		CuemiacAlignedWindow.__init__ (self, widget_to_align_with, applet, window_type=gtk.WINDOW_POPUP)
 		self.applet = applet
+		self.window_group = None
 		
-		if not history_view:
-			self.list_view = CuemiacHistoryView ()
-		else:
-			self.list_view = history_view
+		self.view = history_view
 			
-		self.add (self.list_view)
+		self.add (self.view)
+		self.view.connect('enter-notify-event', self.on_view_enter)
+		self.view.connect('motion-notify-event', self.on_view_motion)
+		self.view.connect('button-press-event', self.on_view_button_press)
 		
-		self.list_view.connect ("match-selected", self.on_match_selected)
+	def on_view_button_press (self, widget, event):
+		self.popdown()
+		return False
 	
-	def show (self, time=None):
-		if len(self.list_view.get_model()) <= 0:
+	def on_view_enter (self, widget, event):
+		return self.ignore_enter
+			
+	def on_view_motion (self, widget, event):
+		self.ignore_enter = False
+		return False
+	
+	def popup (self, time=None):
+		if not (self.widgetToAlignWith.flags() & gtk.REALIZED):
+			return
+		if (self.flags()&gtk.MAPPED):
+			return
+		if not (self.widgetToAlignWith.flags()&gtk.MAPPED):
+			return
+		if len(self.view.get_model()) <= 0:
 			return
 		
-		# Adapt the history popup direction to the applet orient
-		if self.applet.get_orient() in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
-			self.list_view.get_model().set_sort_order(gtk.SORT_DESCENDING)
-		else:
-			self.list_view.get_model().set_sort_order(gtk.SORT_ASCENDING)
+		self.ignore_enter = True
+		
+		if not self.window_group :
+			target_toplevel = self.widgetToAlignWith.get_toplevel()
+			if target_toplevel != None and target_toplevel.group != None:
+				target_toplevel.group.add_window (self)
+				self.target_group = target_toplevel.group
+			elif target_toplevel is not None:
+				self.window_group = gtk.WindowGroup ()
+				self.window_group.add_window (target_toplevel)
+				self.window_group.add_window (self)
+			else:
+				print "WARNING in CuemiacEntryPopup : No toplevel window for widgetToAlignWith!"
+				return
+					
+		self.update_position()
+		gtk.Window.show_all (self) # We issue warnings on the native methods, so bypass that
+
+		# For grabbing to work we need the view realized
+		if not (self.view.flags() & gtk.REALIZED):
+			self.view.realize ()
+
+		# Grab pointer
+		self.view.grab_add()
+		gtk.gdk.pointer_grab(
+			self.view.window, True,
+			gtk.gdk.BUTTON_PRESS_MASK|
+				gtk.gdk.BUTTON_RELEASE_MASK|
+				gtk.gdk.POINTER_MOTION_MASK,
+			None, None, gtk.get_current_event_time())
 			
-		self.update_position ()
-		if time == None:
-			CuemiacAlignedWindow.show (self)
-		else:
-			CuemiacAlignedWindow.present_with_time (self, time)
+	def popdown (self):
+		if not (self.flags()&gtk.MAPPED):
+			return
+		
+		self.ignore_enter = False
+
+		gtk.Window.hide (self) # Bypass the warning we issue on hide()
+
+		# Ungrab pointer
+		gtk.gdk.pointer_ungrab(gtk.get_current_event_time())
+		self.view.grab_remove()
+	
+	def show (self):
+		print "WARNING, CuemiacHistoryPopup : Use of show() detected. Please use popup() instead."
 	
 	def show_all (self):
-		self.update_position ()
-		CuemiacAlignedWindow.show_all (self)
+		print "WARNING, CuemiacHistoryPopup : Use of show_all() detected. Please use popup() instead."
 	
-	def on_match_selected (self, sender, match):
-		self.emit ("match-selected", match)
+	def hide (self):
+		print "WARNING, CuemiacHistoryPopup : Use of hide() detected. Please use popdown() instead."
 		
 if gtk.pygtk_version < (2,8,0):	
 	gobject.type_register (CuemiacHistoryView)

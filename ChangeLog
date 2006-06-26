@@ -1,3 +1,20 @@
+2006-06-26  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+	* deskbar/ui/cuemiac/CuemiacHistory.py:
+	* deskbar/ui/cuemiac/CuemiacLayoutProvider.py:
+	* deskbar/ui/cuemiac/CuemiacPopupEntry.py:
+	* deskbar/ui/cuemiac/CuemiacUIManager.py:
+	* deskbar/ui/entriac/CuemiacEntryUI.py:
+	Make CuemiacHistory.CuemiacHistoryPopup use xgrab logic for
+	focus handling.
+	Let CuemiacEntryUI use this new history popup.
+	NOTE: Keyboard navigation is broken in the history popup. This is
+	      related to the old #326254 bug. I think we have to add a
+	      a keyboard navigation model our selves as we did for CuemiacTreeView.
+	Rip focus logic out of CuemiacUIManager and CuemiacLayoutProvider - 
+	it was broken and no widgets where using it anyway.
+	Remove realization of the view from CuemiacPopupEntry.popup().
+
 2006-06-19  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
 	* deskbar/ui/cuemiac/CuemiacLayoutProvider.py:

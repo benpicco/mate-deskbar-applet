@@ -128,33 +128,6 @@ class CuemiacLayoutProvider :
 		"""
 		cuim.get_view().grab_focus ()
 		cuim.get_view().focus_top_match ()
-
-	def on_focus_loss (self, cuim, widget):
-		"""
-		This method is called when one of the cuemiac widgets
-		lose focus. Typically the layout would respond by hiding a popup
-		window or such.
-		
-		This method is delayed a bit so that button presses outside
-		the cuemiac scope is handled before this call. This is because
-		a typical situation is one where the button in question is
-		responsible for toggling window hide/show status. If on_focus_loss
-		was not delayed a scenario would look like this:
-		
-		1) Click button - > Show window
-		2) Click button again ->
-		    2.1) Call on_focus_out(), hiding the window
-		    2.2) Call on_button_press, toggling the window state (to show).
-		
-		Thus we end up showing, hiding and re-showing the window.
-		
-		Because of the delay, 2.1 and 2.2 are interchanged, thus making
-		2.1 an obsolete window.hide() call (since the window is already hidden).
-		    
-		@param cuim: The C{CuemiacUIManager} responsible for the callback.
-		@param widget: The widget loosing focus.
-		"""
-		pass
 		
 	def set_layout_by_orientation (self, cuim, orient):
 		"""

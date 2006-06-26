@@ -36,15 +36,9 @@ class CuemiacUIManager (gobject.GObject) :
 	method which should spare you a few lines of code.
 	
 	B{A Note On Focus Handling}
-	This class aims to ease a multi-window layout, where the entry and the
-	view is in separate windows (think panel and popup with results).
-	To this end CuemiacUIManager has a global "focus-out-event" signal,
-	which is flagged when the focus moves outside the scope of the manager.
-	Ie. _not_ when the focus is passed between the entry and the view,
-	by means of hitting up/down.
-	
-	If you are writing a layout provider the relevant callback  to overwrite
-	is C{CuemiacLayoutProvider.on_focus_loss}.
+	If you are using a layout in multiple gtk.Windows, and want to hide some
+	of them on focus loss, you should look at how it is handled in 
+	CuemiacHistory.CuemiacHistoryPopup and CuemiacPopupEntry.
 	
 	@signal start-query: (C{string})
 	@signal stop-query: C{No arguments}
@@ -96,17 +90,10 @@ class CuemiacUIManager (gobject.GObject) :
 		self.cview.connect ("key-press-event", self._on_cview_key_press)
 		self.cview.connect ("match-selected", self._on_match_selected)
 		self.cview.connect_after ("cursor-changed", lambda treeview : self._update_entry_icon())
-		self.history_view.connect ("match-selected", self._on_match_selected, True)				
+		self.history_view.connect ("match-selected", self._on_match_selected, True)
 		
 		self._model_invalid = True
 		self._orient = gnomeapplet.ORIENT_DOWN
-		
-		# Handle focus events entry <-> view internally
-		# by blocking event propagation in self._on_focus_out_event FIXME
-		self._internal_refocus = False
-		self.cview.connect ("focus-out-event", self._on_focus_out_event)
-		self.entry.connect ("focus-out-event", self._on_focus_out_event)
-		self.history_view.connect ("focus-out-event", self._on_focus_out_event)
 
 		self.entry.show_all ()
 		
@@ -294,13 +281,11 @@ class CuemiacUIManager (gobject.GObject) :
 			
 		if event.keyval == 65362: # Up
 			if not self.cview.is_ready () : return
-			self._internal_refocus = True
 			self.layout.on_up_from_entry (self, event)
 			return True
 			
 		if event.keyval == 65364: # Down
 			if not self.cview.is_ready () : return
-			self._internal_refocus = True
 			self.layout.on_down_from_entry (self, event)
 			return True
 
@@ -354,18 +339,6 @@ class CuemiacUIManager (gobject.GObject) :
 		#self._on_match_selected (widget, self.model[iter][self.model.MATCHES])
 		self.cview.emit ("row-activated", path, column)
 		
-	def _on_focus_out_event(self, widget, event):
-		# Stop the event from propagating if
-		# this was an internal focus operation view <-> entry.
-		if self._internal_refocus :
-			self._internal_refocus = False
-		else:
-			gobject.timeout_add (100, self.layout.on_focus_loss, self, widget)
-			# We add a tiny delay so that events like button presses
-			# outside the cuemiac scope are handled before
-			# layout.on_focus_loss().
-			# See CuemiacLayoutProvider.on_focus_loss doc for futher comments.
-		
 	def _view_has_selection (self):
 		path, col = self.cview.get_cursor ()
 		if path is None:
@@ -388,7 +361,6 @@ class CuemiacUIManager (gobject.GObject) :
 		
 		if event.keyval == 65362: # Up
 			if model.paths_equal (path, model.get_path(model.get_iter_first())):		
-				self._internal_refocus = True
 				self.layout.on_up_from_view_top (self, event)
 			else:
 				self.cview.move_cursor_up_down (-1)
@@ -396,7 +368,6 @@ class CuemiacUIManager (gobject.GObject) :
 			
 		elif event.keyval == 65364: # Down				
 			if model.paths_equal (path, cview.last_visible_path()):
-				self._internal_refocus = True
 				self.layout.on_down_from_view_bottom (self, event)
 			else:
 				self.cview.move_cursor_up_down (1)

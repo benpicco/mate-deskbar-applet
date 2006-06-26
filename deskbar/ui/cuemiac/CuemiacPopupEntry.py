@@ -106,8 +106,7 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 			else:
 				print "WARNING in CuemiacEntryPopup : No toplevel window for entry!"
 				return
-
-		self.view.realize()
+					
 		self.popup_window.update_position()
 		self.popup_window.show_all ()
 		self.view.grab_focus()
