@@ -126,6 +126,8 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 			# self.popup.update_position ()
 			#self.update_entry_icon ()
 			
+			self.popup.stick() # Show popup on all workspaces
+
 			if time != None:
 				self.popup.present_with_time (time)
 			else:
@@ -133,6 +135,7 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 			
 			self.cuemiac.get_entry().grab_focus ()
 		else:
+			self.popup.unstick()
 			self.popup.hide ()
 			self.emit ("stop-query")
 	

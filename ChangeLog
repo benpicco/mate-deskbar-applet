@@ -1,3 +1,11 @@
+2006-06-28  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+	* deskbar/ui/cuemiac/CuemiacButtonUI.py:
+	Make popup sticky in button mode. This closes #333371.
+	This can easily be backported to 2.14. We just need to call
+	gtk.Window.stick() and gtk.Window.unstick() just before we show/hide
+	the popup.
+
 2006-06-26  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
 	* deskbar/ui/cuemiac/CuemiacButtonUI.py:
