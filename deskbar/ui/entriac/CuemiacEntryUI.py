@@ -170,17 +170,15 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		if not self.cuemiac.get_entry().get_property ("sensitive"):
 			return False
 			
-		if event.button == 3:
-			self.applet.emit ("button-press-event", event)
-			return True
-			
 		elif event.button == 1:
 			self.history_popup.popup ()
 			return True
 		
+		# The underlying applet handles if event.button == 3.
+		
 		return False
 		
-	def on_entry_button_press(self, widget, event):
+	def on_entry_button_press (self, widget, event):
 		try:
 			# GNOME 2.12
 			self.receive_focus (event.time)

@@ -1,5 +1,13 @@
 2006-06-28  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
+	* deskbar/ui/entriac/CuemiacEntryUI.py:
+	We duplicated the event handling for the applet
+	when the icon is right clicked in the entriac.
+	This caused an extra 1 pixel popup stealing the xgrab.
+	Fix this.
+
+2006-06-28  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
 	* deskbar/ui/cuemiac/CuemiacButtonUI.py:
 	Make popup sticky in button mode. This closes #333371.
 	This can easily be backported to 2.14. We just need to call
