@@ -64,7 +64,7 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 		"""
 		@param widget_to_align_with: A widget the popup should align itself to.
 		@param applet: A gnomeapplet.Applet instance. However - all that is needed is a .window attribute and a get_orient() method.
-		@param history_view: A L{CuemiacHistoryView} instance. If C{None} or nothing as passed, a new one will be created.
+		@param history_view: A L{CuemiacHistoryView} instance.
 		"""
 		CuemiacAlignedWindow.__init__ (self, widget_to_align_with, applet, window_type=gtk.WINDOW_POPUP)
 		self.applet = applet

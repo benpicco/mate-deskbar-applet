@@ -46,6 +46,8 @@ class CuemiacEntry (deskbar.iconentry.IconEntry):
 		self.select_region = self.entry.select_region
 		self.set_width_chars = self.entry.set_width_chars
 		self.get_width_chars = self.entry.get_width_chars
+		self.get_position = self.entry.get_position
+		self.set_position = self.entry.set_position
 
 		# When applications want to forward events to,
 		# this widget, it is 99% likely to want to forward 

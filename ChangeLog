@@ -1,3 +1,26 @@
+2006-06-30  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+	* deskbar/ui/cuemiac/CuemiacAlignedWindow.py:
+	* deskbar/ui/cuemiac/CuemiacAppletButton.py:
+	* deskbar/ui/cuemiac/CuemiacButtonUI.py:
+	* deskbar/ui/cuemiac/CuemiacEntry.py:
+	* deskbar/ui/cuemiac/CuemiacHistory.py:
+	* deskbar/ui/cuemiac/CuemiacUIManager.py:
+	Do proper popup positioning when the gconf key
+	/apps/metacity/general/disable_workarounds is TRUE.
+	This required setting the gtk.gdk.WINDOW_TYPE_HINT_MENU
+	on the popup. This fixes bug #335243.
+	
+	Re-enable + and ' for expand collapse in the tree.
+	
+	Only recalculate the popup postion when the window is hidden,
+	and don't update_position() on resize events in 
+	CuemiacAlignedWindow (see fixme on line 34).
+	
+	Make the history popup of the button ui behave as a normal
+	popup with regards to focus loss. Normal result popup is still
+	toggle-style.
+
 2006-06-28  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
 	* deskbar/ui/entriac/CuemiacEntryUI.py:

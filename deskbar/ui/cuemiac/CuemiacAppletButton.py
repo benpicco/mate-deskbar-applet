@@ -117,7 +117,6 @@ class CuemiacAppletButton (gtk.HBox):
 		elif gnomeapplet_dir == gnomeapplet.ORIENT_UP:
 			return gtk.ARROW_UP
 		elif gnomeapplet_dir == gnomeapplet.ORIENT_LEFT:
-			print "l"
 			return gtk.ARROW_LEFT
 		else:
 			return gtk.ARROW_RIGHT

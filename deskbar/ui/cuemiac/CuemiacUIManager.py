@@ -58,7 +58,7 @@ class CuemiacUIManager (gobject.GObject) :
 	}
 
 	
-	navigation_keys = [65364, 65362]#, 43, 45, 65293] # Down, Up, +, -, Enter
+	navigation_keys = [65364, 65362, 43, 45]#, 65293] # Down, Up, +, -, Enter
 	
 	def __init__(self, layout=None):
 		"""
@@ -373,6 +373,16 @@ class CuemiacUIManager (gobject.GObject) :
 				self.cview.move_cursor_up_down (1)
 			return True
 			
+		elif event.keyval == 43: # +
+			if model.iter_has_child (iter):
+				self.cview.expand_row (path, False)
+				return True
+				
+		elif event.keyval == 45: # -
+			if model.iter_has_child (iter):
+				self.cview.collapse_row (path)
+				return True
+				
 		return False
 				
 	def _on_entry_button_press (self, widget, event):

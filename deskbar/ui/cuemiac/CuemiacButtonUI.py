@@ -40,17 +40,22 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 			
 		# Pass along signals from the cuemiac
 		self.cuemiac.forward_deskbar_ui_signals (self)
-				
+		
 		self.cbutton = CuemiacAppletButton (applet)
 		self.cbutton.connect ("toggled-main", lambda x,y: self.update_popup_state())
 		self.cbutton.connect ("toggled-arrow", lambda x,y: self.update_history_popup_state())
+		
+		# We need an event time to focus the popup properly when it is shown
+		self.cbutton.connect ("button-press-event", lambda widget, event: self.focus_popup(event.time))
 
 		self.scroll_view = gtk.ScrolledWindow ()
 		self.scroll_view.set_policy (gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 		self.scroll_view.add (self.cuemiac.get_view())
 
-		self.popup = CuemiacAlignedWindow (self.cbutton.button_main, applet)
-		self.history_popup = CuemiacAlignedWindow (self.cbutton.button_arrow, applet)
+		self.popup = CuemiacAlignedWindow (self.cbutton.button_main, applet)#, gtk.WINDOW_POPUP)
+		self.history_popup = CuemiacHistoryPopup (self.cbutton.button_arrow,
+							applet,
+							self.cuemiac.get_history_view ())
 		self.box = gtk.VBox ()
 		self.cuemiac_header = CuemiacHeader (self.cuemiac.get_entry())
 			
@@ -64,6 +69,9 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 		self.cuemiac.get_history_view().connect ("key-press-event", self.on_history_key_press)
 		self.cuemiac.get_entry().connect ("key-press-event", self.on_entry_key_press)
 		
+		# We need to set the menu type hint on the popup window
+		# or else it wont be aligned properly (see bug #335243).
+		self.popup.set_type_hint (gtk.gdk.WINDOW_TYPE_HINT_MENU)
 		
 		self.screen_height = self.popup.get_screen().get_height ()
 		self.screen_width = self.popup.get_screen().get_width ()
@@ -85,7 +93,6 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 		self.cuemiac.get_entry().show ()
 		self.cuemiac.get_view().show ()
 		# don't show scroll_view just yet
-		
 		
 	def on_change_background (self, widget, background, colour, pixmap):
 		widgets = (self.applet, self.cbutton.button_main, self.cbutton.button_arrow)
@@ -111,9 +118,15 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 	
 	def update_popup_state (self, time=None):
 		if self.cbutton.get_active_main ():
+			if not (self.popup.get_property("visible")):
+				# Don't risk that the window bounces around, thus
+				# only recalc position when the popup isn't already shown
+				self.popup.update_position ()
+		
 			# Unselect what we have in the entry, so we don't occupy the middle-click-clipboard
 			# thus clearing the model on popup
-			self.cuemiac.get_entry().select_region (0,0)
+			cursor_pos = self.cuemiac.get_entry().get_position()
+			self.cuemiac.get_entry().select_region (cursor_pos,cursor_pos)
 		
 			# If the entry is empty or there's something in the middle-click-clipboard
 			# clear the popup so that we can paste into the entry.
@@ -123,35 +136,48 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 				
 			self.cbutton.button_arrow.set_active (False)
 			self.adjust_popup_size ()
-			# self.popup.update_position ()
-			#self.update_entry_icon ()
 			
 			self.popup.stick() # Show popup on all workspaces
 
-			if time != None:
-				self.popup.present_with_time (time)
-			else:
-				self.popup.present ()
-			
+			self.popup.show ()
+			self.focus_popup (time)			
+				
 			self.cuemiac.get_entry().grab_focus ()
+			self.cuemiac.get_entry().select_region (cursor_pos,cursor_pos)
+		
 		else:
 			self.popup.unstick()
 			self.popup.hide ()
 			self.emit ("stop-query")
+		
+		# Hide the history no matter what
+		self.history_popup.popdown ()
+
+	def focus_popup (self, time):
+		if not self.popup.get_property ("visible"):
+			return
+		if time:
+			self.popup.present_with_time (time)
+		else:
+			self.popup.present_with_time (gtk.get_current_event_time())
 	
 	def receive_focus (self, time):
 		# Toggle expandedness of the popup
 		self.cbutton.button_main.set_active (not self.cbutton.button_main.get_active())
 		# This will focus the entry since we are passing the real event time and not the toggling time
 		self.update_popup_state (time)
+		if not self.cbutton.button_main.get_active():
+			self.emit ("stop-query")
 		
 	def update_history_popup_state (self):
-		if self.cbutton.get_active_arrow ():
-			self.cbutton.button_main.set_active (False)
-			# self.history_popup.update_position ()
-			self.history_popup.show_all ()
-		else:
-			self.history_popup.hide ()
+		self.history_popup.popup ()
+		self.popup.hide ()
+		#if self.cbutton.get_active_arrow ():
+		#	self.cbutton.button_main.set_active (False)
+		#	self.history_popup.update_position ()
+		#	self.history_popup.show_all ()
+		#else:
+		#	self.history_popup.popdown ()
 	
 	def get_view (self):
 		return self.cbutton
@@ -192,11 +218,11 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 			return True
 	
 	def on_matches_added (self, cuim):
-		self.popup.show_all ()
-	
+		self.update_popup_state ()
+		self.scroll_view.show ()
+		
 	def append_matches (self, matches):
 		self.cuemiac.append_matches (matches)
-		self.popup.show_all()
 	
 	def on_stop (self, cuim):
 		self.scroll_view.hide()
