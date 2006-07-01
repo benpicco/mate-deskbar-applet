@@ -32,6 +32,7 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 	
 	def __init__ (self, applet, prefs):
 		DeskbarUI.__init__ (self, applet, prefs)
+		self.clipboard = gtk.Clipboard (selection="PRIMARY")
 		CuemiacLayoutProvider.__init__ (self)
 		
 		self.cuemiac = CuemiacUIManager (self) # Use self as CuemiacLayoutProvider
@@ -122,15 +123,10 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 				# Don't risk that the window bounces around, thus
 				# only recalc position when the popup isn't already shown
 				self.popup.update_position ()
-		
-			# Unselect what we have in the entry, so we don't occupy the middle-click-clipboard
-			# thus clearing the model on popup
-			cursor_pos = self.cuemiac.get_entry().get_position()
-			self.cuemiac.get_entry().select_region (cursor_pos,cursor_pos)
-		
+			
 			# If the entry is empty or there's something in the middle-click-clipboard
 			# clear the popup so that we can paste into the entry.
-			if self.cuemiac.get_entry().get_text().strip() == "" or self.cuemiac.clipboard.wait_for_text():
+			if self.cuemiac.get_entry().get_text().strip() == "":
 				self.cuemiac.get_entry().set_text("")
 				self.scroll_view.hide ()
 				
@@ -141,7 +137,8 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 
 			self.popup.show ()
 			self.focus_popup (time)			
-				
+			
+			cursor_pos = self.cuemiac.get_entry().get_position()
 			self.cuemiac.get_entry().grab_focus ()
 			self.cuemiac.get_entry().select_region (cursor_pos,cursor_pos)
 		
@@ -219,10 +216,10 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 	
 	def on_matches_added (self, cuim):
 		self.update_popup_state ()
-		self.scroll_view.show ()
 		
 	def append_matches (self, matches):
 		self.cuemiac.append_matches (matches)
+		self.scroll_view.show ()
 	
 	def on_stop (self, cuim):
 		self.scroll_view.hide()
