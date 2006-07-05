@@ -92,6 +92,7 @@ GCONF_UI_NAME = GCONF_DIR + "/ui_name"
 
 ENTRIAC_UI_NAME = "Entriac"
 CUEMIAC_UI_NAME = "Cuemiac"
+WINDOW_UI_NAME = "Window"
 
 # GConf key for list of enabled handlers, when uninstalled, use a debug key to not conflict
 # with development version

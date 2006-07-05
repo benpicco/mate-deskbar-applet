@@ -160,6 +160,7 @@ deskbar/defs.py
 deskbar/ui/Makefile
 deskbar/ui/cuemiac/Makefile
 deskbar/ui/entriac/Makefile
+deskbar/ui/window/Makefile
 deskbar/handlers/Makefile
 deskbar/updater/Makefile
 deskbar/updater/specs/Makefile
@@ -170,6 +171,7 @@ deskbar/gdmclient/Makefile
 deskbar/evolution/Makefile
 deskbar/osutils/Makefile
 data/Makefile
+data/deskbar-applet.desktop.in
 data/deskbar-applet.pc
 data/art/Makefile
 po/Makefile.in

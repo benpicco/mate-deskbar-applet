@@ -34,9 +34,17 @@ resources_DATA = \
 
 deskbarbindir = $(libdir)/deskbar-applet
 
+#
+# Desktop file
+#
+desktopdir = $(datadir)/applications
+desktop_in_files = deskbar-applet.desktop.in 
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+
 # ******************************************************************************
 # Build rules
 # ******************************************************************************
+@INTLTOOL_DESKTOP_RULE@
 @INTLTOOL_SERVER_RULE@
 @INTLTOOL_SCHEMAS_RULE@
 

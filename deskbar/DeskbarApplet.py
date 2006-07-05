@@ -13,6 +13,7 @@ from deskbar.DeskbarAppletPreferences import DeskbarAppletPreferences
 from deskbar.Keybinder import get_deskbar_keybinder
 from deskbar.ui.cuemiac.CuemiacButtonUI import CuemiacButtonUI
 from deskbar.ui.entriac.CuemiacEntryUI import CuemiacEntryUI
+from deskbar.ui.window.CuemiacWindowUI import CuemiacWindowUI
 
 
 class DeskbarApplet:
@@ -47,20 +48,26 @@ class DeskbarApplet:
 
 		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_MINCHARS, lambda x, y, z, a: self.on_minchars_changed (z.value))
 
-		# Set and retrieve the UI to be used
-		ui_name = deskbar.GCONF_CLIENT.get_string(self.prefs.GCONF_UI_NAME)
-		if ui_name == None:
-			ui_name = deskbar.ENTRIAC_UI_NAME
-		
 		# Watch out for UI override from command line
-		if deskbar.UI_OVERRIDE != None:
+		if deskbar.UI_OVERRIDE:
 			ui_name = deskbar.UI_OVERRIDE
+			deskbar.GCONF_CLIENT.set_string(self.prefs.GCONF_UI_NAME, ui_name)
+		else:
+			# Set and retrieve the UI to be used
+			ui_name = deskbar.GCONF_CLIENT.get_string(self.prefs.GCONF_UI_NAME)
+			if ui_name == None:
+				ui_name = deskbar.ENTRIAC_UI_NAME
 		
 		if ui_name == deskbar.CUEMIAC_UI_NAME:
 			self.ui = CuemiacButtonUI (applet, self.prefs)
 		elif ui_name == deskbar.ENTRIAC_UI_NAME:
 			self.ui = CuemiacEntryUI(applet, self.prefs)
-			
+		elif ui_name == deskbar.WINDOW_UI_NAME:
+			self.ui = CuemiacWindowUI(applet, self.prefs)
+			self.ui.connect('show-preferences', self.on_preferences, None)
+			self.ui.connect('show-about', self.on_about, None)
+			self.ui.connect('clear-history', self.on_clear_history, None)
+		
 		# Set up the chosen UI
 		self.set_up_ui_signals ()
 		self.ui.set_sensitive (False)
@@ -300,11 +307,14 @@ class DeskbarApplet:
 		if value is None or value.type != gconf.VALUE_STRING:
 			return
 		
+		ui_name = value.get_string()
+		if ui_name == deskbar.WINDOW_UI_NAME:
+			# You cannot switch to or from a window ui
+			return
+
 		self.ui.close_view()
 		self.applet.remove (self.ui.get_view())
 		#FIXME: Should we clean up signals and stuff on the old UI?
-		
-		ui_name = value.get_string()
 
 		if ui_name == deskbar.CUEMIAC_UI_NAME:
 			self.ui = CuemiacButtonUI (self.applet, self.prefs)

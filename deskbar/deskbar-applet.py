@@ -55,11 +55,12 @@ def applet_factory(applet, iid):
 	return True
 
 # Return a standalone window that holds the applet
-def build_window():
+def build_window(popup_mode=False):
 	app = gtk.Window(gtk.WINDOW_TOPLEVEL)
 	app.set_title("Deskbar Applet")
 	app.connect("destroy", gtk.main_quit)
-	app.set_property('resizable', False)
+	if not popup_mode:
+		app.set_property('resizable', False)
 	
 	applet = gnomeapplet.Applet()
 	applet.get_orient = lambda: gnomeapplet.ORIENT_DOWN
@@ -70,27 +71,29 @@ def build_window():
 	
 	return app
 		
-		
 def usage():
 	print """=== Deskbar applet: Usage
 $ deskbar-applet [OPTIONS]
 
 OPTIONS:
-	-h, --help			Print this help notice.
+	-h, --help		Print this help notice.
 	-w, --window		Launch the applet in a standalone window for test purposes (default=no).
 	-c, --cuemiac		Launch the Cuemiac UI (when in window mode) (default=no).
+	-p, --popup		Launch the Window UI (a window pops up when deskbar is activated via the shortcut Alt-F3) (default=no).
 	"""
 	sys.exit()
 	
 if __name__ == "__main__":	
 	standalone = False
 	cuemiac = False
+	popup_mode = False
 	
 	try:
-		opts, args = getopt.getopt(sys.argv[1:], "hwc", ["help", "window", "cuemiac"])
+		opts, args = getopt.getopt(sys.argv[1:], "hwcp", ["help", "window", "cuemiac","popup"])
 	except getopt.GetoptError:
 		# Unknown args were passed, we fallback to bahave as if
 		# no options were passed
+		print "WARNING: Unknown arguments passed, using defaults."
 		opts = []
 		args = sys.argv[1:]
 	
@@ -101,16 +104,22 @@ if __name__ == "__main__":
 			standalone = True
 		elif o in ("-c", "--cuemiac"):
 			cuemiac = True
+		elif o in ("-p", "--popup"):
+			popup_mode = True
+			standalone = True
+
 	
 	if standalone:
 		if cuemiac:
 			deskbar.UI_OVERRIDE = deskbar.CUEMIAC_UI_NAME
+		elif popup_mode:
+			deskbar.UI_OVERRIDE = deskbar.WINDOW_UI_NAME
 		else:
 			deskbar.UI_OVERRIDE = deskbar.ENTRIAC_UI_NAME
 
 		import gnome
 		gnome.init(deskbar.defs.PACKAGE, deskbar.defs.VERSION)
-		build_window()
+		build_window(popup_mode)
 		gtk.main()
 	else:
 		gnomeapplet.bonobo_factory(

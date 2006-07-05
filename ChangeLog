@@ -1,3 +1,23 @@
+2006-07-05  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+	* configure.ac:
+	* data/Makefile.am:
+	* data/deskbar-applet.desktop.in.in:
+	* deskbar/DeskbarApplet.py:
+	* deskbar/__init__.py:
+	* deskbar/deskbar-applet.py:
+	* deskbar/ui/DeskbarPreferencesUI.py:
+	* deskbar/ui/Makefile.am:
+	* deskbar/ui/window/CuemiacWindowUI.py:
+	* deskbar/ui/window/Makefile.am:
+	* deskbar/ui/window/__init__.py:
+	Add window mode. You can launch it with -p or --popup.
+	You need to regenerate deskbar/deskbar-applet.
+	This work is mostly due to Sebastian Pölsterl.
+	Things that obviously needs fixing:
+		- Cannot gain focus on shortcut after first show.
+		- UI polish.
+
 2006-07-01  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
 	* deskbar/ui/cuemiac/CuemiacButtonUI.py:

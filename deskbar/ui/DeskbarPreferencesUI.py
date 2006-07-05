@@ -6,7 +6,7 @@ import deskbar, deskbar.Utils
 from deskbar.updater.NewStuffUpdater import NewStuffUpdater
 from deskbar.ui.ModuleListView import ModuleListView, WebModuleListView
 from deskbar.ModuleList import WebModuleList
-from deskbar import CUEMIAC_UI_NAME, ENTRIAC_UI_NAME
+from deskbar import CUEMIAC_UI_NAME, ENTRIAC_UI_NAME, WINDOW_UI_NAME
 
 MAXINT = 2 ** ((8 * struct.calcsize('i')) - 1) - 1
 
@@ -250,6 +250,10 @@ class DeskbarPreferencesUI:
 		elif self.ui_name == CUEMIAC_UI_NAME:
 			self.cuemiac_ui_radio.set_active (True)
 			self.set_width_settings_sensitive(False)
+		elif self.ui_name == WINDOW_UI_NAME:
+			self.cuemiac_ui_radio.set_active (True)
+			self.set_ui_settings_sensitive(False)
+			self.set_width_settings_sensitive(False)
 			
 	def set_width_settings_sensitive(self, sensitive):
 		if sensitive and not self.expand:
@@ -261,6 +265,11 @@ class DeskbarPreferencesUI:
 			
 		self.use_all_width_radio.set_sensitive(sensitive)
 		self.fixed_width_radio.set_sensitive(sensitive)
+
+	def set_ui_settings_sensitive(self, sensitive):
+		self.cuemiac_ui_radio.set_sensitive(sensitive)
+		self.completion_ui_radio.set_sensitive(sensitive)
+
 		
 	def on_config_width(self, value):
 		if value != None and value.type == gconf.VALUE_INT:
@@ -283,6 +292,9 @@ class DeskbarPreferencesUI:
 			self.sync_ui()
 			
 	def on_ui_changed (self, sender, applet):
+		if self.ui_name == WINDOW_UI_NAME:
+			# You cannot change to or from window ui
+			return
 		if self.completion_ui_radio.get_active ():
 			deskbar.GCONF_CLIENT.set_string(applet.prefs.GCONF_UI_NAME, ENTRIAC_UI_NAME)
 		elif self.cuemiac_ui_radio.get_active ():
