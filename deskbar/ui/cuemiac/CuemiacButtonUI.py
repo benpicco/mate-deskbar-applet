@@ -133,8 +133,9 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 			self.cbutton.button_arrow.set_active (False)
 			self.adjust_popup_size ()
 			
-			self.popup.stick() # Show popup on all workspaces
-
+			self.popup.stick() # Always show the popup
+			self.popup.set_keep_above (True)
+			
 			self.popup.show ()
 			self.focus_popup (time)			
 			
@@ -143,6 +144,7 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 			self.cuemiac.get_entry().select_region (cursor_pos,cursor_pos)
 		
 		else:
+			self.popup.set_keep_above (False)
 			self.popup.unstick()
 			self.popup.hide ()
 			self.emit ("stop-query")
