@@ -1,7 +1,7 @@
 from gettext import gettext as _
 import cgi
 import gnomevfs
-import deskbar, deskbar.Indexer, deskbar.Handler, deskbar.evolution, deskbar.Utils
+import deskbar, deskbar.Indexer, deskbar.Handler, deskbar.evolution, deskbar.Utils, deskbar.Match
 from deskbar.defs import VERSION
 
 def _check_requirements():

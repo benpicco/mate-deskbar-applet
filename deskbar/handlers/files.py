@@ -8,6 +8,7 @@ import gobject
 import gtk, gnome, gnome.ui
 import deskbar, deskbar.Indexer
 import deskbar.Handler
+import deskbar.Match
 from deskbar.defs import VERSION
 from threading import Thread
 

@@ -2,6 +2,7 @@ from gettext import gettext as _
 
 import gnomevfs
 import deskbar.Handler
+import deskbar.Match
 import re
 from deskbar.defs import VERSION
 

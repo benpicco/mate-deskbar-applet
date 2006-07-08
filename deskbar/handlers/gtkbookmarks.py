@@ -5,6 +5,7 @@ from gettext import gettext as _
 import gobject
 import gnomevfs
 import deskbar.Handler
+import deskbar.Match
 from deskbar.Watcher import FileWatcher
 from deskbar.defs import VERSION
 

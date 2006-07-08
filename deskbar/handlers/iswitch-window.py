@@ -2,7 +2,7 @@ from gettext import gettext as _
 from gettext import ngettext
 from deskbar.defs import VERSION
 import wnck, gtk
-import deskbar.Handler, deskbar
+import deskbar.Handler, deskbar.Match, deskbar
 import re
 import cgi
 

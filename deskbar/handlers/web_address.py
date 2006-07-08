@@ -3,6 +3,7 @@ import re, os
 import gobject
 import gnomevfs
 import deskbar.Handler
+import deskbar.Match
 from deskbar.defs import VERSION
 
 HANDLERS = {

@@ -1,4 +1,4 @@
-import deskbar.Handler, deskbar
+import deskbar.Handler, deskbar.Match, deskbar
 from deskbar.Utils import strip_html
 import os, cgi
 import gobject

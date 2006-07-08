@@ -8,6 +8,7 @@ import gobject
 import gtk
 import deskbar, deskbar.Indexer
 import deskbar.Handler
+import deskbar.Match
 
 HANDLERS = {
 	"PathProgramsHandler" : {

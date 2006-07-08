@@ -1,4 +1,4 @@
-import deskbar.Handler, deskbar.Utils
+import deskbar.Handler, deskbar.Utils, deskbar.Match
 from deskbar.defs import VERSION
 
 def _on_more(dialog):

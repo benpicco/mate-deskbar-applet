@@ -3,6 +3,7 @@ from gettext import gettext as _
 import gnomevfs
 import deskbar, deskbar.Indexer
 import deskbar.Handler
+import deskbar.Match
 from deskbar.defs import VERSION
 
 # FIXME: Waiting for python bindings of galago. This class is not ready

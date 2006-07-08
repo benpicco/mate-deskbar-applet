@@ -6,7 +6,7 @@ from deskbar.defs import VERSION
 import gobject
 import gtk
 import deskbar, deskbar.Indexer, deskbar.Utils
-import deskbar.Handler, deskbar.gnomedesktop
+import deskbar.Handler, deskbar.Match, deskbar.gnomedesktop
 from deskbar.Utils import get_xdg_data_dirs
 
 HANDLERS = {

@@ -3,7 +3,7 @@ from gettext import gettext as _
 from deskbar.defs import VERSION
 import urllib, cgi
 import gnomevfs
-import deskbar.Handler, deskbar
+import deskbar.Handler, deskbar.Match, deskbar
 import xml.dom.minidom
 
 YAHOO_API_KEY = 'deskbar-applet'
