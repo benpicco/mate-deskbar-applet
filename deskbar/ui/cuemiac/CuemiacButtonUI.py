@@ -53,6 +53,7 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 		self.scroll_view.set_policy (gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 		self.scroll_view.add (self.cuemiac.get_view())
 
+		self.last_focus_time = None # Used to store a ref to event.time for the last time we where focused
 		self.popup = CuemiacAlignedWindow (self.cbutton.button_main, applet)#, gtk.WINDOW_POPUP)
 		self.history_popup = CuemiacHistoryPopup (self.cbutton.button_arrow,
 							applet,
@@ -119,7 +120,9 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 	
 	def update_popup_state (self, time=None):
 		if self.cbutton.get_active_main ():
-			if not (self.popup.get_property("visible")):
+			popup_was_visible = self.popup.get_property("visible")
+			
+			if not (popup_was_visible):
 				# Don't risk that the window bounces around, thus
 				# only recalc position when the popup isn't already shown
 				self.popup.update_position ()
@@ -137,12 +140,23 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 			self.popup.set_keep_above (True)
 			
 			self.popup.show ()
+			if not time:
+				time = self.last_focus_time
 			self.focus_popup (time)			
 			
 			cursor_pos = self.cuemiac.get_entry().get_position()
 			self.cuemiac.get_entry().grab_focus ()
-			self.cuemiac.get_entry().select_region (cursor_pos,cursor_pos)
-		
+			if popup_was_visible:
+				# Reposition the cursor so we don't select the text,
+				# allowing the user to type on
+				self.cuemiac.get_entry().select_region (cursor_pos,cursor_pos)
+			else:
+				# We are popping up, so select all text
+				self.cuemiac.get_entry().select_region (0,-1)
+			
+			# Clear our timestamp so metacity don't think we are pranksters,
+			# if we try to reuse it
+			self.last_focus_time = None
 		else:
 			self.popup.set_keep_above (False)
 			self.popup.unstick()
@@ -162,9 +176,9 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 	
 	def receive_focus (self, time):
 		# Toggle expandedness of the popup
+		self.last_focus_time = time
 		self.cbutton.button_main.set_active (not self.cbutton.button_main.get_active())
-		# This will focus the entry since we are passing the real event time and not the toggling time
-		self.update_popup_state (time)
+		
 		if not self.cbutton.button_main.get_active():
 			self.emit ("stop-query")
 		
