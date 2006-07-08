@@ -1,3 +1,13 @@
+2006-07-08  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+	* deskbar/handlers/desklicious.py:
+	Remove gconf dependancy from desklicious handler.
+	The only place we explicitely used gconf was for a single
+	"value.type == gconf.VALUE_STRING", I removed this validation
+	instead of importing the entire gconf module (it would have been
+	the only handler using it directly).
+	This closes #346582.
+
 2006-07-07  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
 	* deskbar/handlers/debug-requirements.py:
