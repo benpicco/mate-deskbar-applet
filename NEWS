@@ -1,4 +1,59 @@
 =====================
+deskbar-applet 2.15.4
+=====================
+
+Changes:
+	* Add preference to paste seection when triggering hotkey (work in progress)
+	* Fix epiphany parsing of non-latin1 hrefs in bookmarks
+	* Tweak sorting of program handlers
+	* Correctly handle uri and identifier by not escaping them
+	* Highlight search string in beagle imlogviewer
+	* Add g-p-m and g-screensaver support in gdmactions.
+	* Add gdmactions handler
+	* Remove nesting for matches
+	* Correctly detect mozilla profile. Patch by Jonathan Doda <jdodo@sympatico.ca>
+	* Add a gconf key to set delay between writing something in search entry and performing the search.
+	* Fix #346760: "Text in text entry from previous use is not highlighted when entry is brought up".
+	* Patch by Travis B. Hartwell <nafai@travishartwell.net> for bug #346813 – "All handlers don't explicitly import deskbar.Match".
+	* Keep the window above others when /apps/metacity/general/disable_workarounds is False. (it only worked for True).
+	* Add window mode. You can launch it with -p or --popup. You need to regenerate deskbar/deskbar-applet. This work is mostly due to Sebastian Pölsterl. Things that obviously needs fixing: - Cannot gain focus on shortcut after first show. - UI polish.
+	* Fix middle-click paste.
+	* Do proper popup positioning when the gconf key /apps/metacity/general/disable_workarounds is TRUE. This required setting the gtk.gdk.WINDOW_TYPE_HINT_MENU on the popup. This fixes bug #335243. Re-enable + and ' for expand collapse in the tree. Only recalculate the popup postion when the window is hidden, and don't update_position() on resize events in CuemiacAlignedWindow (see fixme on line 34). Make the history popup of the button ui behave as a normal popup with regards to focus loss. Normal result popup is still toggle-style.
+	* Make popup sticky in button mode. This closes #333371. This can easily be backported to 2.14. We just need to call gtk.Window.stick() and gtk.Window.unstick() just before we show/hide the popup.
+	* Introduce CuemiacHeader and make button ui use it. Basically it is just a colored frame around the search entry.
+	* SignallingHandler did not remove the gobject source on stop_query(). It does now. This should close #344049 and #344045. Make sure entriac emits a "stop-query" when the popup is hidden. CuemiacUIManager did not set proper path and column for the "row-acivated" signal on the treeview, in on_entry_activated, this caused trouble for the LingeringSelection. Fix this.
+	* Make CuemiacHistory.CuemiacHistoryPopup use xgrab logic for focus handling. Let CuemiacEntryUI use this new history popup. NOTE: Keyboard navigation is broken in the history popup. This is related to the old #326254 bug. I think we have to add a a keyboard navigation model our selves as we did for CuemiacTreeView. Rip focus logic out of CuemiacUIManager and CuemiacLayoutProvider - it was broken and no widgets where using it anyway. Remove realization of the view from CuemiacPopupEntry.popup().
+
+Contributors to this release: Raphael Slinckx, Mikkel Kamstrup Erlandsen, Sebastian Pölsterl
+
+Translations:
+	* Updated Traditional Chinese translation(Hong Kong).
+	* Updated Traditional Chinese translation(Taiwan).
+	* Updated Brazilian Portuguese translation.
+	* Added Malagasy translation
+	* Updated Bulgarian translation by Rostislav Raykov <zbrox@i-space.org>
+	* Added Bengali India Translation.
+	* Updated Spanish translation.
+	* Updated French translation.
+	* Updated Finnish translation.
+	* Updated nepali translation
+	* Added Tamil Translation
+	* Added 'ta'
+	* Updated Hindi Translation.
+	* Updated Dzongkha translation by Dzongkhalinux Team, DIT.
+	* Updated Macedonian Translation.
+	* Added Hebrew translation.
+	* Updated Russian translation by Alexandre Prokoudine <alexandre.prokoudine@gmail.com>
+	* Added Latvian Translation.
+	* Updated Galician Translation.
+	* Updated Swedish translation.
+	* Updated German translation.
+	* Updated Thai translation.
+	* Updated Gujarati Translation.
+
+Contributors to the translations: Kostas Papadimas, Vladimer Sichinava, Kjartan Maraas, Thierry Randrianiriana, Hendrik Richter, Artur Flinta, Josep Puigdemont Casamajó, Žygimantas Beručka, Duarte Loreto, Theppitak Karoonboonyanan, Øivind Hoel, Runa Bhattacharjee, Ilkka Tuohela, Gabor Kelemen, Ankit Patel, Funda Wang, Jovan Naumovski, Amanpreet Singh Alam, Clytie Siddall, ChaoHsiung Liao, Guntupalli Karunakar, Ignacio Casal Quinteiro, Tommi Vainikainen, Lukas Novotny, Nickolay V. Shmyrev, Rajesh Ranjan, Danilo Šegan, Josep Puigdemont i Casamajó, Erdal Ronahi, Alessio Frusciante, Satoru SATOH, I. Felix, Rhys Jones, Yair Hershkovitz, Ahmad Riza H Nst, Benoît Dejean, Marcel Telka, Leonid Kanter, Pawan Chitrakar, Daniel Nylander, Vincent van Adrighem, Slobodan D. Sredojevic, Raivis Dejus, Raphael Higino, Christian Rose, Takeshi AIHANA, Laurent Dhima, Francisco Javier F. Serrador, Miloslav Trmac, Maxim Dziumanenko, Alexander Shopov, Adam Weinberger, Hendrik Brandt, Ole Laursen, Stanislav Brabec, Pema Geyleg, Priit Laes, Kang JeongHee, Nikos Charonitakis
+
+=====================
 deskbar-applet 2.15.3
 =====================
 
