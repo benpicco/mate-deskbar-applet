@@ -15,7 +15,7 @@ from deskbar.Watcher import FileWatcher
 HANDLERS = {
 	"FileFolderHandler" : {
 		"name": _("Files, Folders and Places"),
-		"description": _("Open your files, folders, bookmarks, disk drives, network places by name"),
+		"description": _("View your files, folders, bookmarks, drives, network places by name"),
 		"version": VERSION,
 	},
 }
@@ -113,7 +113,7 @@ class VolumeMatch (Match):
 		if uri_scheme in NETWORK_URIS:
 			return _("Open network place %s") % "<b>%(name)s</b>"
 		elif uri_scheme in AUDIO_URIS:
-			return _("Open audio disk %s") % "<b>%(name)s</b>"
+			return _("Open audio disc %s") % "<b>%(name)s</b>"
 		else:
 			return _("Open location %s") % "<b>%(name)s</b>"
 	

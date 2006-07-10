@@ -13,7 +13,10 @@ art_DATA = \
 	generic.png \
 	yahoo.png \
 	google.png \
-	epiphany-history.png
+	epiphany-history.png \
+	gpm-suspend-to-disk.png \
+	gpm-suspend-to-ram.png
+
 	
 icondir = $(datadir)/icons/hicolor/48x48/apps
 icon_DATA = deskbar-applet.png
