@@ -4,7 +4,7 @@ import deskbar
 from deskbar.ui.cuemiac.CuemiacAlignedWindow import CuemiacAlignedWindow
 from deskbar.ui.cuemiac.CuemiacModel import CuemiacModel
 from deskbar.ui.cuemiac.CuemiacTreeView import CuemiacTreeView
-from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory, Nest
+from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
 from deskbar.ui.cuemiac.CuemiacHistory import CuemiacHistoryView
 from deskbar.ui.cuemiac.CuemiacEntry import CuemiacEntry
 from deskbar.DeskbarHistory import get_deskbar_history
@@ -218,7 +218,7 @@ class CuemiacUIManager (gobject.GObject) :
 		
 			if path != None:
 				item = self.model[self.model.get_iter(path)][self.model.MATCHES]
-				if item.__class__ != CuemiacCategory and item.__class__ != Nest:
+				if item.__class__ != CuemiacCategory:
 					text, match = item
 					icon=match.get_icon()
 				

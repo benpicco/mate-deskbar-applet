@@ -89,7 +89,7 @@ TYPES = {
 		"icon"	: "stock_news",
 		"description": (_("News from %s") % "<i>%(publisher)s</i>" ) + "\n<b>%(name)s</b>",
 		"snippet": True,
-		"category": "web",
+		"category": "news",
 		"extra": {"publisher":("dc:publisher",), "identifier": ("dc:identifier",)},
 		},
 	"Note"		: {
@@ -98,7 +98,7 @@ TYPES = {
 		"icon"	:"stock_notes",
 		"description": _("Note: %s") % "<b>%(name)s</b>",
 		"snippet": True,
-		"category": "documents",
+		"category": "notes",
 		},
 	"IMLog"		: {
 		"name"	: ("fixme:speakingto",),

@@ -5,7 +5,7 @@ import cgi
 
 import deskbar
 from deskbar.Categories import CATEGORIES
-from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory, Nest
+from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
 			
 # The sort function ids
 SORT_BY_CATEGORY = 1
@@ -13,7 +13,7 @@ SORT_BY_CATEGORY = 1
 class CuemiacModel (gtk.TreeStore):
 	"""
 	A tree model to store hits sorted by categories. CuemiacCategory's are root nodes,
-	with each child representing a hit or a "nest" containing additional hits.
+	with each child representing a hit.
 	Schematically this looks like:
 	
 	CuemiacCategory->
@@ -21,17 +21,12 @@ class CuemiacModel (gtk.TreeStore):
 		-> deskbar.handler.Match
 		...
 		-> deskbar.handler.Match
-		-> Nest
-			-> deskbar.handler.Match
-			-> deskbar.handler.Match
-			...
 	CuemiacCategory->
 		...
 	...
 	
 	Signal arguments:
 		"category-added" : CuemiacCategory, gtk.TreePath
-		"nest-added" : CuemiacCategory, gtk.TreePath
 	"""
 	# Column name
 	MATCHES = 0
@@ -39,7 +34,6 @@ class CuemiacModel (gtk.TreeStore):
 	
 	__gsignals__ = {
 		"category-added" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
-		"nest-added" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT])
 	}
 	
 	def __init__ (self):
@@ -58,13 +52,7 @@ class CuemiacModel (gtk.TreeStore):
 		# Sort categories according to handler preferences
 		if match1.__class__ == CuemiacCategory:
 			return match1.get_priority() - match2.get_priority()
-		
-		# Ensure Nests are always last
-		if match1.__class__ == Nest:
-			return -1
-		if match2.__class__ == Nest:
-			return 1
-		
+				
 		# Sort matches inside category according to handler prefs, then match prio
 		text1, match1 = match1
 		text2, match2 = match2
@@ -137,29 +125,9 @@ class CuemiacModel (gtk.TreeStore):
 		cat.set_priority(match_obj)
 		row_iter = None
 		
-		# Test to remove nesting temporarily
-		if True:#cat.get_count() < cat.get_threshold() :
-			# We havent reached threshold, append normally
-			cat.inc_count ()
-			self.__append_match_to_iter (cat.get_category_iter(), match)
-			
-		elif cat.get_count() == cat.get_threshold():
-			# We reached the threshold with this match
-			# Set up a Nest, and append the match to that
-			nest = Nest (match_obj.get_category (), cat)
-			nest_iter = self.append_method (self, cat.get_category_iter(), [nest, None])
-			cat.set_nest_iter (nest_iter)
-			
-			cat.inc_count ()
-			self.__append_match_to_iter (nest_iter, match)
-			self.emit ("nest-added", nest, cat.get_nest_row_path ())
-		else:
-			# We've already passed the threshold. Append the match in the nest.
-			cat.inc_count ()
-			self.__append_match_to_iter (cat.get_nest_iter(), match)
-			# Update the nested count in the nest row:
-			self.row_changed (cat.get_nest_row_path(), cat.get_nest_iter())
-			
+		cat.inc_count ()
+		self.__append_match_to_iter (cat.get_category_iter(), match)
+				
 		# Update the row count in the view:
 		self.row_changed (cat.get_category_row_path(), cat.get_category_iter())
 

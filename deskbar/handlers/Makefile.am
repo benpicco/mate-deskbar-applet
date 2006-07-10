@@ -23,8 +23,5 @@ if ENABLE_EVOLUTION
 deskbar_handlers_PYTHON += evolution.py
 endif
 
-EXTRA_DIST = \
-	debug-async_handler.py \
-	debug-requirements.py \
-	debug-signal_handler.py
+EXTRA_DIST = 
 

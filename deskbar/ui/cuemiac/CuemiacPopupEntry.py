@@ -66,7 +66,7 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 			self.popup_window.resize (w, h)
 
 	def on_view_button_press (self, widget, event):
-		if self.view.coord_is_category_or_nest (event.x, event.y):
+		if self.view.coord_is_category (event.x, event.y):
 			# Don't popdown, we just expanded or collapsed a row
 			return False
 		else:

@@ -16,7 +16,7 @@ from deskbar.ui.DeskbarUI import DeskbarUI
 from deskbar.ui.cuemiac.CuemiacAppletButton import CuemiacAppletButton
 from deskbar.ui.cuemiac.CuemiacModel import CuemiacModel
 from deskbar.ui.cuemiac.CuemiacTreeView import CuemiacTreeView
-from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory, Nest
+from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
 from deskbar.ui.cuemiac.CuemiacAlignedWindow import CuemiacAlignedWindow
 from deskbar.ui.cuemiac.CuemiacHistory import CuemiacHistoryPopup
 from deskbar.DeskbarHistory import get_deskbar_history

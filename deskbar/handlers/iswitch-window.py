@@ -14,8 +14,6 @@ HANDLERS = {
 		"categories" : {
 			"windows"	: {
 				"name": _("Windows"),
-				"nest": lambda n: ngettext("%s more window", "%s more windows", n),
-				"threshold": 10
 				}
 			},
 		"version": VERSION,

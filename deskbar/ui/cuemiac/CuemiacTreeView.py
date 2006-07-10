@@ -4,7 +4,7 @@ import pango
 import gconf
 
 import deskbar
-from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory, Nest
+from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
 
 class CellRendererCuemiacCategory (gtk.CellRendererText):
 	"""
@@ -137,14 +137,12 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		# Stuff to handle persistant expansion states.
 		# A category will be expanded if it's in __collapsed_rows
-		# a Nest will never be expanded (this is not a bug, but policy)
 		self.__collapsed_rows = deskbar.GCONF_CLIENT.get_list(deskbar.GCONF_COLLAPSED_CAT, gconf.VALUE_STRING)
 		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_COLLAPSED_CAT, lambda x, y, z, a: self.__on_config_expanded_cat(z.value))
 		
 		self.connect ("row-expanded", self.__on_row_expanded, model)
 		self.connect ("row-collapsed", self.__on_row_collapsed, model)
 		model.connect ("category-added", self.__on_category_added)
-		model.connect ("nest-added", self.__on_nest_added)
 		
 		self.qstring = ""
 
@@ -178,14 +176,6 @@ class CuemiacTreeView (gtk.TreeView):
 			return model.get_path (iter)
 		
 		# Go to last child of category
-		num_children = model.iter_n_children (iter)
-		iter = model.iter_nth_child (iter, num_children - 1)
-		
-		# The child might be a Nest. If it's expanded
-		# go into that. If not return.
-		if not self.row_expanded (model.get_path (iter)):
-			return model.get_path (iter)
-			
 		num_children = model.iter_n_children (iter)
 		iter = model.iter_nth_child (iter, num_children - 1)
 		return model.get_path (iter)
@@ -234,14 +224,14 @@ class CuemiacTreeView (gtk.TreeView):
 		first = model.get_path(model.get_iter_first())
 		self.set_cursor (first)
 
-	def coord_is_category_or_nest (self, x, y):
+	def coord_is_category (self, x, y):
 		path_ctx = self.get_path_at_pos(int(x), int(y))
 		if path_ctx is None:
 			return False
 		path, col, x, y = path_ctx
 		model = self.get_model()
 		match = model[model.get_iter(path)][model.MATCHES]
-		if match.__class__ == Nest or match.__class__ == CuemiacCategory:
+		if match.__class__ == CuemiacCategory:
 			return True
 		else:
 			return False
@@ -253,7 +243,7 @@ class CuemiacTreeView (gtk.TreeView):
 			path, col, x, y = path_ctx
 			model = self.get_model ()
 			match = model[model.get_iter(path)][model.MATCHES]
-			if match.__class__ != Nest and match.__class__ != CuemiacCategory:
+			if match.__class__ != CuemiacCategory:
 				self.emit ("row-activated", path, col)
 				#self.emit ("match-selected", match)
 	
@@ -275,10 +265,7 @@ class CuemiacTreeView (gtk.TreeView):
 	def __on_category_added (self, widget, cat, path):
 		if cat.get_id() not in self.__collapsed_rows:
 			self.expand_row (path, False)
-		
-	def __on_nest_added (self, widget, cat, path):
-		pass
-		
+				
 	def __on_cursor_changed (self, view):
 		model, iter = self.get_selection().get_selected()
 	
@@ -292,11 +279,8 @@ class CuemiacTreeView (gtk.TreeView):
 			
 		else:
 			cell.set_property ("cell-background-gdk", self.match_bg)
-			if match.__class__ == Nest:
-				cell.set_property ("pixbuf", None)		
-			else:
-				qstring, match_obj = match
-				cell.set_property ("pixbuf", match_obj.get_icon())
+			qstring, match_obj = match
+			cell.set_property ("pixbuf", match_obj.get_icon())
 
 		
 	def __get_match_title_for_cell (self, column, cell, model, iter, data=None):
@@ -314,11 +298,7 @@ class CuemiacTreeView (gtk.TreeView):
 		cell.set_property ("category-header", None)
 		cell.set_property ("height", -1)
 		cell.set_property ("cell-background-gdk", self.match_bg)
-		
-		if match.__class__ == Nest:
-			cell.set_property ("markup", match.get_verb() % match.get_name())
-			return
-		
+				
 		cell.set_property ("markup", model[iter][model.ACTIONS])
 
 	def __on_activated (self, treeview, path, col):
@@ -327,8 +307,8 @@ class CuemiacTreeView (gtk.TreeView):
 		match = model[iter][model.MATCHES]
 		
 		# Check if this s really a match and not just
-		# a nest or category
-		if match.__class__ == Nest or match.__class__ == CuemiacCategory:
+		# a category
+		if match.__class__ == CuemiacCategory:
 			return
 			
 		# So we have a Match, tell the world
@@ -341,9 +321,9 @@ class CuemiacTreeView (gtk.TreeView):
 		if iter is None:
 			return False
 		match = model[iter][model.MATCHES]
-		# If this is a category or nest, toggle expansion state
+		# If this is a category, toggle expansion state
 		if event.keyval in self.activation_keys:
-			if match.__class__ == Nest or match.__class__ == CuemiacCategory:
+			if match.__class__ == CuemiacCategory:
 				path = model.get_path (iter)
 				if self.row_expanded (path):
 					self.collapse_row (path)
