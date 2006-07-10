@@ -45,8 +45,12 @@ class DeskbarApplet:
 		self.minchars = deskbar.GCONF_CLIENT.get_int(self.prefs.GCONF_MINCHARS)
 		if self.minchars == None:
 			self.minchars = 1
-
 		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_MINCHARS, lambda x, y, z, a: self.on_minchars_changed (z.value))
+
+		self.typingdelay = deskbar.GCONF_CLIENT.get_int(self.prefs.GCONF_TYPINGDELAY)
+		if self.typingdelay == None:
+			self.typingdelay = 250
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_TYPINGDELAY, lambda x, y, z, a: self.on_typingdelay_changed (z.value))
 
 		# Watch out for UI override from command line
 		if deskbar.UI_OVERRIDE:
@@ -111,7 +115,7 @@ class DeskbarApplet:
 		if self.start_query_id != 0:
 			gobject.source_remove(self.start_query_id)
 			
-		self.start_query_id = gobject.timeout_add(150, self.on_start_query_real, sender, qstring)
+		self.start_query_id = gobject.timeout_add(self.typingdelay, self.on_start_query_real, sender, qstring)
 		
 	def on_start_query_real (self, sender, qstring):
 		self._match_hashes = {}
@@ -300,8 +304,12 @@ class DeskbarApplet:
 	def on_minchars_changed (self, value):
 		if value is None or value.type != gconf.VALUE_INT:
 			return
-
 		self.minchars = value.get_int()
+	
+	def on_typingdelay_changed (self, value):
+		if value is None or value.type != gconf.VALUE_INT:
+			return
+		self.typingdelay = value.get_int()
 
 	def on_ui_changed (self, value):
 		if value is None or value.type != gconf.VALUE_STRING:

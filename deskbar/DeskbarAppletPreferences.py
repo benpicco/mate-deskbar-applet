@@ -16,6 +16,7 @@ class DeskbarAppletPreferences:
 		# unlike width, which is per-instance.
 		self.GCONF_KEYBINDING = deskbar.GCONF_KEYBINDING
 		self.GCONF_MINCHARS = deskbar.GCONF_MINCHARS
+		self.GCONF_TYPINGDELAY = deskbar.GCONF_TYPINGDELAY
 		
 		# Retreive this applet's pref folder
 		path = applet.get_preferences_key()
