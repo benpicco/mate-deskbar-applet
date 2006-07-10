@@ -1,5 +1,5 @@
 import os, cgi, os.path, deskbar, deskbar.Match, deskbar.Handler
-import gnomevfs, gtk
+import gnomevfs, gtk, gconf
 
 from gettext import gettext as _
 import xml.dom.minidom, urllib
@@ -109,7 +109,7 @@ class DeliciousTagQueryEngine:
 		deskbar.GCONF_CLIENT.notify_add(GCONF_DELICIOUS_USER, lambda x, y, z, a: self.on_username_change(z.value))
 		
 	def on_username_change(self, value):
-		if value != None :# and value.type == gconf.VALUE_STRING: # Is it really necesary to validate this? We have to pull in the entire gconf module for this
+		if value != None and value.type == gconf.VALUE_STRING:
 			self._user = value.get_string()
 			
 	def get_posts_by_tag(self, tag):
