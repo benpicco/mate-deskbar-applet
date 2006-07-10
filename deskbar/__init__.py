@@ -86,6 +86,8 @@ GCONF_EXPAND = GCONF_DIR + "/expand"
 GCONF_MINCHARS = GCONF_DIR + "/minchars"
 # GConf key to the setting for time between keystroke in search entry, and actual search
 GCONF_TYPINGDELAY = GCONF_DIR + "/typingdelay"
+# GConf key to the setting whether to use selection clipboard when activating hotkey
+GCONF_USE_SELECTION = GCONF_DIR + "/use_selection"
 # GConf key for global keybinding
 GCONF_KEYBINDING = GCONF_DIR + "/keybinding"
 

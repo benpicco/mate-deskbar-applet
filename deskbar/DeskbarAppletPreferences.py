@@ -17,6 +17,7 @@ class DeskbarAppletPreferences:
 		self.GCONF_KEYBINDING = deskbar.GCONF_KEYBINDING
 		self.GCONF_MINCHARS = deskbar.GCONF_MINCHARS
 		self.GCONF_TYPINGDELAY = deskbar.GCONF_TYPINGDELAY
+		self.GCONF_USE_SELECTION = deskbar.GCONF_USE_SELECTION
 		
 		# Retreive this applet's pref folder
 		path = applet.get_preferences_key()

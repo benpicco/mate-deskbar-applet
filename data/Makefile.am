@@ -62,11 +62,13 @@ DISTCLEANFILES = \
 	$(schema_DATA) \
 	$(server_DATA) \
 	$(server_in_files) \
-	$(pkgconfig_DATA)
+	$(pkgconfig_DATA) \
+	$(desktop_DATA)
 
 EXTRA_DIST = \
 	$(schema_in_files) \
 	Deskbar_Applet.server.in.in \
+	deskbar-applet.desktop.in.in \
 	$(resources_DATA) \
 	$(pkgconfig_in_files)
 	

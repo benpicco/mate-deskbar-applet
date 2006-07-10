@@ -81,7 +81,7 @@ class WebAddressHandler(deskbar.Handler.Handler):
 		return []
 		
 	def query_mail(self, query):
-		if REGEX.match(query) != None:
+		if MAIL_REGEX.match(query) != None:
 			return [EmailAddressMatch(self, name=query)]
 		else:
 			return []
