@@ -32,13 +32,17 @@ HANDLERS = {
 	},
 }
 
+EXACT_MATCH_PRIO = 100
+EXACT_WORD_PRIO = 50
+
 class GenericProgramMatch(deskbar.Match.Match):
-	def __init__(self, backend, use_arg=False, desktop=None, desktop_file=None, **args):
+	def __init__(self, backend, use_arg=False, desktop=None, desktop_file=None, EXACT_WORD_PRIO, **args):
 		deskbar.Match.Match.__init__(self, backend, **args)
 		
 		self.desktop_file = desktop_file
 		self.use_arg = use_arg
 		
+		self._priority = EXACT_WORD_PRIO
 		self._icon = deskbar.Utils.load_icon_for_desktop_icon(self.icon)
 		self._desktop = desktop
 		if desktop == None:
@@ -125,6 +129,7 @@ class SpecialProgramHandler(deskbar.Handler.Handler):
 		
 	def query(self, qstring):
 		if self._match != None:
+			self._match._priority = get_priority_for_name(qstring, self._match._desktop.get_string("Exec"))
 			return [self._match]
 		else:
 			return []
@@ -166,9 +171,10 @@ class DevhelpHandler(SpecialProgramHandler):
 					desktop_file=f)
 
 class PathProgramMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, use_terminal=False, **args):
+	def __init__(self, backend, name=None, use_terminal=False, priority=0, **args):
 		deskbar.Match.Match.__init__(self, backend, name=name, **args)
 		self.use_terminal = use_terminal
+		self._priority = EXACT_MATCH_PRIO
 		
 	def set_with_terminal(self, terminal):
 		self.use_terminal = terminal
@@ -235,7 +241,12 @@ class ProgramsHandler(deskbar.Handler.Handler):
 			return []
 	
 	def query_desktop_programs(self, query)
-		return self._indexer.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		result = []
+		for match in self._indexer.look_up(query):
+			match._priority = get_priority_for_name(query, match._desktop.get_string("Exec"))
+			result.append(match)
+		return result
+			
 	
 	def on_key_press(self, query, shortcut):
 		if shortcut == gtk.keysyms.t:
@@ -271,6 +282,12 @@ class ProgramsHandler(deskbar.Handler.Handler):
 								result.get_string(deskbar.gnomedesktop.KEY_COMMENT),
 							), match)
 
+def get_priority_for_name(query, name):
+	if name.split(" ")[0].endswith(query):
+		return EXACT_MATCH_PRIO
+	else:
+		return EXACT_WORD_PRIO
+		
 def parse_desktop_filename(desktop, only_if_visible=True):
 	if desktop[0] == "/" and exists(desktop):
 		return parse_desktop_file(desktop, only_if_visible)
