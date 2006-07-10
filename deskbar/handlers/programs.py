@@ -36,7 +36,7 @@ EXACT_MATCH_PRIO = 100
 EXACT_WORD_PRIO = 50
 
 class GenericProgramMatch(deskbar.Match.Match):
-	def __init__(self, backend, use_arg=False, desktop=None, desktop_file=None, EXACT_WORD_PRIO, **args):
+	def __init__(self, backend, use_arg=False, desktop=None, desktop_file=None, **args):
 		deskbar.Match.Match.__init__(self, backend, **args)
 		
 		self.desktop_file = desktop_file
@@ -240,7 +240,7 @@ class ProgramsHandler(deskbar.Handler.Handler):
 		else:
 			return []
 	
-	def query_desktop_programs(self, query)
+	def query_desktop_programs(self, query):
 		result = []
 		for match in self._indexer.look_up(query):
 			match._priority = get_priority_for_name(query, match._desktop.get_string("Exec"))

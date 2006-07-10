@@ -90,7 +90,7 @@ class GtkBookmarkMatch(deskbar.Match.Match):
 	def get_hash(self, text=None):
 		return self.path
 
-class VolumeMatch (Match):
+class VolumeMatch (deskbar.Match.Match):
 	def __init__(self, backend, name=None, drive=None, icon=None):
 		deskbar.Match.Match.__init__(self, backend, name=name, icon=icon)
 		self.drive = drive

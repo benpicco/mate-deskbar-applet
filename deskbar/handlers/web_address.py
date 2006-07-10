@@ -69,8 +69,8 @@ class WebAddressHandler(deskbar.Handler.Handler):
 		result += self.query_mail(query)
 		return result
 		
-	 def query_http(self, query):
-	 	match = AUTH_REGEX.match(query)
+	def query_http(self, query):
+		match = AUTH_REGEX.match(query)
 		if match != None:
 			return [WebAddressMatch(self, query)]
 		
@@ -80,8 +80,8 @@ class WebAddressHandler(deskbar.Handler.Handler):
 	
 		return []
 		
-	 def query_mail(self, query):
-	 	if REGEX.match(query) != None:
+	def query_mail(self, query):
+		if REGEX.match(query) != None:
 			return [EmailAddressMatch(self, name=query)]
 		else:
 			return []

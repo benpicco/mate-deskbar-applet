@@ -82,9 +82,8 @@ class DeskbarAppletButton (gtk.HBox):
 		self.add (self.box)
 		
 		self.tooltips = gtk.Tooltips()
-		# FIXME: Add translation
-		self.tooltips.set_tip(self.button_main, "Show search entry")
-		self.tooltips.set_tip(self.button_arrow, "Show previous actions")
+		self.tooltips.set_tip(self.button_main, _("Show search entry"))
+		self.tooltips.set_tip(self.button_arrow, _("Show previously used actions"))
 			
 	def get_active_main (self):
 		return self.button_main.get_active ()

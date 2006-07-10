@@ -51,7 +51,7 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		self.cuemiac.get_entry().show ()
 		self.cuemiac.get_history_view().show ()
 		
-		self.cuemiac.get_entry().set_icon_tooltip ("Show previous actions") # FIXME: Translate
+		self.cuemiac.get_entry().set_icon_tooltip (_("Show previously used actions")) # FIXME: Translate
 		
 		self.applet.set_flags(gtk.CAN_FOCUS)
 		self.applet.connect('change-background', self.on_change_background)

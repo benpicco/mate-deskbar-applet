@@ -187,9 +187,9 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 		if name == "title":
 			self.title = self.chars.encode('utf8')
 		elif name == "link":
-			self.href = self.chars.encode('latin1')
+			self.href = self.chars.encode('utf8')
 		elif name == "ephy:smartlink":
-			self.smarthref = self.chars.encode('latin1')
+			self.smarthref = self.chars.encode('utf8')
 		elif name == "item":
 			if self.href.startswith("javascript:"):
 				return
