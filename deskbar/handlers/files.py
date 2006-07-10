@@ -1,24 +1,30 @@
-import os
+import os, urllib, sys, cgi, ConfigParser
 from os.path import join, basename, normpath, abspath, dirname
 from os.path import split, expanduser, exists, isfile, isdir
-
 from gettext import gettext as _
+import gobject, gtk, gnome, gnome.ui, gnomevfs
 
-import gobject
-import gtk, gnome, gnome.ui
 import deskbar, deskbar.Indexer
 import deskbar.Handler
 import deskbar.Match
+
 from deskbar.defs import VERSION
-from threading import Thread
+from deskbar.Watcher import FileWatcher
+
 
 HANDLERS = {
 	"FileFolderHandler" : {
-		"name": _("Files and Folders"),
-		"description": _("Open your files and folders by name"),
+		"name": _("Files, Folders and Places"),
+		"description": _("Open your files, folders, bookmarks, disk drives, network places by name"),
 		"version": VERSION,
 	},
 }
+
+NETWORK_URIS = ["http", "ftp", "smb", "sftp"]
+AUDIO_URIS = ["cdda"]
+MONITOR = gnomevfs.VolumeMonitor()
+
+GTK_BOOKMARKS_FILE = expanduser("~/.gtk-bookmarks")
 
 class FileMatch(deskbar.Match.Match):
 	def __init__(self, backend, name=None, absname=None, **args):
@@ -63,38 +69,73 @@ class FolderMatch(deskbar.Match.Match):
 	
 	def get_hash(self, text=None):
 		return self.absname
+
+class GtkBookmarkMatch(deskbar.Match.Match):
+	def __init__(self, backend, name=None, path=None, **args):
+		deskbar.Match.Match.__init__(self, backend, name=name, **args)
+		self.path = path
+		
+	def action(self, text=None):
+		gobject.spawn_async(["nautilus", self.path], flags=gobject.SPAWN_SEARCH_PATH)
+	
+	def is_valid(self, text=None):
+		return exists(self.path)
+		
+	def get_category(self):
+		return "places"
+	
+	def get_verb(self):
+		return _("Open location %s") % "<b>%(name)s</b>"
+	
+	def get_hash(self, text=None):
+		return self.path
+
+class VolumeMatch (Match):
+	def __init__(self, backend, name=None, drive=None, icon=None):
+		deskbar.Match.Match.__init__(self, backend, name=name, icon=icon)
+		self.drive = drive
+	
+	def action(self, text=None):
+		gobject.spawn_async(["nautilus", self.drive], flags=gobject.SPAWN_SEARCH_PATH)
+	
+	def is_valid(self, text=None):
+		return exists(self.drive)
+		
+	def get_category(self):
+		return "places"
+	 
+	def get_verb(self):
+		if self.drive == None:
+			uri_scheme = None
+		else:
+			uri_scheme = gnomevfs.get_uri_scheme(self.drive) 
+			
+		if uri_scheme in NETWORK_URIS:
+			return _("Open network place %s") % "<b>%(name)s</b>"
+		elif uri_scheme in AUDIO_URIS:
+			return _("Open audio disk %s") % "<b>%(name)s</b>"
+		else:
+			return _("Open location %s") % "<b>%(name)s</b>"
+	
+	def get_hash(self, text=None):
+		return self.drive
 		
 class FileFolderHandler(deskbar.Handler.Handler):
 	def __init__(self):
 		deskbar.Handler.Handler.__init__(self, gtk.STOCK_OPEN)
-		self.cache = {}
+		self._locations = {}
 		
 	def initialize(self):
-		# Disables the file indexing functionnality as it's too slow
-		pass
-#		def add_files(files):
-#			for f in files:
-#				self.cache[basename(f).lower()] = f
-#			
-#		def add_files_dirs(dir, depth=0):
-#			if depth >= 4:
-#				return
-#			
-#			files = []
-#			for f in os.listdir(dir):
-#				if f.startswith("."):
-#					continue
-#					
-#				f = join(dir, f)
-#				if isdir(f):
-#					add_files_dirs(f, depth+1)
-#				
-#				files.append(f)
-#			
-#			gobject.idle_add(add_files, files)
-#		
-#		Thread (None, add_files_dirs, args=(abspath(expanduser("~")),)).start ()
+		# Gtk Bookmarks --
+		if not hasattr(self, 'watcher'):
+			self.watcher = FileWatcher()
+			self.watcher.connect('changed', lambda watcher, f: self._scan_bookmarks_files())
+		
+		self.watcher.add(GTK_BOOKMARKS_FILE)
+		self._scan_bookmarks_files()
 
+	def stop(self):
+		self.watcher.remove(GTK_BOOKMARKS_FILE)
 		
 	def query(self, query):
 		
@@ -102,21 +143,26 @@ class FileFolderHandler(deskbar.Handler.Handler):
 		result += self.query_filefolder(query, False)
 		result += self.query_filefolder(query, True)
 		
-#		query = query.lower()
-#		for key, absname in self.cache.items():
-#			if len(result) >= 50:
-#				break
-#			
-#			if not exists(absname):
-#				del self.cache[key]
-#				continue
-#			
-#			if key.startswith(query):
-#				if isdir(absname):
-#					result += [FolderMatch(self, basename(absname), absname)]
-#				else:
-#					result += [FileMatch(self, basename(absname), absname)]
-#				
+		# Gtk Bookmarks
+		query = query.lower()
+		for bmk, (name, loc) in self._locations.items():
+			if bmk.startswith(query):
+				result.append(GtkBookmarkMatch(self, name, loc))
+		
+		# Volumes		
+		# We search both mounted_volumes() and connected_drives.
+		# This way an audio cd in the cd drive will show up both
+		# on "au" and "cd".
+		# Drives returned by mounted_volumes() and connected_drives()
+		# does not have the same display_name() strings.
+		for drive in MONITOR.get_mounted_volumes() + MONITOR.get_connected_drives():
+			if not drive.is_user_visible() : continue
+			if not drive.is_mounted () : continue
+			if not drive.get_display_name().lower().startswith(query): continue
+			
+			result.append (VolumeMatch (self, drive.get_display_name(), drive.get_activation_uri(), drive.get_icon()))
+		
+		
 		return result
 	
 	def query_filefolder(self, query, is_file):
@@ -125,7 +171,21 @@ class FileFolderHandler(deskbar.Handler.Handler):
 			return [FileMatch(self, join(prefix, basename(completion)), "file://"+completion) for completion in completions]
 		else:
 			return [FolderMatch(self, join(prefix, basename(completion)), "file://"+completion) for completion in completions]
+	
+	def _scan_bookmarks_files(self):
+		if not exists(GTK_BOOKMARKS_FILE):
+			return
 			
+		for line in file(GTK_BOOKMARKS_FILE):
+			line = line.strip()
+			try:
+				if gnomevfs.exists(line):
+					uri = urllib.unquote(line)
+					head, tail = split(uri)	
+					self._locations[tail.lower()] = (tail, line)
+			except Exception, msg:
+				print 'Error:_scan_bookmarks_files:', msg
+				
 def filesystem_possible_completions(prefix, is_file=False):
 	"""
 	Given an path prefix, retreive the file/folders in it.

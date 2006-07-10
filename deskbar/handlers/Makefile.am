@@ -8,14 +8,12 @@ deskbar_handlers_PYTHON = \
 	files.py \
 	galago.py \
 	galeon.py \
-	gtkbookmarks.py \
 	google-live.py \
 	history.py \
 	iswitch-window.py \
 	mozilla.py \
 	programs.py \
 	pathprograms.py \
-	volumes.py \
 	web_address.py \
 	yahoo.py
 
