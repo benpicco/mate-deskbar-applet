@@ -302,7 +302,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 	def handle_endtag(self, tag):
 		tag = tag.lower()
 		if tag == "a":
-			if self.href.startswith("javascript:"):
+			if self.href == None or self.href.startswith("javascript:"):
 				return
 			
 			pixbuf = None
