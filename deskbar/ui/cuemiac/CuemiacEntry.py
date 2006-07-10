@@ -96,7 +96,7 @@ class CuemiacEntry (deskbar.iconentry.IconEntry):
 		"""
 		@param tooltip: A string describing the action associated to clicking the entry icon.
 		"""
-		self.tooltips.set_tip (self.entry_icon, tooltip)
+		self.tooltips.set_tip (self.icon_event_box, tooltip)
 		
 	def set_entry_tooltip (self, tooltip):
 		"""

@@ -41,6 +41,7 @@ import os
 import os.path
 import pydoc
 import tarfile
+import threading
 import urllib
 import zipfile
 if getattr(dbus, 'version', (0,0,0)) >= (0,41,0):
@@ -56,6 +57,10 @@ def is_outdated(old_version, new_version):
 	
 class FormatNotSupportedError(Exception):
 	pass
+
+class DecompressError(Exception):
+	pass
+
 	
 class Decompresser:
 	
@@ -64,6 +69,7 @@ class Decompresser:
 		@param path: path pointing to archive
 		@param dest_dir: Folder to extract contents to
 		@raise FormatNotSupportedError: If C{path} isn't of MIME type I{application/x-bzip-compressed-tar} or I{application/x-compressed-tar}
+		@raise DecompressError: If something goes wrong while decompressing
 		"""
 		self.path = path
 		self.dest_dir = dest_dir
@@ -91,10 +97,13 @@ class Decompresser:
 		"""
 		@param tar_fileobj: A file object of the tar file
 		"""
-		tararchive = tarfile.TarFile(fileobj=tar_fileobj)
-		for member in tararchive.getmembers():
-			tararchive.extract(member, self.dest_dir)		
-		tararchive.close()
+		try:
+			tararchive = tarfile.TarFile(fileobj=tar_fileobj)
+			for member in tararchive.getmembers():
+				tararchive.extract(member, self.dest_dir)		
+			tararchive.close()
+		except IOError, err:
+			raise DecompressError, err
 
 	def __extract_tarbz2(self):
 		"""
@@ -116,13 +125,41 @@ class Decompresser:
 		"""
 		Extract zip archive
 		"""
-		archive = zipfile.ZipFile(self.path, 'r')        
+		try:
+			archive = zipfile.ZipFile(self.path, 'r')        
+		except zipfile.BadZipFile, err:
+			raise DecompressError, err
 		for name in archive.namelist():
 			outpath = os.path.join(self.dest_dir, name)
 			outfile = file(outpath, 'w')
 			outfile.write(archive.read(name))
 			outfile.close()
 		archive.close()
+
+
+class Downloader(threading.Thread):
+	
+	def __init__(self, newstuff_obj, plugin_id, download_url, download_dest):
+		threading.Thread.__init__(self)
+		self.newstuff = newstuff_obj
+		self.plugin_id = plugin_id
+		self.download_url = download_url
+		self.download_dest = download_dest
+		
+	def run(self):
+		action = 'Downloading %s' % self.download_url
+		urllib.urlretrieve(self.download_url, self.download_dest, lambda bc, bs, fs: self.newstuff.DownloadStatus(action, bc*bs/float(fs)))
+		action = 'Extracting %s' % self.download_dest
+		self.newstuff.DownloadStatus(action, -1.0)
+		archive = Decompresser(self.download_dest, self.newstuff.INSTALLPATH)
+		
+		delete_original = archive.extract()
+		
+		if delete_original:
+			os.unlink(self.download_dest)
+		
+		self.newstuff.Updated(self.plugin_id)
+		return False
 		
 SPAWNED_OBJECTS = {}
 """
@@ -187,6 +224,9 @@ class NewStuffManager(dbus.service.Object):
 		
 		return (self.NEW_STUFF_SERVICE, new_stuff_path)
 	
+class RetrievalError(Exception):
+	pass
+	
 class NewStuff(dbus.service.Object):
 	
 	repo_items = {}
@@ -223,7 +263,12 @@ class NewStuff(dbus.service.Object):
 		
 		Updates L{self.repo_items} dict
 		"""
-		tree = ElementTree.parse(urllib.urlopen(self.REPO))
+		try:
+			fileobj = urllib.urlopen(self.REPO)
+		except IOError, err:
+			raise RetrievalError, err
+		
+		tree = ElementTree.parse(fileobj)
 		for item in tree.findall('item'):
 			id = item.findtext('id')
 			item_dict = {}
@@ -259,7 +304,7 @@ class NewStuff(dbus.service.Object):
 		pass
 	
 	@dbus.service.signal('org.gnome.NewStuffManager.NewStuff')
-	def DownloadStatus(self, blocks, blocksize, filesize):
+	def DownloadStatus(self, action, progress):
 		"""
 		Hook function to urrllib.urlretrieve in L{self.Update}
 		"""
@@ -272,6 +317,7 @@ class NewStuff(dbus.service.Object):
 		- The method emits the L{self.Updated} signal when it has finished installing the new plugin.
 
 		@type plugin_id: str
+		@raise RetrievalError: If repository's XML file cannot be retrieved
 		"""
 		download_url = self.repo_items[plugin_id]['url']
 		download_dest = os.path.join(self.INSTALLPATH, os.path.basename(download_url))
@@ -279,19 +325,15 @@ class NewStuff(dbus.service.Object):
 		if os.path.exists(download_dest):
 			print 'Deleting old file %s' % download_dest
 			os.remove(download_dest)
-			
-		print 'Downloading %s' % download_url
-		urllib.urlretrieve(download_url, download_dest, self.DownloadStatus)
 		
-		print 'Extracting %s to %s' % (download_dest, self.INSTALLPATH)
-		archive = Decompresser(download_dest, self.INSTALLPATH)
-		delete_original = archive.extract()
-		
-		if delete_original:
-			os.unlink(download_dest)
-		
-		self.Updated(plugin_id)
-		return
+		try:
+			dl = Downloader(self,
+						    plugin_id,
+						    download_url,
+						    download_dest)	
+			dl.start()
+		except IOError, err:
+			raise RetrievalError, err
 	
 	@dbus.service.method('org.gnome.NewStuffManager.NewStuff')
 	def Refresh(self):
@@ -346,6 +388,7 @@ class NewStuff(dbus.service.Object):
 		
 		return
 
+gobject.threads_init()
 mainloop = gobject.MainLoop()
 if __name__=='__main__':
 	session_bus = dbus.SessionBus()
