@@ -120,8 +120,13 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		except AttributeError:
 			pass
 			
-		self.cuemiac.get_entry().select_region(0, -1)
+		if deskbar.GCONF_CLIENT.get_bool(self.prefs.GCONF_USE_SELECTION):
+			clipboard = gtk.clipboard_get(selection="PRIMARY")
+			if clipboard.wait_is_text_available():
+				self.cuemiac.get_entry().set_text(clipboard.wait_for_text())
+				
 		self.cuemiac.get_entry().grab_focus()
+		self.cuemiac.get_entry().select_region(0, -1)
 	
 	def get_view (self):
 		return self.cuemiac.get_entry()

@@ -121,7 +121,7 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 			None, None, gtk.get_current_event_time())
 			
 		self.selection.unselect_all() # We need to do this again after showing
-	
+			
 	def popdown (self):
 		if not (self.popup_window.flags()&gtk.MAPPED):
 			return
