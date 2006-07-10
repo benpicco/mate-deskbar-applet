@@ -120,7 +120,7 @@ TYPES = {
 		"name"	: ("dc:title",), # FIX-BEAGLE bug #330053, dc:title returns as None even though it _is_ set
 		"action": lambda d: gnome.url_show(d["uri"]),
 		"icon"	: "stock_bookmark",
-		"description": (_("Open History Item %s") % "<i>%(name)s</i>") + "\n%(uri)s",
+		"description": (_("Open History Item %s") % "<i>%(name)s</i>") + "\n%(escaped_uri)s",
 		"category": "web",
 		},
 }
@@ -306,7 +306,11 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 							pass
 							
 					if val != None:
-						result[prop] = cgi.escape(val)
+						if prop == "uri" or prop == "identifier":
+							result[prop] = val
+							result["escaped_"+prop] = cgi.escape(val)
+						else:
+							result[prop] = cgi.escape(val)
 						break
 					
 				if val == None:
