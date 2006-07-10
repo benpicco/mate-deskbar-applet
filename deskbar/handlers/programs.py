@@ -1,6 +1,6 @@
 import os, ConfigParser, cgi, re
 import glob
-from os.path import join, isfile, abspath, splitext, expanduser, exists
+from os.path import join, isfile, abspath, splitext, expanduser, exists, isdir
 from gettext import gettext as _
 from deskbar.defs import VERSION
 import gobject
@@ -164,6 +164,52 @@ class DevhelpHandler(SpecialProgramHandler):
 					icon=desktop.get_string(deskbar.gnomedesktop.KEY_ICON),
 					desktop=desktop,
 					desktop_file=f)
+
+class PathProgramMatch(deskbar.Match.Match):
+	def __init__(self, backend, name=None, use_terminal=False, **args):
+		deskbar.Match.Match.__init__(self, backend, name=name, **args)
+		self.use_terminal = use_terminal
+		
+	def set_with_terminal(self, terminal):
+		self.use_terminal = terminal
+		
+	def get_hash(self, text=None):
+		if not self.use_terminal:
+			return text
+		else:
+			return (text, True)
+		
+	def action(self, text=None):
+		if self.use_terminal:
+			try:
+				prog = subprocess.Popen(
+					text.split(" "),
+					stdout=subprocess.PIPE,
+					stderr=subprocess.STDOUT)
+				
+				zenity = subprocess.Popen(
+					["zenity", "--title="+text,
+						"--window-icon="+join(deskbar.ART_DATA_DIR, "generic.png"),
+						"--width=700",
+						"--height=500",
+						"--text-info"],
+					stdin=prog.stdout)
+	
+				# Reap the processes when they have done
+				gobject.child_watch_add(zenity.pid, lambda pid, code: None)
+				gobject.child_watch_add(prog.pid, lambda pid, code: None)
+				return
+			except:
+				#No zenity, get out of the if, and launch without GUI
+				pass
+		
+		gobject.spawn_async(text.split(" "), flags=gobject.SPAWN_SEARCH_PATH)			
+
+	def get_category(self):
+		return "actions"
+	
+	def get_verb(self):
+		return _("Execute %s") % "<b>%(text)s</b>"
 		
 class ProgramsHandler(deskbar.Handler.Handler):
 	def __init__(self):
@@ -172,10 +218,40 @@ class ProgramsHandler(deskbar.Handler.Handler):
 		
 	def initialize(self):
 		self._scan_desktop_files()
+		self._path = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip() != "" and exists(path) and isdir(path)]
 		
 	def query(self, query):
-		return self._indexer.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		result = self.query_path_programs(query)
+		result += self.query_desktop_programs(query)
+		return result
 		
+	def query_path_programs(self, query):
+		args = query.split(" ")
+		match = self._check_program(args[0])
+
+		if match != None:
+			return [match]
+		else:
+			return []
+	
+	def query_desktop_programs(self, query)
+		return self._indexer.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+	
+	def on_key_press(self, query, shortcut):
+		if shortcut == gtk.keysyms.t:
+			match = self._check_program(query.split(" ")[0])
+			if match != None:
+				match.set_with_terminal(True)
+				return match
+			
+		return None
+		
+	def _check_program(self, program):
+		for path in self._path:
+			prog_path = join(path, program)
+			if exists(prog_path) and isfile(prog_path):
+				return PathProgramMatch(self, program)	
+				
 	def _scan_desktop_files(self):
 		for dir in get_xdg_data_dirs():
 			for f in glob.glob(join(dir, "applications", "*.desktop")):

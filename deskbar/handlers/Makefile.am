@@ -3,7 +3,6 @@ deskbar_handlers_PYTHON = \
 	beagle-static.py \
 	beagle-live.py \
 	desklicious.py \
-	email_address.py \
 	epiphany.py \
 	files.py \
 	galago.py \
@@ -13,7 +12,6 @@ deskbar_handlers_PYTHON = \
 	iswitch-window.py \
 	mozilla.py \
 	programs.py \
-	pathprograms.py \
 	web_address.py \
 	yahoo.py
 

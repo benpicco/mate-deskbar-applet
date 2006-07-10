@@ -9,6 +9,7 @@ art_DATA = \
 	deskbar-applet-panel-h.png \
 	deskbar-applet-small.png \
 	delicious.png \
+	folder-bookmark.png \
 	generic.png \
 	yahoo.png \
 	google.png \
