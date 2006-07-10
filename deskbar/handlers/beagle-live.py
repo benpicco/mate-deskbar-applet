@@ -103,7 +103,7 @@ TYPES = {
 	"IMLog"		: {
 		"name"	: ("fixme:speakingto",),
 		"extra" : {"client": ("fixme:client",)},
-		"action": "beagle-imlogviewer --client %(client)s %(uri)s",
+		"action": "beagle-imlogviewer --client %(client)s --highlight-search '%(text)s' %(uri)s",
 		"icon"	: "im",
 		"description": _("With %s") % "<b>%(name)s</b>",
 		"snippet": True,
@@ -149,6 +149,8 @@ class BeagleLiveMatch (deskbar.Match.Match):
 		if not callable(action) and action.startswith("beagle-imlogviewer"):
 			# Strip the uti descriptor, because imlogviewer takes a local path
 			self.result["uri"] = gnomevfs.get_local_path_from_uri(self.result["uri"])
+			# Escape text since we use '%(text)s' as parameter
+			self.result["text"] = self.result["text"].replace("'", "\\'")
 		
 		# Load the correct icon
 		
