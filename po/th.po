@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-06-15 10:07+0700\n"
-"PO-Revision-Date: 2006-06-15 10:19+0700\n"
+"POT-Creation-Date: 2006-07-11 16:27+0700\n"
+"PO-Revision-Date: 2006-07-11 19:41+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,15 +24,15 @@ msgstr "แถบปฏิบัติการอเนกประสงค์
 msgid "Deskbar"
 msgstr "เดสก์บาร์"
 
-#: ../data/Deskbar_Applet.xml.h:1
+#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
 msgstr "เ_กี่ยวกับ"
 
-#: ../data/Deskbar_Applet.xml.h:2
+#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
 msgid "_Clear History"
 msgstr "_ล้างประวัติ"
 
-#: ../data/Deskbar_Applet.xml.h:3
+#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
 msgid "_Preferences"
 msgstr "_ปรับแต่ง"
 
@@ -83,38 +83,42 @@ msgid "New Extensions"
 msgstr "<b>ส่วนขยายใหม่</b>"
 
 #: ../data/prefs-dialog.glade.h:12
+msgid "Search selection when triggering the shortcut"
+msgstr "ค้นหาข้อความที่เลือกเมื่อกดปุ่มลัด"
+
+#: ../data/prefs-dialog.glade.h:13
 msgid "Searches"
 msgstr "การค้นหา"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "Use _all available space"
 msgstr "ใช้พื้นที่ว่าง_ทั้งหมด"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "View"
 msgstr "การแสดงผล"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Check For Updates"
 msgstr "_ตรวจสอบรุ่นออกใหม่"
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:17
 msgid "_Install"
 msgstr "_ติดตั้ง"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:18
 msgid "_Keyboard shortcut to focus:"
 msgstr "ปุ่ม_ลัดเพื่อโฟกัส:"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:19
 msgid "_More..."
 msgstr "เ_พิ่มเติม..."
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:20
 msgid "_Update"
 msgstr "_ปรับรุ่น"
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:21
 msgid "characters"
 msgstr "อักขระ"
 
@@ -164,98 +168,57 @@ msgstr "คีย์ลัด"
 msgid "Bookmark Name"
 msgstr "ชื่อที่คั่นหน้า"
 
-#: ../deskbar/Categories.py:4
-#, python-format
-msgid "%s more result"
-msgid_plural "%s more results"
-msgstr[0] "มีผลการค้นอีก %s รายการ"
-msgstr[1] "มีผลการค้นอีก %s รายการ"
-
-#: ../deskbar/Categories.py:9
+#: ../deskbar/Categories.py:7
 msgid "Uncategorized"
 msgstr "ไร้หมวด"
 
-#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
 msgid "History"
 msgstr "ประวัติการค้นหา"
 
-#: ../deskbar/Categories.py:26
+#: ../deskbar/Categories.py:15
 msgid "Documents"
 msgstr "เอกสาร"
 
-#: ../deskbar/Categories.py:27
-#, python-format
-msgid "%s more document"
-msgid_plural "%s more documents"
-msgstr[0] "มีเอกสารอีก %s ฉบับ"
-msgstr[1] "มีเอกสารอีก %s ฉบับ"
-
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:18
 msgid "Emails"
 msgstr "อีเมล"
 
-#: ../deskbar/Categories.py:32
-#, python-format
-msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] "มีอีเมลอีก %s ฉบับ"
-msgstr[1] "มีอีเมลอีก %s ฉบับ"
-
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:21
 msgid "Conversations"
 msgstr "การสนทนา"
 
-#: ../deskbar/Categories.py:37
-#, python-format
-msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "มีการสนทนาอีก %s รายการ"
-msgstr[1] "มีการสนทนาอีก %s รายการ"
-
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:24
 msgid "Files"
 msgstr "แฟ้ม"
 
-#: ../deskbar/Categories.py:42
-#, python-format
-msgid "%s more file"
-msgid_plural "%s more files"
-msgstr[0] "มีอีก %s แฟ้ม"
-msgstr[1] "มีอีก %s แฟ้ม"
-
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:27
 msgid "People"
 msgstr "บุคคล"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:30
 msgid "Places"
 msgstr "แหล่ง"
 
-#: ../deskbar/Categories.py:52
-#, python-format
-msgid "%s more place"
-msgid_plural "%s more places"
-msgstr[0] "มีอีก %s แหล่ง"
-msgstr[1] "มีอีก %s แหล่ง"
-
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:33
 msgid "Actions"
 msgstr "ปฏิบัติการ"
 
-#: ../deskbar/Categories.py:57
-#, python-format
-msgid "%s more action"
-msgid_plural "%s more actions"
-msgstr[0] "มีอีก %s ปฏิบัติการ"
-msgstr[1] "มีอีก %s ปฏิบัติการ"
-
-#: ../deskbar/Categories.py:61 ../deskbar/handlers/web_address.py:10
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
 msgid "Web"
 msgstr "เว็บ"
 
-#: ../deskbar/Categories.py:66
+#: ../deskbar/Categories.py:39
 msgid "Web Search"
 msgstr "การค้นเว็บ"
+
+#: ../deskbar/Categories.py:42
+msgid "News"
+msgstr "ข่าว"
+
+#: ../deskbar/Categories.py:45
+msgid "Notes"
+msgstr "บันทึก"
 
 #: ../deskbar/DeskbarHistory.py:37
 msgid "No History"
@@ -295,7 +258,7 @@ msgid "From %s"
 msgstr "จาก %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:82 ../deskbar/handlers/files.py:39
+#: ../deskbar/handlers/beagle-live.py:82 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "เปิด %s"
@@ -322,8 +285,8 @@ msgstr "ปฏิทิน: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:291
-#: ../deskbar/handlers/beagle-live.py:313
+#: ../deskbar/handlers/beagle-live.py:293
+#: ../deskbar/handlers/beagle-live.py:319
 msgid "?"
 msgstr "?"
 
@@ -367,19 +330,6 @@ msgstr "ป้อนชื่อผู้ใช้ del.icio.us ของคุ�
 #: ../deskbar/handlers/desklicious.py:43
 msgid "Username: "
 msgstr "ชื่อผู้ใช้: "
-
-#: ../deskbar/handlers/email_address.py:10
-msgid "Mail"
-msgstr "เมล"
-
-#: ../deskbar/handlers/email_address.py:11
-msgid "Send mail by typing a complete e-mail address"
-msgstr "ส่งเมลโดยป้อนที่อยู่อีเมลเต็ม"
-
-#: ../deskbar/handlers/email_address.py:29
-#, python-format
-msgid "Send Email to %s"
-msgstr "ส่งอีเมลถึง %s"
 
 #: ../deskbar/handlers/epiphany.py:27
 msgid "You can set shortcuts for your searches."
@@ -446,18 +396,101 @@ msgstr "ส่งเมลไปยังผู้ที่ติดต่อก
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "ส่งเมลถึง <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:16
-msgid "Files and Folders"
-msgstr "แฟ้มและโฟลเดอร์"
-
 #: ../deskbar/handlers/files.py:17
-msgid "Open your files and folders by name"
-msgstr "เปิดแฟ้มและโฟลเดอร์ของคุณตามชื่อ"
+msgid "Files, Folders and Places"
+msgstr "แฟ้ม, โฟลเดอร์ และที่หลักๆ"
 
-#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/files.py:18
+msgid "View your files, folders, bookmarks, drives, network places by name"
+msgstr "เปิดแฟ้ม, โฟลเดอร์, ที่คั่นหน้า, ไดรว์ และแหล่งเครือข่ายตามชื่อ"
+
+#: ../deskbar/handlers/files.py:68
 #, python-format
 msgid "Open folder %s"
 msgstr "เปิดโฟลเดอร์ %s"
+
+#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#, python-format
+msgid "Open location %s"
+msgstr "เปิดตำแหน่ง %s"
+
+#: ../deskbar/handlers/files.py:114
+#, python-format
+msgid "Open network place %s"
+msgstr "เปิดแหล่งเครือข่าย %s"
+
+#: ../deskbar/handlers/files.py:116
+#, python-format
+msgid "Open audio disc %s"
+msgstr "เปิดแผ่นเพลง %s"
+
+#: ../deskbar/handlers/gdmactions.py:10
+msgid "Computer Actions"
+msgstr "ปฏิบัติการของเครื่องคอมพิวเตอร์"
+
+#: ../deskbar/handlers/gdmactions.py:11
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "ออกจากระบบ, ปิดเครื่อง, เริ่มเปิดเครื่องใหม่, พักเครื่อง และปฏิบัติการที่เกี่ยวข้อง"
+
+#: ../deskbar/handlers/gdmactions.py:39
+msgid "Suspend the machine"
+msgstr "พักเครื่อง"
+
+#: ../deskbar/handlers/gdmactions.py:50
+msgid "Hibernate the machine"
+msgstr "จำศีลเครื่อง"
+
+#: ../deskbar/handlers/gdmactions.py:61
+msgid "Shutdown the machine"
+msgstr "ปิดเครื่อง"
+
+#: ../deskbar/handlers/gdmactions.py:80
+msgid "Lock the screen"
+msgstr "ล็อคหน้าจอ"
+
+#: ../deskbar/handlers/gdmactions.py:106
+msgid "Shut Down"
+msgstr "ปิดเครื่อง"
+
+#: ../deskbar/handlers/gdmactions.py:113
+msgid "Turn off the computer"
+msgstr "ปิดเครื่องคอมพิวเตอร์"
+
+#: ../deskbar/handlers/gdmactions.py:117
+msgid "Log Out"
+msgstr "ออกจากระบบ"
+
+#: ../deskbar/handlers/gdmactions.py:124
+msgid "Log out"
+msgstr "ออกจากระบบ"
+
+#: ../deskbar/handlers/gdmactions.py:128
+msgid "Restart"
+msgstr "เริ่มเปิดเครื่องใหม่"
+
+#: ../deskbar/handlers/gdmactions.py:135
+msgid "Restart the computer"
+msgstr "เริ่มเปิดเครื่องคอมพิวเตอร์ใหม่"
+
+#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+msgid "Switch User"
+msgstr "สลับผู้ใช้"
+
+#: ../deskbar/handlers/gdmactions.py:165
+msgid "Lock"
+msgstr "ล็อค"
+
+#: ../deskbar/handlers/gdmactions.py:176
+msgid "Suspend"
+msgstr "พักเครื่อง"
+
+#: ../deskbar/handlers/gdmactions.py:178
+msgid "Hibernate"
+msgstr "จำศีลเครื่อง"
+
+#: ../deskbar/handlers/gdmactions.py:180
+msgid "Shutdown"
+msgstr "ปิดเครื่อง"
 
 #: ../deskbar/handlers/google-live.py:20
 msgid ""
@@ -518,19 +551,6 @@ msgstr "การค้น Google"
 msgid "Search Google as you type"
 msgstr "ค้น Google ไปพร้อมกับการป้อนคำค้น"
 
-#: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Files and Folders Bookmarks"
-msgstr "ที่คั่นหน้าแฟ้มและโฟลเดอร์"
-
-#: ../deskbar/handlers/gtkbookmarks.py:14
-msgid "Open your files and folders bookmarks by name"
-msgstr "เปิดที่คั่นหน้าแฟ้มและโฟลเดอร์ของคุณตามชื่อ"
-
-#: ../deskbar/handlers/gtkbookmarks.py:36 ../deskbar/handlers/volumes.py:54
-#, python-format
-msgid "Open location %s"
-msgstr "เปิดตำแหน่ง %s"
-
 #: ../deskbar/handlers/history.py:10
 msgid "Recognize previously used searches"
 msgstr "รู้จำการค้นหาที่เคยค้นมาแล้ว"
@@ -547,14 +567,7 @@ msgstr "สลับไปยังหน้าต่างที่เปิด
 msgid "Windows"
 msgstr "หน้าต่าง"
 
-#: ../deskbar/handlers/iswitch-window.py:17
-#, python-format
-msgid "%s more window"
-msgid_plural "%s more windows"
-msgstr[0] "มีหน้าต่างอีก %s บาน"
-msgstr[1] "มีหน้าต่างอีก %s บาน"
-
-#: ../deskbar/handlers/iswitch-window.py:34
+#: ../deskbar/handlers/iswitch-window.py:32
 #, python-format
 msgid "Switch to <b>%(name)s</b>"
 msgstr "สลับไปยัง <b>%(name)s</b>"
@@ -562,19 +575,6 @@ msgstr "สลับไปยัง <b>%(name)s</b>"
 #: ../deskbar/handlers/mozilla.py:120
 msgid "You can customize which search engines are offered."
 msgstr "คุณสามารถกำหนดได้ว่าจะใช้เครื่องมือค้นหาตัวไหน"
-
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Programs (Advanced)"
-msgstr "โปรแกรม (ขั้นสูง)"
-
-#: ../deskbar/handlers/pathprograms.py:15
-msgid "Launch any program present in your $PATH"
-msgstr "เรียกโปรแกรมใดๆ ที่อยู่ใน $PATH ของคุณ"
-
-#: ../deskbar/handlers/pathprograms.py:64
-#, python-format
-msgid "Execute %s"
-msgstr "เรียกใช้ %s"
 
 #: ../deskbar/handlers/programs.py:14
 msgid "Programs"
@@ -610,57 +610,49 @@ msgstr "ค้น Devhelp เพื่อหาชื่อฟังก์ชั
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:80
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "เรียกใช้ <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:94
+#: ../deskbar/handlers/programs.py:98
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "เปิดหา %s ในพจนานุกรม"
 
-#: ../deskbar/handlers/programs.py:102
+#: ../deskbar/handlers/programs.py:106
 #, python-format
 msgid "Search for file names like %s"
 msgstr "ค้นหาแฟ้มที่มีชื่อในรูปแบบคล้าย %s"
 
-#: ../deskbar/handlers/programs.py:110
+#: ../deskbar/handlers/programs.py:114
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "ค้น Devhelp เพื่อหา %s"
 
-#: ../deskbar/handlers/volumes.py:18
-msgid "Disks and Network Places"
-msgstr "ดิสก์และที่ต่างๆ ในเครือข่าย"
-
-#: ../deskbar/handlers/volumes.py:19
-msgid "Open disk drives, shared network places and similar resources by name"
-msgstr "เปิดดิสก์ไดรว์ แหล่งทรัพยากรใช้ร่วมในเครือข่าย และอื่นๆ ตามชื่อ"
-
-#: ../deskbar/handlers/volumes.py:50
+#: ../deskbar/handlers/programs.py:218
 #, python-format
-msgid "Open network place %s"
-msgstr "เปิดแหล่งเครือข่าย %s"
+msgid "Execute %s"
+msgstr "เรียกใช้ %s"
 
-#: ../deskbar/handlers/volumes.py:52
-#, python-format
-msgid "Open audio disk %s"
-msgstr "เปิดแผ่นเพลง %s"
+#: ../deskbar/handlers/web_address.py:12
+msgid "Open web pages and send emails by typing a complete address"
+msgstr "เปิดหน้าเว็บและส่งอีเมลโดยป้อนที่อยู่เต็ม"
 
-#: ../deskbar/handlers/web_address.py:11
-msgid "Open web pages by typing a complete web address"
-msgstr "เปิดหน้าเว็บโดยป้อนที่อยู่เว็บเต็ม"
-
-#: ../deskbar/handlers/web_address.py:38
+#: ../deskbar/handlers/web_address.py:40
 #, python-format
 msgid "Open the web page %s"
 msgstr "เปิดเว็บ %s"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the location %s"
 msgstr "เปิดตำแหน่ง %s"
+
+#: ../deskbar/handlers/web_address.py:58
+#, python-format
+msgid "Send Email to %s"
+msgstr "ส่งอีเมลถึง %s"
 
 #: ../deskbar/handlers/yahoo.py:16
 msgid "Yahoo! Search"
@@ -693,47 +685,44 @@ msgstr "กำหนดคีย์ด่วนใหม่..."
 msgid "Update Available"
 msgstr "มีรุ่นใหม่"
 
-#: ../deskbar/updater/NewStuffUpdater.py:288
-msgid "Extracting"
-msgstr "กำลังแตกข้อมูล"
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
+msgid "Show search entry"
+msgstr "แสดงช่องป้อนคำค้น"
 
-#: ../deskbar/updater/NewStuffUpdater.py:335
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+msgid "Show previously used actions"
+msgstr "แสดงปฏิบัติการที่ใช้ล่าสุด"
+
+#: ../deskbar/updater/NewStuffUpdater.py:108
 #, python-format
 msgid "Updating %s"
 msgstr "กำลังปรับรุ่น %s"
 
-#: ../deskbar/updater/NewStuffUpdater.py:335
+#: ../deskbar/updater/NewStuffUpdater.py:108
 msgid ""
 "The update is being downloaded from the internet. Please wait until the "
 "update is complete"
-msgstr ""
-"กำลังดาวน์โหลดรุ่นใหม่จากอินเทอร์เน็ต กรุณารอสักครู่ จนกว่าการปรับรุ่นจะเสร็จสมบูรณ์"
+msgstr "กำลังดาวน์โหลดรุ่นใหม่จากอินเทอร์เน็ต กรุณารอสักครู่ จนกว่าการปรับรุ่นจะเสร็จสมบูรณ์"
 
-#: ../deskbar/updater/NewStuffUpdater.py:336
-#: ../deskbar/updater/NewStuffUpdater.py:362
-msgid "Downloading"
-msgstr "กำลังดาวน์โหลด"
-
-#: ../deskbar/updater/NewStuffUpdater.py:361
+#: ../deskbar/updater/NewStuffUpdater.py:133
 #, python-format
 msgid "Installing %s"
 msgstr "กำลังติดตั้ง %s"
 
-#: ../deskbar/updater/NewStuffUpdater.py:361
+#: ../deskbar/updater/NewStuffUpdater.py:133
 msgid ""
 "The handler is being downloaded from the internet. Please wait until the "
 "installation is complete"
 msgstr ""
 "กำลังดาวน์โหลดส่วนจัดการที่เลือกจากอินเทอร์เน็ต กรุณารอสักครู่ จนกว่าการติดตั้งจะเสร็จสมบูรณ์"
 
-#. if __name__ == '__main__':
-#. #createXML()
-#. loader = ModuleLoader (deskbar.MODULES_DIRS)
-#. updater = Updater(loader)
-#. loader.connect ("module-loaded", updater.on_module_loaded)
-#. loader.load_all()
-#. updater.run()
-#. gtk.main()
+#: ../deskbar/updater/NewStuffUpdater.py:134
+msgid "Downloading"
+msgstr "กำลังดาวน์โหลด"
+
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
 msgstr "<b>เครื่องมือค้นหา</b>"
@@ -750,17 +739,135 @@ msgstr "แสดงเครื่องมือค้นหาที่มี
 msgid "Show only the primary search engine"
 msgstr "แสดงเฉพาะเครื่องมือค้นหาหลักเท่านั้น"
 
+#: ../data/deskbar-applet.desktop.in.in.h:1
+msgid "Deskbar Applet"
+msgstr "แอพเพล็ตเดสก์บาร์"
+
+#: ../data/deskbar-applet.desktop.in.in.h:2
+msgid "Desktop search"
+msgstr "ค้นเดสก์ท็อป"
+
+#: ../data/deskbar-applet.desktop.in.in.h:3
+msgid "Search your computer and the internet quickly"
+msgstr "ค้นหาข้อมูลในคอมพิวเตอร์ของคุณและในอินเทอร์เน็ตอย่างรวดเร็ว"
+
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
+msgid "<b>Search:</b>"
+msgstr "<b>ค้นหา:</b>"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:49
+msgid "_File"
+msgstr "แ_ฟ้ม"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:50
+msgid "_Quit"
+msgstr "_ออก"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:51
+msgid "_Edit"
+msgstr "แ_ก้ไข"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:54
+msgid "_View"
+msgstr "_มุมมอง"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:55
+msgid "_Help"
+msgstr "_วิธีใช้"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:58
+msgid "_History"
+msgstr "_ประวัติการค้นหา"
+
+#. History TreeView
+#: ../deskbar/ui/window/CuemiacWindowUI.py:84
+msgid "<b>History</b>"
+msgstr "<b>ประวัติการค้นหา</b>"
+
+#: ../deskbar/updater/ErrorDialog.py:20
+msgid "An error occured"
+msgstr "เกิดข้อผิดพลาด"
+
+#: ../deskbar/updater/ErrorDialog.py:20
+msgid "Check the description beneath for further details."
+msgstr "ตรวจสอบคำบรรยายด้านล่างเพื่อดูรายละเอียดเพิ่มเติม"
+
+#~ msgid "%s more result"
+#~ msgid_plural "%s more results"
+#~ msgstr[0] "มีผลการค้นอีก %s รายการ"
+#~ msgstr[1] "มีผลการค้นอีก %s รายการ"
+
+#~ msgid "%s more document"
+#~ msgid_plural "%s more documents"
+#~ msgstr[0] "มีเอกสารอีก %s ฉบับ"
+#~ msgstr[1] "มีเอกสารอีก %s ฉบับ"
+
+#~ msgid "%s more email"
+#~ msgid_plural "%s more emails"
+#~ msgstr[0] "มีอีเมลอีก %s ฉบับ"
+#~ msgstr[1] "มีอีเมลอีก %s ฉบับ"
+
+#~ msgid "%s more conversation"
+#~ msgid_plural "%s more conversations"
+#~ msgstr[0] "มีการสนทนาอีก %s รายการ"
+#~ msgstr[1] "มีการสนทนาอีก %s รายการ"
+
+#~ msgid "%s more file"
+#~ msgid_plural "%s more files"
+#~ msgstr[0] "มีอีก %s แฟ้ม"
+#~ msgstr[1] "มีอีก %s แฟ้ม"
+
+#~ msgid "%s more place"
+#~ msgid_plural "%s more places"
+#~ msgstr[0] "มีอีก %s แหล่ง"
+#~ msgstr[1] "มีอีก %s แหล่ง"
+
+#~ msgid "%s more action"
+#~ msgid_plural "%s more actions"
+#~ msgstr[0] "มีอีก %s ปฏิบัติการ"
+#~ msgstr[1] "มีอีก %s ปฏิบัติการ"
+
+#~ msgid "Mail"
+#~ msgstr "เมล"
+
+#~ msgid "Send mail by typing a complete e-mail address"
+#~ msgstr "ส่งเมลโดยป้อนที่อยู่อีเมลเต็ม"
+
+#~ msgid "Files and Folders"
+#~ msgstr "แฟ้มและโฟลเดอร์"
+
+#~ msgid "Open your files and folders by name"
+#~ msgstr "เปิดแฟ้มและโฟลเดอร์ของคุณตามชื่อ"
+
+#~ msgid "Files and Folders Bookmarks"
+#~ msgstr "ที่คั่นหน้าแฟ้มและโฟลเดอร์"
+
+#~ msgid "%s more window"
+#~ msgid_plural "%s more windows"
+#~ msgstr[0] "มีหน้าต่างอีก %s บาน"
+#~ msgstr[1] "มีหน้าต่างอีก %s บาน"
+
+#~ msgid "Programs (Advanced)"
+#~ msgstr "โปรแกรม (ขั้นสูง)"
+
+#~ msgid "Launch any program present in your $PATH"
+#~ msgstr "เรียกโปรแกรมใดๆ ที่อยู่ใน $PATH ของคุณ"
+
+#~ msgid "Disks and Network Places"
+#~ msgstr "ดิสก์และที่ต่างๆ ในเครือข่าย"
+
+#~ msgid ""
+#~ "Open disk drives, shared network places and similar resources by name"
+#~ msgstr "เปิดดิสก์ไดรว์ แหล่งทรัพยากรใช้ร่วมในเครือข่าย และอื่นๆ ตามชื่อ"
+
+#~ msgid "Extracting"
+#~ msgstr "กำลังแตกข้อมูล"
+
 #~ msgid "Email from %s"
 #~ msgstr "อีเมลจาก %s"
 
 #~ msgid "Conversation with %s"
 #~ msgstr "การสนทนากับ %s"
-
-#~ msgid "Show search entry"
-#~ msgstr "แสดงช่องป้อนคำค้น"
-
-#~ msgid "Show previous actions"
-#~ msgstr "แสดงปฏิบัติการก่อนหน้า"
 
 #~ msgid "Button in panel with categorized list"
 #~ msgstr "ปุ่มในพาเนลพร้อมรายการจัดตามหมวด"
