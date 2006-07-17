@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-06-14 05:53+0200\n"
-"PO-Revision-Date: 2006-06-14 12:23+0530\n"
+"POT-Creation-Date: 2006-07-16 22:29+0200\n"
+"PO-Revision-Date: 2006-07-17 09:30+0530\n"
 "Last-Translator: Ankit Patel <ankit644@yahoo.com>\n"
 "Language-Team: Gujarati <indianoss-gujarati@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -42,15 +43,15 @@ msgstr "બધું-એક-માં ક્રિયા પટ્ટી"
 msgid "Deskbar"
 msgstr "ડેસ્કપટ્ટી"
 
-#: ../data/Deskbar_Applet.xml.h:1
+#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
 msgstr "વિશે (_A)"
 
-#: ../data/Deskbar_Applet.xml.h:2
+#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
 msgid "_Clear History"
 msgstr "ઈતિહાસ સાફ કરો (_C)"
 
-#: ../data/Deskbar_Applet.xml.h:3
+#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
 msgid "_Preferences"
 msgstr "પસંદગીઓ (_P)"
 
@@ -101,38 +102,42 @@ msgid "New Extensions"
 msgstr "નવા એક્સટેન્સનો"
 
 #: ../data/prefs-dialog.glade.h:12
+msgid "Search selection when triggering the shortcut"
+msgstr "જ્યારે ટૂંકાણ બદલી રહ્યા હોય ત્યારે શોધ પસંદગી"
+
+#: ../data/prefs-dialog.glade.h:13
 msgid "Searches"
 msgstr "શોધો"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "Use _all available space"
 msgstr "બધી ઉપલબ્ધ જગ્યા વાપરો (_a)"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "View"
 msgstr "દેખાવ"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Check For Updates"
 msgstr "સુધારાઓ માટે ચકાસો (_C)"
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:17
 msgid "_Install"
 msgstr "સ્થાપન (_I)"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:18
 msgid "_Keyboard shortcut to focus:"
 msgstr "ફોકસ કરવા માટેના કીબોર્ડ ટુંકાણો (_K):"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:19
 msgid "_More..."
 msgstr "વધુ (_M)..."
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:20
 msgid "_Update"
 msgstr "સુધારો (_U)"
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:21
 msgid "characters"
 msgstr "અક્ષરો"
 
@@ -183,98 +188,57 @@ msgstr "ટુંકાણ"
 msgid "Bookmark Name"
 msgstr "બુકમાર્ક નામ"
 
-#: ../deskbar/Categories.py:4
-#, python-format
-msgid "%s more result"
-msgid_plural "%s more results"
-msgstr[0] "%s વધુ પરિણામ"
-msgstr[1] "%s વધુ પરિણામો"
-
-#: ../deskbar/Categories.py:9
+#: ../deskbar/Categories.py:7
 msgid "Uncategorized"
 msgstr "બિનવર્ગીકૃત"
 
-#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
 msgid "History"
 msgstr "ઈતિહાસ"
 
-#: ../deskbar/Categories.py:26
+#: ../deskbar/Categories.py:15
 msgid "Documents"
 msgstr "દસ્તાવેજો"
 
-#: ../deskbar/Categories.py:27
-#, python-format
-msgid "%s more document"
-msgid_plural "%s more documents"
-msgstr[0] "%s વધુ દસ્તાવેજ"
-msgstr[1] "%s વધુ દસ્તાવેજો"
-
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:18
 msgid "Emails"
 msgstr "ઈમેઈલો"
 
-#: ../deskbar/Categories.py:32
-#, python-format
-msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] "%s વધુ ઈમેઈલ"
-msgstr[1] "%s વધુ ઈમેઈલો"
-
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:21
 msgid "Conversations"
 msgstr "વાર્તાલાપો"
 
-#: ../deskbar/Categories.py:37
-#, python-format
-msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "%s વધુ વાર્તાલાપ"
-msgstr[1] "%s વધુ વાર્તાલાપો"
-
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:24
 msgid "Files"
 msgstr "ફાઈલો"
 
-#: ../deskbar/Categories.py:42
-#, python-format
-msgid "%s more file"
-msgid_plural "%s more files"
-msgstr[0] "%s વધુ ફાઈલ"
-msgstr[1] "%s વધુ ફાઈલો"
-
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:27
 msgid "People"
 msgstr "લોકો"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:30
 msgid "Places"
 msgstr "જગ્યાઓ"
 
-#: ../deskbar/Categories.py:52
-#, python-format
-msgid "%s more place"
-msgid_plural "%s more places"
-msgstr[0] "%s વધુ જગ્યા"
-msgstr[1] "%s વધુ જગ્યાઓ"
-
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:33
 msgid "Actions"
 msgstr "ક્રિયાઓ"
 
-#: ../deskbar/Categories.py:57
-#, python-format
-msgid "%s more action"
-msgid_plural "%s more actions"
-msgstr[0] "%s વધુ ક્રિયા"
-msgstr[1] "%s વધુ ક્રિયાઓ"
-
-#: ../deskbar/Categories.py:61 ../deskbar/handlers/web_address.py:10
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
 msgid "Web"
 msgstr "વેબ"
 
-#: ../deskbar/Categories.py:66
+#: ../deskbar/Categories.py:39
 msgid "Web Search"
 msgstr "વેબ શોધ"
+
+#: ../deskbar/Categories.py:42
+msgid "News"
+msgstr "સમાચાર"
+
+#: ../deskbar/Categories.py:45
+msgid "Notes"
+msgstr "નોંધો"
 
 #: ../deskbar/DeskbarHistory.py:37
 msgid "No History"
@@ -315,7 +279,7 @@ msgid "From %s"
 msgstr "%s તરફથી"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:82 ../deskbar/handlers/files.py:39
+#: ../deskbar/handlers/beagle-live.py:82 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "%s ખોલો"
@@ -342,8 +306,8 @@ msgstr "કેલેન્ડર: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:291
-#: ../deskbar/handlers/beagle-live.py:313
+#: ../deskbar/handlers/beagle-live.py:293
+#: ../deskbar/handlers/beagle-live.py:319
 msgid "?"
 msgstr "?"
 
@@ -387,19 +351,6 @@ msgstr "તમારું del.icio.us વપરાશકર્તાનામ �
 #: ../deskbar/handlers/desklicious.py:43
 msgid "Username: "
 msgstr "વપરાશકર્તા નામ: "
-
-#: ../deskbar/handlers/email_address.py:10
-msgid "Mail"
-msgstr "મેઈલ"
-
-#: ../deskbar/handlers/email_address.py:11
-msgid "Send mail by typing a complete e-mail address"
-msgstr "આખું ઈ-મેઈલ સરનામું લખીને મેઈલ મોકલો"
-
-#: ../deskbar/handlers/email_address.py:29
-#, python-format
-msgid "Send Email to %s"
-msgstr "%s ને ઈમેઈલ મોકલો"
 
 #: ../deskbar/handlers/epiphany.py:27
 msgid "You can set shortcuts for your searches."
@@ -467,18 +418,101 @@ msgstr "તમારા સંપર્કોને તેમના નામ �
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "<b>%(name)s</b> ને ઈમેઈલ મોકલો (%(email)s)"
 
-#: ../deskbar/handlers/files.py:16
-msgid "Files and Folders"
-msgstr "ફાઈલો અને ફોલ્ડરો"
-
 #: ../deskbar/handlers/files.py:17
-msgid "Open your files and folders by name"
-msgstr "નામ પ્રમાણે તમારી ફાઈલો અને ફોલ્ડરો ખોલો"
+msgid "Files, Folders and Places"
+msgstr "ફાઈલો, ફોલ્ડરો અને જગ્યાઓ"
 
-#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/files.py:18
+msgid "View your files, folders, bookmarks, drives, network places by name"
+msgstr "તમારી ફાઈલો, ફોલ્ડરો, બુકમાર્કો, ડ્રાઈવો, નેટવર્ક જગ્યાઓ નામ પ્રમાણે જૂઓ"
+
+#: ../deskbar/handlers/files.py:68
 #, python-format
 msgid "Open folder %s"
 msgstr "ફોલ્ડર %s ખોલો"
+
+#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#, python-format
+msgid "Open location %s"
+msgstr "સ્થાન %s ખોલો"
+
+#: ../deskbar/handlers/files.py:114
+#, python-format
+msgid "Open network place %s"
+msgstr "નેટવર્ક સ્થાન %s ખોલો"
+
+#: ../deskbar/handlers/files.py:116
+#, python-format
+msgid "Open audio disc %s"
+msgstr "ઓડિયો ડિસ્ક %s ખોલો"
+
+#: ../deskbar/handlers/gdmactions.py:10
+msgid "Computer Actions"
+msgstr "કમ્પ્યૂટર ક્રિયાઓ"
+
+#: ../deskbar/handlers/gdmactions.py:11
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "બહાર નીકળો, બંધ કરો, પુનઃશરૂ કરો, અટકાવો અને સંબંધિત ક્રિયાઓ."
+
+#: ../deskbar/handlers/gdmactions.py:39
+msgid "Suspend the machine"
+msgstr "મશીનને અટકાવો"
+
+#: ../deskbar/handlers/gdmactions.py:50
+msgid "Hibernate the machine"
+msgstr "મશીન હાયબરનેટ કરો"
+
+#: ../deskbar/handlers/gdmactions.py:61
+msgid "Shutdown the machine"
+msgstr "મશીન બંધ કરો"
+
+#: ../deskbar/handlers/gdmactions.py:80
+msgid "Lock the screen"
+msgstr "સ્ક્રીનને તાળું મારો"
+
+#: ../deskbar/handlers/gdmactions.py:106
+msgid "Shut Down"
+msgstr "બંધ કરો"
+
+#: ../deskbar/handlers/gdmactions.py:113
+msgid "Turn off the computer"
+msgstr "કમ્પ્યૂટર બંધ કરો"
+
+#: ../deskbar/handlers/gdmactions.py:117
+msgid "Log Out"
+msgstr "બહાર નીકળો"
+
+#: ../deskbar/handlers/gdmactions.py:124
+msgid "Log out"
+msgstr "બહાર નીકળો"
+
+#: ../deskbar/handlers/gdmactions.py:128
+msgid "Restart"
+msgstr "પુનઃશરૂ કરો"
+
+#: ../deskbar/handlers/gdmactions.py:135
+msgid "Restart the computer"
+msgstr "કમ્પ્યૂટર પુનઃશરૂ કરો"
+
+#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+msgid "Switch User"
+msgstr "વપરાશકર્તા બદલો"
+
+#: ../deskbar/handlers/gdmactions.py:165
+msgid "Lock"
+msgstr "તાળું મારો"
+
+#: ../deskbar/handlers/gdmactions.py:176
+msgid "Suspend"
+msgstr "અટકાવો"
+
+#: ../deskbar/handlers/gdmactions.py:178
+msgid "Hibernate"
+msgstr "હાયબરનેટ"
+
+#: ../deskbar/handlers/gdmactions.py:180
+msgid "Shutdown"
+msgstr "બંધ કરો"
 
 #: ../deskbar/handlers/google-live.py:20
 msgid ""
@@ -542,19 +576,6 @@ msgstr "ગુગલ શોધ"
 msgid "Search Google as you type"
 msgstr "તમે જેમ લખો તેમ ગુગલ શોધો"
 
-#: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Files and Folders Bookmarks"
-msgstr "ફાઈલો અને ફોલ્ડરો બુકમાર્કો"
-
-#: ../deskbar/handlers/gtkbookmarks.py:14
-msgid "Open your files and folders bookmarks by name"
-msgstr "નામ પ્રમાણે તમારી ફાઈલો અને ફોલ્ડરો બુકમાર્કો ખોલો"
-
-#: ../deskbar/handlers/gtkbookmarks.py:36 ../deskbar/handlers/volumes.py:54
-#, python-format
-msgid "Open location %s"
-msgstr "સ્થાન %s ખોલો"
-
 #: ../deskbar/handlers/history.py:10
 msgid "Recognize previously used searches"
 msgstr "પહેલા વપરાયેલ શોધો ઓળખો"
@@ -571,14 +592,7 @@ msgstr "નામ પ્રમાણે વર્તમાન વિન્ડો
 msgid "Windows"
 msgstr "વિન્ડો"
 
-#: ../deskbar/handlers/iswitch-window.py:17
-#, python-format
-msgid "%s more window"
-msgid_plural "%s more windows"
-msgstr[0] "%s વધુ વિન્ડો"
-msgstr[1] "%s વધુ વિન્ડો"
-
-#: ../deskbar/handlers/iswitch-window.py:34
+#: ../deskbar/handlers/iswitch-window.py:32
 #, python-format
 msgid "Switch to <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> માં બદલાવ"
@@ -586,19 +600,6 @@ msgstr "<b>%(name)s</b> માં બદલાવ"
 #: ../deskbar/handlers/mozilla.py:120
 msgid "You can customize which search engines are offered."
 msgstr "તમે એ વૈવિધ્યપૂર્ણ કરી શકો છો કે જે શોધ યંત્રોની તક અપાયેલ છે."
-
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Programs (Advanced)"
-msgstr "કાર્યક્રમો (અદ્યતન)"
-
-#: ../deskbar/handlers/pathprograms.py:15
-msgid "Launch any program present in your $PATH"
-msgstr "તમારા $PATH માં હાજર કોઈપણ કાર્યક્રમ લોન્ચ કરો"
-
-#: ../deskbar/handlers/pathprograms.py:64
-#, python-format
-msgid "Execute %s"
-msgstr "%s ચલાવો"
 
 #: ../deskbar/handlers/programs.py:14
 msgid "Programs"
@@ -634,57 +635,49 @@ msgstr "વિધેય નામ માટે Devhelp શોધો"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:80
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> લાવો (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:94
+#: ../deskbar/handlers/programs.py:98
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s માટે શબ્દકોષમાં જુઓ"
 
-#: ../deskbar/handlers/programs.py:102
+#: ../deskbar/handlers/programs.py:106
 #, python-format
 msgid "Search for file names like %s"
 msgstr "%s જેવા ફાઈલ નામો માટે શોધો"
 
-#: ../deskbar/handlers/programs.py:110
+#: ../deskbar/handlers/programs.py:114
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Devhelp માં %s માટે શોધો"
 
-#: ../deskbar/handlers/volumes.py:18
-msgid "Disks and Network Places"
-msgstr "ડિસ્ક અને નેટવર્ક સ્થાનો"
-
-#: ../deskbar/handlers/volumes.py:19
-msgid "Open disk drives, shared network places and similar resources by name"
-msgstr "નામ પ્રમાણે ડિસ્ક ડ્રાઈવો, વહેંચાયેલ નેટવર્ક સ્થાનો અને એવા જ સ્રોતો ખોલો"
-
-#: ../deskbar/handlers/volumes.py:50
+#: ../deskbar/handlers/programs.py:218
 #, python-format
-msgid "Open network place %s"
-msgstr "નેટવર્ક સ્થાન %s ખોલો"
+msgid "Execute %s"
+msgstr "%s ચલાવો"
 
-#: ../deskbar/handlers/volumes.py:52
-#, python-format
-msgid "Open audio disk %s"
-msgstr "ઓડિયો ડિસ્ક %s ખોલો"
+#: ../deskbar/handlers/web_address.py:12
+msgid "Open web pages and send emails by typing a complete address"
+msgstr "સંપૂર્ણ સરનામું છાપીને વેબ પાનાંઓ ખોલો અને ઈમેઈલો મોકલો"
 
-#: ../deskbar/handlers/web_address.py:11
-msgid "Open web pages by typing a complete web address"
-msgstr "આખું વેબ સરનામું લખીને વેબ પાનાંઓ ખોલો"
-
-#: ../deskbar/handlers/web_address.py:38
+#: ../deskbar/handlers/web_address.py:40
 #, python-format
 msgid "Open the web page %s"
 msgstr "વેબ પાનું %s ખોલો"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the location %s"
 msgstr "સ્થાન %s ખોલો"
+
+#: ../deskbar/handlers/web_address.py:58
+#, python-format
+msgid "Send Email to %s"
+msgstr "%s ને ઈમેઈલ મોકલો"
 
 #: ../deskbar/handlers/yahoo.py:16
 msgid "Yahoo! Search"
@@ -717,45 +710,47 @@ msgstr "નવો પ્રવેગક..."
 msgid "Update Available"
 msgstr "ઉપલબ્ધ સુધારો"
 
-#: ../deskbar/updater/NewStuffUpdater.py:288
-msgid "Extracting"
-msgstr "અર્ક કાઢી રહ્યા છીએ"
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
+msgid "Show search entry"
+msgstr "શોધ પ્રવેશ બતાવો"
 
-#: ../deskbar/updater/NewStuffUpdater.py:335
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+msgid "Show previously used actions"
+msgstr "પહેલાં વપરાયેલ ક્રિયાઓ બતાવો"
+
+#: ../deskbar/updater/NewStuffUpdater.py:108
 #, python-format
 msgid "Updating %s"
 msgstr "%s સુધારી રહ્યા છીએ"
 
-#: ../deskbar/updater/NewStuffUpdater.py:335
+#: ../deskbar/updater/NewStuffUpdater.py:108
 msgid ""
 "The update is being downloaded from the internet. Please wait until the "
 "update is complete"
-msgstr "સુધારો એ ઈન્ટરનેટમાંથી ડાઉનલોડ થઈ ગયેલ છે. મહેરબાની કરીને જ્યાં સુધી સુધારો પૂર્ણ નહિં થાય ત્યાં સુધી રાહ જુઓ"
+msgstr ""
+"સુધારો એ ઈન્ટરનેટમાંથી ડાઉનલોડ થઈ ગયેલ છે. મહેરબાની કરીને જ્યાં સુધી સુધારો પૂર્ણ નહિં થાય "
+"ત્યાં સુધી રાહ જુઓ"
 
-#: ../deskbar/updater/NewStuffUpdater.py:336
-#: ../deskbar/updater/NewStuffUpdater.py:362
-msgid "Downloading"
-msgstr "ડાઉનલોડ કરી રહ્યા છીએ"
-
-#: ../deskbar/updater/NewStuffUpdater.py:361
+#: ../deskbar/updater/NewStuffUpdater.py:133
 #, python-format
 msgid "Installing %s"
 msgstr "%s સ્થાપન કરી રહ્યા છીએ"
 
-#: ../deskbar/updater/NewStuffUpdater.py:361
+#: ../deskbar/updater/NewStuffUpdater.py:133
 msgid ""
 "The handler is being downloaded from the internet. Please wait until the "
 "installation is complete"
-msgstr "નિયંત્રક એ ઈન્ટરનેટમાંથી ડાઉનલોડ થઈ રહ્યું છે. મહેરબાની કરીને જ્યાં સુધી સ્થાપન પૂર્ણ નહિં થાય ત્યાં સુધી રાહ જુઓ"
+msgstr ""
+"નિયંત્રક એ ઈન્ટરનેટમાંથી ડાઉનલોડ થઈ રહ્યું છે. મહેરબાની કરીને જ્યાં સુધી સ્થાપન પૂર્ણ નહિં થાય "
+"ત્યાં સુધી રાહ જુઓ"
 
-#. if __name__ == '__main__':
-#. #createXML()
-#. loader = ModuleLoader (deskbar.MODULES_DIRS)
-#. updater = Updater(loader)
-#. loader.connect ("module-loaded", updater.on_module_loaded)
-#. loader.load_all()
-#. updater.run()
-#. gtk.main()
+#: ../deskbar/updater/NewStuffUpdater.py:134
+msgid "Downloading"
+msgstr "ડાઉનલોડ કરી રહ્યા છીએ"
+
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
 msgstr "<b>શોધ યંત્રો</b>"
@@ -771,4 +766,57 @@ msgstr "બધા ઉપલબ્ધ શોધ યંત્રો બતાવ�
 #: ../data/mozilla-search.glade.h:4
 msgid "Show only the primary search engine"
 msgstr "માત્ર પ્રાથમિક શોધ યંત્ર બતાવો"
+
+#: ../data/deskbar-applet.desktop.in.in.h:1
+msgid "Deskbar Applet"
+msgstr "ડેસ્કબાર એપ્લેટ"
+
+#: ../data/deskbar-applet.desktop.in.in.h:2
+msgid "Desktop search"
+msgstr "ડેસ્કટોપ શોધ"
+
+#: ../data/deskbar-applet.desktop.in.in.h:3
+msgid "Search your computer and the internet quickly"
+msgstr "તમારું કમ્પ્યૂટર અને ઈન્ટરનેટ ઝડપથી શોધો"
+
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
+msgid "<b>Search:</b>"
+msgstr "<b>શોધો:</b>"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:49
+msgid "_File"
+msgstr "ફાઈલ (_F)"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:50
+msgid "_Quit"
+msgstr "બંધ કરો (_Q)"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:51
+msgid "_Edit"
+msgstr "ફેરફાર (_E)"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:54
+msgid "_View"
+msgstr "દેખાવ (_V)"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:55
+msgid "_Help"
+msgstr "મદદ (_H)"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:58
+msgid "_History"
+msgstr "ઈતિહાસ (_H)"
+
+#. History TreeView
+#: ../deskbar/ui/window/CuemiacWindowUI.py:84
+msgid "<b>History</b>"
+msgstr "<b>ઈતિહાસ</b>"
+
+#: ../deskbar/updater/ErrorDialog.py:20
+msgid "An error occured"
+msgstr "ભૂલ ઉદ્ભવી"
+
+#: ../deskbar/updater/ErrorDialog.py:20
+msgid "Check the description beneath for further details."
+msgstr "આગળની વિગતો માટે વર્ણનની ચોકસાઈ ચકાસો."
 
