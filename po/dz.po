@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 2-14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-06-28 10:17+0530\n"
-"PO-Revision-Date: 2006-06-12 14:56+0530\n"
+"POT-Creation-Date: 2006-07-18 18:42+0530\n"
+"PO-Revision-Date: 2006-07-18 11:16+0530\n"
 "Last-Translator: Mindu Dorji\n"
 "Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
 "MIME-Version: 1.0\n"
@@ -27,15 +27,15 @@ msgstr "གཅིག་ནང་ཆ་མཉམ་ཚང་བའི་ བྱ�
 msgid "Deskbar"
 msgstr "ཌེཀསི་ཕྲ་རིང་།"
 
-#: ../data/Deskbar_Applet.xml.h:1
+#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
 msgstr "སྐོར་ལས།(_A)"
 
-#: ../data/Deskbar_Applet.xml.h:2
+#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
 msgid "_Clear History"
 msgstr "ལོ་རྒྱུས་བསལ།(_C)"
 
-#: ../data/Deskbar_Applet.xml.h:3
+#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
 msgid "_Preferences"
 msgstr "དགའ་གདམ་ཚུ།(_P)"
 
@@ -88,38 +88,42 @@ msgid "New Extensions"
 msgstr "<b>རྒྱ་སྐྱེད་གསརཔ་ཚུ་</b>"
 
 #: ../data/prefs-dialog.glade.h:12
+msgid "Search selection when triggering the shortcut"
+msgstr "མགྱོགས་ཐབས་སྟོན་པའི་སྐབས་ འཚོལ་ཞིབ་སེལ་འཐུ།"
+
+#: ../data/prefs-dialog.glade.h:13
 msgid "Searches"
 msgstr "འཚོལ་ཞིབ་ཚུ།"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "Use _all available space"
 msgstr "བར་སྟོང་ཡོད་ཚད་ཆ་མཉམ་ ལག་ལེན་འཐབ།(_a)"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "View"
 msgstr "མཐོང་སྣང་།"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Check For Updates"
 msgstr "དུས་མཐུནབཟོ་དགོཔ་ཡོད་མེད་ཞིབ་འབད།(_C)"
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:17
 msgid "_Install"
 msgstr "གཞི་བཙུགས་འབད།(_I)"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:18
 msgid "_Keyboard shortcut to focus:"
 msgstr "ཆེད་དམིགས་འབད་ནིའི་ ལྡེ་སྒྲོམ་མགྱོགས་ཐབས།(_K)"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:19
 msgid "_More..."
 msgstr "ཧེང་བཀལ་...(_M)"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:20
 msgid "_Update"
 msgstr "དུས་མཐུན་བཟོ།(_U)"
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:21
 msgid "characters"
 msgstr "ཡིག་འབྲུ་ཚུ།"
 
@@ -171,98 +175,57 @@ msgstr "མགྱོགས་ཐབས།"
 msgid "Bookmark Name"
 msgstr "དེབ་རྟགས་ཀྱི་མིང་།"
 
-#: ../deskbar/Categories.py:4
-#, python-format
-msgid "%s more result"
-msgid_plural "%s more results"
-msgstr[0] "གྲུབ་འབྲས་ཧེང་བཀལ་%s།"
-msgstr[1] "གྲུབ་འབྲས་ཧེང་བཀལ་%s།"
-
-#: ../deskbar/Categories.py:9
+#: ../deskbar/Categories.py:7
 msgid "Uncategorized"
 msgstr "དབྱེ་རིམ་མ་བཟོཝ།"
 
-#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
 msgid "History"
 msgstr "ལོ་རྒྱུས།"
 
-#: ../deskbar/Categories.py:26
+#: ../deskbar/Categories.py:15
 msgid "Documents"
 msgstr "ཡིག་ཆ།"
 
-#: ../deskbar/Categories.py:27
-#, python-format
-msgid "%s more document"
-msgid_plural "%s more documents"
-msgstr[0] "ཡིག་ཆ་ཧེང་བཀལ་%s།"
-msgstr[1] "ཡིག་ཆ་ཧེང་བཀལ་%s།"
-
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:18
 msgid "Emails"
 msgstr "གློག་འཕྲིན་ཚུ།"
 
-#: ../deskbar/Categories.py:32
-#, python-format
-msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] "གློག་འཕྲིན་ཧེང་བཀལ་%s།"
-msgstr[1] "གློག་འཕྲིན་ཧེང་བཀལ་%s།"
-
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:21
 msgid "Conversations"
 msgstr "གྲོས་གླེང་།"
 
-#: ../deskbar/Categories.py:37
-#, python-format
-msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "གྲོས་གླེང་ཧེང་བཀལ་%s།"
-msgstr[1] "གྲོས་གླེང་ཧེང་བཀལ་%s།"
-
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:24
 msgid "Files"
 msgstr "ཡིག་སྣོད་ཚུ།"
 
-#: ../deskbar/Categories.py:42
-#, python-format
-msgid "%s more file"
-msgid_plural "%s more files"
-msgstr[0] "ཡིག་ཆ་ཧེང་བཀལ་%s།"
-msgstr[1] "ཡིག་ཆ་ཧེང་བཀལ་%s།"
-
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:27
 msgid "People"
 msgstr "མི་མང་།"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:30
 msgid "Places"
 msgstr "ས་གནས་ཚུ།"
 
-#: ../deskbar/Categories.py:52
-#, python-format
-msgid "%s more place"
-msgid_plural "%s more places"
-msgstr[0] "ས་གནས་ཧེང་བཀལ་%s།"
-msgstr[1] "ས་གནས་ཧེང་བཀལ་%s།"
-
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:33
 msgid "Actions"
 msgstr "བྱ་བ་ཚུ།"
 
-#: ../deskbar/Categories.py:57
-#, python-format
-msgid "%s more action"
-msgid_plural "%s more actions"
-msgstr[0] "བྱ་བ་ཧེང་བཀལ་%s།"
-msgstr[1] "བྱ་བ་ཧེང་བཀལ་%s།"
-
-#: ../deskbar/Categories.py:61 ../deskbar/handlers/web_address.py:10
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
 msgid "Web"
 msgstr "ཝེབ།"
 
-#: ../deskbar/Categories.py:66
+#: ../deskbar/Categories.py:39
 msgid "Web Search"
 msgstr "ཝེབ་འཚོལ་ཞིབ།"
+
+#: ../deskbar/Categories.py:42
+msgid "News"
+msgstr "གནས་ཚུལ།"
+
+#: ../deskbar/Categories.py:45
+msgid "Notes"
+msgstr "དྲན་འཛིན།"
 
 #: ../deskbar/DeskbarHistory.py:37
 msgid "No History"
@@ -305,7 +268,7 @@ msgid "From %s"
 msgstr "%sལས།"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:82 ../deskbar/handlers/files.py:39
+#: ../deskbar/handlers/beagle-live.py:82 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "%sཁ་ཕྱེ།"
@@ -332,8 +295,8 @@ msgstr "ཟླ་ཐོ་:%s།"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:291
-#: ../deskbar/handlers/beagle-live.py:313
+#: ../deskbar/handlers/beagle-live.py:293
+#: ../deskbar/handlers/beagle-live.py:319
 msgid "?"
 msgstr "?"
 
@@ -377,19 +340,6 @@ msgstr "ཁྱོད་རའི་deli.icio.us ལག་ལེན་པའི�
 #: ../deskbar/handlers/desklicious.py:43
 msgid "Username: "
 msgstr "ལག་ལེན་པའི་མིང་:"
-
-#: ../deskbar/handlers/email_address.py:10
-msgid "Mail"
-msgstr "ཡིག་འཕྲིན།"
-
-#: ../deskbar/handlers/email_address.py:11
-msgid "Send mail by typing a complete e-mail address"
-msgstr "གློག་འཕྲིན་ཁ་བྱང་ཆ་ཚང་ཅིག་ ཡིག་དཔར་རྐྱབ་ཐོག་ལས་ གློག་འཕྲིན་གཏང་།"
-
-#: ../deskbar/handlers/email_address.py:29
-#, python-format
-msgid "Send Email to %s"
-msgstr "%sལུ་གློག་འཕྲིན་གཏང་།"
 
 #: ../deskbar/handlers/epiphany.py:27
 msgid "You can set shortcuts for your searches."
@@ -458,18 +408,102 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "<b>%(name)s</b> (%(email)s) ལུ་ཡིག་འཕྲིན་གཏང་།"
 
-#: ../deskbar/handlers/files.py:16
-msgid "Files and Folders"
-msgstr "ཡིག་སྣོད་དང་སྣོདའཛིན་ཚུ།"
-
 #: ../deskbar/handlers/files.py:17
-msgid "Open your files and folders by name"
-msgstr "ཁྱོད་རའི་ཡིག་སྣོད་དང་ སྣོད་འཛིན་ཚུ་ མིང་གི་ཐོག་ལས་ཁ་ཕྱེ།"
+msgid "Files, Folders and Places"
+msgstr "ཡིག་སྣོད་དང་སྣོད་འཛིན་ ས་གནས་ཚུ།"
 
-#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/files.py:18
+msgid "View your files, folders, bookmarks, drives, network places by name"
+msgstr ""
+"ཁྱོད་རའི་ཡིག་སྣོད་དང་ སྣོད་འཛིན་ དེབ་རྟགས་ འདྲེན་འཕྲུལ་ ཡོངས་འབྲེལ་ས་གནས་ཚུ་ མིང་གི་ཐོག་ལས་སྟོན།"
+
+#: ../deskbar/handlers/files.py:68
 #, python-format
 msgid "Open folder %s"
 msgstr "སྣོད་འཛིན་%sཁ་ཕྱེ།"
+
+#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#, python-format
+msgid "Open location %s"
+msgstr "གནས་ཁོངས་%sཁ་ཕྱེ།"
+
+#: ../deskbar/handlers/files.py:114
+#, python-format
+msgid "Open network place %s"
+msgstr "ཡོངས་འབྲེལ་ས་གནས་%sཁ་ཕྱེ།"
+
+#: ../deskbar/handlers/files.py:116
+#, python-format
+msgid "Open audio disc %s"
+msgstr "རྣར་ཉན་ཌིཀསི་%sཁ་ཕྱེ།"
+
+#: ../deskbar/handlers/gdmactions.py:10
+msgid "Computer Actions"
+msgstr "གློག་རིག་གི་བྱ་བ་ཚུ།"
+
+#: ../deskbar/handlers/gdmactions.py:11
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "ཕྱིར་བསྐྱོད་དང་ སྒོ་བསྡམ་ནི་ ལོག་འགོ་བཙུགས་ནི་ འཕྲལ་བཀག་ དེ་ལས་ འབྲེལ་བ་ཡོད་པའི་བྱ་བ་ཚུ།"
+
+#: ../deskbar/handlers/gdmactions.py:39
+msgid "Suspend the machine"
+msgstr "གློག་འཕྲུལ་འཕྲལ་བཀག་འབད།"
+
+#: ../deskbar/handlers/gdmactions.py:50
+msgid "Hibernate the machine"
+msgstr "གློག་འཕྲུལ་གཉིད་ནང་བཙུགས།"
+
+#: ../deskbar/handlers/gdmactions.py:61
+msgid "Shutdown the machine"
+msgstr "གློག་འཕྲུལ་སྒོ་བསྡམས།"
+
+#: ../deskbar/handlers/gdmactions.py:80
+msgid "Lock the screen"
+msgstr "གསལ་གཞི་ལྡེ་མིག་རྐྱབས།"
+
+#: ../deskbar/handlers/gdmactions.py:106
+msgid "Shut Down"
+msgstr "སྒོ་བསྡམས།"
+
+#: ../deskbar/handlers/gdmactions.py:113
+msgid "Turn off the computer"
+msgstr "གློག་རིག་ཨོཕ་རྐྱབས།"
+
+#: ../deskbar/handlers/gdmactions.py:117
+msgid "Log Out"
+msgstr "ཕྱིར་བསྐྱོད་འབད།"
+
+#: ../deskbar/handlers/gdmactions.py:124
+msgid "Log out"
+msgstr "ཕྱིར་བསྐྱོད་འབད།"
+
+#: ../deskbar/handlers/gdmactions.py:128
+msgid "Restart"
+msgstr "ལོག་འགོབཙུགས།"
+
+#: ../deskbar/handlers/gdmactions.py:135
+msgid "Restart the computer"
+msgstr "གློག་རིག་ལོག་འགོ་བཙུགས།"
+
+#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+msgid "Switch User"
+msgstr "ལག་ལེན་པ་སོར་བསྒྱུར་འབད།"
+
+#: ../deskbar/handlers/gdmactions.py:165
+msgid "Lock"
+msgstr "ལྡེ་མིག་རྐྱབས།"
+
+#: ../deskbar/handlers/gdmactions.py:176
+msgid "Suspend"
+msgstr "འཕྲལ་བཀག་འབད།"
+
+#: ../deskbar/handlers/gdmactions.py:178
+msgid "Hibernate"
+msgstr "གཉིད་ནང་བཙུགས།"
+
+#: ../deskbar/handlers/gdmactions.py:180
+msgid "Shutdown"
+msgstr "སྒོ་བསྡམས།"
 
 #: ../deskbar/handlers/google-live.py:20
 msgid ""
@@ -533,19 +567,6 @@ msgstr "གུ་གཱལ་འཚོལ་ཞིབ།"
 msgid "Search Google as you type"
 msgstr "ཁྱོད་ཀྱིས་ཡིག་དཔར་རྐྱབ་དང་འབྲེལ་ཏེ་ གུ་གཱལ་འཚོལ་ཞིབ་འབད།"
 
-#: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Files and Folders Bookmarks"
-msgstr "ཡིག་སྣོད་དང་སྣོད་འཛིན་ཚུ་གི་དེབ་རྟགས།"
-
-#: ../deskbar/handlers/gtkbookmarks.py:14
-msgid "Open your files and folders bookmarks by name"
-msgstr "ཁྱོད་རའི་ཡིག་སྣོད་དང་ སྣོད་འཛིན་ཚུ་གི་དེབ་རྟགས་ཚུ་ མིང་གི་ཐོག་ལས་ཁ་ཕྱེ།"
-
-#: ../deskbar/handlers/gtkbookmarks.py:36 ../deskbar/handlers/volumes.py:54
-#, python-format
-msgid "Open location %s"
-msgstr "གནས་ཁོངས་%sཁ་ཕྱེ།"
-
 #: ../deskbar/handlers/history.py:10
 msgid "Recognize previously used searches"
 msgstr "ཧེ་མར་ལག་ལེན་འཐབ་མི་ འཚོལ་ཞིབ་ཚུ་ ངོས་འཛིན་འབད།"
@@ -562,14 +583,7 @@ msgstr "མིང་གི་ཐོག་ལས་ ད་ལྟོ་ཡོད�
 msgid "Windows"
 msgstr "སྒོ་སྒྲིག་ཚུ།"
 
-#: ../deskbar/handlers/iswitch-window.py:17
-#, python-format
-msgid "%s more window"
-msgid_plural "%s more windows"
-msgstr[0] "སྒོ་སྒྲིག་་ཧེང་བཀལ་%s།"
-msgstr[1] "སྒོ་སྒྲིག་ཧེང་བཀལ་%s།"
-
-#: ../deskbar/handlers/iswitch-window.py:34
+#: ../deskbar/handlers/iswitch-window.py:32
 #, python-format
 msgid "Switch to <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> ལུ་སོར་བསྒྱུར་འབད།"
@@ -577,19 +591,6 @@ msgstr "<b>%(name)s</b> ལུ་སོར་བསྒྱུར་འབད།"
 #: ../deskbar/handlers/mozilla.py:120
 msgid "You can customize which search engines are offered."
 msgstr "བྱིན་ཏེ་ཡོད་པའི་ འཚོལ་ཞིབ་མ་འཕྲུལ་ཚུ་ ཁྱོད་ཀྱིས་སྲོལ་སྒྲིག་འབད་ཚུགས།"
-
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Programs (Advanced)"
-msgstr "ལས་རིམ།(མཐོ་རིམ་ཅན)"
-
-#: ../deskbar/handlers/pathprograms.py:15
-msgid "Launch any program present in your $PATH"
-msgstr "ཁྱོད་ཀྱི་$འགྲུལ་ལམ་ནང་ཡོད་པའི་ ལས་རིམ་གང་རུང་ གསར་བཙུགས་འབད།"
-
-#: ../deskbar/handlers/pathprograms.py:64
-#, python-format
-msgid "Execute %s"
-msgstr "%sལག་ལེན་འཐབ།"
 
 #: ../deskbar/handlers/programs.py:14
 msgid "Programs"
@@ -625,59 +626,49 @@ msgstr "ལས་འགན་མིང་ཅིག་གི་དོན་ལུ
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:80
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) གསར་བཙུགས་འབད།"
 
-#: ../deskbar/handlers/programs.py:94
+#: ../deskbar/handlers/programs.py:98
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "ཚིག་མཛོད་ནང་%s ལུ་བལྟ།"
 
-#: ../deskbar/handlers/programs.py:102
+#: ../deskbar/handlers/programs.py:106
 #, python-format
 msgid "Search for file names like %s"
 msgstr "%sབཟུམ་མའི་ཡིག་སྣོད་ཀྱི་མིང་ཚུ་གི་དོན་ལུ་ འཚོལ་ཞིབ་འབད།"
 
-#: ../deskbar/handlers/programs.py:110
+#: ../deskbar/handlers/programs.py:114
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "%sགི་དོན་ལུ་ ཌེབ་ཧེལཔ་ནང་འཚོལ།"
 
-#: ../deskbar/handlers/volumes.py:18
-msgid "Disks and Network Places"
-msgstr "ཌིཀསི་དང་ ཡོངས་འབྲེལ་ས་གནས་ཚུ།"
-
-#: ../deskbar/handlers/volumes.py:19
-msgid "Open disk drives, shared network places and similar resources by name"
-msgstr ""
-"ཌིཀསི་འདྲེན་འཕྲུལ་དང་ རུབ་སྤྱོད་འབད་མི་ ཡོངས་འབྲེལ་ས་གནས་དང་ དེ་དང་འདྲ་བའི་ཐོན་ཁུངས་ཚུ་ མིང་གི་ཐོག་"
-"ལས་ཁ་ཕྱེ།"
-
-#: ../deskbar/handlers/volumes.py:50
+#: ../deskbar/handlers/programs.py:218
 #, python-format
-msgid "Open network place %s"
-msgstr "ཡོངས་འབྲེལ་ས་གནས་%sཁ་ཕྱེ།"
+msgid "Execute %s"
+msgstr "%sལག་ལེན་འཐབ།"
 
-#: ../deskbar/handlers/volumes.py:52
-#, python-format
-msgid "Open audio disk %s"
-msgstr "རྣར་ཉན་ཌིཀསི་%sཁ་ཕྱེ།"
+#: ../deskbar/handlers/web_address.py:12
+msgid "Open web pages and send emails by typing a complete address"
+msgstr "ཝེབ་ཤོག་ལེབ་ཚུ་ ཁ་ཕྱེ་ཞིནམ་ལས་ ཁ་བྱང་ཆ་ཚང་ ཡིག་དཔར་བརྐྱབས་ཐོག་ལས་ གློག་འཕྲིན་ཚུ་གཏང་།"
 
-#: ../deskbar/handlers/web_address.py:11
-msgid "Open web pages by typing a complete web address"
-msgstr "ཝེབ་ཤོག་ལེབ་ཚུ་ ཝེབ་ཀྱི་ཁ་བྱང་ཆ་ཚང་ ཡིག་དཔར་བརྐྱབས་ཐོག་ལས་ཁ་ཕྱེ།"
-
-#: ../deskbar/handlers/web_address.py:38
+#: ../deskbar/handlers/web_address.py:40
 #, python-format
 msgid "Open the web page %s"
 msgstr "ཝེབ་ཤོག་ལེབ་%sཁ་ཕྱེ།"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the location %s"
 msgstr "གནས་ཁོངས་%sཁ་ཕྱེ།"
+
+#: ../deskbar/handlers/web_address.py:58
+#, python-format
+msgid "Send Email to %s"
+msgstr "%sལུ་གློག་འཕྲིན་གཏང་།"
 
 #: ../deskbar/handlers/yahoo.py:16
 msgid "Yahoo! Search"
@@ -712,45 +703,47 @@ msgstr "མགྱོགས་འཕྲུལ་གསརཔ།"
 msgid "Update Available"
 msgstr "ཡོད་མི་ཚུ་དུས་མཐུའ་བཟོ།"
 
-#: ../deskbar/updater/NewStuffUpdater.py:288
-msgid "Extracting"
-msgstr ""
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
+msgid "Show search entry"
+msgstr "ཐོ་བཀོད་ཆ་མཉམ་སྟོན།"
 
-#: ../deskbar/updater/NewStuffUpdater.py:335
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+msgid "Show previously used actions"
+msgstr "ཧེ་མར་ལག་ལེན་འཐབ་མི་ བྱ་བ་ཚུ་སྟོན།།"
+
+#: ../deskbar/updater/NewStuffUpdater.py:108
 #, python-format
 msgid "Updating %s"
-msgstr ""
+msgstr "%sདུས་བཟོ་དོ།"
 
-#: ../deskbar/updater/NewStuffUpdater.py:335
+#: ../deskbar/updater/NewStuffUpdater.py:108
 msgid ""
 "The update is being downloaded from the internet. Please wait until the "
 "update is complete"
 msgstr ""
+"དུས་མཐུན་བཟོ་ནི་དེ་ ཨིན་ཊར་ནེཊི་ནང་ལས་ ཕབ་ལེན་འབད་དོ། དུས་མཐུན་བཟོ་ནི་ མཇུག་མ་བསྡུ་ཚུན་ཚོད་བསྒུག་"
+"གནང་།"
 
-#: ../deskbar/updater/NewStuffUpdater.py:336
-#: ../deskbar/updater/NewStuffUpdater.py:362
-msgid "Downloading"
-msgstr ""
-
-#: ../deskbar/updater/NewStuffUpdater.py:361
-#, fuzzy, python-format
+#: ../deskbar/updater/NewStuffUpdater.py:133
+#, python-format
 msgid "Installing %s"
-msgstr "གཞི་བཙུགས་འབད།(_I)"
+msgstr "%sགཞི་བཙུགས་འབད་དོ།"
 
-#: ../deskbar/updater/NewStuffUpdater.py:361
+#: ../deskbar/updater/NewStuffUpdater.py:133
 msgid ""
 "The handler is being downloaded from the internet. Please wait until the "
 "installation is complete"
 msgstr ""
+"ལེགས་སྐྱོང་འཐབ་མི་དེ་ ཨིན་ཊར་ནེཊི་ནང་ལས་ ཕབ་ལེན་འབད་དོ། དུས་མཐུན་བཟོ་ནི་ མཇུག་མ་བསྡུ་ཚུན་ཚོད་བསྒུག་"
+"གནང་།"
 
-#. if __name__ == '__main__':
-#. #createXML()
-#. loader = ModuleLoader (deskbar.MODULES_DIRS)
-#. updater = Updater(loader)
-#. loader.connect ("module-loaded", updater.on_module_loaded)
-#. loader.load_all()
-#. updater.run()
-#. gtk.main()
+#: ../deskbar/updater/NewStuffUpdater.py:134
+msgid "Downloading"
+msgstr "ཕབ་ལེན་འབད་དོ།"
+
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
 msgstr "<b>འཚོལ་ཞིབ་མ་འཕྲུལ་ཚུ་</b>"
@@ -766,3 +759,126 @@ msgstr "འཚོལ་ཞིབ་མ་འཕྲུལ་ཡོད་མི་
 #: ../data/mozilla-search.glade.h:4
 msgid "Show only the primary search engine"
 msgstr "གཞི་རིམ་འཚོལ་ཞིབ་མ་འཕྲུལ་དེ་རྐྱངམ་གཅིག་སྟོན།"
+
+#: ../data/deskbar-applet.desktop.in.in.h:1
+msgid "Deskbar Applet"
+msgstr "ཌེཀསི་ཕྲ་རིང་གི་ ཨེཔ་ལེཊི།"
+
+#: ../data/deskbar-applet.desktop.in.in.h:2
+msgid "Desktop search"
+msgstr "ཌེཀསི་ཊོཔ་འཚོལ་ཞིབ།"
+
+#: ../data/deskbar-applet.desktop.in.in.h:3
+msgid "Search your computer and the internet quickly"
+msgstr "ཁྱོད་ཀྱི་གློག་རིག་དང་ ཨིན་ཊར་ནེཊི་ མགྱོགས་པར་འཚོལ།"
+
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
+msgid "<b>Search:</b>"
+msgstr "<b>འཚོལ་ཞིབ་:</b>"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:49
+msgid "_File"
+msgstr "ཡིག་སྣོད།(F)"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:50
+msgid "_Quit"
+msgstr "སྤངས།(_Q)"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:51
+msgid "_Edit"
+msgstr "ཞུན་དག།(_E)"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:54
+msgid "_View"
+msgstr "མཐོང་སྣང་།(_V)"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:55
+msgid "_Help"
+msgstr "གྲོགས་རམ།(_H)"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:58
+msgid "_History"
+msgstr "ལོ་རྒྱུས།(_H)"
+
+#. History TreeView
+#: ../deskbar/ui/window/CuemiacWindowUI.py:84
+msgid "<b>History</b>"
+msgstr "<b>ལོ་རྒྱུས་</b>"
+
+#: ../deskbar/updater/ErrorDialog.py:20
+msgid "An error occured"
+msgstr "འཛོལ་བ་ཅིག་བྱུང་ནུག།"
+
+#: ../deskbar/updater/ErrorDialog.py:20
+msgid "Check the description beneath for further details."
+msgstr "ཁ་གསལ་གྱི་དོན་ལུ་ འོག་གི་འགྲེལ་བཤད་ལུ་ ཞིབ་དཔྱད་འབད།"
+
+#~ msgid "%s more result"
+#~ msgid_plural "%s more results"
+#~ msgstr[0] "གྲུབ་འབྲས་ཧེང་བཀལ་%s།"
+#~ msgstr[1] "གྲུབ་འབྲས་ཧེང་བཀལ་%s།"
+
+#~ msgid "%s more document"
+#~ msgid_plural "%s more documents"
+#~ msgstr[0] "ཡིག་ཆ་ཧེང་བཀལ་%s།"
+#~ msgstr[1] "ཡིག་ཆ་ཧེང་བཀལ་%s།"
+
+#~ msgid "%s more email"
+#~ msgid_plural "%s more emails"
+#~ msgstr[0] "གློག་འཕྲིན་ཧེང་བཀལ་%s།"
+#~ msgstr[1] "གློག་འཕྲིན་ཧེང་བཀལ་%s།"
+
+#~ msgid "%s more conversation"
+#~ msgid_plural "%s more conversations"
+#~ msgstr[0] "གྲོས་གླེང་ཧེང་བཀལ་%s།"
+#~ msgstr[1] "གྲོས་གླེང་ཧེང་བཀལ་%s།"
+
+#~ msgid "%s more file"
+#~ msgid_plural "%s more files"
+#~ msgstr[0] "ཡིག་ཆ་ཧེང་བཀལ་%s།"
+#~ msgstr[1] "ཡིག་ཆ་ཧེང་བཀལ་%s།"
+
+#~ msgid "%s more place"
+#~ msgid_plural "%s more places"
+#~ msgstr[0] "ས་གནས་ཧེང་བཀལ་%s།"
+#~ msgstr[1] "ས་གནས་ཧེང་བཀལ་%s།"
+
+#~ msgid "%s more action"
+#~ msgid_plural "%s more actions"
+#~ msgstr[0] "བྱ་བ་ཧེང་བཀལ་%s།"
+#~ msgstr[1] "བྱ་བ་ཧེང་བཀལ་%s།"
+
+#~ msgid "Mail"
+#~ msgstr "ཡིག་འཕྲིན།"
+
+#~ msgid "Send mail by typing a complete e-mail address"
+#~ msgstr "གློག་འཕྲིན་ཁ་བྱང་ཆ་ཚང་ཅིག་ ཡིག་དཔར་རྐྱབ་ཐོག་ལས་ གློག་འཕྲིན་གཏང་།"
+
+#~ msgid "Files and Folders"
+#~ msgstr "ཡིག་སྣོད་དང་སྣོདའཛིན་ཚུ།"
+
+#~ msgid "Open your files and folders by name"
+#~ msgstr "ཁྱོད་རའི་ཡིག་སྣོད་དང་ སྣོད་འཛིན་ཚུ་ མིང་གི་ཐོག་ལས་ཁ་ཕྱེ།"
+
+#~ msgid "Files and Folders Bookmarks"
+#~ msgstr "ཡིག་སྣོད་དང་སྣོད་འཛིན་ཚུ་གི་དེབ་རྟགས།"
+
+#~ msgid "%s more window"
+#~ msgid_plural "%s more windows"
+#~ msgstr[0] "སྒོ་སྒྲིག་་ཧེང་བཀལ་%s།"
+#~ msgstr[1] "སྒོ་སྒྲིག་ཧེང་བཀལ་%s།"
+
+#~ msgid "Programs (Advanced)"
+#~ msgstr "ལས་རིམ།(མཐོ་རིམ་ཅན)"
+
+#~ msgid "Launch any program present in your $PATH"
+#~ msgstr "ཁྱོད་ཀྱི་$འགྲུལ་ལམ་ནང་ཡོད་པའི་ ལས་རིམ་གང་རུང་ གསར་བཙུགས་འབད།"
+
+#~ msgid "Disks and Network Places"
+#~ msgstr "ཌིཀསི་དང་ ཡོངས་འབྲེལ་ས་གནས་ཚུ།"
+
+#~ msgid ""
+#~ "Open disk drives, shared network places and similar resources by name"
+#~ msgstr ""
+#~ "ཌིཀསི་འདྲེན་འཕྲུལ་དང་ རུབ་སྤྱོད་འབད་མི་ ཡོངས་འབྲེལ་ས་གནས་དང་ དེ་དང་འདྲ་བའི་ཐོན་ཁུངས་ཚུ་ མིང་གི་"
+#~ "ཐོག་ལས་ཁ་ཕྱེ།"
