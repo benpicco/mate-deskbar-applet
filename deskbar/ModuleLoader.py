@@ -168,6 +168,18 @@ class ModuleLoader (gobject.GObject):
 			return
 			
 		print "Initializing %s" % context.infos["name"]
+		
+		# Check that the given requirements for the handler are met
+		if context.infos.has_key ("requirements"):
+			status, message, callback = context.infos["requirements"]()
+			if status == deskbar.Handler.HANDLER_HAS_REQUIREMENTS or \
+			   status == deskbar.Handler.HANDLER_IS_NOT_APPLICABLE :
+				print "Error while initializing %s. Requirements not met." % context.infos["name"]
+				print message
+				context.enabled = False
+				self.emit("module-not-initialized", context)
+				return
+		
 		try:
 			context.module.initialize ()
 			

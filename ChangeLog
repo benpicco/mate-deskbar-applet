@@ -1,3 +1,16 @@
+2006-07-19  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+	* deskbar/ModuleLoader.py:
+	* deskbar/handlers/beagle-live.py:
+	Add a check in ModuleLoader.initialize_module(context)
+	to see if we meet the any given requirements for the module
+	before initializing. This should clean up a few exceptions
+	on start-up.
+	In Beagle-Live properly check if beagled is running via
+	beagle.beagle_util_daemon_is_running(). If beagled is not
+	running display an option to start it (via a standard "more"
+	button in the module list view).
+
 2006-07-11  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* NEWS:

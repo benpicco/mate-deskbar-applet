@@ -14,22 +14,39 @@ except:
 	# so do nothing now
 	pass
 
+def _show_start_beagle_dialog (dialog):
+	dialog = gtk.Dialog(_("Start Beagle Daemon?"), dialog,
+				gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT)
+	
+	dialog.set_default_size (350, 150)
+	dialog.add_button (_("Start Beagle Daemon"), gtk.RESPONSE_ACCEPT)
+	dialog.add_button (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT)
+	label = gtk.Label (_("The Beagle daemon does not appear to be running.\n You need to start it to use the Beagle Live handler."))
+	dialog.vbox.add (label)
+	label.show()
+
+	response = dialog.run()
+	dialog.destroy()
+	
+	
+	if response == gtk.RESPONSE_ACCEPT :
+		print "Starting Beagle Daemon."
+		gobject.spawn_async(["beagled"], flags=gobject.SPAWN_SEARCH_PATH)
+
+
 def _check_requirements():
+	# Check if we have python bindings for beagle
 	try:
 		import deskbar
 		import beagle
 	except Exception, e:
 		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Could not load beagle, libbeagle has been compiled without python bindings:"+str(e), None)
-	
-	try:	
-		client = beagle.Client()
-		request = beagle.DaemonInformationRequest()
-		response = client.send_request(request)
-		
+
+	# Check if beagled is running		
+	if not beagle.beagle_util_daemon_is_running () :
+		return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS, "Beagle daemon is not running.", _show_start_beagle_dialog)
+	else:
 		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-	except Exception, e:
-		# FIXME: This string will need translation sooner or later
-		return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS, "The beagle daemon isn't running.", None)
 	
 HANDLERS = {
 	"BeagleLiveHandler" : {
