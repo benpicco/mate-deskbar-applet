@@ -83,7 +83,23 @@ except:
   AC_MSG_RESULT([yes])
 else
   AC_MSG_RESULT([no])
-  AC_MSG_ERROR([gnomeapplet module required to build deskbar])
+  AC_MSG_ERROR([gnomeapplet Python module required to build deskbar])
+fi
+
+AC_MSG_CHECKING([for elementtree module])
+if AC_RUN_LOG([$PYTHON -c '
+try:
+    import elementtree
+except ImportError, e:
+    if str(e).find("elementtree") >= 0:
+          raise
+except:
+    pass
+']); then
+  AC_MSG_RESULT([yes])
+else
+  AC_MSG_RESULT([no])
+  AC_MSG_ERROR([elementtree Python module required to build deskbar])
 fi
 
 dnl ****************************************************************************
