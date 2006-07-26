@@ -104,8 +104,10 @@ pixbuf_from_contact (EContact *contact)
 
 		loader = gdk_pixbuf_loader_new ();
 
-		if (gdk_pixbuf_loader_write (loader, (guchar *) photo->data, photo->length, NULL))
-			pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
+		if (photo->type == E_CONTACT_PHOTO_TYPE_INLINED) {
+			if (gdk_pixbuf_loader_write (loader, (guchar *) photo->data.inlined.data, photo->data.inlined.length, NULL))
+				pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
+		}
 
 		if (pixbuf) {
 			GdkPixbuf *tmp;
