@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-11 06:38+0300\n"
-"PO-Revision-Date: 2006-07-11 06:43+0300\n"
+"POT-Creation-Date: 2006-07-29 07:57+0300\n"
+"PO-Revision-Date: 2006-07-29 07:58+0300\n"
 "Last-Translator: Tommi Vainikainen <Tommi.Vainikainen@iki.fi>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
@@ -150,7 +150,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Pikanäppäimet kirjanmerkittyihin hakuihin"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:123
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:140
 #, python-format
 msgid "Open History Item %s"
 msgstr "Avaa historiamerkintä %s"
@@ -246,54 +246,70 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Havaittiin vika ohjelmassa"
 
-#: ../deskbar/handlers/beagle-live.py:36
+#: ../deskbar/handlers/beagle-live.py:18
+msgid "Start Beagle Daemon?"
+msgstr "Käynnistetäänkö beagle-palvelin?"
+
+#: ../deskbar/handlers/beagle-live.py:22
+msgid "Start Beagle Daemon"
+msgstr "Käynnistä beagle-palvelin"
+
+#: ../deskbar/handlers/beagle-live.py:24
+msgid ""
+"The Beagle daemon does not appear to be running.\n"
+" You need to start it to use the Beagle Live handler."
+msgstr ""
+"Näyttää siltä, ettei beagle-palvelin ole käynnistsä.\n"
+"Se täytyy käynnistää, jos haluat käyttää Beagle Live -käsittelijää."
+
+#: ../deskbar/handlers/beagle-live.py:53
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:37
+#: ../deskbar/handlers/beagle-live.py:54
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Etsi asiakirjojasi (Beaglella) samalla kuin kirjoitat"
 
-#: ../deskbar/handlers/beagle-live.py:65
+#: ../deskbar/handlers/beagle-live.py:82
 #, python-format
 msgid "Edit contact %s"
 msgstr "Muokkaa yhteystietoa %s"
 
-#: ../deskbar/handlers/beagle-live.py:74
+#: ../deskbar/handlers/beagle-live.py:91
 #, python-format
 msgid "From %s"
 msgstr "Lähteestä %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:82 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:99 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "Avaa %s"
 
-#: ../deskbar/handlers/beagle-live.py:90
+#: ../deskbar/handlers/beagle-live.py:107
 #, python-format
 msgid "News from %s"
 msgstr "Uutisia (%s)"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:116
 #, python-format
 msgid "Note: %s"
 msgstr "Muistilappu: %s"
 
-#: ../deskbar/handlers/beagle-live.py:108
+#: ../deskbar/handlers/beagle-live.py:125
 #, python-format
 msgid "With %s"
 msgstr "%s kanssa"
 
-#: ../deskbar/handlers/beagle-live.py:116
+#: ../deskbar/handlers/beagle-live.py:133
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalenteri: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:293
-#: ../deskbar/handlers/beagle-live.py:319
+#: ../deskbar/handlers/beagle-live.py:310
+#: ../deskbar/handlers/beagle-live.py:336
 msgid "?"
 msgstr "?"
 
@@ -411,8 +427,9 @@ msgstr "Tiedostot, kansiot ja sijainnit"
 
 #: ../deskbar/handlers/files.py:18
 msgid "View your files, folders, bookmarks, drives, network places by name"
-msgstr "Näytä tiedostoja, kansioita, kirjanmerkkejä tai verkkosijainteja "
-"nimen perusteella"
+msgstr ""
+"Näytä tiedostoja, kansioita, kirjanmerkkejä tai verkkosijainteja nimen "
+"perusteella"
 
 #: ../deskbar/handlers/files.py:68
 #, python-format
