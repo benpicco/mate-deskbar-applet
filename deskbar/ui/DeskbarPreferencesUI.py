@@ -386,6 +386,7 @@ class DeskbarPreferencesUI:
 		self.info_area.remove(self.info_area.get_children()[0])
 		if message == None:
 			self.info_area.add(self.default_info)
+			self.more_button.set_sensitive(False)
 		else:
 			self.other_info_label.set_text(message)
 			self.info_area.add(self.other_info)
