@@ -35,10 +35,17 @@ class ISwitchWindowMatch(deskbar.Match.Match):
 		if self._window.is_active():
 			return
 		
+		try:
+			time = gtk.get_current_event().time
+		except:
+			print "WARNING, iSwitchWindow : Using bogus timestamp."
+			time = gtk.get_current_event_time()
+		
+		
 		if self._window.get_workspace() != self._window.get_screen().get_active_workspace():
-			self._window.get_workspace().activate(gtk.get_current_event_time())
+			self._window.get_workspace().activate(time)
 
-		self._window.activate(gtk.get_current_event_time())
+		self._window.activate(time)
 
 	def get_category(self):
 		return "windows"

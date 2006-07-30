@@ -1,5 +1,18 @@
 2006-07-30  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
+	* deskbar/handlers/iswitch-window.py:
+	Almost fix window switcher handler in button mode. There still
+	seem to be unreproducible glitches occationally, where the
+	window is brought to the front, but not focussed. It works most
+	of the time though.
+	
+	This closes #338828.
+	
+	I found a valuable hint here:
+	http://mail.gnome.org/archives/metacity-devel-list/2006-July/msg00039.html
+
+2006-07-30  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
 	* deskbar/ui/DeskbarPreferencesUI.py:
 	Fix #348154, "More button in preferences isn't set insensitive".
 
