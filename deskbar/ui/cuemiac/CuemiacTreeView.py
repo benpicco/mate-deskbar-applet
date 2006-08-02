@@ -32,12 +32,23 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
 		self.__category_header = None
 		self.__match_count = 0
 		
-		# Obtain theme font and set it to bold and decrease size 2 points
+		# Grab some default theme settings
+		# they are probably incorrect, but we reset
+		# them on each render anyway.
 		style = gtk.Style ()
 		self.header_font_desc = style.font_desc
 		self.header_font_desc.set_weight (pango.WEIGHT_BOLD)
 		self.header_font_desc.set_size (self.header_font_desc.get_size () - pango.SCALE *2)
 		self.header_bg = style.base [gtk.STATE_NORMAL]
+	
+	def set_style (self, widget):
+		"""
+		Apply the style from widget, to this cellrenderer
+		"""
+		self.header_font_desc = widget.style.font_desc
+		self.header_font_desc.set_weight (pango.WEIGHT_BOLD)
+		self.header_font_desc.set_size (self.header_font_desc.get_size () - pango.SCALE *2)
+		self.header_bg = widget.style.base [gtk.STATE_NORMAL]
 	
 	def do_render (self, window, widget, background_area, cell_area, expose_area, flags):
 		if not self.get_property ("category-header"):
@@ -50,6 +61,9 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
 		Renders the category title from the "category-header" property and displays a rigth aligned
 		hit count (read from the "match-count" property).
 		"""
+		# Ensure we have fresh style settings
+		self.set_style (widget)
+		
 		ctx = window.cairo_create ()
 		
 		# Set up a pango.Layout for the category title
@@ -130,10 +144,6 @@ class CuemiacTreeView (gtk.TreeView):
 		# FIXME: Make it so that categories *only* can be reordered by dragging
 		# gtkTreeView does not use normal gtk DnD api.
 		# it uses the api from hell
-		
-		gtk_style = gtk.Style ()
-		self.header_bg = gtk_style.bg[gtk.STATE_NORMAL]
-		self.match_bg = gtk_style.base [gtk.STATE_NORMAL]
 		
 		# Stuff to handle persistant expansion states.
 		# A category will be expanded if it's in __collapsed_rows
@@ -275,10 +285,10 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		if match.__class__ == CuemiacCategory:
 			cell.set_property ("pixbuf", None)
-			cell.set_property ("cell-background-gdk", self.header_bg)
+			cell.set_property ("cell-background-gdk", self.style.bg[gtk.STATE_NORMAL])
 			
 		else:
-			cell.set_property ("cell-background-gdk", self.match_bg)
+			cell.set_property ("cell-background-gdk", self.style.base[gtk.STATE_NORMAL])
 			qstring, match_obj = match
 			cell.set_property ("pixbuf", match_obj.get_icon())
 
@@ -289,7 +299,7 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		if match.__class__ == CuemiacCategory:
 			# Look up i18n category name
-			cell.set_property ("cell-background-gdk", self.header_bg)
+			cell.set_property ("cell-background-gdk", self.style.bg[gtk.STATE_NORMAL])
 			cell.set_property ("height", 20)
 			cell.set_property ("category-header", match.get_name())
 			cell.set_property ("match-count", match.get_count ())
@@ -297,7 +307,7 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		cell.set_property ("category-header", None)
 		cell.set_property ("height", -1)
-		cell.set_property ("cell-background-gdk", self.match_bg)
+		cell.set_property ("cell-background-gdk", self.style.base[gtk.STATE_NORMAL])
 				
 		cell.set_property ("markup", model[iter][model.ACTIONS])
 
