@@ -50,10 +50,6 @@ class ModuleListView (gtk.TreeView):
 			description = modctx.infos["description"]
 
 		description = "<b>%s</b>\n%s" % (name, description)
-		can_update, changelog = modctx.update_infos
-		if can_update:
-			description = "%s\n<i><b><small>%s</small></b></i>" % (description, _("Update Available"))
-			
 		cell.set_property ("markup", description)
 		
 	def get_selected_module_context (self):
@@ -73,33 +69,3 @@ class ModuleListView (gtk.TreeView):
 
 if gtk.pygtk_version < (2,8,0):
 	gobject.type_register(ModuleListView)
-	
-class WebModuleListView (gtk.TreeView):
-	
-	def __init__ (self, model):
-		gtk.TreeView.__init__ (self, model)
-		
-		self.set_property("headers-visible", False)
-		self.set_property("rules-hint", True)
-		self.set_reorderable(True)
-				
-		cell_description = gtk.CellRendererText ()
-		column_description = gtk.TreeViewColumn ("Description", cell_description)
-		column_description.set_cell_data_func(cell_description, self.get_description_data)
-
-		self.append_column(column_description)
-	
-	def get_description_data(self, column, cell, model, iter, data=None):
-		modctx = model[iter][model.MODULE_CTX_COL]
-		description = "<b>%s</b>\n%s" % (modctx.name, modctx.description)
-			
-		cell.set_property ("markup", description)
-		
-	def get_selected_module_context (self):
-		model, iter = self.get_selection().get_selected()
-		if iter is None:
-			return None
-		return model[iter][model.MODULE_CTX_COL]
-		
-if gtk.pygtk_version < (2,8,0):
-	gobject.type_register(WebModuleListView)

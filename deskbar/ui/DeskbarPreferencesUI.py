@@ -3,9 +3,7 @@ from os.path import join
 import struct
 import gtk, gtk.gdk, gtk.glade, gobject, gconf
 import deskbar, deskbar.Utils
-from deskbar.updater.NewStuffUpdater import NewStuffUpdater
-from deskbar.ui.ModuleListView import ModuleListView, WebModuleListView
-from deskbar.ModuleList import WebModuleList
+from deskbar.ui.ModuleListView import ModuleListView
 from deskbar import CUEMIAC_UI_NAME, ENTRIAC_UI_NAME, WINDOW_UI_NAME
 
 MAXINT = 2 ** ((8 * struct.calcsize('i')) - 1) - 1
@@ -135,20 +133,11 @@ class AccelEntry( gobject.GObject ):
 class DeskbarPreferencesUI:
 	def __init__(self, applet, module_loader, module_list):
 		self.module_list = module_list
-		self.web_module_list = WebModuleList()
 		self.module_loader = module_loader
 		self.glade = gtk.glade.XML(join(deskbar.SHARED_DATA_DIR, "prefs-dialog.glade"))
 		
 		self.dialog = self.glade.get_widget("preferences")
 		
-		# Since newstuff is optional we have to check if self.newstuff is None each time we use it
-		self.newstuff = None
-		try:
-			self.newstuff = NewStuffUpdater(self.dialog, module_loader, module_list, self.web_module_list)
-			self.newstuff.connect('ready', self.on_newstuff_ready)
-		except Exception, e:
-			print '** Warning: Couldn\'t start newstuff updater:', e
-			
 		# Retreive current values
 		self.width = deskbar.GCONF_CLIENT.get_int(applet.prefs.GCONF_WIDTH)
 		self.expand = deskbar.GCONF_CLIENT.get_bool(applet.prefs.GCONF_EXPAND)
@@ -206,24 +195,6 @@ class DeskbarPreferencesUI:
 		self.use_selection_box.connect('toggled', self.on_use_selection_toggled, applet)
 		self.use_selection_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_USE_SELECTION, lambda x, y, z, a: self.on_config_use_selection(z.value))
 		
-		container = self.glade.get_widget("newhandlers")
-		self.webmoduleview = WebModuleListView(self.web_module_list)
-		self.webmoduleview.get_selection().connect("changed", self.on_webmodule_selected)
-		self.web_module_list.connect('row-changed', lambda list, path, iter: self.on_webmodule_selected(self.webmoduleview.get_selection()))
-		
-		container.add(self.webmoduleview)
-		
-		self.install = self.glade.get_widget("install")
-		self.check = self.glade.get_widget("check")
-		self.update = self.glade.get_widget("update")
-		
-		self.check.connect('clicked', self.on_check_handlers)
-		self.check.set_sensitive(False)
-		self.update.connect('clicked', self.on_update_handler)
-		self.update.set_sensitive(False)
-		self.install.connect('clicked', self.on_install_handler)
-		self.install.set_sensitive(False)
-		
 		self.sync_ui()
 		
 	def show_run_hide(self):
@@ -233,8 +204,6 @@ class DeskbarPreferencesUI:
 	
 	def on_dialog_response(self, dialog, response):	
 		self.dialog.destroy()
-		if self.newstuff != None:
-			self.newstuff.close()
 		
 		deskbar.GCONF_CLIENT.notify_remove(self.width_notify_id)
 		deskbar.GCONF_CLIENT.notify_remove(self.expand_notify_id)
@@ -344,14 +313,7 @@ class DeskbarPreferencesUI:
 		if module_context != None:
 			self.check_requirements(module_context)
 			gobject.timeout_add(1000, self.poll_requirements, module_context)
-			
-		# Check if we can update
-		self.update.set_sensitive(module_context != None and module_context.update_infos[0])				
 	
-	def on_webmodule_selected(self, selection):
-		module_context = self.webmoduleview.get_selected_module_context()
-		self.install.set_sensitive(module_context != None and not module_context.installing)
-		
 	def poll_requirements(self, module_context):
 		try:
 			if module_context != self.moduleview.get_selected_module_context():
@@ -399,31 +361,6 @@ class DeskbarPreferencesUI:
 			loader.stop_module_async (context)
 		else:
 			loader.initialize_module_async (context)
-	
-	def on_newstuff_ready(self, newstuff):
-		self.check.set_sensitive(True)
-		self.install.set_sensitive(True)
-		
-	def on_check_handlers(self, button):
-		#Update all handlers
-		if self.newstuff != None:
-			self.newstuff.check_all()
-		
-	def on_update_handler(self, button):
-		module_context = self.moduleview.get_selected_module_context()
-		if module_context != None:
-			# Trigger module update
-			if self.newstuff != None:
-				self.newstuff.update(module_context)
-			button.set_sensitive(False)
-		
-	def on_install_handler(self, button):
-		# Install the selected new handler
-		module_context = self.webmoduleview.get_selected_module_context()
-		if module_context != None:
-			if self.newstuff != None:
-				self.newstuff.install(module_context)
-			button.set_sensitive(False)
 			
 def show_preferences(applet, loader, model):
 	DeskbarPreferencesUI(applet, loader, model).show_run_hide()
