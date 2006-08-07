@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-20 18:14+0700\n"
-"PO-Revision-Date: 2006-07-20 18:23+0700\n"
+"POT-Creation-Date: 2006-08-07 11:44+0700\n"
+"PO-Revision-Date: 2006-08-07 11:52+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,88 +37,64 @@ msgid "_Preferences"
 msgstr "_ปรับแต่ง"
 
 #: ../data/prefs-dialog.glade.h:1
-msgid "<b>Available Extensions</b>"
-msgstr "<b>ส่วนขยายที่มี</b>"
-
-#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Focus</b>"
 msgstr "<b>โฟกัส</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Layout</b>"
 msgstr "<b>การจัดวาง</b>"
 
-#: ../data/prefs-dialog.glade.h:4
-msgid "<b>Loaded Extensions</b>"
-msgstr "<b>ส่วนขยายที่ใช้</b>"
-
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Width</b>"
 msgstr "<b>ความกว้าง</b>"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:4
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
 msgstr "<i><small><b>หมายเหตุ:</b> ลากวางส่วนขยายเพื่อเปลี่ยนลำดับ</small></i>"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:5
 msgid "Button in panel"
 msgstr "ปุ่มในพาเนล"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:6
 msgid "Deskbar Preferences"
 msgstr "ปรับแต่งเดสก์บาร์"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:7
 msgid "Entry in panel"
 msgstr "ช่องป้อนข้อความในพาเนล"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:8
+msgid "Extensions"
+msgstr "ส่วนขยาย"
+
+#: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
 msgstr "ความกว้าง_คงที่:"
 
-#: ../data/prefs-dialog.glade.h:11
-msgid "New Extensions"
-msgstr "<b>ส่วนขยายใหม่</b>"
-
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:10
 msgid "Search selection when triggering the shortcut"
 msgstr "ค้นหาข้อความที่เลือกเมื่อกดปุ่มลัด"
 
-#: ../data/prefs-dialog.glade.h:13
-msgid "Searches"
-msgstr "การค้นหา"
-
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:11
 msgid "Use _all available space"
 msgstr "ใช้พื้นที่ว่าง_ทั้งหมด"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:12
 msgid "View"
 msgstr "การแสดงผล"
 
-#: ../data/prefs-dialog.glade.h:16
-msgid "_Check For Updates"
-msgstr "_ตรวจสอบรุ่นออกใหม่"
-
-#: ../data/prefs-dialog.glade.h:17
-msgid "_Install"
-msgstr "_ติดตั้ง"
-
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Keyboard shortcut to focus:"
 msgstr "ปุ่ม_ลัดเพื่อโฟกัส:"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:14
 msgid "_More..."
 msgstr "เ_พิ่มเติม..."
 
-#: ../data/prefs-dialog.glade.h:20
-msgid "_Update"
-msgstr "_ปรับรุ่น"
-
-#: ../data/prefs-dialog.glade.h:21
+#: ../data/prefs-dialog.glade.h:15
 msgid "characters"
 msgstr "อักขระ"
 
@@ -693,13 +669,9 @@ msgstr "เว็บไซต์ของเดสก์บาร์"
 msgid "translator-credits"
 msgstr "เทพพิทักษ์ การุญบุญญานันท์ <thep@linux.thai.net>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:20
+#: ../deskbar/ui/DeskbarPreferencesUI.py:18
 msgid "New accelerator..."
 msgstr "กำหนดคีย์ด่วนใหม่..."
-
-#: ../deskbar/ui/ModuleListView.py:55
-msgid "Update Available"
-msgstr "มีรุ่นใหม่"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
@@ -711,33 +683,6 @@ msgstr "แสดงช่องป้อนคำค้น"
 #: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
 msgid "Show previously used actions"
 msgstr "แสดงปฏิบัติการที่ใช้ล่าสุด"
-
-#: ../deskbar/updater/NewStuffUpdater.py:108
-#, python-format
-msgid "Updating %s"
-msgstr "กำลังปรับรุ่น %s"
-
-#: ../deskbar/updater/NewStuffUpdater.py:108
-msgid ""
-"The update is being downloaded from the internet. Please wait until the "
-"update is complete"
-msgstr "กำลังดาวน์โหลดรุ่นใหม่จากอินเทอร์เน็ต กรุณารอสักครู่ จนกว่าการปรับรุ่นจะเสร็จสมบูรณ์"
-
-#: ../deskbar/updater/NewStuffUpdater.py:133
-#, python-format
-msgid "Installing %s"
-msgstr "กำลังติดตั้ง %s"
-
-#: ../deskbar/updater/NewStuffUpdater.py:133
-msgid ""
-"The handler is being downloaded from the internet. Please wait until the "
-"installation is complete"
-msgstr ""
-"กำลังดาวน์โหลดส่วนจัดการที่เลือกจากอินเทอร์เน็ต กรุณารอสักครู่ จนกว่าการติดตั้งจะเสร็จสมบูรณ์"
-
-#: ../deskbar/updater/NewStuffUpdater.py:134
-msgid "Downloading"
-msgstr "กำลังดาวน์โหลด"
 
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
@@ -800,13 +745,52 @@ msgstr "_ประวัติการค้นหา"
 msgid "<b>History</b>"
 msgstr "<b>ประวัติการค้นหา</b>"
 
-#: ../deskbar/updater/ErrorDialog.py:20
-msgid "An error occured"
-msgstr "เกิดข้อผิดพลาด"
+#~ msgid "<b>Available Extensions</b>"
+#~ msgstr "<b>ส่วนขยายที่มี</b>"
 
-#: ../deskbar/updater/ErrorDialog.py:20
-msgid "Check the description beneath for further details."
-msgstr "ตรวจสอบคำบรรยายด้านล่างเพื่อดูรายละเอียดเพิ่มเติม"
+#~ msgid "<b>Loaded Extensions</b>"
+#~ msgstr "<b>ส่วนขยายที่ใช้</b>"
+
+#~ msgid "Searches"
+#~ msgstr "การค้นหา"
+
+#~ msgid "_Check For Updates"
+#~ msgstr "_ตรวจสอบรุ่นออกใหม่"
+
+#~ msgid "_Install"
+#~ msgstr "_ติดตั้ง"
+
+#~ msgid "_Update"
+#~ msgstr "_ปรับรุ่น"
+
+#~ msgid "Update Available"
+#~ msgstr "มีรุ่นใหม่"
+
+#~ msgid "Updating %s"
+#~ msgstr "กำลังปรับรุ่น %s"
+
+#~ msgid ""
+#~ "The update is being downloaded from the internet. Please wait until the "
+#~ "update is complete"
+#~ msgstr "กำลังดาวน์โหลดรุ่นใหม่จากอินเทอร์เน็ต กรุณารอสักครู่ จนกว่าการปรับรุ่นจะเสร็จสมบูรณ์"
+
+#~ msgid "Installing %s"
+#~ msgstr "กำลังติดตั้ง %s"
+
+#~ msgid ""
+#~ "The handler is being downloaded from the internet. Please wait until the "
+#~ "installation is complete"
+#~ msgstr ""
+#~ "กำลังดาวน์โหลดส่วนจัดการที่เลือกจากอินเทอร์เน็ต กรุณารอสักครู่ จนกว่าการติดตั้งจะเสร็จสมบูรณ์"
+
+#~ msgid "Downloading"
+#~ msgstr "กำลังดาวน์โหลด"
+
+#~ msgid "An error occured"
+#~ msgstr "เกิดข้อผิดพลาด"
+
+#~ msgid "Check the description beneath for further details."
+#~ msgstr "ตรวจสอบคำบรรยายด้านล่างเพื่อดูรายละเอียดเพิ่มเติม"
 
 #~ msgid "%s more result"
 #~ msgid_plural "%s more results"
