@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deskbar Applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-05 05:45+0200\n"
-"PO-Revision-Date: 2006-05-05 09:59+0300\n"
+"POT-Creation-Date: 2006-08-07 15:07+0200\n"
+"PO-Revision-Date: 2006-08-07 20:55+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <et-gnome@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -30,15 +30,15 @@ msgstr "Kõik-ühes toiminguriba"
 msgid "Deskbar"
 msgstr "Deskbar"
 
-#: ../data/Deskbar_Applet.xml.h:1
+#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
 msgstr "_Rakendist lähemalt"
 
-#: ../data/Deskbar_Applet.xml.h:2
+#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
 msgid "_Clear History"
 msgstr "_Puhasta ajalugu"
 
-#: ../data/Deskbar_Applet.xml.h:3
+#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
 msgid "_Preferences"
 msgstr "_Eelistused"
 
@@ -51,14 +51,10 @@ msgid "<b>Layout</b>"
 msgstr "<b>Paigutus</b>"
 
 #: ../data/prefs-dialog.glade.h:3
-msgid "<b>Loaded Extensions</b>"
-msgstr "<b>Laaditud laiendused</b>"
-
-#: ../data/prefs-dialog.glade.h:4
 msgid "<b>Width</b>"
 msgstr "<b>Laius</b>"
 
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:4
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
@@ -66,25 +62,29 @@ msgstr ""
 "<i><small><b>Note:</b> Laienduste järjekorda saab vahetada nende uuele "
 "asukohale lohistamise teel.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:5
 msgid "Button in panel"
 msgstr "Paneelinupp"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:6
 msgid "Deskbar Preferences"
 msgstr "Deskbar'i eelistused"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:7
 msgid "Entry in panel"
 msgstr "Paneelikirje"
+
+#: ../data/prefs-dialog.glade.h:8
+msgid "Extensions"
+msgstr "Laiendused"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
 msgstr "Määratud _laiusega:"
 
 #: ../data/prefs-dialog.glade.h:10
-msgid "Searches"
-msgstr "Otsingud"
+msgid "Search selection when triggering the shortcut"
+msgstr ""
 
 #: ../data/prefs-dialog.glade.h:11
 msgid "Use _all available space"
@@ -99,6 +99,10 @@ msgid "_Keyboard shortcut to focus:"
 msgstr "_Fokuseerimise kiirklahv"
 
 #: ../data/prefs-dialog.glade.h:14
+msgid "_More..."
+msgstr "_Veel..."
+
+#: ../data/prefs-dialog.glade.h:15
 msgid "characters"
 msgstr "märki"
 
@@ -125,7 +129,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Kiirklahvid järjehoidjates olevatele otsingutele"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:121
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:140
 #, python-format
 msgid "Open History Item %s"
 msgstr "Ajalookirje %s avamine"
@@ -141,106 +145,65 @@ msgstr "Järjehoidja %s avamine"
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<i>%(text)s</i> otsimine mootorist <b>%(name)s</b>"
 
-#: ../deskbar/BrowserMatch.py:203
+#: ../deskbar/BrowserMatch.py:206
 msgid "Shortcut"
 msgstr "Kiirklahv"
 
-#: ../deskbar/BrowserMatch.py:211
+#: ../deskbar/BrowserMatch.py:214
 msgid "Bookmark Name"
 msgstr "Järjehoidja nimi"
 
-#: ../deskbar/Categories.py:4
-#, python-format
-msgid "%s more result"
-msgid_plural "%s more results"
-msgstr[0] "%s tulemus veel"
-msgstr[1] "%s tulemust veel"
-
-#: ../deskbar/Categories.py:9
+#: ../deskbar/Categories.py:7
 msgid "Uncategorized"
 msgstr "Kategoriseerimata"
 
-#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:8
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
 msgid "History"
 msgstr "Ajalugu"
 
-#: ../deskbar/Categories.py:26
+#: ../deskbar/Categories.py:15
 msgid "Documents"
 msgstr "Dokumendid"
 
-#: ../deskbar/Categories.py:27
-#, python-format
-msgid "%s more document"
-msgid_plural "%s more documents"
-msgstr[0] "%s dokument veel"
-msgstr[1] "%s dokumenti veel"
-
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:18
 msgid "Emails"
 msgstr "E-post"
 
-#: ../deskbar/Categories.py:32
-#, python-format
-msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] "%s e-kiri veel"
-msgstr[1] "%s e-kirja veel"
-
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:21
 msgid "Conversations"
 msgstr "Vestlused"
 
-#: ../deskbar/Categories.py:37
-#, python-format
-msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "%s vestlus veel"
-msgstr[1] "%s vestlust veel"
-
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:24
 msgid "Files"
 msgstr "Failid"
 
-#: ../deskbar/Categories.py:42
-#, python-format
-msgid "%s more file"
-msgid_plural "%s more files"
-msgstr[0] "%s fail veel"
-msgstr[1] "%s faili veel"
-
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:27
 msgid "People"
 msgstr "Inimesed"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:30
 msgid "Places"
 msgstr "Asukohad"
 
-#: ../deskbar/Categories.py:52
-#, python-format
-msgid "%s more place"
-msgid_plural "%s more places"
-msgstr[0] "%s asukoht veel"
-msgstr[1] "%s asukohta veel"
-
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:33
 msgid "Actions"
 msgstr "Tegevused"
 
-#: ../deskbar/Categories.py:57
-#, python-format
-msgid "%s more action"
-msgid_plural "%s more actions"
-msgstr[0] "%s tegevus veel"
-msgstr[1] "%s tegevust veel"
-
-#: ../deskbar/Categories.py:61 ../deskbar/handlers/web_address.py:9
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
 msgid "Web"
 msgstr "Veeb"
 
-#: ../deskbar/Categories.py:66
+#: ../deskbar/Categories.py:39
 msgid "Web Search"
 msgstr "Veebiotsing"
+
+#: ../deskbar/Categories.py:42
+msgid "News"
+msgstr "Uudised"
+
+#: ../deskbar/Categories.py:45
+msgid "Notes"
+msgstr "Märkused"
 
 #: ../deskbar/DeskbarHistory.py:37
 msgid "No History"
@@ -262,54 +225,68 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Leiti programmiviga"
 
-#: ../deskbar/handlers/beagle-live.py:35
+#: ../deskbar/handlers/beagle-live.py:18
+msgid "Start Beagle Daemon?"
+msgstr ""
+
+#: ../deskbar/handlers/beagle-live.py:22
+msgid "Start Beagle Daemon"
+msgstr ""
+
+#: ../deskbar/handlers/beagle-live.py:24
+msgid ""
+"The Beagle daemon does not appear to be running.\n"
+" You need to start it to use the Beagle Live handler."
+msgstr ""
+
+#: ../deskbar/handlers/beagle-live.py:53
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:36
+#: ../deskbar/handlers/beagle-live.py:54
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Sisestatud stringi otsimine Sinu dokumentidest (Beagle'i abil)"
 
-#: ../deskbar/handlers/beagle-live.py:63
+#: ../deskbar/handlers/beagle-live.py:82
 #, python-format
 msgid "Edit contact %s"
 msgstr "Kontakti %s redigeerimine"
 
-#: ../deskbar/handlers/beagle-live.py:72
+#: ../deskbar/handlers/beagle-live.py:91
 #, python-format
 msgid "From %s"
 msgstr "Kellelt: %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:80 ../deskbar/handlers/files.py:38
+#: ../deskbar/handlers/beagle-live.py:99 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "Faili %s avamine"
 
-#: ../deskbar/handlers/beagle-live.py:88
+#: ../deskbar/handlers/beagle-live.py:107
 #, python-format
 msgid "News from %s"
 msgstr "Uudis aadressilt %s"
 
-#: ../deskbar/handlers/beagle-live.py:97
+#: ../deskbar/handlers/beagle-live.py:116
 #, python-format
 msgid "Note: %s"
 msgstr "Märkus: %s"
 
-#: ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/handlers/beagle-live.py:125
 #, python-format
 msgid "With %s"
 msgstr ""
 
-#: ../deskbar/handlers/beagle-live.py:114
+#: ../deskbar/handlers/beagle-live.py:133
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalender: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:289
-#: ../deskbar/handlers/beagle-live.py:311
+#: ../deskbar/handlers/beagle-live.py:310
+#: ../deskbar/handlers/beagle-live.py:336
 msgid "?"
 msgstr "!?!"
 
@@ -321,95 +298,82 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Kõigist sinu dokumentidest otsimine (Beagle'i abil)"
 
-#: ../deskbar/handlers/beagle-static.py:37
+#: ../deskbar/handlers/beagle-static.py:38
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "%s otsimine Beagle'i abil"
 
-#: ../deskbar/handlers/desklicious.py:15
-msgid "You need to configure your deli.icio.us account."
+#: ../deskbar/handlers/desklicious.py:16
+msgid "You need to configure your del.icio.us account."
 msgstr "Sa pead määrama oma deli.icio.us konto sätted."
 
-#: ../deskbar/handlers/desklicious.py:17
-msgid "You can modify your deli.icio.us account."
-msgstr "Sa võid oma deli.icio.us konto sätteid muuta."
+#: ../deskbar/handlers/desklicious.py:18
+msgid "You can modify your del.icio.us account."
+msgstr "Sa võid oma deli.icio.us kontot muuta."
 
-#: ../deskbar/handlers/desklicious.py:21
+#: ../deskbar/handlers/desklicious.py:22
 msgid "del.icio.us Bookmarks"
 msgstr "del.icio.us järjehoidjad"
 
-#: ../deskbar/handlers/desklicious.py:22
+#: ../deskbar/handlers/desklicious.py:23
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "del.icio.us järjehoidjatest otsimine sildinime alusel"
 
-#: ../deskbar/handlers/desklicious.py:28
+#: ../deskbar/handlers/desklicious.py:30
 msgid "del.icio.us Account"
 msgstr "del.icio.us konto"
 
-#: ../deskbar/handlers/desklicious.py:35
-msgid "Enter your deli.icio.us username below"
+#: ../deskbar/handlers/desklicious.py:37
+msgid "Enter your del.icio.us username below"
 msgstr "Sisesta oma deli.icio.us kasutajanimi"
 
-#: ../deskbar/handlers/desklicious.py:41
+#: ../deskbar/handlers/desklicious.py:43
 msgid "Username: "
 msgstr "Kasutajanimi: "
 
-#: ../deskbar/handlers/email_address.py:9
-msgid "Mail"
-msgstr "E-post"
-
-#: ../deskbar/handlers/email_address.py:10
-msgid "Send mail by typing a complete e-mail address"
-msgstr "E-kirja saatmine täieliku e-posti aadressi sisestamisel"
-
-#: ../deskbar/handlers/email_address.py:27
-#, python-format
-msgid "Send Email to %s"
-msgstr "E-kirja saatmine aadressile %s"
-
-#: ../deskbar/handlers/epiphany.py:26
+#: ../deskbar/handlers/epiphany.py:27
 msgid "You can set shortcuts for your searches."
 msgstr "Sa võid oma otsingutele määrata kiirklahve."
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:23
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
 #: ../deskbar/handlers/mozilla.py:129
 msgid "Web Bookmarks"
 msgstr "Veebijärjehoidjad"
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
+#: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
 #: ../deskbar/handlers/mozilla.py:130
 msgid "Open your web bookmarks by name"
 msgstr "Veebijärjehoidjate avamine nime alusel"
 
-#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:28
-#: ../deskbar/handlers/mozilla.py:139
+#: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
+#: ../deskbar/handlers/mozilla.py:141
 msgid "Web History"
 msgstr "Veebiajalugu"
 
-#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:29
-#: ../deskbar/handlers/mozilla.py:140
+#: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:142
 msgid "Open your web history by name"
 msgstr "Veebiajaloo avamine nime alusel"
 
-#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:33
-#: ../deskbar/handlers/mozilla.py:134
+#: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
+#: ../deskbar/handlers/mozilla.py:135
 msgid "Web Searches"
 msgstr "Veebiotsingud"
 
-#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:34
-#: ../deskbar/handlers/mozilla.py:135
+#: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
+#: ../deskbar/handlers/mozilla.py:136
 msgid "Search the web via your browser's search settings"
 msgstr "Veebiotsing veebisirvija sätete kohaselt"
 
-#: ../deskbar/handlers/evolution.py:11
+#: ../deskbar/handlers/evolution.py:12
 msgid "You need to enable autocomplete in your mail preferences"
 msgstr "Sa pead oma e-posti eelistustes lubama automaatlõpetamise"
 
-#: ../deskbar/handlers/evolution.py:14
+#: ../deskbar/handlers/evolution.py:15
 msgid "Autocompletion Needs to be Enabled"
 msgstr "Automaatlõpetamine peab olema lubatud"
 
-#: ../deskbar/handlers/evolution.py:15
+#: ../deskbar/handlers/evolution.py:16
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
@@ -419,34 +383,119 @@ msgstr ""
 "võtmist tagada. Selle jaoks peab postiprogrammi menüüst valima Redaktor - "
 "Eelistused ja siis Automaatlõpetamine."
 
-#: ../deskbar/handlers/evolution.py:20
+#: ../deskbar/handlers/evolution.py:21
 msgid "Mail (Address Book)"
 msgstr "E-post (aadressiraamat)"
 
-#: ../deskbar/handlers/evolution.py:21
+#: ../deskbar/handlers/evolution.py:22
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "E-kirja saatmine kontaktide hulgas olevale aadressile"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:46
+#: ../deskbar/handlers/evolution.py:48
 #, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "E-kirja saatmine adressaadile <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:16
-msgid "Files and Folders"
-msgstr "Failid ja kaustad"
-
 #: ../deskbar/handlers/files.py:17
-msgid "Open your files and folders by name"
-msgstr "Failide ja kataloogide avamine nime alusel"
+msgid "Files, Folders and Places"
+msgstr "Failid, kataloogid ja asukohad"
 
-#: ../deskbar/handlers/files.py:60
+#: ../deskbar/handlers/files.py:18
+msgid "View your files, folders, bookmarks, drives, network places by name"
+msgstr ""
+"Sinu failide, kataloogide, järjehoidjate, kettaseadmete ja võrgukohtade "
+"vaatamine nime alusel"
+
+#: ../deskbar/handlers/files.py:68
 #, python-format
 msgid "Open folder %s"
 msgstr "Kausta %s avamine"
 
-#: ../deskbar/handlers/google-live.py:19
+#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#, python-format
+msgid "Open location %s"
+msgstr "Asukoha %s avamine"
+
+#: ../deskbar/handlers/files.py:114
+#, python-format
+msgid "Open network place %s"
+msgstr "Võrgukoha %s avamine"
+
+#: ../deskbar/handlers/files.py:116
+#, python-format
+msgid "Open audio disc %s"
+msgstr "Audioplaadi %s avamine"
+
+#: ../deskbar/handlers/gdmactions.py:10
+msgid "Computer Actions"
+msgstr "Arvutitegevused"
+
+#: ../deskbar/handlers/gdmactions.py:11
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr ""
+
+#: ../deskbar/handlers/gdmactions.py:39
+msgid "Suspend the machine"
+msgstr ""
+
+#: ../deskbar/handlers/gdmactions.py:50
+msgid "Hibernate the machine"
+msgstr ""
+
+#: ../deskbar/handlers/gdmactions.py:61
+msgid "Shutdown the machine"
+msgstr "Masina seiskamine"
+
+#: ../deskbar/handlers/gdmactions.py:80
+msgid "Lock the screen"
+msgstr "Ekraani lukustamine"
+
+#: ../deskbar/handlers/gdmactions.py:106
+msgid "Shut Down"
+msgstr ""
+
+#: ../deskbar/handlers/gdmactions.py:113
+msgid "Turn off the computer"
+msgstr "Arvuti väljalülitamine"
+
+#: ../deskbar/handlers/gdmactions.py:117
+msgid "Log Out"
+msgstr ""
+
+#: ../deskbar/handlers/gdmactions.py:124
+msgid "Log out"
+msgstr ""
+
+#: ../deskbar/handlers/gdmactions.py:128
+msgid "Restart"
+msgstr ""
+
+#: ../deskbar/handlers/gdmactions.py:135
+msgid "Restart the computer"
+msgstr "Arvuti taaskäivitamine"
+
+#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+msgid "Switch User"
+msgstr ""
+
+#: ../deskbar/handlers/gdmactions.py:165
+msgid "Lock"
+msgstr "Lukusta"
+
+#: ../deskbar/handlers/gdmactions.py:176
+msgid "Suspend"
+msgstr ""
+
+#: ../deskbar/handlers/gdmactions.py:178
+msgid "Hibernate"
+msgstr ""
+
+#: ../deskbar/handlers/gdmactions.py:180
+msgid "Shutdown"
+msgstr ""
+
+#: ../deskbar/handlers/google-live.py:20
 msgid ""
 "You need a Google account to use Google Live.  To get one, go to http://api."
 "google.com/\n"
@@ -484,44 +533,31 @@ msgstr ""
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
-#: ../deskbar/handlers/google-live.py:32
+#: ../deskbar/handlers/google-live.py:33
 msgid "Setting Up Google Live"
 msgstr "Google Live ülessättimine"
 
-#: ../deskbar/handlers/google-live.py:38
+#: ../deskbar/handlers/google-live.py:39
 msgid "You need to install the SOAPpy python module."
 msgstr "Sa pead paigaldama Python'i SOAPpy mooduli."
 
-#: ../deskbar/handlers/google-live.py:40
+#: ../deskbar/handlers/google-live.py:41
 msgid "You need the Google WSDL file."
 msgstr "Sul on Google WSDL faili vaja."
 
-#: ../deskbar/handlers/google-live.py:42
+#: ../deskbar/handlers/google-live.py:43
 msgid "You need a Google API key."
 msgstr "Sul on Google API võtit vaja."
 
-#: ../deskbar/handlers/google-live.py:48
+#: ../deskbar/handlers/google-live.py:49
 msgid "Google Search"
 msgstr "Google otsing"
 
-#: ../deskbar/handlers/google-live.py:49
+#: ../deskbar/handlers/google-live.py:50
 msgid "Search Google as you type"
 msgstr "Sisestatud stringi otsimine Google otsingumootorist"
 
-#: ../deskbar/handlers/gtkbookmarks.py:12
-msgid "Files and Folders Bookmarks"
-msgstr "Faili- ja kataloogijärjehoidjad"
-
-#: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Open your files and folders bookmarks by name"
-msgstr "Faili- ja kataloogijärjehoidjate avamine nime alusel"
-
-#: ../deskbar/handlers/gtkbookmarks.py:34 ../deskbar/handlers/volumes.py:51
-#, python-format
-msgid "Open location %s"
-msgstr "Asukoha %s avamine"
-
-#: ../deskbar/handlers/history.py:9
+#: ../deskbar/handlers/history.py:10
 msgid "Recognize previously used searches"
 msgstr "Eeelmiste otsingute äratundmine"
 
@@ -537,13 +573,6 @@ msgstr "Lülitumine olemasolevale aknale selle nime alusel."
 msgid "Windows"
 msgstr "Aknad"
 
-#: ../deskbar/handlers/iswitch-window.py:17
-#, python-format
-msgid "%s more window"
-msgid_plural "%s more windows"
-msgstr[0] "%s aken veel"
-msgstr[1] "%s akent veel"
-
 #: ../deskbar/handlers/iswitch-window.py:32
 #, python-format
 msgid "Switch to <b>%(name)s</b>"
@@ -553,19 +582,6 @@ msgstr "Lülitumine kasutajaks <b>%(name)s</b>"
 msgid "You can customize which search engines are offered."
 msgstr "Sul on võimalik pakutavaid otsingumootoreid kohandada."
 
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Programs (Advanced)"
-msgstr "Programmid (Laiendatud)"
-
-#: ../deskbar/handlers/pathprograms.py:15
-msgid "Launch any program present in your $PATH"
-msgstr "Otsingutajal $PATH oleva suvalise programmi käivitamine"
-
-#: ../deskbar/handlers/pathprograms.py:60
-#, python-format
-msgid "Execute %s"
-msgstr "%s käivitamine"
-
 #: ../deskbar/handlers/programs.py:14
 msgid "Programs"
 msgstr "Programmid"
@@ -574,85 +590,76 @@ msgstr "Programmid"
 msgid "Launch a program by its name and/or description"
 msgstr "Programmi käivitamine selle nime või kirjelduse alusel"
 
-#: ../deskbar/handlers/programs.py:18
+#: ../deskbar/handlers/programs.py:19
 msgid "Dictionary"
 msgstr "Sõnaraamat"
 
-#: ../deskbar/handlers/programs.py:19
+#: ../deskbar/handlers/programs.py:20
 msgid "Look up word definitions in the dictionary"
 msgstr "Sõnadefinitsioonide otsimine sõnaraamatust"
 
-#: ../deskbar/handlers/programs.py:22
+#: ../deskbar/handlers/programs.py:24
 msgid "Files and Folders Search"
 msgstr "Failide ja kaustade otsing"
 
-#: ../deskbar/handlers/programs.py:23
+#: ../deskbar/handlers/programs.py:25
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Failide ja kataloogide leidmine nimemustri järgi otsides"
 
-#: ../deskbar/handlers/programs.py:26
+#: ../deskbar/handlers/programs.py:29
 msgid "Developer Documentation"
 msgstr "Arendajadokumentatsioon"
 
-#: ../deskbar/handlers/programs.py:27
+#: ../deskbar/handlers/programs.py:30
 msgid "Search Devhelp for a function name"
 msgstr "Devhelp'ist otsimine funktsiooninime alusel"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:76
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Programmi <b>%(name)s</b> käivitamine (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:90
+#: ../deskbar/handlers/programs.py:98
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s otsimine sõnaraamatust"
 
-#: ../deskbar/handlers/programs.py:98
+#: ../deskbar/handlers/programs.py:106
 #, python-format
 msgid "Search for file names like %s"
 msgstr "%s-sarnaste failinimede otsimine"
 
-#: ../deskbar/handlers/programs.py:106
+#: ../deskbar/handlers/programs.py:114
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Devhelper'ist %s otsimine"
 
-#: ../deskbar/handlers/volumes.py:16
-msgid "Disks and Network Places"
-msgstr "Kettad ja võrgukohad"
+#: ../deskbar/handlers/programs.py:218
+#, python-format
+msgid "Execute %s"
+msgstr "%s käivitamine"
 
-#: ../deskbar/handlers/volumes.py:17
-msgid "Open disk drives, shared network places and similar resources by name"
+#: ../deskbar/handlers/web_address.py:12
+msgid "Open web pages and send emails by typing a complete address"
 msgstr ""
-"Ketaste, jagatud võrgukohtade ja muude sarnaste ressursside avamine nime "
-"alusel"
+"Veebilehtede avamine ja e-posti saatmine täisaadressi sisestamise alusel"
 
-#: ../deskbar/handlers/volumes.py:47
-#, python-format
-msgid "Open network place %s"
-msgstr "Võrgukoha %s avamine"
-
-#: ../deskbar/handlers/volumes.py:49
-#, python-format
-msgid "Open audio disk %s"
-msgstr "Audioplaadi %s avamine"
-
-#: ../deskbar/handlers/web_address.py:10
-msgid "Open web pages by typing a complete web address"
-msgstr "Veebilehtede avamine nende täisaadressi sisestamise järgi"
-
-#: ../deskbar/handlers/web_address.py:36
+#: ../deskbar/handlers/web_address.py:40
 #, python-format
 msgid "Open the web page %s"
 msgstr "Veebilehe %s avamine"
 
-#: ../deskbar/handlers/web_address.py:38
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the location %s"
 msgstr "Asukoha %s avamine"
+
+#: ../deskbar/handlers/web_address.py:58
+#, python-format
+msgid "Send Email to %s"
+msgstr "E-kirja saatmine aadressile %s"
 
 #: ../deskbar/handlers/yahoo.py:16
 msgid "Yahoo! Search"
@@ -683,9 +690,16 @@ msgstr ""
 msgid "New accelerator..."
 msgstr "Uus kiirendi..."
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:175
-msgid "_More..."
-msgstr "_Veel..."
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
+msgid "Show search entry"
+msgstr ""
+
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+msgid "Show previously used actions"
+msgstr "Juba kasutatud tegevuste näitamine"
 
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
@@ -702,3 +716,48 @@ msgstr "Kõigi saadaolevate otsingumootorite näitamine"
 #: ../data/mozilla-search.glade.h:4
 msgid "Show only the primary search engine"
 msgstr "Ainult peamise otsingumootori näitamine"
+
+#: ../data/deskbar-applet.desktop.in.in.h:1
+msgid "Deskbar Applet"
+msgstr "Deskbar'i rakend"
+
+#: ../data/deskbar-applet.desktop.in.in.h:2
+msgid "Desktop search"
+msgstr ""
+
+#: ../data/deskbar-applet.desktop.in.in.h:3
+msgid "Search your computer and the internet quickly"
+msgstr ""
+
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
+msgid "<b>Search:</b>"
+msgstr "<b>Otsing:</b>"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:49
+msgid "_File"
+msgstr "_Fail"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:50
+msgid "_Quit"
+msgstr "_Lõpeta"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:51
+msgid "_Edit"
+msgstr "_Redaktor"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:54
+msgid "_View"
+msgstr "_Vaade"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:55
+msgid "_Help"
+msgstr "_Abi"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:58
+msgid "_History"
+msgstr "_Ajalugu"
+
+#. History TreeView
+#: ../deskbar/ui/window/CuemiacWindowUI.py:84
+msgid "<b>History</b>"
+msgstr "<b>Ajalugu</b>"
