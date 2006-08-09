@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-02 13:44+0200\n"
-"PO-Revision-Date: 2006-08-02 13:52+0200\n"
+"POT-Creation-Date: 2006-08-09 14:45+0200\n"
+"PO-Revision-Date: 2006-08-09 14:46+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -37,88 +37,64 @@ msgid "_Preferences"
 msgstr "_Brukervalg"
 
 #: ../data/prefs-dialog.glade.h:1
-msgid "<b>Available Extensions</b>"
-msgstr "<b>Tilgjengelige tillegg</b>"
-
-#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Focus</b>"
 msgstr "<b>Fokus</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Layout</b>"
 msgstr "<b>Utforming</b>"
 
-#: ../data/prefs-dialog.glade.h:4
-msgid "<b>Loaded Extensions</b>"
-msgstr "<b>Lastede tillegg</b>"
-
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Width</b>"
 msgstr "<b>Bredde</b>"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:4
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
 msgstr "<i><small>Dra og slipp utvidelser for å endre rekkefølgen.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:5
 msgid "Button in panel"
 msgstr "Knapp på panel"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:6
 msgid "Deskbar Preferences"
 msgstr "Brukervalg for skrivebordslinje"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:7
 msgid "Entry in panel"
 msgstr "Tekstboks på panel"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:8
+msgid "Extensions"
+msgstr "Tillegg"
+
+#: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
 msgstr "Fast _bredde:"
 
-#: ../data/prefs-dialog.glade.h:11
-msgid "New Extensions"
-msgstr "Nye tillegg"
-
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:10
 msgid "Search selection when triggering the shortcut"
-msgstr ""
+msgstr "Søk gjennom utvalget når snarveien aktiveres"
 
-#: ../data/prefs-dialog.glade.h:13
-msgid "Searches"
-msgstr "Søk"
-
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:11
 msgid "Use _all available space"
 msgstr "Bruk _all tilgjengelig plass"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:12
 msgid "View"
 msgstr "Vis"
 
-#: ../data/prefs-dialog.glade.h:16
-msgid "_Check For Updates"
-msgstr "S_jekk etter oppdateringer"
-
-#: ../data/prefs-dialog.glade.h:17
-msgid "_Install"
-msgstr "_Installer"
-
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Snarvei for fokus:"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:14
 msgid "_More..."
 msgstr "_Mer..."
 
-#: ../data/prefs-dialog.glade.h:20
-msgid "_Update"
-msgstr "_Oppdater"
-
-#: ../data/prefs-dialog.glade.h:21
+#: ../data/prefs-dialog.glade.h:15
 msgid "characters"
 msgstr "tegn"
 
@@ -424,7 +400,8 @@ msgstr "Filer, mapper og steder"
 
 #: ../deskbar/handlers/files.py:18
 msgid "View your files, folders, bookmarks, drives, network places by name"
-msgstr "Vis dine filer, mapper, bokmerker, stasjoner og nettverkssteder etter navn"
+msgstr ""
+"Vis dine filer, mapper, bokmerker, stasjoner og nettverkssteder etter navn"
 
 #: ../deskbar/handlers/files.py:68
 #, python-format
@@ -661,9 +638,8 @@ msgid "Execute %s"
 msgstr "Kjør %s"
 
 #: ../deskbar/handlers/web_address.py:12
-#, fuzzy
 msgid "Open web pages and send emails by typing a complete address"
-msgstr "Åpne nettsider ved å skrive inn en fullstendig web-adresse"
+msgstr "Åpne nettsider og send e-post ved å skrive inn en fullstendig adresse"
 
 #: ../deskbar/handlers/web_address.py:40
 #, python-format
@@ -703,13 +679,9 @@ msgstr "Nettsted for Deskbar"
 msgid "translator-credits"
 msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:20
+#: ../deskbar/ui/DeskbarPreferencesUI.py:18
 msgid "New accelerator..."
 msgstr "Ny snarveitast..."
-
-#: ../deskbar/ui/ModuleListView.py:55
-msgid "Update Available"
-msgstr "Oppdatering tilgjengelig"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
@@ -721,32 +693,6 @@ msgstr "Vis søkeoppføring"
 #: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
 msgid "Show previously used actions"
 msgstr "Vis tidligere brukte handlinger"
-
-#: ../deskbar/updater/NewStuffUpdater.py:108
-#, python-format
-msgid "Updating %s"
-msgstr "Oppdaterer %s"
-
-#: ../deskbar/updater/NewStuffUpdater.py:108
-msgid ""
-"The update is being downloaded from the internet. Please wait until the "
-"update is complete"
-msgstr ""
-
-#: ../deskbar/updater/NewStuffUpdater.py:133
-#, python-format
-msgid "Installing %s"
-msgstr "Innstallerer %s"
-
-#: ../deskbar/updater/NewStuffUpdater.py:133
-msgid ""
-"The handler is being downloaded from the internet. Please wait until the "
-"installation is complete"
-msgstr ""
-
-#: ../deskbar/updater/NewStuffUpdater.py:134
-msgid "Downloading"
-msgstr "Laster ned"
 
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
@@ -808,11 +754,3 @@ msgstr "_Historikk"
 #: ../deskbar/ui/window/CuemiacWindowUI.py:84
 msgid "<b>History</b>"
 msgstr "<b>Historikk</b>"
-
-#: ../deskbar/updater/ErrorDialog.py:20
-msgid "An error occured"
-msgstr "En feil oppsto"
-
-#: ../deskbar/updater/ErrorDialog.py:20
-msgid "Check the description beneath for further details."
-msgstr "Sjekk beskrivelsen under for flere detaljer."
