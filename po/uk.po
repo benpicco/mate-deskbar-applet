@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-31 12:56+0300\n"
+"POT-Creation-Date: 2006-08-10 11:29+0300\n"
 "PO-Revision-Date: 2006-07-29 12:58+0000\n"
 "Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>\n"
 "Language-Team:  <i18n@li.org>\n"
@@ -36,26 +36,18 @@ msgid "_Preferences"
 msgstr "_Параметри"
 
 #: ../data/prefs-dialog.glade.h:1
-msgid "<b>Available Extensions</b>"
-msgstr "<b>Доступні розширення</b>"
-
-#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Focus</b>"
 msgstr "<b>Фокус</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Layout</b>"
 msgstr "<b>Зовнішній вигляд</b>"
 
-#: ../data/prefs-dialog.glade.h:4
-msgid "<b>Loaded Extensions</b>"
-msgstr "<b>Завантажені розширення</b>"
-
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Width</b>"
 msgstr "<b>Ширина</b>"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:4
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
@@ -63,63 +55,47 @@ msgstr ""
 "<i><small><b>Примітка:</b> Порядок змінюється перетягуванням розширення вниз "
 "або вверх.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:5
 msgid "Button in panel"
 msgstr "Кнопка в панелі"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:6
 msgid "Deskbar Preferences"
 msgstr "Параметри Deskbar"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:7
 msgid "Entry in panel"
 msgstr "Ввід в панелі"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:8
+msgid "Extensions"
+msgstr "Розширення"
+
+#: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
 msgstr "_Фіксована ширина:"
 
-#: ../data/prefs-dialog.glade.h:11
-msgid "New Extensions"
-msgstr "Нові розширення"
-
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:10
 msgid "Search selection when triggering the shortcut"
 msgstr "Шукати виділене при перемиканні ярлика"
 
-#: ../data/prefs-dialog.glade.h:13
-msgid "Searches"
-msgstr "Пошук"
-
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:11
 msgid "Use _all available space"
 msgstr "_Використовувати весь доступний простір"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:12
 msgid "View"
 msgstr "Вигляд"
 
-#: ../data/prefs-dialog.glade.h:16
-msgid "_Check For Updates"
-msgstr "_Перевірити оновлення"
-
-#: ../data/prefs-dialog.glade.h:17
-msgid "_Install"
-msgstr "_Встановити"
-
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Комбінація клавіш:"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:14
 msgid "_More..."
 msgstr "_Більше..."
 
-#: ../data/prefs-dialog.glade.h:20
-msgid "_Update"
-msgstr "_Оновити"
-
-#: ../data/prefs-dialog.glade.h:21
+#: ../data/prefs-dialog.glade.h:15
 msgid "characters"
 msgstr "символів"
 
@@ -702,13 +678,9 @@ msgstr "Веб-сайт Deskbar"
 msgid "translator-credits"
 msgstr "Максим Дзюманенко <dziumanenko@gmail.com>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:20
+#: ../deskbar/ui/DeskbarPreferencesUI.py:18
 msgid "New accelerator..."
 msgstr "Нова комбінація клавіш..."
-
-#: ../deskbar/ui/ModuleListView.py:55
-msgid "Update Available"
-msgstr "Доступне оновлення"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
@@ -720,34 +692,6 @@ msgstr "Показати поле пошуку"
 #: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
 msgid "Show previously used actions"
 msgstr "Показати раніше виконані дії"
-
-#: ../deskbar/updater/NewStuffUpdater.py:108
-#, python-format
-msgid "Updating %s"
-msgstr "Оновлення %s"
-
-#: ../deskbar/updater/NewStuffUpdater.py:108
-msgid ""
-"The update is being downloaded from the internet. Please wait until the "
-"update is complete"
-msgstr ""
-"Оновлення завантажується з Інтернет. Зачекайте, доки оновлення завершиться "
-
-#: ../deskbar/updater/NewStuffUpdater.py:133
-#, python-format
-msgid "Installing %s"
-msgstr "Встановлення %s"
-
-#: ../deskbar/updater/NewStuffUpdater.py:133
-msgid ""
-"The handler is being downloaded from the internet. Please wait until the "
-"installation is complete"
-msgstr ""
-"Обробник завантажується з Інтернет. Зачекайте, доки оновлення завершиться "
-
-#: ../deskbar/updater/NewStuffUpdater.py:134
-msgid "Downloading"
-msgstr "Завантаження"
 
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
@@ -809,11 +753,3 @@ msgstr "_Історія"
 #: ../deskbar/ui/window/CuemiacWindowUI.py:84
 msgid "<b>History</b>"
 msgstr "<b>Історія</b>"
-
-#: ../deskbar/updater/ErrorDialog.py:20
-msgid "An error occured"
-msgstr "Виникла помилка"
-
-#: ../deskbar/updater/ErrorDialog.py:20
-msgid "Check the description beneath for further details."
-msgstr "Подробиці дивіться у наведеному нижче описі."
