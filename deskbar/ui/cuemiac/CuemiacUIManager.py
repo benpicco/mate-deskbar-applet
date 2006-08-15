@@ -68,7 +68,7 @@ class CuemiacUIManager (gobject.GObject) :
 		
 		self.layout = layout
 		
-		self.default_entry_pixbuf = deskbar.Utils.load_icon("deskbar-applet-small.png", width=-1)
+		self.default_entry_pixbuf = deskbar.Utils.load_icon("deskbar-applet-panel-h.png", width=23, height=14)
 		self.clipboard = gtk.clipboard_get (selection="PRIMARY")
 
 		self.entry = CuemiacEntry (self.default_entry_pixbuf)

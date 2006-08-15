@@ -100,7 +100,7 @@ def _on_handler_preferences(dialog):
 	show_primary_radio.connect ("toggled", toggled_cb, show_all_radio, show_primary_radio)
 	
 	notify_id = deskbar.GCONF_CLIENT.notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, lambda x, y, z, a: sync_ui(z.value.get_bool(), show_all_radio, show_primary_radio))
-	dialog.set_icon(deskbar.Utils.load_icon("deskbar-applet-small.png"))
+	dialog.set_icon_name("deskbar-applet")
 	dialog.show_all()
 	dialog.run()
 	dialog.destroy()

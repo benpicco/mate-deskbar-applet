@@ -15,7 +15,6 @@ def on_url(about, link):
 gtk.about_dialog_set_email_hook(on_email)
 gtk.about_dialog_set_url_hook(on_url)
 
-deskbar_logo = load_icon("deskbar-applet.svg", 96, 96)
 def show_about():
 	about = gtk.AboutDialog()
 	infos = {

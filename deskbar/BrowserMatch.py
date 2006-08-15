@@ -216,7 +216,7 @@ def on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_
 	view.append_column(tvc_name)
 	
 	dialog = glade.get_widget("smart-bookmarks")
-	dialog.set_icon(deskbar.Utils.load_icon("deskbar-applet-small.png"))
+	dialog.set_icon_name("deskbar-applet")
 	dialog.show_all()
 	dialog.run()
 	dialog.destroy()
