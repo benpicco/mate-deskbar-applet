@@ -181,7 +181,11 @@ class FileFolderHandler(deskbar.Handler.Handler):
 			try:
 				if gnomevfs.exists(line):
 					uri = urllib.unquote(line)
-					head, tail = split(uri)	
+					head, tail = split(uri)
+					# Sometimes tail=="" when for example using "file:///tmp"
+					if tail == "":
+						 i = head.rfind("/")
+						 tail = head[i+1:]
 					self._locations[tail.lower()] = (tail, line)
 			except Exception, msg:
 				print 'Error:_scan_bookmarks_files:', msg
