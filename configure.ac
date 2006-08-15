@@ -95,7 +95,7 @@ AC_ARG_ENABLE(evolution,
 	enable_libebook=auto)
 
 PKG_CHECK_MODULES(EVOLUTION,
-	libebook-1.2
+	libebook-1.2			>= 1.7.92
 	gtk+-2.0				>= 2.6
 	pygtk-2.0				>= 2.6
 	pygobject-2.0			>= 2.6,
