@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-05 14:11+0300\n"
-"PO-Revision-Date: 2006-07-05 14:11+0300\n"
+"POT-Creation-Date: 2006-08-20 20:18+0300\n"
+"PO-Revision-Date: 2006-08-20 20:42+0300\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,43 +20,35 @@ msgstr ""
 msgid "An all-in-one action bar"
 msgstr "Универсална лента за търсене"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:21
 msgid "Deskbar"
 msgstr "Deskbar"
 
-#: ../data/Deskbar_Applet.xml.h:1
+#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
 msgstr "_Относно"
 
-#: ../data/Deskbar_Applet.xml.h:2
+#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
 msgid "_Clear History"
 msgstr "_Изчистване на историята"
 
-#: ../data/Deskbar_Applet.xml.h:3
+#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
 msgid "_Preferences"
 msgstr "_Настройки"
 
 #: ../data/prefs-dialog.glade.h:1
-msgid "<b>Available Extensions</b>"
-msgstr "<b>Налични приставки</b>"
-
-#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Focus</b>"
 msgstr "<b>Фокусиране:</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Layout</b>"
 msgstr "<b>Представяне като:</b>"
 
-#: ../data/prefs-dialog.glade.h:4
-msgid "<b>Loaded Extensions</b>"
-msgstr "<b>Заредени приставки</b>"
-
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Width</b>"
 msgstr "<b>Широчина:</b>"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:4
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
@@ -64,59 +56,47 @@ msgstr ""
 "<i><small><b>Бележка:</b> Чрез влачене можете да промените подредбата на "
 "приставките.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:5
 msgid "Button in panel"
 msgstr "Бутон в панел"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:6
 msgid "Deskbar Preferences"
 msgstr "Настройки"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:7
 msgid "Entry in panel"
 msgstr "Елемент в панел"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:8
+msgid "Extensions"
+msgstr "Приставки"
+
+#: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
 msgstr "_Равноширок:"
 
+#: ../data/prefs-dialog.glade.h:10
+msgid "Search selection when triggering the shortcut"
+msgstr "Търсене в избраното при задействане с бързия клавиш"
+
 #: ../data/prefs-dialog.glade.h:11
-msgid "New Extensions"
-msgstr "Нови приставки"
-
-#: ../data/prefs-dialog.glade.h:12
-msgid "Searches"
-msgstr "Търсене"
-
-#: ../data/prefs-dialog.glade.h:13
 msgid "Use _all available space"
 msgstr "Запълване на _всичкото налично пространство"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:12
 msgid "View"
 msgstr "Външен вид"
 
-#: ../data/prefs-dialog.glade.h:15
-msgid "_Check For Updates"
-msgstr "_Проверка за обновявания"
-
-#: ../data/prefs-dialog.glade.h:16
-msgid "_Install"
-msgstr "_Инсталиране"
-
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Бърз клавиш за фокусиране:"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:14
 msgid "_More..."
 msgstr "_Допълнителни..."
 
-#: ../data/prefs-dialog.glade.h:19
-msgid "_Update"
-msgstr "_Обновяване"
-
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:15
 msgid "characters"
 msgstr "знаци"
 
@@ -143,7 +123,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Бързи клавиши за отметките за търсене"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:123
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:140
 #, python-format
 msgid "Open History Item %s"
 msgstr "Отваряне от историята: %s"
@@ -167,98 +147,57 @@ msgstr "Бърз клавиш"
 msgid "Bookmark Name"
 msgstr "Име на отметка"
 
-#: ../deskbar/Categories.py:4
-#, python-format
-msgid "%s more result"
-msgid_plural "%s more results"
-msgstr[0] "Още %s резултат"
-msgstr[1] "Още %s резултата"
-
-#: ../deskbar/Categories.py:9
+#: ../deskbar/Categories.py:7
 msgid "Uncategorized"
 msgstr "Без категория"
 
-#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
 msgid "History"
 msgstr "История"
 
-#: ../deskbar/Categories.py:26
+#: ../deskbar/Categories.py:15
 msgid "Documents"
 msgstr "Документи"
 
-#: ../deskbar/Categories.py:27
-#, python-format
-msgid "%s more document"
-msgid_plural "%s more documents"
-msgstr[0] "Още %s документ"
-msgstr[1] "Още %s  документа"
-
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:18
 msgid "Emails"
 msgstr "Е-писма"
 
-#: ../deskbar/Categories.py:32
-#, python-format
-msgid "%s more email"
-msgid_plural "%s more emails"
-msgstr[0] "Още %s е-писмо"
-msgstr[1] "Още %s е-писма"
-
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:21
 msgid "Conversations"
 msgstr "Разговори"
 
-#: ../deskbar/Categories.py:37
-#, python-format
-msgid "%s more conversation"
-msgid_plural "%s more conversations"
-msgstr[0] "Още %s разговор"
-msgstr[1] "Още %s разговора"
-
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:24
 msgid "Files"
 msgstr "Файлове"
 
-#: ../deskbar/Categories.py:42
-#, python-format
-msgid "%s more file"
-msgid_plural "%s more files"
-msgstr[0] "Още %s файл"
-msgstr[1] "Още %s файла"
-
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:27
 msgid "People"
 msgstr "Хора"
 
-#: ../deskbar/Categories.py:51
+#: ../deskbar/Categories.py:30
 msgid "Places"
 msgstr "Места"
 
-#: ../deskbar/Categories.py:52
-#, python-format
-msgid "%s more place"
-msgid_plural "%s more places"
-msgstr[0] "Още %s място"
-msgstr[1] "Още %s места"
-
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:33
 msgid "Actions"
 msgstr "Действия"
 
-#: ../deskbar/Categories.py:57
-#, python-format
-msgid "%s more action"
-msgid_plural "%s more actions"
-msgstr[0] "Още %s действие"
-msgstr[1] "Още %s действия"
-
-#: ../deskbar/Categories.py:61 ../deskbar/handlers/web_address.py:10
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
 msgid "Web"
 msgstr "Уеб"
 
-#: ../deskbar/Categories.py:66
+#: ../deskbar/Categories.py:39
 msgid "Web Search"
 msgstr "Търсене по уеб"
+
+#: ../deskbar/Categories.py:42
+msgid "News"
+msgstr "Новини"
+
+#: ../deskbar/Categories.py:45
+msgid "Notes"
+msgstr "Бележки"
 
 #: ../deskbar/DeskbarHistory.py:37
 msgid "No History"
@@ -280,54 +219,70 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Засечена е грешка"
 
-#: ../deskbar/handlers/beagle-live.py:36
+#: ../deskbar/handlers/beagle-live.py:18
+msgid "Start Beagle Daemon?"
+msgstr "Стартиране на демона на Beagle?"
+
+#: ../deskbar/handlers/beagle-live.py:22
+msgid "Start Beagle Daemon"
+msgstr "Стартиране на демона на Beagle"
+
+#: ../deskbar/handlers/beagle-live.py:24
+msgid ""
+"The Beagle daemon does not appear to be running.\n"
+" You need to start it to use the Beagle Live handler."
+msgstr ""
+"Демонът на Beagle изглежда не е стартиран. Трябва да го\n"
+"стартирате, за да използвате работата на Beagle на живо."
+
+#: ../deskbar/handlers/beagle-live.py:53
 msgid "Beagle Live"
 msgstr "Beagle на живо"
 
-#: ../deskbar/handlers/beagle-live.py:37
+#: ../deskbar/handlers/beagle-live.py:54
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Претърсване на всичките Ви документи (с Beagle) докато пишете"
 
-#: ../deskbar/handlers/beagle-live.py:65
+#: ../deskbar/handlers/beagle-live.py:82
 #, python-format
 msgid "Edit contact %s"
 msgstr "Редактиране на контакта %s"
 
-#: ../deskbar/handlers/beagle-live.py:74
+#: ../deskbar/handlers/beagle-live.py:91
 #, python-format
 msgid "From %s"
 msgstr "От %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:82 ../deskbar/handlers/files.py:39
+#: ../deskbar/handlers/beagle-live.py:99 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "Отваряне на %s"
 
-#: ../deskbar/handlers/beagle-live.py:90
+#: ../deskbar/handlers/beagle-live.py:107
 #, python-format
 msgid "News from %s"
 msgstr "Новини от %s"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:116
 #, python-format
 msgid "Note: %s"
 msgstr "Бележка: %s"
 
-#: ../deskbar/handlers/beagle-live.py:108
+#: ../deskbar/handlers/beagle-live.py:125
 #, python-format
 msgid "With %s"
 msgstr "С %s"
 
-#: ../deskbar/handlers/beagle-live.py:116
+#: ../deskbar/handlers/beagle-live.py:133
 #, python-format
 msgid "Calendar: %s"
 msgstr "Календар: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:291
-#: ../deskbar/handlers/beagle-live.py:313
+#: ../deskbar/handlers/beagle-live.py:310
+#: ../deskbar/handlers/beagle-live.py:336
 msgid "?"
 msgstr "?"
 
@@ -371,19 +326,6 @@ msgstr "Въведете потребителското си име за del.ici
 #: ../deskbar/handlers/desklicious.py:43
 msgid "Username: "
 msgstr "Потребителско име: "
-
-#: ../deskbar/handlers/email_address.py:10
-msgid "Mail"
-msgstr "Поща"
-
-#: ../deskbar/handlers/email_address.py:11
-msgid "Send mail by typing a complete e-mail address"
-msgstr "Пращане на е-поща чрез пълния адрес на е-поща"
-
-#: ../deskbar/handlers/email_address.py:29
-#, python-format
-msgid "Send Email to %s"
-msgstr "Пращане на е-поща на %s"
 
 #: ../deskbar/handlers/epiphany.py:27
 msgid "You can set shortcuts for your searches."
@@ -455,18 +397,101 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Пращане на е-писмо до <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:16
-msgid "Files and Folders"
-msgstr "Файлове и папки"
-
 #: ../deskbar/handlers/files.py:17
-msgid "Open your files and folders by name"
-msgstr "Отваряне на файлове и папки по име"
+msgid "Files, Folders and Places"
+msgstr "Файлове, папки и места"
 
-#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/files.py:18
+msgid "View your files, folders, bookmarks, drives, network places by name"
+msgstr "Преглеждане на файловете, папките, отметките, устройствата и мрежовите места по име"
+
+#: ../deskbar/handlers/files.py:68
 #, python-format
 msgid "Open folder %s"
 msgstr "Отваряне на папка %s"
+
+#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#, python-format
+msgid "Open location %s"
+msgstr "Отваряне на местоположението %s"
+
+#: ../deskbar/handlers/files.py:114
+#, python-format
+msgid "Open network place %s"
+msgstr "Отваряне в мрежата на %s"
+
+#: ../deskbar/handlers/files.py:116
+#, python-format
+msgid "Open audio disc %s"
+msgstr "Отваряне на аудио диска %s"
+
+#: ../deskbar/handlers/gdmactions.py:10
+msgid "Computer Actions"
+msgstr "Действия с компютъра"
+
+#: ../deskbar/handlers/gdmactions.py:11
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "Излизане от системата, приспиване, дълбоко приспиване и др. подобни действия"
+
+#: ../deskbar/handlers/gdmactions.py:39
+msgid "Suspend the machine"
+msgstr "Приспиване на компютъра"
+
+#: ../deskbar/handlers/gdmactions.py:50
+msgid "Hibernate the machine"
+msgstr "Дълбоко приспиване на компютъра"
+
+#: ../deskbar/handlers/gdmactions.py:61
+msgid "Shutdown the machine"
+msgstr "Спиране на компютъра"
+
+#: ../deskbar/handlers/gdmactions.py:80
+msgid "Lock the screen"
+msgstr "Заключване на екрана"
+
+#: ../deskbar/handlers/gdmactions.py:106
+msgid "Shut Down"
+msgstr "Спиране"
+
+#: ../deskbar/handlers/gdmactions.py:113
+msgid "Turn off the computer"
+msgstr "Изключване на компютъра"
+
+#: ../deskbar/handlers/gdmactions.py:117
+msgid "Log Out"
+msgstr "Излизане от системата"
+
+#: ../deskbar/handlers/gdmactions.py:124
+msgid "Log out"
+msgstr "Излизане от системата"
+
+#: ../deskbar/handlers/gdmactions.py:128
+msgid "Restart"
+msgstr "Рестартиране"
+
+#: ../deskbar/handlers/gdmactions.py:135
+msgid "Restart the computer"
+msgstr "Рестартиране на компютъра"
+
+#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+msgid "Switch User"
+msgstr "Промяна на потребителя"
+
+#: ../deskbar/handlers/gdmactions.py:165
+msgid "Lock"
+msgstr "Заключване"
+
+#: ../deskbar/handlers/gdmactions.py:176
+msgid "Suspend"
+msgstr "Приспиване"
+
+#: ../deskbar/handlers/gdmactions.py:178
+msgid "Hibernate"
+msgstr "Дълбоко приспиване"
+
+#: ../deskbar/handlers/gdmactions.py:180
+msgid "Shutdown"
+msgstr "Спиране"
 
 #: ../deskbar/handlers/google-live.py:20
 msgid ""
@@ -530,19 +555,6 @@ msgstr "Търсене с Google"
 msgid "Search Google as you type"
 msgstr "Претърсване на Google докато пишете"
 
-#: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Files and Folders Bookmarks"
-msgstr "Файлове и отметки"
-
-#: ../deskbar/handlers/gtkbookmarks.py:14
-msgid "Open your files and folders bookmarks by name"
-msgstr "Отваряне на файловете и отметките Ви по име"
-
-#: ../deskbar/handlers/gtkbookmarks.py:36 ../deskbar/handlers/volumes.py:54
-#, python-format
-msgid "Open location %s"
-msgstr "Отваряне на местоположението %s"
-
 #: ../deskbar/handlers/history.py:10
 msgid "Recognize previously used searches"
 msgstr "Разпознаване на предишни търсения"
@@ -559,14 +571,7 @@ msgstr "Избиране и преминаване към прозорец по 
 msgid "Windows"
 msgstr "Прозорци"
 
-#: ../deskbar/handlers/iswitch-window.py:17
-#, python-format
-msgid "%s more window"
-msgid_plural "%s more windows"
-msgstr[0] "Още %s прозорец"
-msgstr[1] "Още %s прозорци"
-
-#: ../deskbar/handlers/iswitch-window.py:34
+#: ../deskbar/handlers/iswitch-window.py:32
 #, python-format
 msgid "Switch to <b>%(name)s</b>"
 msgstr "Избиране на <b>%(name)s</b>"
@@ -574,19 +579,6 @@ msgstr "Избиране на <b>%(name)s</b>"
 #: ../deskbar/handlers/mozilla.py:120
 msgid "You can customize which search engines are offered."
 msgstr "Може да персонализирате кои търсачки да се използват."
-
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Programs (Advanced)"
-msgstr "Програми (за напреднали)"
-
-#: ../deskbar/handlers/pathprograms.py:15
-msgid "Launch any program present in your $PATH"
-msgstr "Стартиране на всяка програма във Вашия път ($PATH)"
-
-#: ../deskbar/handlers/pathprograms.py:64
-#, python-format
-msgid "Execute %s"
-msgstr "Изпълняване на %s"
 
 #: ../deskbar/handlers/programs.py:14
 msgid "Programs"
@@ -622,59 +614,49 @@ msgstr "Търсене в документацията за разработчи
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:80
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Стартиране на <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:94
+#: ../deskbar/handlers/programs.py:98
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Търсене на %s в речник"
 
-#: ../deskbar/handlers/programs.py:102
+#: ../deskbar/handlers/programs.py:106
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Търсене на файлове с имена подобни на %s"
 
-#: ../deskbar/handlers/programs.py:110
+#: ../deskbar/handlers/programs.py:114
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Търсене в документацията за %s"
 
-#: ../deskbar/handlers/volumes.py:18
-msgid "Disks and Network Places"
-msgstr "Дискове и места по мрежата"
-
-#: ../deskbar/handlers/volumes.py:19
-msgid "Open disk drives, shared network places and similar resources by name"
-msgstr ""
-"Отваряне на дискови устройства, споделени папки по мрежата и подобни места "
-"по име"
-
-#: ../deskbar/handlers/volumes.py:50
+#: ../deskbar/handlers/programs.py:218
 #, python-format
-msgid "Open network place %s"
-msgstr "Отваряне в мрежата на %s"
+msgid "Execute %s"
+msgstr "Изпълняване на %s"
 
-#: ../deskbar/handlers/volumes.py:52
-#, python-format
-msgid "Open audio disk %s"
-msgstr "Отваряне на аудио диска %s"
+#: ../deskbar/handlers/web_address.py:12
+msgid "Open web pages and send emails by typing a complete address"
+msgstr "Отваряне на уеб страница и пращане на е-поща чрез въвеждане на пълен адрес"
 
-#: ../deskbar/handlers/web_address.py:11
-msgid "Open web pages by typing a complete web address"
-msgstr "Отваряне на уеб страница чрез пълния й уеб адрес"
-
-#: ../deskbar/handlers/web_address.py:38
+#: ../deskbar/handlers/web_address.py:40
 #, python-format
 msgid "Open the web page %s"
 msgstr "Отваряне на уеб страницата %s"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the location %s"
 msgstr "Отваряне на местоположението %s"
+
+#: ../deskbar/handlers/web_address.py:58
+#, python-format
+msgid "Send Email to %s"
+msgstr "Пращане на е-поща на %s"
 
 #: ../deskbar/handlers/yahoo.py:16
 msgid "Yahoo! Search"
@@ -684,18 +666,18 @@ msgstr "Търсене с Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "Претърсване на Yahoo! докато пишете"
 
-#: ../deskbar/ui/About.py:25
+#: ../deskbar/ui/About.py:24
 msgid "An all-in-one action bar."
 msgstr "Универсална лента."
 
-#: ../deskbar/ui/About.py:28
+#: ../deskbar/ui/About.py:27
 msgid "Deskbar Website"
 msgstr "Сайт на Deskbar"
 
 #. about.set_artists([])
 #. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
+#: ../deskbar/ui/About.py:35
 msgid "translator-credits"
 msgstr ""
 "Александър Шопов <ash@contact.bg>\n"
@@ -704,55 +686,21 @@ msgstr ""
 "Научете повече за нас на http://gnome.cult.bg\n"
 "Докладвайте за грешки на http://gnome.cult.bg/bugs"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:20
+#: ../deskbar/ui/DeskbarPreferencesUI.py:18
 msgid "New accelerator..."
 msgstr "Нов бърз клавиш..."
 
-#: ../deskbar/ui/ModuleListView.py:55
-msgid "Update Available"
-msgstr "Обновяване на наличните"
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
+msgid "Show search entry"
+msgstr "Показване на търсения елемент"
 
-#: ../deskbar/updater/NewStuffUpdater.py:288
-msgid "Extracting"
-msgstr "Извличане"
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+msgid "Show previously used actions"
+msgstr "Разпознаване на предишни действия"
 
-#: ../deskbar/updater/NewStuffUpdater.py:335
-#, python-format
-msgid "Updating %s"
-msgstr "Обновяване на %s"
-
-#: ../deskbar/updater/NewStuffUpdater.py:335
-msgid ""
-"The update is being downloaded from the internet. Please wait until the "
-"update is complete"
-msgstr ""
-"Обновяването се изтегля от Интернет. Изчакайте, докато изтеглянето приключи."
-
-#: ../deskbar/updater/NewStuffUpdater.py:336
-#: ../deskbar/updater/NewStuffUpdater.py:362
-msgid "Downloading"
-msgstr "Изтегляне"
-
-#: ../deskbar/updater/NewStuffUpdater.py:361
-#, python-format
-msgid "Installing %s"
-msgstr "Инсталиране на %s"
-
-#: ../deskbar/updater/NewStuffUpdater.py:361
-msgid ""
-"The handler is being downloaded from the internet. Please wait until the "
-"installation is complete"
-msgstr ""
-"Приставката се изтегля през Интернет. Изчакайте инсталацията да завърши."
-
-#. if __name__ == '__main__':
-#. #createXML()
-#. loader = ModuleLoader (deskbar.MODULES_DIRS)
-#. updater = Updater(loader)
-#. loader.connect ("module-loaded", updater.on_module_loaded)
-#. loader.load_all()
-#. updater.run()
-#. gtk.main()
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
 msgstr "<b>Търсачки</b>"
@@ -768,3 +716,48 @@ msgstr "Показване на всички налични търсачки"
 #: ../data/mozilla-search.glade.h:4
 msgid "Show only the primary search engine"
 msgstr "Показване само на основната търсачка"
+
+#: ../data/deskbar-applet.desktop.in.in.h:1
+msgid "Deskbar Applet"
+msgstr "Аплет Deskbar"
+
+#: ../data/deskbar-applet.desktop.in.in.h:2
+msgid "Desktop search"
+msgstr "Търсене от работния плот"
+
+#: ../data/deskbar-applet.desktop.in.in.h:3
+msgid "Search your computer and the internet quickly"
+msgstr "Лесно търсене в компютъра и по Интернет"
+
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
+msgid "<b>Search:</b>"
+msgstr "<b>Търсене:</b>"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:49
+msgid "_File"
+msgstr "_Файл"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:50
+msgid "_Quit"
+msgstr "_Спиране на програмата"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:51
+msgid "_Edit"
+msgstr "_Редактиране"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:54
+msgid "_View"
+msgstr "_Изглед"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:55
+msgid "_Help"
+msgstr "_Помощ"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:58
+msgid "_History"
+msgstr "_История"
+
+#. History TreeView
+#: ../deskbar/ui/window/CuemiacWindowUI.py:84
+msgid "<b>History</b>"
+msgstr "<b>История</b>"
