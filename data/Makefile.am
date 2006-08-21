@@ -37,9 +37,9 @@ deskbarbindir = $(libdir)/deskbar-applet
 #
 # Desktop file
 #
-desktopdir = $(datadir)/applications
-desktop_in_files = deskbar-applet.desktop.in 
-desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+#desktopdir = $(datadir)/applications
+#desktop_in_files = deskbar-applet.desktop.in 
+#desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
 # ******************************************************************************
 # Build rules
@@ -62,14 +62,14 @@ DISTCLEANFILES = \
 	$(schema_DATA) \
 	$(server_DATA) \
 	$(server_in_files) \
-	$(pkgconfig_DATA) \
-	$(desktop_DATA)
+	$(pkgconfig_DATA)
+#	$(desktop_DATA)
 
 EXTRA_DIST = \
 	$(schema_in_files) \
 	Deskbar_Applet.server.in.in \
-	deskbar-applet.desktop.in.in \
 	$(resources_DATA) \
 	$(pkgconfig_in_files)
+#	deskbar-applet.desktop.in.in \
 	
 	
