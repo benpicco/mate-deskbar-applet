@@ -169,7 +169,6 @@ deskbar/gdmclient/Makefile
 deskbar/evolution/Makefile
 deskbar/osutils/Makefile
 data/Makefile
-data/deskbar-applet.desktop.in
 data/deskbar-applet.pc
 data/art/Makefile
 po/Makefile.in

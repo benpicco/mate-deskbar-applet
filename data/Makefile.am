@@ -70,6 +70,6 @@ EXTRA_DIST = \
 	Deskbar_Applet.server.in.in \
 	$(resources_DATA) \
 	$(pkgconfig_in_files)
-#	deskbar-applet.desktop.in.in \
+#	deskbar-applet.desktop.in.in 
 	
 	
