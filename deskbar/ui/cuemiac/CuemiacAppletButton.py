@@ -11,6 +11,7 @@ class ToggleEventBox(gtk.EventBox):
 	def __init__(self):
 		gtk.EventBox.__init__(self)
 		self.active = False
+		self.set_visible_window(False)
 		self.connect('button-press-event', self.on_button_press)
 	
 	def on_button_press(self, widget, event):
