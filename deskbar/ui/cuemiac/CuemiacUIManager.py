@@ -317,10 +317,10 @@ class CuemiacUIManager (gobject.GObject) :
 		iter = None
 		if path != None:
 			iter = self.model.get_iter (path)
-			
-		if iter is None:
+		
+		if iter is None or self.model.iter_has_child(iter):
 			if self._orient in [gnomeapplet.ORIENT_DOWN, gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT]:
-				# No selection, select top element # FIXME do this
+				# No selection, select top element
 				iter = self.model.get_iter_first()
 				while iter != None and ((not self.model.iter_has_child(iter)) or (not self.cview.row_expanded(self.model.get_path(iter)))):
 					iter = self.model.iter_next(iter)

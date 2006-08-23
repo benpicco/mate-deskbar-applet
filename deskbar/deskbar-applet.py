@@ -77,9 +77,10 @@ $ deskbar-applet [OPTIONS]
 
 OPTIONS:
 	-h, --help		Print this help notice.
-	-w, --window		Launch the applet in a standalone window for test purposes (default=no).
-	-c, --cuemiac		Launch the Cuemiac UI (when in window mode) (default=no).
+	-w, --window	Launch the applet in a standalone window for test purposes (default=no).
+	-c, --cuemiac	Launch the Cuemiac UI (when in window mode) (default=no).
 	-p, --popup		Launch the Window UI (a window pops up when deskbar is activated via the shortcut Alt-F3) (default=no).
+	-t, --trace		Use tracing (default=no).
 	"""
 	sys.exit()
 	
@@ -87,9 +88,10 @@ if __name__ == "__main__":
 	standalone = False
 	cuemiac = False
 	popup_mode = False
+	do_trace = False
 	
 	try:
-		opts, args = getopt.getopt(sys.argv[1:], "hwcp", ["help", "window", "cuemiac","popup"])
+		opts, args = getopt.getopt(sys.argv[1:], "hwcpt", ["help", "window", "cuemiac","popup","trace"])
 	except getopt.GetoptError:
 		# Unknown args were passed, we fallback to bahave as if
 		# no options were passed
@@ -107,7 +109,15 @@ if __name__ == "__main__":
 		elif o in ("-p", "--popup"):
 			popup_mode = True
 			standalone = True
+		elif o in ("-t", "--trace"):
+			do_trace = True
 
+	print 'Running with options:', {
+		'standalone': standalone,
+		'do_trace': do_trace,
+		'cuemiac': cuemiac,
+		'popup_mode': popup_mode,
+	}
 	
 	if standalone:
 		if cuemiac:
@@ -120,7 +130,19 @@ if __name__ == "__main__":
 		import gnome
 		gnome.init(deskbar.defs.PACKAGE, deskbar.defs.VERSION)
 		build_window(popup_mode)
-		gtk.main()
+	
+		# run the new command using the given trace
+		if do_trace:
+			import trace
+			trace = trace.Trace(
+				ignoredirs=[sys.prefix],
+				ignoremods=['sys', 'os', 'getopt', 'libxml2', 'ltihooks'],
+				trace=True,
+				count=False)
+			trace.run('gtk.main()')
+		else:
+			gtk.main()
+		
 	else:
 		gnomeapplet.bonobo_factory(
 			"OAFIID:Deskbar_Applet_Factory",
