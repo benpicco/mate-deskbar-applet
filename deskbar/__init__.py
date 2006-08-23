@@ -90,6 +90,8 @@ GCONF_TYPINGDELAY = GCONF_DIR + "/typingdelay"
 GCONF_USE_SELECTION = GCONF_DIR + "/use_selection"
 # GConf key for global keybinding
 GCONF_KEYBINDING = GCONF_DIR + "/keybinding"
+# GConf key clear the entry after a search result has been selected
+GCONF_CLEAR_ENTRY = GCONF_DIR + "/clear_entry"
 
 # GConf key for UI name
 GCONF_UI_NAME = GCONF_DIR + "/ui_name"

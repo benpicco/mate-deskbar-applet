@@ -195,6 +195,9 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 	def get_view (self):
 		return self.cbutton
 		
+	def get_entry(self):
+		return self.cuemiac.get_entry()
+		
 	def set_sensitive (self, active):
 		self.cbutton.set_sensitive (active)
 		self.cbutton.button_main.set_sensitive (active)

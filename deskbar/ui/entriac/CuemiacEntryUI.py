@@ -131,6 +131,9 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 	def get_view (self):
 		return self.cuemiac.get_entry()
 		
+	def get_entry(self):
+		return self.cuemiac.get_entry()
+		
 	def set_sensitive (self, active):
 		self.cuemiac.get_entry().set_sensitive (active)
 			

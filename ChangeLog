@@ -1,5 +1,17 @@
 2006-08-23  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* data/deskbar-applet.schemas.in:
+	* deskbar/DeskbarApplet.py:
+	* deskbar/DeskbarAppletPreferences.py:
+	* deskbar/__init__.py:
+	* deskbar/ui/DeskbarUI.py:
+	* deskbar/ui/cuemiac/CuemiacButtonUI.py:
+	* deskbar/ui/entriac/CuemiacEntryUI.py:
+	Fixes bug #352007, add a hidden gconf pref to clear the entry after a
+	match has been selected. Patch by Sebastian Pölsterl <marduk@k-d-w.org>
+
+2006-08-23  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* data/Deskbar_Applet.server.in.in:
 	* deskbar/gtkexcepthook.py:
 	Add support for new bug-buddy in server file and in the exception hook

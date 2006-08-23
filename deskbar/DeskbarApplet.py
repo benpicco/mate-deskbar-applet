@@ -52,6 +52,11 @@ class DeskbarApplet:
 			self.typingdelay = 250
 		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_TYPINGDELAY, lambda x, y, z, a: self.on_typingdelay_changed (z.value))
 
+		self.clear_entry = deskbar.GCONF_CLIENT.get_bool(self.prefs.GCONF_CLEAR_ENTRY)
+		if self.clear_entry == None:
+			self.clear_entry = False
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_CLEAR_ENTRY, lambda x, y, z, a: self.on_clear_entry_changed (z.value))
+		
 		# Watch out for UI override from command line
 		if deskbar.UI_OVERRIDE:
 			ui_name = deskbar.UI_OVERRIDE
@@ -108,7 +113,14 @@ class DeskbarApplet:
 		self.on_stop_query()
 		match.action(text)
 		get_deskbar_history().add(text, match)
-		
+		if self.clear_entry:
+			gobject.idle_add(self.clear_entry)
+	
+	def clear_entry(self):
+		entry = self.ui.get_entry()
+		if entry ! None:
+			entry.set_text("")
+			
 	def on_start_query (self, sender, qstring):
 		if len(qstring) < self.minchars:
 			return
@@ -334,3 +346,8 @@ class DeskbarApplet:
 		self.applet.show_all ()
 		self.ui.set_sensitive(True)
 		print "Changing UI to:", value.get_string ()
+
+	def on_clear_entry_changed(self, value):
+		if value is None or value.type != gconf.VALUE_BOOL:
+			return
+		self.clear_entry = value.get_bool()

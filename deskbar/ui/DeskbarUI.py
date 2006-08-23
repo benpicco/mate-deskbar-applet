@@ -95,6 +95,14 @@ class DeskbarUI (gobject.GObject):
 		"""
 		raise NotImplementedError
 	
+	def get_entry (self):
+		"""
+		Return the widget to type the text into.
+
+		Usually, this is a gtk.Entry
+		"""
+		raise NotImplementedError
+	
 	def close_view(self):
 		"""
 		Closes every popup or window owned by the UI, because the ui is going to change
