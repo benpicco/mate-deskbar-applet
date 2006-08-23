@@ -1,4 +1,23 @@
 ======================
+deskbar-applet 2.15.92
+======================
+
+Changes:
+	* Fixes bug #352007, add a hidden gconf pref to clear the entry after a match has been selected. Patch by Sebastian Pölsterl <marduk@k-d-w.org>
+	* Add support for new bug-buddy in server file and in the exception hook show both bug buddy, and our normal error dialog. Patch by Rob Bradford <robster@debian.org>
+	* Fix bug #352005, less than two characters won't trigger the action with enter Add trace framework with -t to trace the program execution
+	* Fix #351504 "Applet background having different gray than panel". set_visible_window(False) on the event box of the button. Fix courtesy Sebastian Pölsterl.
+	* Close the About dialog when clicking on close
+	* Add new tango-style icons at various sizes made by Lapo Calamandrei <calamandrei@gmail.com>
+	* Fix the non-detection of gtk bookmarks starting like file:///something
+	* Bump requirements for libebook to 1.7.91 since changes have been made to EContactPhoto
+	* Selecting a two-line match (fx. a beagle news item) caused the lingering selection window two stay at the two-line size. Fix this - so that it resizes to fit the match.
+
+Contributors to this release: Nigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen, Sebastian Pölsterl
+
+Contributors to the translations: Kostas Papadimas, Vladimer Sichinava, Kjartan Maraas, Thierry Randrianiriana, Tommi Vainikainen, Hendrik Richter, Artur Flinta, Priit Laes, Žygimantas Beručka, Duarte Loreto, Theppitak Karoonboonyanan, Josep Puigdemont Casamajó, Øivind Hoel, Runa Bhattacharjee, Ilkka Tuohela, Gabor Kelemen, Ankit Patel, Rhys Jones, Jovan Naumovski, Amanpreet Singh Alam, Raphael Higino, ChaoHsiung Liao, Guntupalli Karunakar, Ignacio Casal Quinteiro, Rahul Bhalerao, Lukas Novotny, Nickolay V. Shmyrev, Rajesh Ranjan, Josep Puigdemont i Casamajó, Erdal Ronahi, Alessio Frusciante, Satoru SATOH, Christophe Merlet, Danilo Šegan, Yair Hershkovitz, Changwoo Ryu, Raivis Dejus, Ahmad Riza H Nst, Benoît Dejean, Marcel Telka, Leonid Kanter, Sanlig Badral, Wouter Bolsterlee, Pawan Chitrakar, Daniel Nylander, Vincent van Adrighem, Francisco Javier F. Serrador, Ales Nyakhaychyk, Funda Wang, Christian Rose, Takeshi AIHANA, Laurent Dhima, Clytie Siddall, Miloslav Trmac, Maxim Dziumanenko, Hendirk Brandt, Alexander Shopov, Baris Cicek, I. Felix, Adam Weinberger, Hendrik Brandt, Ole Laursen, Stanislav Brabec, Pema Geyleg, Slobodan D. Sredojevic, Kang JeongHee, Nikos Charonitakis
+
+======================
 deskbar-applet 2.15.91
 ======================
 

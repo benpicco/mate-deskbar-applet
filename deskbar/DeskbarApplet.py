@@ -28,6 +28,7 @@ class DeskbarApplet:
 		self._loaded_modules = 0
 		
 		self._match_hashes = {}
+		self.middle_click = None
 		
 		self.loader = ModuleLoader (deskbar.MODULES_DIRS)
 		self.loader.connect ("modules-loaded", self.on_modules_loaded)
