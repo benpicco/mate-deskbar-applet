@@ -118,7 +118,7 @@ class DeskbarApplet:
 	
 	def clear_entry(self):
 		entry = self.ui.get_entry()
-		if entry ! None:
+		if entry != None:
 			entry.set_text("")
 			
 	def on_start_query (self, sender, qstring):

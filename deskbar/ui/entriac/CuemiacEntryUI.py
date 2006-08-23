@@ -35,11 +35,17 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 			self.config_width = 20
 		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_WIDTH, lambda x, y, z, a: self.on_config_width(z.value))
 		
-		# Set and retreive expasoion settings
+		# Set and retreive expansion settings
 		self.config_expand = deskbar.GCONF_CLIENT.get_bool(self.prefs.GCONF_EXPAND)
 		if self.config_expand == None:
 			self.config_expand = False
 		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_EXPAND, lambda x, y, z, a: self.on_config_expand(z.value))
+		
+		# Set and retreive use selection settings
+		self.use_selection = deskbar.GCONF_CLIENT.get_bool(self.prefs.GCONF_USE_SELECTION)
+		if self.use_selection == None:
+			self.use_selection = True
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_USE_SELECTION, lambda x, y, z, a: self.on_use_selection(z.value))
 		
 		# Apply gconf values
 		self.sync_applet_size()
@@ -87,7 +93,11 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		if value != None and value.type == gconf.VALUE_BOOL:
 			self.config_expand = value.get_bool()
 			self.sync_applet_size()
-
+	
+	def on_use_selection(self, value=None):
+		if value != None and value.type == gconf.VALUE_BOOL:
+			self.use_selection = value.get_bool()
+	
 	def sync_applet_size(self):
 		if self.config_expand:
 			self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR | gnomeapplet.EXPAND_MAJOR)
@@ -120,7 +130,7 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		except AttributeError:
 			pass
 			
-		if deskbar.GCONF_CLIENT.get_bool(self.prefs.GCONF_USE_SELECTION):
+		if self.use_selection:
 			clipboard = gtk.clipboard_get(selection="PRIMARY")
 			if clipboard.wait_is_text_available():
 				self.cuemiac.get_entry().set_text(clipboard.wait_for_text())

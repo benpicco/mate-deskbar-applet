@@ -182,6 +182,10 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 		if not self.cbutton.button_main.get_active():
 			self.emit ("stop-query")
 		
+		clipboard = gtk.clipboard_get(selection="PRIMARY")
+		if clipboard.wait_is_text_available():
+			self.cuemiac.get_entry().set_text(clipboard.wait_for_text())
+		
 	def update_history_popup_state (self):
 		self.history_popup.popup ()
 		self.popup.hide ()
