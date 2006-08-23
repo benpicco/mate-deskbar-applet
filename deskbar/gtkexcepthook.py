@@ -3,17 +3,10 @@ import gtk, pango
 from gettext import gettext as _
 from cStringIO import *
 import traceback
-
-_exception_in_progress = 0
-
-def _info(type, value, tb):
-	global _exception_in_progress
-	if _exception_in_progress:
-		# Exceptions have piled up, so we use the default exception
-		# handler for such exceptions
-		_excepthook_save(type, value, tb)
-		return
-	_exception_in_progress = 1
+import tempfile
+import os
+		
+def fallback_gtk_exception(type, value, tb):
 	dialog = gtk.MessageDialog(parent=None,
 				   flags=0,
 				   type=gtk.MESSAGE_WARNING,
@@ -53,6 +46,31 @@ def _info(type, value, tb):
 	
 	dialog.run()
 	dialog.destroy()
+	
+def bug_buddy_exception(type, value, tb):
+	# Shamelessly stolen from /gnome-python/examples/bug-buddy-integration.py
+	# Original credit to Fernando Herrera
+	msg = "".join(traceback.format_exception(type, value, tb))
+	fd, name = tempfile.mkstemp()
+	try:
+		os.write(fd,msg)
+		os.system("bug-buddy --include=\"%s\" --appname=\"%s\"" % (name, "deskbar-applet"))
+	finally:
+		os.unlink(name)
+
+_exception_in_progress = 0
+def _info(type, value, tb):
+	global _exception_in_progress
+	if _exception_in_progress:
+		# Exceptions have piled up, so we use the default exception
+		# handler for such exceptions
+		_excepthook_save(type, value, tb)
+		return
+	_exception_in_progress = 1
+	
+	bug_buddy_exception(type, value, tb)
+	fallback_gtk_exception(type, value, tb)
+	
 	_exception_in_progress = 0
 	
 if not sys.stderr.isatty():
@@ -63,6 +81,6 @@ if not sys.stderr.isatty():
 if __name__ == '__main__':
 	_excepthook_save = sys.excepthook
 	sys.excepthook = _info
-	print x + 1
+	raise Exception
 
 	
