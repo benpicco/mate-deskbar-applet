@@ -30,6 +30,7 @@ class AccelEntry( gobject.GObject ):
 		self.entry.set_property('editable', False)
 		self.entry.connect('button-press-event', self.__on_button_press_event)
 		self.entry.connect('key-press-event', self.__on_key_press_event)
+		self.entry.connect('focus-out-event', self.__on_focus_out_event)
 
 		self.set_accelerator_name(accel_name)
 
@@ -122,8 +123,13 @@ class AccelEntry( gobject.GObject ):
 
 		accel_name = gtk.accelerator_name(accel_keyval, accel_mods)
 		self.set_accelerator(accel_keyval, event.hardware_keycode, accel_mods)
+		self.__old_value = None
 		self.emit('accel-edited', accel_name, accel_keyval, accel_mods, event.hardware_keycode)
 		return True
+
+	def __on_focus_out_event(self, entry, event):
+		if self.__old_value != None:
+			self.__cancel()
 
 	def __cancel(self):
 		self.set_accelerator_name(self.__old_value)
