@@ -1,3 +1,15 @@
+2006-08-26  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+	* deskbar/DeskbarApplet.py:
+	* deskbar/ui/cuemiac/CuemiacButtonUI.py:
+	* deskbar/ui/entriac/CuemiacEntryUI.py:
+	If the use_selection gconf key was set, the entriac would paste
+	the primary selection to the entry on left mouse click. This
+	should only happen on keyboard shortcut activation.
+	Move use_selection logic to DeskbarApplet.
+	This patch was based on work by Sebastian Pölsterl <marduk@k-d-w.org>.
+	This closes #346348 and #352595.
+
 2006-08-24  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
 	* deskbar/ui/DeskbarPreferencesUI.py:

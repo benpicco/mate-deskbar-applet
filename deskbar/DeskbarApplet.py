@@ -88,6 +88,12 @@ class DeskbarApplet:
 		# Set and retreive enabled handler list from gconf
 		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_ENABLED_HANDLERS, lambda x, y, z, a: self.on_config_handlers(z.value))
 		
+		# Set and retreive use selection settings
+		self.use_selection = deskbar.GCONF_CLIENT.get_bool(self.prefs.GCONF_USE_SELECTION)
+		if self.use_selection == None:
+			self.use_selection = True
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_USE_SELECTION, lambda x, y, z, a: self.on_use_selection(z.value))		
+
 		# Monitor global shortcut binding
 		get_deskbar_keybinder().connect('activated', self.on_keybinding_button_press)
 		
@@ -295,7 +301,14 @@ class DeskbarApplet:
 			
 	def on_keybinding_button_press(self, widget, time):
 		print 'Keybinding activated, focusing UI'
+		if self.use_selection:
+			clipboard = gtk.clipboard_get(selection="PRIMARY")
+			text = clipboard.wait_for_text()
+			if text:
+				self.ui.get_entry().set_text(text)
+				
 		self.ui.receive_focus(time)
+		self.ui.get_entry().select_region(0, -1)
 		
 	def on_history_item_selection (self, item, match, text):
 		pass
@@ -352,3 +365,8 @@ class DeskbarApplet:
 		if value is None or value.type != gconf.VALUE_BOOL:
 			return
 		self.clear_entry = value.get_bool()
+	
+	def on_use_selection(self, value=None):
+		if value != None and value.type == gconf.VALUE_BOOL:
+			self.use_selection = value.get_bool()
+	
