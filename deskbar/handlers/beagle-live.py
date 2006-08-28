@@ -165,9 +165,7 @@ class BeagleLiveMatch (deskbar.Match.Match):
 		action = TYPES[self.result["type"]]["action"]
 		if not callable(action) and action.startswith("beagle-imlogviewer"):
 			# Strip the uti descriptor, because imlogviewer takes a local path
-			self.result["uri"] = gnomevfs.get_local_path_from_uri(self.result["uri"])
-			# Escape text since we use '%(text)s' as parameter
-			self.result["text"] = self.result["text"].replace("'", "\\'")
+			self.result["uri"] = gnomevfs.get_local_path_from_uri(self.result["uri"])			
 		
 		# Load the correct icon
 		
@@ -195,6 +193,10 @@ class BeagleLiveMatch (deskbar.Match.Match):
 		
 	def get_name (self, text=None):
 		# We use the result dict itself to look up words
+		if text:
+			self.result["text"] = text
+			# Escape text since we use '%(text)s' as parameter
+			self.result["text"] = self.result["text"].replace("'", "\\'")
 		return self.result
 	
 	def get_verb(self):
@@ -202,6 +204,10 @@ class BeagleLiveMatch (deskbar.Match.Match):
 		return TYPES[self.result["type"]]["description"]
 		
 	def action(self, text=None):
+		# The call to get_name(text) ensures that we have
+		# the text field in the result dict
+		self.get_name(text)
+		
 		action = TYPES[self.result["type"]]["action"]
 		if callable(action):
 			print "BeagleLive url_show()", self.result
