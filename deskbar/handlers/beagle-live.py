@@ -291,14 +291,7 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 			"uri":  hit.get_uri(),
 			"type": hit.get_type(),
 		}
-		
-		if snippet != None:
-			tmp = re.sub(r"<.*?>", "", snippet)
-			tmp = re.sub(r"</.*?>", "", tmp)
-			result["snippet"] = "\n<span foreground='grey' size='small'>%s</span>" % cgi.escape(tmp)
-		else:
-			result["snippet"] = ""
-		
+			
 		name = None
 		for prop in hit_type["name"]:
 			try:
@@ -311,7 +304,7 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 					pass
 					
 			if name != None:
-				result["name"] = cgi.escape(name)
+				result["name"] = name
 				break
 		
 		if name == None:
@@ -333,18 +326,30 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 							pass
 							
 					if val != None:
-						if prop == "uri" or prop == "identifier":
-							result[prop] = val
-							result["escaped_"+prop] = cgi.escape(val)
-						else:
-							result[prop] = cgi.escape(val)
+						result[prop] = val
 						break
 					
 				if val == None:
 					#translators: This is used for unknown values returned by beagle
 					#translators: for example unknown email sender, or unknown note title
 					result[prop] = _("?")
-					
+		
+		# Escape everything for display through pango markup, except filenames. Filenames are escaped in escaped_uri or 
+		# escaped_identifier
+		for key, val in result.items():
+			if key == "uri" or key == "identifier":
+				result["escaped_"+key] = cgi.escape(val)
+			else:
+				result[key] = cgi.escape(val)
+		
+		# Add the snippet, in escaped form if available
+		if snippet != None:
+			tmp = re.sub(r"<.*?>", "", snippet)
+			tmp = re.sub(r"</.*?>", "", tmp)
+			result["snippet"] = "\n<span foreground='grey' size='small'>%s</span>" % cgi.escape(tmp)
+		else:
+			result["snippet"] = ""
+			
 		self.counter[qstring][hit.get_type()] = self.counter[qstring][hit.get_type()] +1
 
 		match = BeagleLiveMatch(self, result)

@@ -171,6 +171,7 @@ class DeskbarPreferencesUI:
 		container.add(self.moduleview)
 
 		self.default_info = self.glade.get_widget("default_info")
+		self.width_units = self.glade.get_widget("width_units")
 
 		self.other_info = gtk.HBox(spacing=6)
 		info_image = gtk.image_new_from_stock(gtk.STOCK_DIALOG_INFO, gtk.ICON_SIZE_BUTTON)
@@ -249,10 +250,10 @@ class DeskbarPreferencesUI:
 	def set_width_settings_sensitive(self, sensitive):
 		if sensitive and not self.expand:
 			self.width_spin.set_sensitive(True)
-			self.glade.get_widget("width_units").set_sensitive(True)
+			self.width_units.set_sensitive(True)
 		else:
 			self.width_spin.set_sensitive(False)
-			self.glade.get_widget("width_units").set_sensitive(False)
+			self.width_units.set_sensitive(False)
 			
 		self.use_all_width_radio.set_sensitive(sensitive)
 		self.fixed_width_radio.set_sensitive(sensitive)
