@@ -90,4 +90,10 @@ def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
 	if pixbuf != None and pixbuf.get_height() > height:
 		pixbuf = pixbuf.scale_simple(width, height, gtk.gdk.INTERP_BILINEAR)
 	return pixbuf
-	
+
+PATH = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip() != "" and exists(path) and isdir(path)]
+def is_program_in_path(program):
+	for path in PATH:
+		prog_path = join(path, program)
+		if exists(prog_path) and isfile(prog_path):
+			return True

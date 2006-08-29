@@ -7,7 +7,7 @@ import gobject
 import gtk
 import deskbar, deskbar.Indexer, deskbar.Utils
 import deskbar.Handler, deskbar.Match, deskbar.gnomedesktop
-from deskbar.Utils import get_xdg_data_dirs
+from deskbar.Utils import get_xdg_data_dirs, is_program_in_path
 
 HANDLERS = {
 	"ProgramsHandler" : {
@@ -224,7 +224,6 @@ class ProgramsHandler(deskbar.Handler.Handler):
 		
 	def initialize(self):
 		self._scan_desktop_files()
-		self._path = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip() != "" and exists(path) and isdir(path)]
 		
 	def query(self, query):
 		result = self.query_path_programs(query)
@@ -258,10 +257,8 @@ class ProgramsHandler(deskbar.Handler.Handler):
 		return None
 		
 	def _check_program(self, program):
-		for path in self._path:
-			prog_path = join(path, program)
-			if exists(prog_path) and isfile(prog_path):
-				return PathProgramMatch(self, program)	
+		if is_program_in_path(program):
+			return PathProgramMatch(self, program)	
 				
 	def _scan_desktop_files(self):
 		for dir in get_xdg_data_dirs():

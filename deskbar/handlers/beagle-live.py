@@ -4,6 +4,7 @@ import deskbar, deskbar.Handler, deskbar.Utils, deskbar.Match
 from gettext import gettext as _
 from os.path import exists
 from deskbar.defs import VERSION
+from deskbar.Utils import is_program_in_path
 
 MAX_RESULTS = 20 # per handler
 
@@ -19,8 +20,8 @@ def _show_start_beagle_dialog (dialog):
 				gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT)
 	
 	dialog.set_default_size (350, 150)
-	dialog.add_button (_("Start Beagle Daemon"), gtk.RESPONSE_ACCEPT)
 	dialog.add_button (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT)
+	dialog.add_button (_("Start Beagle Daemon"), gtk.RESPONSE_ACCEPT)
 	label = gtk.Label (_("The Beagle daemon does not appear to be running.\n You need to start it to use the Beagle Live handler."))
 	dialog.vbox.add (label)
 	label.show()
@@ -43,8 +44,11 @@ def _check_requirements():
 		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Could not load beagle, libbeagle has been compiled without python bindings:"+str(e), None)
 
 	# Check if beagled is running		
-	if not beagle.beagle_util_daemon_is_running () :
-		return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS, "Beagle daemon is not running.", _show_start_beagle_dialog)
+	if not beagle.beagle_util_daemon_is_running ():
+		if is_program_in_path("beagled"):
+			return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS, "Beagle daemon is not running.", _show_start_beagle_dialog)
+		else:
+			return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Beagled could not be found in your $PATH. Unable to start the beagled daemon", None)
 	else:
 		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	
