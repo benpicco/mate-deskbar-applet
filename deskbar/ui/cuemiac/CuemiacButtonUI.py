@@ -62,7 +62,6 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 		self.cuemiac_header = CuemiacHeader (self.cuemiac.get_entry())
 			
 		self.popup.add (self.box)
-		self.history_popup.add (self.cuemiac.get_history_view())
 
 		# Add the view and entry to self.box		
 		self.cuemiac.set_layout_by_orientation (applet.get_orient())
