@@ -30,7 +30,12 @@ class SuspendMatch(GpmMatch):
 		self._icon = deskbar.Utils.load_icon("gpm-suspend-to-ram.png")
 
 	def action(self, text=None):
-		self._gpm.Suspend()
+		try:
+			self._gpm.Suspend()
+		except dbus.DBusException:
+			# this will trigger a method timeout exception.
+			# As a workaround we swallow it silently
+			pass
 
 	def get_category(self):
 		return "actions"
@@ -44,7 +49,12 @@ class HibernateMatch(GpmMatch):
 		self._icon = deskbar.Utils.load_icon("gpm-suspend-to-disk.png")
 
 	def action(self, text=None):
-		self._gpm.Hibernate()
+		try:
+			self._gpm.Hibernate()
+		except dbus.DBusException:
+			# this will trigger a method timeout exception.
+			# As a workaround we swallow it silently
+			pass
 
 	def get_verb(self):
 		return _("Hibernate the machine")
@@ -55,7 +65,12 @@ class ShutdownMatch(GpmMatch):
 		self._icon = deskbar.Utils.load_icon(gtk.STOCK_QUIT) 
 
 	def action(self, text=None):
-		self._gpm.Shutdown()
+		try:
+			self._gpm.Shutdown()
+		except dbus.DBusException:
+			# this will trigger a method timeout exception.
+			# As a workaround we swallow it silently
+			pass
 
 	def get_verb(self):
 		return _("Shutdown the machine")
@@ -71,7 +86,12 @@ class LockScreenMatch(deskbar.Match.Match):
 		self._scrsvr = dbus.Interface (obj, "org.gnome.ScreenSaver")
 
 	def action(self, text=None):
-		self._scrsvr.Lock()
+		try:
+			self._scrsvr.Lock()
+		except dbus.DBusException:
+			# this will trigger a method timeout exception.
+			# As a workaround we swallow it silently
+			pass
 
 	def get_category(self):
 		return "actions"

@@ -47,7 +47,7 @@ if hasattr(locale, 'bind_textdomain_codeset'):
 	locale.bind_textdomain_codeset('deskbar-applet','UTF-8')
 locale.textdomain('deskbar-applet')
 
-import gtkexcepthook
+import deskbar.gtkexcepthook
 
 def applet_factory(applet, iid):
 	print 'Starting Deskbar instance:', applet, iid

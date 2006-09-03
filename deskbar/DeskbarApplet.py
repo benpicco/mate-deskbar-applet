@@ -121,9 +121,9 @@ class DeskbarApplet:
 		match.action(text)
 		get_deskbar_history().add(text, match)
 		if self.clear_entry:
-			gobject.idle_add(self.clear_entry)
+			gobject.idle_add(self.do_clear_entry)
 	
-	def clear_entry(self):
+	def do_clear_entry(self):
 		entry = self.ui.get_entry()
 		if entry != None:
 			entry.set_text("")

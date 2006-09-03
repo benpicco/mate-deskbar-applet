@@ -30,11 +30,9 @@ class CuemiacAlignedWindow (gtk.Window):
 		self.connect ("realize", lambda win : self.__register_realize ())
 		self.connect ("size-allocate", self.__resize_event)
 		
-	def __resize_event (self, event, data):
-		#self.update_position () # FIXME: I (kamstrup) commented this out
-					 # I just can't grok why we need it. It saves
-					 # us a bunch of calculations if we don't upd_pos.
-		pass
+	def __resize_event (self, widget, allocation):
+		# Update position, cause the size might have changed for the window
+		self.update_position ()
 	
 	def update_position (self):
 		"""

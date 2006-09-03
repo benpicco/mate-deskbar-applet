@@ -1,3 +1,31 @@
+
+========== Version 2.16.0 released ==========
+
+2006-09-03  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* configure.ac:
+	* deskbar/DeskbarApplet.py:
+	* deskbar/handlers/gdmactions.py:
+	* deskbar/ui/cuemiac/CuemiacAlignedWindow.py:
+	* deskbar/ui/cuemiac/CuemiacPopupEntry.py:
+	* deskbar/ui/cuemiac/CuemiacUIManager.py:
+	Bump to 2.16.0
+
+	Fix gdmactions' dbus method calls to not throw errors when returning from
+	a long sleep. Fixes dbus method call timeout
+
+	Fix positioning bug when the applet is on the right side, by recomputing
+	the position and size of the popup window after a resize-event
+
+	Fix the confusion between a method called self.clear_entry and an
+	attribute miscalled self.clear_entry
+
+	Attempt to fix the color of the result list by changing the wm hint. Works
+	only for some themes.
+
+	Fix a critical warning happening when displaying result list or pressing
+	enter on an empty entry
+
 2006-08-30  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
 	* deskbar/ui/cuemiac/CuemiacButtonUI.py:

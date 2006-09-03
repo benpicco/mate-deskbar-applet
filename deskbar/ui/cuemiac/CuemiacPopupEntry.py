@@ -47,6 +47,8 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 		self.popup_window.connect('key-press-event', self.on_popup_key_press)		
 		self.popup_window.connect('button-press-event', self.on_popup_button_press)
 		
+		self.popup_window.set_type_hint (gtk.gdk.WINDOW_TYPE_HINT_MENU)
+		
 		# Screen constants
 		self.screen_height = self.popup_window.get_screen().get_height ()
 		self.screen_width = self.popup_window.get_screen().get_width ()

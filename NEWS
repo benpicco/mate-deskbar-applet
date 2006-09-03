@@ -1,3 +1,23 @@
+=====================
+deskbar-applet 2.16.0
+=====================
+
+Changes:
+	* Fix gdmactions' dbus method calls to not throw errors when returning
+	* Fix positioning bug when the applet is on the right side, by recomputing the position and size of the popup window after a resize-event
+	* Fix the confusion between a method called self.clear_entry and an attribute miscalled self.clear_entry 
+	* Attempt to fix the color of the result list by changing the wm hint.
+	* Fix a critical warning happening when displaying result list or pressing enter on an empty entry
+	* Trivial fix to warning from the button ui. History view was added twice to the history-popup.
+	* Fix bug #352541 beagle-live handler having trouble finding escaped_uri in the result dictionary caused an exception to be thrown
+	* Fix the width_units problem in bug #352874
+	* Fixify the preferences dialog, to be prettier
+	* In beagle-live, check if we can find beagled in $PATH before offering to launch the daemon by ourselves.
+
+Contributors to this release: Raphael Slinckx, Mikkel Kamstrup Erlandsen
+
+Contributors to the translations: Kostas Papadimas, Vladimer Sichinava, Kjartan Maraas, Rajesh Ranjan, Tommi Vainikainen, Ilkka Tuohela, Artur Flinta, Priit Laes, Žygimantas Beručka, Duarte Loreto, Theppitak Karoonboonyanan, Inaki Larranaga, Øivind Hoel, Runa Bhattacharjee, Gintautas Miliauskas, Gabor Kelemen, Ankit Patel, Rhys Jones, Jovan Naumovski, Amanpreet Singh Alam, ChaoHsiung Liao, Guntupalli Karunakar, Ignacio Casal Quinteiro, Rahul Bhalerao, Takeshi AIHANA, Lukas Novotny, Funda Wang, Thierry Randrianiriana, Josep Puigdemont i Casamajó, Erdal Ronahi, Alessio Frusciante, Satoru SATOH, Christophe Merlet, Danilo Šegan, Yair Hershkovitz, Changwoo Ryu, Ahmad Riza H Nst, Hendrik Richter, Benoît Dejean, Khandakar Mujahidul Islam, Laurent Dhima, Sanlig Badral, Wouter Bolsterlee, Pawan Chitrakar, Daniel Nylander, Vincent van Adrighem, Clytie Siddall, Ales Nyakhaychyk, Kang JeongHee, Leonid Kanter, Raphael Higino, Christian Rose, Josep Puigdemont Casamajó, Francisco Javier F. Serrador, Marcel Telka, Raivis Dejus, Miloslav Trmac, Maxim Dziumanenko, Subhransu Behera, Hendirk Brandt, Alexander Shopov, Baris Cicek, I. Felix, Adam Weinberger, Matic Zgur, Hendrik Brandt, Ole Laursen, Stanislav Brabec, Pema Geyleg, Slobodan D. Sredojevic, Nickolay V. Shmyrev, Nikos Charonitakis
+
 ========================
 deskbar-applet 2.15.92.1
 ========================

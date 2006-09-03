@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 2.15.93, raphael@slinckx.net)
+AC_INIT(deskbar-applet, 2.16.0, raphael@slinckx.net)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
@@ -48,7 +48,7 @@ dnl ****************************************************************************
 AC_SUBST(VERSION)
 AC_SUBST(PACKAGE)
 
-AS_AC_EXPAND(DATADIR, $datadir)
+AS_AC_EXPAND(DATADIR, $datarootdir)
 AC_SUBST(DATADIR)
 
 AS_AC_EXPAND(LIBDIR, $libdir)

@@ -329,8 +329,9 @@ class CuemiacUIManager (gobject.GObject) :
 
 			else:
 				# We are on a bottom panel - select the bottom element in the list 
-				#FIXME: Should we iterate backwards up the list if the hit is a category?
-				iter = self.model.get_iter (self.cview.last_visible_path())
+				last_path = self.cview.last_visible_path()
+				if last_path:
+					iter = self.model.get_iter (last_path)
 
 		if iter is None:
 			return
