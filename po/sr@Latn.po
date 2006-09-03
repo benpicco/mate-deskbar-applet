@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-11 17:05+0100\n"
-"PO-Revision-Date: 2006-03-11 17:07+0100\n"
-"Last-Translator: Slobodan D. Sredojević <slobo@akrep.be>\n"
+"POT-Creation-Date: 2006-09-03 17:38+0200\n"
+"PO-Revision-Date: 2006-09-02 17:26+0200\n"
+"Last-Translator: Goran Rakić <grakic@devbase.net>\n"
 "Language-Team: Serbian (sr) <gnom@prevod.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,26 +18,25 @@ msgstr ""
 "Plural-Forms: nplurals=3;    plural=n%10==1 && n%100!=11 ? 0 :    n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-# bug(slobo): grub prevod, nisam mogao isprobati...treba proveriti ...
 # note(slobo): koristio sam prevod Čarobna linija, rasprava na dopisnoj 
 # vezano za imena programa ide uskoro
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
-msgstr "Čarobna linija za sve"
+msgstr "Svemoguća čarobna linija"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:21
 msgid "Deskbar"
 msgstr "Čarobna linija"
 
-#: ../data/Deskbar_Applet.xml.h:1
+#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
 msgstr "_O programu"
 
-#: ../data/Deskbar_Applet.xml.h:2
+#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
 msgid "_Clear History"
 msgstr "Očisti istori_ju"
 
-#: ../data/Deskbar_Applet.xml.h:3
+#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
 msgid "_Preferences"
 msgstr "_Postavke"
 
@@ -50,14 +49,10 @@ msgid "<b>Layout</b>"
 msgstr "<b>Izgled</b>"
 
 #: ../data/prefs-dialog.glade.h:3
-msgid "<b>Loaded Extensions</b>"
-msgstr "<b>Učitana proširenja</b>"
-
-#: ../data/prefs-dialog.glade.h:4
 msgid "<b>Width</b>"
 msgstr "<b>Širina</b>"
 
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:4
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
@@ -65,25 +60,29 @@ msgstr ""
 "<i><small><b>Napomena:</b> Za promenu redosleda odvucite i otpustite to "
 "proširenje.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:5
 msgid "Button in panel"
 msgstr "Dugme na panelu"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:6
 msgid "Deskbar Preferences"
 msgstr "Postavke čarobne linije"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:7
 msgid "Entry in panel"
 msgstr "Stavka na panelu"
+
+#: ../data/prefs-dialog.glade.h:8
+msgid "Extensions"
+msgstr "Proširenja"
 
 #: ../data/prefs-dialog.glade.h:9
 msgid "Fixed _width:"
 msgstr "Utvrđena ši_rina:"
 
 #: ../data/prefs-dialog.glade.h:10
-msgid "Searches"
-msgstr "Pretrage"
+msgid "Search selection when triggering the shortcut"
+msgstr "Traži odabrano po pritisku prečice na tastaturi"
 
 #: ../data/prefs-dialog.glade.h:11
 msgid "Use _all available space"
@@ -98,6 +97,10 @@ msgid "_Keyboard shortcut to focus:"
 msgstr "Prečica na tastat_uri za žižu:"
 
 #: ../data/prefs-dialog.glade.h:14
+msgid "_More..."
+msgstr "_Više..."
+
+#: ../data/prefs-dialog.glade.h:15
 msgid "characters"
 msgstr "znaci"
 
@@ -125,115 +128,91 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Prečice za prethodno obeležene pretrage"
 
-#: ../deskbar/BrowserMatch.py:30 ../deskbar/handlers/beagle-live.py:121
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:144
 #, python-format
 msgid "Open History Item %s"
 msgstr "Otvori stavku u istoriji %s"
 
-#: ../deskbar/BrowserMatch.py:32
+#: ../deskbar/BrowserMatch.py:48
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Otvori obeleživač %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:81
+#: ../deskbar/BrowserMatch.py:97
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Uz pomoć pretraživača <b>%(name)s</b> traži <i>%(text)s</i>"
 
-#: ../deskbar/BrowserMatch.py:187
+#: ../deskbar/BrowserMatch.py:206
 msgid "Shortcut"
 msgstr "Prečica"
 
-#: ../deskbar/BrowserMatch.py:195
+#: ../deskbar/BrowserMatch.py:214
 msgid "Bookmark Name"
 msgstr "Ime obeleživača"
 
-#: ../deskbar/Categories.py:4
-#, python-format
-msgid "%s more result"
-msgid_plural "%s more results"
-msgstr[0] "još %s rezultat"
-msgstr[1] "još %s rezultata"
-msgstr[2] "još %s rezultata"
-
-#: ../deskbar/Categories.py:9
+#: ../deskbar/Categories.py:7
 msgid "Uncategorized"
 msgstr "Bez kategorije"
 
-#: ../deskbar/Categories.py:14 ../deskbar/handlers/history.py:8
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
 msgid "History"
 msgstr "Istorija"
 
-#: ../deskbar/Categories.py:26
+#: ../deskbar/Categories.py:15
 msgid "Documents"
 msgstr "Dokumenti"
 
-#: ../deskbar/Categories.py:27
-#, python-format
-msgid "%s more document"
-msgid_plural "%s more documents"
-msgstr[0] "još %s dokument"
-msgstr[1] "još %s dokumenta"
-msgstr[2] "još %s dokumenata"
+#: ../deskbar/Categories.py:18
+msgid "Emails"
+msgstr "E-poruke"
 
-#: ../deskbar/Categories.py:31
+#: ../deskbar/Categories.py:21
+msgid "Conversations"
+msgstr "Razgovori"
+
+#: ../deskbar/Categories.py:24
 msgid "Files"
 msgstr "Datoteke"
 
-#: ../deskbar/Categories.py:32
-#, python-format
-msgid "%s more file"
-msgid_plural "%s more files"
-msgstr[0] "još %s datoteka"
-msgstr[1] "još %s datoteke"
-msgstr[2] "još %s datoteka"
-
-#: ../deskbar/Categories.py:36
+#: ../deskbar/Categories.py:27
 msgid "People"
 msgstr "Ljudi"
 
-#: ../deskbar/Categories.py:41
+#: ../deskbar/Categories.py:30
 msgid "Places"
 msgstr "Mesta"
 
-#: ../deskbar/Categories.py:42
-#, python-format
-msgid "%s more place"
-msgid_plural "%s more places"
-msgstr[0] "još %s mesto"
-msgstr[1] "još %s mesta"
-msgstr[2] "još %s mesta"
-
-#: ../deskbar/Categories.py:46
+#: ../deskbar/Categories.py:33
 msgid "Actions"
 msgstr "Radnje"
 
-#: ../deskbar/Categories.py:47
-#, python-format
-msgid "%s more action"
-msgid_plural "%s more actions"
-msgstr[0] "još %s radnja"
-msgstr[1] "još %s radnje"
-msgstr[2] "još %s radnji"
-
-#: ../deskbar/Categories.py:51 ../deskbar/handlers/web_address.py:9
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
 msgid "Web"
 msgstr "Veb"
 
-#: ../deskbar/Categories.py:56
+#: ../deskbar/Categories.py:39
 msgid "Web Search"
 msgstr "Pretraga veba"
 
-#: ../deskbar/DeskbarHistory.py:53
+#: ../deskbar/Categories.py:42
+msgid "News"
+msgstr "Vesti"
+
+#: ../deskbar/Categories.py:45
+msgid "Notes"
+msgstr "Beleške"
+
+#: ../deskbar/DeskbarHistory.py:37
 msgid "No History"
 msgstr "Ne postoji istorija"
 
-#: ../deskbar/gtkexcepthook.py:21
+#: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "Otkrivena je greška u programu"
 
-#: ../deskbar/gtkexcepthook.py:22
+#: ../deskbar/gtkexcepthook.py:15
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
@@ -241,125 +220,162 @@ msgstr ""
 "Verovatno nije opasna no i pored toga bi je trebalo prijaviti programerima. "
 "U daljem radu program može odstupati od uobičajenog ponašanja."
 
-#: ../deskbar/gtkexcepthook.py:24
+#: ../deskbar/gtkexcepthook.py:17
 msgid "Bug Detected"
 msgstr "Otkrivena je greška"
 
-#: ../deskbar/handlers/beagle-live.py:35
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Start Beagle Daemon?"
+msgstr "Pokreni uslužni program psa njuškala"
+
+#: ../deskbar/handlers/beagle-live.py:24
+msgid "Start Beagle Daemon"
+msgstr "Pokreni uslužni program psa njuškala"
+
+#: ../deskbar/handlers/beagle-live.py:25
+msgid ""
+"The Beagle daemon does not appear to be running.\n"
+" You need to start it to use the Beagle Live handler."
+msgstr ""
+"Izgleda da uslužni program psa njuškala nije pokrenut.\n"
+" Morate ga pokrenuti ako želite da koristite Živo njuškalo."
+
+#: ../deskbar/handlers/beagle-live.py:57
 msgid "Beagle Live"
 msgstr "Živo njuškalo"
 
-#: ../deskbar/handlers/beagle-live.py:36
+#: ../deskbar/handlers/beagle-live.py:58
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Kako kucate, pas njuškalo vam pomaže da pretražite sve vaše dokumente"
 
-#: ../deskbar/handlers/beagle-live.py:63
-#: ../deskbar/handlers/email_address.py:27
+#: ../deskbar/handlers/beagle-live.py:86
 #, python-format
-msgid "Send Email to %s"
-msgstr "Pošalji e-poruku za %s"
+msgid "Edit contact %s"
+msgstr "Izmeni kontakt %s"
 
-#. translators: First %s is mail sender, second %s is mail subject.
-#: ../deskbar/handlers/beagle-live.py:73
+#: ../deskbar/handlers/beagle-live.py:95
 #, python-format
-msgid "Email from %s"
-msgstr "E-poruku šalje %s"
+msgid "From %s"
+msgstr "Od %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:81 ../deskbar/handlers/files.py:35
+#: ../deskbar/handlers/beagle-live.py:103 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "Otvori datoteku %s"
 
-#: ../deskbar/handlers/beagle-live.py:89
+#: ../deskbar/handlers/beagle-live.py:111
 #, python-format
 msgid "News from %s"
 msgstr "Vest sa %s"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:120
 #, python-format
 msgid "Note: %s"
 msgstr "Beleška: %s"
 
-#: ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/handlers/beagle-live.py:129
 #, python-format
-msgid "Conversation with %s"
-msgstr "Razgovor sa %s"
+msgid "With %s"
+msgstr "Sa %s"
 
-#: ../deskbar/handlers/beagle-live.py:114
+#: ../deskbar/handlers/beagle-live.py:137
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalendar: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:289
-#: ../deskbar/handlers/beagle-live.py:311
+#: ../deskbar/handlers/beagle-live.py:313
+#: ../deskbar/handlers/beagle-live.py:335
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-static.py:19
+#: ../deskbar/handlers/beagle-static.py:20
 msgid "Beagle"
 msgstr "Pas njuškalo"
 
-#: ../deskbar/handlers/beagle-static.py:20
+#: ../deskbar/handlers/beagle-static.py:21
 msgid "Search all of your documents (using Beagle)"
 msgstr "Pretražuje sve vaše dokumente (uz pomoć njuškala)"
 
-#: ../deskbar/handlers/beagle-static.py:36
+#: ../deskbar/handlers/beagle-static.py:38
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Neka njuškalo traži %s"
 
-#: ../deskbar/handlers/email_address.py:9
-msgid "Mail"
-msgstr "Pošta"
+#: ../deskbar/handlers/desklicious.py:16
+msgid "You need to configure your del.icio.us account."
+msgstr "Morate podesiti del.icio.us nalog"
 
-#: ../deskbar/handlers/email_address.py:10
-msgid "Send mail by typing a complete e-mail address"
-msgstr "Šalje e-poruku kada ukucate potpunu adresu e-pošte"
+#: ../deskbar/handlers/desklicious.py:18
+msgid "You can modify your del.icio.us account."
+msgstr "Možete izmeniti del.icio.us nalog"
 
-#: ../deskbar/handlers/epiphany.py:26
+#
+#: ../deskbar/handlers/desklicious.py:22
+msgid "del.icio.us Bookmarks"
+msgstr "Veb obeleživači na del.icio.us"
+
+#: ../deskbar/handlers/desklicious.py:23
+msgid "Search your del.icio.us bookmarks by tag name"
+msgstr "Otvara vaše veb obeleževače na del.icio.us po naznaci"
+
+#: ../deskbar/handlers/desklicious.py:30
+msgid "del.icio.us Account"
+msgstr "del.icio.us nalog"
+
+#: ../deskbar/handlers/desklicious.py:37
+msgid "Enter your del.icio.us username below"
+msgstr "Unesite korisničko ime za del.icio.us ispod"
+
+#: ../deskbar/handlers/desklicious.py:43
+msgid "Username: "
+msgstr "Korisničko ime: "
+
+#: ../deskbar/handlers/epiphany.py:27
 msgid "You can set shortcuts for your searches."
 msgstr "Možete postaviti prečice za vaše pretrage."
 
-#: ../deskbar/handlers/epiphany.py:32 ../deskbar/handlers/galeon.py:21
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
+#: ../deskbar/handlers/mozilla.py:129
 msgid "Web Bookmarks"
 msgstr "Veb obeleživači"
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:22
-#: ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
+#: ../deskbar/handlers/mozilla.py:130
 msgid "Open your web bookmarks by name"
 msgstr "Otvara vaše veb obeleževače po imenu"
 
-#: ../deskbar/handlers/epiphany.py:37 ../deskbar/handlers/galeon.py:26
+#: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
+#: ../deskbar/handlers/mozilla.py:141
 msgid "Web History"
 msgstr "Veb istorija"
 
-#: ../deskbar/handlers/epiphany.py:38 ../deskbar/handlers/galeon.py:27
+#: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/mozilla.py:142
 msgid "Open your web history by name"
 msgstr "Otvara vašu veb istoriju po imenu"
 
-#: ../deskbar/handlers/epiphany.py:42 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:125
+#: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
+#: ../deskbar/handlers/mozilla.py:135
 msgid "Web Searches"
 msgstr "Pretrage veba"
 
-#: ../deskbar/handlers/epiphany.py:43 ../deskbar/handlers/galeon.py:32
-#: ../deskbar/handlers/mozilla.py:126
+#: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
+#: ../deskbar/handlers/mozilla.py:136
 msgid "Search the web via your browser's search settings"
 msgstr "Pretražuje veb koristeći podešavanja vašeg veb preglednika"
 
-#: ../deskbar/handlers/evolution.py:11
+#: ../deskbar/handlers/evolution.py:12
 msgid "You need to enable autocomplete in your mail preferences"
 msgstr "Morate uključiti samodopunu u postavkama pošte"
 
-#: ../deskbar/handlers/evolution.py:13
+#: ../deskbar/handlers/evolution.py:15
 msgid "Autocompletion Needs to be Enabled"
 msgstr "Samodopuna mora da bude uključena"
 
-#: ../deskbar/handlers/evolution.py:14
+#: ../deskbar/handlers/evolution.py:16
 msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
@@ -369,36 +385,123 @@ msgstr ""
 "samodopunu. Za ovo, u meniju vašeg programa za e-poštu izaberite redom "
 "stavke Uređivanje —> Postavke —> Samodopuna."
 
-#: ../deskbar/handlers/evolution.py:19
+#: ../deskbar/handlers/evolution.py:21
 msgid "Mail (Address Book)"
 msgstr "Pošta (Imenik)"
 
-#: ../deskbar/handlers/evolution.py:20
+#: ../deskbar/handlers/evolution.py:22
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Šalje e-poruku nekome iz imenika kucanjem njenog(njegovog) imena ili adrese e-"
 "pošte"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:45
+#: ../deskbar/handlers/evolution.py:48
 #, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Poruku prima <b>%(name)s</b> čija je adresa e-pošte (%(email)s)"
 
-#: ../deskbar/handlers/files.py:16
-msgid "Files and Folders"
-msgstr "Datoteke i fascikle"
-
 #: ../deskbar/handlers/files.py:17
-msgid "Open your files and folders by name"
-msgstr "Po imenu otvara vaše datoteke i fascikle"
+msgid "Files, Folders and Places"
+msgstr "Datoteke, fascikle i mesta"
 
-#: ../deskbar/handlers/files.py:54
+#: ../deskbar/handlers/files.py:18
+msgid "View your files, folders, bookmarks, drives, network places by name"
+msgstr ""
+"Otvara vaše datoteke, fascikle, obeleživače, diskove i mesta na mreži po "
+"imenu"
+
+#: ../deskbar/handlers/files.py:68
 #, python-format
 msgid "Open folder %s"
 msgstr "Otvori fasciklu %s"
 
-#: ../deskbar/handlers/google-live.py:19
+#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#, python-format
+msgid "Open location %s"
+msgstr "Otvori mesto %s"
+
+#: ../deskbar/handlers/files.py:114
+#, python-format
+msgid "Open network place %s"
+msgstr "Otvori mrežno mesto %s"
+
+#: ../deskbar/handlers/files.py:116
+#, python-format
+msgid "Open audio disc %s"
+msgstr "Otvori nosač zvuka %s"
+
+#: ../deskbar/handlers/gdmactions.py:10
+msgid "Computer Actions"
+msgstr "Sistemske komande"
+
+#: ../deskbar/handlers/gdmactions.py:11
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr ""
+"Odjavi se, ugasi, ponovo pokreni, privremeno zaustavi sistem i slične "
+"komande."
+
+#: ../deskbar/handlers/gdmactions.py:39
+msgid "Suspend the machine"
+msgstr "Privremeno zaustavi računar"
+
+#: ../deskbar/handlers/gdmactions.py:50
+msgid "Hibernate the machine"
+msgstr "Uspavaj računar"
+
+#: ../deskbar/handlers/gdmactions.py:61
+msgid "Shutdown the machine"
+msgstr "Ugasi računar"
+
+#: ../deskbar/handlers/gdmactions.py:80
+msgid "Lock the screen"
+msgstr "Zaključaj ekran"
+
+#: ../deskbar/handlers/gdmactions.py:106
+msgid "Shut Down"
+msgstr "Ugasi"
+
+#: ../deskbar/handlers/gdmactions.py:113
+msgid "Turn off the computer"
+msgstr "Ugasi računar"
+
+#: ../deskbar/handlers/gdmactions.py:117
+msgid "Log Out"
+msgstr "Odjavi se"
+
+#: ../deskbar/handlers/gdmactions.py:124
+msgid "Log out"
+msgstr "Odjavi se"
+
+#: ../deskbar/handlers/gdmactions.py:128
+msgid "Restart"
+msgstr "Ponovo pokreni"
+
+#: ../deskbar/handlers/gdmactions.py:135
+msgid "Restart the computer"
+msgstr "Ponovo pokreni računar"
+
+#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+msgid "Switch User"
+msgstr "Promeni korisnika"
+
+#: ../deskbar/handlers/gdmactions.py:165
+msgid "Lock"
+msgstr "Zaključaj"
+
+#: ../deskbar/handlers/gdmactions.py:176
+msgid "Suspend"
+msgstr "Privremeno zaustavi"
+
+#: ../deskbar/handlers/gdmactions.py:178
+msgid "Hibernate"
+msgstr "Zamrzni"
+
+#: ../deskbar/handlers/gdmactions.py:180
+msgid "Shutdown"
+msgstr "Ugasi"
+
+#: ../deskbar/handlers/google-live.py:20
 msgid ""
 "You need a Google account to use Google Live.  To get one, go to http://api."
 "google.com/\n"
@@ -436,63 +539,54 @@ msgstr ""
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
-#: ../deskbar/handlers/google-live.py:32
+#: ../deskbar/handlers/google-live.py:33
 msgid "Setting Up Google Live"
 msgstr "Postavljanje Gugl uživo usluge"
 
-#: ../deskbar/handlers/google-live.py:38
+#: ../deskbar/handlers/google-live.py:39
 msgid "You need to install the SOAPpy python module."
 msgstr "Morate instalirati SOAPpy Piton modul"
 
-#: ../deskbar/handlers/google-live.py:40
+#: ../deskbar/handlers/google-live.py:41
 msgid "You need the Google WSDL file."
 msgstr "Potrebna vam je Google WSDL datoteka."
 
-#: ../deskbar/handlers/google-live.py:42
+#: ../deskbar/handlers/google-live.py:43
 msgid "You need a Google API key."
 msgstr "Potreban vam je Gugl API ključ."
 
-#: ../deskbar/handlers/google-live.py:48
+#: ../deskbar/handlers/google-live.py:49
 msgid "Google Search"
 msgstr "Gugl pretraga"
 
-#: ../deskbar/handlers/google-live.py:49
+#: ../deskbar/handlers/google-live.py:50
 msgid "Search Google as you type"
 msgstr "Pretražuje Gugl dok vi kucate"
 
-#: ../deskbar/handlers/gtkbookmarks.py:12
-msgid "Files and Folders Bookmarks"
-msgstr "Obeleživači datoteka i fascikli"
-
-#: ../deskbar/handlers/gtkbookmarks.py:13
-msgid "Open your files and folders bookmarks by name"
-msgstr "Otvara vaše obeleživače datoteka i fascikli po imenu"
-
-#: ../deskbar/handlers/gtkbookmarks.py:31 ../deskbar/handlers/volumes.py:48
-#, python-format
-msgid "Open location %s"
-msgstr "Otvori mesto %s"
-
-#: ../deskbar/handlers/history.py:9
+#: ../deskbar/handlers/history.py:10
 msgid "Recognize previously used searches"
 msgstr "Prepoznaj prethodno korišćene pretrage"
 
-#: ../deskbar/handlers/mozilla.py:111
+#: ../deskbar/handlers/iswitch-window.py:11
+msgid "Window Switcher"
+msgstr "Prebacivač prozora"
+
+#: ../deskbar/handlers/iswitch-window.py:12
+msgid "Switch to an existing window by name."
+msgstr "Prebaci se na postojeći prozor po imenu."
+
+#: ../deskbar/handlers/iswitch-window.py:16
+msgid "Windows"
+msgstr "Prozori"
+
+#: ../deskbar/handlers/iswitch-window.py:32
+#, python-format
+msgid "Switch to <b>%(name)s</b>"
+msgstr "Prebaci se na <b>%(name)s</b>"
+
+#: ../deskbar/handlers/mozilla.py:120
 msgid "You can customize which search engines are offered."
 msgstr "Možete da prilagodite ponudu sistema za pretragu."
-
-#: ../deskbar/handlers/pathprograms.py:14
-msgid "Programs (Advanced)"
-msgstr "Programi (napredno)"
-
-#: ../deskbar/handlers/pathprograms.py:15
-msgid "Launch any program present in your $PATH"
-msgstr "Pokreće bilo koji program prisutan u prom. okruženja $PATH"
-
-#: ../deskbar/handlers/pathprograms.py:60
-#, python-format
-msgid "Execute %s"
-msgstr "Izvrši %s"
 
 #: ../deskbar/handlers/programs.py:14
 msgid "Programs"
@@ -502,70 +596,75 @@ msgstr "Programi"
 msgid "Launch a program by its name and/or description"
 msgstr "Pokreće neki program po njegovom imenu i(ili) opisu"
 
-#: ../deskbar/handlers/programs.py:18
+#: ../deskbar/handlers/programs.py:19
 msgid "Dictionary"
 msgstr "Rečnik"
 
-#: ../deskbar/handlers/programs.py:19
+#: ../deskbar/handlers/programs.py:20
 msgid "Look up word definitions in the dictionary"
 msgstr "Traži definiciju reči u rečniku"
 
-#: ../deskbar/handlers/programs.py:22
+#: ../deskbar/handlers/programs.py:24
 msgid "Files and Folders Search"
 msgstr "Pretraga datoteka i fascikli"
 
-#: ../deskbar/handlers/programs.py:23
+#: ../deskbar/handlers/programs.py:25
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Pretražuje datoteke i fascikle tražeći uzorak imena"
 
+#: ../deskbar/handlers/programs.py:29
+msgid "Developer Documentation"
+msgstr "Dokumentacija za programere"
+
+#: ../deskbar/handlers/programs.py:30
+msgid "Search Devhelp for a function name"
+msgstr "Traži funkciju po imenu u Pomoći za programere"
+
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:72
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Pokreni program <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:86
+#: ../deskbar/handlers/programs.py:98
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Potraži termin %s u rečniku"
 
-#: ../deskbar/handlers/programs.py:94
+#: ../deskbar/handlers/programs.py:106
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Pretraži datoteke koje u imenu imaju reč %s"
 
-#: ../deskbar/handlers/volumes.py:16
-msgid "Disks and Network Places"
-msgstr "Diskovi i mrežna mesta"
-
-#: ../deskbar/handlers/volumes.py:17
-msgid "Open disk drives, shared network places and similar resources by name"
-msgstr "Otvara disk uređaje, mrežna mesta sa deljenim podacima ili slično"
-
-#: ../deskbar/handlers/volumes.py:44
+#: ../deskbar/handlers/programs.py:114
 #, python-format
-msgid "Open network place %s"
-msgstr "Otvori mrežno mesto %s"
+msgid "Search in Devhelp for %s"
+msgstr "Traži %s u Pomoći za programere"
 
-#: ../deskbar/handlers/volumes.py:46
+#: ../deskbar/handlers/programs.py:218
 #, python-format
-msgid "Open audio disk %s"
-msgstr "Pusti muziku sa nosača zvuka %s"
+msgid "Execute %s"
+msgstr "Izvrši %s"
 
-#: ../deskbar/handlers/web_address.py:10
-msgid "Open web pages by typing a complete web address"
-msgstr "Otvara veb stranu kada ukucate punu adresu"
+#: ../deskbar/handlers/web_address.py:12
+msgid "Open web pages and send emails by typing a complete address"
+msgstr "Otvara veb stranu i šalje epoštu kada ukucate punu adresu"
 
-#: ../deskbar/handlers/web_address.py:36
+#: ../deskbar/handlers/web_address.py:40
 #, python-format
 msgid "Open the web page %s"
 msgstr "Otvori veb stranu %s"
 
-#: ../deskbar/handlers/web_address.py:38
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the location %s"
 msgstr "Otvori mesto %s"
+
+#: ../deskbar/handlers/web_address.py:58
+#, python-format
+msgid "Send Email to %s"
+msgstr "Pošalji e-poruku za %s"
 
 #: ../deskbar/handlers/yahoo.py:16
 msgid "Yahoo! Search"
@@ -575,27 +674,39 @@ msgstr "Jahu pretraga"
 msgid "Search Yahoo! as you type"
 msgstr "Pretražuje Jahu dok vi kucate"
 
-#: ../deskbar/ui/About.py:25
+#: ../deskbar/ui/About.py:24
 msgid "An all-in-one action bar."
 msgstr "Čarobna linija za sve"
 
-#: ../deskbar/ui/About.py:28
+#: ../deskbar/ui/About.py:27
 msgid "Deskbar Website"
 msgstr "Internet strana Čarobne linije"
 
 #. about.set_artists([])
 #. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
+#: ../deskbar/ui/About.py:35
 msgid "translator-credits"
 msgstr ""
 "Slobodan D. Sredojević <slobo@akrep.be>\n"
+"Goran Rakić <grakic@devbase.net>\n"
 "\n"
 "http://prevod.org — prevodi na srpski jezik"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:54
-msgid "_More..."
-msgstr "_Više..."
+#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+msgid "New accelerator..."
+msgstr "Nova prečica"
+
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
+msgid "Show search entry"
+msgstr "Prikaži polje za pretragu"
+
+#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+msgid "Show previously used actions"
+msgstr "Prikaži prethodno korišćene komande"
 
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
@@ -612,6 +723,109 @@ msgstr "Prikaži sve dostupne pretraživače"
 #: ../data/mozilla-search.glade.h:4
 msgid "Show only the primary search engine"
 msgstr "Prikaži samo osnovni pretraživač"
+
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
+msgid "<b>Search:</b>"
+msgstr "<b>Traži:</b>"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:49
+msgid "_File"
+msgstr "_Datoteka"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:50
+msgid "_Quit"
+msgstr "_Izađi"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:51
+msgid "_Edit"
+msgstr "_Uređivanje"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:54
+msgid "_View"
+msgstr "P_regled"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:55
+msgid "_Help"
+msgstr "_Pomoć"
+
+#: ../deskbar/ui/window/CuemiacWindowUI.py:58
+msgid "_History"
+msgstr "_Istorija"
+
+#. History TreeView
+#: ../deskbar/ui/window/CuemiacWindowUI.py:84
+msgid "<b>History</b>"
+msgstr "<b>Istorija</b>"
+
+#~ msgid "<b>Loaded Extensions</b>"
+#~ msgstr "<b>Učitana proširenja</b>"
+
+#~ msgid "Searches"
+#~ msgstr "Pretrage"
+
+#~ msgid "%s more result"
+#~ msgid_plural "%s more results"
+#~ msgstr[0] "još %s rezultat"
+#~ msgstr[1] "još %s rezultata"
+#~ msgstr[2] "još %s rezultata"
+
+#~ msgid "%s more document"
+#~ msgid_plural "%s more documents"
+#~ msgstr[0] "još %s dokument"
+#~ msgstr[1] "još %s dokumenta"
+#~ msgstr[2] "još %s dokumenata"
+
+#~ msgid "%s more file"
+#~ msgid_plural "%s more files"
+#~ msgstr[0] "još %s datoteka"
+#~ msgstr[1] "još %s datoteke"
+#~ msgstr[2] "još %s datoteka"
+
+#~ msgid "%s more place"
+#~ msgid_plural "%s more places"
+#~ msgstr[0] "još %s mesto"
+#~ msgstr[1] "još %s mesta"
+#~ msgstr[2] "još %s mesta"
+
+#~ msgid "%s more action"
+#~ msgid_plural "%s more actions"
+#~ msgstr[0] "još %s radnja"
+#~ msgstr[1] "još %s radnje"
+#~ msgstr[2] "još %s radnji"
+
+#~ msgid "Email from %s"
+#~ msgstr "E-poruku šalje %s"
+
+#~ msgid "Conversation with %s"
+#~ msgstr "Razgovor sa %s"
+
+#~ msgid "Mail"
+#~ msgstr "Pošta"
+
+#~ msgid "Send mail by typing a complete e-mail address"
+#~ msgstr "Šalje e-poruku kada ukucate potpunu adresu e-pošte"
+
+#~ msgid "Files and Folders"
+#~ msgstr "Datoteke i fascikle"
+
+#~ msgid "Open your files and folders by name"
+#~ msgstr "Po imenu otvara vaše datoteke i fascikle"
+
+#~ msgid "Files and Folders Bookmarks"
+#~ msgstr "Obeleživači datoteka i fascikli"
+
+#~ msgid "Programs (Advanced)"
+#~ msgstr "Programi (napredno)"
+
+#~ msgid "Launch any program present in your $PATH"
+#~ msgstr "Pokreće bilo koji program prisutan u prom. okruženja $PATH"
+
+#~ msgid "Disks and Network Places"
+#~ msgstr "Diskovi i mrežna mesta"
+
+#~ msgid ""
+#~ "Open disk drives, shared network places and similar resources by name"
+#~ msgstr "Otvara disk uređaje, mrežna mesta sa deljenim podacima ili slično"
 
 #~ msgid "Button in panel with categorized list"
 #~ msgstr "Dugme na panelu sa spiskom kategorija"
@@ -640,26 +854,17 @@ msgstr "Prikaži samo osnovni pretraživač"
 #~ msgstr ""
 #~ "Za korišćenje ovog modula vam je potrebna Gtk+ verzija novija od 2.8.0"
 
-#~ msgid "News"
-#~ msgstr "Vesti"
-
 #~ msgid "%s more news item"
 #~ msgid_plural "%s more news items"
 #~ msgstr[0] "još %s stavka u vestima"
 #~ msgstr[1] "još %s stavke u vestima"
 #~ msgstr[2] "još %s stavki u vestima"
 
-#~ msgid "Contacts"
-#~ msgstr "Kontakti"
-
 #~ msgid "%s more contact"
 #~ msgid_plural "%s more contacts"
 #~ msgstr[0] "još %s kontakt"
 #~ msgstr[1] "još %s kontakta"
 #~ msgstr[2] "još %s kontakata"
-
-#~ msgid "Emails"
-#~ msgstr "E-poruke"
 
 #~ msgid "%s more email"
 #~ msgid_plural "%s more emails"
@@ -684,9 +889,6 @@ msgstr "Prikaži samo osnovni pretraživač"
 #~ msgstr[0] "još %s unos u kalendaru"
 #~ msgstr[1] "još %s unosa u kalendaru"
 #~ msgstr[2] "još %s unosa u kalendaru"
-
-#~ msgid "Conversation"
-#~ msgstr "Razgovor"
 
 #~ msgid "%s more conversation"
 #~ msgid_plural "%s more conversations"
