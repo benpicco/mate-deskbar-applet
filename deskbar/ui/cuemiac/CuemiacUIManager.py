@@ -187,11 +187,6 @@ class CuemiacUIManager (gobject.GObject) :
 		self.model.append (matches)
 		self._update_entry_icon ()
 		
-		# The UI might have trouble drawing the view
-		# correctly when it is put in a gtk.ScrollView
-		# issue a resize of the view to help redrawing correctly
-		self.cview.queue_resize () # FIXME: Is this really a gtk bug in Ubuntu Dapper?
-		
 		self.layout.on_matches_added (self)
 		
 	def unselect_all (self):

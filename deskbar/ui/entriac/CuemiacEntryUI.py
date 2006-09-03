@@ -149,7 +149,7 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 	
 	def on_matches_added (self, cuim):
 		self.entry.popup ()
-	
+		
 	def append_matches (self, matches):
 		self.cuemiac.append_matches (matches)
 		
@@ -158,9 +158,9 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		
 	def set_layout_by_orientation (self, cuim, orient):
 		"""orient should be a gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}."""
-		# Update how the popups is aligned
+		# Update how the popups are aligned
 		self.entry.set_layout_by_orientation (orient)
-		self.history_popup.alignment = self.applet.get_orient ()
+		self.history_popup.alignment = orient
 		
 		print "Layout changed to", self.applet.get_orient ()
 		

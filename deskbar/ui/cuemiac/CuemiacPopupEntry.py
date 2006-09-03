@@ -25,7 +25,8 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 		self.view.set_hover_selection (True)
 		self.selection = self.view.get_selection()
 		self.window_group = None
-		self.popup_window = CuemiacAlignedWindow (self.entry, applet, gtk.WINDOW_POPUP)
+		self.popup_window = CuemiacAlignedWindow (self.entry, applet)#, gtk.WINDOW_POPUP)
+		self.popup_window.set_type_hint (gtk.gdk.WINDOW_TYPE_HINT_MENU)
 		self.scroll_view = gtk.ScrolledWindow ()
 		
 		# Set up popup
@@ -46,8 +47,6 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 		
 		self.popup_window.connect('key-press-event', self.on_popup_key_press)		
 		self.popup_window.connect('button-press-event', self.on_popup_button_press)
-		
-		self.popup_window.set_type_hint (gtk.gdk.WINDOW_TYPE_HINT_MENU)
 		
 		# Screen constants
 		self.screen_height = self.popup_window.get_screen().get_height ()
@@ -108,9 +107,9 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 			else:
 				print "WARNING in CuemiacEntryPopup : No toplevel window for entry!"
 				return
-					
+				
 		self.popup_window.update_position()
-		self.popup_window.show_all ()
+		self.popup_window.show_all ()		
 		self.view.grab_focus()
 
 		# Grab pointer
@@ -131,7 +130,7 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 		self.ignore_enter = False
 
 		self.popup_window.hide ()		
-
+		
 		# Ungrab pointer
 		gtk.gdk.pointer_ungrab(gtk.get_current_event_time())
 		self.view.grab_remove()
