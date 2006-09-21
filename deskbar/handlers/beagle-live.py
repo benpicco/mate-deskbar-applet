@@ -29,11 +29,19 @@ def _show_start_beagle_dialog (dialog):
 	response = dialog.run()
 	dialog.destroy()
 	
-	
 	if response == gtk.RESPONSE_ACCEPT :
 		print "Starting Beagle Daemon."
-		gobject.spawn_async(["beagled"], flags=gobject.SPAWN_SEARCH_PATH)
-
+		try :
+			gobject.spawn_async(["beagled"], flags=gobject.SPAWN_SEARCH_PATH)
+		except:
+			print >> sys.stfderr, "Failed to start beagled. Perhaps the beagle daemon isn't installed?"			
+			warn = gtk.MessageDialog(flags=gtk.DIALOG_MODAL, 
+						type=gtk.MESSAGE_WARNING,
+						buttons=gtk.BUTTONS_CLOSE,
+						message_format=_("Failed to start Beagle"))
+			warn.format_secondary_text (_("Perhaps the beagle daemon isn't installed?"))
+			warn.run()
+			warn.destroy()
 
 def _check_requirements():
 	# Check if we have python bindings for beagle
