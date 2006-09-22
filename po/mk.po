@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.mk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-31 22:56+0200\n"
-"PO-Revision-Date: 2006-09-01 01:06+0200\n"
+"POT-Creation-Date: 2006-09-22 06:44+0200\n"
+"PO-Revision-Date: 2006-09-22 14:04+0200\n"
 "Last-Translator: Jovan Naumovski <jovan@lugola.net>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "MIME-Version: 1.0\n"
@@ -128,7 +128,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Кратенки за барањата на обележувачите"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:144
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "Open History Item %s"
 msgstr "Отвори предмет од историја %s"
@@ -240,54 +240,62 @@ msgstr ""
 "Изгледа Beagle демонот не се извршува.\n"
 " Треба да го стартувате Beagle Live управувачот."
 
-#: ../deskbar/handlers/beagle-live.py:57
+#: ../deskbar/handlers/beagle-live.py:41
+msgid "Failed to start Beagle"
+msgstr "Не можам да го стартувам Beagle"
+
+#: ../deskbar/handlers/beagle-live.py:42
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr "Можеби beagle демонот не е инсталиран?"
+
+#: ../deskbar/handlers/beagle-live.py:65
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:66
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Пребарај ги сите документи (користејќи го Beagle), како што пишуваш"
 
-#: ../deskbar/handlers/beagle-live.py:86
+#: ../deskbar/handlers/beagle-live.py:94
 #, python-format
 msgid "Edit contact %s"
 msgstr "Уреди го контактот %s"
 
-#: ../deskbar/handlers/beagle-live.py:95
+#: ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "From %s"
 msgstr "Од %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:103 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:111 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "Отвори %s"
 
-#: ../deskbar/handlers/beagle-live.py:111
+#: ../deskbar/handlers/beagle-live.py:119
 #, python-format
 msgid "News from %s"
 msgstr "Вести од %s"
 
-#: ../deskbar/handlers/beagle-live.py:120
+#: ../deskbar/handlers/beagle-live.py:128
 #, python-format
 msgid "Note: %s"
 msgstr "Забелешка: %s"
 
-#: ../deskbar/handlers/beagle-live.py:129
+#: ../deskbar/handlers/beagle-live.py:137
 #, python-format
 msgid "With %s"
 msgstr "Со %s"
 
-#: ../deskbar/handlers/beagle-live.py:137
+#: ../deskbar/handlers/beagle-live.py:145
 #, python-format
 msgid "Calendar: %s"
 msgstr "Календар: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:313
-#: ../deskbar/handlers/beagle-live.py:335
+#: ../deskbar/handlers/beagle-live.py:321
+#: ../deskbar/handlers/beagle-live.py:343
 msgid "?"
 msgstr "?"
 
@@ -441,63 +449,63 @@ msgstr "Десјтва на компјутерот"
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Одјава, исклучување, рестартирање, суспендирање и слични дејства."
 
-#: ../deskbar/handlers/gdmactions.py:39
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Suspend the machine"
 msgstr "Суспендирај ја машината"
 
-#: ../deskbar/handlers/gdmactions.py:50
+#: ../deskbar/handlers/gdmactions.py:60
 msgid "Hibernate the machine"
 msgstr "Хибернирај ја машината"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:76
 msgid "Shutdown the machine"
 msgstr "Исклучи ја машината"
 
-#: ../deskbar/handlers/gdmactions.py:80
+#: ../deskbar/handlers/gdmactions.py:100
 msgid "Lock the screen"
 msgstr "Заклучи го екранот"
 
-#: ../deskbar/handlers/gdmactions.py:106
+#: ../deskbar/handlers/gdmactions.py:126
 msgid "Shut Down"
 msgstr "Исклучи"
 
-#: ../deskbar/handlers/gdmactions.py:113
+#: ../deskbar/handlers/gdmactions.py:133
 msgid "Turn off the computer"
 msgstr "Исклучи го компјутерот"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:137
 msgid "Log Out"
 msgstr "Одјава"
 
-#: ../deskbar/handlers/gdmactions.py:124
+#: ../deskbar/handlers/gdmactions.py:144
 msgid "Log out"
 msgstr "Одјави се"
 
-#: ../deskbar/handlers/gdmactions.py:128
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Restart"
 msgstr "Рестартирај"
 
-#: ../deskbar/handlers/gdmactions.py:135
+#: ../deskbar/handlers/gdmactions.py:155
 msgid "Restart the computer"
 msgstr "Рестартирај го компјутерот"
 
-#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "Смени корисник"
 
-#: ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:185
 msgid "Lock"
 msgstr "Заклучи"
 
-#: ../deskbar/handlers/gdmactions.py:176
+#: ../deskbar/handlers/gdmactions.py:196
 msgid "Suspend"
 msgstr "Суспендирај"
 
-#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:198
 msgid "Hibernate"
 msgstr "Хибернирај"
 
-#: ../deskbar/handlers/gdmactions.py:180
+#: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "Исклучи"
 
