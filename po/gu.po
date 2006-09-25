@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-06 22:41+0200\n"
-"PO-Revision-Date: 2006-08-07 10:08+0530\n"
+"POT-Creation-Date: 2006-09-25 00:39+0200\n"
+"PO-Revision-Date: 2006-09-25 10:02+0530\n"
 "Last-Translator: Ankit Patel <ankit644@yahoo.com>\n"
 "Language-Team: Gujarati <indianoss-gujarati@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -36,12 +36,13 @@ msgstr ""
 "\n"
 "\n"
 "\n"
+"\n"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
 msgstr "બધું-એક-માં ક્રિયા પટ્ટી"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:21
 msgid "Deskbar"
 msgstr "ડેસ્કપટ્ટી"
 
@@ -142,7 +143,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "બુકમાર્ક થયેલ શોધો માટેના ટુંકાણો"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "Open History Item %s"
 msgstr "ઈતિહાસ વસ્તુ %s ખોલો"
@@ -222,11 +223,11 @@ msgstr "નોંધો"
 msgid "No History"
 msgstr "કોઈ ઈતિહાસ નથી"
 
-#: ../deskbar/gtkexcepthook.py:21
+#: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "પ્રોગ્રામીંગ ભૂલ મળી આવી"
 
-#: ../deskbar/gtkexcepthook.py:22
+#: ../deskbar/gtkexcepthook.py:15
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
@@ -234,19 +235,19 @@ msgstr ""
 "તે કદાચ ઘાતક નથી, પરંતુ તેની જાણ વિકાસકર્તાઓને થવી જોઈએ. હવે પછીથી કાર્યક્રમ ભૂલભરેલ "
 "તરીકે વર્તશે."
 
-#: ../deskbar/gtkexcepthook.py:24
+#: ../deskbar/gtkexcepthook.py:17
 msgid "Bug Detected"
 msgstr "ભૂલ મળી આવી"
 
-#: ../deskbar/handlers/beagle-live.py:18
+#: ../deskbar/handlers/beagle-live.py:19
 msgid "Start Beagle Daemon?"
 msgstr "શું બીગલ ડિમન શરૂ કરવું છે?"
 
-#: ../deskbar/handlers/beagle-live.py:22
+#: ../deskbar/handlers/beagle-live.py:24
 msgid "Start Beagle Daemon"
 msgstr "બીગલ ડિમન શરૂ કરો"
 
-#: ../deskbar/handlers/beagle-live.py:24
+#: ../deskbar/handlers/beagle-live.py:25
 msgid ""
 "The Beagle daemon does not appear to be running.\n"
 " You need to start it to use the Beagle Live handler."
@@ -254,54 +255,62 @@ msgstr ""
 "બીગલ ડિમન ચાલી રહ્યું હોય એમ લાગતું નથી.\n"
 " તમારે તેને બીગલ જીવંત નિયંત્રક સાથે વાપરવા માટે શરૂ કરવું જોઈએ."
 
-#: ../deskbar/handlers/beagle-live.py:53
+#: ../deskbar/handlers/beagle-live.py:41
+msgid "Failed to start Beagle"
+msgstr "Beagle શરૂ કરવામાં નિષ્ફળ"
+
+#: ../deskbar/handlers/beagle-live.py:42
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr "કદાચ beagle ડિમન સ્થાપિત થયેલ નહિં હોય?"
+
+#: ../deskbar/handlers/beagle-live.py:65
 msgid "Beagle Live"
 msgstr "બીગલ જીવંત"
 
-#: ../deskbar/handlers/beagle-live.py:54
+#: ../deskbar/handlers/beagle-live.py:66
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "તમારા બધા દસ્તાવેજો (બીગલની મદદથી) શોધો, જેમ તમે લખો"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#: ../deskbar/handlers/beagle-live.py:94
 #, python-format
 msgid "Edit contact %s"
 msgstr "સંપર્ક %s માં ફેરફાર કરો"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "From %s"
 msgstr "%s તરફથી"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:99 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:111 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "%s ખોલો"
 
-#: ../deskbar/handlers/beagle-live.py:107
+#: ../deskbar/handlers/beagle-live.py:119
 #, python-format
 msgid "News from %s"
 msgstr "%s માંથી સમાચાર"
 
-#: ../deskbar/handlers/beagle-live.py:116
+#: ../deskbar/handlers/beagle-live.py:128
 #, python-format
 msgid "Note: %s"
 msgstr "નોંધ: %s"
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:137
 #, python-format
 msgid "With %s"
 msgstr "%s સાથે"
 
-#: ../deskbar/handlers/beagle-live.py:133
+#: ../deskbar/handlers/beagle-live.py:145
 #, python-format
 msgid "Calendar: %s"
 msgstr "કેલેન્ડર: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:310
-#: ../deskbar/handlers/beagle-live.py:336
+#: ../deskbar/handlers/beagle-live.py:321
+#: ../deskbar/handlers/beagle-live.py:343
 msgid "?"
 msgstr "?"
 
@@ -448,63 +457,63 @@ msgstr "કમ્પ્યૂટર ક્રિયાઓ"
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "બહાર નીકળો, બંધ કરો, પુનઃશરૂ કરો, અટકાવો અને સંબંધિત ક્રિયાઓ."
 
-#: ../deskbar/handlers/gdmactions.py:39
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Suspend the machine"
 msgstr "મશીનને અટકાવો"
 
-#: ../deskbar/handlers/gdmactions.py:50
+#: ../deskbar/handlers/gdmactions.py:60
 msgid "Hibernate the machine"
 msgstr "મશીન હાયબરનેટ કરો"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:76
 msgid "Shutdown the machine"
 msgstr "મશીન બંધ કરો"
 
-#: ../deskbar/handlers/gdmactions.py:80
+#: ../deskbar/handlers/gdmactions.py:100
 msgid "Lock the screen"
 msgstr "સ્ક્રીનને તાળું મારો"
 
-#: ../deskbar/handlers/gdmactions.py:106
+#: ../deskbar/handlers/gdmactions.py:126
 msgid "Shut Down"
 msgstr "બંધ કરો"
 
-#: ../deskbar/handlers/gdmactions.py:113
+#: ../deskbar/handlers/gdmactions.py:133
 msgid "Turn off the computer"
 msgstr "કમ્પ્યૂટર બંધ કરો"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:137
 msgid "Log Out"
 msgstr "બહાર નીકળો"
 
-#: ../deskbar/handlers/gdmactions.py:124
+#: ../deskbar/handlers/gdmactions.py:144
 msgid "Log out"
 msgstr "બહાર નીકળો"
 
-#: ../deskbar/handlers/gdmactions.py:128
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Restart"
 msgstr "પુનઃશરૂ કરો"
 
-#: ../deskbar/handlers/gdmactions.py:135
+#: ../deskbar/handlers/gdmactions.py:155
 msgid "Restart the computer"
 msgstr "કમ્પ્યૂટર પુનઃશરૂ કરો"
 
-#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "વપરાશકર્તા બદલો"
 
-#: ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:185
 msgid "Lock"
 msgstr "તાળું મારો"
 
-#: ../deskbar/handlers/gdmactions.py:176
+#: ../deskbar/handlers/gdmactions.py:196
 msgid "Suspend"
 msgstr "અટકાવો"
 
-#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:198
 msgid "Hibernate"
 msgstr "હાયબરનેટ"
 
-#: ../deskbar/handlers/gdmactions.py:180
+#: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "બંધ કરો"
 
@@ -681,18 +690,18 @@ msgstr "Yahoo! શોધ"
 msgid "Search Yahoo! as you type"
 msgstr "તમે જેમ લખો તેમ Yahoo! શોધો"
 
-#: ../deskbar/ui/About.py:25
+#: ../deskbar/ui/About.py:24
 msgid "An all-in-one action bar."
 msgstr "બધું-એક-માં ક્રિયા પટ્ટી."
 
-#: ../deskbar/ui/About.py:28
+#: ../deskbar/ui/About.py:27
 msgid "Deskbar Website"
 msgstr "ડેસ્કપટ્ટી વેબસાઈટ"
 
 #. about.set_artists([])
 #. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
+#: ../deskbar/ui/About.py:35
 msgid "translator-credits"
 msgstr "અંકિત પટેલ <ankit644@yahoo.com>"
 
@@ -701,12 +710,12 @@ msgid "New accelerator..."
 msgstr "નવો પ્રવેગક..."
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
 msgid "Show search entry"
 msgstr "શોધ પ્રવેશ બતાવો"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
 #: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
 msgid "Show previously used actions"
 msgstr "પહેલાં વપરાયેલ ક્રિયાઓ બતાવો"
@@ -726,18 +735,6 @@ msgstr "બધા ઉપલબ્ધ શોધ યંત્રો બતાવ�
 #: ../data/mozilla-search.glade.h:4
 msgid "Show only the primary search engine"
 msgstr "માત્ર પ્રાથમિક શોધ યંત્ર બતાવો"
-
-#: ../data/deskbar-applet.desktop.in.in.h:1
-msgid "Deskbar Applet"
-msgstr "ડેસ્કબાર એપ્લેટ"
-
-#: ../data/deskbar-applet.desktop.in.in.h:2
-msgid "Desktop search"
-msgstr "ડેસ્કટોપ શોધ"
-
-#: ../data/deskbar-applet.desktop.in.in.h:3
-msgid "Search your computer and the internet quickly"
-msgstr "તમારું કમ્પ્યૂટર અને ઈન્ટરનેટ ઝડપથી શોધો"
 
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
 msgid "<b>Search:</b>"
