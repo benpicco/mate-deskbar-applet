@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-07 14:43+0200\n"
-"PO-Revision-Date: 2006-08-07 14:43+0200\n"
+"POT-Creation-Date: 2006-09-25 19:02+0200\n"
+"PO-Revision-Date: 2006-09-25 19:02+0200\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "An all-in-one action bar"
 msgstr "Barra de acciones «todo en uno»"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:21
 msgid "Deskbar"
 msgstr "Deskbar"
 
@@ -127,7 +127,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Combinaciones de teclas para las búsquedas almacenadas"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "Open History Item %s"
 msgstr "Abrir el elemento del histórico %s"
@@ -207,11 +207,11 @@ msgstr "Notas"
 msgid "No History"
 msgstr "Sin histórico"
 
-#: ../deskbar/gtkexcepthook.py:21
+#: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "Se ha detectado un error de programación"
 
-#: ../deskbar/gtkexcepthook.py:22
+#: ../deskbar/gtkexcepthook.py:15
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
@@ -219,19 +219,19 @@ msgstr ""
 "Probablemente no es fatal, pero debería ser informado a los desarrolladores "
 "de todas formas. El programa puede comportarse erráticamente desde ahora."
 
-#: ../deskbar/gtkexcepthook.py:24
+#: ../deskbar/gtkexcepthook.py:17
 msgid "Bug Detected"
 msgstr "Error detectado"
 
-#: ../deskbar/handlers/beagle-live.py:18
+#: ../deskbar/handlers/beagle-live.py:19
 msgid "Start Beagle Daemon?"
 msgstr "¿Desea iniciar el demonio Beagle?"
 
-#: ../deskbar/handlers/beagle-live.py:22
+#: ../deskbar/handlers/beagle-live.py:24
 msgid "Start Beagle Daemon"
 msgstr "Iniciar el demonio Beagle"
 
-#: ../deskbar/handlers/beagle-live.py:24
+#: ../deskbar/handlers/beagle-live.py:25
 msgid ""
 "The Beagle daemon does not appear to be running.\n"
 " You need to start it to use the Beagle Live handler."
@@ -239,54 +239,62 @@ msgstr ""
 "El demonio Beagle no parece que esté en ejecución.\n"
 " Necesita iniciarlo para usar el manipulador Beagle Live."
 
-#: ../deskbar/handlers/beagle-live.py:53
+#: ../deskbar/handlers/beagle-live.py:41
+msgid "Failed to start Beagle"
+msgstr "Falló al iniciar Beagle"
+
+#: ../deskbar/handlers/beagle-live.py:42
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr "¿Quizás el servicio de beagle no está instalado?"
+
+#: ../deskbar/handlers/beagle-live.py:65
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:54
+#: ../deskbar/handlers/beagle-live.py:66
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Busque todos sus documentos (usando Beagle), mientras teclea"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#: ../deskbar/handlers/beagle-live.py:94
 #, python-format
 msgid "Edit contact %s"
 msgstr "Editar contacto %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "From %s"
 msgstr "de %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:99 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:111 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "Abrir %s"
 
-#: ../deskbar/handlers/beagle-live.py:107
+#: ../deskbar/handlers/beagle-live.py:119
 #, python-format
 msgid "News from %s"
 msgstr "Noticias de %s"
 
-#: ../deskbar/handlers/beagle-live.py:116
+#: ../deskbar/handlers/beagle-live.py:128
 #, python-format
 msgid "Note: %s"
 msgstr "Nota: %s"
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:137
 #, python-format
 msgid "With %s"
 msgstr "con %s"
 
-#: ../deskbar/handlers/beagle-live.py:133
+#: ../deskbar/handlers/beagle-live.py:145
 #, python-format
 msgid "Calendar: %s"
 msgstr "Calendario: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:310
-#: ../deskbar/handlers/beagle-live.py:336
+#: ../deskbar/handlers/beagle-live.py:321
+#: ../deskbar/handlers/beagle-live.py:343
 msgid "?"
 msgstr "?"
 
@@ -436,63 +444,63 @@ msgstr "Acciones del equipo"
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Salir, apagar, reiniciar suspender y acciones de ese tipo."
 
-#: ../deskbar/handlers/gdmactions.py:39
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Suspend the machine"
 msgstr "Suspende la máquina"
 
-#: ../deskbar/handlers/gdmactions.py:50
+#: ../deskbar/handlers/gdmactions.py:60
 msgid "Hibernate the machine"
 msgstr "Hiberna la máquina"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:76
 msgid "Shutdown the machine"
 msgstr "Apaga la máquina"
 
-#: ../deskbar/handlers/gdmactions.py:80
+#: ../deskbar/handlers/gdmactions.py:100
 msgid "Lock the screen"
 msgstr "Bloquea la pantalla"
 
-#: ../deskbar/handlers/gdmactions.py:106
+#: ../deskbar/handlers/gdmactions.py:126
 msgid "Shut Down"
 msgstr "Apagar"
 
-#: ../deskbar/handlers/gdmactions.py:113
+#: ../deskbar/handlers/gdmactions.py:133
 msgid "Turn off the computer"
 msgstr "Apaga el equipo"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:137
 msgid "Log Out"
 msgstr "Salir"
 
-#: ../deskbar/handlers/gdmactions.py:124
+#: ../deskbar/handlers/gdmactions.py:144
 msgid "Log out"
 msgstr "Salir"
 
-#: ../deskbar/handlers/gdmactions.py:128
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Restart"
 msgstr "Reiniciar"
 
-#: ../deskbar/handlers/gdmactions.py:135
+#: ../deskbar/handlers/gdmactions.py:155
 msgid "Restart the computer"
 msgstr "Reinicia el equipo"
 
-#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "Cambiar de usuario"
 
-#: ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:185
 msgid "Lock"
 msgstr "Bloquear"
 
-#: ../deskbar/handlers/gdmactions.py:176
+#: ../deskbar/handlers/gdmactions.py:196
 msgid "Suspend"
 msgstr "Suspender"
 
-#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:198
 msgid "Hibernate"
 msgstr "Hibernar"
 
-#: ../deskbar/handlers/gdmactions.py:180
+#: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "Apagar"
 
@@ -669,18 +677,18 @@ msgstr "Búsqueda en Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "Buscar en Yahoo! mientras teclea"
 
-#: ../deskbar/ui/About.py:25
+#: ../deskbar/ui/About.py:24
 msgid "An all-in-one action bar."
 msgstr "Una barra de acciones «todo-en-uno»."
 
-#: ../deskbar/ui/About.py:28
+#: ../deskbar/ui/About.py:27
 msgid "Deskbar Website"
 msgstr "Sitio web de Deskbar"
 
 #. about.set_artists([])
 #. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
+#: ../deskbar/ui/About.py:35
 msgid "translator-credits"
 msgstr "Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2006"
 
@@ -689,12 +697,12 @@ msgid "New accelerator..."
 msgstr "Acelerador nuevo…"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
 msgid "Show search entry"
 msgstr "Mostrar la entrada de búsqueda"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
 #: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
 msgid "Show previously used actions"
 msgstr "Mostrar las acciones usadas anteriormente"
@@ -714,18 +722,6 @@ msgstr "Mostrar todos los motores de búsqueda disponibles"
 #: ../data/mozilla-search.glade.h:4
 msgid "Show only the primary search engine"
 msgstr "Mostrar sólo el motor de búsqueda primario"
-
-#: ../data/deskbar-applet.desktop.in.in.h:1
-msgid "Deskbar Applet"
-msgstr "Miniaplicación Deskbar"
-
-#: ../data/deskbar-applet.desktop.in.in.h:2
-msgid "Desktop search"
-msgstr "Búsqueda de escritorio"
-
-#: ../data/deskbar-applet.desktop.in.in.h:3
-msgid "Search your computer and the internet quickly"
-msgstr "Busque en su equipo y en internet rápidamente"
 
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
 msgid "<b>Search:</b>"
@@ -759,6 +755,15 @@ msgstr "_Histórico"
 #: ../deskbar/ui/window/CuemiacWindowUI.py:84
 msgid "<b>History</b>"
 msgstr "<b>Histórico</b>"
+
+#~ msgid "Deskbar Applet"
+#~ msgstr "Miniaplicación Deskbar"
+
+#~ msgid "Desktop search"
+#~ msgstr "Búsqueda de escritorio"
+
+#~ msgid "Search your computer and the internet quickly"
+#~ msgstr "Busque en su equipo y en internet rápidamente"
 
 #~ msgid "<b>Available Extensions</b>"
 #~ msgstr "<b>Extensiones disponibles</b>"
