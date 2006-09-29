@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 2-14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-28 23:39+0200\n"
-"PO-Revision-Date: 2006-08-29 09:32+0530\n"
+"POT-Creation-Date: 2006-09-29 00:21+0200\n"
+"PO-Revision-Date: 2006-09-29 12:34+0530\n"
 "Last-Translator: Mindu Dorji\n"
 "Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
 "MIME-Version: 1.0\n"
@@ -116,7 +116,7 @@ msgid "Shortcuts for Bookmarked Searches"
 msgstr "དེབ་རྟགས་བཀལ་ཡོད་པའི་ འཚོལ་ཞིབ་ཚུ་གི་དོན་ལུ་ མགྱོགས་ཐབས་ཚུ།"
 
 #: ../deskbar/BrowserMatch.py:46
-#: ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "Open History Item %s"
 msgstr "ལོ་རྒྱུས་རྣམ་གྲངས་%sཁ་ཕྱེ།"
@@ -210,69 +210,77 @@ msgstr "འཛོལ་བ་འདི་འཚུབ་ཆེན་ཅིག་
 msgid "Bug Detected"
 msgstr "རྐྱེན་གྱི་ངོས་འཛིན་འབད་ཡི།"
 
-#: ../deskbar/handlers/beagle-live.py:18
+#: ../deskbar/handlers/beagle-live.py:19
 msgid "Start Beagle Daemon?"
 msgstr "བི་གཱལ་ཌེ་མཱོན་ འགོ་བཙུགས་ནི་ཨིན་ན?"
 
-#: ../deskbar/handlers/beagle-live.py:22
+#: ../deskbar/handlers/beagle-live.py:24
 msgid "Start Beagle Daemon"
 msgstr "བི་གཱལ་ཌེ་མཱོན་ འགོ་བཙུགས།"
 
-#: ../deskbar/handlers/beagle-live.py:24
+#: ../deskbar/handlers/beagle-live.py:25
 msgid ""
 "The Beagle daemon does not appear to be running.\n"
 " You need to start it to use the Beagle Live handler."
 msgstr "བི་གཱལ་ཌེ་མཱོན་དེ་ ལཱ་མི་འབདཝ་བཟུམ་ཅིག་འདུག།བི་གཱལ་ལ་ཡིབ་ ལེགས་སྐྱོང་པ་ ལག་ལེན་འཐབ་ནི་ལུ་ ཁྱོད་ཀྱིས་བི་གཱལ་ཌེ་མཱོན་ ལོག་འགོ་བཙུགས་དགོ།"
 
-#: ../deskbar/handlers/beagle-live.py:53
+#: ../deskbar/handlers/beagle-live.py:41
+msgid "Failed to start Beagle"
+msgstr "བི་གཱལ་འགོ་བཙུགས་མ་ཚུགས།"
+
+#: ../deskbar/handlers/beagle-live.py:42
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr "བི་གཱལ་གྱི་ཌེ་མཱོན་དེ་ གཞི་བཙུགས་མ་འབདཝ་འདྲས་མེན་ན?"
+
+#: ../deskbar/handlers/beagle-live.py:65
 msgid "Beagle Live"
 msgstr "བི་གཱལ་ལ་ཡིབ།"
 
-#: ../deskbar/handlers/beagle-live.py:54
+#: ../deskbar/handlers/beagle-live.py:66
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "ཁྱོད་ཀྱིས་ཡིག་དཔར་རྐྱབ་དང་འབྲེལ་ཏེ་ (བི་གཱལ་ལག་ལེན་འཐབ་ཐོག་) ཁྱོད་རའི་ཡིག་ཆ་ཚུ་ ཆ་མཉམ་ར་ འཚོལ་ཞིབ་འབད།"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#: ../deskbar/handlers/beagle-live.py:94
 #, python-format
 msgid "Edit contact %s"
 msgstr "འབྲེལ་ས་%sཞུན་དག་རྐྱབས།"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "From %s"
 msgstr "%sལས།"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:111
 #: ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "%sཁ་ཕྱེ།"
 
-#: ../deskbar/handlers/beagle-live.py:107
+#: ../deskbar/handlers/beagle-live.py:119
 #, python-format
 msgid "News from %s"
 msgstr "%sལས་གནས་ཚུལ།"
 
-#: ../deskbar/handlers/beagle-live.py:116
+#: ../deskbar/handlers/beagle-live.py:128
 #, python-format
 msgid "Note: %s"
 msgstr "དྲན་འཛིན་:%s།"
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:137
 #, python-format
 msgid "With %s"
 msgstr "%sདང་གཅིག་ཁར།"
 
-#: ../deskbar/handlers/beagle-live.py:133
+#: ../deskbar/handlers/beagle-live.py:145
 #, python-format
 msgid "Calendar: %s"
 msgstr "ཟླ་ཐོ་:%s།"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:316
-#: ../deskbar/handlers/beagle-live.py:342
+#: ../deskbar/handlers/beagle-live.py:321
+#: ../deskbar/handlers/beagle-live.py:343
 msgid "?"
 msgstr "?"
 
@@ -420,64 +428,64 @@ msgstr "གློག་རིག་གི་བྱ་བ་ཚུ།"
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "ཕྱིར་བསྐྱོད་དང་ སྒོ་བསྡམ་ནི་ ལོག་འགོ་བཙུགས་ནི་ འཕྲལ་བཀག་ དེ་ལས་ འབྲེལ་བ་ཡོད་པའི་བྱ་བ་ཚུ།"
 
-#: ../deskbar/handlers/gdmactions.py:39
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Suspend the machine"
 msgstr "གློག་འཕྲུལ་འཕྲལ་བཀག་འབད།"
 
-#: ../deskbar/handlers/gdmactions.py:50
+#: ../deskbar/handlers/gdmactions.py:60
 msgid "Hibernate the machine"
 msgstr "གློག་འཕྲུལ་གཉིད་ནང་བཙུགས།"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:76
 msgid "Shutdown the machine"
 msgstr "གློག་འཕྲུལ་སྒོ་བསྡམས།"
 
-#: ../deskbar/handlers/gdmactions.py:80
+#: ../deskbar/handlers/gdmactions.py:100
 msgid "Lock the screen"
 msgstr "གསལ་གཞི་ལྡེ་མིག་རྐྱབས།"
 
-#: ../deskbar/handlers/gdmactions.py:106
+#: ../deskbar/handlers/gdmactions.py:126
 msgid "Shut Down"
 msgstr "སྒོ་བསྡམས།"
 
-#: ../deskbar/handlers/gdmactions.py:113
+#: ../deskbar/handlers/gdmactions.py:133
 msgid "Turn off the computer"
 msgstr "གློག་རིག་ཨོཕ་རྐྱབས།"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:137
 msgid "Log Out"
 msgstr "ཕྱིར་བསྐྱོད་འབད།"
 
-#: ../deskbar/handlers/gdmactions.py:124
+#: ../deskbar/handlers/gdmactions.py:144
 msgid "Log out"
 msgstr "ཕྱིར་བསྐྱོད་འབད།"
 
-#: ../deskbar/handlers/gdmactions.py:128
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Restart"
 msgstr "ལོག་འགོབཙུགས།"
 
-#: ../deskbar/handlers/gdmactions.py:135
+#: ../deskbar/handlers/gdmactions.py:155
 msgid "Restart the computer"
 msgstr "གློག་རིག་ལོག་འགོ་བཙུགས།"
 
-#: ../deskbar/handlers/gdmactions.py:139
-#: ../deskbar/handlers/gdmactions.py:145
+#: ../deskbar/handlers/gdmactions.py:159
+#: ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "ལག་ལེན་པ་སོར་བསྒྱུར་འབད།"
 
-#: ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:185
 msgid "Lock"
 msgstr "ལྡེ་མིག་རྐྱབས།"
 
-#: ../deskbar/handlers/gdmactions.py:176
+#: ../deskbar/handlers/gdmactions.py:196
 msgid "Suspend"
 msgstr "འཕྲལ་བཀག་འབད།"
 
-#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:198
 msgid "Hibernate"
 msgstr "གཉིད་ནང་བཙུགས།"
 
-#: ../deskbar/handlers/gdmactions.py:180
+#: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "སྒོ་བསྡམས།"
 
