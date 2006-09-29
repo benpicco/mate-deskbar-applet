@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-07 11:44+0700\n"
-"PO-Revision-Date: 2006-08-07 11:52+0700\n"
+"POT-Creation-Date: 2006-09-29 10:42+0700\n"
+"PO-Revision-Date: 2006-09-29 10:55+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "An all-in-one action bar"
 msgstr "แถบปฏิบัติการอเนกประสงค์"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:21
 msgid "Deskbar"
 msgstr "เดสก์บาร์"
 
@@ -120,7 +120,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "ทางลัดสำหรับการค้นหาที่คั่นหน้าไว้"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "Open History Item %s"
 msgstr "เปิดรายการ %s จากประวัติการท่องเว็บ"
@@ -200,30 +200,30 @@ msgstr "บันทึก"
 msgid "No History"
 msgstr "ไม่มีประวัติการค้นหา"
 
-#: ../deskbar/gtkexcepthook.py:21
+#: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "ตรวจพบข้อผิดพลาดเกี่ยวกับการเขียนโปรแกรม"
 
-#: ../deskbar/gtkexcepthook.py:22
+#: ../deskbar/gtkexcepthook.py:15
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
 msgstr ""
 "อาจไม่ใช่ข้อผิดพลาดร้ายแรง แต่ก็ควรรายงานให้นักพัฒนาทราบ ต่อจากนี้ โปรแกรมอาจทำงานผิดเพี้ยนได้"
 
-#: ../deskbar/gtkexcepthook.py:24
+#: ../deskbar/gtkexcepthook.py:17
 msgid "Bug Detected"
 msgstr "ตรวจพบข้อบกพร่องของโปรแกรม"
 
-#: ../deskbar/handlers/beagle-live.py:18
+#: ../deskbar/handlers/beagle-live.py:19
 msgid "Start Beagle Daemon?"
 msgstr "จะเรียกดีมอน Beagle หรือไม่?"
 
-#: ../deskbar/handlers/beagle-live.py:22
+#: ../deskbar/handlers/beagle-live.py:24
 msgid "Start Beagle Daemon"
 msgstr "เรียกดีมอน Beagle"
 
-#: ../deskbar/handlers/beagle-live.py:24
+#: ../deskbar/handlers/beagle-live.py:25
 msgid ""
 "The Beagle daemon does not appear to be running.\n"
 " You need to start it to use the Beagle Live handler."
@@ -231,54 +231,62 @@ msgstr ""
 "ไม่ปรากฏว่ามีดีมอน Beagle ทำงานอยู่\n"
 "คุณต้องเรียกดีมอนดังกล่าวถ้าจะใช้เครื่องมือจัดการ Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:53
+#: ../deskbar/handlers/beagle-live.py:41
+msgid "Failed to start Beagle"
+msgstr "เรียก Beagle ไม่สำเร็จ"
+
+#: ../deskbar/handlers/beagle-live.py:42
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr "เป็นไปได้หรือไม่ว่าคุณไม่ได้ติดตั้งดีมอน Beagle ไว้?"
+
+#: ../deskbar/handlers/beagle-live.py:65
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:54
+#: ../deskbar/handlers/beagle-live.py:66
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "ค้นเอกสารทั้งหมดของคุณ (โดยใช้ Beagle) ไปพร้อมกับการป้อนคำค้น"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#: ../deskbar/handlers/beagle-live.py:94
 #, python-format
 msgid "Edit contact %s"
 msgstr "แก้ไขที่อยู่ติดต่อ %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "From %s"
 msgstr "จาก %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:99 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:111 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "เปิด %s"
 
-#: ../deskbar/handlers/beagle-live.py:107
+#: ../deskbar/handlers/beagle-live.py:119
 #, python-format
 msgid "News from %s"
 msgstr "ข่าวจาก %s"
 
-#: ../deskbar/handlers/beagle-live.py:116
+#: ../deskbar/handlers/beagle-live.py:128
 #, python-format
 msgid "Note: %s"
 msgstr "บันทึก: %s"
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:137
 #, python-format
 msgid "With %s"
 msgstr "กับ %s"
 
-#: ../deskbar/handlers/beagle-live.py:133
+#: ../deskbar/handlers/beagle-live.py:145
 #, python-format
 msgid "Calendar: %s"
 msgstr "ปฏิทิน: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:310
-#: ../deskbar/handlers/beagle-live.py:336
+#: ../deskbar/handlers/beagle-live.py:321
+#: ../deskbar/handlers/beagle-live.py:343
 msgid "?"
 msgstr "?"
 
@@ -424,63 +432,63 @@ msgstr "ปฏิบัติการของเครื่องคอมพ
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "ออกจากระบบ, ปิดเครื่อง, เริ่มเปิดเครื่องใหม่, พักเครื่อง และปฏิบัติการที่เกี่ยวข้อง"
 
-#: ../deskbar/handlers/gdmactions.py:39
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Suspend the machine"
 msgstr "พักเครื่อง"
 
-#: ../deskbar/handlers/gdmactions.py:50
+#: ../deskbar/handlers/gdmactions.py:60
 msgid "Hibernate the machine"
 msgstr "จำศีลเครื่อง"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:76
 msgid "Shutdown the machine"
 msgstr "ปิดเครื่อง"
 
-#: ../deskbar/handlers/gdmactions.py:80
+#: ../deskbar/handlers/gdmactions.py:100
 msgid "Lock the screen"
 msgstr "ล็อคหน้าจอ"
 
-#: ../deskbar/handlers/gdmactions.py:106
+#: ../deskbar/handlers/gdmactions.py:126
 msgid "Shut Down"
 msgstr "ปิดเครื่อง"
 
-#: ../deskbar/handlers/gdmactions.py:113
+#: ../deskbar/handlers/gdmactions.py:133
 msgid "Turn off the computer"
 msgstr "ปิดเครื่องคอมพิวเตอร์"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:137
 msgid "Log Out"
 msgstr "ออกจากระบบ"
 
-#: ../deskbar/handlers/gdmactions.py:124
+#: ../deskbar/handlers/gdmactions.py:144
 msgid "Log out"
 msgstr "ออกจากระบบ"
 
-#: ../deskbar/handlers/gdmactions.py:128
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Restart"
 msgstr "เริ่มเปิดเครื่องใหม่"
 
-#: ../deskbar/handlers/gdmactions.py:135
+#: ../deskbar/handlers/gdmactions.py:155
 msgid "Restart the computer"
 msgstr "เริ่มเปิดเครื่องคอมพิวเตอร์ใหม่"
 
-#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "สลับผู้ใช้"
 
-#: ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:185
 msgid "Lock"
 msgstr "ล็อค"
 
-#: ../deskbar/handlers/gdmactions.py:176
+#: ../deskbar/handlers/gdmactions.py:196
 msgid "Suspend"
 msgstr "พักเครื่อง"
 
-#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:198
 msgid "Hibernate"
 msgstr "จำศีลเครื่อง"
 
-#: ../deskbar/handlers/gdmactions.py:180
+#: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "ปิดเครื่อง"
 
@@ -654,18 +662,18 @@ msgstr "การค้น Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "ค้น Yahoo! ไปพร้อมกับการป้อนคำค้น"
 
-#: ../deskbar/ui/About.py:25
+#: ../deskbar/ui/About.py:24
 msgid "An all-in-one action bar."
 msgstr "แถบปฏิบัติการอเนกประสงค์"
 
-#: ../deskbar/ui/About.py:28
+#: ../deskbar/ui/About.py:27
 msgid "Deskbar Website"
 msgstr "เว็บไซต์ของเดสก์บาร์"
 
 #. about.set_artists([])
 #. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
+#: ../deskbar/ui/About.py:35
 msgid "translator-credits"
 msgstr "เทพพิทักษ์ การุญบุญญานันท์ <thep@linux.thai.net>"
 
@@ -674,12 +682,12 @@ msgid "New accelerator..."
 msgstr "กำหนดคีย์ด่วนใหม่..."
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
 msgid "Show search entry"
 msgstr "แสดงช่องป้อนคำค้น"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
 #: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
 msgid "Show previously used actions"
 msgstr "แสดงปฏิบัติการที่ใช้ล่าสุด"
@@ -699,18 +707,6 @@ msgstr "แสดงเครื่องมือค้นหาที่มี
 #: ../data/mozilla-search.glade.h:4
 msgid "Show only the primary search engine"
 msgstr "แสดงเฉพาะเครื่องมือค้นหาหลักเท่านั้น"
-
-#: ../data/deskbar-applet.desktop.in.in.h:1
-msgid "Deskbar Applet"
-msgstr "แอพเพล็ตเดสก์บาร์"
-
-#: ../data/deskbar-applet.desktop.in.in.h:2
-msgid "Desktop search"
-msgstr "ค้นเดสก์ท็อป"
-
-#: ../data/deskbar-applet.desktop.in.in.h:3
-msgid "Search your computer and the internet quickly"
-msgstr "ค้นหาข้อมูลในคอมพิวเตอร์ของคุณและในอินเทอร์เน็ตอย่างรวดเร็ว"
 
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
 msgid "<b>Search:</b>"
@@ -744,6 +740,15 @@ msgstr "_ประวัติการค้นหา"
 #: ../deskbar/ui/window/CuemiacWindowUI.py:84
 msgid "<b>History</b>"
 msgstr "<b>ประวัติการค้นหา</b>"
+
+#~ msgid "Deskbar Applet"
+#~ msgstr "แอพเพล็ตเดสก์บาร์"
+
+#~ msgid "Desktop search"
+#~ msgstr "ค้นเดสก์ท็อป"
+
+#~ msgid "Search your computer and the internet quickly"
+#~ msgstr "ค้นหาข้อมูลในคอมพิวเตอร์ของคุณและในอินเทอร์เน็ตอย่างรวดเร็ว"
 
 #~ msgid "<b>Available Extensions</b>"
 #~ msgstr "<b>ส่วนขยายที่มี</b>"
