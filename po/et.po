@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deskbar Applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-22 00:20+0200\n"
-"PO-Revision-Date: 2006-09-22 07:30+0300\n"
+"POT-Creation-Date: 2006-10-06 15:11+0200\n"
+"PO-Revision-Date: 2006-10-06 22:29+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <et-gnome@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -82,7 +82,7 @@ msgstr "Määratud _laiusega:"
 
 #: ../data/prefs-dialog.glade.h:10
 msgid "Search selection when triggering the shortcut"
-msgstr "Kiirklahvi vajutamise korral otsitakse valitud teksti"
+msgstr "Valitu otsimine kiirklahvile vajutamisel"
 
 #: ../data/prefs-dialog.glade.h:11
 msgid "Use _all available space"
@@ -127,7 +127,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Kiirklahvid järjehoidjates olevatele otsingutele"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:152
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:145
 #, python-format
 msgid "Open History Item %s"
 msgstr "Ajalookirje %s avamine"
@@ -239,62 +239,54 @@ msgstr ""
 "Tundub, et Beagle deemon ei ole käivitatud.\n"
 "Selleks, et kasutada Beagle Live tuge peab see töötama."
 
-#: ../deskbar/handlers/beagle-live.py:41
-msgid "Failed to start Beagle"
-msgstr "Tõrge Beagle käivitamisel"
-
-#: ../deskbar/handlers/beagle-live.py:42
-msgid "Perhaps the beagle daemon isn't installed?"
-msgstr "Võibolla pole beagle deemon paigaldatud?"
-
-#: ../deskbar/handlers/beagle-live.py:65
+#: ../deskbar/handlers/beagle-live.py:58
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:66
+#: ../deskbar/handlers/beagle-live.py:59
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Sisestatud stringi otsimine Sinu dokumentidest (Beagle'i abil)"
 
-#: ../deskbar/handlers/beagle-live.py:94
+#: ../deskbar/handlers/beagle-live.py:87
 #, python-format
 msgid "Edit contact %s"
 msgstr "Kontakti %s redigeerimine"
 
-#: ../deskbar/handlers/beagle-live.py:103
+#: ../deskbar/handlers/beagle-live.py:96
 #, python-format
 msgid "From %s"
 msgstr "Kellelt: %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:111 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:104 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "Faili %s avamine"
 
-#: ../deskbar/handlers/beagle-live.py:119
+#: ../deskbar/handlers/beagle-live.py:112
 #, python-format
 msgid "News from %s"
 msgstr "Uudis aadressilt %s"
 
-#: ../deskbar/handlers/beagle-live.py:128
+#: ../deskbar/handlers/beagle-live.py:121
 #, python-format
 msgid "Note: %s"
 msgstr "Märkus: %s"
 
-#: ../deskbar/handlers/beagle-live.py:137
+#: ../deskbar/handlers/beagle-live.py:130
 #, python-format
 msgid "With %s"
 msgstr "Koos %s-iga"
 
-#: ../deskbar/handlers/beagle-live.py:145
+#: ../deskbar/handlers/beagle-live.py:138
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalender: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:321
-#: ../deskbar/handlers/beagle-live.py:343
+#: ../deskbar/handlers/beagle-live.py:314
+#: ../deskbar/handlers/beagle-live.py:336
 msgid "?"
 msgstr "!?!"
 
@@ -441,9 +433,7 @@ msgstr "Arvutitegevused"
 
 #: ../deskbar/handlers/gdmactions.py:11
 msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr ""
-"Väljalogimine, väljalülitamine, taaskäivitamine, ooterežiimile siidrumine ja "
-"sellega seotud toimingud."
+msgstr "Väljalogimine, "
 
 #: ../deskbar/handlers/gdmactions.py:44
 msgid "Suspend the machine"
@@ -618,7 +608,7 @@ msgstr "Failide ja kataloogide leidmine nimemustri järgi otsides"
 
 #: ../deskbar/handlers/programs.py:29
 msgid "Developer Documentation"
-msgstr "Arendusdokumentatsioon"
+msgstr "Arendajadokumentatsioon"
 
 #: ../deskbar/handlers/programs.py:30
 msgid "Search Devhelp for a function name"
