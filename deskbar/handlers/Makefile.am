@@ -13,6 +13,7 @@ deskbar_handlers_PYTHON = \
 	iswitch-window.py \
 	mozilla.py \
 	programs.py \
+	recent.py \
 	web_address.py \
 	yahoo.py
 
