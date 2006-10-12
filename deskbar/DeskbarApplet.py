@@ -292,6 +292,11 @@ class DeskbarApplet:
 	
 	def on_applet_button_release(self, widget, event):
 		if event.button == 2:
+			# The check for middle_click != None is to "fix" bug 355687
+			if self.middle_click is None:
+				print "WARN, DeskbarApplet: self.middle_click is None on button release"
+				return
+				
 			x, y = self.middle_click
 			diffx, diffy = abs(x-event.x_root), abs(y-event.y_root)
 			if diffx <= 3 and diffy <=3:
