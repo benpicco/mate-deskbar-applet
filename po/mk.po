@@ -1,4 +1,4 @@
-# translation of deskbar-applet.HEAD.mk.po to Macedonian
+# translation of deskbar-applet.gnome-2-16.mk.po to Macedonian
 # translation of PACKAGE.
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -8,10 +8,10 @@
 # Jovan Naumovski <jovan@lugola.net>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet.HEAD.mk\n"
+"Project-Id-Version: deskbar-applet.gnome-2-16.mk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-22 06:44+0200\n"
-"PO-Revision-Date: 2006-09-22 14:04+0200\n"
+"POT-Creation-Date: 2006-10-18 14:56+0200\n"
+"PO-Revision-Date: 2006-10-18 23:48+0200\n"
 "Last-Translator: Jovan Naumovski <jovan@lugola.net>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "MIME-Version: 1.0\n"
@@ -61,46 +61,54 @@ msgstr ""
 "неговиот редослед.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid ""
+"<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
+"small></i>"
+msgstr ""
+"<i><small><b>Забелешка:</b> Новата кратенка ќе биде ефективна на следното "
+"најавување.</small></i>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "Button in panel"
 msgstr "Копче во панелот"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Преференција на работна лента"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Entry in panel"
 msgstr "Запис во панелот"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Extensions"
 msgstr "Проширувања"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "Фиксна _ширина:"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "Search selection when triggering the shortcut"
 msgstr "Барај го изборот при активирање на кратенката"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
 msgid "Use _all available space"
 msgstr "Користи _го целиот достапен простор"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
 msgid "View"
 msgstr "Поглед"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Кратенка на тастатурата за фокусирање:"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "_More..."
 msgstr "_Повеќе..."
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "characters"
 msgstr "знаци"
 
@@ -128,27 +136,27 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Кратенки за барањата на обележувачите"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:152
+#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:142
 #, python-format
 msgid "Open History Item %s"
 msgstr "Отвори предмет од историја %s"
 
-#: ../deskbar/BrowserMatch.py:48
+#: ../deskbar/BrowserMatch.py:52
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Отвори обележувач %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:97
+#: ../deskbar/BrowserMatch.py:101
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Барај <b>%(name)s</b> for <i>%(text)s</i>"
 
-#: ../deskbar/BrowserMatch.py:206
+#: ../deskbar/BrowserMatch.py:210
 msgid "Shortcut"
 msgstr "Кратенка"
 
-#: ../deskbar/BrowserMatch.py:214
+#: ../deskbar/BrowserMatch.py:218
 msgid "Bookmark Name"
 msgstr "Име на обележувач"
 
@@ -188,7 +196,7 @@ msgstr "Места"
 msgid "Actions"
 msgstr "Дејствија"
 
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
 msgid "Web"
 msgstr "Веб"
 
@@ -240,62 +248,54 @@ msgstr ""
 "Изгледа Beagle демонот не се извршува.\n"
 " Треба да го стартувате Beagle Live управувачот."
 
-#: ../deskbar/handlers/beagle-live.py:41
-msgid "Failed to start Beagle"
-msgstr "Не можам да го стартувам Beagle"
-
-#: ../deskbar/handlers/beagle-live.py:42
-msgid "Perhaps the beagle daemon isn't installed?"
-msgstr "Можеби beagle демонот не е инсталиран?"
-
-#: ../deskbar/handlers/beagle-live.py:65
+#: ../deskbar/handlers/beagle-live.py:55
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:66
+#: ../deskbar/handlers/beagle-live.py:56
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Пребарај ги сите документи (користејќи го Beagle), како што пишуваш"
 
-#: ../deskbar/handlers/beagle-live.py:94
+#: ../deskbar/handlers/beagle-live.py:84
 #, python-format
 msgid "Edit contact %s"
 msgstr "Уреди го контактот %s"
 
-#: ../deskbar/handlers/beagle-live.py:103
+#: ../deskbar/handlers/beagle-live.py:93
 #, python-format
 msgid "From %s"
 msgstr "Од %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:111 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:101 ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open %s"
 msgstr "Отвори %s"
 
-#: ../deskbar/handlers/beagle-live.py:119
+#: ../deskbar/handlers/beagle-live.py:109
 #, python-format
 msgid "News from %s"
 msgstr "Вести од %s"
 
-#: ../deskbar/handlers/beagle-live.py:128
+#: ../deskbar/handlers/beagle-live.py:118
 #, python-format
 msgid "Note: %s"
 msgstr "Забелешка: %s"
 
-#: ../deskbar/handlers/beagle-live.py:137
+#: ../deskbar/handlers/beagle-live.py:127
 #, python-format
 msgid "With %s"
 msgstr "Со %s"
 
-#: ../deskbar/handlers/beagle-live.py:145
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "Calendar: %s"
 msgstr "Календар: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:321
-#: ../deskbar/handlers/beagle-live.py:343
+#: ../deskbar/handlers/beagle-live.py:311
+#: ../deskbar/handlers/beagle-live.py:333
 msgid "?"
 msgstr "?"
 
@@ -307,7 +307,7 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Пребарај ги сите документи (користејќи го Beagle)"
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Барај %s користејќи го Beagle"
@@ -411,32 +411,32 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Испрати е-пошта до <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:17
+#: ../deskbar/handlers/files.py:18
 msgid "Files, Folders and Places"
 msgstr "Датотеки, папки и места"
 
-#: ../deskbar/handlers/files.py:18
+#: ../deskbar/handlers/files.py:19
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Прегледајте ги Вашите датотеки, папки, обележувачи, уреди и мрежни сервери "
 "по име"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "Отвори папка %s"
 
-#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "Отвори локација %s"
 
-#: ../deskbar/handlers/files.py:114
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "Отвори место на мрежата %s"
 
-#: ../deskbar/handlers/files.py:116
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Отвори аудио диск %s"
@@ -630,46 +630,46 @@ msgstr "Барај во Devhelp за име на функција"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/programs.py:88
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Подигни <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:98
+#: ../deskbar/handlers/programs.py:102
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Побарај %s во речникот"
 
-#: ../deskbar/handlers/programs.py:106
+#: ../deskbar/handlers/programs.py:110
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Барај зборови како %s"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:118
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Барај во Devhelp за %s"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:222
 #, python-format
 msgid "Execute %s"
 msgstr "Изврши %s"
 
-#: ../deskbar/handlers/web_address.py:12
+#: ../deskbar/handlers/web_address.py:13
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Отвори веб страници и испраќај е-пошта со внесување на комплетната адреса"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the web page %s"
 msgstr "Отвори ја веб страната %s"
 
-#: ../deskbar/handlers/web_address.py:42
+#: ../deskbar/handlers/web_address.py:44
 #, python-format
 msgid "Open the location %s"
 msgstr "Отвори ја локацијата %s"
 
-#: ../deskbar/handlers/web_address.py:58
+#: ../deskbar/handlers/web_address.py:61
 #, python-format
 msgid "Send Email to %s"
 msgstr "Испрати е-пошта до %s"
