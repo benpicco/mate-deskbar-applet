@@ -5,6 +5,7 @@ import gtk, gtk.gdk, gtk.glade, gobject, gconf
 import deskbar, deskbar.Utils
 from deskbar.ui.ModuleListView import ModuleListView
 from deskbar import CUEMIAC_UI_NAME, ENTRIAC_UI_NAME, WINDOW_UI_NAME
+from deskbar.ModuleInstaller import ModuleInstaller
 
 MAXINT = 2 ** ((8 * struct.calcsize('i')) - 1) - 1
 
@@ -202,6 +203,19 @@ class DeskbarPreferencesUI:
 		self.use_selection_box.connect('toggled', self.on_use_selection_toggled, applet)
 		self.use_selection_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_USE_SELECTION, lambda x, y, z, a: self.on_config_use_selection(z.value))
 		
+		# Setup Drag & Drop
+		big_box = self.glade.get_widget("big_box")
+		self.TARGET_URI_LIST, self.TARGET_NS_URL = range(2)
+		DROP_TYPES = [('text/uri-list', 0, self.TARGET_URI_LIST),
+			          ('_NETSCAPE_URL', 0, self.TARGET_NS_URL),
+			         ]
+		big_box.drag_dest_set(gtk.DEST_DEFAULT_ALL, DROP_TYPES,
+							  gtk.gdk.ACTION_COPY | gtk.gdk.ACTION_LINK | gtk.gdk.ACTION_MOVE)
+		big_box.connect("drag_data_received",
+		                      self.on_drag_data_received_data)
+		big_box.connect("drag_motion", self.on_drag_motion)
+		big_box.connect("drag_leave", self.on_drag_leave)
+		
 		self.sync_ui()
 		
 	def show_run_hide(self):
@@ -368,6 +382,39 @@ class DeskbarPreferencesUI:
 			loader.stop_module_async (context)
 		else:
 			loader.initialize_module_async (context)
+			
+	def on_drag_motion(self, widget, drag_context, x, y, timestamp):
+		return False
+	
+	def on_drag_leave(self, big_box, drag_context, timestamp):
+		big_box.queue_draw()
+		
+	def on_drag_data_received_data(self, widget, context, x, y, selection, info, etime):
+		if (not(info == self.TARGET_URI_LIST or info == self.TARGET_NS_URL)):
+			return
+		if (info == self.TARGET_NS_URL):
+			data = selection.data.strip().split("\n")[0]
+		else:
+			data = selection.data.strip()
+		module_installer = ModuleInstaller(self.module_loader)
+		if module_installer.install(data):
+		
+			dialog = gtk.MessageDialog(parent=self.dialog,
+								   flags=gtk.DIALOG_DESTROY_WITH_PARENT,
+								   type=gtk.MESSAGE_INFO,
+								   buttons=gtk.BUTTONS_OK,
+								   message_format=_("Handler has been installed successfully"))
+		else:
+			dialog = gtk.MessageDialog(parent=self.dialog,
+								   flags=gtk.DIALOG_DESTROY_WITH_PARENT,
+								   type=gtk.MESSAGE_ERROR,
+								   buttons=gtk.BUTTONS_OK,
+								   message_format=_("Handler could not be installed due a problem with the provided file"))
+		dialog.connect('response', lambda w, id: dialog.destroy())
+		dialog.run()
+		
+		
+		return
 			
 def show_preferences(applet, loader, model):
 	DeskbarPreferencesUI(applet, loader, model).show_run_hide()

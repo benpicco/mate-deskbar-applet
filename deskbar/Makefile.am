@@ -25,6 +25,7 @@ deskbar_PYTHON = \
 	Keybinder.py \
 	Match.py \
 	ModuleContext.py \
+	ModuleInstaller.py \
 	ModuleList.py \
 	ModuleLoader.py \
 	Utils.py \
