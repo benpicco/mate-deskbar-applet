@@ -149,7 +149,7 @@ class ModuleInstaller:
             self.local_path = uri.path
             if (gnomevfs.get_mime_type(uri_string) == "text/x-python"):
                 shutil.copy(self.local_path, deskbar.USER_HANDLERS_DIR[0])
-                return
+                return self.install_succesful
         else:
             handlers_path = join(deskbar.USER_HANDLERS_DIR[0], uri.short_name)
             urllib.urlretrieve(uri_string, handlers_path)
