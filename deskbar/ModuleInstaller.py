@@ -2,7 +2,6 @@ import gnomevfs
 import urllib
 import shutil
 import bz2
-import gnomevfs
 import gzip
 import tarfile
 import threading
