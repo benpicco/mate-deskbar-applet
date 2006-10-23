@@ -13,11 +13,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet 2.15.92\n"
+"Project-Id-Version: deskbar-applet 2.16.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-25 16:07+0200\n"
-"PO-Revision-Date: 2006-08-25 15:56+0200\n"
-"Last-Translator: Robert-André Mauchin <zebob.m@gmail.com>\n"
+"POT-Creation-Date: 2006-10-23 10:21+0200\n"
+"PO-Revision-Date: 2006-10-23 10:15+0200\n"
+"Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -132,7 +132,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Raccourcis pour les recherches mises en signets"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "Open History Item %s"
 msgstr "Ouvrir l'élément %s de l'historique"
@@ -229,15 +229,15 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Anomalie détectée"
 
-#: ../deskbar/handlers/beagle-live.py:18
+#: ../deskbar/handlers/beagle-live.py:19
 msgid "Start Beagle Daemon?"
 msgstr "Démarrer le démon Beagle ?"
 
-#: ../deskbar/handlers/beagle-live.py:22
+#: ../deskbar/handlers/beagle-live.py:24
 msgid "Start Beagle Daemon"
 msgstr "Démarrage du démon Beagle"
 
-#: ../deskbar/handlers/beagle-live.py:24
+#: ../deskbar/handlers/beagle-live.py:25
 msgid ""
 "The Beagle daemon does not appear to be running.\n"
 " You need to start it to use the Beagle Live handler."
@@ -245,56 +245,64 @@ msgstr ""
 "Le démon beagle ne semble pas être lancé.\n"
 " Celui-ci doit être démarré afin de pouvoir effectuer des recherches."
 
-#: ../deskbar/handlers/beagle-live.py:53
+#: ../deskbar/handlers/beagle-live.py:41
+msgid "Failed to start Beagle"
+msgstr ""
+
+#: ../deskbar/handlers/beagle-live.py:42
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr ""
+
+#: ../deskbar/handlers/beagle-live.py:65
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:54
+#: ../deskbar/handlers/beagle-live.py:66
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr ""
 "Recherche tous vos documents (en utilisant Beagle), au fur et à mesure de la "
 "saisie"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#: ../deskbar/handlers/beagle-live.py:94
 #, python-format
 msgid "Edit contact %s"
 msgstr "Éditer le contact %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "From %s"
 msgstr "De %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:99 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:111 ../deskbar/handlers/files.py:46
 #, python-format
 msgid "Open %s"
 msgstr "Ouvrir %s"
 
-#: ../deskbar/handlers/beagle-live.py:107
+#: ../deskbar/handlers/beagle-live.py:119
 #, python-format
 msgid "News from %s"
 msgstr "Nouvelle de %s"
 
-#: ../deskbar/handlers/beagle-live.py:116
+#: ../deskbar/handlers/beagle-live.py:128
 #, python-format
 msgid "Note: %s"
 msgstr "Note : %s"
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:137
 #, python-format
 msgid "With %s"
 msgstr "Avec %s"
 
-#: ../deskbar/handlers/beagle-live.py:133
+#: ../deskbar/handlers/beagle-live.py:145
 #, python-format
 msgid "Calendar: %s"
 msgstr "Calendrier : %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:310
-#: ../deskbar/handlers/beagle-live.py:336
+#: ../deskbar/handlers/beagle-live.py:321
+#: ../deskbar/handlers/beagle-live.py:343
 msgid "?"
 msgstr "?"
 
@@ -449,63 +457,63 @@ msgstr "Actions envers l'ordinateur"
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Déconnecter, arrêter, redémarrer, suspendre et actions connexes."
 
-#: ../deskbar/handlers/gdmactions.py:39
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Suspend the machine"
 msgstr "Suspendre la machine"
 
-#: ../deskbar/handlers/gdmactions.py:50
+#: ../deskbar/handlers/gdmactions.py:60
 msgid "Hibernate the machine"
 msgstr "Hiberner la machine"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:76
 msgid "Shutdown the machine"
 msgstr "Arrêter la machine"
 
-#: ../deskbar/handlers/gdmactions.py:80
+#: ../deskbar/handlers/gdmactions.py:100
 msgid "Lock the screen"
 msgstr "Verrouller l'écran"
 
-#: ../deskbar/handlers/gdmactions.py:106
+#: ../deskbar/handlers/gdmactions.py:126
 msgid "Shut Down"
 msgstr "Arrêter"
 
-#: ../deskbar/handlers/gdmactions.py:113
+#: ../deskbar/handlers/gdmactions.py:133
 msgid "Turn off the computer"
 msgstr "Éteindre l'ordinateur"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:137
 msgid "Log Out"
 msgstr "Se déconnecter"
 
-#: ../deskbar/handlers/gdmactions.py:124
+#: ../deskbar/handlers/gdmactions.py:144
 msgid "Log out"
 msgstr "Se déconnecter"
 
-#: ../deskbar/handlers/gdmactions.py:128
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Restart"
 msgstr "Redémarrer"
 
-#: ../deskbar/handlers/gdmactions.py:135
+#: ../deskbar/handlers/gdmactions.py:155
 msgid "Restart the computer"
 msgstr "Redémarrer l'ordinateur"
 
-#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "Changer d'utilisateur"
 
-#: ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:185
 msgid "Lock"
 msgstr "Verrouiller"
 
-#: ../deskbar/handlers/gdmactions.py:176
+#: ../deskbar/handlers/gdmactions.py:196
 msgid "Suspend"
 msgstr "Suspendre"
 
-#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:198
 msgid "Hibernate"
 msgstr "Hiberner"
 
-#: ../deskbar/handlers/gdmactions.py:180
+#: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "Arrêter"
 
@@ -701,7 +709,7 @@ msgstr "Site Web de Deskbar"
 msgid "translator-credits"
 msgstr ""
 "Contributeurs :\n"
-"Vincent CARRIERE <carriere_vincent@yahoo.fr>\n"
+"Vincent Carriere <carriere_vincent@yahoo.fr>\n"
 "Laurent Richard <laurent.richard@ael.be>\n"
 "Stéphane Raimbault <stephane.raimbault@free.fr>\n"
 "Robert-André Mauchin <zebob.m@gmail.com>\n"
@@ -709,9 +717,17 @@ msgstr ""
 "Samuel Mutel <samuel.mutel@free.fr>\n"
 "Damien Durand <splinux@fedoraproject.org>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+#: ../deskbar/ui/DeskbarPreferencesUI.py:19
 msgid "New accelerator..."
 msgstr "Nouveau raccourci..."
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:406
+msgid "Handler has been installed successfully"
+msgstr ""
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:412
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr ""
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
@@ -720,7 +736,7 @@ msgstr "Afficher la zone de saisie de recherche"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:60
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
 msgid "Show previously used actions"
 msgstr "Afficher les recherches précédemment effectuées"
 
@@ -742,7 +758,7 @@ msgstr "Afficher uniquement le moteur de recherche principal"
 
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
 msgid "<b>Search:</b>"
-msgstr "<b>Rechercher :</b>"
+msgstr "<b>Rechercher :</b>"
 
 #: ../deskbar/ui/window/CuemiacWindowUI.py:49
 msgid "_File"
@@ -772,3 +788,10 @@ msgstr "_Historique"
 #: ../deskbar/ui/window/CuemiacWindowUI.py:84
 msgid "<b>History</b>"
 msgstr "<b>Historique</b>"
+
+#~ msgid ""
+#~ "<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
+#~ "small></i>"
+#~ msgstr ""
+#~ "<i><small><b>Note :</b> le nouveau raccourci prendra effet à la prochaine "
+#~ "connexion.</small></i>"
