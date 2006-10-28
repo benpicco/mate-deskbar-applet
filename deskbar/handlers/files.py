@@ -34,7 +34,7 @@ class FileMatch(deskbar.Match.Match):
 		self.absname = absname
 				
 	def action(self, text=None):
-		gnome.url_show(self.absname)
+		gnome.url_show(gnomevfs.escape_host_and_path_string(self.absname))
 	
 	def is_valid(self, text=None):
 		return exists(self.absname)
@@ -56,7 +56,7 @@ class FolderMatch(deskbar.Match.Match):
 		self.absname = absname
 		
 	def action(self, text=None):
-		gnome.url_show(self.absname)
+		gnome.url_show(gnomevfs.escape_host_and_path_string(self.absname))
 	
 	def is_valid(self, text=None):
 		return exists(self.absname)
