@@ -19,13 +19,13 @@ QUERY_DELAY = 1
 
 HELP_TEXT = _("""You need a Google account to use Google Live.  To get one, go to http://api.google.com/
 
-When you have created your account, you should recieve a Google API key by mail.  Place this key in the file
+When you have created your account, you should receive a Google API key by mail.  Place this key in the file
 
 ~/.gnome2/deskbar-applet/Google.key
 
 If you do not receive an API key (or you have lost it) in your account verification mail, then go to www.google.com/accounts and log in.  Go to api.google.com, click "Create Account" and enter your e-mail address and password.  Your API key will be re-sent.
 
-Now download the developers kit and extract the GoogleSearch.wsdl file from it.  Copy this file to
+Now download the developers' kit and extract the GoogleSearch.wsdl file from it.  Copy this file to
 
 ~/.gnome2/deskbar-applet/GoogleSearch.wsdl""")
 
