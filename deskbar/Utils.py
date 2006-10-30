@@ -1,7 +1,7 @@
 import os, cgi, re
 from os.path import *
 import deskbar, deskbar.gnomedesktop
-import gtk, gtk.gdk, gnome.ui
+import gtk, gtk.gdk, gnome.ui, gobject
 from htmlentitydefs import name2codepoint
 
 ICON_THEME = gtk.icon_theme_get_default()
@@ -97,3 +97,12 @@ def is_program_in_path(program):
 		prog_path = join(path, program)
 		if exists(prog_path) and isfile(prog_path):
 			return True
+
+def spawn_async(args):
+	try:
+		gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
+		return True
+	except Exception, e:
+		# FIXME: Proper dialog support here..
+		print 'Warning:Unable to execute process:', e
+		return False

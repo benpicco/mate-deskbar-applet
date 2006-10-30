@@ -53,6 +53,9 @@ class AccelEntry( gobject.GObject ):
 		return self.entry.get_text()
 
 	def set_accelerator_name(self, value):
+		if value == None:
+			value = ""
+			
 		(keyval, mods) = gtk.accelerator_parse(value)
 		if gtk.accelerator_valid(keyval, mods):
 			self.entry.set_text(value)
@@ -101,8 +104,12 @@ class AccelEntry( gobject.GObject ):
 		edited = False
 		
 		keymap = gtk.gdk.keymap_get_default()
-		(keyval, egroup, level, consumed_modifiers) = keymap.translate_keyboard_state(event.hardware_keycode, event.state, event.group)
-
+		translation = keymap.translate_keyboard_state(event.hardware_keycode, event.state, event.group)
+		if translation == None:
+			self.__revert()
+			return
+			
+		(keyval, egroup, level, consumed_modifiers) = translation
 		upper = event.keyval
 		accel_keyval = gtk.gdk.keyval_to_lower(upper)
 
@@ -115,12 +122,12 @@ class AccelEntry( gobject.GObject ):
 		accel_mods = event.state & gtk.gdk.MODIFIER_MASK & ~(consumed_modifiers | ignored_modifiers)
 		
 		if accel_mods == 0 and accel_keyval == gtk.keysyms.Escape:
-			self.__cancel()
-			return # cancel
+			self.__revert()
+			return
 		
 		if not gtk.accelerator_valid(accel_keyval, accel_mods):
 			self.__cancel()
-			return # cancel
+			return
 
 		accel_name = gtk.accelerator_name(accel_keyval, accel_mods)
 		self.set_accelerator(accel_keyval, event.hardware_keycode, accel_mods)
@@ -130,12 +137,13 @@ class AccelEntry( gobject.GObject ):
 
 	def __on_focus_out_event(self, entry, event):
 		if self.__old_value != None:
-			self.__cancel()
+			self.__revert()
 
 	def __cancel(self):
+		self.set_accelerator_name("")
+	
+	def __revert(self):
 		self.set_accelerator_name(self.__old_value)
-		return
-		
 
 class DeskbarPreferencesUI:
 	def __init__(self, applet, module_loader, module_list):
@@ -218,7 +226,8 @@ class DeskbarPreferencesUI:
 		
 		self.sync_ui()
 		
-	def show_run_hide(self):
+	def show_run_hide(self, parent):
+		self.dialog.set_screen(parent.get_screen())
 		self.dialog.show_all()
 		self.moduleview.grab_focus()
 		self.dialog.connect("response", self.on_dialog_response)
@@ -417,4 +426,4 @@ class DeskbarPreferencesUI:
 		return
 			
 def show_preferences(applet, loader, model):
-	DeskbarPreferencesUI(applet, loader, model).show_run_hide()
+	DeskbarPreferencesUI(applet, loader, model).show_run_hide(applet.applet)

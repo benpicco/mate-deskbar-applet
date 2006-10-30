@@ -28,7 +28,14 @@ class CuemiacAlignedWindow (gtk.Window):
 
 		self.realize_status = None
 		self.connect ("realize", lambda win : self.__register_realize ())
+		self.connect ("delete-event", self.on_delete_event)
 		self.connect ("size-allocate", self.__resize_event)
+	
+	def on_delete_event(self, window, event):
+		# Since all users of this class expect it to remain open and alive
+		# We must catch deletion events (for example alt-f4) and just hide the window
+		self.hide()
+		return True
 		
 	def __resize_event (self, widget, allocation):
 		# Update position, cause the size might have changed for the window

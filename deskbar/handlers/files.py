@@ -10,6 +10,7 @@ import deskbar.Match
 
 from deskbar.defs import VERSION
 from deskbar.Watcher import FileWatcher
+from deskbar.Utils import spawn_async
 
 
 HANDLERS = {
@@ -76,7 +77,7 @@ class GtkBookmarkMatch(deskbar.Match.Match):
 		self.path = path
 		
 	def action(self, text=None):
-		gobject.spawn_async(["nautilus", self.path], flags=gobject.SPAWN_SEARCH_PATH)
+		spawn_async(["nautilus", self.path])
 	
 	def is_valid(self, text=None):
 		return exists(self.path)
@@ -96,8 +97,11 @@ class VolumeMatch (deskbar.Match.Match):
 		self.drive = drive
 	
 	def action(self, text=None):
-		gobject.spawn_async(["nautilus", self.drive], flags=gobject.SPAWN_SEARCH_PATH)
-	
+		if self.drive == None:
+			spawn_async(["nautilus"])
+		else:
+			spawn_async(["nautilus", self.drive])
+
 	def is_valid(self, text=None):
 		return exists(self.drive)
 		

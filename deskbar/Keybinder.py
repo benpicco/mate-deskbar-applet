@@ -17,13 +17,19 @@ class Keybinder(gobject.GObject):
 		if self.keybinding == None:
 			# This is for uninstalled cases, the real default is in the schema
 			self.keybinding = "<Alt>F3"
-		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_KEYBINDING, lambda x, y, z, a: self.on_config_keybinding(z.value))
+		
+		# FIXME: Because of bug #346749 we only set a new keybinding on startup, ortherwise we end
+		# up adding all the keystrokes of the user to the hotkey, rendering the keyboard
+		# unusable. The real fix is to fix the X hotkey foo (from tomboy) or wait
+		# for a central hotkey control panel and provide a hook.
+		# deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_KEYBINDING, lambda x, y, z, a: self.on_config_keybinding(z.value))
+		
 		self.bind()
 		
-	def on_config_keybinding(self, value=None):
-		if value != None and value.type == gconf.VALUE_STRING:
-			self.keybinding = value.get_string()
-			self.bind()
+#	def on_config_keybinding(self, value=None):
+#		if value != None and value.type == gconf.VALUE_STRING:
+#			self.keybinding = value.get_string()
+#			self.bind()
 	
 	def on_keyboard_shortcut(self):
 		self.emit('activated', deskbar.keybinder.tomboy_keybinder_get_current_event_time())

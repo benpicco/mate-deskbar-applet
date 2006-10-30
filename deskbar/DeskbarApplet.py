@@ -77,7 +77,11 @@ class DeskbarApplet:
 			self.ui.connect('show-preferences', self.on_preferences, None)
 			self.ui.connect('show-about', self.on_about, None)
 			self.ui.connect('clear-history', self.on_clear_history, None)
-		
+		else:
+			# How can this happen ?? Apparently a bug report had this problem
+			# I check and recheck, i can't figure out a way that ui_name is unset..
+			self.ui = CuemiacButtonUI (applet, self.prefs)
+			
 		# Set up the chosen UI
 		self.set_up_ui_signals ()
 		self.ui.set_sensitive (False)
@@ -122,6 +126,9 @@ class DeskbarApplet:
 		get_deskbar_history().add(text, match)
 		if self.clear_entry:
 			gobject.idle_add(self.do_clear_entry)
+		else:
+			self.ui.get_entry().set_position(-1)
+			self.ui.get_entry().select_region(0, -1)
 	
 	def do_clear_entry(self):
 		entry = self.ui.get_entry()
@@ -208,7 +215,7 @@ class DeskbarApplet:
 				break
 					
 	def on_about (self, component, verb):
-		show_about()
+		show_about(self.applet)
 	
 	def on_preferences (self, component, verb):
 		show_preferences(self, self.loader, self.module_list)
@@ -292,9 +299,10 @@ class DeskbarApplet:
 	
 	def on_applet_button_release(self, widget, event):
 		if event.button == 2:
-			# The check for middle_click != None is to "fix" bug 355687
+			# The check for middle_click != None is to fix bug 355687
+			# this happens when the mouse is middle_clicked then moved inside
+			# the entry and released. In this case we ignore it.
 			if self.middle_click is None:
-				print "WARN, DeskbarApplet: self.middle_click is None on button release"
 				return
 				
 			x, y = self.middle_click

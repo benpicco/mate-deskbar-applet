@@ -5,7 +5,11 @@ import deskbar, deskbar.Match, deskbar.Utils
 
 def is_preferred_browser(test):
 	# We will import only if the user's preferred browser is mozilla
-	http_handler = gconf.client_get_default().get_string("/desktop/gnome/url-handlers/http/command").strip().lower()
+	http_handler = gconf.client_get_default().get_string("/desktop/gnome/url-handlers/http/command")
+	if http_handler == None:
+		return False
+		
+	http_handler = http_handler.strip().lower()
 	if not gconf.client_get_default().get_bool("/desktop/gnome/url-handlers/http/enabled"):
 		return False
 	

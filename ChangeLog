@@ -1,5 +1,34 @@
 2006-10-30  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/ui/cuemiac/CuemiacAlignedWindow.py:
+	Fix the closing of popup window with f4 causing a lot of errors because of
+	the delete-event being emitted
+
+2006-10-18  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* data/deskbar-applet.schemas.in:
+	* data/prefs-dialog.glade:
+	* deskbar/BrowserMatch.py:
+	* deskbar/DeskbarApplet.py:
+	* deskbar/Keybinder.py:
+	* deskbar/handlers/mozilla.py:
+	* deskbar/handlers/web_address.py:
+	* deskbar/ui/DeskbarPreferencesUI.py:
+	* deskbar/ui/cuemiac/LingeringSelectionWindow.py:
+	* po/POTFILES.skip:
+	bug #353691, disable high-CPU handlers for the default settings
+	bug #354953, crash when parsing a non-standard accelerator string
+	bug #355573, crash on self.ui when gconf has a weird value in it
+	bug #355947, crash on parsing malformed mozilla bookamrks
+	bug #356893, crash when a pixmap is None instead of an actual image
+	bug #358298, markup in url cause web_address to crash
+	bug #359522, crash when gconf isn't used for browser detection code
+	bug #359568, crash when dealing with gnomevfs drives==none
+
+
+
+2006-10-30  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/handlers/google-live.py:
 	Fix typo in google-live handler
 
@@ -64,6 +93,24 @@
 	Fixes bug #353902 weird behavior when in the bottom panel in entry mode
 
 2006-09-03  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/DeskbarApplet.py:
+	* deskbar/ui/About.py:
+	* deskbar/ui/DeskbarPreferencesUI.py:
+	Use the correct screen for preferences windows
+
+2006-10-30  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/ui/cuemiac/CuemiacTreeView.py:
+	Workaround for bug 359251, print an error on console when it happens
+
+2006-10-30  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/DeskbarHistory.py:
+	fix for bug 366763, keyboard navigation of history in bottom panel was
+	reversed
+
+2006-10-30  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* configure.ac:
 	* deskbar/DeskbarApplet.py:
@@ -162,6 +209,21 @@
 	Runtime fixes before release
 
 2006-08-23  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/DeskbarApplet.py:
+	Select text when in 'don't delete mode'
+
+2006-10-18  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* deskbar/Utils.py:
+	* deskbar/handlers/beagle-live.py:
+	* deskbar/handlers/beagle-static.py:
+	* deskbar/handlers/files.py:
+	* deskbar/handlers/programs.py:
+	* deskbar/handlers/web_address.py:
+	bug #360356, bug #353081, Crash when launching nonexistent program
+
+2006-10-18  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* data/deskbar-applet.schemas.in:
 	* deskbar/DeskbarApplet.py:
@@ -579,6 +641,13 @@
 	Fix middle-click paste.
 
 2006-06-30  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+	* configure.ac:
+	* deskbar/DeskbarApplet.py:
+	Remove obsolete warning on configure.ac
+	Cleanup the middle-click explanation of the middle click bug
+
+2006-10-30  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/ui/cuemiac/CuemiacAlignedWindow.py:
 	* deskbar/ui/cuemiac/CuemiacAppletButton.py:

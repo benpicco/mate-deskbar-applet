@@ -5,7 +5,7 @@ from gettext import gettext as _
 from deskbar.defs import VERSION
 import gobject
 import deskbar.Handler, deskbar.Utils, deskbar.Match
-from deskbar.Utils import get_xdg_data_dirs
+from deskbar.Utils import get_xdg_data_dirs, spawn_async
 
 #FIXME: better way to detect beagle ?
 def _check_requirements():
@@ -29,10 +29,8 @@ class BeagleMatch(deskbar.Match.Match):
 		deskbar.Match.Match.__init__(self, backend, **args)
 		
 	def action(self, text=None):
-		try:
-			gobject.spawn_async(["beagle-search", self.name], flags=gobject.SPAWN_SEARCH_PATH)
-		except:
-			gobject.spawn_async(["best", '--no-tray', '--show-window', self.name], flags=gobject.SPAWN_SEARCH_PATH)
+		if not spawn_async(["beagle-search", self.name]):
+			spawn_async(["best", '--no-tray', '--show-window', self.name])
 			
 	def get_verb(self):
 		return _("Search for %s using Beagle") % "<b>%(name)s</b>"

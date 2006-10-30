@@ -7,7 +7,7 @@ import gobject
 import gtk
 import deskbar, deskbar.Indexer, deskbar.Utils
 import deskbar.Handler, deskbar.Match, deskbar.gnomedesktop
-from deskbar.Utils import get_xdg_data_dirs, is_program_in_path
+from deskbar.Utils import get_xdg_data_dirs, is_program_in_path, spawn_async
 
 HANDLERS = {
 	"ProgramsHandler" : {
@@ -69,11 +69,15 @@ class GenericProgramMatch(deskbar.Match.Match):
 				args = args + self._args
 			args = args + text.split(" ")
 
-			gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
+			spawn_async(args)
 			# FIXME: This does not launch the App with passed parameters because they are not files..
 			#self._desktop.launch(text.split(" "), deskbar.gnomedesktop.LAUNCH_APPEND_PATHS|deskbar.gnomedesktop.LAUNCH_ONLY_ONE)
 		else:
-			self._desktop.launch([])
+			try:
+				self._desktop.launch([])
+			except Exception, e:
+				#FIXME: Proper dialog here. Also see end of Utils.py
+				print 'Warning:Could not launch .desktop file:', e
 
 	def get_category(self):
 		return "actions"
@@ -209,7 +213,7 @@ class PathProgramMatch(deskbar.Match.Match):
 				#No zenity, get out of the if, and launch without GUI
 				pass
 		
-		gobject.spawn_async(text.split(" "), flags=gobject.SPAWN_SEARCH_PATH)			
+		spawn_async(text.split(" "))			
 
 	def get_category(self):
 		return "actions"

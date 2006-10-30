@@ -220,7 +220,12 @@ class DeskbarHistory (gtk.ListStore) :
 	def get_history(self):
 		if self._index == -1:
 			return None
-		return self[self.get_iter_from_string (str(self._index))][0]
+		col_id, direction = self.get_sort_column_id()
+		index = self._index
+		if direction == gtk.SORT_ASCENDING:
+			index = len(self)-1-index
+
+		return self[self.get_iter_from_string (str(index))][0]
 	
 if gtk.pygtk_version < (2,8,0):
 	gobject.type_register(DeskbarHistory)

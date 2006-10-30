@@ -15,7 +15,7 @@ def on_url(about, link):
 gtk.about_dialog_set_email_hook(on_email)
 gtk.about_dialog_set_url_hook(on_url)
 
-def show_about():
+def show_about(parent):
 	about = gtk.AboutDialog()
 	infos = {
 		"name" : _("Deskbar"),
@@ -38,4 +38,5 @@ def show_about():
 		about.set_property(prop, val)
 	
 	about.connect("response", lambda self, *args: self.destroy())
+	about.set_screen(parent.get_screen())
 	about.show_all()

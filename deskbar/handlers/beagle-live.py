@@ -4,7 +4,7 @@ import deskbar, deskbar.Handler, deskbar.Utils, deskbar.Match
 from gettext import gettext as _
 from os.path import exists
 from deskbar.defs import VERSION
-from deskbar.Utils import is_program_in_path
+from deskbar.Utils import is_program_in_path, spawn_async
 
 MAX_RESULTS = 20 # per handler
 
@@ -31,10 +31,8 @@ def _show_start_beagle_dialog (dialog):
 	
 	if response == gtk.RESPONSE_ACCEPT :
 		print "Starting Beagle Daemon."
-		try :
-			gobject.spawn_async(["beagled"], flags=gobject.SPAWN_SEARCH_PATH)
-		except:
-			print >> sys.stfderr, "Failed to start beagled. Perhaps the beagle daemon isn't installed?"			
+		if not spawn_async(["beagled"]):
+			print >> sys.stfderr, "Failed to start beagled. Perhaps the beagle daemon isn't installed?"	
 			warn = gtk.MessageDialog(flags=gtk.DIALOG_MODAL, 
 						type=gtk.MESSAGE_WARNING,
 						buttons=gtk.BUTTONS_CLOSE,
@@ -230,7 +228,7 @@ class BeagleLiveMatch (deskbar.Match.Match):
 			args = action.split(" ")
 
 			print "BeagleLive spawning:", action, args
-			gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
+			spawn_async(args)
 	
 	def get_hash(self, text=None):
 		if "uri" in self.result:

@@ -282,15 +282,21 @@ class CuemiacTreeView (gtk.TreeView):
 	def __get_match_icon_for_cell (self, column, cell, model, iter, data=None):
 	
 		match = model[iter][model.MATCHES]
+
 		
 		if match.__class__ == CuemiacCategory:
 			cell.set_property ("pixbuf", None)
 			cell.set_property ("cell-background-gdk", self.style.bg[gtk.STATE_NORMAL])
 			
-		else:
+		elif match.__class__== tuple:
 			cell.set_property ("cell-background-gdk", self.style.base[gtk.STATE_NORMAL])
 			qstring, match_obj = match
 			cell.set_property ("pixbuf", match_obj.get_icon())
+		else:
+			print "ERROR:See bug 359251 and report this output: Match object of unexpected type: %r - %r" % (match.__class__, match)
+			cell.set_property ("cell-background-gdk", self.style.base[gtk.STATE_NORMAL])
+			cell.set_property ("pixbuf", None)
+
 
 		
 	def __get_match_title_for_cell (self, column, cell, model, iter, data=None):

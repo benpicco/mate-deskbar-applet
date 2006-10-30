@@ -29,6 +29,10 @@ class LingeringSelectionWindow (gtk.Window):
 			return
 			
 		pixmap = view.create_row_drag_icon (path)
+		if pixmap == None:
+			self.hide()
+			return
+			
 		image = gtk.Image()
 		image.set_from_pixmap (pixmap, None)
 		

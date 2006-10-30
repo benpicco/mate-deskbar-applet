@@ -253,11 +253,14 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 		
 		self._indexer = deskbar.Indexer.Indexer()
 		
-		if USING_FIREFOX:
-			self.indexed_file = self._index_firefox()
-		else:
-			self.indexed_file = self._index_mozilla()
-		self.close()
+		try:
+			if USING_FIREFOX:
+				self.indexed_file = self._index_firefox()
+			else:
+				self.indexed_file = self._index_mozilla()
+			self.close()
+		except Exception, e:
+			print 'Warning:Could not index Firefox bookmarks:', e
 		
 	def get_indexer(self):
 		"""

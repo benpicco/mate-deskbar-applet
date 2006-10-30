@@ -182,14 +182,6 @@ echo Prefix............... : $prefix
 echo Evolution Support.... : $enable_libebook
 echo Dbus Services Dir.... : $DBUS_SERVICES_DIR
 
-echo
-echo "Please note that when using gnome-python-extras-2.10, you won't be able"
-echo "to focus the applet, only use it in window mode. Upgrade to 2.12 to get the"
-echo "applet functionnality"
-echo
-echo "You version of gnome-python-extras is : `$PKG_CONFIG --modversion gnome-python-extras-2.0`"
-echo
-
 echo "Now type make to compile"
 echo "Then su to root and type: make install"
 echo
