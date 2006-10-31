@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-08 16:10+0200\n"
+"POT-Creation-Date: 2006-10-31 14:55+0100\n"
 "PO-Revision-Date: 2006-08-30 09:56+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
@@ -58,46 +58,53 @@ msgstr ""
 "kiterjesztések prioritását.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid ""
+"<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
+"small></i>"
+msgstr ""
+"<i><small><b>Megjegyzés:</b> Az új gyorsbillentyű a következő belépéskor lép életbe.</small></i>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "Button in panel"
 msgstr "Gomb a panelen"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Deskbar tulajdonságai"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Entry in panel"
 msgstr "Beviteli mező a panelen"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Extensions"
 msgstr "Kiterjesztések"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "_Rögzített szélesség:"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "Search selection when triggering the shortcut"
 msgstr "A kijelölt szöveg keresése a gyorsbillentyű megnyomásakor"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
 msgid "Use _all available space"
 msgstr "A teljes _rendelkezésre álló terület használata"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
 msgid "View"
 msgstr "Nézet"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Keyboard shortcut to focus:"
 msgstr "Gy_orsbillentyű a fókuszhoz:"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "_More..."
 msgstr "_Több..."
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "characters"
 msgstr "karakter"
 
@@ -125,27 +132,27 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Könyvjelzős keresések parancsikonjai"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:144
+#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:142
 #, python-format
 msgid "Open History Item %s"
 msgstr "%s előzményelem megnyitása"
 
-#: ../deskbar/BrowserMatch.py:48
+#: ../deskbar/BrowserMatch.py:52
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "%s könyvjelző megnyitása"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:97
+#: ../deskbar/BrowserMatch.py:101
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<i>%(text)s</i> keresése ezzel: <b>%(name)s</b>"
 
-#: ../deskbar/BrowserMatch.py:206
+#: ../deskbar/BrowserMatch.py:210
 msgid "Shortcut"
 msgstr "Gyorsbillentyű"
 
-#: ../deskbar/BrowserMatch.py:214
+#: ../deskbar/BrowserMatch.py:218
 msgid "Bookmark Name"
 msgstr "Könyvjelzőnév"
 
@@ -185,13 +192,13 @@ msgstr "Helyek"
 msgid "Actions"
 msgstr "Műveletek"
 
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
 msgid "Web"
 msgstr "Web"
 
 #: ../deskbar/Categories.py:39
 msgid "Web Search"
-msgstr "Keresés a weben"
+msgstr "Webkeresések"
 
 #: ../deskbar/Categories.py:42
 msgid "News"
@@ -237,55 +244,55 @@ msgstr ""
 "Úgy tűnik, a Beagle démon nem fut.\n"
 "El kell indítania azt a Beagle live kezelő használatához."
 
-#: ../deskbar/handlers/beagle-live.py:57
+#: ../deskbar/handlers/beagle-live.py:55
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:56
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr ""
 "Keresés az összes dokumentumban (a Beagle használatával), gépelés közben"
 
-#: ../deskbar/handlers/beagle-live.py:86
+#: ../deskbar/handlers/beagle-live.py:84
 #, python-format
 msgid "Edit contact %s"
 msgstr "Névjegy szerkesztése: %s"
 
-#: ../deskbar/handlers/beagle-live.py:95
+#: ../deskbar/handlers/beagle-live.py:93
 #, python-format
 msgid "From %s"
 msgstr "A következőtől: %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:103 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:101 ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open %s"
 msgstr "%s megnyitása"
 
-#: ../deskbar/handlers/beagle-live.py:111
+#: ../deskbar/handlers/beagle-live.py:109
 #, python-format
 msgid "News from %s"
 msgstr "Hírek a következőtől: %s"
 
-#: ../deskbar/handlers/beagle-live.py:120
+#: ../deskbar/handlers/beagle-live.py:118
 #, python-format
 msgid "Note: %s"
 msgstr "Megjegyzés: %s"
 
-#: ../deskbar/handlers/beagle-live.py:129
+#: ../deskbar/handlers/beagle-live.py:127
 #, python-format
 msgid "With %s"
 msgstr "Ezzel: %s"
 
-#: ../deskbar/handlers/beagle-live.py:137
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "Calendar: %s"
 msgstr "Naptár: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:313
-#: ../deskbar/handlers/beagle-live.py:335
+#: ../deskbar/handlers/beagle-live.py:311
+#: ../deskbar/handlers/beagle-live.py:333
 msgid "?"
 msgstr "?"
 
@@ -297,7 +304,7 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Keresés az összes dokumentumban (a Beagle használatával)"
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "%s keresése a Beagle használatával"
@@ -398,32 +405,32 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Levél küldése a következőnek: <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:17
+#: ../deskbar/handlers/files.py:18
 msgid "Files, Folders and Places"
 msgstr "Fájlok, mappák és helyek keresése"
 
-#: ../deskbar/handlers/files.py:18
+#: ../deskbar/handlers/files.py:19
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Fájlok, mappák, könyvjelzők, meghajtók és hálózati helyek megnyitása név "
 "alapján"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "%s mappa megnyitása"
 
-#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "%s hely megnyitása"
 
-#: ../deskbar/handlers/files.py:114
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "%s hálózati hely megnyitása"
 
-#: ../deskbar/handlers/files.py:116
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
 msgstr "%s hanglemez megnyitása"
@@ -577,7 +584,7 @@ msgstr "Ablakok"
 #: ../deskbar/handlers/iswitch-window.py:32
 #, python-format
 msgid "Switch to <b>%(name)s</b>"
-msgstr "Váltás következőre: <b>%(name)s</b>"
+msgstr "Váltás a következőre: <b>%(name)s</b>"
 
 #: ../deskbar/handlers/mozilla.py:120
 msgid "You can customize which search engines are offered."
@@ -617,46 +624,46 @@ msgstr "Függvénynév keresése a Devhelp használatával"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/programs.py:88
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) indítása"
 
-#: ../deskbar/handlers/programs.py:98
+#: ../deskbar/handlers/programs.py:102
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s keresése a szótárban"
 
-#: ../deskbar/handlers/programs.py:106
+#: ../deskbar/handlers/programs.py:110
 #, python-format
 msgid "Search for file names like %s"
 msgstr "A következőhöz hasonló fájlnevek keresése: %s"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:118
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "%s keresése a Devhelpben"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:222
 #, python-format
 msgid "Execute %s"
 msgstr "%s indítása"
 
-#: ../deskbar/handlers/web_address.py:12
+#: ../deskbar/handlers/web_address.py:13
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Weboldalak megnyitása és e-mailek küldése teljes cím begépelésével"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the web page %s"
 msgstr "%s weboldal megnyitása"
 
-#: ../deskbar/handlers/web_address.py:42
+#: ../deskbar/handlers/web_address.py:44
 #, python-format
 msgid "Open the location %s"
 msgstr "%s hely megnyitása"
 
-#: ../deskbar/handlers/web_address.py:58
+#: ../deskbar/handlers/web_address.py:61
 #, python-format
 msgid "Send Email to %s"
 msgstr "E-mail küldése a következőnek: %s"
