@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-17 02:02+0900\n"
-"PO-Revision-Date: 2006-08-17 02:03+0900\n"
+"POT-Creation-Date: 2006-11-03 20:48+0900\n"
+"PO-Revision-Date: 2006-11-03 20:58+0900\n"
 "Last-Translator: Satoru SATOH <ss@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -58,46 +58,53 @@ msgstr ""
 "す。</small></i>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid ""
+"<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
+"small></i>"
+msgstr ""
+"<i><small><b>補足:</b> 新しいショートカットは次のログイン後に有効となります。</small></i>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "Button in panel"
 msgstr "パネルの中にボタンを配置する"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "デスクバーの設定"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Entry in panel"
 msgstr "パネルの中に入力エントリを配置する"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Extensions"
 msgstr "拡張"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "幅を固定する(_W):"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "Search selection when triggering the shortcut"
 msgstr "ショートカットをトリガしたときに選択範囲を検索する"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
 msgid "Use _all available space"
 msgstr "利用可能な全ての領域を使用する(_A)"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
 msgid "View"
 msgstr "表示"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Keyboard shortcut to focus:"
 msgstr "ショートカット・キー(_K):"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "_More..."
 msgstr "詳細(_M)..."
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "characters"
 msgstr "文字分"
 
@@ -125,27 +132,27 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "ブックマーク検索のショートカット"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "訪問履歴 %s を開く"
 
-#: ../deskbar/BrowserMatch.py:48
+#: ../deskbar/BrowserMatch.py:52
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "ブックマーク %s を開く"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:97
+#: ../deskbar/BrowserMatch.py:101
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<b>%(name)s</b> から <i>%(text)s</i> を検索する"
 
-#: ../deskbar/BrowserMatch.py:206
+#: ../deskbar/BrowserMatch.py:210
 msgid "Shortcut"
 msgstr "ショートカット"
 
-#: ../deskbar/BrowserMatch.py:214
+#: ../deskbar/BrowserMatch.py:218
 msgid "Bookmark Name"
 msgstr "ブックマーク名"
 
@@ -185,7 +192,7 @@ msgstr "場所"
 msgid "Actions"
 msgstr "アクション"
 
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
 msgid "Web"
 msgstr "ウェブ"
 
@@ -205,11 +212,11 @@ msgstr "メモ"
 msgid "No History"
 msgstr "履歴なし"
 
-#: ../deskbar/gtkexcepthook.py:21
+#: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "プログラムのエラーを検出しました"
 
-#: ../deskbar/gtkexcepthook.py:22
+#: ../deskbar/gtkexcepthook.py:15
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
@@ -217,19 +224,19 @@ msgstr ""
 "おそらく深刻なものではありませんが、いずれにせよ開発者に報告するべきでしょ"
 "う。プログラムはこれから予測不能な動作になります"
 
-#: ../deskbar/gtkexcepthook.py:24
+#: ../deskbar/gtkexcepthook.py:17
 msgid "Bug Detected"
 msgstr "検出したバグ"
 
-#: ../deskbar/handlers/beagle-live.py:18
+#: ../deskbar/handlers/beagle-live.py:19
 msgid "Start Beagle Daemon?"
 msgstr "Beagle デーモンを起動しますか?"
 
-#: ../deskbar/handlers/beagle-live.py:22
+#: ../deskbar/handlers/beagle-live.py:24
 msgid "Start Beagle Daemon"
 msgstr "Beagle デーモンを起動"
 
-#: ../deskbar/handlers/beagle-live.py:24
+#: ../deskbar/handlers/beagle-live.py:25
 msgid ""
 "The Beagle daemon does not appear to be running.\n"
 " You need to start it to use the Beagle Live handler."
@@ -237,54 +244,62 @@ msgstr ""
 "Beagle デーモンが実行されていないようです。\n"
 "Beagle ライブハンドラを使うには Beagle をインストールする必要があります。"
 
-#: ../deskbar/handlers/beagle-live.py:53
+#: ../deskbar/handlers/beagle-live.py:39
+msgid "Failed to start Beagle"
+msgstr "Beagle の起動に失敗しました"
+
+#: ../deskbar/handlers/beagle-live.py:40
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr "beagle デーモンがインストールされていないのではないですか?"
+
+#: ../deskbar/handlers/beagle-live.py:63
 msgid "Beagle Live"
 msgstr "Beagle ライブ"
 
-#: ../deskbar/handlers/beagle-live.py:54
+#: ../deskbar/handlers/beagle-live.py:64
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Beagle で入力しながら該当するドキュメントを全て検索します"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
 msgid "Edit contact %s"
 msgstr "連絡先 %s を編集"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:101
 #, python-format
 msgid "From %s"
 msgstr "%s から"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:99 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open %s"
 msgstr "%s を開く"
 
-#: ../deskbar/handlers/beagle-live.py:107
+#: ../deskbar/handlers/beagle-live.py:117
 #, python-format
 msgid "News from %s"
 msgstr "%s のニュース"
 
-#: ../deskbar/handlers/beagle-live.py:116
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "Note: %s"
 msgstr "メモ (%s) "
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "With %s"
 msgstr "%s との会話"
 
-#: ../deskbar/handlers/beagle-live.py:133
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Calendar: %s"
 msgstr "カレンダ (%s) "
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:310
-#: ../deskbar/handlers/beagle-live.py:336
+#: ../deskbar/handlers/beagle-live.py:319
+#: ../deskbar/handlers/beagle-live.py:341
 msgid "?"
 msgstr "?"
 
@@ -296,7 +311,7 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Beagle で全てのドキュメントを検索します"
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Beagle で %s を検索する"
@@ -396,32 +411,32 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "<b>%(name)s</b> (%(email)s) さんに E-メールを送信する"
 
-#: ../deskbar/handlers/files.py:17
+#: ../deskbar/handlers/files.py:18
 msgid "Files, Folders and Places"
 msgstr "ファイルとフォルダ、場所"
 
-#: ../deskbar/handlers/files.py:18
+#: ../deskbar/handlers/files.py:19
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "ファイル、フォルダ、ブックマーク、ドライブ、場所(ネットワーク)を名前で指定し"
 "て表示"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "フォルダ %s を開く"
 
-#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "場所 %s を開く"
 
-#: ../deskbar/handlers/files.py:114
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "ネットワーク上の場所 %s を開く"
 
-#: ../deskbar/handlers/files.py:116
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
 msgstr "オーディオ・ディスク %s を開く"
@@ -434,72 +449,74 @@ msgstr "コンピュータ・アクション"
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "ログオフ、電源停止、再起動、サスペンド、そして関連するアクション"
 
-#: ../deskbar/handlers/gdmactions.py:39
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Suspend the machine"
 msgstr "マシンをサスペンド"
 
-#: ../deskbar/handlers/gdmactions.py:50
+#: ../deskbar/handlers/gdmactions.py:60
 msgid "Hibernate the machine"
 msgstr "マシンをハイバーネート"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:76
 msgid "Shutdown the machine"
 msgstr "マシンの電源を停止"
 
-#: ../deskbar/handlers/gdmactions.py:80
+#: ../deskbar/handlers/gdmactions.py:100
 msgid "Lock the screen"
 msgstr "画面をロック"
 
-#: ../deskbar/handlers/gdmactions.py:106
+#: ../deskbar/handlers/gdmactions.py:126
 msgid "Shut Down"
 msgstr "電源停止"
 
-#: ../deskbar/handlers/gdmactions.py:113
+#: ../deskbar/handlers/gdmactions.py:133
 msgid "Turn off the computer"
 msgstr "コンピュータの電源を切る"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:137
 msgid "Log Out"
 msgstr "ログアウト"
 
-#: ../deskbar/handlers/gdmactions.py:124
+#: ../deskbar/handlers/gdmactions.py:144
 msgid "Log out"
 msgstr "ログアウト"
 
-#: ../deskbar/handlers/gdmactions.py:128
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Restart"
 msgstr "再起動"
 
-#: ../deskbar/handlers/gdmactions.py:135
+#: ../deskbar/handlers/gdmactions.py:155
 msgid "Restart the computer"
 msgstr "コンピュータを再起動"
 
-#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "ユーザを切り替え"
 
-#: ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:185
 msgid "Lock"
 msgstr "ロック"
 
-#: ../deskbar/handlers/gdmactions.py:176
+#: ../deskbar/handlers/gdmactions.py:196
 msgid "Suspend"
 msgstr "サスペンド"
 
-#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:198
 msgid "Hibernate"
 msgstr "ハイバーネート"
 
-#: ../deskbar/handlers/gdmactions.py:180
+#: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "電源停止"
 
+# TODO: 実際この説明通りにしても目的のページ
+# (http://code.google.com/apis/soapsearch/) にはたどり着けないようだが? 
 #: ../deskbar/handlers/google-live.py:20
 msgid ""
 "You need a Google account to use Google Live.  To get one, go to http://api."
 "google.com/\n"
 "\n"
-"When you have created your account, you should recieve a Google API key by "
+"When you have created your account, you should receive a Google API key by "
 "mail.  Place this key in the file\n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
@@ -509,27 +526,22 @@ msgid ""
 "google.com, click \"Create Account\" and enter your e-mail address and "
 "password.  Your API key will be re-sent.\n"
 "\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"Now download the developers' kit and extract the GoogleSearch.wsdl file from "
 "it.  Copy this file to\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 msgstr ""
-"Google ライブを利用する場合は Google アカウントが必要です。アカウントを取得す"
-"る時は http://api.google.com/ をご覧下さい。\n"
-"\n"
+"Google ライブを利用する場合は Google アカウントが必要です。アカウントを"
+"取得する時は http://api.google.com/ をご覧下さい。\n\n"
 "Google アカウントを登録すると、Google API キーがメールに送付されてきます。こ"
-"のキーを ~/.gnome2/deskbar-applet/Google.key というファイルに保存して下さ"
-"い。\n"
-"\n"
+"のキーを ~/.gnome2/deskbar-applet/Google.key というファイルに保存して下さい。\n\n"
 "もしアカウント登録の確認メールの中に  API キーが添付されていない (あるいは紛"
 "失してしまった) 場合は、http://www.google.com/accounts でログインして下さい。"
 "そして http://api.google.com に移動し、\"Create Account\" ボタンをクリックし"
-"て E-メール・アドレスとパスワードを入力します。すると、API キーが再発行されま"
-"す。\n"
-"\n"
+"て E-メール・アドレスとパスワードを入力します。すると、API キーが再発行されます。\n\n"
 "次に開発者向け API をダウンロードし GoogleSearch.wsdl ファイルを展開します。"
-"このファイルのコピーを ~/.gnome2/deskbar-applet/GoogleSearch.wsdl というファ"
-"イルに保存して下さい。"
+"このファイルのコピーを ~/.gnome2/deskbar-applet/GoogleSearch.wsdl という名前で"
+"保存して下さい。"
 
 #: ../deskbar/handlers/google-live.py:33
 msgid "Setting Up Google Live"
@@ -614,46 +626,46 @@ msgstr "関数名で Devhelp を検索する"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/programs.py:88
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) を起動する"
 
-#: ../deskbar/handlers/programs.py:98
+#: ../deskbar/handlers/programs.py:102
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "辞書から %s を検索する"
 
-#: ../deskbar/handlers/programs.py:106
+#: ../deskbar/handlers/programs.py:110
 #, python-format
 msgid "Search for file names like %s"
 msgstr "%s と似た名前のファイルを検索する"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:118
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Devhelp 内 %s を検索"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:222
 #, python-format
 msgid "Execute %s"
 msgstr "%s を起動する"
 
-#: ../deskbar/handlers/web_address.py:12
+#: ../deskbar/handlers/web_address.py:13
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "完全なアドレスを入力しながらウェブ・ページを開き、メールを送信"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the web page %s"
 msgstr "ウェブ・ページ %s を開く"
 
-#: ../deskbar/handlers/web_address.py:42
+#: ../deskbar/handlers/web_address.py:44
 #, python-format
 msgid "Open the location %s"
 msgstr "場所 %s を開く"
 
-#: ../deskbar/handlers/web_address.py:58
+#: ../deskbar/handlers/web_address.py:61
 #, python-format
 msgid "Send Email to %s"
 msgstr "%s さんへ E-メールを送信する"
@@ -684,17 +696,25 @@ msgstr ""
 "佐藤 暁 <ss@gnome.gr.jp>\n"
 "日本 GNOME ユーザー会 http://www.gnome.gr.jp"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+#: ../deskbar/ui/DeskbarPreferencesUI.py:19
 msgid "New accelerator..."
 msgstr "新しいアクセラレータ..."
 
+#: ../deskbar/ui/DeskbarPreferencesUI.py:415
+msgid "Handler has been installed successfully"
+msgstr "ハンドラのインストールに成功しました"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:421
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr "提供されたファイルに問題があるためハンドラをインストールできませんでした"
+
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
 msgid "Show search entry"
 msgstr "検索エントリを表示"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
 #: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
 msgid "Show previously used actions"
 msgstr "前に実行したアクションを表示"
@@ -714,18 +734,6 @@ msgstr "利用可能な全ての検索エンジンを表示"
 #: ../data/mozilla-search.glade.h:4
 msgid "Show only the primary search engine"
 msgstr "第一の検索エンジンのみ表示"
-
-#: ../data/deskbar-applet.desktop.in.in.h:1
-msgid "Deskbar Applet"
-msgstr "デスクバーアプレット"
-
-#: ../data/deskbar-applet.desktop.in.in.h:2
-msgid "Desktop search"
-msgstr "デスクトップ検索"
-
-#: ../data/deskbar-applet.desktop.in.in.h:3
-msgid "Search your computer and the internet quickly"
-msgstr "コンピュータとインターネットを素早く検索します"
 
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
 msgid "<b>Search:</b>"
@@ -759,6 +767,15 @@ msgstr "履歴(_H)"
 #: ../deskbar/ui/window/CuemiacWindowUI.py:84
 msgid "<b>History</b>"
 msgstr "<b>履歴</b>"
+
+#~ msgid "Deskbar Applet"
+#~ msgstr "デスクバーアプレット"
+
+#~ msgid "Desktop search"
+#~ msgstr "デスクトップ検索"
+
+#~ msgid "Search your computer and the internet quickly"
+#~ msgstr "コンピュータとインターネットを素早く検索します"
 
 #~ msgid "<b>Available Extensions</b>"
 #~ msgstr "<b>利用可能な拡張</b>"
