@@ -1,16 +1,13 @@
-# translation of es.po to Spanish
 # Deskbar applet Spanish translation.
 # Copyright (C) 2005 The Free Software Foundation
 # This file is distributed under the same license as the deskbar-applet package.
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2005, 2006.
-# Francisco Javier F. Serrador <serrador@tecknolabs.com>, 2006.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: es\n"
+"Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-25 19:02+0200\n"
-"PO-Revision-Date: 2006-09-25 19:02+0200\n"
+"POT-Creation-Date: 2006-11-17 21:18+0100\n"
+"PO-Revision-Date: 2006-11-17 21:24+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -60,46 +57,52 @@ msgstr ""
 "</small></i>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid ""
+"<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
+"small></i>"
+msgstr "<i><small><b>Nota:</b> La combinación de teclas nueva tendrá efecto en su siguiente sesión.</small></i>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "Button in panel"
 msgstr "Botón en el panel"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Preferencias de Deskbar"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Entry in panel"
 msgstr "Entrada en el panel"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Extensions"
 msgstr "Extensiones"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "_Anchura fija:"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "Search selection when triggering the shortcut"
 msgstr "Buscar la selección cuando se dispare el atajo"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
 msgid "Use _all available space"
 msgstr "Usar _todo el espacio disponible"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
 msgid "View"
 msgstr "Vista"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Keyboard shortcut to focus:"
 msgstr "Combinación de _teclas para enfocar:"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "_More..."
 msgstr "_Más…"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "characters"
 msgstr "caracteres"
 
@@ -127,27 +130,27 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Combinaciones de teclas para las búsquedas almacenadas"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:152
+#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "Abrir el elemento del histórico %s"
 
-#: ../deskbar/BrowserMatch.py:48
+#: ../deskbar/BrowserMatch.py:52
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Abrir marcador %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:97
+#: ../deskbar/BrowserMatch.py:101
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "Buscar <b>%(name)s</b> en <i>%(text)s</i>"
+msgstr "Buscar <b>%(text)s</b> en <i>%(name)s</i>"
 
-#: ../deskbar/BrowserMatch.py:206
+#: ../deskbar/BrowserMatch.py:210
 msgid "Shortcut"
 msgstr "Atajo"
 
-#: ../deskbar/BrowserMatch.py:214
+#: ../deskbar/BrowserMatch.py:218
 msgid "Bookmark Name"
 msgstr "Nombre del marcador"
 
@@ -187,7 +190,7 @@ msgstr "Lugares"
 msgid "Actions"
 msgstr "Acciones"
 
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
 msgid "Web"
 msgstr "Web"
 
@@ -239,62 +242,62 @@ msgstr ""
 "El demonio Beagle no parece que esté en ejecución.\n"
 " Necesita iniciarlo para usar el manipulador Beagle Live."
 
-#: ../deskbar/handlers/beagle-live.py:41
+#: ../deskbar/handlers/beagle-live.py:39
 msgid "Failed to start Beagle"
 msgstr "Falló al iniciar Beagle"
 
-#: ../deskbar/handlers/beagle-live.py:42
+#: ../deskbar/handlers/beagle-live.py:40
 msgid "Perhaps the beagle daemon isn't installed?"
 msgstr "¿Quizás el servicio de beagle no está instalado?"
 
-#: ../deskbar/handlers/beagle-live.py:65
+#: ../deskbar/handlers/beagle-live.py:63
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:66
+#: ../deskbar/handlers/beagle-live.py:64
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Busque todos sus documentos (usando Beagle), mientras teclea"
 
-#: ../deskbar/handlers/beagle-live.py:94
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
 msgid "Edit contact %s"
 msgstr "Editar contacto %s"
 
-#: ../deskbar/handlers/beagle-live.py:103
+#: ../deskbar/handlers/beagle-live.py:101
 #, python-format
 msgid "From %s"
 msgstr "de %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:111 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open %s"
 msgstr "Abrir %s"
 
-#: ../deskbar/handlers/beagle-live.py:119
+#: ../deskbar/handlers/beagle-live.py:117
 #, python-format
 msgid "News from %s"
 msgstr "Noticias de %s"
 
-#: ../deskbar/handlers/beagle-live.py:128
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "Note: %s"
 msgstr "Nota: %s"
 
-#: ../deskbar/handlers/beagle-live.py:137
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "With %s"
 msgstr "con %s"
 
-#: ../deskbar/handlers/beagle-live.py:145
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Calendar: %s"
 msgstr "Calendario: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:321
-#: ../deskbar/handlers/beagle-live.py:343
+#: ../deskbar/handlers/beagle-live.py:319
+#: ../deskbar/handlers/beagle-live.py:341
 msgid "?"
 msgstr "?"
 
@@ -306,7 +309,7 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Buscar todos sus documentos (con Beagle)"
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Buscar %s usando Beagle"
@@ -407,34 +410,34 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Enviar correo-e a <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:17
+#: ../deskbar/handlers/files.py:18
 msgid "Files, Folders and Places"
 msgstr "Archivos, carpetas y lugares"
 
-#: ../deskbar/handlers/files.py:18
+#: ../deskbar/handlers/files.py:19
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Vea sus archivos, carpetas, marcadores, unidades, lugares de red por nombre"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "Abrir carpeta %s"
 
-#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "Abrir lugar %s"
 
-#: ../deskbar/handlers/files.py:114
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "Abrir lugar de red %s"
 
-#: ../deskbar/handlers/files.py:116
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
-msgstr "Abrir disco de sonido %s"
+msgstr "Abrir disco de audio %s"
 
 #: ../deskbar/handlers/gdmactions.py:10
 msgid "Computer Actions"
@@ -509,7 +512,7 @@ msgid ""
 "You need a Google account to use Google Live.  To get one, go to http://api."
 "google.com/\n"
 "\n"
-"When you have created your account, you should recieve a Google API key by "
+"When you have created your account, you should receive a Google API key by "
 "mail.  Place this key in the file\n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
@@ -519,26 +522,20 @@ msgid ""
 "google.com, click \"Create Account\" and enter your e-mail address and "
 "password.  Your API key will be re-sent.\n"
 "\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"Now download the developers' kit and extract the GoogleSearch.wsdl file from "
 "it.  Copy this file to\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 msgstr ""
-"Necesita una cuenta de Google account para usar Google Live.  Para obtener "
-"una, vaya a http://api.google.com/\n"
+"Necesita una cuenta de Google para usar Google Live.  Para obtener una, vaya a http://api.google.com/\n"
 "\n"
-"Cuando haya creado su cuenta, debería recibir una clave Google API por "
-"correo.  Coloque esta clave en el archivo\n"
+"Cuando haya creado su cuenta, debería recibir una clave Google API por correo.  Coloque esta clave en el archivo\n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
 "\n"
-"Si no recibe una clave API (o la ha perdido) en su correo de verificación de "
-"cuenta, entonces vaya a www.google.com/accounts e inicie sesión.  Vaya a api."
-"google.com, pulse en \"Create Account\" e introduzca su dirección de correo "
-"electrónico-y contraseña.  Su clave API le será re-enviada.\n"
+"Si no recibe una clave API (o la ha perdido) en su correo de verificación de cuenta, entonces vaya a www.google.com/accounts e inicie sesión.  Vaya a api.google.com, pulse en \"Create Account\" e introduzca su dirección de correo electrónico-y contraseña.  Su clave API le será re-enviada.\n"
 "\n"
-"Ahora descargue el kit de desarrolladores y extraiga el archivo "
-"GooggleSearch.wsdl de él.  Copie el archivo a\n"
+"Ahora descargue el kit de desarrolladores y extraiga el archivo GooggleSearch.wsdl de él. Copie este archivo a\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
@@ -625,46 +622,46 @@ msgstr "Buscar en DevHelp el nombre de una función"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/programs.py:88
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Lanzar <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:98
+#: ../deskbar/handlers/programs.py:102
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Buscar %s en el diccionario"
 
-#: ../deskbar/handlers/programs.py:106
+#: ../deskbar/handlers/programs.py:110
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Buscar nombres de archivo como %s"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:118
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Buscar en DevHelp %s"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:222
 #, python-format
 msgid "Execute %s"
 msgstr "Ejecutar %s"
 
-#: ../deskbar/handlers/web_address.py:12
+#: ../deskbar/handlers/web_address.py:13
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Abrir páginas web y enviar correo-e tecleando una dirección completa"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the web page %s"
 msgstr "Abrir la página web %s"
 
-#: ../deskbar/handlers/web_address.py:42
+#: ../deskbar/handlers/web_address.py:44
 #, python-format
 msgid "Open the location %s"
 msgstr "Abrir el lugar %s"
 
-#: ../deskbar/handlers/web_address.py:58
+#: ../deskbar/handlers/web_address.py:61
 #, python-format
 msgid "Send Email to %s"
 msgstr "Enviar correo-e a %s"
@@ -692,9 +689,17 @@ msgstr "Sitio web de Deskbar"
 msgid "translator-credits"
 msgstr "Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2006"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+#: ../deskbar/ui/DeskbarPreferencesUI.py:19
 msgid "New accelerator..."
 msgstr "Acelerador nuevo…"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:415
+msgid "Handler has been installed successfully"
+msgstr "Se ha instalado el manipulador con éxito"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:421
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr "El manipulador no se pudo instalar debido a un problema con el archivo proporcionado"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
@@ -713,7 +718,7 @@ msgstr "<b>Motores de búsqueda</b>"
 
 #: ../data/mozilla-search.glade.h:2
 msgid "Deskbar Preferences - Web Searches"
-msgstr "Preferencias de Deskbar - Búsquedas web"
+msgstr "Preferencias de Deskbar: Búsquedas web"
 
 #: ../data/mozilla-search.glade.h:3
 msgid "Show all available search engines"
