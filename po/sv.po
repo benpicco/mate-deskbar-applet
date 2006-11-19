@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-23 14:50+0200\n"
-"PO-Revision-Date: 2006-09-23 23:41+0100\n"
+"POT-Creation-Date: 2006-10-30 03:57+0000\n"
+"PO-Revision-Date: 2006-11-19 13:56+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
-msgstr "En allt-i-en-åtgärdsrad"
+msgstr "En allt-i-allo-åtgärdsrad"
 
 #: ../data/Deskbar_Applet.server.in.in.h:2
 #: ../deskbar/ui/About.py:21
@@ -35,7 +35,7 @@ msgstr "_Om"
 #: ../data/Deskbar_Applet.xml.h:2
 #: ../deskbar/ui/window/CuemiacWindowUI.py:52
 msgid "_Clear History"
-msgstr "_Rensa historik"
+msgstr "_Töm historik"
 
 #: ../data/Deskbar_Applet.xml.h:3
 #: ../deskbar/ui/window/CuemiacWindowUI.py:53
@@ -59,46 +59,50 @@ msgid "<i><small><b>Note:</b> Drag and drop an extension to change its order.</s
 msgstr "<i><small><b>Notera:</b> Drag och släpp en utökning för att ändra dess ordning.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid "<i><small><b>Note:</b> The new shortcut will take effect on next login.</small></i>"
+msgstr "<i><small><b>Observera:</b> Den nya genvägen kommer att bli aktiv vid nästa inloggning.</small></i>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "Button in panel"
 msgstr "Knapp i panel"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Inställningar för skrivbordsrad"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Entry in panel"
 msgstr "Post i panel"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Extensions"
 msgstr "Utökningar"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "Fast _bredd:"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "Search selection when triggering the shortcut"
 msgstr "Sök markering när genvägen aktiveras"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
 msgid "Use _all available space"
 msgstr "Använd _allt tillgängligt utrymme"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
 msgid "View"
 msgstr "Visa"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Tangentbordsgenvägar för fokus:"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "_More..."
 msgstr "_Mer..."
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "characters"
 msgstr "tecken"
 
@@ -114,28 +118,28 @@ msgstr "<i><small><b>Notera:</b> För att använda en genväg (till exempel <b>w
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Genvägar för bokmärkta sökningar"
 
-#: ../deskbar/BrowserMatch.py:46
-#: ../deskbar/handlers/beagle-live.py:152
+#: ../deskbar/BrowserMatch.py:50
+#: ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "Öppna historikpost %s"
 
-#: ../deskbar/BrowserMatch.py:48
+#: ../deskbar/BrowserMatch.py:52
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Öppna bokmärket %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:97
+#: ../deskbar/BrowserMatch.py:101
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Sök <b>%(name)s</b> efter <i>%(text)s</i>"
 
-#: ../deskbar/BrowserMatch.py:206
+#: ../deskbar/BrowserMatch.py:210
 msgid "Shortcut"
 msgstr "Genväg"
 
-#: ../deskbar/BrowserMatch.py:214
+#: ../deskbar/BrowserMatch.py:218
 msgid "Bookmark Name"
 msgstr "Bokmärkesnamn"
 
@@ -177,7 +181,7 @@ msgid "Actions"
 msgstr "Åtgärder"
 
 #: ../deskbar/Categories.py:36
-#: ../deskbar/handlers/web_address.py:11
+#: ../deskbar/handlers/web_address.py:12
 msgid "Web"
 msgstr "Webb"
 
@@ -225,63 +229,63 @@ msgstr ""
 "Beagle-demonen verkar inte köra.\n"
 " Du behöver starta den för att använda Beagle Live-hanteraren."
 
-#: ../deskbar/handlers/beagle-live.py:41
+#: ../deskbar/handlers/beagle-live.py:39
 msgid "Failed to start Beagle"
 msgstr "Misslyckades med att starta Beagle"
 
-#: ../deskbar/handlers/beagle-live.py:42
+#: ../deskbar/handlers/beagle-live.py:40
 msgid "Perhaps the beagle daemon isn't installed?"
 msgstr "Kanske är beagle-demonen inte installerad?"
 
-#: ../deskbar/handlers/beagle-live.py:65
+#: ../deskbar/handlers/beagle-live.py:63
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:66
+#: ../deskbar/handlers/beagle-live.py:64
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Sök i alla din dokument (med Beagle), när du skriver"
 
-#: ../deskbar/handlers/beagle-live.py:94
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
 msgid "Edit contact %s"
 msgstr "Redigera kontakt %s"
 
-#: ../deskbar/handlers/beagle-live.py:103
+#: ../deskbar/handlers/beagle-live.py:101
 #, python-format
 msgid "From %s"
 msgstr "Från %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:111
-#: ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/files.py:47
 #, python-format
 msgid "Open %s"
 msgstr "Öppna %s"
 
-#: ../deskbar/handlers/beagle-live.py:119
+#: ../deskbar/handlers/beagle-live.py:117
 #, python-format
 msgid "News from %s"
 msgstr "Nyheter från %s"
 
-#: ../deskbar/handlers/beagle-live.py:128
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "Note: %s"
 msgstr "Anteckning: %s"
 
-#: ../deskbar/handlers/beagle-live.py:137
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "With %s"
 msgstr "Med %s"
 
-#: ../deskbar/handlers/beagle-live.py:145
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalender: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:321
-#: ../deskbar/handlers/beagle-live.py:343
+#: ../deskbar/handlers/beagle-live.py:319
+#: ../deskbar/handlers/beagle-live.py:341
 msgid "?"
 msgstr "?"
 
@@ -293,7 +297,7 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Sök i alla din dokument (med Beagle)"
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Sök efter %s med Beagle"
@@ -392,31 +396,31 @@ msgstr "Skicka e-post till dina kontakter genom att skriva in deras namn eller e
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Skicka e-post till <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:17
+#: ../deskbar/handlers/files.py:18
 msgid "Files, Folders and Places"
 msgstr "Filer, mappar och platser"
 
-#: ../deskbar/handlers/files.py:18
+#: ../deskbar/handlers/files.py:19
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "Visa dina filer, mappar, bokmärken, enheter, nätverksplatser efter namn"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "Öppna mappen %s"
 
-#: ../deskbar/handlers/files.py:88
-#: ../deskbar/handlers/files.py:118
+#: ../deskbar/handlers/files.py:89
+#: ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "Öppna platsen %s"
 
-#: ../deskbar/handlers/files.py:114
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "Öppna nätverksplatsen %s"
 
-#: ../deskbar/handlers/files.py:116
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Öppna ljudskivan %s"
@@ -494,25 +498,25 @@ msgstr "Stäng ner"
 msgid ""
 "You need a Google account to use Google Live.  To get one, go to http://api.google.com/\n"
 "\n"
-"When you have created your account, you should recieve a Google API key by mail.  Place this key in the file\n"
+"When you have created your account, you should receive a Google API key by mail.  Place this key in the file\n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
 "\n"
 "If you do not receive an API key (or you have lost it) in your account verification mail, then go to www.google.com/accounts and log in.  Go to api.google.com, click \"Create Account\" and enter your e-mail address and password.  Your API key will be re-sent.\n"
 "\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from it.  Copy this file to\n"
+"Now download the developers' kit and extract the GoogleSearch.wsdl file from it.  Copy this file to\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 msgstr ""
 "Du behöver ett Google-konto för att använda Google Live.  För att skaffa ett, gå till http://api.google.com/\n"
 "\n"
-"När du har skapat ditt konto, bör du mottaga en Google API-nyckel via e-post.  Placera denna nyckel i filen\n"
+"När du har skapat ditt konto, kommer du att få en Google API-nyckel via e-post.  Placera denna nyckel i filen\n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
 "\n"
 "Om du inte har tagit emot en API-nyckel (eller om du förlorat den) i ditt kontovalideringsbrev, gå då till www.google.com/accounts och logga in.  Gå till api.google.com, klicka på \"Create Account\" och ange din e-postadress och lösenord.  Din API-nyckel kommer då att skickas igen.\n"
 "\n"
-"Hämta nu ner utvecklingskitet och packa upp filen GoogleSearch.wsdl från det.  Kopiera denna fil till\n"
+"Hämta nu ner utvecklingsverktygen och packa upp filen GoogleSearch.wsdl från arkivet.  Kopiera denna fil till\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
@@ -602,46 +606,46 @@ msgstr "Sök i Devhelp efter ett funktionsnamn"
 #
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/programs.py:88
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Starta <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:98
+#: ../deskbar/handlers/programs.py:102
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Slå upp %s i ordboken"
 
-#: ../deskbar/handlers/programs.py:106
+#: ../deskbar/handlers/programs.py:110
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Sök efter filnamn som %s"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:118
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Sök i Devhelp efter %s"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:222
 #, python-format
 msgid "Execute %s"
 msgstr "Kör %s"
 
-#: ../deskbar/handlers/web_address.py:12
+#: ../deskbar/handlers/web_address.py:13
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Öppna webbsidor och skicka e-post genom att skriv in en fullständig adress"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the web page %s"
 msgstr "Öppna webbsidan %s"
 
-#: ../deskbar/handlers/web_address.py:42
+#: ../deskbar/handlers/web_address.py:44
 #, python-format
 msgid "Open the location %s"
 msgstr "Öppna platsen %s"
 
-#: ../deskbar/handlers/web_address.py:58
+#: ../deskbar/handlers/web_address.py:61
 #, python-format
 msgid "Send Email to %s"
 msgstr "Skicka e-post till %s"
@@ -674,9 +678,17 @@ msgstr ""
 "Skicka synpunkter på översättningen till\n"
 "tp-sv@listor.tp-sv.se"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+#: ../deskbar/ui/DeskbarPreferencesUI.py:19
 msgid "New accelerator..."
 msgstr "Ny snabbtangent..."
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:415
+msgid "Handler has been installed successfully"
+msgstr "Hanteraren har installerats"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:421
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr "Hanteraren kunde inte installeras på grund av ett problem med den tillhandahållna filen"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
