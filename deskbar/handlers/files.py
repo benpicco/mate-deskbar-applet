@@ -35,8 +35,13 @@ class FileMatch(deskbar.Match.Match):
 		self.absname = absname
 				
 	def action(self, text=None):
-		gnome.url_show(gnomevfs.escape_host_and_path_string(self.absname))
-	
+		try:
+			gnome.url_show(gnomevfs.escape_host_and_path_string(self.absname))
+		except Exception, e:
+			if not spawn_async([gnomevfs.get_local_path_from_uri(self.absname)]):
+				gnome.url_show(gnomevfs.escape_host_and_path_string(dirname(self.absname)))
+
+
 	def is_valid(self, text=None):
 		return exists(self.absname)
 		

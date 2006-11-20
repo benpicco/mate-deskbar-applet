@@ -1,5 +1,12 @@
 2006-11-20  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/handlers/files.py:
+	Workaround bug #366973, if opening a file fails because it is
+	executable or for any other reason, open the parent directory
+	instead
+
+2006-11-20  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* po/POTFILES.in:
 	Fixes bug #375987 missing translated file
 
