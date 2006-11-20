@@ -2,6 +2,7 @@ import gtk
 
 import deskbar
 from deskbar.Categories import CATEGORIES
+import gettext
 
 class CuemiacCategory :
 	"""
@@ -16,10 +17,10 @@ class CuemiacCategory :
 		self.__parent = parent
 		
 		try:
-			self.__name = CATEGORIES[id]["name"]
+			self.__name = gettext.gettext(CATEGORIES[id]["name"])
 			self.__id = id
 		except:
-			self.__name = CATEGORIES["default"]["name"]
+			self.__name = gettext.gettext(CATEGORIES["default"]["name"])
 			self.__id = "default"
 
 			
