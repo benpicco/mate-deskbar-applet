@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from os.path import join
 from gettext import gettext as _
 from deskbar.defs import VERSION
