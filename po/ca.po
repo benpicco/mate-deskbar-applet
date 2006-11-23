@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-03 13:54+0200\n"
-"PO-Revision-Date: 2006-09-03 14:00+0200\n"
+"POT-Creation-Date: 2006-11-24 00:47+0100\n"
+"PO-Revision-Date: 2006-11-24 00:55+0100\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.net>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "An all-in-one action bar"
 msgstr "Barra d'accions tot en un"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:21
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
 msgid "Deskbar"
 msgstr "Barra d'escriptori"
 
@@ -60,46 +60,54 @@ msgstr ""
 "l'ordre.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid ""
+"<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
+"small></i>"
+msgstr ""
+"<i><small><b>Nota:</b> La drecera tindrà efecte la propera vegada que "
+"arrenqueu.</small></i>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "Button in panel"
 msgstr "Botó al quadre"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Preferències de la barra d'escriptori"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Entry in panel"
 msgstr "Entrada al quadre"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Extensions"
 msgstr "Extensions"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "Amplada fi_xa:"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "Search selection when triggering the shortcut"
 msgstr "Cerca la selecció en activar la drecera"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
 msgid "Use _all available space"
 msgstr "Utilitza _tot l'espai disponible"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
 msgid "View"
 msgstr "Visualitza"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Drecera de teclat per a obtenir el focus:"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "_More..."
 msgstr "_Més..."
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "characters"
 msgstr "caràcters"
 
@@ -127,27 +135,27 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Dreceres per a cerques indexades"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:144
+#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "Obre l'element de l'historial %s"
 
-#: ../deskbar/BrowserMatch.py:48
+#: ../deskbar/BrowserMatch.py:52
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Obre l'adreça d'interès %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:97
+#: ../deskbar/BrowserMatch.py:101
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Cerca a <b>%(name)s</b> per a <i>%(text)s</i>"
 
-#: ../deskbar/BrowserMatch.py:206
+#: ../deskbar/BrowserMatch.py:210
 msgid "Shortcut"
 msgstr "Drecera"
 
-#: ../deskbar/BrowserMatch.py:214
+#: ../deskbar/BrowserMatch.py:218
 msgid "Bookmark Name"
 msgstr "Nom de l'adreça d'interès"
 
@@ -187,7 +195,7 @@ msgstr "Llocs"
 msgid "Actions"
 msgstr "Accions"
 
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
 msgid "Web"
 msgstr "Web"
 
@@ -239,55 +247,64 @@ msgstr ""
 "No sembla que el dimoni Beagle estigui funcionant.\n"
 " Necessiteu iniciar-lo per poder utilitzar el gestor Beagle Live."
 
-#: ../deskbar/handlers/beagle-live.py:57
+#: ../deskbar/handlers/beagle-live.py:39
+msgid "Failed to start Beagle"
+msgstr "No s'ha pogut iniciar el Beagle"
+
+#: ../deskbar/handlers/beagle-live.py:40
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr "Potser el dimoni del beagle no està instal·lat?"
+
+#: ../deskbar/handlers/beagle-live.py:63
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:64
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr ""
 "Cerqueu en tots els vostres documents (utilitzant el Beagle), mentre escriviu"
 
-#: ../deskbar/handlers/beagle-live.py:86
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
 msgid "Edit contact %s"
 msgstr "Edita el contacte %s"
 
-#: ../deskbar/handlers/beagle-live.py:95
+#: ../deskbar/handlers/beagle-live.py:101
 #, python-format
 msgid "From %s"
 msgstr "De %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:103 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:52
+#: ../deskbar/handlers/recent.py:42
 #, python-format
 msgid "Open %s"
 msgstr "Obre %s"
 
-#: ../deskbar/handlers/beagle-live.py:111
+#: ../deskbar/handlers/beagle-live.py:117
 #, python-format
 msgid "News from %s"
 msgstr "Notícies de %s"
 
-#: ../deskbar/handlers/beagle-live.py:120
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "Note: %s"
 msgstr "Note: %s"
 
-#: ../deskbar/handlers/beagle-live.py:129
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "With %s"
 msgstr "Amb %s"
 
-#: ../deskbar/handlers/beagle-live.py:137
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Calendar: %s"
 msgstr "Calendari: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:313
-#: ../deskbar/handlers/beagle-live.py:335
+#: ../deskbar/handlers/beagle-live.py:319
+#: ../deskbar/handlers/beagle-live.py:341
 msgid "?"
 msgstr "(desconegut)"
 
@@ -299,7 +316,7 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Cerqueu en tots els vostres documents (utilitzant el Beagle)"
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Cerca %s utilitzant el Beagle"
@@ -402,32 +419,32 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Envieu un correu a <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/files.py:17
+#: ../deskbar/handlers/files.py:18
 msgid "Files, Folders and Places"
 msgstr "Fitxers, directoris i llocs"
 
-#: ../deskbar/handlers/files.py:18
+#: ../deskbar/handlers/files.py:19
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Visualitzeu els vostres fitxers, directoris, adreces d'interès, unitats, "
 "llocs de xarxa pel nom"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:74
 #, python-format
 msgid "Open folder %s"
 msgstr "Obre el directori %s"
 
-#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#: ../deskbar/handlers/files.py:94 ../deskbar/handlers/files.py:127
 #, python-format
 msgid "Open location %s"
 msgstr "Obre la ubicació %s"
 
-#: ../deskbar/handlers/files.py:114
+#: ../deskbar/handlers/files.py:123
 #, python-format
 msgid "Open network place %s"
 msgstr "Obre un lloc de xarxa %s"
 
-#: ../deskbar/handlers/files.py:116
+#: ../deskbar/handlers/files.py:125
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Obre un disc d'àudio %s"
@@ -440,63 +457,63 @@ msgstr "Accions de l'ordinador"
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Sortir, aturar, reiniciar, aturar temporalment, i accions semblants."
 
-#: ../deskbar/handlers/gdmactions.py:39
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Suspend the machine"
 msgstr "Atura temporalment la màquina"
 
-#: ../deskbar/handlers/gdmactions.py:50
+#: ../deskbar/handlers/gdmactions.py:60
 msgid "Hibernate the machine"
 msgstr "Hiberna la màquina"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:76
 msgid "Shutdown the machine"
 msgstr "Atura la màquina"
 
-#: ../deskbar/handlers/gdmactions.py:80
+#: ../deskbar/handlers/gdmactions.py:100
 msgid "Lock the screen"
 msgstr "Bloca la pantalla"
 
-#: ../deskbar/handlers/gdmactions.py:106
+#: ../deskbar/handlers/gdmactions.py:126
 msgid "Shut Down"
 msgstr "Atura"
 
-#: ../deskbar/handlers/gdmactions.py:113
+#: ../deskbar/handlers/gdmactions.py:133
 msgid "Turn off the computer"
 msgstr "Atura l'ordinador"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:137
 msgid "Log Out"
 msgstr "Surt"
 
-#: ../deskbar/handlers/gdmactions.py:124
+#: ../deskbar/handlers/gdmactions.py:144
 msgid "Log out"
 msgstr "Surt"
 
-#: ../deskbar/handlers/gdmactions.py:128
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Restart"
 msgstr "Reinicia"
 
-#: ../deskbar/handlers/gdmactions.py:135
+#: ../deskbar/handlers/gdmactions.py:155
 msgid "Restart the computer"
 msgstr "Reinicia l'ordinador"
 
-#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "Canvia d'usuari"
 
-#: ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:185
 msgid "Lock"
 msgstr "Bloca"
 
-#: ../deskbar/handlers/gdmactions.py:176
+#: ../deskbar/handlers/gdmactions.py:196
 msgid "Suspend"
 msgstr "Atura temporalment"
 
-#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:198
 msgid "Hibernate"
 msgstr "Hiberna"
 
-#: ../deskbar/handlers/gdmactions.py:180
+#: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "Atura"
 
@@ -505,7 +522,7 @@ msgid ""
 "You need a Google account to use Google Live.  To get one, go to http://api."
 "google.com/\n"
 "\n"
-"When you have created your account, you should recieve a Google API key by "
+"When you have created your account, you should receive a Google API key by "
 "mail.  Place this key in the file\n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
@@ -515,7 +532,7 @@ msgid ""
 "google.com, click \"Create Account\" and enter your e-mail address and "
 "password.  Your API key will be re-sent.\n"
 "\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
+"Now download the developers' kit and extract the GoogleSearch.wsdl file from "
 "it.  Copy this file to\n"
 "\n"
 "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
@@ -523,15 +540,15 @@ msgstr ""
 "Us cal un compte a Google per poder fer servir el Google Live. Per obtenir-"
 "ne un, aneu a http://api.google.com/\n"
 "\n"
-"Quan ja tingueu el teu compte creat, rebreu una clau de la Google API per "
+"Quan ja tingueu el vostre compte creat, rebreu una clau de la Google API per "
 "correu. Poseu-la al fitxer\n"
 "\n"
 "~/.gnome2/deskbar-applet/Google.key\n"
 "\n"
-"Si no rebeu cap clau API (o l'heu perduda) al vostre compte de correu de "
-"verificació, aneu a www.google.com/accounts i entreu. Aneu a api.google.com, "
-"cliqueu a «Create account» i entreu-hi l'adreça de correu i la contrasenya. "
-"Se us tornarà a enviar la clau API.\n"
+"Si no rebeu cap clau de l'API (o l'heu perduda) al vostre compte de correu "
+"de verificació, aneu a www.google.com/accounts i entreu. Aneu a api.google."
+"com, cliqueu a «Create account» i entreu-hi l'adreça de correu i la "
+"contrasenya. Se us tornarà a enviar la clau API.\n"
 "\n"
 "Ara descarregueu el joc de desenvolupament i extreieu-ne el fitxer "
 "GoogleSearch.wsdl, i copieu-lo a\n"
@@ -621,47 +638,60 @@ msgstr "Cerca un nom de funció a Devhelp"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/programs.py:88
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Executa <b>%(name)s<b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:98
+#: ../deskbar/handlers/programs.py:102
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Consulta %s al diccionari"
 
-#: ../deskbar/handlers/programs.py:106
+#: ../deskbar/handlers/programs.py:110
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Cerca per noms de fitxer semblants a %s"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:118
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Cerca %s en el Devhelp"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:222
 #, python-format
 msgid "Execute %s"
 msgstr "Executa %s"
 
-#: ../deskbar/handlers/web_address.py:12
+#: ../deskbar/handlers/recent.py:14
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr ""
+"Aquest gestor requereix una versió de GTK més recent (2.9.0 o superior)."
+
+#: ../deskbar/handlers/recent.py:18
+msgid "Recent Documents"
+msgstr "Documents recents"
+
+#: ../deskbar/handlers/recent.py:19
+msgid "Retrieve your recently accessed files and locations"
+msgstr "Recupereu els fitxers o ubicacions a què hagueu accedit recentment"
+
+#: ../deskbar/handlers/web_address.py:13
 msgid "Open web pages and send emails by typing a complete address"
 msgstr ""
 "Obriu pàgines web i envieu correus electrònics escrivint-ne l'adreça completa"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the web page %s"
 msgstr "Obre la pàgina web %s"
 
-#: ../deskbar/handlers/web_address.py:42
+#: ../deskbar/handlers/web_address.py:44
 #, python-format
 msgid "Open the location %s"
 msgstr "Obre la ubicació %s"
 
-#: ../deskbar/handlers/web_address.py:58
+#: ../deskbar/handlers/web_address.py:61
 #, python-format
 msgid "Send Email to %s"
 msgstr "Envia un correu a %s"
@@ -674,24 +704,34 @@ msgstr "Cerca a Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "Cerqueu amb el Yahoo! mentre escriviu"
 
-#: ../deskbar/ui/About.py:24
+#: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Barra d'accions integrada."
 
-#: ../deskbar/ui/About.py:27
+#: ../deskbar/ui/About.py:28
 msgid "Deskbar Website"
 msgstr "Lloc web de la barra d'escriptori"
 
 #. about.set_artists([])
 #. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:35
+#: ../deskbar/ui/About.py:36
 msgid "translator-credits"
 msgstr "Gil Forcada <gilforcada@guifi.net>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+#: ../deskbar/ui/DeskbarPreferencesUI.py:19
 msgid "New accelerator..."
 msgstr "Nou accelerador..."
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:415
+msgid "Handler has been installed successfully"
+msgstr "S'ha instal·lat el gestor amb èxit"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:421
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr ""
+"No s'ha pogut instal·lar el gestor atès que hi ha hagut un problema amb el "
+"fitxer proporcionat."
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
