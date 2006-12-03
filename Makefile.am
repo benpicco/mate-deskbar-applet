@@ -1,12 +1,16 @@
-SUBDIRS = deskbar data po
+SUBDIRS = deskbar data po help
+
+DISTCHECK_CONFIGURE_FLAGS = --disable-scrollkeeper
 
 DISTCLEANFILES = \
 	intltool-extract \
 	intltool-merge \
-	intltool-update
+	intltool-update \
+	gnome-doc-utils.make
 
 EXTRA_DIST = \
 	TODO \
 	intltool-update.in \
 	intltool-extract.in	\
-	intltool-merge.in
+	intltool-merge.in \
+	gnome-doc-utils.make

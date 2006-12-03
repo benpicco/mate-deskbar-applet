@@ -31,6 +31,11 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [The gettext package])
 AM_GLIB_GNU_GETTEXT
 
 dnl ****************************************************************************
+dnl * Gnome Doc Utils
+dnl ****************************************************************************
+GNOME_DOC_INIT
+
+dnl ****************************************************************************
 dnl * GConf support
 dnl ****************************************************************************
 AC_PATH_PROG(GCONFTOOL, gconftool-2)
@@ -172,6 +177,7 @@ data/Makefile
 data/deskbar-applet.pc
 data/art/Makefile
 po/Makefile.in
+help/Makefile
 ])
 
 echo
