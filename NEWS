@@ -1,4 +1,19 @@
 =====================
+deskbar-applet 2.17.3
+=====================
+
+Changes:
+	* Fix opening file that have been deleted by opening parent dir
+	* added missing header files to pass code check tests.
+	* Close bug #368576, add encoding description to About.py
+	* Add translation for categories. the gettext call was missing
+	* Workaround bug #366973, if opening a file fails because it is executable or for any other reason, open the parent directory instead
+	* Fixes bug #375987 missing translated file
+	* Fixes #355278 Making strings to appear translated.
+
+Contributors to this release: Raphael Slinckx, Francisco Javier F. Serrador, Rodrigo Moya
+
+=====================
 deskbar-applet 2.17.2
 =====================
 Released 2006-11-07.
