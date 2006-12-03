@@ -2,7 +2,7 @@ import os, sys, cgi, re
 import gobject,gtk, gnome, gnome.ui, gnomevfs
 import deskbar, deskbar.Handler, deskbar.Utils, deskbar.Match
 from gettext import gettext as _
-from os.path import exists
+from os.path import exists, dirname
 from deskbar.defs import VERSION
 from deskbar.Utils import is_program_in_path, spawn_async
 
@@ -83,6 +83,11 @@ HANDLERS = {
 #
 # Note:
 #  The templates are a tuple of strings which should be tested in order to retreive the beagle property
+def url_show_try(uri):
+	try:
+		gnome.url_show(uri)
+	except GError:
+		gnome.url_show(dirname(uri))
 
 TYPES = {
 	"Contact"	: {
@@ -103,7 +108,7 @@ TYPES = {
 		},
 	"File" 		: {
 		"name"	: ("beagle:ExactFilename",), 
-		"action": lambda d: gnome.url_show(d["uri"]),
+		"action": lambda d: url_show_try(d["uri"]),
 		"icon"	: "stock_new",
 		#translators: This is a file.
 		"description": _("Open %s") % "<b>%(name)s</b>",
@@ -112,7 +117,7 @@ TYPES = {
 		},
 	"FeedItem"	: {
 		"name"	: ("dc:title",),
-		"action": lambda d: gnome.url_show(d["identifier"]),
+		"action": lambda d: url_show_try(d["identifier"]),
 		"icon"	: "stock_news",
 		"description": (_("News from %s") % "<i>%(publisher)s</i>" ) + "\n<b>%(name)s</b>",
 		"snippet": True,
@@ -145,7 +150,7 @@ TYPES = {
 		},
 	"WebHistory": {
 		"name"	: ("dc:title",), # FIX-BEAGLE bug #330053, dc:title returns as None even though it _is_ set
-		"action": lambda d: gnome.url_show(d["uri"]),
+		"action": lambda d: url_show_try(d["uri"]),
 		"icon"	: "stock_bookmark",
 		"description": (_("Open History Item %s") % "<i>%(name)s</i>") + "\n%(escaped_uri)s",
 		"category": "web",
