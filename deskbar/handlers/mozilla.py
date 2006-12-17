@@ -530,7 +530,7 @@ class MozillaSmartBookmarksParser:
 			parent_dir = self.f[:self.f.rindex("/")]
 			return [img for img in glob.glob(join(parent_dir, '%s.*' % self.f[:-4])) if not img.endswith(".src")][0]
 		except Exception, msg:
-			print "WARNING: Error detecting icon for smart bookmark:\n%s" % msg
+			print "WARNING: Error detecting icon for smart bookmark:%s\n%s" % (self.f,msg)
 			return None
 	
 	def _handle_token(self, state, tokens):
@@ -681,33 +681,33 @@ class MozillaSmartBookmarksDirParser:
 					found_bookmarks.append(f)
 			
 			
-			for f in found_bookmarks:
-				img = None
-				if f.endswith (".xml"):
-					# Firefox >= 2.0 format
-					parser = Firefox2SearchEngineParser (f)
+		for f in found_bookmarks:
+			img = None
+			if f.endswith (".xml"):
+				# Firefox >= 2.0 format
+				parser = Firefox2SearchEngineParser (f)
+			else:
+				# f ends with ".src" and is in Firefox <= 1.5 format 
+				parser = MozillaSmartBookmarksParser(f)
+							
+			try:
+				parser.parse()
+				infos = parser.get_infos()
+				
+				if infos.has_key("pixbuf"):
+					bookmark = BrowserMatch(handler, infos["name"], infos["url"], pixbuf=infos["pixbuf"])
+					bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], pixbuf=infos["pixbuf"], bookmark=bookmark)
+				elif infos.has_key ("icon"):
+					bookmark = BrowserMatch(handler, infos["name"], infos["url"], icon=infos["icon"])
+					bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], icon=infos["icon"], bookmark=bookmark)
 				else:
-					# f ends with ".src" and is in Firefox <= 1.5 format 
-					parser = MozillaSmartBookmarksParser(f)
-								
-				try:
-					parser.parse()
-					infos = parser.get_infos()
+					bookmark = BrowserMatch(handler, infos["name"], infos["url"])
+					bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], bookmark=bookmark)
 					
-					if infos.has_key("pixbuf"):
-						bookmark = BrowserMatch(handler, infos["name"], infos["url"], pixbuf=infos["pixbuf"])
-						bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], pixbuf=infos["pixbuf"], bookmark=bookmark)
-					elif infos.has_key ("icon"):
-						bookmark = BrowserMatch(handler, infos["name"], infos["url"], icon=infos["icon"])
-						bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], icon=infos["icon"], bookmark=bookmark)
-					else:
-						bookmark = BrowserMatch(handler, infos["name"], infos["url"])
-						bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], bookmark=bookmark)
-						
-					self._smart_bookmarks.append(bookmark)
-					
-				except Exception, msg:
-					print 'Error:MozillaSmartBookmarksDirParser:cannot parse smart bookmark: %s\n%s' % (f,msg)
+				self._smart_bookmarks.append(bookmark)
+				
+			except Exception, msg:
+				print 'Error:MozillaSmartBookmarksDirParser:cannot parse smart bookmark: %s\n%s' % (f,msg)
 					
 	
 	def get_smart_bookmarks(self):
