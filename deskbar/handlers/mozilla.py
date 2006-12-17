@@ -2,6 +2,8 @@ import os, re, HTMLParser, base64, glob
 from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
 from ConfigParser import RawConfigParser
+from xml.dom import minidom
+
 from deskbar.defs import VERSION
 import gtk
 from deskbar.Watcher import FileWatcher, DirWatcher
@@ -338,8 +340,129 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 	def handle_data(self, chars):
 		self.chars = self.chars + chars
 
-
-						
+class Firefox2SearchEngineParser :
+	def __init__ (self, filename):
+		self.filename = filename
+		
+		self._infos = {
+			"name" : "",
+			"action" : "",
+			"description" : "",
+			"url" : ""
+		}
+		
+		self._namespace = None
+		
+	def get_infos (self):
+		return self._infos
+	
+	def parse (self):
+		xml = minidom.parse(self.filename)
+		
+		self._detect_namespace(xml)
+		
+		self._parse_name (xml)
+		self._parse_description (xml)
+		self._parse_action_and_url (xml)
+		
+		try:
+			self._parse_image (xml)
+		except Exception, msg:
+			print "Error parsing icon for %s\n%s" % (self.filename,msg)
+	
+	def _detect_namespace (self, xml):
+		# Manually added search engines use the "os" namespace
+		# for some reason.
+		try:
+			plugin = xml.getElementsByTagName ("SearchPlugin")[0]
+			ns = plugin.getAttribute("xmlns:os")
+			if ns == "":
+				return
+			self._namespace = "os"			
+		except:
+			pass
+			
+	def _ns_convert (self, tagname):
+		# Convert the tag to the configured xml namespace
+		if self._namespace is not None:
+			return self._namespace + ":" + tagname
+		else:
+			return tagname
+	
+	def _parse_name (self, xml):
+		for node in xml.getElementsByTagName (self._ns_convert("ShortName"))[0].childNodes:
+			self._infos ["name"] += node.data
+	
+	def _parse_description (self, xml):
+		for node in xml.getElementsByTagName (self._ns_convert("Description"))[0].childNodes:
+			self._infos ["description"] += node.data
+			
+	def _parse_action_and_url (self, xml):
+		
+		# Some search engines have multiple Url tags
+		# - fx. to a suggest-service, so we have to
+		# detect the correct one. It will be the one
+		# with type text/html.
+		url_node = None
+		for node in xml.getElementsByTagName (self._ns_convert("Url")):
+			if node.getAttribute("type") == "text/html":
+				url_node = node
+				break 
+		
+		if url_node is None:
+			raise ParseException ("No Url tag of type text/html in %s" % self.filename)
+		
+		self._infos ["url"] = url_node.getAttribute ("template")
+		self._infos ["action"] = self._infos["url"]
+		
+		# Append search paramters to the action url
+		params = ""
+		for param in url_node.getElementsByTagName(self._ns_convert("Param")):
+			key = param.getAttribute ("name")
+			value = param.getAttribute ("value")			
+			params += "&%s=%s" % (key,value)
+		
+		# Cut away leading & in param string
+		params = params[1:]
+		
+		if params != "":
+			self._infos["action"] += "?" + params
+		
+		# Escape the "{searchTerms}" parameter and take care of spelling variations
+		self._infos["action"] = self._infos["action"].replace("{searchTerms}", "%s")
+		self._infos["action"] = self._infos["action"].replace("{SearchTerms}", "%s")
+		
+	
+	def _parse_image (self, xml):
+		# The Image tag contains a base64 encoded image 
+		try:
+			# Some custom search engines might now contain a favicon
+			img_tag = xml.getElementsByTagName(self._ns_convert("Image"))[0]
+		except:
+			return
+		
+		loader = gtk.gdk.PixbufLoader()
+		loader.set_size(deskbar.ICON_HEIGHT, deskbar.ICON_HEIGHT)
+		
+		content = ""
+		for data in img_tag.childNodes:
+			content += data.data
+		
+		# Strip header data before decoding the base64 image
+		header = "data:image/x-icon;base64,"
+		content = content[content.index(header) + len(header):]
+		
+		try:
+			# Python 2.4
+			loader.write(base64.b64decode(content))
+		except AttributeError:
+			# Python 2.3 and earlier
+			loader.write(base64.decodestring(content))
+		
+		loader.close()
+		pixbuf = loader.get_pixbuf()
+		self._infos["pixbuf"] = pixbuf
+				
 class MozillaSmartBookmarksParser:
 	def __init__(self, f):
 		"""
@@ -374,8 +497,13 @@ class MozillaSmartBookmarksParser:
 			infos["url"] = self.infos["search"]["url"]
 			
 		infos["action"] = self.infos["search"]["action"] + args
-		return infos
 		
+		img = self._find_icon ()
+		if img is not None:
+			infos["icon"] = img
+		
+		return infos
+	
 	def parse(self):
 		"""
 		"""
@@ -396,6 +524,14 @@ class MozillaSmartBookmarksParser:
 			tokens = rest
 			for i in range(n - len(rest)):
 				tokens.append(tokenizer.get_next_token())
+	
+	def _find_icon (self):
+		try:
+			parent_dir = self.f[:self.f.rindex("/")]
+			return [img for img in glob.glob(join(parent_dir, '%s.*' % self.f[:-4])) if not img.endswith(".src")][0]
+		except Exception, msg:
+			print "WARNING: Error detecting icon for smart bookmark:\n%s" % msg
+			return None
 	
 	def _handle_token(self, state, tokens):
 		if state == None and (tokens == ["<", "search"] or tokens == ["<", "SEARCH"]):
@@ -430,9 +566,9 @@ class MozillaSmartBookmarksParser:
 		return None, None, None
 
 class TokenException(Exception):
-	pass
+	def __init__ (self, msg): Exception.__init__(self, msg)
 class ParseException(Exception):
-	pass
+	def __init__ (self, msg): Exception.__init__(self, msg)
 	
 class Tokenizer:
 	def __init__(self, f):
@@ -517,35 +653,61 @@ class MozillaSmartBookmarksDirParser:
 		self._smart_bookmarks = []
 		
 		# Avoid getting duplicate search engines
-		foundbookmarks = []
+		bookmark_names = []
+		
+		# Full path to detected bookmark file
+		found_bookmarks = []
 		
 		for bookmarks_dir in dirs:
 			if not exists(bookmarks_dir):
 				continue
-				
+			
+			# Detect Firefox <= 1.5 search engines  
 			for f in glob.glob(join(bookmarks_dir, '*.src')):
 				# Check if we already parsed the file
 				bmname = basename(f)
-				if bmname in foundbookmarks:
+				if bmname in bookmark_names:
 					continue
 				else:
-					foundbookmarks.append(bmname)
-				
+					found_bookmarks.append(f)
+			
+			# Detect Firefox >= 2.0 search engines
+			for f in glob.glob(join(bookmarks_dir, '*.xml')):
+				# Check if we already parsed the file
+				bmname = basename(f)
+				if bmname in bookmark_names:
+					continue
+				else:
+					found_bookmarks.append(f)
+			
+			
+			for f in found_bookmarks:
 				img = None
-				try:
-					img = [img for img in glob.glob(join(bookmarks_dir, '%s.*' % f[:-4])) if not img.endswith(".src")][0]
-				except:
-					pass
-				
-				parser = MozillaSmartBookmarksParser(f)
+				if f.endswith (".xml"):
+					# Firefox >= 2.0 format
+					parser = Firefox2SearchEngineParser (f)
+				else:
+					# f ends with ".src" and is in Firefox <= 1.5 format 
+					parser = MozillaSmartBookmarksParser(f)
+								
 				try:
 					parser.parse()
 					infos = parser.get_infos()
-					bookmark = BrowserMatch(handler, infos["name"], infos["url"], icon=img)
-					bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], icon=img, bookmark=bookmark)
+					
+					if infos.has_key("pixbuf"):
+						bookmark = BrowserMatch(handler, infos["name"], infos["url"], pixbuf=infos["pixbuf"])
+						bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], pixbuf=infos["pixbuf"], bookmark=bookmark)
+					elif infos.has_key ("icon"):
+						bookmark = BrowserMatch(handler, infos["name"], infos["url"], icon=infos["icon"])
+						bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], icon=infos["icon"], bookmark=bookmark)
+					else:
+						bookmark = BrowserMatch(handler, infos["name"], infos["url"])
+						bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], bookmark=bookmark)
+						
 					self._smart_bookmarks.append(bookmark)
+					
 				except Exception, msg:
-					print 'Error:MozillaSmartBookmarksDirParser:cannot parse smrt bookmark:%s:bookmark %s' % (msg, f)
+					print 'Error:MozillaSmartBookmarksDirParser:cannot parse smart bookmark: %s\n%s' % (f,msg)
 					
 	
 	def get_smart_bookmarks(self):

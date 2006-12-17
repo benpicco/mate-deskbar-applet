@@ -1,3 +1,4 @@
+import gtk
 import deskbar.Utils
 
 """
@@ -6,6 +7,11 @@ Represents a match returned by handlers
 
 class Match:
 	def __init__(self, handler, **args):
+		"""
+		You can pass the named paramter "icon" as a string being an
+		absolute path or name of an icon. Alternatively you can pass
+		the "pixbuf" paramter as a gtk.gdk.Pixbuf
+		"""
 		self._priority = 0
 		self._handler = handler
 		self._icon = None
@@ -16,6 +22,8 @@ class Match:
 			self.name = args["name"]
 		if "icon" in args:
 			self.icon = args["icon"]
+		if "pixbuf" in args:
+			self._icon = args["pixbuf"]
 	
 	def get_handler(self):
 		"""
@@ -81,13 +89,14 @@ class Match:
 		Returns a GdkPixbuf hat represents this match.
 		Returns None if there is no associated icon.
 		"""
-		if self._icon == None:
+		if self._icon is None:
 			if self.icon != None:
 				self._icon = deskbar.Utils.load_icon(self.icon)
+				
 			if self._icon == None:
-				self._icon = False
+				self._icon = None
 		
-		if self._icon == False:
+		if self._icon is None:
 			return self.get_handler().get_icon()
 		else:
 			return self._icon

@@ -1,3 +1,18 @@
+2006-12-17  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+	* deskbar/Match.py:
+	* deskbar/handlers/mozilla.py:
+	Add support for Firefox 2.0 search engines. I had to use xml.dom.minidom
+	to parse the files, and we might as well port the "old" format parser
+	to xml.dom.minidom as well (it uses a custom sax-like parser).
+	
+	I had to add a named parameter "pixbuf" to the Match base class since
+	the FF2 search engines contains raw base64 encoded favicons - meaning I 
+	couldn't ref to a file using the "icon" parameter in the Match constructor
+	as usual.
+	
+	Needs to be tested with older Firefoxes (I suspect it to work though). 
+	
 2006-12-03  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* NEWS:
