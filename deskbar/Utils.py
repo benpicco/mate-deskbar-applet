@@ -95,7 +95,7 @@ PATH = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip(
 def is_program_in_path(program):
 	for path in PATH:
 		prog_path = join(path, program)
-		if exists(prog_path) and isfile(prog_path):
+		if exists(prog_path) and isfile(prog_path) and os.access(prog_path, os.F_OK | os.R_OK | os.X_OK):
 			return True
 
 def spawn_async(args):
