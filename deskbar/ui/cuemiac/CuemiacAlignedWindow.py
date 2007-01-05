@@ -53,6 +53,10 @@ class CuemiacAlignedWindow (gtk.Window):
 		
 		if self.realize_status == False:
 			return
+		
+		if not (self.widgetToAlignWith.flags() & gtk.REALIZED):
+                        print "WARNING: CuemiacAlignedWindow.update_position() widgetToAlignWith is not realized."
+                        return
 			
 		# Get our own dimensions & position
 		(wx, wy) = self.window.get_origin ()
