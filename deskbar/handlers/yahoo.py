@@ -1,4 +1,4 @@
-from deskbar.Utils import strip_html
+from deskbar.Utils import strip_html, get_proxy
 from gettext import gettext as _
 from deskbar.defs import VERSION
 import urllib, cgi
@@ -52,7 +52,7 @@ class YahooHandler(deskbar.Handler.AsyncHandler):
 			urllib.urlencode(
 				{'appid': YAHOO_API_KEY,
 				'query': qstring,
-				'results': 15}))
+				'results': 15}), proxies=get_proxy())
 		dom = xml.dom.minidom.parse(stream)
 		print 'Got yahoo answer for:', qstring
 		

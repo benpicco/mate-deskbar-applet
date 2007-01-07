@@ -1,6 +1,6 @@
 import os, time
 from os.path import *
-import gnomeapplet, gtk, gtk.gdk, gconf, gobject
+import gnomeapplet, gtk, gtk.gdk, gconf, gnomevfs, gobject
 from gettext import gettext as _
 
 import deskbar, deskbar.ui
@@ -15,6 +15,9 @@ from deskbar.ui.cuemiac.CuemiacButtonUI import CuemiacButtonUI
 from deskbar.ui.entriac.CuemiacEntryUI import CuemiacEntryUI
 from deskbar.ui.window.CuemiacWindowUI import CuemiacWindowUI
 
+PROXY_USE_HTTP_PROXY = '/system/http_proxy/use_http_proxy'
+PROXY_HOST_KEY = '/system/http_proxy/host'
+PROXY_PORT_KEY = '/system/http_proxy/port'
 
 class DeskbarApplet:
 	def __init__(self, applet):
@@ -57,7 +60,18 @@ class DeskbarApplet:
 		if self.clear_entry == None:
 			self.clear_entry = False
 		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_CLEAR_ENTRY, lambda x, y, z, a: self.on_clear_entry_changed (z.value))
-		
+	
+		self.use_proxy = deskbar.GCONF_CLIENT.get_bool(PROXY_USE_HTTP_PROXY)
+		if self.use_proxy == None:
+			self.use_proxy = False
+		deskbar.GCONF_CLIENT.notify_add(PROXY_USE_HTTP_PROXY, lambda x, y, z, a: self.on_use_proxy_changed (z.value))
+
+		self.proxy_host = deskbar.GCONF_CLIENT.get_string(PROXY_HOST_KEY)
+		deskbar.GCONF_CLIENT.notify_add(PROXY_HOST_KEY, lambda x, y, z, a: self.on_proxy_host_changed (z.value))
+
+		self.proxy_port = deskbar.GCONF_CLIENT.get_int(PROXY_PORT_KEY)
+		deskbar.GCONF_CLIENT.notify_add(PROXY_PORT_KEY, lambda x, y, z, a: self.on_proxy_port_changed (z.value))
+
 		# Watch out for UI override from command line
 		if deskbar.UI_OVERRIDE:
 			ui_name = deskbar.UI_OVERRIDE
@@ -382,4 +396,18 @@ class DeskbarApplet:
 	def on_use_selection(self, value=None):
 		if value != None and value.type == gconf.VALUE_BOOL:
 			self.use_selection = value.get_bool()
+
+	def on_use_proxy_changed(self, value):
+		if value is None or value.type != gconf.VALUE_BOOL:
+			return
+		self.use_proxy = value.get_bool()
 	
+	def on_proxy_host_changed(self,value):
+		if value is None or value.type != gconf.VALUE_STRING:
+			return
+		self.proxy_host = value.get_string()
+
+	def on_proxy_port_changed(self,value):
+		if value is None or value.type != gconf.VALUE_INT:
+			return
+		self.proxy_port = value.get_int()

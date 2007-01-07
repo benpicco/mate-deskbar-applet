@@ -116,7 +116,7 @@ class DeliciousTagQueryEngine:
 		#Get the info from del.icio.us and parse
 		url = DEFAULT_QUERY_TAG % (urllib.quote_plus(self._user), urllib.quote_plus(tag))
 
-		stream = urllib.urlopen(url)
+		stream = urllib.urlopen(url, proxies=deskbar.Utils.get_proxy())
 		dom = xml.dom.minidom.parse(stream)
 		stream.close()
 		

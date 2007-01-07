@@ -133,3 +133,10 @@ def url_show(url):
 		if resp == gtk.RESPONSE_CLOSE:
 			message_dialog.destroy()
 
+def get_proxy(deskbar):
+	if deskbar.use_proxy:
+		proxy_string = "http://%s:%d:" % (deskbar.proxy_host, deskbar.proxy_port)
+		proxies = {'http' : proxy_string}
+		return proxies
+	else:
+		return None
