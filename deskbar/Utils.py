@@ -114,12 +114,22 @@ def spawn_async(args):
 
 		return False
 
+def add_to_recent(uri):
+	if hasattr(gtk, "recent_manager_get_default"):
+		# add the file to the list of recently opened files
+		manager = gtk.recent_manager_get_default()
+		manager.add_item(uri)
+
 def url_show_file(url):
 	try:
-		gnomevfs.url_show(gnomevfs.escape_host_and_path_string(url))
+		uri = gnomevfs.escape_host_and_path_string(url)
+		gnomevfs.url_show(uri)
+		add_to_recent(uri)
 	except Exception, e:
 		if not spawn_async([gnomevfs.get_local_path_from_uri(url)]):
-			url_show(gnomevfs.escape_host_and_path_string(dirname(url)))
+			uri = gnomevfs.escape_host_and_path_string(dirname(url))
+			url_show(uri)
+			add_to_recent(uri)
 
 def url_show(url):
 	try:
