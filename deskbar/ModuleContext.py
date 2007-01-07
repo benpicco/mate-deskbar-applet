@@ -12,6 +12,8 @@ class ModuleContext:
 		self.version = "0.0.0"
 		if "version" in infos:
 			self.version = infos["version"]
+			
+		self.update_infos = (False, None)
 
 class WebModuleContext:
 	"""A generic wrapper for any object stored in a WebModuleList.

@@ -91,6 +91,22 @@ else
   AC_MSG_ERROR([gnomeapplet Python module required to build deskbar])
 fi
 
+AC_MSG_CHECKING([for elementtree module])
+if AC_RUN_LOG([$PYTHON -c '
+try:
+    import elementtree
+except ImportError, e:
+    if str(e).find("elementtree") >= 0:
+          raise
+except:
+    pass
+']); then
+  AC_MSG_RESULT([yes])
+else
+  AC_MSG_RESULT([no])
+  AC_MSG_ERROR([elementtree Python module required to build deskbar])
+fi
+
 dnl ****************************************************************************
 dnl * Check for evolution's libebook to build the evolution handler
 dnl ****************************************************************************
@@ -167,6 +183,7 @@ deskbar/ui/cuemiac/Makefile
 deskbar/ui/entriac/Makefile
 deskbar/ui/window/Makefile
 deskbar/handlers/Makefile
+deskbar/updater/Makefile
 deskbar/iconentry/Makefile
 deskbar/keybinder/Makefile
 deskbar/gnomedesktop/Makefile

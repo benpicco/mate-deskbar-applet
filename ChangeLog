@@ -1,5 +1,21 @@
 2007-01-07  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* configure.ac:
+	* data/prefs-dialog.glade:
+	* deskbar/Makefile.am:
+	* deskbar/ModuleContext.py:
+	* deskbar/ui/DeskbarPreferencesUI.py:
+	* deskbar/ui/ModuleListView.py:
+	* deskbar/updater/ErrorDialog.py:
+	* deskbar/updater/Makefile.am:
+	* deskbar/updater/NewStuffUpdater.py:
+	* deskbar/updater/ProgressbarDialog.py:
+	Resurrect the new-stuff-manager support. It is optional, and nothing
+	changes if the new-stuff-manager isn't available to the user.
+	Patch #350165 by Sebastian Pölsterl <marduk@k-d-w.org>
+
+2007-01-07  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/ui/DeskbarPreferencesUI.py:
 	Prevents binding of keys a-z and shit-a-z. Patch by Sebastian Pölsterl.
 	Fixes bug #388486
