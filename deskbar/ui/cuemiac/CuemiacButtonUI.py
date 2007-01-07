@@ -120,7 +120,8 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 	def update_popup_state (self, time=None):
 		if self.cbutton.get_active_main ():
 			popup_was_visible = self.popup.get_property("visible")
-			
+			self.applet.set_state(gtk.STATE_SELECTED)
+
 			if not (popup_was_visible):
 				# Don't risk that the window bounces around, thus
 				# only recalc position when the popup isn't already shown
@@ -160,6 +161,7 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 			self.popup.set_keep_above (False)
 			self.popup.unstick()
 			self.popup.hide ()
+			self.applet.set_state(gtk.STATE_NORMAL)
 			self.emit ("stop-query")
 		
 		# Hide the history no matter what
@@ -184,6 +186,7 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 	def update_history_popup_state (self):
 		self.history_popup.popup ()
 		self.popup.hide ()
+		self.applet.set_state(gtk.STATE_NORMAL)
 		#if self.cbutton.get_active_arrow ():
 		#	self.cbutton.button_main.set_active (False)
 		#	self.history_popup.update_position ()
