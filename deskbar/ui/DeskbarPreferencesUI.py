@@ -113,6 +113,10 @@ class AccelEntry( gobject.GObject ):
 		upper = event.keyval
 		accel_keyval = gtk.gdk.keyval_to_lower(upper)
 
+		if (accel_keyval >= gtk.keysyms.a and accel_keyval <= gtk.keysyms.z):
+			self.__revert()
+			return
+
 		# Put shift back if it changed the case of the key, not otherwise.
 		if upper != accel_keyval and (consumed_modifiers & gtk.gdk.SHIFT_MASK):
 			consumed_modifiers &= ~(gtk.gdk.SHIFT_MASK)
