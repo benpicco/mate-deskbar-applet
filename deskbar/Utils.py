@@ -1,7 +1,8 @@
 import os, cgi, re
 from os.path import *
+from gettext import gettext as _
 import deskbar, deskbar.gnomedesktop
-import gtk, gtk.gdk, gnome.ui, gobject
+import gtk, gtk.gdk, gnome.ui, gobject, gnomevfs
 from htmlentitydefs import name2codepoint
 
 ICON_THEME = gtk.icon_theme_get_default()
@@ -103,6 +104,32 @@ def spawn_async(args):
 		gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
 		return True
 	except Exception, e:
-		# FIXME: Proper dialog support here..
-		print 'Warning:Unable to execute process:', e
+		message_dialog = gtk.MessageDialog(flags=gtk.DIALOG_MODAL, type=gtk.MESSAGE_ERROR, buttons=gtk.BUTTONS_CLOSE)
+		message_dialog.set_markup("<span size='larger' weight='bold'>%s</span>\n\n '%s'" % (
+			_("Cannot execute program:"), cgi.escape(' '.join(args))))
+
+		resp = message_dialog.run()
+		if resp == gtk.RESPONSE_CLOSE:
+			message_dialog.destroy()
+
 		return False
+
+def url_show_file(url):
+	try:
+		gnomevfs.url_show(gnomevfs.escape_host_and_path_string(url))
+	except Exception, e:
+		if not spawn_async([gnomevfs.get_local_path_from_uri(url)]):
+			url_show(gnomevfs.escape_host_and_path_string(dirname(url)))
+
+def url_show(url):
+	try:
+		gnomevfs.url_show(url)
+	except Exception, e:
+		message_dialog = gtk.MessageDialog(flags=gtk.DIALOG_MODAL, type=gtk.MESSAGE_ERROR, buttons=gtk.BUTTONS_CLOSE)
+		message_dialog.set_markup("<span size='larger' weight='bold'>%s</span>\n\n '%s'" % (
+			_("Cannot show URL:"), cgi.escape(url)))
+
+		resp = message_dialog.run()
+		if resp == gtk.RESPONSE_CLOSE:
+			message_dialog.destroy()
+

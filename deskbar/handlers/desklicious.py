@@ -1,4 +1,4 @@
-import os, cgi, os.path, deskbar, deskbar.Match, deskbar.Handler
+import os, cgi, os.path, deskbar, deskbar.Match, deskbar.Handler, deskbar.Utils
 import gnomevfs, gtk, gconf
 
 from gettext import gettext as _
@@ -69,7 +69,7 @@ class DeliciousMatch(deskbar.Match.Match):
 		}
 		
 	def action(self, text=None):
-		gnomevfs.url_show(self.url)
+		deskbar.Utils.url_show(self.url)
 
 	def get_category(self):
 		return "web"

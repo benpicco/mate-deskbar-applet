@@ -3,7 +3,7 @@ from gettext import gettext as _
 from deskbar.defs import VERSION
 import urllib, cgi
 import gnomevfs
-import deskbar.Handler, deskbar.Match, deskbar
+import deskbar.Handler, deskbar.Match, deskbar, deskbar.Utils
 import xml.dom.minidom
 
 YAHOO_API_KEY = 'deskbar-applet'
@@ -28,7 +28,7 @@ class YahooMatch(deskbar.Match.Match):
 		return "%(name)s"
 
 	def action(self, text=None):
-		gnomevfs.url_show(self.url)
+		deskbar.Utils.url_show(self.url)
 
 	def get_category(self):
 		return "web"

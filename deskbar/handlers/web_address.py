@@ -5,7 +5,7 @@ import gnomevfs
 import deskbar.Handler
 import deskbar.Match
 from deskbar.defs import VERSION
-from deskbar.Utils import spawn_async
+from deskbar.Utils import spawn_async, url_show
 
 HANDLERS = {
 	"WebAddressHandler" : {
@@ -30,7 +30,7 @@ class WebAddressMatch(deskbar.Match.Match):
 		
 	def action(self, text=None):
 		if self.url.startswith("http"):
-			gnomevfs.url_show(self.url)
+			url_show(self.url)
 		else:
 			spawn_async(["nautilus", self.url])
 			
@@ -52,7 +52,7 @@ class EmailAddressMatch(deskbar.Match.Match):
 		self.mail = mail
 		
 	def action(self, text=None):
-		gnomevfs.url_show("mailto:"+self.mail)
+		url_show("mailto:"+self.mail)
 		
 	def get_category(self):
 		return "people"

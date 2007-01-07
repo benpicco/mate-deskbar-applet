@@ -43,7 +43,7 @@ class BrowserMatch(deskbar.Match.Match):
 		self.is_history = is_history
 		
 	def action(self, text=None):
-		gnomevfs.url_show(self.url)
+		deskbar.Utils.url_show(self.url)
 		
 	def get_verb(self):
 		if self.is_history:
@@ -94,7 +94,7 @@ class BrowserSmartMatch(deskbar.Match.Match):
 			text = text[len(self.prefix_to_strip):]
 		
 		real_url = re.sub("%s", urllib.quote_plus(text), self.url)
-		gnomevfs.url_show(real_url)
+		deskbar.Utils.url_show(real_url)
 		
 	def get_verb(self):
 		#translators: First %s is the search engine name, second %s is the search term

@@ -4,6 +4,7 @@ import gobject, gtk, gnome
 import deskbar
 import deskbar.Handler
 import deskbar.Match
+import deskbar.Utils
 
 from deskbar.defs import VERSION
 from deskbar.Watcher import FileWatcher
@@ -30,7 +31,7 @@ class RecentMatch(deskbar.Match.Match):
 		self.recent_infos = recent_infos
 				
 	def action(self, text=None):
-		gnome.url_show(self.recent_infos.get_uri())
+		deskbar.Utils.url_show_file(self.recent_infos.get_uri())
 	
 	def is_valid(self, text=None):
 		return self.recent_infos.exists()

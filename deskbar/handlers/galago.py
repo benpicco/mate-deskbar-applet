@@ -1,7 +1,7 @@
 from gettext import gettext as _
 
 import gnomevfs
-import deskbar, deskbar.Indexer
+import deskbar, deskbar.Indexer, deskbar.Utils
 import deskbar.Handler
 import deskbar.Match
 from deskbar.defs import VERSION
@@ -23,7 +23,7 @@ class GalagoMatch(deskbar.Match.Match):
 		self._email = email
 		
 	def action(self, text=None):
-		gnomevfs.url_show("mailto:"+self._email)
+		deskbar.Utils.url_show("mailto:"+self._email)
 		
 	def get_category(self):
 		return "people"

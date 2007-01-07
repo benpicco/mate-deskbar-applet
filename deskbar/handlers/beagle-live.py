@@ -4,7 +4,7 @@ import deskbar, deskbar.Handler, deskbar.Utils, deskbar.Match
 from gettext import gettext as _
 from os.path import exists, dirname
 from deskbar.defs import VERSION
-from deskbar.Utils import is_program_in_path, spawn_async
+from deskbar.Utils import is_program_in_path, spawn_async, url_show, url_show_file
 
 MAX_RESULTS = 20 # per handler
 
@@ -83,11 +83,6 @@ HANDLERS = {
 #
 # Note:
 #  The templates are a tuple of strings which should be tested in order to retreive the beagle property
-def url_show_try(uri):
-	try:
-		gnome.url_show(uri)
-	except GError:
-		gnome.url_show(dirname(uri))
 
 TYPES = {
 	"Contact"	: {
@@ -108,7 +103,7 @@ TYPES = {
 		},
 	"File" 		: {
 		"name"	: ("beagle:ExactFilename",), 
-		"action": lambda d: url_show_try(d["uri"]),
+		"action": lambda d: url_show_file(d["uri"]),
 		"icon"	: "stock_new",
 		#translators: This is a file.
 		"description": _("Open %s") % "<b>%(name)s</b>",
@@ -117,7 +112,7 @@ TYPES = {
 		},
 	"FeedItem"	: {
 		"name"	: ("dc:title",),
-		"action": lambda d: url_show_try(d["identifier"]),
+		"action": lambda d: url_show(d["identifier"]),
 		"icon"	: "stock_news",
 		"description": (_("News from %s") % "<i>%(publisher)s</i>" ) + "\n<b>%(name)s</b>",
 		"snippet": True,
@@ -150,7 +145,7 @@ TYPES = {
 		},
 	"WebHistory": {
 		"name"	: ("dc:title",), # FIX-BEAGLE bug #330053, dc:title returns as None even though it _is_ set
-		"action": lambda d: url_show_try(d["uri"]),
+		"action": lambda d: url_show_file(d["uri"]),
 		"icon"	: "stock_bookmark",
 		"description": (_("Open History Item %s") % "<i>%(name)s</i>") + "\n%(escaped_uri)s",
 		"category": "web",
@@ -225,7 +220,6 @@ class BeagleLiveMatch (deskbar.Match.Match):
 		
 		action = TYPES[self.result["type"]]["action"]
 		if callable(action):
-			print "BeagleLive url_show()", self.result
 			action(self.result)
 		else:
 			# Retrieve the associated action

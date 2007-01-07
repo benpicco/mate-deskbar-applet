@@ -10,7 +10,7 @@ import deskbar.Match
 
 from deskbar.defs import VERSION
 from deskbar.Watcher import FileWatcher
-from deskbar.Utils import spawn_async
+from deskbar.Utils import spawn_async, url_show_file
 
 
 HANDLERS = {
@@ -35,12 +35,7 @@ class FileMatch(deskbar.Match.Match):
 		self.absname = absname
 				
 	def action(self, text=None):
-		try:
-			gnome.url_show(gnomevfs.escape_host_and_path_string(self.absname))
-		except Exception, e:
-			if not spawn_async([gnomevfs.get_local_path_from_uri(self.absname)]):
-				gnome.url_show(gnomevfs.escape_host_and_path_string(dirname(self.absname)))
-
+		url_show_file(self.absname)
 
 	def is_valid(self, text=None):
 		return exists(self.absname)
@@ -62,7 +57,7 @@ class FolderMatch(deskbar.Match.Match):
 		self.absname = absname
 		
 	def action(self, text=None):
-		gnome.url_show(gnomevfs.escape_host_and_path_string(self.absname))
+		url_show_file(self.absname)
 	
 	def is_valid(self, text=None):
 		return exists(self.absname)
