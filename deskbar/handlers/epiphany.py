@@ -284,7 +284,10 @@ class EpiphanyHistoryParser(xml.sax.ContentHandler):
 		if exists(EPHY_HISTORY_FILE):
 			parser = xml.sax.make_parser()
 			parser.setContentHandler(self)
-			parser.parse(EPHY_HISTORY_FILE)
+			try:
+				parser.parse(EPHY_HISTORY_FILE)
+			except Exception, e:
+				print "Couldn't parse epiphany history file:", e
 
 	
 	def characters(self, chars):
