@@ -60,7 +60,7 @@ class GenericProgramMatch(deskbar.Match.Match):
 		self._display_prog = cgi.escape(exe).strip()
 	
 	def get_hash(self, text=None):
-		return self._display_prog
+		return "generic_"+self._display_prog
 		
 	def action(self, text=None):
 		if self.use_arg and text != None:
