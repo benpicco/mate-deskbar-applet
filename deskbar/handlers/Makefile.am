@@ -5,7 +5,6 @@ deskbar_handlers_PYTHON = \
 	desklicious.py \
 	epiphany.py \
 	files.py \
-	galago.py \
 	galeon.py \
 	gdmactions.py \
 	google-live.py \
