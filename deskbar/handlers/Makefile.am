@@ -7,7 +7,6 @@ deskbar_handlers_PYTHON = \
 	files.py \
 	galeon.py \
 	gdmactions.py \
-	google-live.py \
 	history.py \
 	iswitch-window.py \
 	mozilla.py \
