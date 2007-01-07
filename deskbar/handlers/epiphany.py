@@ -75,8 +75,9 @@ class EpiphanyHandler(deskbar.Handler.Handler):
 		self.watcher.add(self.watched_file)
 	
 	def stop(self):
-		self.watcher.remove(self.watched_file)
-		del self.watcher
+		if hasattr(self, 'watcher'):
+			self.watcher.remove(self.watched_file)
+			del self.watcher
 		
 class EpiphanyBookmarksHandler(EpiphanyHandler):
 	def __init__(self):
