@@ -7,22 +7,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-28 18:59+0000\n"
-"PO-Revision-Date: 2006-12-28 18:59-0000\n"
+"POT-Creation-Date: 2007-01-08 07:16+0000\n"
+"PO-Revision-Date: 2007-01-08 07:17-0000\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one action bar"
-msgstr "An all-in-one action bar"
-
-#: ../data/Deskbar_Applet.server.in.in.h:2
-#: ../deskbar/ui/About.py:22
-msgid "Deskbar"
-msgstr "Deskbar"
 
 #: ../data/Deskbar_Applet.xml.h:1
 #: ../deskbar/ui/window/CuemiacWindowUI.py:56
@@ -40,66 +31,90 @@ msgid "_Preferences"
 msgstr "_Preferences"
 
 #: ../data/prefs-dialog.glade.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Available Extensions</b>"
+
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Focus</b>"
 msgstr "<b>Focus</b>"
 
-#: ../data/prefs-dialog.glade.h:2
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Layout</b>"
 msgstr "<b>Layout</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Loaded Extensions</b>"
+
+#: ../data/prefs-dialog.glade.h:5
 msgid "<b>Width</b>"
 msgstr "<b>Width</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:6
 msgid "<i><small><b>Note:</b> Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small><b>Note:</b> Drag and drop an extension to change its order.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:5
-msgid "<i><small><b>Note:</b> The new shortcut will take effect on next login.</small></i>"
-msgstr "<i><small><b>Note:</b> The new shortcut will take effect on next login.</small></i>"
-
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Button in panel"
 msgstr "Button in panel"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Deskbar Preferences"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Entry in panel"
 msgstr "Entry in panel"
-
-#: ../data/prefs-dialog.glade.h:9
-msgid "Extensions"
-msgstr "Extensions"
 
 #: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "Fixed _width:"
 
 #: ../data/prefs-dialog.glade.h:11
+msgid "New Extensions"
+msgstr "New Extensions"
+
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "Search selection when triggering the shortcut"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
+msgid "Searches"
+msgstr "Searches"
+
+#: ../data/prefs-dialog.glade.h:14
 msgid "Use _all available space"
 msgstr "Use _all available space"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "View"
 msgstr "View"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
+msgid "_Check For Updates"
+msgstr "_Check For Updates"
+
+#: ../data/prefs-dialog.glade.h:17
+msgid "_Check for new extensions"
+msgstr "_Check for new extensions"
+
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Install"
+msgstr "_Install"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Keyboard shortcut to focus:"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:20
 msgid "_More..."
 msgstr "_More..."
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:21
+msgid "_Update"
+msgstr "_Update"
+
+#: ../data/prefs-dialog.glade.h:22
 msgid "characters"
 msgstr "characters"
 
@@ -116,7 +131,7 @@ msgid "Shortcuts for Bookmarked Searches"
 msgstr "Shortcuts for Bookmarked Searches"
 
 #: ../deskbar/BrowserMatch.py:50
-#: ../deskbar/handlers/beagle-live.py:155
+#: ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "Open History Item %s"
@@ -198,6 +213,14 @@ msgstr "Notes"
 msgid "No History"
 msgstr "No History"
 
+#: ../deskbar/Utils.py:109
+msgid "Cannot execute program:"
+msgstr "Cannot execute program:"
+
+#: ../deskbar/Utils.py:140
+msgid "Cannot show URL:"
+msgstr "Cannot show URL:"
+
 #: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "A programming error has been detected"
@@ -242,48 +265,48 @@ msgstr "Beagle Live"
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Search all of your documents (using Beagle), as you type"
 
-#: ../deskbar/handlers/beagle-live.py:97
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
 msgid "Edit contact %s"
 msgstr "Edit contact %s"
 
-#: ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/handlers/beagle-live.py:101
 #, python-format
 msgid "From %s"
 msgstr "From %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:114
-#: ../deskbar/handlers/files.py:52
-#: ../deskbar/handlers/recent.py:42
+#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/recent.py:43
 #, python-format
 msgid "Open %s"
 msgstr "Open %s"
 
-#: ../deskbar/handlers/beagle-live.py:122
+#: ../deskbar/handlers/beagle-live.py:117
 #, python-format
 msgid "News from %s"
 msgstr "News from %s"
 
-#: ../deskbar/handlers/beagle-live.py:131
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "Note: %s"
 msgstr "Note: %s"
 
-#: ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "With %s"
 msgstr "With %s"
 
-#: ../deskbar/handlers/beagle-live.py:148
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Calendar: %s"
 msgstr "Calendar: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:324
-#: ../deskbar/handlers/beagle-live.py:346
+#: ../deskbar/handlers/beagle-live.py:318
+#: ../deskbar/handlers/beagle-live.py:340
 msgid "?"
 msgstr "?"
 
@@ -402,23 +425,23 @@ msgstr "Files, Folders and Places"
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "View your files, folders, bookmarks, drives, network places by name"
 
-#: ../deskbar/handlers/files.py:74
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "Open folder %s"
 
-#: ../deskbar/handlers/files.py:94
-#: ../deskbar/handlers/files.py:127
+#: ../deskbar/handlers/files.py:89
+#: ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "Open location %s"
 
-#: ../deskbar/handlers/files.py:123
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "Open network place %s"
 
-#: ../deskbar/handlers/files.py:125
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Open audio disc %s"
@@ -491,56 +514,6 @@ msgstr "Hibernate"
 #: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "Shutdown"
-
-#: ../deskbar/handlers/google-live.py:20
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api.google.com/\n"
-"\n"
-"When you have created your account, you should receive a Google API key by mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account verification mail, then go to www.google.com/accounts and log in.  Go to api.google.com, click \"Create Account\" and enter your e-mail address and password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers' kit and extract the GoogleSearch.wsdl file from it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"You need a Google account to use Google Live.  To get one, go to http://api.google.com/\n"
-"\n"
-"When you have created your account, you should receive a Google API key by mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account verification mail, then go to www.google.com/accounts and log in.  Go to api.google.com, click \"Create Account\" and enter your e-mail address and password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developer's kit and extract the GoogleSearch.wsdl file from it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:33
-msgid "Setting Up Google Live"
-msgstr "Setting Up Google Live"
-
-#: ../deskbar/handlers/google-live.py:39
-msgid "You need to install the SOAPpy python module."
-msgstr "You need to install the SOAPpy python module."
-
-#: ../deskbar/handlers/google-live.py:41
-msgid "You need the Google WSDL file."
-msgstr "You need the Google WSDL file."
-
-#: ../deskbar/handlers/google-live.py:43
-msgid "You need a Google API key."
-msgstr "You need a Google API key."
-
-#: ../deskbar/handlers/google-live.py:49
-msgid "Google Search"
-msgstr "Google Search"
-
-#: ../deskbar/handlers/google-live.py:50
-msgid "Search Google as you type"
-msgstr "Search Google as you type"
 
 #: ../deskbar/handlers/history.py:10
 msgid "Recognize previously used searches"
@@ -626,15 +599,15 @@ msgstr "Search in Devhelp for %s"
 msgid "Execute %s"
 msgstr "Execute %s"
 
-#: ../deskbar/handlers/recent.py:14
+#: ../deskbar/handlers/recent.py:15
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
 msgstr "This handler requires a more recent gtk version (2.9.0 or newer)."
 
-#: ../deskbar/handlers/recent.py:18
+#: ../deskbar/handlers/recent.py:19
 msgid "Recent Documents"
 msgstr "Recent Documents"
 
-#: ../deskbar/handlers/recent.py:19
+#: ../deskbar/handlers/recent.py:20
 msgid "Retrieve your recently accessed files and locations"
 msgstr "Retrieve your recently accessed files and locations"
 
@@ -665,6 +638,10 @@ msgstr "Yahoo! Search"
 msgid "Search Yahoo! as you type"
 msgstr "Search Yahoo! as you type"
 
+#: ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Deskbar"
+
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "An all-in-one action bar."
@@ -682,17 +659,38 @@ msgstr ""
 "Nigel Tao <nigel.tao@myrealbox.com>,\n"
 "David Lodge <dave@cirt.net>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:19
+#: ../deskbar/ui/DeskbarPreferencesUI.py:112
 msgid "New accelerator..."
 msgstr "New accelerator..."
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:415
+#: ../deskbar/ui/DeskbarPreferencesUI.py:164
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become unusable to type using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"The shortcut \"%s\" cannot be used because it will become unusable to type using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Connection to repository failed"
+msgstr "Connection to repository failed"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Please check your internet connection"
+msgstr "Please check your Internet connection"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:558
 msgid "Handler has been installed successfully"
 msgstr "Handler has been installed successfully"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:421
+#: ../deskbar/ui/DeskbarPreferencesUI.py:564
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "Handler could not be installed due a problem with the provided file"
+
+#: ../deskbar/ui/ModuleListView.py:55
+msgid "Update Available"
+msgstr "Update Available"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
@@ -701,7 +699,7 @@ msgstr "Show search entry"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:56
 msgid "Show previously used actions"
 msgstr "Show previously used actions"
 
@@ -754,6 +752,100 @@ msgstr "_History"
 msgid "<b>History</b>"
 msgstr "<b>History</b>"
 
+#: ../deskbar/updater/ErrorDialog.py:8
+msgid "Error"
+msgstr "Error"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "An error occured"
+msgstr "An error occured"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "Check the description beneath for further details."
+msgstr "Check the description beneath for further details."
+
+#: ../deskbar/updater/ErrorDialog.py:31
+msgid "Details"
+msgstr "Details"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+#, python-format
+msgid "Updating %s"
+msgstr "Updating %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+msgid "The update is being downloaded from the internet. Please wait until the update is complete"
+msgstr "The update is being downloaded from the Internet. Please wait until the update is complete"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+#, python-format
+msgid "Installing %s"
+msgstr "Installing %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+msgid "The handler is being downloaded from the internet. Please wait until the installation is complete"
+msgstr "The handler is being downloaded from the Internet. Please wait until the installation is complete"
+
+#: ../deskbar/updater/NewStuffUpdater.py:157
+msgid "Downloading"
+msgstr "Downloading"
+
+#~ msgid "An all-in-one action bar"
+#~ msgstr "An all-in-one action bar"
+#~ msgid ""
+#~ "<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
+#~ "small></i>"
+#~ msgstr ""
+#~ "<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
+#~ "small></i>"
+#~ msgid ""
+#~ "You need a Google account to use Google Live.  To get one, go to http://"
+#~ "api.google.com/\n"
+#~ "\n"
+#~ "When you have created your account, you should receive a Google API key "
+#~ "by mail.  Place this key in the file\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/Google.key\n"
+#~ "\n"
+#~ "If you do not receive an API key (or you have lost it) in your account "
+#~ "verification mail, then go to www.google.com/accounts and log in.  Go to "
+#~ "api.google.com, click \"Create Account\" and enter your e-mail address "
+#~ "and password.  Your API key will be re-sent.\n"
+#~ "\n"
+#~ "Now download the developers' kit and extract the GoogleSearch.wsdl file "
+#~ "from it.  Copy this file to\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+#~ msgstr ""
+#~ "You need a Google account to use Google Live.  To get one, go to http://"
+#~ "api.google.com/\n"
+#~ "\n"
+#~ "When you have created your account, you should receive a Google API key "
+#~ "by mail.  Place this key in the file\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/Google.key\n"
+#~ "\n"
+#~ "If you do not receive an API key (or you have lost it) in your account "
+#~ "verification mail, then go to www.google.com/accounts and log in.  Go to "
+#~ "api.google.com, click \"Create Account\" and enter your e-mail address "
+#~ "and password.  Your API key will be re-sent.\n"
+#~ "\n"
+#~ "Now download the developer's kit and extract the GoogleSearch.wsdl file "
+#~ "from it.  Copy this file to\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+#~ msgid "Setting Up Google Live"
+#~ msgstr "Setting Up Google Live"
+#~ msgid "You need to install the SOAPpy python module."
+#~ msgstr "You need to install the SOAPpy python module."
+#~ msgid "You need the Google WSDL file."
+#~ msgstr "You need the Google WSDL file."
+#~ msgid "You need a Google API key."
+#~ msgstr "You need a Google API key."
+#~ msgid "Google Search"
+#~ msgstr "Google Search"
+#~ msgid "Search Google as you type"
+#~ msgstr "Search Google as you type"
 #~ msgid "Accessories"
 #~ msgstr "Accessories"
 
