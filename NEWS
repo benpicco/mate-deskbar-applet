@@ -1,4 +1,34 @@
 =====================
+deskbar-applet 2.17.5
+=====================
+
+Changes:
+        * Build fixes
+        * Improve the accelerator entry. Patch by Sebastian Pölsterl.
+        * Remove google-live from the Makefile.am
+        * Resurrect the new-stuff-manager support. It is optional, and nothing changes if the new-stuff-manager isn't available to the user.
+        * Prevents binding of keys a-z and shit-a-z.
+        * Fixes hotkey unbinding. Patch by Manuel Muradas <manuel_muradas@speedy.com.ar>. Fixes bug #346749 and a huge number of issues related to hotkey unbinding.
+        * Add opened files to recent manager in GTK 2.10. Patch by Robert Bradford <robster@debian.org>. Closes bug #383051.
+        * Fixes bug #382125.
+        * close the popup when the focus is taken away (see #367632)
+        * Fixes bug #364602. Patch by Glynn Foster <glynn.foster@sun.com>
+        * Fixes bug #358854. Patch by Martin Schanzenbach <mschanzenbach@gmail.com>
+        * Removed unused galago plugins
+        * Fix bug #390358. The watcher attribute is checked before being called
+        * Refresh some of the env variables
+        * Fixe bug #388802 . Add a trycatch before parsing ephy history file
+        * Remove google-live.py from the translatable files. Fix bug #388422 and any other bug related gnome.url_show, by showing an error box.
+        * Remove the google live handler since they do not offer the api key anymore. fixes bug #385258
+        * Don't return non-executable files found in PATH in is_program_in_path(). This closes bugs #390369 and #385087.
+        * Fix multiple iterations over same bookmark sets (not user visible).
+        * Add support for Firefox 2.0 search engines.
+        * Add an optional  named parameter "pixbuf" to the Match base class constructor
+        * Bump to 2.17.5
+
+Contributors to this release: Raphael Slinckx, Rob Bradford, Mikkel Kamstrup Erlandsen, Sebastian Pölsterl, Manuel Muradas, Glynn Foster, Martin Schanzenbach
+
+=====================
 deskbar-applet 2.17.3
 =====================
 
