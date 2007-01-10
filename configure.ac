@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 2.17.6, mikkel.kamstrup@gmail.com)
+AC_INIT(deskbar-applet, 2.17.5.1, mikkel.kamstrup@gmail.com)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
@@ -89,22 +89,6 @@ except:
 else
   AC_MSG_RESULT([no])
   AC_MSG_ERROR([gnomeapplet Python module required to build deskbar])
-fi
-
-AC_MSG_CHECKING([for elementtree module])
-if AC_RUN_LOG([$PYTHON -c '
-try:
-    import elementtree
-except ImportError, e:
-    if str(e).find("elementtree") >= 0:
-          raise
-except:
-    pass
-']); then
-  AC_MSG_RESULT([yes])
-else
-  AC_MSG_RESULT([no])
-  AC_MSG_ERROR([elementtree Python module required to build deskbar])
 fi
 
 dnl ****************************************************************************
