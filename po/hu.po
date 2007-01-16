@@ -1,14 +1,14 @@
 # Hungarian translation of deskbar-applet.
 # This file is distributed under the same license as the deskbar-applet package.
-# Copyright (C) 2005, 2006, Free Software Foundation, Inc.
+# Copyright (C) 2005, 2006, 2007, Free Software Foundation, Inc.
 #
-# Gabor Kelemen <kelemeng@gnome.hu>, 2005, 2006.
+# Gabor Kelemen <kelemeng@gnome.hu>, 2005, 2006, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-31 14:55+0100\n"
-"PO-Revision-Date: 2006-10-31 22:58+0100\n"
+"POT-Creation-Date: 2007-01-08 03:50+0000\n"
+"PO-Revision-Date: 2007-01-16 14:39+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -16,14 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-
-#: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one action bar"
-msgstr "Egy \"minden egyben\" műveletsáv"
-
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:21
-msgid "Deskbar"
-msgstr "Deskbar"
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -38,18 +30,26 @@ msgid "_Preferences"
 msgstr "_Beállítások"
 
 #: ../data/prefs-dialog.glade.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Elérhető kiterjesztések</b>"
+
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Focus</b>"
 msgstr "<b>Fókusz</b>"
 
-#: ../data/prefs-dialog.glade.h:2
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Layout</b>"
 msgstr "<b>Elrendezés</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Betöltött kiterjesztések</b>"
+
+#: ../data/prefs-dialog.glade.h:5
 msgid "<b>Width</b>"
 msgstr "<b>Szélesség</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:6
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
@@ -57,53 +57,67 @@ msgstr ""
 "<i><small><b>Megjegyzés:</b> Fogd és ejtsd módszerrel megváltoztathatja a "
 "kiterjesztések prioritását.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:5
-msgid ""
-"<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
-"small></i>"
-msgstr "<i><small><b>Megjegyzés:</b> Az új gyorsbillentyű a következő belépéskor lép életbe.</small></i>"
-
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Button in panel"
 msgstr "Gomb a panelen"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Deskbar tulajdonságai"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Entry in panel"
 msgstr "Beviteli mező a panelen"
-
-#: ../data/prefs-dialog.glade.h:9
-msgid "Extensions"
-msgstr "Kiterjesztések"
 
 #: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "_Rögzített szélesség:"
 
 #: ../data/prefs-dialog.glade.h:11
+msgid "New Extensions"
+msgstr "Új kiterjesztések"
+
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "A kijelölt szöveg keresése a gyorsbillentyű megnyomásakor"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
+msgid "Searches"
+msgstr "Keresések"
+
+#: ../data/prefs-dialog.glade.h:14
 msgid "Use _all available space"
 msgstr "A teljes _rendelkezésre álló terület használata"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "View"
 msgstr "Nézet"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
+msgid "_Check For Updates"
+msgstr "_Frissítések keresése"
+
+#: ../data/prefs-dialog.glade.h:17
+msgid "_Check for new extensions"
+msgstr "Ú_j kiterjesztések keresése"
+
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Install"
+msgstr "_Telepítés"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Keyboard shortcut to focus:"
 msgstr "Gy_orsbillentyű a fókuszhoz:"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:20
 msgid "_More..."
 msgstr "_Több..."
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:21
+msgid "_Update"
+msgstr "_Frissítés"
+
+#: ../data/prefs-dialog.glade.h:22
 msgid "characters"
 msgstr "karakter"
 
@@ -112,10 +126,7 @@ msgid ""
 "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
 "you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
-msgstr ""
-"<i><small><b>Megjegyzés:</b> Ha ez a gyorsbillentyű egyetlen betű (például </"
-"b>t<b>), akkor a \"</b>valami</b>\" kereséséhez írja be a \"<b>Alt-t valami</"
-"b>\" karaktersorozatot a deskbarba.</small></i>"
+msgstr "<i><small><b>Megjegyzés:</b> Ha ez a gyorsbillentyű egyetlen betű (például <b>t</b>), akkor a \"<b>valami</b>\" kereséséhez írja be a \"<b>Alt-t valami</b>\" karaktersorozatot a deskbarba.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
@@ -123,15 +134,15 @@ msgid ""
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
 msgstr ""
-"<i><small><b>Megjegyzés:</b> Gyorsbillentyű (például </b>wp<b>) "
-"használatához a </b>valami</b> kereséséhez írja be a \"<b>wp valami</b>\" "
+"<i><small><b>Megjegyzés:</b> Gyorsbillentyű (például <b>wp</b>) "
+"használatához a <b>valami</b> kereséséhez írja be a \"<b>wp valami</b>\" "
 "karaktersorozatot a deskbarba.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Könyvjelzős keresések parancsikonjai"
 
-#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:142
+#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "%s előzményelem megnyitása"
@@ -211,6 +222,14 @@ msgstr "Megjegyzések"
 msgid "No History"
 msgstr "Nincsenek előzmények"
 
+#: ../deskbar/Utils.py:109
+msgid "Cannot execute program:"
+msgstr "Nem hajtható végre a program:"
+
+#: ../deskbar/Utils.py:140
+msgid "Cannot show URL:"
+msgstr "Nem jeleníthető meg az URL:"
+
 #: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "A program programozási hibát észlelt"
@@ -243,54 +262,63 @@ msgstr ""
 "Úgy tűnik, a Beagle démon nem fut.\n"
 "El kell indítania azt a Beagle live kezelő használatához."
 
-#: ../deskbar/handlers/beagle-live.py:55
+#: ../deskbar/handlers/beagle-live.py:39
+msgid "Failed to start Beagle"
+msgstr "A Beagle indítása meghiúsult"
+
+#: ../deskbar/handlers/beagle-live.py:40
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr "Lehet, hogy a Beagle démon nincs telepítve?"
+
+#: ../deskbar/handlers/beagle-live.py:63
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:56
+#: ../deskbar/handlers/beagle-live.py:64
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Keresés az összes dokumentumban (a Beagle használatával), gépelés közben"
 
-#: ../deskbar/handlers/beagle-live.py:84
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
 msgid "Edit contact %s"
 msgstr "Névjegy szerkesztése: %s"
 
-#: ../deskbar/handlers/beagle-live.py:93
+#: ../deskbar/handlers/beagle-live.py:101
 #, python-format
 msgid "From %s"
 msgstr "A következőtől: %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:101 ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/recent.py:43
 #, python-format
 msgid "Open %s"
 msgstr "%s megnyitása"
 
-#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/beagle-live.py:117
 #, python-format
 msgid "News from %s"
 msgstr "Hírek a következőtől: %s"
 
-#: ../deskbar/handlers/beagle-live.py:118
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "Note: %s"
 msgstr "Megjegyzés: %s"
 
-#: ../deskbar/handlers/beagle-live.py:127
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "With %s"
 msgstr "Ezzel: %s"
 
-#: ../deskbar/handlers/beagle-live.py:135
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Calendar: %s"
 msgstr "Naptár: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:311
-#: ../deskbar/handlers/beagle-live.py:333
+#: ../deskbar/handlers/beagle-live.py:318
+#: ../deskbar/handlers/beagle-live.py:340
 msgid "?"
 msgstr "?"
 
@@ -340,32 +368,32 @@ msgid "You can set shortcuts for your searches."
 msgstr "Beállíthat parancsikonokat a keresésekhez."
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:129
+#: ../deskbar/handlers/mozilla.py:131
 msgid "Web Bookmarks"
 msgstr "Webkönyvjelzők"
 
 #: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:130
+#: ../deskbar/handlers/mozilla.py:132
 msgid "Open your web bookmarks by name"
 msgstr "Webkönyvjelzők megnyitása név alapján"
 
 #: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:141
+#: ../deskbar/handlers/mozilla.py:143
 msgid "Web History"
 msgstr "Webes előzmények"
 
 #: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:142
+#: ../deskbar/handlers/mozilla.py:144
 msgid "Open your web history by name"
 msgstr "A webes előzmények megnyitása név alapján"
 
 #: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:135
+#: ../deskbar/handlers/mozilla.py:137
 msgid "Web Searches"
 msgstr "Webkeresések"
 
 #: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:136
+#: ../deskbar/handlers/mozilla.py:138
 msgid "Search the web via your browser's search settings"
 msgstr "Keresés a weben a böngésző keresési beállításainak használatával"
 
@@ -501,68 +529,6 @@ msgstr "Hibernálás"
 msgid "Shutdown"
 msgstr "Leállítás"
 
-#: ../deskbar/handlers/google-live.py:20
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should recieve a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"A Google Live használatához szüksége van egy Google fiókra. Ezt a http://api."
-"google.com/ címen szerezheti be.\n"
-"\n"
-"A fiók létrehozásakor levélben kap egy Google API kulcsot. Helyezze el ezt a "
-"kulcsot a \n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"fájlban.\n"
-"Ha nem kapott API kulcsot (vagy elvesztette azt) a fiókellenőrzési e-"
-"mailben, akkor jelentkezzen be a www.google.com/accounts oldalon. Keresse "
-"fel az api.google.com, oldalt, kattintson a \"Create Account\" gombra és "
-"adja meg az e-mail címét és jelszavát. Az API kulcsa újra el lesz küldve. \n"
-"\n"
-"Most töltse le a fejlesztői csomagot és bontsa ki belőle a GoogleSearch.wsdl "
-"fájlt. Másolja a fájlt a következő helyre:\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:33
-msgid "Setting Up Google Live"
-msgstr "Google Live beállítása"
-
-#: ../deskbar/handlers/google-live.py:39
-msgid "You need to install the SOAPpy python module."
-msgstr "Telepítenie kell a SOAPpy python modult."
-
-#: ../deskbar/handlers/google-live.py:41
-msgid "You need the Google WSDL file."
-msgstr "Szükség van a Google WSDL fájlra."
-
-#: ../deskbar/handlers/google-live.py:43
-msgid "You need a Google API key."
-msgstr "Szükség van egy Google API kulcsra."
-
-#: ../deskbar/handlers/google-live.py:49
-msgid "Google Search"
-msgstr "Google keresés"
-
-#: ../deskbar/handlers/google-live.py:50
-msgid "Search Google as you type"
-msgstr "Keresés a Google használatával gépelés közben"
-
 #: ../deskbar/handlers/history.py:10
 msgid "Recognize previously used searches"
 msgstr "Korábban használt keresések felismerése"
@@ -584,7 +550,7 @@ msgstr "Ablakok"
 msgid "Switch to <b>%(name)s</b>"
 msgstr "Váltás a következőre: <b>%(name)s</b>"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:122
 msgid "You can customize which search engines are offered."
 msgstr "Személyre szabhatja a felajánlott keresőmotorokat."
 
@@ -647,6 +613,18 @@ msgstr "%s keresése a Devhelpben"
 msgid "Execute %s"
 msgstr "%s indítása"
 
+#: ../deskbar/handlers/recent.py:15
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr "Ez a kezelő újabb GTK verziót igényel (2.9.0 vagy újabb)."
+
+#: ../deskbar/handlers/recent.py:19
+msgid "Recent Documents"
+msgstr "Legutóbbi dokumentumok"
+
+#: ../deskbar/handlers/recent.py:20
+msgid "Retrieve your recently accessed files and locations"
+msgstr "Nemrég használt fájlok és helyek elérése"
+
 #: ../deskbar/handlers/web_address.py:13
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Weboldalak megnyitása és e-mailek küldése teljes cím begépelésével"
@@ -674,24 +652,58 @@ msgstr "Yahoo! keresés"
 msgid "Search Yahoo! as you type"
 msgstr "Keresés a Yahoo! használatával gépelés közben"
 
-#: ../deskbar/ui/About.py:24
+#: ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Deskbar"
+
+#: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Egy \"minden egyben\" műveletsáv."
 
-#: ../deskbar/ui/About.py:27
+#: ../deskbar/ui/About.py:28
 msgid "Deskbar Website"
 msgstr "A Deskbar webhelye"
 
 #. about.set_artists([])
 #. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:35
+#: ../deskbar/ui/About.py:36
 msgid "translator-credits"
 msgstr "Kelemen Gábor <kelemeng@gnome.hu>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+#: ../deskbar/ui/DeskbarPreferencesUI.py:112
 msgid "New accelerator..."
 msgstr "Új gyorsbillentyű..."
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:164
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become unusable to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"A(z) \"%s\" gyorsbillentyű nem használható, mivel a billentyű használatával a gépelés használhatatlanná válna.\n"
+"Próbálkozzon a Control, Alt vagy Shift billentyűk valamelyikének együttes használatával.\n"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Connection to repository failed"
+msgstr "A csatlakozás meghiúsult a lerakathoz"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Please check your internet connection"
+msgstr "Ellenőrizze internetkapcsolatát"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:558
+msgid "Handler has been installed successfully"
+msgstr "A kezelő sikeresen telepítve"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:564
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr "A kezelő nem telepíthető a megadott fájllal kapcsolatos problémák miatt"
+
+#: ../deskbar/ui/ModuleListView.py:55
+msgid "Update Available"
+msgstr "Elérhető frissítés"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
@@ -700,7 +712,7 @@ msgstr "Keresőbejegyzés megjelenítése"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:56
 msgid "Show previously used actions"
 msgstr "Korábban használt műveletek megjelenítése"
 
@@ -752,4 +764,46 @@ msgstr "_Előzmények"
 #: ../deskbar/ui/window/CuemiacWindowUI.py:84
 msgid "<b>History</b>"
 msgstr "<b>Előzmények</b>"
+
+#: ../deskbar/updater/ErrorDialog.py:8
+msgid "Error"
+msgstr "Hiba"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "An error occured"
+msgstr "Hiba történt"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "Check the description beneath for further details."
+msgstr "További részletekért tekintse meg az alábbi leírást."
+
+#: ../deskbar/updater/ErrorDialog.py:31
+msgid "Details"
+msgstr "Részletek"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+#, python-format
+msgid "Updating %s"
+msgstr "%s frissítése"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+msgid ""
+"The update is being downloaded from the internet. Please wait until the "
+"update is complete"
+msgstr "A frissítés letöltésre kerül az internetről. Várjon a frissítés befejeződéséig."
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+#, python-format
+msgid "Installing %s"
+msgstr "%s telepítése"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+msgid ""
+"The handler is being downloaded from the internet. Please wait until the "
+"installation is complete"
+msgstr "A kezelő letöltésre kerül az internetről. Várjon a telepítés befejeződéséig."
+
+#: ../deskbar/updater/NewStuffUpdater.py:157
+msgid "Downloading"
+msgstr "Letöltés"
 
