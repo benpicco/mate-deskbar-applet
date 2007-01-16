@@ -5,13 +5,13 @@
 #
 # Јован Наумовски <jove.mk@gmail.com>, 2005.
 # Arangel Angov <ufo@linux.net.mk>, 2005, 2006.
-# Jovan Naumovski <jovan@lugola.net>, 2006.
+# Jovan Naumovski <jovan@lugola.net>, 2006, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.mk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-31 10:08+0100\n"
-"PO-Revision-Date: 2006-12-31 17:45+0100\n"
+"POT-Creation-Date: 2007-01-08 03:50+0000\n"
+"PO-Revision-Date: 2007-01-16 16:16+0100\n"
 "Last-Translator: Jovan Naumovski <jovan@lugola.net>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "MIME-Version: 1.0\n"
@@ -19,14 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural= n==1 || n%10==1 ? 0 : 1\n"
 "X-Generator: KBabel 1.11.4\n"
-
-#: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one action bar"
-msgstr "„Сѐ во едно“ лента за дејствија"
-
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
-msgid "Deskbar"
-msgstr "Работна лента"
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -41,18 +33,26 @@ msgid "_Preferences"
 msgstr "_Преференции"
 
 #: ../data/prefs-dialog.glade.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Достапни додатоци</b>"
+
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Focus</b>"
 msgstr "<b>Фокусирање</b>"
 
-#: ../data/prefs-dialog.glade.h:2
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Layout</b>"
 msgstr "<b>Распоред</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Вчитани додатоци</b>"
+
+#: ../data/prefs-dialog.glade.h:5
 msgid "<b>Width</b>"
 msgstr "<b>Ширина</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:6
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
@@ -60,55 +60,67 @@ msgstr ""
 "<i><small><b>Забелешка:</b> Влечете и отпуштете додаток за да го промените "
 "неговиот редослед.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:5
-msgid ""
-"<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
-"small></i>"
-msgstr ""
-"<i><small><b>Забелешка:</b> Новата кратенка ќе биде ефективна на следното "
-"најавување.</small></i>"
-
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Button in panel"
 msgstr "Копче во панелот"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Преференција на работна лента"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Entry in panel"
 msgstr "Запис во панелот"
-
-#: ../data/prefs-dialog.glade.h:9
-msgid "Extensions"
-msgstr "Проширувања"
 
 #: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "Фиксна _ширина:"
 
 #: ../data/prefs-dialog.glade.h:11
+msgid "New Extensions"
+msgstr "Нови додатоци"
+
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "Барај го изборот при активирање на кратенката"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
+msgid "Searches"
+msgstr "Пребарувања"
+
+#: ../data/prefs-dialog.glade.h:14
 msgid "Use _all available space"
 msgstr "Користи _го целиот достапен простор"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "View"
 msgstr "Поглед"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
+msgid "_Check For Updates"
+msgstr "_Провери за ажурирања"
+
+#: ../data/prefs-dialog.glade.h:17
+msgid "_Check for new extensions"
+msgstr "_Провери за нови додатоци"
+
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Install"
+msgstr "_Инсталирај"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Кратенка на тастатурата за фокусирање:"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:20
 msgid "_More..."
 msgstr "_Повеќе..."
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:21
+msgid "_Update"
+msgstr "_Ажурирај"
+
+#: ../data/prefs-dialog.glade.h:22
 msgid "characters"
 msgstr "знаци"
 
@@ -136,7 +148,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Кратенки за барањата на обележувачите"
 
-#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:155
+#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "Отвори предмет од историја %s"
@@ -216,6 +228,14 @@ msgstr "Белешки"
 msgid "No History"
 msgstr "Нема историја"
 
+#: ../deskbar/Utils.py:109
+msgid "Cannot execute program:"
+msgstr "Не можам да ја извршам програмата:"
+
+#: ../deskbar/Utils.py:140
+msgid "Cannot show URL:"
+msgstr "Не можам да ја прикажам URL-та:"
+
 #: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "Откриена е програмска грешка"
@@ -264,47 +284,47 @@ msgstr "Beagle Live"
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Пребарај ги сите документи (користејќи го Beagle), како што пишуваш"
 
-#: ../deskbar/handlers/beagle-live.py:97
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
 msgid "Edit contact %s"
 msgstr "Уреди го контактот %s"
 
-#: ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/handlers/beagle-live.py:101
 #, python-format
 msgid "From %s"
 msgstr "Од %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:114 ../deskbar/handlers/files.py:52
-#: ../deskbar/handlers/recent.py:42
+#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/recent.py:43
 #, python-format
 msgid "Open %s"
 msgstr "Отвори %s"
 
-#: ../deskbar/handlers/beagle-live.py:122
+#: ../deskbar/handlers/beagle-live.py:117
 #, python-format
 msgid "News from %s"
 msgstr "Вести од %s"
 
-#: ../deskbar/handlers/beagle-live.py:131
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "Note: %s"
 msgstr "Забелешка: %s"
 
-#: ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "With %s"
 msgstr "Со %s"
 
-#: ../deskbar/handlers/beagle-live.py:148
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Calendar: %s"
 msgstr "Календар: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:324
-#: ../deskbar/handlers/beagle-live.py:346
+#: ../deskbar/handlers/beagle-live.py:318
+#: ../deskbar/handlers/beagle-live.py:340
 msgid "?"
 msgstr "?"
 
@@ -430,22 +450,22 @@ msgstr ""
 "Прегледајте ги Вашите датотеки, папки, обележувачи, уреди и мрежни сервери "
 "по име"
 
-#: ../deskbar/handlers/files.py:74
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "Отвори папка %s"
 
-#: ../deskbar/handlers/files.py:94 ../deskbar/handlers/files.py:127
+#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "Отвори локација %s"
 
-#: ../deskbar/handlers/files.py:123
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "Отвори место на мрежата %s"
 
-#: ../deskbar/handlers/files.py:125
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Отвори аудио диск %s"
@@ -517,68 +537,6 @@ msgstr "Хибернирај"
 #: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "Исклучи"
-
-#: ../deskbar/handlers/google-live.py:20
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should receive a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers' kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"Ви треба Google сметка за да го користите Google Live.  Да добиете, посетете "
-"ја http://api.google.com/\n"
-"\n"
-"Кога ќе направите сметка, треба да добиете Google API клуч по пошта.  "
-"Ставете го клучот во следнава датотека\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"Ако не добиете клуч (или ако сте го изгубиле) во вашата пошта за проверка "
-"тогаш посетете ја адресата www.google.com/accounts и најавете се. Одете до "
-"api.google.com, кликнете \"Create·Account\" и внесе те ја вашата e-mail "
-"адреса.  Вашиот API клуч ќе биде повторно испратен\n"
-"\n"
-"Сега симнете го пакетот за развивачи и отпакувајте ја датотеката "
-"GoogleSearch.wsdl и копирајте ја во \n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:33
-msgid "Setting Up Google Live"
-msgstr "Го поставувам Google Live"
-
-#: ../deskbar/handlers/google-live.py:39
-msgid "You need to install the SOAPpy python module."
-msgstr "Треба да го инсталирам SOAPpy python модулот."
-
-#: ../deskbar/handlers/google-live.py:41
-msgid "You need the Google WSDL file."
-msgstr "Ви треба Google·WSDL датотеката."
-
-#: ../deskbar/handlers/google-live.py:43
-msgid "You need a Google API key."
-msgstr "Ви треба Google API клуч."
-
-#: ../deskbar/handlers/google-live.py:49
-msgid "Google Search"
-msgstr "Google пребарување"
-
-#: ../deskbar/handlers/google-live.py:50
-msgid "Search Google as you type"
-msgstr "Пребарувај го Google како што пишуваш"
 
 #: ../deskbar/handlers/history.py:10
 msgid "Recognize previously used searches"
@@ -664,15 +622,15 @@ msgstr "Барај во Devhelp за %s"
 msgid "Execute %s"
 msgstr "Изврши %s"
 
-#: ../deskbar/handlers/recent.py:14
+#: ../deskbar/handlers/recent.py:15
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
 msgstr "Овој справувач бара понова верзија на gtk (2.9.0 или понова)."
 
-#: ../deskbar/handlers/recent.py:18
+#: ../deskbar/handlers/recent.py:19
 msgid "Recent Documents"
 msgstr "Скорашни документи"
 
-#: ../deskbar/handlers/recent.py:19
+#: ../deskbar/handlers/recent.py:20
 msgid "Retrieve your recently accessed files and locations"
 msgstr "Вчитај ги локациите и датотеките кои ги имате пристапено во скоро време"
 
@@ -703,6 +661,10 @@ msgstr "Yahoo! пребарување"
 msgid "Search Yahoo! as you type"
 msgstr "Пребарувај го Yahoo! како што пишуваш"
 
+#: ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Работна лента"
+
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "„Се во едно“ лента за дејствија."
@@ -720,17 +682,40 @@ msgstr ""
 "Јован Наумовски <jove.mk@gmail.com>\n"
 "http://gnome.softver.org.mk"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:19
+#: ../deskbar/ui/DeskbarPreferencesUI.py:112
 msgid "New accelerator..."
 msgstr "Нов забрзувач..."
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:415
+#: ../deskbar/ui/DeskbarPreferencesUI.py:164
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become unusable to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"Кратенката \"%s\" не може да се искористи, бидејќи ќе стани неупотреблива"
+"за пишување со користење на овој копче.\n"
+"Ве молам, обидете се со копче како што е Control, Alt или Shift истовремено.\n"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Connection to repository failed"
+msgstr "Врската до складиштето не успеа"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Please check your internet connection"
+msgstr "Проверете си ја Вашата интернет врска"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:558
 msgid "Handler has been installed successfully"
 msgstr "Справувачот се инсталира успешно"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:421
+#: ../deskbar/ui/DeskbarPreferencesUI.py:564
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "Справувачот не може да биде инсталиран поради грешка со обезбедената датотека"
+
+#: ../deskbar/ui/ModuleListView.py:55
+msgid "Update Available"
+msgstr "Достапни се ажурирања"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
@@ -739,7 +724,7 @@ msgstr "Прикажи го записот за барање"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:56
 msgid "Show previously used actions"
 msgstr "Прикажи ги претходно користените дејства"
 
@@ -791,4 +776,50 @@ msgstr "_Историја"
 #: ../deskbar/ui/window/CuemiacWindowUI.py:84
 msgid "<b>History</b>"
 msgstr "<b>Историја</b>"
+
+#: ../deskbar/updater/ErrorDialog.py:8
+msgid "Error"
+msgstr "Грешка"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "An error occured"
+msgstr "Се случи грешка"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "Check the description beneath for further details."
+msgstr "Проверете го описот за повеќе детали."
+
+#: ../deskbar/updater/ErrorDialog.py:31
+msgid "Details"
+msgstr "Детали"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+#, python-format
+msgid "Updating %s"
+msgstr "Го ажурирам %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+msgid ""
+"The update is being downloaded from the internet. Please wait until the "
+"update is complete"
+msgstr ""
+"Ажурирањето се симнува од интернет. Почекајте сѐ додека ажурирањето "
+"не заврши"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+#, python-format
+msgid "Installing %s"
+msgstr "Инсталирам %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+msgid ""
+"The handler is being downloaded from the internet. Please wait until the "
+"installation is complete"
+msgstr ""
+"Справувачот се симнува од интернет. Почекајте сѐ додека ажурирањето "
+"не заврши"
+
+#: ../deskbar/updater/NewStuffUpdater.py:157
+msgid "Downloading"
+msgstr "Преземам"
 
