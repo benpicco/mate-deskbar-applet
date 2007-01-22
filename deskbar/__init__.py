@@ -93,6 +93,10 @@ GCONF_KEYBINDING = GCONF_DIR + "/keybinding"
 # GConf key clear the entry after a search result has been selected
 GCONF_CLEAR_ENTRY = GCONF_DIR + "/clear_entry"
 
+GCONF_PROXY_USE_HTTP_PROXY = '/system/http_proxy/use_http_proxy'
+GCONF_PROXY_HOST_KEY = '/system/http_proxy/host'
+GCONF_PROXY_PORT_KEY = '/system/http_proxy/port'
+
 # GConf key for UI name
 GCONF_UI_NAME = GCONF_DIR + "/ui_name"
 

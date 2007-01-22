@@ -15,12 +15,14 @@ from deskbar.ui.cuemiac.CuemiacButtonUI import CuemiacButtonUI
 from deskbar.ui.entriac.CuemiacEntryUI import CuemiacEntryUI
 from deskbar.ui.window.CuemiacWindowUI import CuemiacWindowUI
 
-PROXY_USE_HTTP_PROXY = '/system/http_proxy/use_http_proxy'
-PROXY_HOST_KEY = '/system/http_proxy/host'
-PROXY_PORT_KEY = '/system/http_proxy/port'
+class DeskbarApplet(object):
 
-class DeskbarApplet:
+	__instance = None
+
 	def __init__(self, applet):
+		if DeskbarApplet.__instance == None:
+			DeskbarApplet.__instance = self
+		
 		self.applet = applet
 		
 		self.start_query_id = 0
@@ -61,16 +63,16 @@ class DeskbarApplet:
 			self.clear_entry = False
 		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_CLEAR_ENTRY, lambda x, y, z, a: self.on_clear_entry_changed (z.value))
 	
-		self.use_proxy = deskbar.GCONF_CLIENT.get_bool(PROXY_USE_HTTP_PROXY)
+		self.use_proxy = deskbar.GCONF_CLIENT.get_bool(self.prefs.GCONF_PROXY_USE_HTTP_PROXY)
 		if self.use_proxy == None:
 			self.use_proxy = False
-		deskbar.GCONF_CLIENT.notify_add(PROXY_USE_HTTP_PROXY, lambda x, y, z, a: self.on_use_proxy_changed (z.value))
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_PROXY_USE_HTTP_PROXY, lambda x, y, z, a: self.on_use_proxy_changed (z.value))
 
-		self.proxy_host = deskbar.GCONF_CLIENT.get_string(PROXY_HOST_KEY)
-		deskbar.GCONF_CLIENT.notify_add(PROXY_HOST_KEY, lambda x, y, z, a: self.on_proxy_host_changed (z.value))
+		self.proxy_host = deskbar.GCONF_CLIENT.get_string(self.prefs.GCONF_PROXY_HOST_KEY)
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_PROXY_HOST_KEY, lambda x, y, z, a: self.on_proxy_host_changed (z.value))
 
-		self.proxy_port = deskbar.GCONF_CLIENT.get_int(PROXY_PORT_KEY)
-		deskbar.GCONF_CLIENT.notify_add(PROXY_PORT_KEY, lambda x, y, z, a: self.on_proxy_port_changed (z.value))
+		self.proxy_port = deskbar.GCONF_CLIENT.get_int(self.prefs.GCONF_PROXY_PORT_KEY)
+		deskbar.GCONF_CLIENT.notify_add(self.prefs.GCONF_PROXY_PORT_KEY, lambda x, y, z, a: self.on_proxy_port_changed (z.value))
 
 		# Watch out for UI override from command line
 		if deskbar.UI_OVERRIDE:
@@ -128,6 +130,10 @@ class DeskbarApplet:
 		self.applet.show_all()
 		
 		self.loader.load_all_async()
+		
+	def get_instance():
+		return DeskbarApplet.__instance
+	get_instance = staticmethod(get_instance)
 		
 	def _connect_if_async (self, sender, context):
 		if context.module.is_async():

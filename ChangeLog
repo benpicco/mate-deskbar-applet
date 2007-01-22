@@ -1,5 +1,15 @@
 2007-01-22  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+	* deskbar/__init__.py:
+	* deskbar/Utils.py:
+	* deskbar/DeskbarApplet.py:
+	* deskbar/DeskbarAppletPreferences.py:
+	Moved gconf keys of proxy setup to right place.
+	Added a staticmethod to DeskbarApplet to get its instance,
+	because this is needed by Utils.get_proxy(). Fixes bug #394734.
+
+2007-01-22  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
 	* help/C/deskbar.xml:
 	Updated documentation to include abstract. Fixes bug #386495.
 	Patch by Elijah Newren <newren@gmail.com>

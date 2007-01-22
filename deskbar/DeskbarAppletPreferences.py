@@ -20,6 +20,10 @@ class DeskbarAppletPreferences:
 		self.GCONF_USE_SELECTION = deskbar.GCONF_USE_SELECTION
 		self.GCONF_CLEAR_ENTRY = deskbar.GCONF_CLEAR_ENTRY
 		
+		self.GCONF_PROXY_USE_HTTP_PROXY = deskbar.GCONF_PROXY_USE_HTTP_PROXY
+		self.GCONF_PROXY_HOST_KEY = deskbar.GCONF_PROXY_HOST_KEY
+		self.GCONF_PROXY_PORT_KEY = deskbar.GCONF_PROXY_PORT_KEY
+		
 		# Retreive this applet's pref folder
 		path = applet.get_preferences_key()
 		if path != None:
