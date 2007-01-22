@@ -67,7 +67,7 @@ class GenericProgramMatch(deskbar.Match.Match):
 			args = [self._desktop.get_string("Exec")]
 			if hasattr(self, "_args"):
 				args = args + self._args
-			args = args + text.split(" ")
+			args = args + [text]
 
 			spawn_async(args)
 			# FIXME: This does not launch the App with passed parameters because they are not files..
