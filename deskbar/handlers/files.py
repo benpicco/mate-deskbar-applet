@@ -177,7 +177,7 @@ class FileFolderHandler(deskbar.Handler.Handler):
 			return [FolderMatch(self, join(prefix, basename(completion)), "file://"+completion) for completion in completions]
 	
 	def _scan_bookmarks_files(self):
-		if not exists(GTK_BOOKMARKS_FILE):
+		if not isfile(GTK_BOOKMARKS_FILE):
 			return
 			
 		for line in file(GTK_BOOKMARKS_FILE):
