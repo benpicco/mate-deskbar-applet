@@ -46,7 +46,6 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 		
 		self.cuemiac.get_entry().connect ("icon-clicked", self.on_icon_button_press)
 		self.cuemiac.get_entry().connect ("button-press-event", self.on_entry_button_press)
-		self.cuemiac.get_entry().connect ("focus-out-event",self.on_entry_focus_out)
 
 		self.cuemiac.get_history_view().connect ("key-press-event", self.on_history_key_press)		
 		self.entry.popup_window.connect ("hide", lambda widget: self.emit("stop-query"))
@@ -151,11 +150,6 @@ class CuemiacEntryUI (DeskbarUI, CuemiacLayoutProvider):
 	
 	def on_matches_added (self, cuim):
 		self.entry.popup ()
-
-	def on_entry_focus_out(self, widget, event):
-		# when we lose focus we should close the view
-		self.close_view()
-
 
 	def append_matches (self, matches):
 		self.cuemiac.append_matches (matches)
