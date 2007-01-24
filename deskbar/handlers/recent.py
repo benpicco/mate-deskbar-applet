@@ -10,7 +10,7 @@ from deskbar.defs import VERSION
 from deskbar.Watcher import FileWatcher
 
 def _check_requirements():
-	if gtk.gtk_version >= (2,9,0):
+	if gtk.pygtk_version >= (2,9,0):
 		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 	return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, _("This handler requires a more recent gtk version (2.9.0 or newer)."), None)
 

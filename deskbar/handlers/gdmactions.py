@@ -184,7 +184,7 @@ class GdmHandler(deskbar.Handler.Handler):
 			scrsvr = dbus.Interface (obj, "org.gnome.ScreenSaver")
 			self.indexer.add(_("Lock"), LockScreenMatch(self))
 			return True
-		except dbus.dbus_bindings.DBusException:
+		except dbus.DBusException:
 			return False
 
 	def init_gpm_matches(self):
@@ -198,7 +198,7 @@ class GdmHandler(deskbar.Handler.Handler):
 				self.indexer.add(_("Hibernate"), HibernateMatch(self))
 			if gpm.canShutdown():
 				self.indexer.add(_("Shutdown"), ShutdownMatch(self))
-		except dbus.dbus_bindings.DBusException:
+		except dbus.DBusException:
 			return False
 			
 	def query(self, query):
