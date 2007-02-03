@@ -9,22 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-09 06:02+0300\n"
-"PO-Revision-Date: 2006-12-09 06:06+0300\n"
+"POT-Creation-Date: 2007-02-03 15:55+0300\n"
+"PO-Revision-Date: 2007-02-03 15:57+0300\n"
 "Last-Translator: Tommi Vainikainen <Tommi.Vainikainen@iki.fi>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one action bar"
-msgstr "\"Kaikki-yhdessä\" -toimintopalkki"
-
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
-msgid "Deskbar"
-msgstr "Työpöytäpalkki"
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -39,18 +31,26 @@ msgid "_Preferences"
 msgstr "_Asetukset"
 
 #: ../data/prefs-dialog.glade.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Saatavilla olevat laajennokset</b>"
+
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Focus</b>"
 msgstr "<b>Kohdistus</b>"
 
-#: ../data/prefs-dialog.glade.h:2
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Layout</b>"
 msgstr "<b>Asettelu</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Ladatut laajennokset</b>"
+
+#: ../data/prefs-dialog.glade.h:5
 msgid "<b>Width</b>"
 msgstr "<b>Leveys</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:6
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
@@ -58,55 +58,67 @@ msgstr ""
 "<i><small><b>Huomautus:</b> Vaihda laajennosten järjestystä vetämällä ja "
 "raahaamalla.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:5
-msgid ""
-"<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
-"small></i>"
-msgstr ""
-"<i><small><b>Huomautus:</b> Uusi pikanäppäin tulee voimaan seuraavalla "
-"sisäänkirjautumisella.</small></i>"
-
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Button in panel"
 msgstr "Painike paneelissa"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Työpöytäpalkin asetukset"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Entry in panel"
 msgstr "Paneelin kohta"
-
-#: ../data/prefs-dialog.glade.h:9
-msgid "Extensions"
-msgstr "Laajennokset"
 
 #: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "Kiinteä _leveys:"
 
 #: ../data/prefs-dialog.glade.h:11
+msgid "New Extensions"
+msgstr "Uudet kaajennokset"
+
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "Etsi valintaa, kun pikanäppäintä painetaan"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
+msgid "Searches"
+msgstr "Haut"
+
+#: ../data/prefs-dialog.glade.h:14
 msgid "Use _all available space"
 msgstr "Käytä tarjolla oleva tila _kokonaan"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "View"
 msgstr "Näytä"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
+msgid "_Check For Updates"
+msgstr "_Tarkista päivitykset"
+
+#: ../data/prefs-dialog.glade.h:17
+msgid "_Check for new extensions"
+msgstr "_Etsi uusia laajennoksia"
+
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Install"
+msgstr "_Asenna"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Keyboard shortcut to focus:"
 msgstr "Kohdistuksen _pikanäppäin:"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:20
 msgid "_More..."
 msgstr "_Lisää..."
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:21
+msgid "_Update"
+msgstr "_Päivitä"
+
+#: ../data/prefs-dialog.glade.h:22
 msgid "characters"
 msgstr "merkkejä"
 
@@ -134,7 +146,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Pikanäppäimet kirjanmerkittyihin hakuihin"
 
-#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:155
+#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "Avaa historiamerkintä %s"
@@ -214,6 +226,14 @@ msgstr "Muistilaput"
 msgid "No History"
 msgstr "Ei historiaa"
 
+#: ../deskbar/Utils.py:109
+msgid "Cannot execute program:"
+msgstr "Ohjelmaa ei voi suorittaa:"
+
+#: ../deskbar/Utils.py:140
+msgid "Cannot show URL:"
+msgstr "URL:ia ei voi näyttää:"
+
 #: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "Havaittiin ohjelmointivirhe"
@@ -262,47 +282,47 @@ msgstr "Beagle Live"
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Etsi asiakirjojasi (Beaglella) samalla kuin kirjoitat"
 
-#: ../deskbar/handlers/beagle-live.py:97
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
 msgid "Edit contact %s"
 msgstr "Muokkaa yhteystietoa %s"
 
-#: ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/handlers/beagle-live.py:101
 #, python-format
 msgid "From %s"
 msgstr "Lähteestä %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:114 ../deskbar/handlers/files.py:52
-#: ../deskbar/handlers/recent.py:42
+#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/recent.py:43
 #, python-format
 msgid "Open %s"
 msgstr "Avaa %s"
 
-#: ../deskbar/handlers/beagle-live.py:122
+#: ../deskbar/handlers/beagle-live.py:117
 #, python-format
 msgid "News from %s"
 msgstr "Uutisia (%s)"
 
-#: ../deskbar/handlers/beagle-live.py:131
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "Note: %s"
 msgstr "Muistilappu: %s"
 
-#: ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "With %s"
 msgstr "%s kanssa"
 
-#: ../deskbar/handlers/beagle-live.py:148
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalenteri: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:324
-#: ../deskbar/handlers/beagle-live.py:346
+#: ../deskbar/handlers/beagle-live.py:318
+#: ../deskbar/handlers/beagle-live.py:340
 msgid "?"
 msgstr "?"
 
@@ -352,32 +372,32 @@ msgid "You can set shortcuts for your searches."
 msgstr "Voit asettaa pikanäppäimiä hauillesi."
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:129
+#: ../deskbar/handlers/mozilla.py:131
 msgid "Web Bookmarks"
 msgstr "WWW-kirjanmerkit"
 
 #: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:130
+#: ../deskbar/handlers/mozilla.py:132
 msgid "Open your web bookmarks by name"
 msgstr "Avaa WWW-kirjanmerkkejä nimellä"
 
 #: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:141
+#: ../deskbar/handlers/mozilla.py:143
 msgid "Web History"
 msgstr "WWW-historia"
 
 #: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:142
+#: ../deskbar/handlers/mozilla.py:144
 msgid "Open your web history by name"
 msgstr "Avaa WWW-historia nimellä"
 
 #: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:135
+#: ../deskbar/handlers/mozilla.py:137
 msgid "Web Searches"
 msgstr "WWW-haut"
 
 #: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:136
+#: ../deskbar/handlers/mozilla.py:138
 msgid "Search the web via your browser's search settings"
 msgstr "Etsi webistä selaimen hakuasetuksin"
 
@@ -424,22 +444,22 @@ msgstr ""
 "Näytä tiedostoja, kansioita, kirjanmerkkejä tai verkkosijainteja nimen "
 "perusteella"
 
-#: ../deskbar/handlers/files.py:74
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "Avaa kansio %s"
 
-#: ../deskbar/handlers/files.py:94 ../deskbar/handlers/files.py:127
+#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "Avaa sijainti %s"
 
-#: ../deskbar/handlers/files.py:123
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "Avaa verkkosijainti %s"
 
-#: ../deskbar/handlers/files.py:125
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Avaa äänilevy %s"
@@ -512,68 +532,6 @@ msgstr "Lepotila"
 msgid "Shutdown"
 msgstr "Sammutettu"
 
-#: ../deskbar/handlers/google-live.py:20
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should receive a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers' kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"Tarvitset Google-tilin Google Live -palvelun käytttämiseen. Sellaisen "
-"saa osoitteesta http://api.google.com/\n"
-"\n"
-"Kun tunnus on luotu, Google API -avain lähetetään sähköpostilla. Tämä "
-"avain täytyy lisätä tiedostoon\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"Mikäli et saa avainta tunnuksen varmistuspostissa tai avain hukkuu, "
-"kirjaudu sisään osoitteessa www.google.com/accounts. Valitse kohta "
-"api.google.com, napsauta \"Create Account\" ja syötä sähköpostiosoite "
-"sekä salasana, jolloin API-avain lähetetään uudestaan sähköpostilla.\n"
-"\n"
-"Hae seuraavaksi kehittäjäpaketti ja kopioi paketin sisältämä tiedosto "
-"GoogleSearch.wsdl tiedostoksi\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:33
-msgid "Setting Up Google Live"
-msgstr "Google Liven käyttöönotto"
-
-#: ../deskbar/handlers/google-live.py:39
-msgid "You need to install the SOAPpy python module."
-msgstr "Sinun täytyy asentaa SOAPpy-pythonmoduli."
-
-#: ../deskbar/handlers/google-live.py:41
-msgid "You need the Google WSDL file."
-msgstr "Tarvitset Googlen WSDL-tiedoston."
-
-#: ../deskbar/handlers/google-live.py:43
-msgid "You need a Google API key."
-msgstr "Tarvitset Googlen API-avaimen."
-
-#: ../deskbar/handlers/google-live.py:49
-msgid "Google Search"
-msgstr "Google-haku"
-
-#: ../deskbar/handlers/google-live.py:50
-msgid "Search Google as you type"
-msgstr "Etsi Googlella samalla kuin kirjoitat"
-
 #: ../deskbar/handlers/history.py:10
 msgid "Recognize previously used searches"
 msgstr "Tunnista aiemmin käytetyt haut"
@@ -595,7 +553,7 @@ msgstr "Ikkunan"
 msgid "Switch to <b>%(name)s</b>"
 msgstr "Siirry ikkunaan <b>%(name)s</b>"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:122
 msgid "You can customize which search engines are offered."
 msgstr "Voit muokata, mitä hakukoneita tarjotaan."
 
@@ -658,15 +616,15 @@ msgstr "Etsi Devhelpistä merkkijonoa %s"
 msgid "Execute %s"
 msgstr "Suorita %s"
 
-#: ../deskbar/handlers/recent.py:14
+#: ../deskbar/handlers/recent.py:15
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
 msgstr "Tämä käsittelijä vaatii uudemman gtk-version (2.9.0 tai uudempi)"
 
-#: ../deskbar/handlers/recent.py:18
+#: ../deskbar/handlers/recent.py:19
 msgid "Recent Documents"
 msgstr "Viimeisimmät asiakirjat"
 
-#: ../deskbar/handlers/recent.py:19
+#: ../deskbar/handlers/recent.py:20
 msgid "Retrieve your recently accessed files and locations"
 msgstr "Nouda luettelo viimeksi avatuista tiedostoista ja sijainneista"
 
@@ -697,6 +655,10 @@ msgstr "Yahoo!-haku"
 msgid "Search Yahoo! as you type"
 msgstr "Etsi Yahoosta samalla kuin kirjoitat"
 
+#: ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Työpöytäpalkki"
+
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "\"Kaikki-yhdessä\" -toimintopalkki."
@@ -716,18 +678,41 @@ msgstr ""
 "\n"
 "http://www.gnome.fi/"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:19
+#: ../deskbar/ui/DeskbarPreferencesUI.py:112
 msgid "New accelerator..."
 msgstr "Uusi pikanäppäin"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:415
+#: ../deskbar/ui/DeskbarPreferencesUI.py:164
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become unusable to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"Pikanäppäintä \"%s\" ei voi käyttää, koska se estää kirjoittamisen tätä "
+"näppäintä painamalla.\n"
+"Luo pikanäppäin painamalla Control, Alt tai Shift-näppäintä samaan aikaan.\n"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Connection to repository failed"
+msgstr "Yhteys ohjelmavarastoon epäonnistui"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Please check your internet connection"
+msgstr "Tarkista internet-yhteytesi"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:558
 msgid "Handler has been installed successfully"
 msgstr "Käsittelijä asennettiin onnistuneesti"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:421
+#: ../deskbar/ui/DeskbarPreferencesUI.py:564
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
 "Käsittelijää ei voitu asentaa, koska tarjotussa tiedostossa oli ongelmia"
+
+#: ../deskbar/ui/ModuleListView.py:55
+msgid "Update Available"
+msgstr "Päivitys saatavilla"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
@@ -736,7 +721,7 @@ msgstr "Näytä hakukenttä"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
 msgid "Show previously used actions"
 msgstr "Näytä aikaisemmin käytetyt toiminnot"
 
@@ -789,6 +774,113 @@ msgstr "_Historia"
 msgid "<b>History</b>"
 msgstr "<b>Historia</b>"
 
+#: ../deskbar/updater/ErrorDialog.py:8
+msgid "Error"
+msgstr "Virhe"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "An error occured"
+msgstr "Tapahtui virhe"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "Check the description beneath for further details."
+msgstr "Lue alla oleva kuvaus, jos haluat lisätietoja."
+
+#: ../deskbar/updater/ErrorDialog.py:31
+msgid "Details"
+msgstr "Yksityiskohdat"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+#, python-format
+msgid "Updating %s"
+msgstr "Päivitetään %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+msgid ""
+"The update is being downloaded from the internet. Please wait until the "
+"update is complete"
+msgstr "Päivitystä noudetaan Internetistä. Odota kunnes päivitys on valmis"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+#, python-format
+msgid "Installing %s"
+msgstr "Asennetaan \"%s\""
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+msgid ""
+"The handler is being downloaded from the internet. Please wait until the "
+"installation is complete"
+msgstr "Käsittelijä haetaan Internetistä. Odota kunnes asennus on valmis."
+
+#: ../deskbar/updater/NewStuffUpdater.py:157
+msgid "Downloading"
+msgstr "Noudetaan"
+
+#~ msgid "An all-in-one action bar"
+#~ msgstr "\"Kaikki-yhdessä\" -toimintopalkki"
+
+#~ msgid ""
+#~ "<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
+#~ "small></i>"
+#~ msgstr ""
+#~ "<i><small><b>Huomautus:</b> Uusi pikanäppäin tulee voimaan seuraavalla "
+#~ "sisäänkirjautumisella.</small></i>"
+
+#~ msgid ""
+#~ "You need a Google account to use Google Live.  To get one, go to http://"
+#~ "api.google.com/\n"
+#~ "\n"
+#~ "When you have created your account, you should receive a Google API key "
+#~ "by mail.  Place this key in the file\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/Google.key\n"
+#~ "\n"
+#~ "If you do not receive an API key (or you have lost it) in your account "
+#~ "verification mail, then go to www.google.com/accounts and log in.  Go to "
+#~ "api.google.com, click \"Create Account\" and enter your e-mail address "
+#~ "and password.  Your API key will be re-sent.\n"
+#~ "\n"
+#~ "Now download the developers' kit and extract the GoogleSearch.wsdl file "
+#~ "from it.  Copy this file to\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+#~ msgstr ""
+#~ "Tarvitset Google-tilin Google Live -palvelun käytttämiseen. Sellaisen saa "
+#~ "osoitteesta http://api.google.com/\n"
+#~ "\n"
+#~ "Kun tunnus on luotu, Google API -avain lähetetään sähköpostilla. Tämä "
+#~ "avain täytyy lisätä tiedostoon\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/Google.key\n"
+#~ "\n"
+#~ "Mikäli et saa avainta tunnuksen varmistuspostissa tai avain hukkuu, "
+#~ "kirjaudu sisään osoitteessa www.google.com/accounts. Valitse kohta api."
+#~ "google.com, napsauta \"Create Account\" ja syötä sähköpostiosoite sekä "
+#~ "salasana, jolloin API-avain lähetetään uudestaan sähköpostilla.\n"
+#~ "\n"
+#~ "Hae seuraavaksi kehittäjäpaketti ja kopioi paketin sisältämä tiedosto "
+#~ "GoogleSearch.wsdl tiedostoksi\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#~ msgid "Setting Up Google Live"
+#~ msgstr "Google Liven käyttöönotto"
+
+#~ msgid "You need to install the SOAPpy python module."
+#~ msgstr "Sinun täytyy asentaa SOAPpy-pythonmoduli."
+
+#~ msgid "You need the Google WSDL file."
+#~ msgstr "Tarvitset Googlen WSDL-tiedoston."
+
+#~ msgid "You need a Google API key."
+#~ msgstr "Tarvitset Googlen API-avaimen."
+
+#~ msgid "Google Search"
+#~ msgstr "Google-haku"
+
+#~ msgid "Search Google as you type"
+#~ msgstr "Etsi Googlella samalla kuin kirjoitat"
+
 #~ msgid "Deskbar Applet"
 #~ msgstr "Työpöytäpalkin sovelma"
 
@@ -797,52 +889,6 @@ msgstr "<b>Historia</b>"
 
 #~ msgid "Search your computer and the internet quickly"
 #~ msgstr "Etsi tietokoneelta ja Internetistä nopeasti"
-
-#~ msgid "<b>Available Extensions</b>"
-#~ msgstr "<b>Saatavilla olevat laajennokset</b>"
-
-#~ msgid "<b>Loaded Extensions</b>"
-#~ msgstr "<b>Ladatut laajennokset</b>"
-
-#~ msgid "Searches"
-#~ msgstr "Haut"
-
-#~ msgid "_Check For Updates"
-#~ msgstr "_Tarkista päivitykset"
-
-#~ msgid "_Install"
-#~ msgstr "_Asenna"
-
-#~ msgid "_Update"
-#~ msgstr "_Päivitä"
-
-#~ msgid "Update Available"
-#~ msgstr "Päivitys saatavilla"
-
-#~ msgid "Updating %s"
-#~ msgstr "Päivitetään %s"
-
-#~ msgid ""
-#~ "The update is being downloaded from the internet. Please wait until the "
-#~ "update is complete"
-#~ msgstr "Päivitystä noudetaan Internetistä. Odota kunnes päivitys on valmis"
-
-#~ msgid "Installing %s"
-#~ msgstr "Asennetaan \"%s\""
-
-#~ msgid ""
-#~ "The handler is being downloaded from the internet. Please wait until the "
-#~ "installation is complete"
-#~ msgstr "Käsittelijä haetaan Internetistä. Odota kunnes asennus on valmis."
-
-#~ msgid "Downloading"
-#~ msgstr "Noudetaan"
-
-#~ msgid "An error occured"
-#~ msgstr "Tapahtui virhe"
-
-#~ msgid "Check the description beneath for further details."
-#~ msgstr "Lue alla oleva kuvaus, jos haluat lisätietoja."
 
 #~ msgid "%s more result"
 #~ msgid_plural "%s more results"
