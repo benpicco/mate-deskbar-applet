@@ -206,11 +206,6 @@ class ModuleLoader (gobject.GObject):
 		
 		print "Stopping %s" % context.infos["name"]
 		context.module.stop ()
-		
-		# Remove the category installed by this module
-		if "category" in context.infos:
-			catname, catinfo = context.infos["category"]
-			del deskbar.Categories.CATEGORIES[catname]
 				
 		context.enabled = False
 		self.emit("module-stopped", context)

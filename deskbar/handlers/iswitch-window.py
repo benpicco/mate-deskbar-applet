@@ -42,7 +42,7 @@ class ISwitchWindowMatch(deskbar.Match.Match):
 			time = gtk.get_current_event_time()
 		
 		
-		if self._window.get_workspace() != self._window.get_screen().get_active_workspace():
+		if hasattr(self._window.get_workspace(), 'activate') and self._window.get_workspace() != self._window.get_screen().get_active_workspace():
 			self._window.get_workspace().activate(time)
 
 		self._window.activate(time)
