@@ -1,28 +1,20 @@
 # Bulgarian translation of deskbar-applet
-# Copyright (C) 2005, 2006 Free Software Foundation, Inc.
+# Copyright (C) 2005, 2006, 2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the deskbar-applet package.
-# Alexander Shopov <ash@contact.bg>, 2005, 2006.
+# Alexander Shopov <ash@contact.bg>, 2005, 2006, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-02 09:18+0200\n"
-"PO-Revision-Date: 2006-11-02 09:18+0200\n"
+"POT-Creation-Date: 2007-02-18 23:41+0200\n"
+"PO-Revision-Date: 2007-02-18 23:31+0200\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-
-#: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one action bar"
-msgstr "Универсална лента за търсене"
-
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:21
-msgid "Deskbar"
-msgstr "Deskbar"
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -37,18 +29,26 @@ msgid "_Preferences"
 msgstr "_Настройки"
 
 #: ../data/prefs-dialog.glade.h:1
-msgid "<b>Focus</b>"
-msgstr "<b>Фокусиране:</b>"
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Налични приставки</b>"
 
 #: ../data/prefs-dialog.glade.h:2
-msgid "<b>Layout</b>"
-msgstr "<b>Представяне като:</b>"
+msgid "<b>Focus</b>"
+msgstr "<b>Фокусиране</b>"
 
 #: ../data/prefs-dialog.glade.h:3
+msgid "<b>Layout</b>"
+msgstr "<b>Подредба</b>"
+
+#: ../data/prefs-dialog.glade.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Заредени приставки</b>"
+
+#: ../data/prefs-dialog.glade.h:5
 msgid "<b>Width</b>"
 msgstr "<b>Широчина:</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:6
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
@@ -56,55 +56,67 @@ msgstr ""
 "<i><small><b>Бележка:</b> Чрез влачене можете да промените подредбата на "
 "приставките.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:5
-msgid ""
-"<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
-"small></i>"
-msgstr ""
-"<i><small><b>Бележка:</b> Новият бърз клавиш ще може да се ползва при "
-"следващото влизане в системата.</small></i>"
-
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Button in panel"
 msgstr "Бутон в панел"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Настройки"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Entry in panel"
 msgstr "Елемент в панел"
-
-#: ../data/prefs-dialog.glade.h:9
-msgid "Extensions"
-msgstr "Приставки"
 
 #: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "_Равноширок:"
 
 #: ../data/prefs-dialog.glade.h:11
+msgid "New Extensions"
+msgstr "Нови приставки"
+
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "Търсене в избраното при задействане с бързия клавиш"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
+msgid "Searches"
+msgstr "Търсения"
+
+#: ../data/prefs-dialog.glade.h:14
 msgid "Use _all available space"
 msgstr "Запълване на _всичкото налично пространство"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "View"
 msgstr "Външен вид"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
+msgid "_Check For Updates"
+msgstr "Проверка за _обновявания"
+
+#: ../data/prefs-dialog.glade.h:17
+msgid "_Check for new extensions"
+msgstr "Проверка за _нови приставки"
+
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Install"
+msgstr "_Инсталиране"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Бърз клавиш за фокусиране:"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:20
 msgid "_More..."
 msgstr "_Допълнителни..."
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:21
+msgid "_Update"
+msgstr "_Обновяване"
+
+#: ../data/prefs-dialog.glade.h:22
 msgid "characters"
 msgstr "знаци"
 
@@ -211,6 +223,14 @@ msgstr "Бележки"
 msgid "No History"
 msgstr "Няма история"
 
+#: ../deskbar/Utils.py:109
+msgid "Cannot execute program:"
+msgstr "Не може да се изпълни програмата:"
+
+#: ../deskbar/Utils.py:140
+msgid "Cannot show URL:"
+msgstr "Не може да се отвори адрес:"
+
 #: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "Възникна програмна грешка"
@@ -257,7 +277,7 @@ msgstr "Beagle на живо"
 
 #: ../deskbar/handlers/beagle-live.py:64
 msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Претърсване на всичките Ви документи (с Beagle) докато пишете"
+msgstr "Претърсване на всичките ви документи (с Beagle) докато пишете"
 
 #: ../deskbar/handlers/beagle-live.py:92
 #, python-format
@@ -271,6 +291,7 @@ msgstr "От %s"
 
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/recent.py:43
 #, python-format
 msgid "Open %s"
 msgstr "Отваряне на %s"
@@ -297,8 +318,8 @@ msgstr "Календар: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:319
-#: ../deskbar/handlers/beagle-live.py:341
+#: ../deskbar/handlers/beagle-live.py:318
+#: ../deskbar/handlers/beagle-live.py:340
 msgid "?"
 msgstr "?"
 
@@ -308,7 +329,7 @@ msgstr "Beagle"
 
 #: ../deskbar/handlers/beagle-static.py:21
 msgid "Search all of your documents (using Beagle)"
-msgstr "Претърсване на всичките Ви документи (чрез Beagle)"
+msgstr "Претърсване на всичките ви документи (чрез Beagle)"
 
 #: ../deskbar/handlers/beagle-static.py:36
 #, python-format
@@ -348,32 +369,32 @@ msgid "You can set shortcuts for your searches."
 msgstr "Можете да задавате бързи клавиши за търсенето"
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:129
+#: ../deskbar/handlers/mozilla.py:131
 msgid "Web Bookmarks"
 msgstr "Отметки в уеб"
 
 #: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:130
+#: ../deskbar/handlers/mozilla.py:132
 msgid "Open your web bookmarks by name"
 msgstr "Отваряне на отметките по име"
 
 #: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:141
+#: ../deskbar/handlers/mozilla.py:143
 msgid "Web History"
 msgstr "История на уеб"
 
 #: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:142
+#: ../deskbar/handlers/mozilla.py:144
 msgid "Open your web history by name"
 msgstr "Отваряне на елементите в историята по име"
 
 #: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:135
+#: ../deskbar/handlers/mozilla.py:137
 msgid "Web Searches"
 msgstr "Търсене по уеб"
 
 #: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:136
+#: ../deskbar/handlers/mozilla.py:138
 msgid "Search the web via your browser's search settings"
 msgstr "Търсене в уеб чрез настройките на уеб браузъра"
 
@@ -393,7 +414,7 @@ msgid ""
 "autocompletion is enabled.  To do this, from your mail program's menu, "
 "choose Edit - Preferences, and then Autocompletion."
 msgstr ""
-"Адресите във Вашата адресна книга не могат да бъдат получавани, освен ако не "
+"Адресите във вашата адресна книга не могат да бъдат получавани, освен ако не "
 "включите автоматичното завършване. За да направите това, стартирайте "
 "програмата си за е-поща и от менюто отидете в Редактиране -> Настройки -> "
 "Автоматично завършване."
@@ -512,68 +533,6 @@ msgstr "Дълбоко приспиване"
 msgid "Shutdown"
 msgstr "Спиране"
 
-#: ../deskbar/handlers/google-live.py:20
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should receive a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers' kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"Необходим Ви е абонамент в Google, за да ползвате Google на живо. За да се "
-"регистрирате, посетете http://api.google.com/\n"
-"\n"
-"След абонирането си трябва да получите е-писмо с ключ за Google API. "
-"Запишете ключа във файла\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"Ако не получите ключ за API или сте го загубили, посетете www.google.com/"
-"accounts и влезте с името и паролата си. Отидете на http://api.google.com, "
-"натиснете „Create Account“ (създаване на абонамент) и попълнете адреса си на "
-"е-поща и паролата си. Ключът Ви за API ще бъде пратен отново чрез е-поща.\n"
-"\n"
-"След това издърпайте комплекта за разработчици и разархивирайте файла "
-"GoogleSearch.wsdl. Копирайте го в:\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:33
-msgid "Setting Up Google Live"
-msgstr "Настройки на Google на живо"
-
-#: ../deskbar/handlers/google-live.py:39
-msgid "You need to install the SOAPpy python module."
-msgstr "Трябва да инсталирате модула на Python - SOAPpy."
-
-#: ../deskbar/handlers/google-live.py:41
-msgid "You need the Google WSDL file."
-msgstr "Трябва Ви файлът от Google - WSDL."
-
-#: ../deskbar/handlers/google-live.py:43
-msgid "You need a Google API key."
-msgstr "Трябва Ви ключ за API-тата на Google."
-
-#: ../deskbar/handlers/google-live.py:49
-msgid "Google Search"
-msgstr "Търсене с Google"
-
-#: ../deskbar/handlers/google-live.py:50
-msgid "Search Google as you type"
-msgstr "Претърсване на Google докато пишете"
-
 #: ../deskbar/handlers/history.py:10
 msgid "Recognize previously used searches"
 msgstr "Разпознаване на предишни търсения"
@@ -595,7 +554,7 @@ msgstr "Прозорци"
 msgid "Switch to <b>%(name)s</b>"
 msgstr "Избиране на <b>%(name)s</b>"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:122
 msgid "You can customize which search engines are offered."
 msgstr "Може да персонализирате кои търсачки да се използват."
 
@@ -658,6 +617,19 @@ msgstr "Търсене в документацията за %s"
 msgid "Execute %s"
 msgstr "Изпълняване на %s"
 
+#: ../deskbar/handlers/recent.py:15
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr ""
+"Тази програма за обработка се нуждае от по-нова версия (2.9.0 или по-нова)."
+
+#: ../deskbar/handlers/recent.py:19
+msgid "Recent Documents"
+msgstr "Скоро ползвани документи"
+
+#: ../deskbar/handlers/recent.py:20
+msgid "Retrieve your recently accessed files and locations"
+msgstr "Получаване на списъка на скоро ползваните файлове и места"
+
 #: ../deskbar/handlers/web_address.py:13
 msgid "Open web pages and send emails by typing a complete address"
 msgstr ""
@@ -686,18 +658,22 @@ msgstr "Търсене с Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "Претърсване на Yahoo! докато пишете"
 
-#: ../deskbar/ui/About.py:24
+#: ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Deskbar"
+
+#: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Универсална лента."
 
-#: ../deskbar/ui/About.py:27
+#: ../deskbar/ui/About.py:28
 msgid "Deskbar Website"
 msgstr "Сайт на Deskbar"
 
 #. about.set_artists([])
 #. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:35
+#: ../deskbar/ui/About.py:36
 msgid "translator-credits"
 msgstr ""
 "Александър Шопов <ash@contact.bg>\n"
@@ -706,18 +682,41 @@ msgstr ""
 "Научете повече за нас на http://gnome.cult.bg\n"
 "Докладвайте за грешки на http://gnome.cult.bg/bugs"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:19
+#: ../deskbar/ui/DeskbarPreferencesUI.py:112
 msgid "New accelerator..."
 msgstr "Нов бърз клавиш..."
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:415
+#: ../deskbar/ui/DeskbarPreferencesUI.py:164
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become unusable to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"„%s“ не може да се ползва за бърз клавиш, защото ще стане невъзможно да бъде "
+"въвеждан самостоятелно.\n"
+"Комбинирайте го с някой от клавишите „Control“, „Alt“ или „Shift“.\n"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Connection to repository failed"
+msgstr "Връзката с хранилището е неуспешна"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Please check your internet connection"
+msgstr "Проверете връзката си с Интернет"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:558
 msgid "Handler has been installed successfully"
 msgstr "Модулът за обработка е инсталиран успешно."
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:421
+#: ../deskbar/ui/DeskbarPreferencesUI.py:564
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
 "Модулът за обработка не беше инсталиран заради проблем с предоставения файл"
+
+#: ../deskbar/ui/ModuleListView.py:55
+msgid "Update Available"
+msgstr "Налични са обновявания"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
@@ -726,7 +725,7 @@ msgstr "Показване на търсения елемент"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
 msgid "Show previously used actions"
 msgstr "Разпознаване на предишни действия"
 
@@ -736,7 +735,7 @@ msgstr "<b>Търсачки</b>"
 
 #: ../data/mozilla-search.glade.h:2
 msgid "Deskbar Preferences - Web Searches"
-msgstr "Настройки - Търсене в Интернет"
+msgstr "Настройки - търсене в Интернет"
 
 #: ../data/mozilla-search.glade.h:3
 msgid "Show all available search engines"
@@ -778,3 +777,48 @@ msgstr "_История"
 #: ../deskbar/ui/window/CuemiacWindowUI.py:84
 msgid "<b>History</b>"
 msgstr "<b>История</b>"
+
+#: ../deskbar/updater/ErrorDialog.py:8
+msgid "Error"
+msgstr "Грешка"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "An error occured"
+msgstr "Възникна грешка"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "Check the description beneath for further details."
+msgstr "За повече детайли погледнете описанието по долу."
+
+#: ../deskbar/updater/ErrorDialog.py:31
+msgid "Details"
+msgstr "Подробности"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+#, python-format
+msgid "Updating %s"
+msgstr "Обновяване на %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+msgid ""
+"The update is being downloaded from the internet. Please wait until the "
+"update is complete"
+msgstr ""
+"Обновяването се изтегля от Интернет. Изчакайте докато изтеглянето завърши."
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+#, python-format
+msgid "Installing %s"
+msgstr "Инсталиране на %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+msgid ""
+"The handler is being downloaded from the internet. Please wait until the "
+"installation is complete"
+msgstr ""
+"Модулът за обработка се изтегля от Интернет. Изчакайте докато изтеглянето "
+"завърши."
+
+#: ../deskbar/updater/NewStuffUpdater.py:157
+msgid "Downloading"
+msgstr "Изтегляне"
