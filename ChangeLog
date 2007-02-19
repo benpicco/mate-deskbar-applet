@@ -1,3 +1,12 @@
+2007-02-11  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+	* deskbar/ui/cuemiac/CuemiacPopupEntry.py:
+	Fix regression in entry ui. When you clicked outside the popup
+	it didn't disappear (as it should - in contrary to the cuemiac
+	where it is sticky on purpose).
+	
+	This was caused by the popup not being set as a gtk.WINDOW_POPUP.
+
 2007-02-11  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* configure.ac:

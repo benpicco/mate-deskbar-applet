@@ -25,9 +25,13 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 		self.view.set_hover_selection (True)
 		self.selection = self.view.get_selection()
 		self.window_group = None
-		self.popup_window = CuemiacAlignedWindow (self.entry, applet)#, gtk.WINDOW_POPUP)
-		self.popup_window.set_type_hint (gtk.gdk.WINDOW_TYPE_HINT_MENU)
 		self.scroll_view = gtk.ScrolledWindow ()
+		
+		# Popup window flags
+		# The popup has to be a gtk.WINDOW_POPUP so that we control it without
+		# the window manager intervening (messing with focus grabs)
+		self.popup_window = CuemiacAlignedWindow (self.entry, applet, gtk.WINDOW_POPUP)
+		self.popup_window.set_type_hint (gtk.gdk.WINDOW_TYPE_HINT_MENU)
 		
 		# Set up popup
 		self.scroll_view.set_policy (gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
