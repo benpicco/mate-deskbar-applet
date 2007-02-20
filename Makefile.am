@@ -9,6 +9,7 @@ DISTCLEANFILES = \
 	gnome-doc-utils.make
 
 EXTRA_DIST = \
+	MAINTAINERS \
 	TODO \
 	intltool-update.in \
 	intltool-extract.in	\
