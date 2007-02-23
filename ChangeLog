@@ -1,3 +1,11 @@
+2007-02-23  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
+	* autogen.sh:
+	Bump autoconf requirement to autoconf-2.60. Versions before don't set the
+	correct datarootdir which in turn make DATA_DIR="" which in turns make
+	deskbar crash at startup because it can't find image or data files
+	Closes bug #354391
+
 2007-02-22  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
 	* deskbar/handlers/history.py
