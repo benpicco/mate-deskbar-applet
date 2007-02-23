@@ -146,7 +146,7 @@ def url_show(url):
 def get_proxy():
 	deskbarapplet = deskbar.DeskbarApplet.DeskbarApplet.get_instance()
 	if deskbarapplet.use_proxy:
-		proxy_string = "http://%s:%d:" % (deskbarapplet.proxy_host, deskbarapplet.proxy_port)
+		proxy_string = "http://%s:%d/" % (deskbarapplet.proxy_host, deskbarapplet.proxy_port)
 		proxies = {'http' : proxy_string}
 		return proxies
 	else:
