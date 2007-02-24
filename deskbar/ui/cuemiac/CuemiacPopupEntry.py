@@ -117,9 +117,9 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 		self.view.grab_focus()
 
 		# Grab pointer
-		self.view.grab_add()
+		self.scroll_view.grab_add()
 		gtk.gdk.pointer_grab(
-			self.view.window, True,
+			self.scroll_view.window, True,
 			gtk.gdk.BUTTON_PRESS_MASK|
 				gtk.gdk.BUTTON_RELEASE_MASK|
 				gtk.gdk.POINTER_MOTION_MASK,
@@ -137,7 +137,7 @@ class CuemiacPopupEntry (CuemiacLayoutProvider, gtk.HBox):
 		
 		# Ungrab pointer
 		gtk.gdk.pointer_ungrab(gtk.get_current_event_time())
-		self.view.grab_remove()
+		self.scroll_view.grab_remove()
 	
 	def on_popup_key_press(self, widget, event):
 		if not (self.popup_window.flags()&gtk.MAPPED):
