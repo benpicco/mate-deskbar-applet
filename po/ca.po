@@ -3,29 +3,21 @@
 # This file is distributed under the same license as the deskbar-applet
 #  package.
 #
-# Gil Forcada Codinachs <gilforcada@guifi.net>, 2006.
+# Gil Forcada Codinachs <gilforcada@guifi.net>, 2006, 2007.
 #
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-24 00:47+0100\n"
-"PO-Revision-Date: 2006-11-24 00:55+0100\n"
+"POT-Creation-Date: 2007-01-08 03:50+0000\n"
+"PO-Revision-Date: 2007-02-25 16:52+0100\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-
-#: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one action bar"
-msgstr "Barra d'accions tot en un"
-
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
-msgid "Deskbar"
-msgstr "Barra d'escriptori"
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -40,74 +32,94 @@ msgid "_Preferences"
 msgstr "_Preferències"
 
 #: ../data/prefs-dialog.glade.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Extensions disponibles</b>"
+
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Focus</b>"
 msgstr "<b>Focus</b>"
 
-#: ../data/prefs-dialog.glade.h:2
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Layout</b>"
 msgstr "<b>Disposició</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Extensions carregades</b>"
+
+#: ../data/prefs-dialog.glade.h:5
 msgid "<b>Width</b>"
 msgstr "<b>Amplada</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:6
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
 msgstr ""
-"<i><small><b>Nota:</b> Arrossegueu i deixeu anar una extensió per canviar-ne "
-"l'ordre.</small></i>"
+"<i><small><b>Nota:</b> Arrossegueu i deixeu anar una extensió per a canviar-"
+"ne l'ordre.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:5
-msgid ""
-"<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
-"small></i>"
-msgstr ""
-"<i><small><b>Nota:</b> La drecera tindrà efecte la propera vegada que "
-"arrenqueu.</small></i>"
-
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Button in panel"
 msgstr "Botó al quadre"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Preferències de la barra d'escriptori"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Entry in panel"
 msgstr "Entrada al quadre"
-
-#: ../data/prefs-dialog.glade.h:9
-msgid "Extensions"
-msgstr "Extensions"
 
 #: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "Amplada fi_xa:"
 
 #: ../data/prefs-dialog.glade.h:11
+msgid "New Extensions"
+msgstr "Extensions noves"
+
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "Cerca la selecció en activar la drecera"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
+msgid "Searches"
+msgstr "Cerques"
+
+#: ../data/prefs-dialog.glade.h:14
 msgid "Use _all available space"
 msgstr "Utilitza _tot l'espai disponible"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "View"
 msgstr "Visualitza"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
+msgid "_Check For Updates"
+msgstr "_Comprova si hi ha actualitzacions"
+
+#: ../data/prefs-dialog.glade.h:17
+msgid "_Check for new extensions"
+msgstr "_Comprova si hi ha extensions noves"
+
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Install"
+msgstr "_Instal·la"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Drecera de teclat per a obtenir el focus:"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:20
 msgid "_More..."
 msgstr "_Més..."
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:21
+msgid "_Update"
+msgstr "_Actualitza"
+
+#: ../data/prefs-dialog.glade.h:22
 msgid "characters"
 msgstr "caràcters"
 
@@ -215,6 +227,14 @@ msgstr "Notes"
 msgid "No History"
 msgstr "L'historial és buit"
 
+#: ../deskbar/Utils.py:109
+msgid "Cannot execute program:"
+msgstr "No s'ha pogut executar el programa:"
+
+#: ../deskbar/Utils.py:140
+msgid "Cannot show URL:"
+msgstr "No s'ha pogut mostrar l'URL:"
+
 #: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "S'ha detectat un error de programació"
@@ -233,11 +253,11 @@ msgstr "S'ha detectat un error"
 
 #: ../deskbar/handlers/beagle-live.py:19
 msgid "Start Beagle Daemon?"
-msgstr "Voleu iniciar el dimoni Beagle?"
+msgstr "Voleu iniciar el dimoni del Beagle?"
 
 #: ../deskbar/handlers/beagle-live.py:24
 msgid "Start Beagle Daemon"
-msgstr "Inicia el dimoni Beagle"
+msgstr "Inicia el dimoni del Beagle"
 
 #: ../deskbar/handlers/beagle-live.py:25
 msgid ""
@@ -245,7 +265,7 @@ msgid ""
 " You need to start it to use the Beagle Live handler."
 msgstr ""
 "No sembla que el dimoni Beagle estigui funcionant.\n"
-" Necessiteu iniciar-lo per poder utilitzar el gestor Beagle Live."
+" Hauríeu d'iniciar-lo per a poder utilitzar el gestor del Beagle Live."
 
 #: ../deskbar/handlers/beagle-live.py:39
 msgid "Failed to start Beagle"
@@ -262,7 +282,7 @@ msgstr "Beagle Live"
 #: ../deskbar/handlers/beagle-live.py:64
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr ""
-"Cerqueu en tots els vostres documents (utilitzant el Beagle), mentre escriviu"
+"Cerqueu en tots els vostres documents (utilitzant el Beagle) mentre escriviu"
 
 #: ../deskbar/handlers/beagle-live.py:92
 #, python-format
@@ -275,8 +295,8 @@ msgid "From %s"
 msgstr "De %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:52
-#: ../deskbar/handlers/recent.py:42
+#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/recent.py:43
 #, python-format
 msgid "Open %s"
 msgstr "Obre %s"
@@ -303,8 +323,8 @@ msgstr "Calendari: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:319
-#: ../deskbar/handlers/beagle-live.py:341
+#: ../deskbar/handlers/beagle-live.py:318
+#: ../deskbar/handlers/beagle-live.py:340
 msgid "?"
 msgstr "(desconegut)"
 
@@ -355,32 +375,32 @@ msgid "You can set shortcuts for your searches."
 msgstr "Podeu posar dreceres a les vostres cerques."
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:129
+#: ../deskbar/handlers/mozilla.py:131
 msgid "Web Bookmarks"
 msgstr "Adreces d'interès de webs"
 
 #: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:130
+#: ../deskbar/handlers/mozilla.py:132
 msgid "Open your web bookmarks by name"
 msgstr "Obre les vostres adreces d'interès de webs per nom"
 
 #: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:141
+#: ../deskbar/handlers/mozilla.py:143
 msgid "Web History"
 msgstr "Historial web"
 
 #: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:142
+#: ../deskbar/handlers/mozilla.py:144
 msgid "Open your web history by name"
 msgstr "Obre el vostre historial web per nom"
 
 #: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:135
+#: ../deskbar/handlers/mozilla.py:137
 msgid "Web Searches"
 msgstr "Cerques a la web"
 
 #: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:136
+#: ../deskbar/handlers/mozilla.py:138
 msgid "Search the web via your browser's search settings"
 msgstr ""
 "Cerqueu a la web mitjançant els paràmetres de cerca del vostre navegador"
@@ -400,7 +420,7 @@ msgid ""
 "choose Edit - Preferences, and then Autocompletion."
 msgstr ""
 "No us podem proporcionar adreces de correu de la vostra llibreta d'adreces "
-"si no habiliteu l'autocompleció. Per fer-ho, des del menú del programa de "
+"si no habiliteu l'autocompleció. Per a fer-ho, des del menú del programa de "
 "correu, escolliu Edita - Preferències, i llavors Autocompleció."
 
 #: ../deskbar/handlers/evolution.py:21
@@ -410,8 +430,8 @@ msgstr "Correu (Llibreta d'adreces)"
 #: ../deskbar/handlers/evolution.py:22
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
-"Envieu un correu als vostres contactes escrivint el seu nom o l'adreça de "
-"correu"
+"Envieu un correu als vostres contactes escrivint el seu nom o la seva adreça "
+"de correu"
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:48
@@ -426,25 +446,25 @@ msgstr "Fitxers, directoris i llocs"
 #: ../deskbar/handlers/files.py:19
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
-"Visualitzeu els vostres fitxers, directoris, adreces d'interès, unitats, "
+"Visualitzeu els vostres fitxers, directoris, adreces d'interès, unitats i "
 "llocs de xarxa pel nom"
 
-#: ../deskbar/handlers/files.py:74
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "Obre el directori %s"
 
-#: ../deskbar/handlers/files.py:94 ../deskbar/handlers/files.py:127
+#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "Obre la ubicació %s"
 
-#: ../deskbar/handlers/files.py:123
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "Obre un lloc de xarxa %s"
 
-#: ../deskbar/handlers/files.py:125
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Obre un disc d'àudio %s"
@@ -517,68 +537,6 @@ msgstr "Hiberna"
 msgid "Shutdown"
 msgstr "Atura"
 
-#: ../deskbar/handlers/google-live.py:20
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should receive a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers' kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"Us cal un compte a Google per poder fer servir el Google Live. Per obtenir-"
-"ne un, aneu a http://api.google.com/\n"
-"\n"
-"Quan ja tingueu el vostre compte creat, rebreu una clau de la Google API per "
-"correu. Poseu-la al fitxer\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"Si no rebeu cap clau de l'API (o l'heu perduda) al vostre compte de correu "
-"de verificació, aneu a www.google.com/accounts i entreu. Aneu a api.google."
-"com, cliqueu a «Create account» i entreu-hi l'adreça de correu i la "
-"contrasenya. Se us tornarà a enviar la clau API.\n"
-"\n"
-"Ara descarregueu el joc de desenvolupament i extreieu-ne el fitxer "
-"GoogleSearch.wsdl, i copieu-lo a\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:33
-msgid "Setting Up Google Live"
-msgstr "S'està activant el Google Live"
-
-#: ../deskbar/handlers/google-live.py:39
-msgid "You need to install the SOAPpy python module."
-msgstr "Heu d'instal·lar el mòdul de python SOAPpy."
-
-#: ../deskbar/handlers/google-live.py:41
-msgid "You need the Google WSDL file."
-msgstr "Us cal el fitxer Google WSDL."
-
-#: ../deskbar/handlers/google-live.py:43
-msgid "You need a Google API key."
-msgstr "Us cal una clau de la Google API."
-
-#: ../deskbar/handlers/google-live.py:49
-msgid "Google Search"
-msgstr "Cerca al Google"
-
-#: ../deskbar/handlers/google-live.py:50
-msgid "Search Google as you type"
-msgstr "Cerqueu amb el Google mentre escriviu"
-
 #: ../deskbar/handlers/history.py:10
 msgid "Recognize previously used searches"
 msgstr "Reconeix les cerques fetes prèviament"
@@ -600,7 +558,7 @@ msgstr "Finestres"
 msgid "Switch to <b>%(name)s</b>"
 msgstr "Canvieu a <b>%(name)s</b>"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:122
 msgid "You can customize which search engines are offered."
 msgstr "Podeu personalitzar els motors de cerca que s'ofereixen."
 
@@ -663,18 +621,18 @@ msgstr "Cerca %s en el Devhelp"
 msgid "Execute %s"
 msgstr "Executa %s"
 
-#: ../deskbar/handlers/recent.py:14
+#: ../deskbar/handlers/recent.py:15
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
 msgstr ""
 "Aquest gestor requereix una versió de GTK més recent (2.9.0 o superior)."
 
-#: ../deskbar/handlers/recent.py:18
+#: ../deskbar/handlers/recent.py:19
 msgid "Recent Documents"
 msgstr "Documents recents"
 
-#: ../deskbar/handlers/recent.py:19
+#: ../deskbar/handlers/recent.py:20
 msgid "Retrieve your recently accessed files and locations"
-msgstr "Recupereu els fitxers o ubicacions a què hagueu accedit recentment"
+msgstr "Recupereu els fitxers o ubicacions a què hàgiu accedit recentment"
 
 #: ../deskbar/handlers/web_address.py:13
 msgid "Open web pages and send emails by typing a complete address"
@@ -704,6 +662,10 @@ msgstr "Cerca a Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "Cerqueu amb el Yahoo! mentre escriviu"
 
+#: ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Barra d'escriptori"
+
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Barra d'accions integrada."
@@ -719,19 +681,43 @@ msgstr "Lloc web de la barra d'escriptori"
 msgid "translator-credits"
 msgstr "Gil Forcada <gilforcada@guifi.net>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:19
+#: ../deskbar/ui/DeskbarPreferencesUI.py:112
 msgid "New accelerator..."
 msgstr "Nou accelerador..."
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:415
+#: ../deskbar/ui/DeskbarPreferencesUI.py:164
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become unusable to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"No es pot fer servir la drecera «%s» perquè no seria possible utilitzar "
+"aquesta tecla per a l'escriptura amb el teclat.\n"
+"Proveu d'utilitzar-la juntament amb una altra tecla com la de control, "
+"alternativa o majúscula.\n"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Connection to repository failed"
+msgstr "Ha fallat la connexió al dipòsit"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Please check your internet connection"
+msgstr "Comproveu la vostra connexió a Internet"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:558
 msgid "Handler has been installed successfully"
 msgstr "S'ha instal·lat el gestor amb èxit"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:421
+#: ../deskbar/ui/DeskbarPreferencesUI.py:564
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
-"No s'ha pogut instal·lar el gestor atès que hi ha hagut un problema amb el "
-"fitxer proporcionat."
+"No s'ha pogut instal·lar el gestor degut a un problema amb el fitxer "
+"proporcionat."
+
+#: ../deskbar/ui/ModuleListView.py:55
+msgid "Update Available"
+msgstr "Hi ha una actualització disponible"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
@@ -740,9 +726,9 @@ msgstr "Mostra l'entrada de la cerca"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:56
 msgid "Show previously used actions"
-msgstr "Mostra les accions fetes prèviament"
+msgstr "Mostra les accions dutes a terme anteriorment"
 
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
@@ -793,6 +779,117 @@ msgstr "_Historial"
 msgid "<b>History</b>"
 msgstr "<b>Historial</b>"
 
+#: ../deskbar/updater/ErrorDialog.py:8
+msgid "Error"
+msgstr "Error"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "An error occured"
+msgstr "S'ha produït un error"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "Check the description beneath for further details."
+msgstr "Comprova la descripció de sota per a més detalls."
+
+#: ../deskbar/updater/ErrorDialog.py:31
+msgid "Details"
+msgstr "Detalls"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+#, python-format
+msgid "Updating %s"
+msgstr "S'està actualitzant %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+msgid ""
+"The update is being downloaded from the internet. Please wait until the "
+"update is complete"
+msgstr ""
+"S'està descarregant l'actualització des d'Internet. Espereu fins que s'hagi "
+"acabat l'actualització"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+#, python-format
+msgid "Installing %s"
+msgstr "S'està instal·lant %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+msgid ""
+"The handler is being downloaded from the internet. Please wait until the "
+"installation is complete"
+msgstr ""
+"S'està descarregant el gestor des d'Internet. Espereu fins que s'hagi acabat "
+"la instal·lació"
+
+#: ../deskbar/updater/NewStuffUpdater.py:157
+msgid "Downloading"
+msgstr "S'està descarregant"
+
+#~ msgid "An all-in-one action bar"
+#~ msgstr "Barra d'accions tot en un"
+
+#~ msgid ""
+#~ "<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
+#~ "small></i>"
+#~ msgstr ""
+#~ "<i><small><b>Nota:</b> La drecera tindrà efecte la propera vegada que "
+#~ "arrenqueu.</small></i>"
+
+#~ msgid ""
+#~ "You need a Google account to use Google Live.  To get one, go to http://"
+#~ "api.google.com/\n"
+#~ "\n"
+#~ "When you have created your account, you should receive a Google API key "
+#~ "by mail.  Place this key in the file\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/Google.key\n"
+#~ "\n"
+#~ "If you do not receive an API key (or you have lost it) in your account "
+#~ "verification mail, then go to www.google.com/accounts and log in.  Go to "
+#~ "api.google.com, click \"Create Account\" and enter your e-mail address "
+#~ "and password.  Your API key will be re-sent.\n"
+#~ "\n"
+#~ "Now download the developers' kit and extract the GoogleSearch.wsdl file "
+#~ "from it.  Copy this file to\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+#~ msgstr ""
+#~ "Us cal un compte a Google per poder fer servir el Google Live. Per "
+#~ "obtenir-ne un, aneu a http://api.google.com/\n"
+#~ "\n"
+#~ "Quan ja tingueu el vostre compte creat, rebreu una clau de la Google API "
+#~ "per correu. Poseu-la al fitxer\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/Google.key\n"
+#~ "\n"
+#~ "Si no rebeu cap clau de l'API (o l'heu perduda) al vostra compte de "
+#~ "correu de verificació, aneu a www.google.com/accounts i entreu. Aneu a "
+#~ "api.google.com, cliqueu a «Create account» i entreu-hi l'adreça de correu "
+#~ "i la contrasenya. Se us tornarà a enviar la clau API.\n"
+#~ "\n"
+#~ "Ara descarregueu el joc de desenvolupament i extreieu-ne el fitxer "
+#~ "GoogleSearch.wsdl, i copieu-lo a\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#~ msgid "Setting Up Google Live"
+#~ msgstr "S'està activant el Google Live"
+
+#~ msgid "You need to install the SOAPpy python module."
+#~ msgstr "Heu d'instal·lar el mòdul de python SOAPpy."
+
+#~ msgid "You need the Google WSDL file."
+#~ msgstr "Us cal el fitxer Google WSDL."
+
+#~ msgid "You need a Google API key."
+#~ msgstr "Us cal una clau de la Google API."
+
+#~ msgid "Google Search"
+#~ msgstr "Cerca al Google"
+
+#~ msgid "Search Google as you type"
+#~ msgstr "Cerqueu amb el Google mentre escriviu"
+
 #~ msgid "Deskbar Applet"
 #~ msgstr "Miniaplicació de la barra d'escriptori"
 
@@ -801,56 +898,6 @@ msgstr "<b>Historial</b>"
 
 #~ msgid "Search your computer and the internet quickly"
 #~ msgstr "Cerqueu al sistema i a Internet ràpidament"
-
-#~ msgid "<b>Available Extensions</b>"
-#~ msgstr "<b>Extensions disponibles</b>"
-
-#~ msgid "<b>Loaded Extensions</b>"
-#~ msgstr "<b>Extensions carregades</b>"
-
-#~ msgid "Searches"
-#~ msgstr "Cerques"
-
-#~ msgid "_Check For Updates"
-#~ msgstr "_Comprova si hi ha actualitzacions"
-
-#~ msgid "_Install"
-#~ msgstr "_Instal·la"
-
-#~ msgid "_Update"
-#~ msgstr "_Actualitza"
-
-#~ msgid "Update Available"
-#~ msgstr "Hi ha una actualització disponible"
-
-#~ msgid "Updating %s"
-#~ msgstr "S'està actualitzant %s"
-
-#~ msgid ""
-#~ "The update is being downloaded from the internet. Please wait until the "
-#~ "update is complete"
-#~ msgstr ""
-#~ "S'està descarregant l'actualització des d'Internet. Espereu fins que la "
-#~ "descàrrega s'acabi"
-
-#~ msgid "Installing %s"
-#~ msgstr "S'està instal·lant %s"
-
-#~ msgid ""
-#~ "The handler is being downloaded from the internet. Please wait until the "
-#~ "installation is complete"
-#~ msgstr ""
-#~ "S'està descarregant el gestor des d'Internet. Espereu fins que la "
-#~ "descàrrega s'acabi"
-
-#~ msgid "Downloading"
-#~ msgstr "S'està descarregant"
-
-#~ msgid "An error occured"
-#~ msgstr "S'ha produït un error"
-
-#~ msgid "Check the description beneath for further details."
-#~ msgstr "Comprova la descripció de sota per a més detalls."
 
 #~ msgid "%s more result"
 #~ msgid_plural "%s more results"
