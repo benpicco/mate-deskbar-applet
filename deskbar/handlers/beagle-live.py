@@ -103,7 +103,7 @@ TYPES = {
 		},
 	"File" 		: {
 		"name"	: ("beagle:ExactFilename",), 
-		"action": lambda d: url_show_file(d["uri"]),
+		"action": lambda d: url_show_file("file://"+d["uri"]),
 		"icon"	: "stock_new",
 		#translators: This is a file.
 		"description": _("Open %s") % "<b>%(name)s</b>",
