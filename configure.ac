@@ -76,7 +76,7 @@ AC_SUBST(DESKBAR_CFLAGS)
 AC_SUBST(DESKBAR_LIBS)
 
 AC_MSG_CHECKING([for gnomeapplet module])
-if AC_RUN_LOG([$PYTHON -c '
+if AC_RUN_LOG([DISPLAY= $PYTHON -c '
 try:
     import gnomeapplet
 except ImportError, e:
