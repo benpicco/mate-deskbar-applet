@@ -1,30 +1,24 @@
+# translation of lt.po to Lithuanian
 # Lithuanian translation of deskbar-applet.
-# Copyright (C) 2005-2006 Free Software Foundation, Inc.
+# Copyright (C) 2005-2006, 2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the deskbar-applet package.
+#
+#
 # Žygimantas Beručka <zygis@gnome.org>, 2005-2006.
-# 
-# 
+# Gintautas Miliauskas <gintas@akl.lt>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet HEAD\n"
+"Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-29 22:07+0300\n"
-"PO-Revision-Date: 2006-07-30 11:33+0300\n"
+"POT-Creation-Date: 2007-03-04 22:56+0200\n"
+"PO-Revision-Date: 2007-03-04 23:00+0200\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
-"Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
+"Language-Team: Lithuanian <gnome-lt@lists.akl.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
-"100<10 || n%100>=20) ? 1 : 2);\n"
-
-#: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one action bar"
-msgstr "Veiksmų juosta „viskas viename“"
-
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:21
-msgid "Deskbar"
-msgstr "Deskbar"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -39,18 +33,26 @@ msgid "_Preferences"
 msgstr "_Nustatymai"
 
 #: ../data/prefs-dialog.glade.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Prieinami išplėtimai</b>"
+
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Focus</b>"
 msgstr "<b>Fokusavimas</b>"
 
-#: ../data/prefs-dialog.glade.h:2
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Layout</b>"
 msgstr "<b>Išdėstymai</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Įkelti išplėtimai</b>"
+
+#: ../data/prefs-dialog.glade.h:5
 msgid "<b>Width</b>"
 msgstr "<b>Plotis</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:6
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
@@ -58,47 +60,67 @@ msgstr ""
 "<i><small><b>Pastaba:</b> valdiklio prioritetą galite pakeisdami perkeldami "
 "jį pele į kitą vietą.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:7
 msgid "Button in panel"
 msgstr "Mygtukas skydelyje"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Deskbar nustatymai"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:9
 msgid "Entry in panel"
 msgstr "Įvestis skydelyje"
 
-#: ../data/prefs-dialog.glade.h:8
-msgid "Extensions"
-msgstr "Išplėtimai"
-
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "Fiksuotas _plotis:"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
+msgid "New Extensions"
+msgstr "Nauji išplėtimai"
+
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "Ieškoti pasirinkimo aktyvuojant susiejimą"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:13
+msgid "Searches"
+msgstr "Paieškos"
+
+#: ../data/prefs-dialog.glade.h:14
 msgid "Use _all available space"
 msgstr "Naudoti _visą prieinamą vietą"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:15
 msgid "View"
 msgstr "Vaizdas"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:16
+msgid "_Check For Updates"
+msgstr "_Ieškoti atnaujinimų"
+
+#: ../data/prefs-dialog.glade.h:17
+msgid "_Check for new extensions"
+msgstr "_Ieškoti naujų išplėtimų"
+
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Install"
+msgstr "Į_diegti"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Klavišų susiejimas fokusavimui:"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:20
 msgid "_More..."
 msgstr "_Daugiau..."
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:21
+msgid "_Update"
+msgstr "_Atnaujinti"
+
+#: ../data/prefs-dialog.glade.h:22
 msgid "characters"
 msgstr "simbolių"
 
@@ -126,27 +148,27 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Kombinacijos žymelėse esančioms paieškoms"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:144
+#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "Atverti istorijos elementą %s"
 
-#: ../deskbar/BrowserMatch.py:48
+#: ../deskbar/BrowserMatch.py:52
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Atverti žymelę %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:97
+#: ../deskbar/BrowserMatch.py:101
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Ieškoti <b>%(name)s</b> <i>%(text)s</i>"
 
-#: ../deskbar/BrowserMatch.py:206
+#: ../deskbar/BrowserMatch.py:210
 msgid "Shortcut"
 msgstr "Kombinacija"
 
-#: ../deskbar/BrowserMatch.py:214
+#: ../deskbar/BrowserMatch.py:218
 msgid "Bookmark Name"
 msgstr "Žymelės pavadinimas"
 
@@ -154,7 +176,7 @@ msgstr "Žymelės pavadinimas"
 msgid "Uncategorized"
 msgstr "Be kategorijos"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "Istorija"
 
@@ -186,7 +208,7 @@ msgstr "Vietos"
 msgid "Actions"
 msgstr "Veiksmai"
 
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
 msgid "Web"
 msgstr "Žiniatinklis"
 
@@ -205,6 +227,14 @@ msgstr "Rašteliai"
 #: ../deskbar/DeskbarHistory.py:37
 msgid "No History"
 msgstr "Nėra istorijos"
+
+#: ../deskbar/Utils.py:109
+msgid "Cannot execute program:"
+msgstr "Nepavyko paleisti programos:"
+
+#: ../deskbar/Utils.py:140
+msgid "Cannot show URL:"
+msgstr "Nepavyko parodyti URL:"
 
 #: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
@@ -238,54 +268,63 @@ msgstr ""
 "Panašu, kad Beagle posistemė nepaleista.\n"
 "Norint naudoti Beagle Live manipuliavimo programą turite ją paleisti."
 
-#: ../deskbar/handlers/beagle-live.py:57
+#: ../deskbar/handlers/beagle-live.py:39
+msgid "Failed to start Beagle"
+msgstr "Nepavyko paleisti Beagle"
+
+#: ../deskbar/handlers/beagle-live.py:40
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr "Gal beagle tarnyba neįdiegta?"
+
+#: ../deskbar/handlers/beagle-live.py:63
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:58
+#: ../deskbar/handlers/beagle-live.py:64
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Ieškoti visuose Jūsų dokumentuose (naudojant Beagle) rašymo metu"
 
-#: ../deskbar/handlers/beagle-live.py:86
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
 msgid "Edit contact %s"
 msgstr "Keisti kontaktą %s"
 
-#: ../deskbar/handlers/beagle-live.py:95
+#: ../deskbar/handlers/beagle-live.py:101
 #, python-format
 msgid "From %s"
 msgstr "Iš %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:103 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/recent.py:43
 #, python-format
 msgid "Open %s"
 msgstr "Atverti %s"
 
-#: ../deskbar/handlers/beagle-live.py:111
+#: ../deskbar/handlers/beagle-live.py:117
 #, python-format
 msgid "News from %s"
 msgstr "Naujienos iš %s"
 
-#: ../deskbar/handlers/beagle-live.py:120
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "Note: %s"
 msgstr "Raštelis: %s"
 
-#: ../deskbar/handlers/beagle-live.py:129
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "With %s"
 msgstr "Su %s"
 
-#: ../deskbar/handlers/beagle-live.py:137
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalendorius: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:313
-#: ../deskbar/handlers/beagle-live.py:335
+#: ../deskbar/handlers/beagle-live.py:318
+#: ../deskbar/handlers/beagle-live.py:340
 msgid "?"
 msgstr "?"
 
@@ -297,7 +336,7 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Ieškoti visuose Jūsų dokumentuose (naudojant Beagle)"
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Ieškoti %s naudojant Beagle"
@@ -335,32 +374,32 @@ msgid "You can set shortcuts for your searches."
 msgstr "Galite paieškoms priskirti klavišų susiejimus."
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:129
+#: ../deskbar/handlers/mozilla.py:131
 msgid "Web Bookmarks"
 msgstr "Žiniatinklio žymelės"
 
 #: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:130
+#: ../deskbar/handlers/mozilla.py:132
 msgid "Open your web bookmarks by name"
 msgstr "Atverti Jūsų žiniatinklio žymeles pagal pavadinimą"
 
 #: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:141
+#: ../deskbar/handlers/mozilla.py:143
 msgid "Web History"
 msgstr "Žiniatinklio istorija"
 
 #: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:142
+#: ../deskbar/handlers/mozilla.py:144
 msgid "Open your web history by name"
 msgstr "Atverti Jūsų žiniatinklio istoriją pagal pavadinimą"
 
 #: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:135
+#: ../deskbar/handlers/mozilla.py:137
 msgid "Web Searches"
 msgstr "Žiniatinklio paieškos"
 
 #: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:136
+#: ../deskbar/handlers/mozilla.py:138
 msgid "Search the web via your browser's search settings"
 msgstr "Ieškoti internete naudojantis Jūsų žiniatinklio naršyklės nustatymais"
 
@@ -388,8 +427,7 @@ msgstr "Paštas (adresų knyga)"
 
 #: ../deskbar/handlers/evolution.py:22
 msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-"Siųsti el.laiškus Jūsų kontaktams parašant jų vardą ar el. pašto adresą"
+msgstr "Siųsti el.laiškus Jūsų kontaktams parašant jų vardą ar el. pašto adresą"
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:48
@@ -397,32 +435,32 @@ msgstr ""
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Siųsti <b>%(name)s</b> el. laišką (%(email)s)"
 
-#: ../deskbar/handlers/files.py:17
+#: ../deskbar/handlers/files.py:18
 msgid "Files, Folders and Places"
 msgstr "Rinkmenos, aplankai ir vietos"
 
-#: ../deskbar/handlers/files.py:18
+#: ../deskbar/handlers/files.py:19
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Atverti Jūsų rinkmenas, aplankus, žymeles, diskus, tinklo vietas pagal "
 "pavadinimą"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "Atverti aplanką %s"
 
-#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "Atverti vietą %s"
 
-#: ../deskbar/handlers/files.py:114
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "Atverti tinklo vietą %s"
 
-#: ../deskbar/handlers/files.py:116
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Atverti audio diską %s"
@@ -435,129 +473,67 @@ msgstr "Kompiuterio veiksmai"
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Atsijungimo, išjungimo, perkrovimo, užmigdymo ir susiję veiksmai."
 
-#: ../deskbar/handlers/gdmactions.py:39
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Suspend the machine"
 msgstr "Užmigdyti kompiuterį"
 
-#: ../deskbar/handlers/gdmactions.py:50
+#: ../deskbar/handlers/gdmactions.py:60
 msgid "Hibernate the machine"
 msgstr "Hibernuoti kompiuterį"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:76
 msgid "Shutdown the machine"
 msgstr "Išjungti kompiuterį"
 
-#: ../deskbar/handlers/gdmactions.py:80
+#: ../deskbar/handlers/gdmactions.py:100
 msgid "Lock the screen"
 msgstr "Užrakinti ekraną"
 
-#: ../deskbar/handlers/gdmactions.py:106
+#: ../deskbar/handlers/gdmactions.py:126
 msgid "Shut Down"
 msgstr "Išjungti"
 
-#: ../deskbar/handlers/gdmactions.py:113
+#: ../deskbar/handlers/gdmactions.py:133
 msgid "Turn off the computer"
 msgstr "Išjungti kompiuterį"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:137
 msgid "Log Out"
 msgstr "Atsijungti"
 
-#: ../deskbar/handlers/gdmactions.py:124
+#: ../deskbar/handlers/gdmactions.py:144
 msgid "Log out"
 msgstr "Atsijungti"
 
-#: ../deskbar/handlers/gdmactions.py:128
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Restart"
 msgstr "Perkrauti"
 
-#: ../deskbar/handlers/gdmactions.py:135
+#: ../deskbar/handlers/gdmactions.py:155
 msgid "Restart the computer"
 msgstr "Perkrauti kompiuterį"
 
-#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "Perjungti naudotoją"
 
-#: ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:185
 msgid "Lock"
 msgstr "Užrakinti"
 
-#: ../deskbar/handlers/gdmactions.py:176
+#: ../deskbar/handlers/gdmactions.py:196
 msgid "Suspend"
 msgstr "Užmigdyti"
 
-#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:198
 msgid "Hibernate"
 msgstr "Hibernuoti"
 
-#: ../deskbar/handlers/gdmactions.py:180
+#: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "Išjungti"
 
-#: ../deskbar/handlers/google-live.py:20
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should recieve a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"Jums reikia Google abonemento, jei norite naudoti Google Live. Jį galite "
-"gauti http://api.google.com/\n"
-"\n"
-"Kai susikursite abonementą, el.paštu turėtumėte gauti Google API raktą. "
-"Įdėkite šį raktą į rinkmeną\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"Jeigu abonemento patvirtinimo laišku negavote API rakto (arba jį pametėte), "
-"eikite į www.google.com/accounts ir prisijunkite. Tada eikite į api.google."
-"com, paspauskite „Create Account“ ir įveskite savo el.pašto adresą ir "
-"slaptažodį. Jums API raktas bus išsiųstas pakartotinai.\n"
-"\n"
-"Dabar parsisiųskite kūrėjų rinkinį („developers kit“) ir iš jo išskleiskite "
-"rinkmeną GoogleSearch.wsdl. Nukopijuokite šią rinkmeną į\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:33
-msgid "Setting Up Google Live"
-msgstr "Kuriamas Google Live"
-
-#: ../deskbar/handlers/google-live.py:39
-msgid "You need to install the SOAPpy python module."
-msgstr "Jums reikia įdiegti SOAPpy python modulį."
-
-#: ../deskbar/handlers/google-live.py:41
-msgid "You need the Google WSDL file."
-msgstr "Jums reikia Goodle WSDL rinkmenos."
-
-#: ../deskbar/handlers/google-live.py:43
-msgid "You need a Google API key."
-msgstr "Jums reikia Google API rakto."
-
-#: ../deskbar/handlers/google-live.py:49
-msgid "Google Search"
-msgstr "Google paieška"
-
-#: ../deskbar/handlers/google-live.py:50
-msgid "Search Google as you type"
-msgstr "Ieškoti Google rašymo metu"
-
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "Atpažinti ankstesnes paieškas"
 
@@ -578,7 +554,7 @@ msgstr "Langai"
 msgid "Switch to <b>%(name)s</b>"
 msgstr "Persijungti į <b>%(name)s</b>"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:122
 msgid "You can customize which search engines are offered."
 msgstr "Jūs galite sureguliuoti kokios paieškos svetainės siūlomos."
 
@@ -616,46 +592,58 @@ msgstr "Ieškoti funkcijos pavadinimo Devhelp programoje"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/programs.py:88
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Paleisti <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:98
+#: ../deskbar/handlers/programs.py:102
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Ieškoti %s žodyne"
 
-#: ../deskbar/handlers/programs.py:106
+#: ../deskbar/handlers/programs.py:110
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Ieškoti rinkmenų pavadinimų kaip %s"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:118
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Ieškoti %s Devhelp programoje"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:222
 #, python-format
 msgid "Execute %s"
 msgstr "Vykdyti %s"
 
-#: ../deskbar/handlers/web_address.py:12
+#: ../deskbar/handlers/recent.py:15
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr "Šiai manipuliavimo programai reikia naujesnės (2.9.0+) gtk versijos."
+
+#: ../deskbar/handlers/recent.py:19
+msgid "Recent Documents"
+msgstr "Vėliausi dokumentai"
+
+#: ../deskbar/handlers/recent.py:20
+msgid "Retrieve your recently accessed files and locations"
+msgstr "Parodyti vėliausiai skaitytus failus ir vietas"
+
+#: ../deskbar/handlers/web_address.py:13
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Atverti tinklalapius ir siųsti el. laiškus įvedant visą adresą"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the web page %s"
 msgstr "Atverti tinklalapį %s"
 
-#: ../deskbar/handlers/web_address.py:42
+#: ../deskbar/handlers/web_address.py:44
 #, python-format
 msgid "Open the location %s"
 msgstr "Atverti vietą %s"
 
-#: ../deskbar/handlers/web_address.py:58
+#: ../deskbar/handlers/web_address.py:61
 #, python-format
 msgid "Send Email to %s"
 msgstr "Siųsti %s el. laišką"
@@ -668,24 +656,58 @@ msgstr "Yahoo! paieška"
 msgid "Search Yahoo! as you type"
 msgstr "Ieškoti Yahoo! rašymo metu"
 
-#: ../deskbar/ui/About.py:24
+#: ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Deskbar"
+
+#: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Veiksmų juosta „viskas viename“."
 
-#: ../deskbar/ui/About.py:27
+#: ../deskbar/ui/About.py:28
 msgid "Deskbar Website"
 msgstr "Deskbar svetainė"
 
 #. about.set_artists([])
 #. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:35
+#: ../deskbar/ui/About.py:36
 msgid "translator-credits"
 msgstr "Žygimantas Beručka <zygis@gnome.org>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+#: ../deskbar/ui/DeskbarPreferencesUI.py:112
 msgid "New accelerator..."
 msgstr "Naujas prieigos klavišas..."
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:164
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become unusable to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"Greitasis klavišas „%s“ negali būti naudojamas, nes juo nebebus galima įvesti teksto.\n"
+"Pabandykite kombinuoti su Ctrl, Alt arba Shift.\n"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Connection to repository failed"
+msgstr "Nepavyko prisijungti prie repozitorijos"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Please check your internet connection"
+msgstr "Patikrinkite prisijungimą prie interneto"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:558
+msgid "Handler has been installed successfully"
+msgstr "Manipuliavimo programa sėkmingai įdiegta"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:564
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr "Manipuliavimo programa negalėjo būti įdiegta dėl klaidos pateiktame faile"
+
+#: ../deskbar/ui/ModuleListView.py:55
+msgid "Update Available"
+msgstr "Prieinamas atnaujinimas"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
@@ -694,7 +716,7 @@ msgstr "Rodyti paieškos įvesties lauką"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
 msgid "Show previously used actions"
 msgstr "Rodyti anksčiau naudotus veiksmus"
 
@@ -747,59 +769,47 @@ msgstr "_Istorija"
 msgid "<b>History</b>"
 msgstr "<b>Istorija</b>"
 
-#~ msgid "<b>Available Extensions</b>"
-#~ msgstr "<b>Prieinami išplėtimai</b>"
+#: ../deskbar/updater/ErrorDialog.py:8
+msgid "Error"
+msgstr "Klaida"
 
-#~ msgid "<b>Loaded Extensions</b>"
-#~ msgstr "<b>Įkelti išplėtimai</b>"
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "An error occured"
+msgstr "Iškilo klaida"
 
-#~ msgid "Searches"
-#~ msgstr "Paieškos"
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "Check the description beneath for further details."
+msgstr "Dėl išsamesnės informacijos žiūrėkite aprašymą žemiau."
 
-#~ msgid "_Check For Updates"
-#~ msgstr "_Ieškoti atnaujinimų"
+#: ../deskbar/updater/ErrorDialog.py:31
+msgid "Details"
+msgstr "Detalės"
 
-#~ msgid "_Install"
-#~ msgstr "Į_diegti"
+#: ../deskbar/updater/NewStuffUpdater.py:131
+#, python-format
+msgid "Updating %s"
+msgstr "Atnaujinma %s"
 
-#~ msgid "_Update"
-#~ msgstr "_Atnaujinti"
+#: ../deskbar/updater/NewStuffUpdater.py:131
+msgid ""
+"The update is being downloaded from the internet. Please wait until the "
+"update is complete"
+msgstr "Atnaujinimas siunčiamas iš interneto. Palaukite, kol bus atnaujinta"
 
-#~ msgid "Update Available"
-#~ msgstr "Prieinamas atnaujinimas"
+#: ../deskbar/updater/NewStuffUpdater.py:156
+#, python-format
+msgid "Installing %s"
+msgstr "Įdiegiama %s"
 
-#~ msgid "Updating %s"
-#~ msgstr "Atnaujinma %s"
+#: ../deskbar/updater/NewStuffUpdater.py:156
+msgid ""
+"The handler is being downloaded from the internet. Please wait until the "
+"installation is complete"
+msgstr ""
+"Manipuliavimo programa atsiunčiama iš interneto. Palaukite, kol bus baigtas "
+"įdiegimas"
 
-#~ msgid ""
-#~ "The update is being downloaded from the internet. Please wait until the "
-#~ "update is complete"
-#~ msgstr "Atnaujinimas siunčiamas iš interneto. Palaukite, kol bus atnaujinta"
+#: ../deskbar/updater/NewStuffUpdater.py:157
+msgid "Downloading"
+msgstr "Atsiunčiama"
 
-#~ msgid "Installing %s"
-#~ msgstr "Įdiegiama %s"
-
-#~ msgid ""
-#~ "The handler is being downloaded from the internet. Please wait until the "
-#~ "installation is complete"
-#~ msgstr ""
-#~ "Manipuliavimo programa atsiunčiama iš interneto. Palaukite, kol bus "
-#~ "baigtas įdiegimas"
-
-#~ msgid "Downloading"
-#~ msgstr "Atsiunčiama"
-
-#~ msgid "Deskbar Applet"
-#~ msgstr "Deskbar įtaisas"
-
-#~ msgid "Desktop search"
-#~ msgstr "Darbo aplinkos paieška"
-
-#~ msgid "Search your computer and the internet quickly"
-#~ msgstr "Sparti paieška kompiuteryje ir internete"
-
-#~ msgid "An error occured"
-#~ msgstr "Iškilo klaida"
-
-#~ msgid "Check the description beneath for further details."
-#~ msgstr "Dėl išsamesnės informacijos žiūrėkite aprašymą žemiau."
