@@ -1,5 +1,5 @@
 # Serbian translation of deskbar-applet
-# Courtesy of Prevod.org team (http://prevod.org/) -- 2006.
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2006, 2007.
 #
 # This file is distributed under the same license as the deskbar-applet package
 # Maintainer: Slobodan D. Sredojević <slobo@akrep.be>
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-26 18:41+0100\n"
-"PO-Revision-Date: 2006-12-26 18:50+0100\n"
+"POT-Creation-Date: 2007-03-05 19:44+0100\n"
+"PO-Revision-Date: 2007-03-05 18:15+0100\n"
 "Last-Translator: Goran Rakić <grakic@devbase.net>\n"
 "Language-Team: Serbian (sr) <gnom@prevod.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,16 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3;    plural=n%10==1 && n%100!=11 ? 0 :    n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-
-# note(slobo): koristio sam prevod Čarobna linija, rasprava na dopisnoj 
-# vezano za imena programa ide uskoro
-#: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one action bar"
-msgstr "Svemoguća čarobna linija"
-
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
-msgid "Deskbar"
-msgstr "Čarobna linija"
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -41,18 +31,26 @@ msgid "_Preferences"
 msgstr "_Postavke"
 
 #: ../data/prefs-dialog.glade.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Dostupna proširenja</b>"
+
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Focus</b>"
 msgstr "<b>Žiža</b>"
 
-#: ../data/prefs-dialog.glade.h:2
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Layout</b>"
 msgstr "<b>Izgled</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Učitana proširenja</b>"
+
+#: ../data/prefs-dialog.glade.h:5
 msgid "<b>Width</b>"
 msgstr "<b>Širina</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:6
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
@@ -60,53 +58,67 @@ msgstr ""
 "<i><small><b>Napomena:</b> Za promenu redosleda odvucite i otpustite to "
 "proširenje.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:5
-msgid ""
-"<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
-"small></i>"
-msgstr "<i><small><b>Napomena:</b> Nova prečica će uzeti maha pri sledećoj prijavi.</small></i>"
-
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Button in panel"
 msgstr "Dugme na panelu"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Postavke čarobne linije"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Entry in panel"
 msgstr "Stavka na panelu"
-
-#: ../data/prefs-dialog.glade.h:9
-msgid "Extensions"
-msgstr "Proširenja"
 
 #: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "Utvrđena ši_rina:"
 
 #: ../data/prefs-dialog.glade.h:11
+msgid "New Extensions"
+msgstr "Nova proširenja"
+
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "Traži odabrano po pritisku prečice na tastaturi"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
+msgid "Searches"
+msgstr "Pretrage"
+
+#: ../data/prefs-dialog.glade.h:14
 msgid "Use _all available space"
 msgstr "Koristi sav _raspoloživ prostor"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "View"
 msgstr "Pregled"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
+msgid "_Check For Updates"
+msgstr "_Proveri ima li nadogradnji"
+
+#: ../data/prefs-dialog.glade.h:17
+msgid "_Check for new extensions"
+msgstr "_Proveri ima li novih proširenja"
+
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Install"
+msgstr "_Instaliraj"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Keyboard shortcut to focus:"
 msgstr "Prečica na tastat_uri za žižu:"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:20
 msgid "_More..."
 msgstr "_Više..."
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:21
+msgid "_Update"
+msgstr "_Ažuriraj"
+
+#: ../data/prefs-dialog.glade.h:22
 msgid "characters"
 msgstr "znakova"
 
@@ -134,7 +146,7 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Prečice za prethodno obeležene pretrage"
 
-#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:155
+#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "Otvori stavku u istoriji %s"
@@ -162,7 +174,7 @@ msgstr "Ime obeleživača"
 msgid "Uncategorized"
 msgstr "Bez kategorije"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "Istorija"
 
@@ -214,6 +226,14 @@ msgstr "Beleške"
 msgid "No History"
 msgstr "Ne postoji istorija"
 
+#: ../deskbar/Utils.py:109
+msgid "Cannot execute program:"
+msgstr "Ne mogu da izvršim program:"
+
+#: ../deskbar/Utils.py:140
+msgid "Cannot show URL:"
+msgstr "Ne mogu da prikažem URL:"
+
 #: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "Otkrivena je greška u programu"
@@ -262,47 +282,47 @@ msgstr "Živo njuškalo"
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Kako kucate, pas njuškalo vam pomaže da pretražite sve vaše dokumente"
 
-#: ../deskbar/handlers/beagle-live.py:97
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
 msgid "Edit contact %s"
 msgstr "Izmeni kontakt %s"
 
-#: ../deskbar/handlers/beagle-live.py:106
+#: ../deskbar/handlers/beagle-live.py:101
 #, python-format
 msgid "From %s"
 msgstr "Od %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:114 ../deskbar/handlers/files.py:52
-#: ../deskbar/handlers/recent.py:42
+#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/recent.py:43
 #, python-format
 msgid "Open %s"
 msgstr "Otvori datoteku %s"
 
-#: ../deskbar/handlers/beagle-live.py:122
+#: ../deskbar/handlers/beagle-live.py:117
 #, python-format
 msgid "News from %s"
 msgstr "Vest sa %s"
 
-#: ../deskbar/handlers/beagle-live.py:131
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "Note: %s"
 msgstr "Beleška: %s"
 
-#: ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "With %s"
 msgstr "Sa %s"
 
-#: ../deskbar/handlers/beagle-live.py:148
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalendar: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:324
-#: ../deskbar/handlers/beagle-live.py:346
+#: ../deskbar/handlers/beagle-live.py:318
+#: ../deskbar/handlers/beagle-live.py:340
 msgid "?"
 msgstr "?"
 
@@ -407,8 +427,8 @@ msgstr "Pošta (Imenik)"
 #: ../deskbar/handlers/evolution.py:22
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
-"Šalje e-poruku nekome iz imenika kucanjem njenog(njegovog) imena ili adrese e-"
-"pošte"
+"Šalje e-poruku nekome iz imenika kucanjem njenog(njegovog) imena ili adrese "
+"e-pošte"
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:48
@@ -426,22 +446,22 @@ msgstr ""
 "Otvara vaše datoteke, fascikle, obeleživače, diskove i mesta na mreži po "
 "imenu"
 
-#: ../deskbar/handlers/files.py:74
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "Otvori fasciklu %s"
 
-#: ../deskbar/handlers/files.py:94 ../deskbar/handlers/files.py:127
+#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "Otvori mesto %s"
 
-#: ../deskbar/handlers/files.py:123
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "Otvori mrežno mesto %s"
 
-#: ../deskbar/handlers/files.py:125
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Otvori nosač zvuka %s"
@@ -516,63 +536,7 @@ msgstr "Zamrzni"
 msgid "Shutdown"
 msgstr "Ugasi"
 
-#: ../deskbar/handlers/google-live.py:20
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should receive a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers' kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"Za korišćenje usluge „Gugl uživo“ vam je potreban Gugl nalog. Da bi ga dobili posetite adresu http://api.google.com/\n"
-"\n"
-"Kada napravite nalog, trebalo bi da primite Gugl API ključ putem elektronske pošte. Smestite ovaj ključ u datoteku\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"Ukoliko ne primite jedan API ključ (ili ga izgubite) u e-poruci za potvrdu tada posetite adresu www.google.com/accounts i prijavite se. Idite na api.google.com, kliknite „Napravi nalog“ i ukucajte vašu adresu e-pošte i lozinku. Ponovo će vam biti poslat ključ.\n"
-"\n"
-"Tada preuzmite razvojni alat i iz njega raspakujte datoteku GoogleSsearch.wsdl. Umnožite ovu datoteku na\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:33
-msgid "Setting Up Google Live"
-msgstr "Postavljanje Gugl uživo usluge"
-
-#: ../deskbar/handlers/google-live.py:39
-msgid "You need to install the SOAPpy python module."
-msgstr "Morate instalirati SOAPpy Piton modul"
-
-#: ../deskbar/handlers/google-live.py:41
-msgid "You need the Google WSDL file."
-msgstr "Potrebna vam je Google WSDL datoteka."
-
-#: ../deskbar/handlers/google-live.py:43
-msgid "You need a Google API key."
-msgstr "Potreban vam je Gugl API ključ."
-
-#: ../deskbar/handlers/google-live.py:49
-msgid "Google Search"
-msgstr "Gugl pretraga"
-
-#: ../deskbar/handlers/google-live.py:50
-msgid "Search Google as you type"
-msgstr "Pretražuje Gugl dok vi kucate"
-
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "Prepoznaj prethodno korišćene pretrage"
 
@@ -656,15 +620,15 @@ msgstr "Traži %s u Pomoći za programere"
 msgid "Execute %s"
 msgstr "Izvrši %s"
 
-#: ../deskbar/handlers/recent.py:14
+#: ../deskbar/handlers/recent.py:15
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
 msgstr "Ovaj rukovaoc zahteva novije izdanje Gtk-a (2.9.0 ili novije)."
 
-#: ../deskbar/handlers/recent.py:18
+#: ../deskbar/handlers/recent.py:19
 msgid "Recent Documents"
 msgstr "Skorašnji dokumenti"
 
-#: ../deskbar/handlers/recent.py:19
+#: ../deskbar/handlers/recent.py:20
 msgid "Retrieve your recently accessed files and locations"
 msgstr "Iščitaj svoje nedavno korišćene datoteke i lokacije"
 
@@ -695,6 +659,10 @@ msgstr "Jahu pretraga"
 msgid "Search Yahoo! as you type"
 msgstr "Pretražuje Jahu dok vi kucate"
 
+#: ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Čarobna linija"
+
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Čarobna linija za sve"
@@ -714,17 +682,41 @@ msgstr ""
 "\n"
 "http://prevod.org — prevodi na srpski jezik"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:19
+#: ../deskbar/ui/DeskbarPreferencesUI.py:112
 msgid "New accelerator..."
 msgstr "Nova prečica"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:415
+#: ../deskbar/ui/DeskbarPreferencesUI.py:164
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become unusable to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"Prečica \"%s\" ne može biti korišćena jer sa njom neće biti moguće otkucati "
+"ovu tipku bilo gde.\n"
+"Pokušaj još istovremeno sa nekom drguom tipkom kao što je Control, Alt ili "
+"Shift.\n"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Connection to repository failed"
+msgstr "Povezivanje sa skladištem nije uspelo"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Please check your internet connection"
+msgstr "Molim proveri tvoju vezu ka internetu"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:558
 msgid "Handler has been installed successfully"
 msgstr "Rukovalac je uspešno instaliran"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:421
+#: ../deskbar/ui/DeskbarPreferencesUI.py:564
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "Rukovalac se nije mogao instalirati zbog problema sa datotekom"
+
+#: ../deskbar/ui/ModuleListView.py:55
+msgid "Update Available"
+msgstr "Dostupna je nadogradnja"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
@@ -733,7 +725,7 @@ msgstr "Prikaži polje za pretragu"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
 msgid "Show previously used actions"
 msgstr "Prikaži prethodno korišćene komande"
 
@@ -786,11 +778,117 @@ msgstr "_Istorija"
 msgid "<b>History</b>"
 msgstr "<b>Istorija</b>"
 
-#~ msgid "<b>Loaded Extensions</b>"
-#~ msgstr "<b>Učitana proširenja</b>"
+#: ../deskbar/updater/ErrorDialog.py:8
+msgid "Error"
+msgstr "Greška"
 
-#~ msgid "Searches"
-#~ msgstr "Pretrage"
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "An error occured"
+msgstr "Dogodila se greška"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "Check the description beneath for further details."
+msgstr "Pogledajte pojedinosti ispod za više informacija."
+
+#: ../deskbar/updater/ErrorDialog.py:31
+msgid "Details"
+msgstr "Pojedinosti"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+#, python-format
+msgid "Updating %s"
+msgstr "Ažuriram %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+msgid ""
+"The update is being downloaded from the internet. Please wait until the "
+"update is complete"
+msgstr ""
+"Nadogradnja se preuzima sa interneta. Sačekajte dok se nadogradnja ne završi"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+#, python-format
+msgid "Installing %s"
+msgstr "Instaliram %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+msgid ""
+"The handler is being downloaded from the internet. Please wait until the "
+"installation is complete"
+msgstr ""
+"Deo za obradu se preuzima se interenta. Sačekajte dok se instalacija ne "
+"završi"
+
+#: ../deskbar/updater/NewStuffUpdater.py:157
+msgid "Downloading"
+msgstr "Preuzimam"
+
+# note(slobo): koristio sam prevod Čarobna linija, rasprava na dopisnoj 
+# vezano za imena programa ide uskoro
+#~ msgid "An all-in-one action bar"
+#~ msgstr "Svemoguća čarobna linija"
+
+#~ msgid ""
+#~ "<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
+#~ "small></i>"
+#~ msgstr ""
+#~ "<i><small><b>Napomena:</b> Nova prečica će uzeti maha pri sledećoj "
+#~ "prijavi.</small></i>"
+
+#~ msgid ""
+#~ "You need a Google account to use Google Live.  To get one, go to http://"
+#~ "api.google.com/\n"
+#~ "\n"
+#~ "When you have created your account, you should receive a Google API key "
+#~ "by mail.  Place this key in the file\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/Google.key\n"
+#~ "\n"
+#~ "If you do not receive an API key (or you have lost it) in your account "
+#~ "verification mail, then go to www.google.com/accounts and log in.  Go to "
+#~ "api.google.com, click \"Create Account\" and enter your e-mail address "
+#~ "and password.  Your API key will be re-sent.\n"
+#~ "\n"
+#~ "Now download the developers' kit and extract the GoogleSearch.wsdl file "
+#~ "from it.  Copy this file to\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+#~ msgstr ""
+#~ "Za korišćenje usluge „Gugl uživo“ vam je potreban Gugl nalog. Da bi ga "
+#~ "dobili posetite adresu http://api.google.com/\n"
+#~ "\n"
+#~ "Kada napravite nalog, trebalo bi da primite Gugl API ključ putem "
+#~ "elektronske pošte. Smestite ovaj ključ u datoteku\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/Google.key\n"
+#~ "\n"
+#~ "Ukoliko ne primite jedan API ključ (ili ga izgubite) u e-poruci za "
+#~ "potvrdu tada posetite adresu www.google.com/accounts i prijavite se. "
+#~ "Idite na api.google.com, kliknite „Napravi nalog“ i ukucajte vašu adresu "
+#~ "e-pošte i lozinku. Ponovo će vam biti poslat ključ.\n"
+#~ "\n"
+#~ "Tada preuzmite razvojni alat i iz njega raspakujte datoteku GoogleSsearch."
+#~ "wsdl. Umnožite ovu datoteku na\n"
+#~ "\n"
+#~ "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+
+#~ msgid "Setting Up Google Live"
+#~ msgstr "Postavljanje Gugl uživo usluge"
+
+#~ msgid "You need to install the SOAPpy python module."
+#~ msgstr "Morate instalirati SOAPpy Piton modul"
+
+#~ msgid "You need the Google WSDL file."
+#~ msgstr "Potrebna vam je Google WSDL datoteka."
+
+#~ msgid "You need a Google API key."
+#~ msgstr "Potreban vam je Gugl API ključ."
+
+#~ msgid "Google Search"
+#~ msgstr "Gugl pretraga"
+
+#~ msgid "Search Google as you type"
+#~ msgstr "Pretražuje Gugl dok vi kucate"
 
 #~ msgid "%s more result"
 #~ msgid_plural "%s more results"
