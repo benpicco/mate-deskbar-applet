@@ -126,10 +126,14 @@ def url_show_file(url):
 		gnomevfs.url_show(uri)
 		add_to_recent(uri)
 	except Exception, e:
-		if not spawn_async([gnomevfs.get_local_path_from_uri(url)]):
-			uri = gnomevfs.escape_host_and_path_string(dirname(url))
-			url_show(uri)
-			add_to_recent(uri)
+		executed = False
+		try:
+			executed = spawn_async([gnomevfs.get_local_path_from_uri(url)])
+		except:
+			if not executed:
+				uri = gnomevfs.escape_host_and_path_string(dirname(url))
+				url_show(uri)
+				add_to_recent(uri)
 
 def url_show(url):
 	try:
