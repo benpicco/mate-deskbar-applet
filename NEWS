@@ -1,4 +1,81 @@
 =====================
+deskbar-applet 2.18.0
+=====================
+
+Changes:
+        * Bugfix 354391: bump autoconf required to 2.60, fixes empty DATA_DIR.
+        * Bugfix 386495: Include abstract in documentation, fixing build break.
+        * Bugfix 389984: Stale env-vars after login, logout, login.
+        * Bugfix 394302: only searches the first word in the query.
+        * Bugfix 394461: some handlers don't handle whitespace correctly.
+        * Bugfix 394734: Invalid Util.get_proxy() call.
+        * Bugfix 397838: history matches now sorted by last use.
+        * Bugfix 398255: .gtk-bookmarks should be a file and not a directory.
+        * Bugfix 399217: Crash when dragging a handler already in its directory.
+        * Bugfix 399853: fixed deprecated D-Bus usage.
+        * Bugfix 399855: use pygtk_version, not gtk_version.
+        * Bugfix 402274: don't delete categories on unload.
+        * Bugfix 408103: typo in the proxy detection code.
+        * Bugfix 409088: importing gnomeapplet in configure can break the build.
+        * Bugfix 410586: crash in Deskbar: Opening a file through it.
+        * Bugfix 411209: filenames with spaces in not opened.
+        * Fixed deskbar disappearing every now and then.
+        * Fixed Entry UI not disappearing when clicking outside the popup.
+        * Fixed Window-Switch when the workspace has no 'activate' attribute.
+        * Fixed X-grab bug in the entriac view.
+        * Remove elementtree dependency, we don't use it.
+        * Update the website, authors and stuff in the about section.
+
+Contributors to this release: Elijah Newren, Kjartan Maraas, Mikkel Kamstrup
+Erlandsen, Nigel Tao, Raphael Slinckx, Sebastian Pölsterl, Tom Parker.
+
+Updated Translations:
+        * Arabic
+        * Belarusian
+        * Bengali India
+        * Brazilian Portuguese
+        * Bulgarian
+        * Catalan
+        * Danish
+        * Dutch
+        * Dzongkha
+        * Estonian
+        * Finnish
+        * French
+        * German
+        * Gujarati
+        * Hebrew
+        * Hungarian
+        * Japanese
+        * Korean
+        * Lithuanian
+        * Macedonian
+        * Norwegian
+        * Polish
+        * Portuguese
+        * Russian
+        * Serbian
+        * Slovenian
+        * Swedish
+        * Thai
+        * Traditional Chinese (Hong Kong)
+        * Traditional Chinese (Taiwan)
+        * Turkish
+        * Ukrainian
+        * Vietnamese
+
+Contributors to the translations: Alexander Shopov, Alexandre Prokoudine, Ankit
+Patel, Artur Flinta, Baris Cicek, Changwoo Ryu, Chao-Hsiung Liao, Clytie
+Siddall, Daniel Nylander, Djihed Afifi, Duarte Loreto, Gabor Kelemen, Gil
+Forcada, Gintautas Miliauskas, Goran Rakic, Hendrik Richter, Ihar Hrachyshka,
+Ilkka Tuohela, Ivar Smolin, Jonathan Ernst, Josep Puigdemont i Casamajo, Jovan
+Naumovski, Kjartan Maraas, Leonardo Ferreira Fontenelle, Matic Zgur, Maxim
+Dziumanenko, Nguyen Thai Ngoc Duy, Og Maciel, Pema Geyleg, Peter Bach, Pham
+Thanh Long, Priit Laes, Robert-André Mauchin, Runa Bhattacharjee, Stephane
+Raimbault, Takeshi Aihana, Theppitak Karoonboonyanan, Wouter Bolsterlee, Yair
+Hershkovitz.
+
+=====================
 deskbar-applet 2.17.5
 =====================
 
