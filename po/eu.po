@@ -1,29 +1,21 @@
-# translation of eu3.po to Basque
+# translation of eu.po to Basque
 # Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2006.
 #
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2006, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: eu3\n"
+"Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-24 07:12+0200\n"
-"PO-Revision-Date: 2006-08-24 13:22+0000\n"
+"POT-Creation-Date: 2007-04-04 15:28+0200\n"
+"PO-Revision-Date: 2007-04-04 15:37+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.11.2\n"
-
-#: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one action bar"
-msgstr "'Dena batean' ekintza-barra"
-
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:21
-msgid "Deskbar"
-msgstr "Mahai-barra"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -38,18 +30,26 @@ msgid "_Preferences"
 msgstr "_Hobespenak"
 
 #: ../data/prefs-dialog.glade.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Luzapen erabilgarriak</b>"
+
+#: ../data/prefs-dialog.glade.h:2
 msgid "<b>Focus</b>"
 msgstr "<b>Fokua</b>"
 
-#: ../data/prefs-dialog.glade.h:2
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Layout</b>"
 msgstr "<b>Diseinua</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.glade.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Kargatutako luzapenak</b>"
+
+#: ../data/prefs-dialog.glade.h:5
 msgid "<b>Width</b>"
 msgstr "<b>Zabalera</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:6
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
@@ -57,47 +57,67 @@ msgstr ""
 "<i><small><b>Oharra:</b> arrastatu eta jaregin gehigarri baten ordena "
 "aldatzeko.</small></i>"
 
-#: ../data/prefs-dialog.glade.h:5
+#: ../data/prefs-dialog.glade.h:7
 msgid "Button in panel"
 msgstr "Botoia panelean"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Mahai-barraren hobespenak"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:9
 msgid "Entry in panel"
 msgstr "Sarrera panelean"
 
-#: ../data/prefs-dialog.glade.h:8
-msgid "Extensions"
-msgstr "Luzapenak"
-
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Fixed _width:"
 msgstr "Zabalera _finkoa:"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
+msgid "New Extensions"
+msgstr "Luzapen berriak"
+
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "Bilatu hautapena laster-tekla abiatzean"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:13
+msgid "Searches"
+msgstr "Bilaketak"
+
+#: ../data/prefs-dialog.glade.h:14
 msgid "Use _all available space"
 msgstr "Erabili leku erabilgarri _guztia"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:15
 msgid "View"
 msgstr "Ikuspegia"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:16
+msgid "_Check For Updates"
+msgstr "Begiratu _eguneraketak"
+
+#: ../data/prefs-dialog.glade.h:17
+msgid "_Check for new extensions"
+msgstr "Begiratu _luzapen berriak"
+
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Install"
+msgstr "_Instalatu"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Laster-teklak fokua hartzeko:"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:20
 msgid "_More..."
 msgstr "_Gehiago..."
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:21
+msgid "_Update"
+msgstr "_Eguneratu"
+
+#: ../data/prefs-dialog.glade.h:22
 msgid "characters"
 msgstr "karaktereak"
 
@@ -125,27 +145,27 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Markatutako bilaketetarako laster-teklak"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "%s elementurako historia ireki"
 
-#: ../deskbar/BrowserMatch.py:48
+#: ../deskbar/BrowserMatch.py:52
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "%s laster-marka ireki"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:97
+#: ../deskbar/BrowserMatch.py:101
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Bilatu <b>%(name)s</b>-en <i>%(text)s</i> testua"
 
-#: ../deskbar/BrowserMatch.py:206
+#: ../deskbar/BrowserMatch.py:210
 msgid "Shortcut"
 msgstr "Lasterbidea"
 
-#: ../deskbar/BrowserMatch.py:214
+#: ../deskbar/BrowserMatch.py:218
 msgid "Bookmark Name"
 msgstr "Laster-markaren izena"
 
@@ -153,7 +173,7 @@ msgstr "Laster-markaren izena"
 msgid "Uncategorized"
 msgstr "Kategoriarik gabe"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "Historia"
 
@@ -185,7 +205,7 @@ msgstr "Lekuak"
 msgid "Actions"
 msgstr "Ekintzak"
 
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
 msgid "Web"
 msgstr "Web-a"
 
@@ -205,6 +225,14 @@ msgstr "Oharrak"
 msgid "No History"
 msgstr "Historiarik ez"
 
+#: ../deskbar/Utils.py:109
+msgid "Cannot execute program:"
+msgstr "Ezin da exekutatu programa:"
+
+#: ../deskbar/Utils.py:144
+msgid "Cannot show URL:"
+msgstr "Ezin da URLa erakutsi:"
+
 #: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "Programan akats bat aurkitu da"
@@ -221,15 +249,15 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Akatsa aurkituta"
 
-#: ../deskbar/handlers/beagle-live.py:18
+#: ../deskbar/handlers/beagle-live.py:19
 msgid "Start Beagle Daemon?"
 msgstr "Abiarazi Beagle daemon-a?"
 
-#: ../deskbar/handlers/beagle-live.py:22
+#: ../deskbar/handlers/beagle-live.py:24
 msgid "Start Beagle Daemon"
 msgstr "Abiarazi Beagle daemon-a"
 
-#: ../deskbar/handlers/beagle-live.py:24
+#: ../deskbar/handlers/beagle-live.py:25
 msgid ""
 "The Beagle daemon does not appear to be running.\n"
 " You need to start it to use the Beagle Live handler."
@@ -237,54 +265,63 @@ msgstr ""
 "Badirudi Beagle daemon-a ez dela exekutatzen ari.\n"
 "Abiarazi egin behar duzu Beagle Live kudeatzailea erabiltzeko."
 
-#: ../deskbar/handlers/beagle-live.py:53
+#: ../deskbar/handlers/beagle-live.py:39
+msgid "Failed to start Beagle"
+msgstr "Huts egin du Beagle abiaraztean"
+
+#: ../deskbar/handlers/beagle-live.py:40
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr "Agian beagle daemon-a instalatu gabe dago?"
+
+#: ../deskbar/handlers/beagle-live.py:63
 msgid "Beagle Live"
 msgstr "Beagle zuzenean"
 
-#: ../deskbar/handlers/beagle-live.py:54
+#: ../deskbar/handlers/beagle-live.py:64
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Idazterakoan, zure dokumentu guztietan (Beagle-z balaituz) bilatu"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
 msgid "Edit contact %s"
 msgstr "Editatu %s kontaktua"
 
-#: ../deskbar/handlers/beagle-live.py:91
+#: ../deskbar/handlers/beagle-live.py:101
 #, python-format
 msgid "From %s"
 msgstr "%s(e)tik"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:99 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/recent.py:43
 #, python-format
 msgid "Open %s"
 msgstr "%s ireki"
 
-#: ../deskbar/handlers/beagle-live.py:107
+#: ../deskbar/handlers/beagle-live.py:117
 #, python-format
 msgid "News from %s"
 msgstr "%s -eko berriak"
 
-#: ../deskbar/handlers/beagle-live.py:116
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "Note: %s"
 msgstr "Oharra: %s"
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "With %s"
 msgstr "%s(e)kin"
 
-#: ../deskbar/handlers/beagle-live.py:133
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Calendar: %s"
 msgstr "Egutegia: %s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:310
-#: ../deskbar/handlers/beagle-live.py:336
+#: ../deskbar/handlers/beagle-live.py:318
+#: ../deskbar/handlers/beagle-live.py:340
 msgid "?"
 msgstr "?"
 
@@ -296,7 +333,7 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Bilatu zure dokumentu guztietan (Beagle-z balaituz)"
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "%s bilatu Beagle-z balaituz"
@@ -334,32 +371,32 @@ msgid "You can set shortcuts for your searches."
 msgstr "Bilaketetarako laster-teklak ezarri dezakezu."
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:129
+#: ../deskbar/handlers/mozilla.py:131
 msgid "Web Bookmarks"
 msgstr "Web-eko laster-markak"
 
 #: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:130
+#: ../deskbar/handlers/mozilla.py:132
 msgid "Open your web bookmarks by name"
 msgstr "Ireki zure web laster-markak izenez"
 
 #: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:141
+#: ../deskbar/handlers/mozilla.py:143
 msgid "Web History"
 msgstr "Web-eko historia"
 
 #: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:142
+#: ../deskbar/handlers/mozilla.py:144
 msgid "Open your web history by name"
 msgstr "Ireki zure web historia izenez"
 
 #: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:135
+#: ../deskbar/handlers/mozilla.py:137
 msgid "Web Searches"
 msgstr "Web-eko bilaketak"
 
 #: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:136
+#: ../deskbar/handlers/mozilla.py:138
 msgid "Search the web via your browser's search settings"
 msgstr "Bilatu internet-en zure arakatzailearen bilaketa-ezarpenaren bidez"
 
@@ -395,30 +432,32 @@ msgstr "Bidali posta bat zure kontaktuei haien izena edo helbide elektronikoa id
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Bilatu e-posta <b>%(name)s</b> (%(email)s) -ari"
 
-#: ../deskbar/handlers/files.py:17
+#: ../deskbar/handlers/files.py:18
 msgid "Files, Folders and Places"
 msgstr "Fitxategiak, karpetak eta lekuak"
 
-#: ../deskbar/handlers/files.py:18
+#: ../deskbar/handlers/files.py:19
 msgid "View your files, folders, bookmarks, drives, network places by name"
-msgstr "Ikusi zure fitxategiak, karpetak, laster-markak, gailuak, sareko lekuak izenez"
+msgstr ""
+"Ikusi zure fitxategiak, karpetak, laster-markak, gailuak, sareko lekuak "
+"izenez"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "Ireki karpeta %s"
 
-#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "%s helbidea ireki"
 
-#: ../deskbar/handlers/files.py:114
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "Ireki %s sareko lekua"
 
-#: ../deskbar/handlers/files.py:116
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Ireki %s audio diskoa"
@@ -431,129 +470,67 @@ msgstr "Ordenagailuaren ekintzak"
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Irten, itzali, berrabiarazi, eseki eta antzeko ekintzak."
 
-#: ../deskbar/handlers/gdmactions.py:39
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Suspend the machine"
 msgstr "Eseki ordenagailua"
 
-#: ../deskbar/handlers/gdmactions.py:50
+#: ../deskbar/handlers/gdmactions.py:60
 msgid "Hibernate the machine"
 msgstr "Hibernatu ordenagailua"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:76
 msgid "Shutdown the machine"
 msgstr "Itzali ordenagailua"
 
-#: ../deskbar/handlers/gdmactions.py:80
+#: ../deskbar/handlers/gdmactions.py:100
 msgid "Lock the screen"
 msgstr "Blokeatu pantaila"
 
-#: ../deskbar/handlers/gdmactions.py:106
+#: ../deskbar/handlers/gdmactions.py:126
 msgid "Shut Down"
 msgstr "Itzali"
 
-#: ../deskbar/handlers/gdmactions.py:113
+#: ../deskbar/handlers/gdmactions.py:133
 msgid "Turn off the computer"
 msgstr "Itzali ordenagailua"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:137
 msgid "Log Out"
 msgstr "Amaitu saioa"
 
-#: ../deskbar/handlers/gdmactions.py:124
+#: ../deskbar/handlers/gdmactions.py:144
 msgid "Log out"
 msgstr "Amaitu saioa"
 
-#: ../deskbar/handlers/gdmactions.py:128
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Restart"
 msgstr "Berrabiarazi"
 
-#: ../deskbar/handlers/gdmactions.py:135
+#: ../deskbar/handlers/gdmactions.py:155
 msgid "Restart the computer"
 msgstr "Berrabiarazi ordenagailua"
 
-#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "Aldatu erabiltzailez"
 
-#: ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:185
 msgid "Lock"
 msgstr "Blokeatu"
 
-#: ../deskbar/handlers/gdmactions.py:176
+#: ../deskbar/handlers/gdmactions.py:196
 msgid "Suspend"
 msgstr "Eseki"
 
-#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:198
 msgid "Hibernate"
 msgstr "Hibernatu"
 
-#: ../deskbar/handlers/gdmactions.py:180
+#: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "Itzali"
 
-#: ../deskbar/handlers/google-live.py:20
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should recieve a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"Google Live erabiltzeko kontu bat behar duzu. Bat lortzeko, http://api."
-"google.com/helbidera joan zaitez\n"
-"\n"
-"Zure kontua sortuta daukazunean, emailez Google API gakoa jasoko duzu.  "
-"Kokatugako hau hurrengo fitxategian\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"Zure kontua egiaztatzeko emailean API gakoa jasotzen ez baduzu (edo galdu "
-"baduzu), orduanwww.google.com/accounts helbidera jo zaitez, \"Kontua sortu\" "
-"klik egin ezazu eta zure helbide elektronikoa etapasahitza sar itzazu. Haiek "
-"zure API gakoa berbidaliko dizute.\n"
-"\n"
-"Orain garatzaileentzako kit deskargartu eta handik GoogleSearch.wsdl "
-"fitxategia erauzi.  Fitxategi hau kopiatu hona\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:33
-msgid "Setting Up Google Live"
-msgstr "Ezartu Google zuzenean"
-
-#: ../deskbar/handlers/google-live.py:39
-msgid "You need to install the SOAPpy python module."
-msgstr "SOAPpy python modulua instalatu behar duzu."
-
-#: ../deskbar/handlers/google-live.py:41
-msgid "You need the Google WSDL file."
-msgstr "Google-ko WSDL fitxategia behar duzu."
-
-#: ../deskbar/handlers/google-live.py:43
-msgid "You need a Google API key."
-msgstr "Google API-ko gakoa behar duzu."
-
-#: ../deskbar/handlers/google-live.py:49
-msgid "Google Search"
-msgstr "Google-en bilatu"
-
-#: ../deskbar/handlers/google-live.py:50
-msgid "Search Google as you type"
-msgstr "Bilatu Google-n idazten duzun bitartean"
-
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "Ezagutu lehen erabilitako bilaketak"
 
@@ -574,7 +551,7 @@ msgstr "Leihoak"
 msgid "Switch to <b>%(name)s</b>"
 msgstr "Aldatu <b>%(name)s</b>(e)ra"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:122
 msgid "You can customize which search engines are offered."
 msgstr "Eskeintzen diren bilatzaileak pertsonaliza dezakezu."
 
@@ -612,46 +589,58 @@ msgstr "Bilatu funtzioaren izena Devhelp-en"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/programs.py:88
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Abiarazi <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:98
+#: ../deskbar/handlers/programs.py:102
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Bilatu %s hiztegian"
 
-#: ../deskbar/handlers/programs.py:106
+#: ../deskbar/handlers/programs.py:110
 #, python-format
 msgid "Search for file names like %s"
 msgstr "%s bezalako fitxategi izenak bilatu"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:118
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Bilatu %s Devhelp-en"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:222
 #, python-format
 msgid "Execute %s"
 msgstr "%s exekutatu"
 
-#: ../deskbar/handlers/web_address.py:12
+#: ../deskbar/handlers/recent.py:15
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr "Kudeatzaile honek GTK bertsio berriagoa behar du (2.9.0 edo berriagoa)."
+
+#: ../deskbar/handlers/recent.py:19
+msgid "Recent Documents"
+msgstr "Azken dokumentuak"
+
+#: ../deskbar/handlers/recent.py:20
+msgid "Retrieve your recently accessed files and locations"
+msgstr "Eskuratu azken aldian atzitutako fitxategi eta kokalekuak"
+
+#: ../deskbar/handlers/web_address.py:13
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Ireki web orriak eta bidali postak helbide osoa idatziz"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the web page %s"
 msgstr "%s web orria ireki"
 
-#: ../deskbar/handlers/web_address.py:42
+#: ../deskbar/handlers/web_address.py:44
 #, python-format
 msgid "Open the location %s"
 msgstr "%s helbidea ireki"
 
-#: ../deskbar/handlers/web_address.py:58
+#: ../deskbar/handlers/web_address.py:61
 #, python-format
 msgid "Send Email to %s"
 msgstr "%sri posta bidali"
@@ -664,24 +653,58 @@ msgstr "Yahoo!-an bilatu"
 msgid "Search Yahoo! as you type"
 msgstr "Idazterakoan Yahoo!-an bilatu"
 
-#: ../deskbar/ui/About.py:24
+#: ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Mahai-barra"
+
+#: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Dena bateako barra."
 
-#: ../deskbar/ui/About.py:27
+#: ../deskbar/ui/About.py:28
 msgid "Deskbar Website"
 msgstr "Desbar Webgunea"
 
 #. about.set_artists([])
 #. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:35
+#: ../deskbar/ui/About.py:36
 msgid "translator-credits"
 msgstr "Alberto Fernandez <unicyn@gmail.com>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:18
+#: ../deskbar/ui/DeskbarPreferencesUI.py:112
 msgid "New accelerator..."
 msgstr "Bizkortzaile berria..."
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:164
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become unusable to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"\"%s\" lasterbidea ezin da erabili gako hau erabiliz ezin delako idatzi.\n"
+"Saiatu Kontrol, Alt edo Maius bezalako gakoarekin aldi berean.\n"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Connection to repository failed"
+msgstr "Biltegirako konexioak huts egin du"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Please check your internet connection"
+msgstr "Egiaztatu interneteko konexioa"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:558
+msgid "Handler has been installed successfully"
+msgstr "Kudeatzailea ongi instalatu da"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:564
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr "Ezin izan da kudeatzailea instalatu arazo bat gertatu delako emandako fitxategiarekin"
+
+#: ../deskbar/ui/ModuleListView.py:55
+msgid "Update Available"
+msgstr "Eguneraketa erabilgarria"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
@@ -690,7 +713,7 @@ msgstr "Erakutsi bilaketa-sarrera"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:60
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
 msgid "Show previously used actions"
 msgstr "Erakutsi lehen erabilitako ekintzak"
 
@@ -742,4 +765,50 @@ msgstr "_Historia"
 #: ../deskbar/ui/window/CuemiacWindowUI.py:84
 msgid "<b>History</b>"
 msgstr "<b>Historia</b>"
+
+#: ../deskbar/updater/ErrorDialog.py:8
+msgid "Error"
+msgstr "Errorea"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "An error occured"
+msgstr "Errore bat gertatu da"
+
+#: ../deskbar/updater/ErrorDialog.py:25
+msgid "Check the description beneath for further details."
+msgstr "Begiratu azpiko azalpena xehetasun gehiagorako."
+
+#: ../deskbar/updater/ErrorDialog.py:31
+msgid "Details"
+msgstr "Xehetasunak"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+#, python-format
+msgid "Updating %s"
+msgstr "%s eguneratzen"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+msgid ""
+"The update is being downloaded from the internet. Please wait until the "
+"update is complete"
+msgstr ""
+"Eguneraketa internetetik deskargatzen ari da. "
+"Itxaron eguneraketa burutu arte"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+#, python-format
+msgid "Installing %s"
+msgstr "%s instalatzen"
+
+#: ../deskbar/updater/NewStuffUpdater.py:156
+msgid ""
+"The handler is being downloaded from the internet. Please wait until the "
+"installation is complete"
+msgstr ""
+"Kudeatzailea internetetik deskargatzen ari da. Itxaron instalazioa "
+"burutu arte"
+
+#: ../deskbar/updater/NewStuffUpdater.py:157
+msgid "Downloading"
+msgstr "Deskargatzen"
 
