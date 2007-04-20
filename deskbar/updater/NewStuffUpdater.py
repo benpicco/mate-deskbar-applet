@@ -166,4 +166,3 @@ class NewStuffUpdater(gobject.GObject):
 		# Check if we close the prefs before having a ready signal.
 		if self.newstuff != None:
 			self.newstuff.Close(reply_handler=lambda: None, error_handler=global_error_handler)
-		self.bus.close()
