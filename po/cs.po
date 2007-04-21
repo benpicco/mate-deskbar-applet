@@ -1,30 +1,26 @@
+# translation of cs.po to Czech
+# translation of cs.po to
 # Czech translation of deskbar-applet
 # Copyright (C) 2006 THE deskbar-applet'S COPYRIGHT HOLDER
 # Copyright (C) 2006 Lukas Novotny <lukasnov@cvs.gnome.org>
 # This file is distributed under the same license as the deskbar-applet package.
+#
 # Lukas Novotny <lukasnov@cvs.gnome.org>, 2006.
 # Petr Tomeš <ptomes@gmail.com>, 2006.
-# 
+# Jakub Friedl <jfriedl@suse.cz>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet VERSION\n"
+"Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-13 14:49+0200\n"
-"PO-Revision-Date: 2006-07-13 19:59+0200\n"
-"Last-Translator: Lukas Novotny <lukasnov@cvs.gnome.org>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"POT-Creation-Date: 2007-04-21 16:15+0200\n"
+"PO-Revision-Date: 2007-04-21 16:19+0200\n"
+"Last-Translator: Jakub Friedl <jfriedl@suse.cz>\n"
+"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-
-#: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one action bar"
-msgstr "Lišta pro více činností v jednom"
-
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
-msgid "Deskbar"
-msgstr "Deskbar"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -107,22 +103,27 @@ msgid "_Check For Updates"
 msgstr "_Zkontrolovat aktualizace"
 
 #: ../data/prefs-dialog.glade.h:17
+#, fuzzy
+msgid "_Check for new extensions"
+msgstr "Nová rozšíření"
+
+#: ../data/prefs-dialog.glade.h:18
 msgid "_Install"
 msgstr "_Instalovat"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Keyboard shortcut to focus:"
 msgstr "Přesunout za pomocí _klávesové zkratky:"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:20
 msgid "_More..."
 msgstr "_Více..."
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:21
 msgid "_Update"
 msgstr "_Aktualizovat"
 
-#: ../data/prefs-dialog.glade.h:21
+#: ../data/prefs-dialog.glade.h:22
 msgid "characters"
 msgstr "znaků"
 
@@ -150,27 +151,27 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Klávesové zkratky pro uložená hledání"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:123
+#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "Otevřít položku historie %s"
 
-#: ../deskbar/BrowserMatch.py:48
+#: ../deskbar/BrowserMatch.py:52
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Otevřít záložku %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:97
+#: ../deskbar/BrowserMatch.py:101
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Vyhledat v <b>%(name)s</b> <i>%(text)s</i>"
 
-#: ../deskbar/BrowserMatch.py:206
+#: ../deskbar/BrowserMatch.py:210
 msgid "Shortcut"
 msgstr "Klávesová zkratka"
 
-#: ../deskbar/BrowserMatch.py:214
+#: ../deskbar/BrowserMatch.py:218
 msgid "Bookmark Name"
 msgstr "Název záložky"
 
@@ -178,7 +179,7 @@ msgstr "Název záložky"
 msgid "Uncategorized"
 msgstr "Neroztříděno"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "Historie"
 
@@ -210,7 +211,7 @@ msgstr "Umístění"
 msgid "Actions"
 msgstr "Akce"
 
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
+#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
 msgid "Web"
 msgstr "Webové stránky"
 
@@ -230,11 +231,19 @@ msgstr "Poznámky"
 msgid "No History"
 msgstr "Žádná dostupná historie"
 
-#: ../deskbar/gtkexcepthook.py:21
+#: ../deskbar/Utils.py:109
+msgid "Cannot execute program:"
+msgstr "Nelze vykonat program:"
+
+#: ../deskbar/Utils.py:144
+msgid "Cannot show URL:"
+msgstr "Nelze zobrazit URL:"
+
+#: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
 msgstr "Chyba programu byla nalezena"
 
-#: ../deskbar/gtkexcepthook.py:22
+#: ../deskbar/gtkexcepthook.py:15
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
@@ -242,58 +251,82 @@ msgstr ""
 "Chyba asi není kritická, ale měla by být nahlášena vývojářům.Od teď se "
 "program může chovat nevyzpytatelně."
 
-#: ../deskbar/gtkexcepthook.py:24
+#: ../deskbar/gtkexcepthook.py:17
 msgid "Bug Detected"
 msgstr "Chyba nalezena"
 
-#: ../deskbar/handlers/beagle-live.py:36
+#: ../deskbar/handlers/beagle-live.py:19
+msgid "Start Beagle Daemon?"
+msgstr "Spustit démona Beagle?"
+
+#: ../deskbar/handlers/beagle-live.py:24
+msgid "Start Beagle Daemon"
+msgstr "Spustit démona Beagle"
+
+#: ../deskbar/handlers/beagle-live.py:25
+#, fuzzy
+msgid ""
+"The Beagle daemon does not appear to be running.\n"
+" You need to start it to use the Beagle Live handler."
+msgstr "Démon Beagle zřejmě neběží.\n"
+
+#: ../deskbar/handlers/beagle-live.py:39
+msgid "Failed to start Beagle"
+msgstr "Spuštění Beagle selhalo"
+
+#: ../deskbar/handlers/beagle-live.py:40
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr "Možná není démon beagle nainstalován?"
+
+#: ../deskbar/handlers/beagle-live.py:63
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:37
+#: ../deskbar/handlers/beagle-live.py:64
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Vyhledá všechny dokumenty (aplikací·Beagle), během psaní"
 
-#: ../deskbar/handlers/beagle-live.py:65
+#: ../deskbar/handlers/beagle-live.py:92
 #, python-format
 msgid "Edit contact %s"
 msgstr "Upravit kontakt %s"
 
-#: ../deskbar/handlers/beagle-live.py:74
+#: ../deskbar/handlers/beagle-live.py:101
 #, python-format
 msgid "From %s"
 msgstr "Od %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:82 ../deskbar/handlers/files.py:46
+#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/recent.py:43
 #, python-format
 msgid "Open %s"
 msgstr "Otevřít %s"
 
-#: ../deskbar/handlers/beagle-live.py:90
+#: ../deskbar/handlers/beagle-live.py:117
 #, python-format
 msgid "News from %s"
 msgstr "Novinky od·%s"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "Note: %s"
 msgstr "Poznámka:·%s"
 
-#: ../deskbar/handlers/beagle-live.py:108
+#: ../deskbar/handlers/beagle-live.py:135
 #, python-format
 msgid "With %s"
 msgstr ""
 
-#: ../deskbar/handlers/beagle-live.py:116
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalendář:·%s"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:293
-#: ../deskbar/handlers/beagle-live.py:319
+#: ../deskbar/handlers/beagle-live.py:318
+#: ../deskbar/handlers/beagle-live.py:340
 msgid "?"
 msgstr "?"
 
@@ -305,7 +338,7 @@ msgstr "Beagle"
 msgid "Search all of your documents (using Beagle)"
 msgstr "Vyhledá všechny dokumenty (za použití aplikace Beagle)"
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-static.py:36
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Vyhledá %s aplikací Beagle"
@@ -344,38 +377,39 @@ msgid "You can set shortcuts for your searches."
 msgstr "Můžete nastavit klávesové zkratky pro vaše hledání."
 
 #: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:129
+#: ../deskbar/handlers/mozilla.py:131
 msgid "Web Bookmarks"
 msgstr "Záložky webových stránek"
 
 #: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:130
+#: ../deskbar/handlers/mozilla.py:132
 msgid "Open your web bookmarks by name"
 msgstr "Otevře vaše webové záložky podle jména"
 
 #: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:141
+#: ../deskbar/handlers/mozilla.py:143
 msgid "Web History"
 msgstr "Historie webových stránek"
 
 #: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:142
+#: ../deskbar/handlers/mozilla.py:144
 msgid "Open your web history by name"
 msgstr "Otevře historii webových stránek podle jména"
 
 #: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:135
+#: ../deskbar/handlers/mozilla.py:137
 msgid "Web Searches"
 msgstr "Vyhledat webové stránky"
 
 #: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:136
+#: ../deskbar/handlers/mozilla.py:138
 msgid "Search the web via your browser's search settings"
 msgstr "Vyhledá webovou stránku za pomocí vyhledávacího modulu vašeho prohlížeče"
 
 #: ../deskbar/handlers/evolution.py:12
 msgid "You need to enable autocomplete in your mail preferences"
-msgstr "Nemáte povoleno automatické dokončování adres ve volbách vašeho poštovního "
+msgstr ""
+"Nemáte povoleno automatické dokončování adres ve volbách vašeho poštovního "
 "programu"
 
 #: ../deskbar/handlers/evolution.py:15
@@ -407,30 +441,30 @@ msgstr "Vloží do emailu kontakty podle vyhledávaných jmen nebo e-mailových 
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Odeslat e-mail pro <b>%(name)s</b> na (%(email)s)"
 
-#: ../deskbar/handlers/files.py:17
+#: ../deskbar/handlers/files.py:18
 msgid "Files, Folders and Places"
 msgstr "Soubory, složky a místa"
 
-#: ../deskbar/handlers/files.py:18
+#: ../deskbar/handlers/files.py:19
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "Zobrazí vaše soubory, složky, záložky, disky, síťová místa podle názvu"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "Otevřít složku %s"
 
-#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
+#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "Otevřít umístění %s"
 
-#: ../deskbar/handlers/files.py:114
+#: ../deskbar/handlers/files.py:118
 #, python-format
 msgid "Open network place %s"
 msgstr "Otevřít místo na síti %s"
 
-#: ../deskbar/handlers/files.py:116
+#: ../deskbar/handlers/files.py:120
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Otevřít hudební disk %s"
@@ -443,129 +477,67 @@ msgstr "Činnosti počítače"
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Odhlášení, vypnutí, restartování, uspání a související činnosti."
 
-#: ../deskbar/handlers/gdmactions.py:39
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Suspend the machine"
 msgstr "Uspí počítač"
 
-#: ../deskbar/handlers/gdmactions.py:50
+#: ../deskbar/handlers/gdmactions.py:60
 msgid "Hibernate the machine"
 msgstr "Hibernovat počítač"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:76
 msgid "Shutdown the machine"
 msgstr "Vypne počítač"
 
-#: ../deskbar/handlers/gdmactions.py:80
+#: ../deskbar/handlers/gdmactions.py:100
 msgid "Lock the screen"
 msgstr "Uzamkne obrazovku"
 
-#: ../deskbar/handlers/gdmactions.py:106
+#: ../deskbar/handlers/gdmactions.py:126
 msgid "Shut Down"
 msgstr "Vypnout"
 
-#: ../deskbar/handlers/gdmactions.py:113
+#: ../deskbar/handlers/gdmactions.py:133
 msgid "Turn off the computer"
-msgstr ""
+msgstr "Vypnout počítač"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:137
 msgid "Log Out"
 msgstr "Odhlásit"
 
-#: ../deskbar/handlers/gdmactions.py:124
+#: ../deskbar/handlers/gdmactions.py:144
 msgid "Log out"
 msgstr "Odhlásit"
 
-#: ../deskbar/handlers/gdmactions.py:128
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Restart"
 msgstr "Restartovat"
 
-#: ../deskbar/handlers/gdmactions.py:135
+#: ../deskbar/handlers/gdmactions.py:155
 msgid "Restart the computer"
 msgstr "Restartuje počítač"
 
-#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
+#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "Přepnout uživatele"
 
-#: ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:185
 msgid "Lock"
 msgstr "Uzamknout"
 
-#: ../deskbar/handlers/gdmactions.py:176
+#: ../deskbar/handlers/gdmactions.py:196
 msgid "Suspend"
 msgstr "Uspat"
 
-#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:198
 msgid "Hibernate"
 msgstr "Hibernovat"
 
-#: ../deskbar/handlers/gdmactions.py:180
+#: ../deskbar/handlers/gdmactions.py:200
 msgid "Shutdown"
 msgstr "Vypnout"
 
-#: ../deskbar/handlers/google-live.py:20
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should recieve a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"Vy potřebujete Google účet k použití služby Google Live.  Pro jeho vytvoření "
-"přejdětena adresu http://api.google.com/\n"
-"\n"
-"Po vytvoření účtu, by jste měli obdržet e-mailem Google API klíč.·Umístěte "
-"soubor s klíčem do\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.klíč\n"
-"\n"
-"Jestliže API klíč neobdržíte (nebo jste ho ztratili) v ověřovacím e-mailu,"
-"přejděte na stránku·www.google.com/accounts·a přihlaste se. Přejděte na "
-"stránku api.google.com,·klikněte na \"Create·Account\"·a vložte tam vaší e-"
-"mailovou adresu a heslo.  API klíč vám bude zaslán.\n"
-"\n"
-"Nyní stáhněte developers kit a rozbalte soubor GoogleSearch.wsdl do "
-"adresáře\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#: ../deskbar/handlers/google-live.py:33
-msgid "Setting Up Google Live"
-msgstr "Nastavení Google·Live"
-
-#: ../deskbar/handlers/google-live.py:39
-msgid "You need to install the SOAPpy python module."
-msgstr "Potřebujete nainstalovat SOAPpy python modul."
-
-#: ../deskbar/handlers/google-live.py:41
-msgid "You need the Google WSDL file."
-msgstr "Potřebujete Google WSDL soubor."
-
-#: ../deskbar/handlers/google-live.py:43
-msgid "You need a Google API key."
-msgstr "Potřebujete Google API klíč."
-
-#: ../deskbar/handlers/google-live.py:49
-msgid "Google Search"
-msgstr "Vyhledávání·prostřednictvím·portálu·Google"
-
-#: ../deskbar/handlers/google-live.py:50
-msgid "Search Google as you type"
-msgstr "Vyhledat na portálu Google během psaní"
-
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "Prohledává v minule použitých vyhledáváních"
 
@@ -586,7 +558,7 @@ msgstr "Okna"
 msgid "Switch to <b>%(name)s</b>"
 msgstr "Přepnout na <b>%(name)s</b>"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:122
 msgid "You can customize which search engines are offered."
 msgstr "Zde můžete určit, které vyhledávací moduly budou nabízeny."
 
@@ -625,46 +597,58 @@ msgstr "Vyhledá v aplikací Beagle"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/programs.py:88
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Spustit <b>%(name)s</b>·(%(prog)s)"
 
-#: ../deskbar/handlers/programs.py:98
+#: ../deskbar/handlers/programs.py:102
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Vyhledá výraz %s ve slovníku"
 
-#: ../deskbar/handlers/programs.py:106
+#: ../deskbar/handlers/programs.py:110
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Vyhledá stejná jména souborů %s"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:118
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr ""
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:222
 #, python-format
 msgid "Execute %s"
 msgstr "Provést %s"
 
-#: ../deskbar/handlers/web_address.py:12
+#: ../deskbar/handlers/recent.py:15
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr ""
+
+#: ../deskbar/handlers/recent.py:19
+msgid "Recent Documents"
+msgstr "Poslední dokumenty"
+
+#: ../deskbar/handlers/recent.py:20
+msgid "Retrieve your recently accessed files and locations"
+msgstr ""
+
+#: ../deskbar/handlers/web_address.py:13
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Otevře webové stránky a odešle e-maily dle zadaných kompletních adres"
 
-#: ../deskbar/handlers/web_address.py:40
+#: ../deskbar/handlers/web_address.py:42
 #, python-format
 msgid "Open the web page %s"
 msgstr "Otevřít webovou stránku %s"
 
-#: ../deskbar/handlers/web_address.py:42
+#: ../deskbar/handlers/web_address.py:44
 #, python-format
 msgid "Open the location %s"
 msgstr "Otevřít umístění %s"
 
-#: ../deskbar/handlers/web_address.py:58
+#: ../deskbar/handlers/web_address.py:61
 #, python-format
 msgid "Send Email to %s"
 msgstr "Odeslat e-mail pro %s"
@@ -676,6 +660,10 @@ msgstr "Vyhledávání prostřednictvím portálu Yahoo!"
 #: ../deskbar/handlers/yahoo.py:17
 msgid "Search Yahoo! as you type"
 msgstr "Vyhledat na portálu Yahoo! během psaní"
+
+#: ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Deskbar"
 
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
@@ -690,55 +678,52 @@ msgstr "Domovská stránka aplikace Deskbar"
 #. translators: These appear in the About dialog, usual format applies.
 #: ../deskbar/ui/About.py:36
 msgid "translator-credits"
-msgstr "Novotný Lukáš <lukasnov@cvs.gnome.org>"
+msgstr ""
+"Novotný Lukáš <lukasnov@cvs.gnome.org>\n"
+"Jakub Friedl <jfriedl@suse.cz>"
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:20
+#: ../deskbar/ui/DeskbarPreferencesUI.py:112
 msgid "New accelerator..."
 msgstr "Nový urychlovač..."
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:164
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become unusable to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Connection to repository failed"
+msgstr "Připojení k repozitáři selhalo"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:330
+msgid "Please check your internet connection"
+msgstr "Zkontrolujte prosím své připojení k Internetu"
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:558
+msgid "Handler has been installed successfully"
+msgstr ""
+
+#: ../deskbar/ui/DeskbarPreferencesUI.py:564
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr ""
 
 #: ../deskbar/ui/ModuleListView.py:55
 msgid "Update Available"
 msgstr "Aktualizace je dostupná"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
 msgid "Show search entry"
 msgstr "Zobrazit položku vyhledávání"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
 msgid "Show previously used actions"
 msgstr "Zobrazit předtím použité činnosti"
-
-#: ../deskbar/updater/NewStuffUpdater.py:108
-#, python-format
-msgid "Updating %s"
-msgstr "Aktualizuji %s"
-
-#: ../deskbar/updater/NewStuffUpdater.py:108
-msgid ""
-"The update is being downloaded from the internet. Please wait until the "
-"update is complete"
-msgstr "Aktualizace bude stažena z internetu. Čekejte prosím, dokud "
-"nebude aktualizace kompletní"
-
-#: ../deskbar/updater/NewStuffUpdater.py:133
-#, python-format
-msgid "Installing %s"
-msgstr "Instaluji %s"
-
-#: ../deskbar/updater/NewStuffUpdater.py:133
-#, fuzzy
-msgid ""
-"The handler is being downloaded from the internet. Please wait until the "
-"installation is complete"
-msgstr "Zařízení bude stažena z internetu. Čekejte prosím, dokud "
-"instalace nebude kompletní"
-
-#: ../deskbar/updater/NewStuffUpdater.py:134
-msgid "Downloading"
-msgstr "Stahuji"
 
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
@@ -755,18 +740,6 @@ msgstr "Použít všechny dostupné vyhledávací moduly"
 #: ../data/mozilla-search.glade.h:4
 msgid "Show only the primary search engine"
 msgstr "Použije pouze základní vyhledávací modul"
-
-#: ../data/deskbar-applet.desktop.in.in.h:1
-msgid "Deskbar Applet"
-msgstr "Deskbar aplet"
-
-#: ../data/deskbar-applet.desktop.in.in.h:2
-msgid "Desktop search"
-msgstr "Desktop vyhledávání"
-
-#: ../data/deskbar-applet.desktop.in.in.h:3
-msgid "Search your computer and the internet quickly"
-msgstr "Rychle prohledá váš počítač a internet"
 
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
 msgid "<b>Search:</b>"
@@ -801,148 +774,50 @@ msgstr "_Historie"
 msgid "<b>History</b>"
 msgstr "<b>Historie</b>"
 
-#: ../deskbar/updater/ErrorDialog.py:20
+#: ../deskbar/updater/ErrorDialog.py:8
+msgid "Error"
+msgstr "Chyba"
+
+#: ../deskbar/updater/ErrorDialog.py:25
 msgid "An error occured"
 msgstr "Vyskytla se chyba"
 
-#: ../deskbar/updater/ErrorDialog.py:20
+#: ../deskbar/updater/ErrorDialog.py:25
 msgid "Check the description beneath for further details."
+msgstr "Podrobnosti naleznete v popisu níže."
+
+#: ../deskbar/updater/ErrorDialog.py:31
+msgid "Details"
+msgstr "Podrobnosti"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+#, python-format
+msgid "Updating %s"
+msgstr "Aktualizuji %s"
+
+#: ../deskbar/updater/NewStuffUpdater.py:131
+msgid ""
+"The update is being downloaded from the internet. Please wait until the "
+"update is complete"
 msgstr ""
+"Aktualizace bude stažena z internetu. Čekejte prosím, dokud nebude "
+"aktualizace kompletní"
 
-#~ msgid "%s more result"
-#~ msgid_plural "%s more results"
-#~ msgstr[0] "%s výsledek"
-#~ msgstr[1] "%s výsledky"
-#~ msgstr[2] "%s výsledků"
+#: ../deskbar/updater/NewStuffUpdater.py:156
+#, python-format
+msgid "Installing %s"
+msgstr "Instaluji %s"
 
-#~ msgid "%s more document"
-#~ msgid_plural "%s more documents"
-#~ msgstr[0] "%s dokument"
-#~ msgstr[1] "%s dokumenty"
-#~ msgstr[2] "%s dokumentů"
-
-#~ msgid "%s more file"
-#~ msgid_plural "%s more files"
-#~ msgstr[0] "%s soubor"
-#~ msgstr[1] "%s soubory"
-#~ msgstr[2] "%s souborů"
-
-#~ msgid "%s more place"
-#~ msgid_plural "%s more places"
-#~ msgstr[0] "%s umístění"
-#~ msgstr[1] "%s umístění"
-#~ msgstr[2] "%s umístění"
-
-#~ msgid "%s more action"
-#~ msgid_plural "%s more actions"
-#~ msgstr[0] "%s akce"
-#~ msgstr[1] "%s akce"
-#~ msgstr[2] "%s akcí"
-
-#~ msgid "Email from %s"
-#~ msgstr "E-mail od %s"
-
-#~ msgid "Conversation with %s"
-#~ msgstr "Konverzace s %s"
-
-#~ msgid "Mail"
-#~ msgstr "Pošta"
-
-#~ msgid "Send mail by typing a complete e-mail address"
-#~ msgstr "Vloží do e-mailu kontakt podle vyhledané kompletní e-mailové adrese"
-
-#~ msgid "Files and Folders"
-#~ msgstr "Soubory a složky"
-
-#~ msgid "Open your files and folders by name"
-#~ msgstr "Otevře soubory a složky podle jména"
-
-#~ msgid "Files and Folders Bookmarks"
-#~ msgstr "Soubory a složky záložek"
-
-#~ msgid "Programs (Advanced)"
-#~ msgstr "Programy (pokročilé)"
-
-#~ msgid "Launch any program present in your $PATH"
-#~ msgstr "Spustí program přítomný ve vašem $PATH"
-
-#~ msgid "Disks and Network Places"
-#~ msgstr "Místo na discích a v síti"
-
-#~ msgid ""
-#~ "Open disk drives, shared network places and similar resources by name"
-#~ msgstr "Otevře disk, sdílené místa na síti a podobné zdroje podle jména"
-
+#: ../deskbar/updater/NewStuffUpdater.py:156
 #, fuzzy
-#~ msgid "%s more news item"
-#~ msgstr "Otevřít položku %s zpravodajství"
+msgid ""
+"The handler is being downloaded from the internet. Please wait until the "
+"installation is complete"
+msgstr ""
+"Zařízení bude stažena z internetu. Čekejte prosím, dokud instalace nebude "
+"kompletní"
 
-#, fuzzy
-#~ msgid "%s more contact"
-#~ msgstr "%s kontakt"
+#: ../deskbar/updater/NewStuffUpdater.py:157
+msgid "Downloading"
+msgstr "Stahuji"
 
-#~ msgid "%s more email"
-#~ msgstr "%s e-mail"
-
-#~ msgid "%s more note"
-#~ msgstr "%s poznámka"
-
-#, fuzzy
-#~ msgid "%s more online hit"
-#~ msgstr "%s online hit"
-
-#, fuzzy
-#~ msgid "%s more calendar item"
-#~ msgstr "%s položka kalendáře"
-
-#, fuzzy
-#~ msgid "%s more conversation"
-#~ msgstr "Zobrazit konverzaci s %s"
-
-#~ msgid "Web Browser"
-#~ msgstr "Webový prohlížeč"
-
-#~ msgid "%s more item"
-#~ msgstr "%s položka"
-
-#, fuzzy
-#~ msgid "%s more program"
-#~ msgstr "%s program"
-
-#, fuzzy
-#~ msgid "%s more match"
-#~ msgstr "%s e-mail"
-
-#~ msgid "Debug"
-#~ msgstr "Ladit program"
-
-#, fuzzy
-#~ msgid "%s more debugging handler"
-#~ msgstr "%s odlaďuji zařízení"
-
-#~ msgid "Addressbook entry for %s"
-#~ msgstr "Položka databáze kontaktů %s"
-
-#~ msgid "View email from <i>sender</i>: <b>%name</b>"
-#~ msgid_plural "View email from <i>%senders</i>: <b>%names</b>"
-#~ msgstr[0] "Zobrazit e-mail od <i>odesílatele %</i>: s předmětem %</b>"
-#~ msgstr[1] "Zobrazit e-mail od <i>odesílatele %</i>: s <b>předmětama %</b>"
-#~ msgstr[2] "Zobrazit e-mail od <i>odesílatelů %</i>: s <b>předmětema %</b>"
-
-#~ msgid "Open news item %s"
-#~ msgstr "Otevřít položku %s diskusních skupin"
-
-#~ msgid "Open note %s"
-#~ msgstr "Otevřít poznámku %s"
-
-#~ msgid "View calendar %s"
-#~ msgstr "Zobrazit kalendář %s"
-
-#~ msgid "Google Live"
-#~ msgstr "Google·Live"
-
-#~ msgid "You need Gtk+ version 2.8.0 or higher to use this module"
-#~ msgstr "Potřebujete Gtk+ verze 2.8.0 nebo vyšší pro použití tohoto modulu"
-
-#~ msgid "<b>Keyboard Shortcut</b>"
-#~ msgstr "<b>Klávesové zkratky</b>"
