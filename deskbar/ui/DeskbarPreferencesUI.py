@@ -475,7 +475,7 @@ class DeskbarPreferencesUI:
 			return
 		if "requirements" in module_context.infos:
 			status, message, callback = module_context.infos["requirements"]()
-			if status == deskbar.Handler.HANDLER_HAS_REQUIREMENTS:
+			if status == deskbar.Handler.HANDLER_HAS_REQUIREMENTS or status == deskbar.Handler.HANDLER_IS_NOT_APPLICABLE:
 				self.set_info(message, callback)
 				if module_context.enabled:
 					self.module_loader.stop_module_async(module_context)

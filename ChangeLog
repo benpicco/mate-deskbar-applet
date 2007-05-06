@@ -1,5 +1,13 @@
 2007-05-06  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
+	* deskbar/ModuleLoader.py:
+	* deskbar/ui/DeskbarPreferencesUI.py:
+	Instead of printing something to stderr, show an info box in the
+	preference view when a handler is NOT_APPLICABLE. Patch by Rob Bradford.
+	Fix bug #334150.
+
+2007-05-06  Raphael Slinckx  <rslinckx@cvs.gnome.org>
+
 	* deskbar/ui/cuemiac/CuemiacButtonUI.py:
 	Hide the entry icon when in button mode. This is just a workaround, not a
 	real fix. The icon related code should be completely removed. fix bug

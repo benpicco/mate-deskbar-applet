@@ -116,14 +116,6 @@ class ModuleLoader (gobject.GObject):
 				print >> sys.stderr, "Class %s in file %s does not have an initialize(self) method or does not define a 'name' attribute. Skipping." % (handler, filename)
 				return
 			
-			if "requirements" in infos:
-				status, msg, callback = infos["requirements"]()
-				if status == deskbar.Handler.HANDLER_IS_NOT_APPLICABLE:
-					print >> sys.stderr, "***"
-					print >> sys.stderr, "*** The file %s (%s) decided to not load itself: %s" % (filename, handler, msg)
-					print >> sys.stderr, "***"
-					return
-		
 		return mod
 			
 	def load (self, filename):
