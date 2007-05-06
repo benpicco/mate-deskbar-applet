@@ -93,6 +93,8 @@ class CuemiacButtonUI (DeskbarUI, CuemiacLayoutProvider):
 		self.cuemiac_header.show_all ()
 		self.cuemiac.get_entry().show ()
 		self.cuemiac.get_view().show ()
+		
+		self.cuemiac.entry.icon_event_box.destroy()
 		# don't show scroll_view just yet
 		
 	def on_change_background (self, widget, background, colour, pixmap):
