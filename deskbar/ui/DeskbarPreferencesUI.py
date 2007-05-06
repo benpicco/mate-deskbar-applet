@@ -155,7 +155,7 @@ class AccelEntry( gobject.GObject ):
    	   			or (accel_keyval >= gtk.keysyms.Hangul and accel_keyval <= gtk.keysyms.Hangul_Special)
    	   			or (accel_keyval >= gtk.keysyms.Hangul_Kiyeog and accel_keyval <= gtk.keysyms.Hangul_J_YeorinHieuh)
    	   		))
-			or (accel_keyval in self.FORBIDDEN_KEYS)
+			or (accel_mods == 0 and accel_keyval in self.FORBIDDEN_KEYS)
 			or (accel_keyval == 0 and accel_mods != 0) ):
 			dialog = gtk.MessageDialog (self.entry.get_toplevel(),
 				gtk.DIALOG_DESTROY_WITH_PARENT | gtk.DIALOG_MODAL,
