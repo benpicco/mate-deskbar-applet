@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.gnome-2-16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-03 20:03+0100\n"
-"PO-Revision-Date: 2007-03-01 20:28+0100\n"
-"Last-Translator: wadim dziedzic <wdziedzic@aviary.pl>\n"
+"POT-Creation-Date: 2007-06-11 23:37+0200\n"
+"PO-Revision-Date: 2007-06-11 17:01+0100\n"
+"Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team:  <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,6 +24,84 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.9.1\n"
+
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr ""
+"Czy wywołanie skrótu klawiszowego wkleja także bieżące zaznaczenie do pola "
+"wyszukiwania."
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
+msgstr ""
+"Jeśli włączone, wyczyści pole wprowadzania danych po zaznaczeniu wyniku "
+"wyszukiwania"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr "Wybiera rodzaj interfejsu, \"Cuemiac\" lub \"Entriac\""
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "Szerokość pola wprowadzania danych apletu w znakach"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid ""
+"The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr ""
+"Sekwencja przycisków, które zogniskują uwagę na aplecie deskbar, pozwalając "
+"na szybkie wprowadzanie danych"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid ""
+"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
+"Valid category names are defined in Categories.py"
+msgstr ""
+"Lista kategorii do zwinięcia gdy wyświetlana w interfejsie \"Cuemiac\". "
+"Poprawne nazwy kategorii są określone w Categories.py"
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr ""
+"Lista wyeksportowanych nazw klas włączonych usługodawców sortowana wg "
+"priorytetu od lewej z najwyższym"
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr ""
+"Minimalna ilość znaków, które muszą zostać wprowadzone, zanim aplet "
+"rozpocznie wyszukiwanie"
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid ""
+"The time in miliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr ""
+"Czas w milisekundach pomiędzy uderzeniem klawisza w polu wyszukiwania, a "
+"samym wyszukiwaniem"
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid ""
+"Whether the applet should take all the available space in the panel. "
+"Overrides the width preference."
+msgstr ""
+"Określa, czy aplet ma zabrać całą dostępną przestrzeń na panelu. Ignoruje "
+"preferencje szerokości."
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr ""
+"Określa, czy wyświetlać tylko preferowaną wyszukiwarkę, zamiast wszystkie "
+"dostępne. Dotyczy tylko przeglądarek opartych o Mozilla, takich jak Firefox."
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -236,7 +314,7 @@ msgstr "Brak historii"
 msgid "Cannot execute program:"
 msgstr "Nie można wykonać programu:"
 
-#: ../deskbar/Utils.py:140
+#: ../deskbar/Utils.py:144
 msgid "Cannot show URL:"
 msgstr "Nie można wyświetlić URL:"
 
@@ -678,7 +756,9 @@ msgstr "Strona internetowa Deskbar"
 #. translators: These appear in the About dialog, usual format applies.
 #: ../deskbar/ui/About.py:36
 msgid "translator-credits"
-msgstr "GNOME PL Team <translators@gnomepl.org>"
+msgstr ""
+"GNOME PL Team <translators@gnomepl.org>\n"
+"Tomasz Dominikowski <dominikowski@gmail.com>"
 
 #: ../deskbar/ui/DeskbarPreferencesUI.py:112
 msgid "New accelerator..."
