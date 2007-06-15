@@ -8,15 +8,95 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-18 18:54+0000\n"
-"PO-Revision-Date: 2007-03-18 20:35+0200\n"
+"POT-Creation-Date: 2007-06-15 13:42+0300\n"
+"PO-Revision-Date: 2007-06-15 13:42+0300\n"
 "Last-Translator: Athanasios Lefteris <alefteris@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.11.4\n"
+
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr ""
+"Επιλέξτε για το αν η εκκίνηση μιας συντόμευσης πληκτρολογίου θα κάνει και "
+"επικόλληση της τρέχουσας επιλογής στο πεδίο αναζήτησης."
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
+msgstr ""
+"Αν ενεργοποιηθεί θα γίνεται εκκαθάριση του αποτελέσματος αναζήτησης μετά την "
+"επιλογή ενός αποτελέσματος αναζήτησης"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr ""
+"Επιλέξτε το γραφικό περιβάλλον χρήσης, είτε το \"Cuemiac\" ή το \"Entriac\""
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "Το πλάτος της καταχώρισης της μικροεφαρμογής σε αριθμό χαρακτήρων."
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid ""
+"The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr ""
+"Η ακολουθία πλήκτρων που θα εστιάζει στο deskbar applet, και επιτρέπει τη "
+"γρήγορη πληκτρολόγηση"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid ""
+"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
+"Valid category names are defined in Categories.py"
+msgstr ""
+"Η λίστα των κατηγοριών που θα αναπτύσσονται όταν θα εμφανίζονται στο "
+"'Cuemiac' UI. Οι έγκυρες κατηγορίες καθορίζονται στο Categories.py"
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr ""
+"Η ταξινομημένη κατά προτεραιότητα λίστα των εξαχθέντων ονομάτων class των "
+"ενεργοποιημένων χειριστών. Η πιο αριστερή έχει και την υψηλότερη "
+"προτεραιότητα."
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr ""
+"Ο ελάχιστος αριθμός των χαρακτήρων που χρειάζεται να πληκτρολογηθούν  πριν "
+"να αρχίζουν να εμφανίζονται στα σχετικά αποτελέσματα."
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid ""
+"The time in miliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr ""
+"Ο χρόνος σε χιλιοστά του δευτερολέπτου ανάμεσα στο πάτημα ενός πλήκτρου και "
+"την εκτέλεση της αναζήτησης."
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid ""
+"Whether the applet should take all the available space in the panel. "
+"Overrides the width preference."
+msgstr ""
+"Αν η μικροεφαρμογή θα καταλαμβάνει όλο το διαθέσιμο χώρο στο πίνακα "
+"εφαρμογών.Παρακάμπτει την προτίμηση πλάτους."
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr ""
+"Αν θα εμφανίζεται μόνο η προτιμώμενη μηχανή αναζήτησης, αντί για όλες οι "
+"διαθέσιμες μηχανές. Αυτό επηρεάζει μόνο τους περιηγητές που βασίζονται στον "
+"Mozilla όπως ο Firefox."
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -244,7 +324,7 @@ msgid ""
 "nonetheless. The program may behave erratically from now on."
 msgstr ""
 "Μάλλον δεν είναι σημαντικό, αλλά πρέπει να το αναφέρετε στους "
-"προγραμματιστές. Το προγραμμα ίσως να μην συμπεριφέρεται σωστά από εδώ και "
+"προγραμματιστές. Το πρόγραμμα ίσως να μην συμπεριφέρεται σωστά από εδώ και "
 "πέρα."
 
 #: ../deskbar/gtkexcepthook.py:17
@@ -518,7 +598,7 @@ msgstr "Επανεκκίνηση"
 
 #: ../deskbar/handlers/gdmactions.py:155
 msgid "Restart the computer"
-msgstr "Αποσύνδεση"
+msgstr "Επανεκκίνηση του υπολογιστή"
 
 #: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
@@ -550,7 +630,7 @@ msgstr "Εφαρμογή εναλλαγής παραθύρων"
 
 #: ../deskbar/handlers/iswitch-window.py:12
 msgid "Switch to an existing window by name."
-msgstr "Αλλαγή σε ένα υπάρχοντα χρήστη κατά όνομα."
+msgstr "Αλλαγή σε ένα υπάρχον παράθυρο κατά όνομα."
 
 #: ../deskbar/handlers/iswitch-window.py:16
 msgid "Windows"
@@ -810,7 +890,7 @@ msgid ""
 "The update is being downloaded from the internet. Please wait until the "
 "update is complete"
 msgstr ""
-"Η ενημέρωση κατεβαίνει από το διαδίκτυο. Παρακαλώ περιμένετε μέχρι να "
+"Γίνεται λήψης της ενημέρωσης από το διαδίκτυο. Παρακαλώ περιμένετε μέχρι να "
 "ολοκληρωθεί η ενημέρωση"
 
 #: ../deskbar/updater/NewStuffUpdater.py:156
@@ -823,7 +903,7 @@ msgid ""
 "The handler is being downloaded from the internet. Please wait until the "
 "installation is complete"
 msgstr ""
-"Ο χειριστής κατεβαίνει από το διαδίκτυο. Παρακαλώ περιμένετε μέχρι να "
+"Γίνεται λήψη του χειριστή από το διαδίκτυο. Παρακαλώ περιμένετε μέχρι να "
 "ολοκληρωθεί η εγκατάσταση"
 
 #: ../deskbar/updater/NewStuffUpdater.py:157
