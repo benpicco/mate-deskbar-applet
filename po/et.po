@@ -11,14 +11,78 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deskbar Applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-08 03:50+0000\n"
-"PO-Revision-Date: 2007-02-25 22:37+0200\n"
+"POT-Creation-Date: 2007-06-07 03:48+0100\n"
+"PO-Revision-Date: 2007-06-10 12:06+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <et-gnome@linux.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr ""
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
+msgstr ""
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr ""
+"Kasutajaliidese valimine, võimalikud väärtused on \"Cuemiac\" ja \"Entriac\""
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "Rakendi sisestuskasti laius tähemärkides"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid ""
+"The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr ""
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid ""
+"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
+"Valid category names are defined in Categories.py"
+msgstr ""
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr ""
+"Nimekiri lubatud käsitlejate eksporditud klassinimedest, sorditud tähtsuse "
+"järjekorras. Vasakpoolseim on kõrgeima prioriteediga."
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr ""
+"Vähim sisestatud märkide arv, mille korral rakend hakkab vastavusi näitama"
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid ""
+"The time in miliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr ""
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid ""
+"Whether the applet should take all the available space in the panel. "
+"Overrides the width preference."
+msgstr ""
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr ""
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -175,7 +239,7 @@ msgstr "Järjehoidja nimi"
 msgid "Uncategorized"
 msgstr "Kategoriseerimata"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "Ajalugu"
 
@@ -231,7 +295,7 @@ msgstr "Ajalugu puudub"
 msgid "Cannot execute program:"
 msgstr "Programmi pole võimalik käivitada:"
 
-#: ../deskbar/Utils.py:140
+#: ../deskbar/Utils.py:144
 msgid "Cannot show URL:"
 msgstr "URL-i pole võimalik näidata:"
 
@@ -532,7 +596,7 @@ msgstr "Uinutamine"
 msgid "Shutdown"
 msgstr "Töö lõpetamine"
 
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "Eeelmiste otsingute äratundmine"
 
@@ -719,7 +783,7 @@ msgstr "Otsinguvälja kuvamine"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:56
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
 msgid "Show previously used actions"
 msgstr "Juba kasutatud tegevuste näitamine"
 
@@ -816,59 +880,3 @@ msgstr ""
 #: ../deskbar/updater/NewStuffUpdater.py:157
 msgid "Downloading"
 msgstr "Allalaadimine"
-
-#~ msgid ""
-#~ "You need a Google account to use Google Live.  To get one, go to http://"
-#~ "api.google.com/\n"
-#~ "\n"
-#~ "When you have created your account, you should recieve a Google API key "
-#~ "by mail.  Place this key in the file\n"
-#~ "\n"
-#~ "~/.gnome2/deskbar-applet/Google.key\n"
-#~ "\n"
-#~ "If you do not receive an API key (or you have lost it) in your account "
-#~ "verification mail, then go to www.google.com/accounts and log in.  Go to "
-#~ "api.google.com, click \"Create Account\" and enter your e-mail address "
-#~ "and password.  Your API key will be re-sent.\n"
-#~ "\n"
-#~ "Now download the developers kit and extract the GoogleSearch.wsdl file "
-#~ "from it.  Copy this file to\n"
-#~ "\n"
-#~ "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-#~ msgstr ""
-#~ "Google Live kasutamiseks peab Sul olema Google konto.  Seda saab hankida "
-#~ "aadressilt http://api.google.com/\n"
-#~ "\n"
-#~ "Peale konto loomist peaks Sulle e-posti teel laekuma Google API võti.  "
-#~ "Paiguta see faili\n"
-#~ "\n"
-#~ "~/.gnome2/deskbar-applet/Google.key\n"
-#~ "\n"
-#~ "Kui API võtit sulle ei laeku (või oled Sa selle kautanus), siis külasta "
-#~ "aadressi www.google.com/accounts ja logi sisse.  Siis ava aadress api."
-#~ "google.com, klõpsa viidal \"Create Account\" ja sisesta oma e-posti "
-#~ "aadress ja parool.  Sinu API võti saadetakse sulle uuesti.\n"
-#~ "\n"
-#~ "Nüüd pead sa alla laadima arenduskomplekti (developer kit) ja sealt võtma "
-#~ "faili GoogleSearch.wsdl ning kopeerima selle asukohale\n"
-#~ "\n"
-#~ "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-
-#~ msgid "Setting Up Google Live"
-#~ msgstr "Google Live ülessättimine"
-
-#~ msgid "You need to install the SOAPpy python module."
-#~ msgstr "Sa pead paigaldama Python'i SOAPpy mooduli."
-
-#~ msgid "You need the Google WSDL file."
-#~ msgstr "Sul on Google WSDL faili vaja."
-
-#~ msgid "You need a Google API key."
-#~ msgstr "Sul on Google API võtit vaja."
-
-#~ msgid ""
-#~ "<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
-#~ "small></i>"
-#~ msgstr ""
-#~ "<i><small><b>Märkus:</b> Uus kiirkorraldus rakendub järgmisel "
-#~ "sisselogimisel.</small></i>"
