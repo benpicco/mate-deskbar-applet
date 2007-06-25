@@ -1,30 +1,93 @@
 # Vietnamese translation for DeskBar Applet.
 # Copyright © 2007 Gnome i18n Project for Vietnamese.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2007.
-# 
+# Pham Thanh Long <lngt@ngonngu.net>, 2007.
 msgid ""
-msgstr ""
-"Project-Id-Version: deskbar-applet HEAD\n"
+""
+msgstr "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-12 11:38+0000\n"
-"PO-Revision-Date: 2007-03-07 20:28+0700\n"
-"Last-Translator: Pham Thanh Long <lngt@ngonngu.net>\n"
+"POT-Creation-Date: 2007-06-07 03:48+0100\n"
+"PO-Revision-Date: 2007-06-25 23:24+0930\n"
+"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: LocFactoryEditor 1.6fc1\n"
+"X-Generator: LocFactoryEditor 1.6.4a3\n"
 
-#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr "Chọn nếu việc gây ra phím tắt cũng dán vùng chọn hiện thời vào hộp tìm kiếm, hay không."
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
+msgstr "Bật thì nó xoá sạch mục nhập sau khi chọn kết quả tìm kiếm."
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr "Chọn giao diện người dùng cần dùng, một của « Cuemiac » hay « Entriac »."
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "Độ rộng của mục nhập của tiểu dụng, theo ký tự."
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid ""
+"The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr "Dãy phím sẽ đặt tiêu điểm vào tiểu dụng thanh màn hình nền thì cho người dùng gõ nhanh."
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid ""
+"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
+"Valid category names are defined in Categories.py"
+msgstr "Danh sách các loại cần co lại khi hiển thị trên giao diện người dùng « Cuemiac ». Các tên loại hợp lệ được xác định trong tập tin « Categories.py »."
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr "Danh sách các tên hạng đã xuất khẩu của những bộ quản lý đã bật, được sắp xếp theo ưu tiên. Điều bên trái nhất thì có ưu tiên cao nhất."
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr "Số ký tự tối thiểu cần được gõ vào trước khi tiểu dụng bắt đầu hiển thị mục tương ứng."
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid ""
+"The time in miliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr "Thời gian (theo mili-giây) giữa cú bấm phím trong trường nhập tìm kiếm và việc tìm kiếm thực sự được thực hiện."
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid ""
+"Whether the applet should take all the available space in the panel. "
+"Overrides the width preference."
+msgstr "Tiểu dụng có nên chiếm toàn bộ chỗ trên bảng hay không. Có quyền cao hơn tùy thích độ rộng."
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr "Có nên hiển thị chỉ cơ chế tìm kiếm đã thích, hơn là tất cả các cơ chế sẵn sàng. Đây chỉ có tác động trình duyệt Mạng dựa vào Mozilla, như Firefox."
+
+#: ../data/Deskbar_Applet.xml.h:1
+#: ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
 msgstr "_Giới thiệu"
 
-#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
+#: ../data/Deskbar_Applet.xml.h:2
+#: ../deskbar/ui/window/CuemiacWindowUI.py:52
 msgid "_Clear History"
 msgstr "_Xoá Lược sử"
 
-#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
+#: ../data/Deskbar_Applet.xml.h:3
+#: ../deskbar/ui/window/CuemiacWindowUI.py:53
 msgid "_Preferences"
 msgstr "_Cấu hình"
 
@@ -52,8 +115,7 @@ msgstr "<b>Rộng</b>"
 msgid ""
 "<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
 "small></i>"
-msgstr ""
-"<i><small><b>Ghi chú :</b> hãy kéo và thả phần mở rộng nào để thay đổi thứ "
+msgstr "<i><small><b>Ghi chú :</b> hãy kéo và thả phần mở rộng nào để thay đổi thứ "
 "tự.</small></i>"
 
 #: ../data/prefs-dialog.glade.h:7
@@ -125,25 +187,24 @@ msgid ""
 "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
 "you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
-msgstr ""
-"<i><small><b>Ghi chú: </b>Nếu phím tắt là một kí tự đơn (như <b>t</b>), bạn "
-"cũng có thể chỉ cần gõ '<b>gì đó</b>' rồi bấm tổ hợp phím <b>Alt-t</b> "
-"trên thanh.</small></i>"
+msgstr "<i><small><b>Ghi chú: </b>Nếu phím tắt là một kí tự đơn (như <b>t</b>), bạn "
+"cũng có thể chỉ cần gõ '<b>gì đó</b>' rồi bấm tổ hợp phím <b>Alt-t</b> trên "
+"thanh.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
-msgstr ""
-"<i><small><b>Ghi chú:</b> Để sử dụng phím tắt (v.d: <b>qp</b>) để tìm kiếm "
+msgstr "<i><small><b>Ghi chú:</b> Để sử dụng phím tắt (v.d: <b>qp</b>) để tìm kiếm "
 "<b>gì đó</b>, hãy gõ '<b>qp gì đó</b>' vào thanh</small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Phím tắt cho việc tìm kiếm đã đánh dấu"
 
-#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
+#: ../deskbar/BrowserMatch.py:50
+#: ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "Mở mục Lược sử %s"
@@ -153,9 +214,9 @@ msgstr "Mở mục Lược sử %s"
 msgid "Open Bookmark %s"
 msgstr "Mở Thẻ đánh dấu %s"
 
-#. translators: First %s is the search engine name, second %s is the search term
 #: ../deskbar/BrowserMatch.py:101
 #, python-format
+#. translators: First %s is the search engine name, second %s is the search term
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Tìm kiếm <i>%(text)s</i> trong <b>%(name)s</b>"
 
@@ -171,7 +232,8 @@ msgstr "Tên Thẻ đánh dấu"
 msgid "Uncategorized"
 msgstr "Chưa phân loại"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10
+#: ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "Lược sử"
 
@@ -205,7 +267,8 @@ msgstr "Thao tác"
 
 # 48x48/emblems/emblem-web.icon.in.h:1
 # 48x48/emblems/emblem-web.icon.in.h:1
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
+#: ../deskbar/Categories.py:36
+#: ../deskbar/handlers/web_address.py:12
 msgid "Web"
 msgstr "Web"
 
@@ -229,7 +292,7 @@ msgstr "Không có lược sử"
 msgid "Cannot execute program:"
 msgstr "Không thể chạy chương trình:"
 
-#: ../deskbar/Utils.py:140
+#: ../deskbar/Utils.py:144
 msgid "Cannot show URL:"
 msgstr "Không thể hiển thị URL:"
 
@@ -241,10 +304,9 @@ msgstr "Mới phát hiện một lỗi lập trình"
 msgid ""
 "It probably isn't fatal, but should be reported to the developers "
 "nonetheless. The program may behave erratically from now on."
-msgstr ""
-"Rất có thể nó không nghiệm trọng, nhưng bạn vẫn nên thông báo cho "
-"các nhà phát triển. Chương trình này cũng có thể sẽ hoạt động không chính "
-"xác kể từ điểm thời này."
+msgstr "Rất có thể nó không nghiệm trọng, nhưng bạn vẫn nên thông báo cho các nhà "
+"phát triển. Chương trình này cũng có thể sẽ hoạt động không chính xác kể từ "
+"điểm thời này."
 
 #: ../deskbar/gtkexcepthook.py:17
 msgid "Bug Detected"
@@ -262,8 +324,7 @@ msgstr "Khởi chạy trình nền Beagle"
 msgid ""
 "The Beagle daemon does not appear to be running.\n"
 " You need to start it to use the Beagle Live handler."
-msgstr ""
-"Trình nền Beagle có vẻ là đã dừng.\n"
+msgstr "Trình nền Beagle có vẻ là đã dừng.\n"
 "Bạn cần phải khởi chạy nó để sử dụng bộ quản lí Beagle tại chỗ."
 
 #: ../deskbar/handlers/beagle-live.py:39
@@ -292,10 +353,11 @@ msgstr "Sửa liên lạc %s"
 msgid "From %s"
 msgstr "Từ %s"
 
-#. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/files.py:47
 #: ../deskbar/handlers/recent.py:43
 #, python-format
+#. translators: This is a file.
 msgid "Open %s"
 msgstr "Mở %s"
 
@@ -319,10 +381,10 @@ msgstr "Bằng %s"
 msgid "Calendar: %s"
 msgstr "Lịch: %s"
 
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
 #: ../deskbar/handlers/beagle-live.py:318
 #: ../deskbar/handlers/beagle-live.py:340
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
 msgid "?"
 msgstr "?"
 
@@ -371,32 +433,38 @@ msgstr "Tên người dùng: "
 msgid "You can set shortcuts for your searches."
 msgstr "Bạn có thể đặt phím tắt cho việc tìm kiếm."
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
+#: ../deskbar/handlers/epiphany.py:33
+#: ../deskbar/handlers/galeon.py:24
 #: ../deskbar/handlers/mozilla.py:131
 msgid "Web Bookmarks"
 msgstr "Thẻ đánh dấu trang web"
 
-#: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
+#: ../deskbar/handlers/epiphany.py:34
+#: ../deskbar/handlers/galeon.py:25
 #: ../deskbar/handlers/mozilla.py:132
 msgid "Open your web bookmarks by name"
 msgstr "Mở thẻ đánh dấu trang web theo tên"
 
-#: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
+#: ../deskbar/handlers/epiphany.py:39
+#: ../deskbar/handlers/galeon.py:30
 #: ../deskbar/handlers/mozilla.py:143
 msgid "Web History"
 msgstr "Lược sử Mạng"
 
-#: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/epiphany.py:40
+#: ../deskbar/handlers/galeon.py:31
 #: ../deskbar/handlers/mozilla.py:144
 msgid "Open your web history by name"
 msgstr "Mở lược sử Mạng theo tên"
 
-#: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
+#: ../deskbar/handlers/epiphany.py:45
+#: ../deskbar/handlers/galeon.py:36
 #: ../deskbar/handlers/mozilla.py:137
 msgid "Web Searches"
 msgstr "Tìm kiếm trên mạng"
 
-#: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
+#: ../deskbar/handlers/epiphany.py:46
+#: ../deskbar/handlers/galeon.py:37
 #: ../deskbar/handlers/mozilla.py:138
 msgid "Search the web via your browser's search settings"
 msgstr "Tìm kiếm trên mạng thông qua thiết lập tìm kiếm của trình duyệt"
@@ -414,10 +482,9 @@ msgid ""
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
 "choose Edit - Preferences, and then Autocompletion."
-msgstr ""
-"Không thể cung cấp địa chỉ thư từ sổ địa chỉ nếu bạn chưa cho phép tự "
-"động gõ xong. Để cho phép nó, trong trình đơn của trình thư, hãy chọn "
-"Sửa - Tuỳ chọn, rồi Tự động gõ xong."
+msgstr "Không thể cung cấp địa chỉ thư từ sổ địa chỉ nếu bạn chưa cho phép tự động "
+"gõ xong. Để cho phép nó, trong trình đơn của trình thư, hãy chọn Sửa - Tuỳ "
+"chọn, rồi Tự động gõ xong."
 
 #: ../deskbar/handlers/evolution.py:21
 msgid "Mail (Address Book)"
@@ -427,9 +494,9 @@ msgstr "Thư (Sổ địa chỉ)"
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Gởi thư cho liên lạc bằng cách gõ tên hay địa chỉ thư của họ"
 
-#. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:48
 #, python-format
+#. translators: First %s is the contact full name, second %s is the email address
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Gởi thư cho <b>%(name)s</b> (%(email)s)"
 
@@ -446,7 +513,8 @@ msgstr "Xem tập tin, thư mục, thẻ đánh dấu, ổ đĩa và địa đi�
 msgid "Open folder %s"
 msgstr "Mở thư mục %s"
 
-#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
+#: ../deskbar/handlers/files.py:89
+#: ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "Mở địa điểm %s"
@@ -509,7 +577,8 @@ msgstr "Khởi động lại"
 msgid "Restart the computer"
 msgstr "Khởi động lại máy tính"
 
-#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:159
+#: ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "Chuyển đổi người dùng"
 
@@ -529,7 +598,7 @@ msgstr "Ngủ đông"
 msgid "Shutdown"
 msgstr "Tắt máy"
 
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "Nhận diện chuỗi tìm kiếm dùng trước đó"
 
@@ -586,10 +655,10 @@ msgstr "Tài liệu cho nhà phát triển"
 msgid "Search Devhelp for a function name"
 msgstr "Tìm kiếm tên hàm trong Trợ giúp phát triển"
 
-#. translators: First %s is the programs full name, second is the executable name
-#. translators: For example: Launch Text Editor (gedit)
 #: ../deskbar/handlers/programs.py:88
 #, python-format
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Khởi chạy <b>%(name)s</b> (%(prog)s)"
 
@@ -664,10 +733,10 @@ msgstr "Thanh thao tác tất cả trong một."
 msgid "Deskbar Website"
 msgstr "Website Deskbar"
 
+#: ../deskbar/ui/About.py:36
 #. about.set_artists([])
 #. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
 msgid "translator-credits"
 msgstr "Nhóm Việt hóa Gnome <gnomevi-list@lists.sourceforge.net>"
 
@@ -681,8 +750,7 @@ msgid ""
 "The shortcut \"%s\" cannot be used because it will become unusable to type "
 "using this key.\n"
 "Please try with a key such as Control, Alt or Shift at the same time.\n"
-msgstr ""
-"Phím tắt '%s' không dùng được vì không thể gõ bằng phím này.\n"
+msgstr "Phím tắt '%s' không dùng được vì không thể gõ bằng phím này.\n"
 "Hãy thử lại bằng cách kết hợp với các phím như Ctrl, Alt hay Shift.\n"
 
 #: ../deskbar/ui/DeskbarPreferencesUI.py:330
@@ -712,7 +780,7 @@ msgstr "Hiện mục nhập tìm kiếm"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:56
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
 msgid "Show previously used actions"
 msgstr "Hiện thao tác vừa dùng"
 
@@ -760,8 +828,8 @@ msgstr "Trợ g_iúp"
 msgid "_History"
 msgstr "_Lược sử"
 
-#. History TreeView
 #: ../deskbar/ui/window/CuemiacWindowUI.py:84
+#. History TreeView
 msgid "<b>History</b>"
 msgstr "<b>Lược sử</b>"
 
@@ -790,8 +858,8 @@ msgstr "Đang cập nhật %s"
 msgid ""
 "The update is being downloaded from the internet. Please wait until the "
 "update is complete"
-msgstr ""
-"Bản cập nhật đang được tải xuống từ Internet. Hãy đợi đến khi việc cập nhật hoàn tất"
+msgstr "Bản cập nhật đang được tải xuống từ Internet. Hãy đợi đến khi việc cập nhật "
+"hoàn tất"
 
 #: ../deskbar/updater/NewStuffUpdater.py:156
 #, python-format
@@ -802,8 +870,8 @@ msgstr "Đang cài đặt %s"
 msgid ""
 "The handler is being downloaded from the internet. Please wait until the "
 "installation is complete"
-msgstr ""
-"Bộ quản lí đang được tải xuống từ Internet. Hãy đợi đến khi việc cài đặt hoàn tất"
+msgstr "Bộ quản lí đang được tải xuống từ Internet. Hãy đợi đến khi việc cài đặt "
+"hoàn tất"
 
 #: ../deskbar/updater/NewStuffUpdater.py:157
 msgid "Downloading"
@@ -815,8 +883,7 @@ msgstr "Đang tải về"
 #~ msgid ""
 #~ "<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
 #~ "small></i>"
-#~ msgstr ""
-#~ "<i><small><b>Ghi chú :</b> lối tắt mới này sẽ có tác động vào lúc đăng "
+#~ msgstr "<i><small><b>Ghi chú :</b> lối tắt mới này sẽ có tác động vào lúc đăng "
 #~ "nhập kế tiếp.</small></i>"
 
 #~ msgid ""
@@ -837,8 +904,7 @@ msgstr "Đang tải về"
 #~ "from it.  Copy this file to\n"
 #~ "\n"
 #~ "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-#~ msgstr ""
-#~ "Bạn cần phải có tài khoản Google để sử dụng tính năng Google tại chỗ. Để "
+#~ msgstr "Bạn cần phải có tài khoản Google để sử dụng tính năng Google tại chỗ. Để "
 #~ "được tài khoản, hãy đi tới <http://api.google.com/>\n"
 #~ "\n"
 #~ "Một khi bạn tạo tài khoản, bạn nên nhận một lá thư chứa khóa API của "
