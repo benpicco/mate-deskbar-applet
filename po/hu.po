@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-08 03:50+0000\n"
-"PO-Revision-Date: 2007-01-16 14:39+0100\n"
+"POT-Creation-Date: 2007-06-07 03:48+0100\n"
+"PO-Revision-Date: 2007-07-08 01:08+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr "Válassza ki, hogy a gyorsbillentyű használata beillessze-e az aktuális kijelölést a keresőmezőbe."
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid "If enabled it will clear the entry after a search result has been selected"
+msgstr "Ha engedélyezett, akkor keresési eredmény kiválasztása után a beviteli mező törlésre kerül"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr "Kiválasztja a használandó felhasználói felületet, a \"Cuemiac\" (panelba ágyazott) vagy \"Entriac\" (önálló) egyike"
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "A kisalkalmazás beviteli mezőjének szélessége karakterben"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid "The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr "Ez a billentyűkombináció előtérbe hozza a deskbar alkalmazást, lehetővé téve a gyors gépelést"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid ""
+"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
+"Valid category names are defined in Categories.py"
+msgstr "A kategóriák listáját össze kell csukni a 'Cuemiac' felületen. Az érvényes kategórianeveket a Categories.py tartalmazza."
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr "Az engedélyezett kezelők exportált osztályneveinek prioritás szerint rendezett listája. A legmagasabb prioritással a legbaloldalibb elme rendelkezik."
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr "A begépelendő karakterek minimális száma, mielőtt a kisalkalmazás elkezdi megjeleníteni a találatokat."
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid ""
+"The time in miliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr "A keresőmezőben bekövetkezett leütés és a keresés végrehajtása közti idő ezredmásodpercben"
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid ""
+"Whether the applet should take all the available space in the panel. "
+"Overrides the width preference."
+msgstr "A kisalkalmazás elfoglalja-e az összes helyet a panelen. Felülbírálja a szélesség beállítást."
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr "Csak az alapértelmezett keresőmotor jelenjen-e meg az összes elérhetővel szemben. Ez csak a Mozilla alapú böngészőket érinti, mint például a Firefox."
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -126,7 +184,10 @@ msgid ""
 "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
 "you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
-msgstr "<i><small><b>Megjegyzés:</b> Ha ez a gyorsbillentyű egyetlen betű (például <b>t</b>), akkor a \"<b>valami</b>\" kereséséhez írja be a \"<b>Alt-t valami</b>\" karaktersorozatot a deskbarba.</small></i>"
+msgstr ""
+"<i><small><b>Megjegyzés:</b> Ha ez a gyorsbillentyű egyetlen betű (például "
+"<b>t</b>), akkor a \"<b>valami</b>\" kereséséhez írja be a \"<b>Alt-t "
+"valami</b>\" karaktersorozatot a deskbarba.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
@@ -170,7 +231,7 @@ msgstr "Könyvjelzőnév"
 msgid "Uncategorized"
 msgstr "Kategorizálatlan"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "Előzmények"
 
@@ -226,7 +287,7 @@ msgstr "Nincsenek előzmények"
 msgid "Cannot execute program:"
 msgstr "Nem hajtható végre a program:"
 
-#: ../deskbar/Utils.py:140
+#: ../deskbar/Utils.py:144
 msgid "Cannot show URL:"
 msgstr "Nem jeleníthető meg az URL:"
 
@@ -529,7 +590,7 @@ msgstr "Hibernálás"
 msgid "Shutdown"
 msgstr "Leállítás"
 
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "Korábban használt keresések felismerése"
 
@@ -682,8 +743,10 @@ msgid ""
 "using this key.\n"
 "Please try with a key such as Control, Alt or Shift at the same time.\n"
 msgstr ""
-"A(z) \"%s\" gyorsbillentyű nem használható, mivel a billentyű használatával a gépelés használhatatlanná válna.\n"
-"Próbálkozzon a Control, Alt vagy Shift billentyűk valamelyikének együttes használatával.\n"
+"A(z) \"%s\" gyorsbillentyű nem használható, mivel a billentyű használatával "
+"a gépelés használhatatlanná válna.\n"
+"Próbálkozzon a Control, Alt vagy Shift billentyűk valamelyikének együttes "
+"használatával.\n"
 
 #: ../deskbar/ui/DeskbarPreferencesUI.py:330
 msgid "Connection to repository failed"
@@ -712,7 +775,7 @@ msgstr "Keresőbejegyzés megjelenítése"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:56
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
 msgid "Show previously used actions"
 msgstr "Korábban használt műveletek megjelenítése"
 
@@ -790,7 +853,9 @@ msgstr "%s frissítése"
 msgid ""
 "The update is being downloaded from the internet. Please wait until the "
 "update is complete"
-msgstr "A frissítés letöltésre kerül az internetről. Várjon a frissítés befejeződéséig."
+msgstr ""
+"A frissítés letöltésre kerül az internetről. Várjon a frissítés "
+"befejeződéséig."
 
 #: ../deskbar/updater/NewStuffUpdater.py:156
 #, python-format
