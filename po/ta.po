@@ -1,4 +1,4 @@
-# translation of deskbar-applet.HEAD.po to TAMIL
+# translation of ta.po to
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -7,28 +7,74 @@
 # Dr.T.Vasudevan <agnihot3@gmail.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet.HEAD\n"
+"Project-Id-Version: ta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-08 03:50+0000\n"
-"PO-Revision-Date: 2007-06-04 13:27+0530\n"
-"Last-Translator: Dr.T.Vasudevan <agnihot3@gmail.com>\n"
-"Language-Team: TAMIL <ubuntu-l10n-tam@lists.ubuntu.com>\n"
+"POT-Creation-Date: 2007-06-07 03:48+0100\n"
+"PO-Revision-Date: 2007-07-09 11:49+0530\n"
+"Last-Translator: \n"
+"Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid "Choose whether triggering the keyboard shortcut also pastes the current selection in the search box."
+msgstr "விசைப்பலகை குறுக்கு விசையை தூண்டுவது இப்போதைய தேர்வை தேடல் பெட்டியில் ஒட்ட வேண்டுமா என தேர்ந்தெடுங்கள்."
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid "If enabled it will clear the entry after a search result has been selected"
+msgstr "தேர்வு செய்தால் ஒரு தேடல் விடையை தேர்ந்தெடுத்த பின் உள்ளீட்டை சுத்தம் செய்யும்."
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr "பயன்படுத்த வேண்டிய இடைமுகத்தை தேர்ந்தெடுக்கிறது. \"Cuemiac\" அல்லது \"Entriac\""
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "குறியீடுகளின் எண்ணிக்கையில் குறுநிரலின் உள்ளீட்டு அகலம்."
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid "The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr "இந்த விசை சரம் மேல்மேசை குறுநிரலை குவிக்க பயனாகும். இதனால் விரைவாக உள்ளீடு செய்யலாம்."
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid "The list of categories to be collapsed when displayed in the 'Cuemiac' UI. Valid category names are defined in Categories.py"
+msgstr "க்யூமியாக் யூஐ யில் காட்டப்படும் போது சுருக்க வேண்டிய உருப்படிகளின் பட்டியல். Categories.py இல் செல்லுபடியாகும் பெயர்கள் வரையறுக்கப்பட்டுள்ளன."
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid "The list of exported class names of the enabled handlers sorted by priority. Leftmost has highest priority"
+msgstr "முக்கியத்துவ வரிசையில் வகைப்படுத்திய ஏற்றுமதி செய்யப்பட்ட செயலாகும் கையாளுனர் வகுப்பு பெயர்கள். இடது கோடியில் அதிக முக்கியத்துவம்."
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid "The minimum number of characters that need to be typed before the applet starts showing matches"
+msgstr "குறுநிரல் ஒத்திசைகளை காட்டு முன் உள்ளிட வேண்டிய குறைந்த பட்ச எழுத்துகளின் எண்."
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid "The time in miliseconds between a keystroke in the search entry and the actual search being performed"
+msgstr "தேடலுக்கு ஒரு விசை உள்ளீட்டுக்கும் உண்மையில் தேடல் ஆரம்பிக்கவும் இடையில் உள்ள நேரம், மில்லி வினாடிகளில்."
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid "Whether the applet should take all the available space in the panel. Overrides the width preference."
+msgstr "குறுநிரல் பலகத்தில் கிடைக்கும் அனைத்து இடத்தையும் எடுத்துக்கொள்ள வேண்டுமா? இது அகல விருப்பங்களை மீறி செயல்படும்."
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid "Whether to show only the preferred search engine, rather than all available engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr "எல்லா தேடல் இயந்திரங்களையும் காட்டாது தேர்ந்தெடுத்த இயந்திரங்களை மட்டும் காட்ட வேண்டுமா? இது மோசில்லா அடிப்படியான -பயர்பாக்ஸ் போன்ற- இயந்திரங்களை மட்டுமே பாதிக்கும்."
+
+#: ../data/Deskbar_Applet.xml.h:1
+#: ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
 msgstr "இதனை _பற்றி"
 
-#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
+#: ../data/Deskbar_Applet.xml.h:2
+#: ../deskbar/ui/window/CuemiacWindowUI.py:52
 msgid "_Clear History"
 msgstr "_வரலாறு துடை"
 
-#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
+#: ../data/Deskbar_Applet.xml.h:3
+#: ../deskbar/ui/window/CuemiacWindowUI.py:53
 msgid "_Preferences"
 msgstr "_ம முன்னுரிமைகள்"
 
@@ -53,12 +99,8 @@ msgid "<b>Width</b>"
 msgstr "<b>அகலம்</b>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid ""
-"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
-"small></i>"
-msgstr ""
-"<i><small><b> குறிப்பு:</b> வரிசையை மாற்ற ஒரு விரிவாக்கத்தை இழுத்து விடவும் .</"
-"small></i>"
+msgid "<i><small><b>Note:</b> Drag and drop an extension to change its order.</small></i>"
+msgstr "<i><small><b> குறிப்பு:</b> வரிசையை மாற்ற ஒரு விரிவாக்கத்தை இழுத்து விடவும் .</small></i>"
 
 #: ../data/prefs-dialog.glade.h:7
 msgid "Button in panel"
@@ -125,30 +167,19 @@ msgid "characters"
 msgstr "எண் எழுத்துக்கள் குறியீடுகள்"
 
 #: ../data/smart-bookmarks.glade.h:1
-msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
-msgstr ""
-"<i><small><b>குறிப்பு: </b>குறுக்கு வழி ஒரே எழுத்தாக இருந்தால்( <b>t</b> போல்) "
-"நீங்கள் இப்படியும் பதியலாம் \"<b>ஏதோவொன்று</b>\" பின் இதை பணிப்பட்டையில் அழுத்தவும் "
-"<b>Alt-t</b> </small></i>"
+msgid "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in the deskbar.</small></i>"
+msgstr "<i><small><b>குறிப்பு: </b>குறுக்கு வழி ஒரே எழுத்தாக இருந்தால்( <b>t</b> போல்) நீங்கள் இப்படியும் பதியலாம் \"<b>ஏதோவொன்று</b>\" பின் இதை பணிப்பட்டையில் அழுத்தவும் <b>Alt-t</b> </small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
-msgid ""
-"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
-"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
-"i>."
-msgstr ""
-"<i><small><b>குறிப்பு:</b> குறுக்கு வழியை உபயோகிக்க (உதாரணமாக <b>wp</b>) இதை "
-"தேட  <b>ஏதோவொன்று</b>, பணிப்பட்டையில் இதை பதியவும் \"<b>wp ஏதோவொன்று</b>\"</"
-"small></i>."
+msgid "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></i>."
+msgstr "<i><small><b>குறிப்பு:</b> குறுக்கு வழியை உபயோகிக்க (உதாரணமாக <b>wp</b>) இதை தேட  <b>ஏதோவொன்று</b>, பணிப்பட்டையில் இதை பதியவும் \"<b>wp ஏதோவொன்று</b>\"</small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "புத்தகக்குறியிடப்பட்ட தேடல்களுக்கான குறுக்குவிசைகள்"
 
-#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
+#: ../deskbar/BrowserMatch.py:50
+#: ../deskbar/handlers/beagle-live.py:150
 #, python-format
 msgid "Open History Item %s"
 msgstr "வரலாற்று உருப்படியை திற %s"
@@ -176,7 +207,8 @@ msgstr "புத்தகக்குறி பெயர்"
 msgid "Uncategorized"
 msgstr "வகைப்படுத்தாதது"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10
+#: ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "வரலாறு"
 
@@ -208,7 +240,8 @@ msgstr "இடங்கள்"
 msgid "Actions"
 msgstr "செயல்கள்"
 
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
+#: ../deskbar/Categories.py:36
+#: ../deskbar/handlers/web_address.py:12
 msgid "Web"
 msgstr "வலை"
 
@@ -232,7 +265,7 @@ msgstr "வரலாறு இல்லை "
 msgid "Cannot execute program:"
 msgstr "நிரலை இயக்க இயலாது:"
 
-#: ../deskbar/Utils.py:140
+#: ../deskbar/Utils.py:144
 msgid "Cannot show URL:"
 msgstr "யுஆர்எல் ஐ காட்ட இயலாது:"
 
@@ -241,12 +274,8 @@ msgid "A programming error has been detected"
 msgstr "நிரலாக்க பிழை கண்டுபிடிக்கப்பட்டுள்ளது"
 
 #: ../deskbar/gtkexcepthook.py:15
-msgid ""
-"It probably isn't fatal, but should be reported to the developers "
-"nonetheless. The program may behave erratically from now on."
-msgstr ""
-"அனேகமாக இது உயிர் போகும் சமாசாரமல்ல. ஆனால் மென்பொருள் உருவாக்குவோருக்கு "
-"தெரிவிக்கப்படவேண்டும் இந் நிரல் இனி தப்பும் தவறுமாய் இயங்கலாம்."
+msgid "It probably isn't fatal, but should be reported to the developers nonetheless. The program may behave erratically from now on."
+msgstr "அனேகமாக இது உயிர் போகும் சமாசாரமல்ல. ஆனால் மென்பொருள் உருவாக்குவோருக்கு தெரிவிக்கப்படவேண்டும் இந் நிரல் இனி தப்பும் தவறுமாய் இயங்கலாம்."
 
 #: ../deskbar/gtkexcepthook.py:17
 msgid "Bug Detected"
@@ -295,7 +324,8 @@ msgid "From %s"
 msgstr "அனுப்புநர் %s"
 
 #. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
+#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/files.py:47
 #: ../deskbar/handlers/recent.py:43
 #, python-format
 msgid "Open %s"
@@ -373,32 +403,38 @@ msgstr "பயனர் பெயர் "
 msgid "You can set shortcuts for your searches."
 msgstr "உங்கள் தேடல்களுக்கு குறுக்குவிசைகளை அமைக்கலாம்."
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
+#: ../deskbar/handlers/epiphany.py:33
+#: ../deskbar/handlers/galeon.py:24
 #: ../deskbar/handlers/mozilla.py:131
 msgid "Web Bookmarks"
 msgstr "வலை புத்தகக்குறிகள்"
 
-#: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
+#: ../deskbar/handlers/epiphany.py:34
+#: ../deskbar/handlers/galeon.py:25
 #: ../deskbar/handlers/mozilla.py:132
 msgid "Open your web bookmarks by name"
 msgstr "பெயரால் உங்கள் இணைய புத்தகக்குறிகளை திறக்கலாம்"
 
-#: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
+#: ../deskbar/handlers/epiphany.py:39
+#: ../deskbar/handlers/galeon.py:30
 #: ../deskbar/handlers/mozilla.py:143
 msgid "Web History"
 msgstr "இணைய வரலாறு"
 
-#: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
+#: ../deskbar/handlers/epiphany.py:40
+#: ../deskbar/handlers/galeon.py:31
 #: ../deskbar/handlers/mozilla.py:144
 msgid "Open your web history by name"
 msgstr "பெயரால் இணைய வரலாற்றை திற"
 
-#: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
+#: ../deskbar/handlers/epiphany.py:45
+#: ../deskbar/handlers/galeon.py:36
 #: ../deskbar/handlers/mozilla.py:137
 msgid "Web Searches"
 msgstr "இணைய தேடல்கள்"
 
-#: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
+#: ../deskbar/handlers/epiphany.py:46
+#: ../deskbar/handlers/galeon.py:37
 #: ../deskbar/handlers/mozilla.py:138
 msgid "Search the web via your browser's search settings"
 msgstr "உங்கள் உலாவிகளுடைய தேடல் அமைவுகள் வழியாக இணையத்தில் தேடலாம்"
@@ -412,14 +448,8 @@ msgid "Autocompletion Needs to be Enabled"
 msgstr "தானாக முடித்தலை செயல்படுத்த வேண்டும்"
 
 #: ../deskbar/handlers/evolution.py:16
-msgid ""
-"We cannot provide e-mail addresses from your address book unless "
-"autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit - Preferences, and then Autocompletion."
-msgstr ""
-"தானாக முடித்தலை செயல்படுத்தினால்தான் உங்கள்  முகவரி புத்தகத்திலிருந்து மின்னஞ்சல் முகவரி "
-"தர இயலும் இதை செய்ய உங்கள் மின்னஞ்சல்  நிரலில் மெனுவில் விருப்பங்களை.திருத்து இல். தானாக "
-"முடித்தலை செயல்படுத்த வேண்டும்"
+msgid "We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion."
+msgstr "தானாக முடித்தலை செயல்படுத்தினால்தான் உங்கள்  முகவரி புத்தகத்திலிருந்து மின்னஞ்சல் முகவரி தர இயலும் இதை செய்ய உங்கள் மின்னஞ்சல்  நிரலில் மெனுவில் விருப்பங்களை.திருத்து இல். தானாக முடித்தலை செயல்படுத்த வேண்டும்"
 
 #: ../deskbar/handlers/evolution.py:21
 msgid "Mail (Address Book)"
@@ -427,9 +457,7 @@ msgstr "மின்னஞ்சல் (முகவரி புத்தகம
 
 #: ../deskbar/handlers/evolution.py:22
 msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-"உங்கள் தொடர்பாளர்களுக்கு அவர்களது பெயர் அல்லது மின்னஞ்சல் முகவரி  உள்ளீடு செய்வதன் மூலம் "
-"மின்னஞ்சல் அனுப்பவும் "
+msgstr "உங்கள் தொடர்பாளர்களுக்கு அவர்களது பெயர் அல்லது மின்னஞ்சல் முகவரி  உள்ளீடு செய்வதன் மூலம் மின்னஞ்சல் அனுப்பவும் "
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:48
@@ -443,16 +471,15 @@ msgstr "கோப்புகள் அடைவுகள் மற்றும�
 
 #: ../deskbar/handlers/files.py:19
 msgid "View your files, folders, bookmarks, drives, network places by name"
-msgstr ""
-"பெயரால் உங்கள் கோப்புகள், அடைவுகள், புத்தகக்குறிகள், செலுத்தி, மற்றும் வலைப் பின்னல் "
-"ஆகியவற்றை காணவு வும்"
+msgstr "பெயரால் உங்கள் கோப்புகள், அடைவுகள், புத்தகக்குறிகள், செலுத்தி, மற்றும் வலைப் பின்னல் ஆகியவற்றை காணவு வும்"
 
 #: ../deskbar/handlers/files.py:69
 #, python-format
 msgid "Open folder %s"
 msgstr "%s அடைவினை திற"
 
-#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
+#: ../deskbar/handlers/files.py:89
+#: ../deskbar/handlers/files.py:122
 #, python-format
 msgid "Open location %s"
 msgstr "%s இடத்தை திற"
@@ -515,7 +542,8 @@ msgstr "மீட்டுத் துவக்கு"
 msgid "Restart the computer"
 msgstr "கணிணியை மீட்டுத் துவக்கு"
 
-#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:159
+#: ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "பயனர் மாற்று"
 
@@ -535,7 +563,7 @@ msgstr "உறங்கு"
 msgid "Shutdown"
 msgstr "முழு நிறுத்தம்"
 
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "முன்பு பயன்படுத்திய தேடல்களை அங்கீகரிக்கவும்"
 
@@ -684,8 +712,7 @@ msgstr "புதிய முடுக்கி..."
 #: ../deskbar/ui/DeskbarPreferencesUI.py:164
 #, python-format
 msgid ""
-"The shortcut \"%s\" cannot be used because it will become unusable to type "
-"using this key.\n"
+"The shortcut \"%s\" cannot be used because it will become unusable to type using this key.\n"
 "Please try with a key such as Control, Alt or Shift at the same time.\n"
 msgstr ""
 "குறுக்கு விசை \"%s\"  ஐ பயன்படுத்த முடியாது. ஏனெனில் இந்த விசையை பயன்படுத்தி உள்ளிட இயலாது போகும்.\n"
@@ -718,7 +745,7 @@ msgstr "தேடல் உள்ளீட்டை காட்டுக"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:56
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
 msgid "Show previously used actions"
 msgstr "முன்பு பயன்படுத்திய செயல்களை காண்பிக்கவும் "
 
@@ -793,9 +820,7 @@ msgid "Updating %s"
 msgstr "%s ஐ மேம்படுத்துகிறது"
 
 #: ../deskbar/updater/NewStuffUpdater.py:131
-msgid ""
-"The update is being downloaded from the internet. Please wait until the "
-"update is complete"
+msgid "The update is being downloaded from the internet. Please wait until the update is complete"
 msgstr "இணயத்திலிருந்து இற்றைப்படுத்த பொதி தரவிறக்கப்படுகிறது. அது முடியும் வரை தயை செய்து காத்திருக்கவும்."
 
 #: ../deskbar/updater/NewStuffUpdater.py:156
@@ -804,9 +829,7 @@ msgid "Installing %s"
 msgstr "%s நிறுவுகிறது"
 
 #: ../deskbar/updater/NewStuffUpdater.py:156
-msgid ""
-"The handler is being downloaded from the internet. Please wait until the "
-"installation is complete"
+msgid "The handler is being downloaded from the internet. Please wait until the installation is complete"
 msgstr "கையாளுனர் இணையத்திலிருந்து தரவிறக்கப்படுகிறது. நிறுவல் முடியும் வரை தயை செய்து காத்திருக்கவும்."
 
 #: ../deskbar/updater/NewStuffUpdater.py:157
