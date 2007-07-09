@@ -7,14 +7,80 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-17 13:53+0700\n"
-"PO-Revision-Date: 2007-01-17 14:01+0700\n"
+"POT-Creation-Date: 2007-07-09 19:02+0700\n"
+"PO-Revision-Date: 2007-07-09 20:27+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr "กำหนดว่าในการเรียกด้วยปุ่มลัด จะแปะข้อความที่เลือกอยู่ลงในกล่องคำค้นด้วยเลยหรือไม่"
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
+msgstr "ถ้าเลือก จะล้างค่าในช่องป้อนคำค้นหลังจากที่เลือกผลการสืบค้น"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr "เลือกรูปแบบการติดต่อผู้ใช้ \"Cuemiac\" (ไอคอน) หรือ \"Entriac\" (ช่องป้อน)"
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "ความกว้างของช่องคำค้นของแอพเพล็ต เป็นจำนวนอักขระ"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid ""
+"The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr "ปุ่มลัดสำหรับโฟกัสไปที่แอพเพล็ตเดสก์บาร์ เพื่อให้ป้อนคำค้นได้อย่างรวดเร็ว"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid ""
+"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
+"Valid category names are defined in Categories.py"
+msgstr ""
+"รายการหมวดที่จะยุบเมื่อแสดงใน UI แบบ 'Cuemiac' ชื่อหมวดที่ใช้ได้ดูได้จาก Categories.py"
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr ""
+"รายชื่อของคลาสตัวจัดการคำค้นที่เปิดใช้ เรียงตามลำดับความสำคัญ รายการซ้ายสุดสำคัญที่สุด"
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr "จำนวนอักขระอย่างต่ำที่ผู้ใช้ต้องป้อน ก่อนที่แอพเพล็ตจะแสดงรายการที่ตรงกัน"
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid ""
+"The time in miliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr "ระยะเวลาเป็นมิลลิวินาที นับตั้งแต่แป้นพิมพ์ถูกกดในช่องคำค้น ก่อนที่จะเริ่มค้นหาจริง"
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid ""
+"Whether the applet should take all the available space in the panel. "
+"Overrides the width preference."
+msgstr ""
+"กำหนดว่าแอพเพล็ตจะขยายเต็มช่องว่างที่เหลือในพาเนลหรือไม่ ถ้ากำหนดคีย์นี้ "
+"จะละเลยคีย์กำหนดความกว้าง"
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr ""
+"กำหนดว่าจะแสดงเฉพาะเครื่องมือค้นหาที่เลือกไว้ แทนที่จะแสดงเครื่องมือค้นหาทั้งหมดหรือไม่ "
+"ค่านี้จะมีผลต่อเว็บเบราว์เซอร์ตระกูล Mozilla เช่น Firefox เท่านั้น"
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -168,7 +234,7 @@ msgstr "ชื่อที่คั่นหน้า"
 msgid "Uncategorized"
 msgstr "ไร้หมวด"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "ประวัติการค้นหา"
 
@@ -224,7 +290,7 @@ msgstr "ไม่มีประวัติการค้นหา"
 msgid "Cannot execute program:"
 msgstr "ไม่สามารถเรียกโปรแกรม:"
 
-#: ../deskbar/Utils.py:140
+#: ../deskbar/Utils.py:144
 msgid "Cannot show URL:"
 msgstr "ไม่สามารถแสดง URL:"
 
@@ -521,7 +587,7 @@ msgstr "จำศีลเครื่อง"
 msgid "Shutdown"
 msgstr "ปิดเครื่อง"
 
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "รู้จำการค้นหาที่เคยค้นมาแล้ว"
 
@@ -704,7 +770,7 @@ msgstr "แสดงช่องป้อนคำค้น"
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:56
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
 msgid "Show previously used actions"
 msgstr "แสดงปฏิบัติการที่ใช้ล่าสุด"
 
