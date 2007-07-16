@@ -10,14 +10,83 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-31 23:39+0100\n"
-"PO-Revision-Date: 2007-01-31 23:39+0100 \n"
+"POT-Creation-Date: 2007-07-16 18:31+0200\n"
+"PO-Revision-Date: 2007-07-16 18:39+0200 \n"
 "Last-Translator: Wouter Bolsterlee <wbolster@gnome.org>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr ""
+"Geeft aan of bij indrukken van de sneltoets de huidige selectie in het Invoerveld wordt ingevuld."
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
+msgstr ""
+"Geeft aan of het invoerveld gewist wordt nadat een zoekresultaat is gekozen" 
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr "Selecteert de gebruikte interface: ‘Cuemiac’ of ‘Entriac’"
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "De breedte van het applet-invoerveld (in aantal tekens)"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid ""
+"The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr ""
+"De toetscombinatie om het invoerveld te activeren, zodat men snel iets kan invullen"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid ""
+"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
+"Valid category names are defined in Categories.py"
+msgstr ""
+"De list met categorieën die ingeklapt worden als de ‘Cuemiac’ gebruikersinterface gebruikt wordt. Geldige waarden zijn te vinden in Categories.py."
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr ""
+"De lijst met geëxporteerde klassenamen van de ingeschakelde afhandelaars, gesorteerd op prioriteit (aflopend van links naar rechts)"
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr ""
+"Het minimum aantal tekens dat ingevoerd dient te worden voordat het applet resultaten begint te tonen."
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid ""
+"The time in miliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr ""
+"Het aantal milliseconden tussen een toetsaanslag in het invoerveld en het starten van de daadwerkelijke zoekopdracht."
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid ""
+"Whether the applet should take all the available space in the panel. "
+"Overrides the width preference."
+msgstr ""
+"Geeft aan of het applet alle beschikbare ruimte in het paneel dient te gebruiken."
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr ""
+"Geeft aan of slechts een enkele zoekmachine, in )laats van allemaal getoond dient te worden. Dit is alleen van belang voor Mozilla-gebaseerde webbrowsers, zoals Firefox."
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -184,7 +253,7 @@ msgstr "Bladwijzernaam"
 msgid "Uncategorized"
 msgstr "Zonder categorie"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "Geschiedenis"
 
@@ -241,7 +310,7 @@ msgstr "Geen geschiedenis"
 msgid "Cannot execute program:"
 msgstr "Kon programma niet uitvoeren:"
 
-#: ../deskbar/Utils.py:140
+#: ../deskbar/Utils.py:144
 msgid "Cannot show URL:"
 msgstr "Kon URL niet openen:"
 
@@ -547,7 +616,7 @@ msgstr "Slaapstand"
 msgid "Shutdown"
 msgstr "Uitzetten"
 
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "Eerder gebruikte zoekopdrachten herkennen"
 
