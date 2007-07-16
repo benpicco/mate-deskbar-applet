@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-02-03 15:55+0300\n"
+"POT-Creation-Date: 2007-07-16 10:45+0100\n"
 "PO-Revision-Date: 2007-02-03 15:57+0300\n"
 "Last-Translator: Tommi Vainikainen <Tommi.Vainikainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -17,6 +17,82 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr ""
+"Määrittää, kopioiko näppäinoikotien käynnistys nykyisen valinnan "
+"hakulaatikkoon."
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
+msgstr ""
+"Jos käytössä, tekstikenttä tyhjennetään kun hakutulos on valittu"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr "Valitsee käyttöliittymän, joko \"Cuemiac\" tai \"Entriac\""
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "Sovelman tekstikentän leveys merkkeinä"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid ""
+"The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr ""
+"Näppäinkomento, joka kohdistaa työkalupalkkisovelman kirjoitusta varten"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid ""
+"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
+"Valid category names are defined in Categories.py"
+msgstr ""
+"Luettelo luokista, jotka pienennetään näytettäessä \"Cuemiac\" -käyttö"
+"liittymässä. Kelvolliset luokkanimet ovat tiedostossa Categories.py"
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr ""
+"Luettelo käytössä olevien käsittelijöiden paljastamista luokkanimistä "
+"tärkeysjärjesteksessä. Tärkeimmät ovat vasemmalla."
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr ""
+"Pienin määrä syötettäviä merkkejä ennen kuin sovelma alkaa näyttämään "
+"osumia."
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid ""
+"The time in miliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr ""
+"Aika millisekunteina näppäilyn jälkeen ennen kuin hakua aletaan "
+"suorittamaan."
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid ""
+"Whether the applet should take all the available space in the panel. "
+"Overrides the width preference."
+msgstr ""
+"Tulisiko sovelman käyttää kaikki vapaa tila paneelista. Ohittaa "
+"leveysasetuksen."
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr ""
+"Näytetäänkö vain suosittu hakumoottori kaikkien käytettävissä olevien "
+"sijasta. Tämä vaikuttaa vain mozilla-pohjaisiin selaimiin kuten firefox."
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -174,7 +250,7 @@ msgstr "Kirjanmerkin nimi"
 msgid "Uncategorized"
 msgstr "Luokittelematon"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "Historia"
 
@@ -230,7 +306,7 @@ msgstr "Ei historiaa"
 msgid "Cannot execute program:"
 msgstr "Ohjelmaa ei voi suorittaa:"
 
-#: ../deskbar/Utils.py:140
+#: ../deskbar/Utils.py:144
 msgid "Cannot show URL:"
 msgstr "URL:ia ei voi näyttää:"
 
@@ -532,7 +608,7 @@ msgstr "Lepotila"
 msgid "Shutdown"
 msgstr "Sammutettu"
 
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "Tunnista aiemmin käytetyt haut"
 
