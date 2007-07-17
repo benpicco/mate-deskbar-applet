@@ -188,6 +188,7 @@
 <!-- ================ Usage ================================ -->
 <!-- Use this section to describe how to use the applet to perform the tasks for 
      which the applet is designed. -->
+<!--
   <sect1 id="deskbar-usage"> 
 	 <title>Usage</title> 
 	 <para>When you add &applet; to a panel for the
@@ -196,243 +197,28 @@
 		groups of characters. Each predefined group of characters is associated with a
 		standard character on your keyboard. 
     </para>
-
+-->
 	 <!-- ================ Usage Subsection ================================ -->
-	 <sect2 id="deskbar-charselect"> 
-		<title>Topic 1</title> 
-		<para>To select a character from the applet
-and insert the character into a text 
-		string, perform the following steps: 
-		  <orderedlist> 
-			 <listitem> 
-				<para>Click on the character in the applet that you require. The
-				  character button is pressed in to indicate that the character is selected.
-				  </para> 
-			 </listitem> 
-			 <listitem> 
-				<para>Point to the location in an application where you want to put
-				  the character and middle-click to insert the character. You can also paste the
-				  character into the application if a paste facility is available. You can repeat
-				  the insertion as many times as you want because the character remains selected
-				  until you click on another character in the applet. </para> 
-			 </listitem> 
-		  </orderedlist></para> 
-		<para>Some applications do not support the full ISO-8859-1 character set
-		  specification. You can not insert unsupported characters into an
-		  application.</para> 
-	 </sect2> 
-    <!-- ================ Usage Subsection ================================ -->
-
-	 <sect2 id="deskbar-display-chargroup"> 
-		<title>Topic 2</title> 
-		<para>You can change the characters that are displayed in the applet from
-		  the default list to a predefined group of characters.</para> 
-		<para>To display a group of predefined characters, perform the following
-		  steps: 
-		  <orderedlist> 
-			 <listitem> 
-				<para>Click on any character in the default list to activate the
-				  applet. </para> 
-			 </listitem> 
-			 <listitem> 
-				<para>Press the keyboard character that is associated with the
-				  group of characters that you want to display. For example, press 
-				  <keycap>A</keycap> to display the group of characters in the
-				  following figure. 
-              <!-- ==== Figure ============================================= -->
-
-				  <figure id="deskbar-fig2"> 
-					 <title>Character Group Associated With the A Key</title> 
-					 <screenshot> 
-						<mediaobject> 
-						  <imageobject><imagedata fileref="figures/myapplet_fig2"
-							 format="PNG"/> 
-						  </imageobject>
-              <!-- EPS versions of the figures are not required at the moment. -->
-<!-- 
-		              <imageobject>
-      		        <imagedata fileref="figures/myapplet_fig2" format="EPS"/>
-    		           </imageobject>
-		        -->
-						  <textobject> 
-							 <phrase>Screen shot of the character group associated
-								with the "A" key. </phrase> 
-						  </textobject> 
-						</mediaobject> 
-					 </screenshot> 
-				  </figure> 
-              <!-- ==== End of Figure ======================================= -->
-
-				</para> 
-			 </listitem> 
-		  </orderedlist></para> 
-		<para>You can select the character that you require from the group of
-		  characters in the applet, then insert the character into your text string.
-		  </para> 
-		<para>The following chart lists keyboard characters and their associated
-		  groups of characters. The keyboard characters are listed in the first column of
-		  each section in the chart. The character groups that are associated with each
-		  keyboard character are shown in the other columns. </para>
-      <!-- ==== Figure ============================================= -->
-		<figure id="deskbar-fig3"> 
-		  <title>Character Groups Associated With Keyboard Keys</title> 
-		  <screenshot> 
-			 <mediaobject> 
-				<imageobject><imagedata fileref="figures/myapplet_fig3"
-				  format="PNG"/> 
-				</imageobject>
-
-          <!-- EPS versions of the figures are not required at the moment. -->
-<!-- 
-		    <imageobject>
-      		<imagedata fileref="figures/myapplet_fig3" format="EPS"/>
-    		    </imageobject>
-		    -->
-				<textobject> 
-				  <phrase>Screen shot of character groups associated with various
-					 keyboard keys. </phrase> 
-				</textobject> 
-			 </mediaobject> 
-		  </screenshot> 
-		</figure> 
-      <!-- ==== End of Figure ======================================= -->
-	 </sect2> 
-    <!-- ================ Usage Subsection ================================ -->
-	 <sect2 id="deskbar-default-list"> 
-		<title>Topic 3</title> 
-		<para>To return to the current default character list, click on any
-		  character in the applet, then press the space bar on your keyboard. </para> 
-	 </sect2>
-
-    <!-- ================ Usage Subsection ================================ -->
-	 <sect2 id="deskbar-default-new"> 
-		<title>Topic 4</title> 
-		<para>You can use a character selection application such as
-		  <application>GNOME Character Map</application> to set up a new default list.
-		  For example, to create a new default list with <application>GNOME Character
-		  Map</application>, perform the following steps: </para> 
-		<orderedlist> 
-		  <listitem> 
-			 <para> Right-click anywhere in the applet, then select 
-				<guimenuitem>Properties</guimenuitem>. </para> 
-		  </listitem> 
-		  <listitem> 
-			 <para> In the 
-				<guilabel>Character Picker Settings</guilabel> dialog, click on the
-				
-				<guilabel>Default List</guilabel> tab. </para> 
-		  </listitem> 
-		  <listitem> 
-			 <para> Select the contents of the 
-				<guilabel>Default character list</guilabel> text box, then press 
-				<keycap>Back Space</keycap> to delete the current default list.
-				</para> 
-		  </listitem> 
-		  <listitem> 
-			 <para> Open <application>GNOME Character Map</application>, then
-				select the characters you want for your new default list. You can select up to
-				25 characters. </para> 
-		  </listitem> 
-		  <listitem> 
-			 <para> Copy the contents of the 
-				<guilabel>Text to copy</guilabel> text box from <application>GNOME
-				Character Map</application> to the 
-				<guilabel>Default character list</guilabel> text box. </para> 
-		  </listitem> 
-		  <listitem> 
-			 <para> Click 
-				<guibutton>Apply</guibutton> to view the new default list in the
-				applet, then click 
-				<guibutton>OK</guibutton>. </para> 
-		  </listitem> 
-		</orderedlist> 
-	 </sect2> 
-
+<!--
   </sect1>
+-->
 
 <!-- ============= Customization ============================= -->
 <!-- Use this section to describe how to customize the applet. -->
+<!--
   <sect1 id="deskbar-prefs"> 
 	 <title>Settings</title> 
 	 <para>To configure &applet;, right-click on the
 		applet, then choose 
 		<guimenuitem>Properties</guimenuitem> from the popup menu.</para> 
 
+-->
 <!-- =============== Customization Subsection ================ -->
 <!-- Use a new section to describe different tabbed sections on the Settings or Preferences
 	     dialog. -->
-	 <sect2 id="deskbar-size"> 
-		<title>Size</title> 
-		<variablelist> 
-		  <varlistentry> 
-			 <term> 
-				<guilabel>Follow panel size</guilabel></term> 
-			 <listitem> 
-				<para>Select this option to automatically set the appropriate
-				  number of columns and rows of characters in the applet to fit in your
-				  panel.</para> 
-				<para>Default: selected.</para> 
-			 </listitem> 
-		  </varlistentry> 
-		  <varlistentry> 
-			 <term> 
-				<guilabel>Minimum number of cells: (for autosize)</guilabel></term>
-
-			 
-			 <listitem> 
-				<para>Use this spin box to specify the minimum number of character
-				  cells in the applet. You can specify up to 25 cells. If you specify a low
-				  minimum number of cells, some characters might not be visible.</para> 
-				<para>Default: 8 cells.</para> 
-			 </listitem> 
-		  </varlistentry> 
-		  <varlistentry> 
-			 <term> 
-				<guilabel>Number of rows of buttons</guilabel></term> 
-			 <listitem> 
-				<para>Use this spin box to specify the number of character rows in
-				  the applet. You can specify up to 5 rows. </para> 
-				<para>Default: 2 rows.</para> 
-			 </listitem> 
-		  </varlistentry> 
-		  <varlistentry> 
-			 <term> 
-				<guilabel>Number of columns of buttons</guilabel></term> 
-			 <listitem> 
-				<para>Use this spin box to specify the number of character columns
-				  in the applet. You can specify up to 5 columns.</para> 
-				<para>Default: 4 columns. </para> 
-			 </listitem> 
-		  </varlistentry> 
-		  <varlistentry> 
-			 <term> 
-				<guilabel>Size of buttons: (pixels)</guilabel></term> 
-			 <listitem> 
-				<para>Use this spin box to specify the size in pixels of each
-				  character cell in the applet. You can specify a button size up to 40
-				  pixels.</para> 
-				<para>Default: 22 pixels.</para> 
-			 </listitem> 
-		  </varlistentry> 
-		</variablelist> 
-	 </sect2>
-
-<!-- ============= Customization Subsection ===================== -->
-<!-- Another tabbed section on the Preferences dialog. -->
-	 <sect2 id="deskbar-set-default"> 
-		<title>Default List</title> 
-		<variablelist> 
-		  <varlistentry> 
-			 <term> 
-				<guilabel>Default character list</guilabel></term> 
-			 <listitem> 
-				<para>Use this text box to specify your own default character
-				  list.</para> 
-			 </listitem> 
-		  </varlistentry> 
-		</variablelist> 
-	 </sect2> 
+<!--
   </sect1>
+-->
 
 <!-- ============= Bugs ================================== -->
 <!-- This section is optional and is commented out by default. 
