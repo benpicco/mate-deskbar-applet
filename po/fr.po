@@ -5,7 +5,7 @@
 # Vincent Carriere <carriere_vincent@yahoo.fr>, 2006.
 # Laurent Richard <laurent.richard@ael.be>, 2006.
 # Stéphane Raimbault <stephane.raimbault@gmail.com>, 2006-2007.
-# Robert-André Mauchin <zebob.m@gmail.com>, 2006.
+# Robert-André Mauchin <zebob.m@pengzone.org>, 2006-2007.
 # Jonathan Ernst <jonathan@ernstfamily.ch>, 2006-2007.
 # Samuel Mutel <samuel.mutel@free.fr>, 2006.
 # Christophe Merlet <redfox@redfoxcenter.org>, 2006.
@@ -13,16 +13,84 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet 2.16.1\n"
+"Project-Id-Version: deskbar-applet 2.19.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-02-05 19:33+0100\n"
-"PO-Revision-Date: 2007-02-05 19:37+0100\n"
-"Last-Translator: Jonathan Ernst <jonathan@ernstfamily.ch>\n"
+"POT-Creation-Date: 2007-07-18 23:24+0200\n"
+"PO-Revision-Date: 2007-07-18 23:34+0200\n"
+"Last-Translator:  Stéphane Raimbault <stephane.raimbault@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
+
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr ""
+"Indique si le déclenchement du raccourci clavier colle également la "
+"sélection dans la zone de recherche."
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
+msgstr "Si activé, la zone de saisie sera vidée après qu'un résultat de recherche ait été sélectionné"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr ""
+"Sélectionne l'interface utilisateur à utiliser, soit « Cuemiac » ou "
+"« Entriac »"
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "La largeur de la zone de saisie de l'applet en nombre de caractères"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid ""
+"The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr "La séquence de touches donnera le focus sur l'applet deskbar, permettant de saisir rapidement"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid ""
+"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
+"Valid category names are defined in Categories.py"
+msgstr "La liste des catégories à réduire quand l'interface utilisateur « Cuemiac » est affichée. Les noms de catégories valides sont définies dans Categories.py"
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr "La liste des noms des classes exportées depuis les gestionnaires actifs, triée par priorité. La plus à gauche a la plus haute priorité"
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr "Le nombre minimum de caractères devant être saisis avant que l'applet commence l'affichage des correspondances"
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid ""
+"The time in miliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr ""
+"Le temps en millisecondes entre une frappe de touche dans la zone de "
+"recherche et le moment où la recherche est lancée."
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid ""
+"Whether the applet should take all the available space in the panel. "
+"Overrides the width preference."
+msgstr ""
+"Indique si l'applet doit prendre tout l'espace disponible dans le panneau. "
+"Outrepasse la préférence de largeur."
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr "Indique s'il faut uniquement afficher les moteurs de recherche favoris, plutôt que tous les moteurs disponibles. Ceci affecte seulement les navigateurs basés sur Mozilla, tel que Firefox."
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -180,7 +248,7 @@ msgstr "Nom du signet"
 msgid "Uncategorized"
 msgstr "Non classé"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "Historique"
 
@@ -236,7 +304,7 @@ msgstr "Aucun historique"
 msgid "Cannot execute program:"
 msgstr "Impossible d'exécuter le programme :"
 
-#: ../deskbar/Utils.py:140
+#: ../deskbar/Utils.py:144
 msgid "Cannot show URL:"
 msgstr "Impossible d'afficher l'URL :"
 
@@ -546,7 +614,7 @@ msgstr "Hiberner"
 msgid "Shutdown"
 msgstr "Arrêter"
 
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "Reconnaît les recherches précédemment effectuées"
 
