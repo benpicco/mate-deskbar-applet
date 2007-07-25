@@ -3,19 +3,86 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2006, 2007.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-04 15:28+0200\n"
-"PO-Revision-Date: 2007-04-04 15:37+0200\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
-"Language-Team: Basque <itzulpena@euskalgnu.org>\n"
+"POT-Creation-Date: 2007-07-25 20:58+0200\n"
+"PO-Revision-Date: 2007-07-25 21:12+0200\n"
+"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
+"Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
+
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr "Aukeratu laste-teklak uneko hautapena itsatsiko duen edo ez bilaketako koadroan."
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid "If enabled it will clear the entry after a search result has been selected"
+msgstr "Gaitzen bada sarrera garbituko du bilaketako emaitza hautatu ondoren"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr "Erabiliko den interfazea hautatzen du, \"Cuemiac\" edo \"Entriac\""
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "Aplet-aren sarreraren zabalera karaktereetan"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid "The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr "Tekla-sekuentziak deskbar-appletean fokua jarriko du, azkar idaztea eskainiz"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid ""
+"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
+"Valid category names are defined in Categories.py"
+msgstr ""
+"Tolestuko den kategorien zerrenda 'Cuemiac' interfazea bistaratzean. "
+"Kategorien baliozko izenak Categories.py fitxategian definituta daude."
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr "Gaitutako kudeatzaileen esportatutako klase-izenen zerrenda lehentasunaren arabera ordenatutz. Ezkerrenen dagoenak lehentasun handiagoa du."
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr ""
+"Idatzi beharreko gutxiengo karaktere kopurua applet-ak bat datozenak "
+"erakusten hasteko"
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid ""
+"The time in miliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr "Denbora (milisegundotan) bilaketako sarreran tekla sakatu eta uneko bilaketaren artekoa"
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid ""
+"Whether the applet should take all the available space in the panel. "
+"Overrides the width preference."
+msgstr ""
+"Applet-ak panelean erabilgarri dagoen leku guztia hartu behar duen edo ez. "
+"Zabaleraren hobespena gain ezartzen da"
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr ""
+"Hobetsitako bilaketako motorra soilik edo motor guztiak erakutsi. Honek "
+"Mozilla-n oinarritutako web arakatzaileei soilik eragiten die: adib. firefox."
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -700,7 +767,9 @@ msgstr "Kudeatzailea ongi instalatu da"
 
 #: ../deskbar/ui/DeskbarPreferencesUI.py:564
 msgid "Handler could not be installed due a problem with the provided file"
-msgstr "Ezin izan da kudeatzailea instalatu arazo bat gertatu delako emandako fitxategiarekin"
+msgstr ""
+"Ezin izan da kudeatzailea instalatu arazo bat gertatu delako emandako "
+"fitxategiarekin"
 
 #: ../deskbar/ui/ModuleListView.py:55
 msgid "Update Available"
@@ -791,9 +860,7 @@ msgstr "%s eguneratzen"
 msgid ""
 "The update is being downloaded from the internet. Please wait until the "
 "update is complete"
-msgstr ""
-"Eguneraketa internetetik deskargatzen ari da. "
-"Itxaron eguneraketa burutu arte"
+msgstr "Eguneraketa internetetik deskargatzen ari da. Itxaron eguneraketa burutu arte"
 
 #: ../deskbar/updater/NewStuffUpdater.py:156
 #, python-format
@@ -805,8 +872,8 @@ msgid ""
 "The handler is being downloaded from the internet. Please wait until the "
 "installation is complete"
 msgstr ""
-"Kudeatzailea internetetik deskargatzen ari da. Itxaron instalazioa "
-"burutu arte"
+"Kudeatzailea internetetik deskargatzen ari da. Itxaron instalazioa burutu "
+"arte"
 
 #: ../deskbar/updater/NewStuffUpdater.py:157
 msgid "Downloading"
