@@ -4,19 +4,100 @@
 # This file is distributed under the same license as the deskbar-applet package.
 # Hendrik Brandt <heb@gnome-de.org>, 2005, 2006.
 # Hendrik Richter <hendrikr@gnome.org>, 2006, 2007.
+# Johannes Schmid <jhs@gnome.org>, 2007
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-17 17:42+0200\n"
-"PO-Revision-Date: 2007-04-17 17:42+0200\n"
-"Last-Translator: Martin Moeller <mm@exsomnis.de>\n"
+"POT-Creation-Date: 2007-07-22 22:13+0200\n"
+"PO-Revision-Date: 2007-07-22 22:33+0200\n"
+"Last-Translator: Johannes Schmid <jhs@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);"
+
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr ""
+"Legt fest, ob das Tastenkürzel auch die aktuelle Auswahl in das Suchfeld "
+"einfügen soll."
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
+msgstr ""
+"Legt fest, ob das Suchfeld geleert werden soll, wenn ein Ergebnis ausgewählt "
+"wird"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr "Das Benutzerinterface auswählen, »Cuemiac« oder »Entriac«"
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "Anzahl der Buchstaben, die das Eingabefeld breit sein soll"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid ""
+"The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr ""
+"Die Tastenfolge, welche den Fokus in das Eingabefeld des Deskbar Applets "
+"verschiebt und eine schnelle Eingabe erlaubt"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid ""
+"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
+"Valid category names are defined in Categories.py"
+msgstr ""
+"Eine Liste von Kategorien, die eingeklappt werden, falls die »Cuemiac«-"
+"Benutzeroberfläche ausgewählt ist. Gültige Kategorien sind in Categories.py "
+"aufgeführt"
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid ""
+"The list of exported class names of the enabled handlers sorted by "
+"priority. Leftmost has highest priority"
+msgstr ""
+"Eine Liste der exportierten Klassennamen der aktivierten Handler sortiert "
+"nach Priorität. Die Priorität ist ganz links am höchsten."
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr ""
+"Die Anzahl von Buchstaben, die eingetippt werden müssen, bevor "
+"Suchergebnisse angezeigt werden."
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid ""
+"The time in miliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr ""
+"Zeit in Millisekunden zwischen einem Tastendruck im Suchfeld und dem Start "
+"der eigentlichen Suche."
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid ""
+"Whether the applet should take all the available space in the panel. "
+"Overrides the width preference."
+msgstr ""
+"Legt fest, ob das Applet den verfügbaren Platz im Panel ausnutzen soll. "
+"Überschreibe die Breiteneinstellung."
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr ""
+"Legt fest, ob nur die bevorzugten Suchmaschinen angezeigt werden sollen "
+"anstatt aller verfügbaren. Dies beeinflusst nur Mozilla-basierte Webbrowser "
+"wie z.B. Firefox."
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -128,9 +209,9 @@ msgid ""
 "you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
 "the deskbar.</small></i>"
 msgstr ""
-"<i><small><b>Hinweis: </b>Wenn die Tastenkombination ein einzelner Buchstabe "
-"ist (z.B. <b>e</b>) können sie auch nur »<b>irgendwas</b>« schreiben und "
-"anschließend <b>Alt-e</b> im Eingabefeld drücken.</small></i>"
+"<i><small><b>Hinweis: </b>Wenn die Tastenkombination ein einzelner "
+"Buchstabe ist (z.B. <b>e</b>) können sie auch nur »<b>irgendwas</b>« "
+"schreiben und anschließend <b>Alt-e</b> im Eingabefeld drücken.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid ""
@@ -517,7 +598,8 @@ msgstr "Neu starten"
 msgid "Restart the computer"
 msgstr "Den Rechner neu starten"
 
-#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
+#: ../deskbar/handlers/gdmactions.py:159
+#: ../deskbar/handlers/gdmactions.py:165
 msgid "Switch User"
 msgstr "Benutzer wechseln"
 
@@ -624,7 +706,8 @@ msgstr "%s ausführen"
 #: ../deskbar/handlers/recent.py:15
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
 msgstr ""
-"Dieses Hilfsprogramm benötigt eine aktueller gtk+-Version (2.9.0 oder neuer)."
+"Dieses Hilfsprogramm benötigt eine aktueller gtk+-Version (2.9.0 oder "
+"neuer)."
 
 #: ../deskbar/handlers/recent.py:19
 msgid "Recent Documents"
@@ -870,14 +953,15 @@ msgstr "Herunterladen"
 #~ "\n"
 #~ "~/.gnome2/deskbar-applet/Google.key\n"
 #~ "\n"
-#~ "Wenn Sie keinen API-Schlüssel in Ihrer Bestätigungs-E-Mail erhalten (oder "
-#~ "Sie Ihn verloren haben), dann besuchen Sie www.google.com/accounts und "
-#~ "melden Sie sich an, klicken Sie auf »Profil erstellen« und geben Sie Ihre "
-#~ "E-Mail-Adresse und Ihr Passwort an. Anschließend wird Ihnen Ihr API-"
+#~ "Wenn Sie keinen API-Schlüssel in Ihrer Bestätigungs-E-Mail erhalten "
+#~ "(oder Sie Ihn verloren haben), dann besuchen Sie www.google.com/accounts "
+#~ "und melden Sie sich an, klicken Sie auf »Profil erstellen« und geben Sie "
+#~ "Ihre E-Mail-Adresse und Ihr Passwort an. Anschließend wird Ihnen Ihr API-"
 #~ "Schlüssel erneut zugesendet.\n"
 #~ "\n"
 #~ "Laden Sie nun die Entwicklerwerkzeuge herunter und entpacken Sie die "
-#~ "Datei GoogleSearch.wsdl daraus. Kopieren Sie anschließend die Datei nach\n"
+#~ "Datei GoogleSearch.wsdl daraus. Kopieren Sie anschließend die Datei "
+#~ "nach\n"
 #~ "\n"
 #~ "~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
 
