@@ -1,22 +1,86 @@
-# translation of deskbar-applet.HEAD.po to Bengali India
+# translation of deskbar-applet to Bengali INDIA
 # This file is distributed under the same license as the deskbar-applet package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Mahay Alam Khan (মাহে আলম খান) <makl10n@yahoo.com>, 2006.
 #
+# Mahay Alam Khan (মাহে আলম খান) <makl10n@yahoo.com>, 2006.
+# Runa Bhattacharjee <runabh@gmail.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet.HEAD\n"
+"Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-08 03:50+0000\n"
-"PO-Revision-Date: 2007-03-06 10:18+0530\n"
+"POT-Creation-Date: 2007-06-07 03:48+0100\n"
+"PO-Revision-Date: 2007-08-03 14:57+0530\n"
 "Last-Translator: Runa Bhattacharjee <runabh@gmail.com>\n"
-"Language-Team: Bengali India\n"
+"Language-Team: Bengali INDIA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "\n"
-"X-Generator: KBabel 1.9.1\n"
+"\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr "কি-বোর্ড শর্ট-কাট প্রয়োগের ফলে বর্তমানে নির্বাচিত তথ্য, অনুসন্ধানের বাক্সে পেস্ট করা হবে কি না তা নির্বাচন করুন।"
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid "If enabled it will clear the entry after a search result has been selected"
+msgstr "সক্রিয় করা হলে, অনুসন্ধানের ফলাফল নির্বাচিত হলে এন্ট্রি মুছে ফেলা হবে"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+msgstr "ব্যবহারের জন্য \"Cuemiac\" অথবা \"Entriac\"-র মধ্যে একটি ইউজার ইন্টারফেস নির্বাচন করা হয়"
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "The applet's entry width in number of characters"
+msgstr "অক্ষর সংখ্যা অনুযায়ী অ্যাপ্লেটের প্রারম্ভিক প্রস্থের মাপ"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid "The key sequence will focus the deskbar applet, allowing to type quickly"
+msgstr "কি-সংকলন দ্বারা ডেস্কবার অ্যাপ্লেট উজ্জ্বল করা হবে এবং এর ফলে দ্রুত টাইপ করা সম্ভব হবে"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid ""
+"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
+"Valid category names are defined in Categories.py"
+msgstr ""
+"Th'Cuemiac' ইউজার ইন্টারফেস প্রদর্শনকালে সংকোচন করার জন্য চিহ্নিত বিভাগের তালিকা।"
+"বৈধ বিভাগের নাম Categories.py ফাইলে অন্তর্ভুক্ত রয়েছে"
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr " সক্রিয় হ্যান্ডলারের এক্সপোর্ট করা ক্লাসের নামের তালিকা, গুরুত্ব অনুযায়ী প্রদর্শিত। বাঁদিকের প্রান্তে স্থাপিত নামটি সর্বাধিক গুরুত্বপূর্ণ।"
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr "অ্যাপ্লেট দ্বারা সমতূল্য বস্তু প্রদর্শনের পূর্বে সর্বনিম্ন যে সংখ্যক অক্ষর টাইপ করা আবশ্যক।"
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid ""
+"The time in miliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr "অনুসন্ধানের জন্য তথ্য লেখার সময় কি-প্যাডে কি টেপার মুহূর্ত ও অনুসন্ধান আরম্ভ মধ্যে অন্তবর্তী অবকাশ, মিলিসেকেন্ডে ব্যক্ত"
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid ""
+"Whether the applet should take all the available space in the panel. "
+"Overrides the width preference."
+msgstr ""
+"অ্যাপ্লেট দ্বারা প্যানেলের মধ্যে সর্বমেট উপলব্ধ স্থান ব্যবহার করা হবে কি না। "
+"প্রস্থ সংক্রান্ত পছন্দ উপেক্ষা করা হবে।"
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr "উপলব্ধ ইঞ্জিনগুলির পরিবর্তে শুধুমাত্র পছন্দসই অনুসন্ধানের ইঞ্জিন প্রদর্শন করা হবে কি না। শুধুমাত্র Mozilla-ভিত্তিক ওয়েব-সার্ভার যেমন Firefox-র ক্ষেত্রে প্রযোজ্য।"
 
 #: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
@@ -185,7 +249,7 @@ msgstr "বুকমার্কের নাম"
 msgid "Uncategorized"
 msgstr "শ্রেণীবহির্ভূত"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
 msgid "History"
 msgstr "পূর্ববর্তী তথ্য"
 
@@ -242,7 +306,7 @@ msgstr "পূর্ববর্তী কোনো তথ্য উপস্থ
 msgid "Cannot execute program:"
 msgstr "প্রোগ্রাম সঞ্চালন করতে ব্যর্থ:"
 
-#: ../deskbar/Utils.py:140
+#: ../deskbar/Utils.py:144
 msgid "Cannot show URL:"
 msgstr "URL প্রদর্শনে ব্যর্থ:"
 
@@ -552,7 +616,7 @@ msgstr "নিদ্রিত অবস্থায় রাখুন"
 msgid "Shutdown"
 msgstr "বন্ধ করুন"
 
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/history.py:12
 msgid "Recognize previously used searches"
 msgstr "পূর্বে ব্যবহৃত অনুসন্ধান সনাক্ত করুন"
 
@@ -710,8 +774,10 @@ msgid ""
 "using this key.\n"
 "Please try with a key such as Control, Alt or Shift at the same time.\n"
 msgstr ""
-"\"%s\" শর্টকাট-কি ব্যবহার করা যাবে না কারণ এর ফলে সংশ্লিষ্ট কি সহযোগে টাইপ করা সম্ভব হবে না।\n"
-"অনুগ্রহ করে Control, Alt অথবা Shift কিগুলির মধ্যে একযোগ ব্যবহারযোগ্য কোনো কি পছন্দ করুন।\n"
+"\"%s\" শর্টকাট-কি ব্যবহার করা যাবে না কারণ এর ফলে সংশ্লিষ্ট কি সহযোগে টাইপ করা "
+"সম্ভব হবে না।\n"
+"অনুগ্রহ করে Control, Alt অথবা Shift কিগুলির মধ্যে একযোগ ব্যবহারযোগ্য কোনো কি পছন্দ "
+"করুন।\n"
 
 #: ../deskbar/ui/DeskbarPreferencesUI.py:330
 msgid "Connection to repository failed"
@@ -740,7 +806,7 @@ msgstr "অনুসন্ধানের বস্তু প্রদর্শ�
 
 #: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
 #: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:56
+#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
 msgid "Show previously used actions"
 msgstr "পূর্বে সঞ্চালিত কর্ম প্রদর্শন করা হবে"
 
@@ -819,7 +885,9 @@ msgstr "%s আপডেট করা হচ্ছে"
 msgid ""
 "The update is being downloaded from the internet. Please wait until the "
 "update is complete"
-msgstr "ইন্টারনেট থেকে আপডেট ডাউনলোড করা হচ্ছে। অনুগ্রহ করে আপডেট সম্পূর্ণ না হওয়া অবধি অপেক্ষা করুন।"
+msgstr ""
+"ইন্টারনেট থেকে আপডেট ডাউনলোড করা হচ্ছে। অনুগ্রহ করে আপডেট সম্পূর্ণ না হওয়া অবধি "
+"অপেক্ষা করুন।"
 
 #: ../deskbar/updater/NewStuffUpdater.py:156
 #, python-format
@@ -830,7 +898,9 @@ msgstr "%s ইনস্টল করা হচ্ছে"
 msgid ""
 "The handler is being downloaded from the internet. Please wait until the "
 "installation is complete"
-msgstr "ইন্টারনেট থেকে হ্যান্ডলার ডাউনলোড করা হচ্ছে। অনুগ্রহ করে ইনস্টলেশন সম্পূর্ণ না হওয়া অবধি অপেক্ষা করুন।"
+msgstr ""
+"ইন্টারনেট থেকে হ্যান্ডলার ডাউনলোড করা হচ্ছে। অনুগ্রহ করে ইনস্টলেশন সম্পূর্ণ না হওয়া "
+"অবধি অপেক্ষা করুন।"
 
 #: ../deskbar/updater/NewStuffUpdater.py:157
 msgid "Downloading"
