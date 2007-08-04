@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 2.19.4, rslinckx@gnome.org)
+AC_INIT(deskbar-applet, 2.19.90, mikkel.kamstrup@gmail.com)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
@@ -162,18 +162,20 @@ AC_OUTPUT([
 Makefile
 deskbar/Makefile
 deskbar/defs.py
+deskbar/core/Makefile
+deskbar/core/keybinder/Makefile
+deskbar/core/gnomedesktop/Makefile
+deskbar/core/updater/Makefile
+deskbar/handlers/Makefile
+deskbar/handlers/actions/Makefile
+deskbar/handlers/gdmclient/Makefile
+deskbar/handlers/evolution/Makefile
+deskbar/osutils/Makefile
+deskbar/interfaces/Makefile
 deskbar/ui/Makefile
 deskbar/ui/cuemiac/Makefile
-deskbar/ui/entriac/Makefile
-deskbar/ui/window/Makefile
-deskbar/handlers/Makefile
-deskbar/updater/Makefile
-deskbar/iconentry/Makefile
-deskbar/keybinder/Makefile
-deskbar/gnomedesktop/Makefile
-deskbar/gdmclient/Makefile
-deskbar/evolution/Makefile
-deskbar/osutils/Makefile
+deskbar/ui/iconentry/Makefile
+deskbar/ui/preferences/Makefile
 data/Makefile
 data/deskbar-applet.pc
 data/art/Makefile

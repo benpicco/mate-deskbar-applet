@@ -1,7 +1,7 @@
 import gtk
 
 import deskbar
-from deskbar.Categories import CATEGORIES
+from deskbar.core.Categories import CATEGORIES
 import gettext
 
 class CuemiacCategory :
@@ -24,7 +24,7 @@ class CuemiacCategory :
 			self.__id = "default"
 
 			
-		self.__priority = -1
+		self.__priority = 0
 		self.__count = 0
 
 	def get_category_row_path (self):
@@ -60,6 +60,6 @@ class CuemiacCategory :
 		return self.__priority
 	
 	def set_priority(self, match):
-		p = match.get_priority()[0]
-		if self.__priority < p:
+		p = match.get_priority()
+		if p > self.__priority:
 			self.__priority = p

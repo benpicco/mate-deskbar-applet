@@ -1,10 +1,10 @@
 import gtk
+import gtk.gdk
 import gobject
-
 import cgi
-
 import deskbar
-from deskbar.Categories import CATEGORIES
+import deskbar.interfaces.Match
+from deskbar.core.Categories import CATEGORIES
 from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
 			
 # The sort function ids
@@ -29,122 +29,135 @@ class CuemiacModel (gtk.TreeStore):
 		"category-added" : CuemiacCategory, gtk.TreePath
 	"""
 	# Column name
-	MATCHES = 0
-	ACTIONS = 1
+	QUERY, MATCHES, ACTIONS = range(3)
 	
 	__gsignals__ = {
 		"category-added" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
 	}
 	
 	def __init__ (self):
-		gtk.TreeStore.__init__ (self, gobject.TYPE_PYOBJECT, gobject.TYPE_STRING)
+		gtk.TreeStore.__init__ (self, gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_STRING)
 		self.__categories = {}
+		self.__match_hashes = {}
 		self.append_method = gtk.TreeStore.append # Alternatively gtk.TreeStore.prepend for bottom panel layout
 		self.set_sort_func(SORT_BY_CATEGORY, self.__on_sort_categories)
+		self.set_sort_order(gtk.SORT_DESCENDING)
 	
 	def set_sort_order(self, order):
 		self.set_sort_column_id(SORT_BY_CATEGORY, order)
 	
-	def __on_sort_categories(self, treemodel, iter1, iter2):
-		match1 = treemodel[iter1][self.MATCHES]
-		match2 = treemodel[iter2][self.MATCHES]
-
-		# Sort categories according to handler preferences
-		if match1.__class__ == CuemiacCategory:
-			return match1.get_priority() - match2.get_priority()
-				
-		# Sort matches inside category according to handler prefs, then match prio
-		text1, match1 = match1
-		text2, match2 = match2
-		
-		diff = match1.get_priority()[0] - match2.get_priority()[0]
-		if diff != 0:
-			return diff
-			
-		diff = match1.get_priority()[1] - match2.get_priority()[1]
-		if diff != 0:
-			return diff
-		
-		# Finally use the Action to sort alphabetically, is this a bottleneck ?
-		a = treemodel[iter1][self.ACTIONS]
-		b = treemodel[iter2][self.ACTIONS]
-		if a != None:
-			a = a.strip().lower()
-		if b != None:
-			b = b.strip().lower()
-			
-		if a < b:
+	def __compare(self, item1, item2):
+		if (item1 > item2):
 			return 1
-		elif a > b:
+		elif (item1 < item2):
 			return -1
 		else:
 			return 0
+
+	def __on_sort_categories(self, treemodel, iter1, iter2):
+		match_obj1 = treemodel[iter1][self.MATCHES]
+		match_obj2 = treemodel[iter2][self.MATCHES]
 		
-	def append (self, match):
+		if match_obj1 == None or match_obj2 == None:
+			return 0
+		
+		if isinstance(match_obj1, CuemiacCategory):
+			return self.__compare( match_obj1.get_priority(), match_obj2.get_priority() )
+		
+		if match_obj1.get_priority() == match_obj2.get_priority():
+			# Sort alphabetically
+			a = treemodel[iter1][self.ACTIONS]
+			b = treemodel[iter2][self.ACTIONS]
+			if a != None and b != None:
+				return self.__compare( a.strip().lower(), b.strip().lower() )
+		
+		return self.__compare( match_obj1.get_priority(), match_obj2.get_priority() )
+	
+	def __add_to_hash_iter_map(self, hash, iter):
+		"""
+		Maps a hash to the iter pointing to match with given hash
+		"""
+		self.__match_hashes[hash] = iter
+	
+	def __add_actions_to_match(self, actions, hash):
+		"""
+		Add actions to match with given hash
+		"""
+		match_iter = self.__match_hashes[hash]
+		match_obj = self[match_iter][self.MATCHES]
+		match_obj.add_all_actions(actions)
+	
+	def __append_match(self, match_obj, query_string):
+		if not self.__match_hashes.has_key(match_obj.get_hash()): 
+			iter = self.__append ( query_string, match_obj )
+			self.__add_to_hash_iter_map(match_obj.get_hash(), iter)
+		else:
+			self.__add_actions_to_match(match_obj.get_actions(), match_obj.get_hash())
+	
+	def append (self, match_obj, query_string):
 		"""
 		Automagically append a match or list of matches 
 		to correct category(s), or create a new one(s) if needed.
 		"""
-		if type (match) == list:
-			for hit in match:
-				self.__append (hit)
+		#gtk.gdk.threads_enter()
+		if isinstance(match_obj, list):
+			for hit in match_obj:
+				self.__append_match(hit, query_string)
+		elif isinstance(match_obj, deskbar.interfaces.Match):
+			self.__append_match(match_obj, query_string)
 		else:
-			self.__append (match)
+			raise RuntimeError("Unknown Match type: "+match_obj.__class__.__name__)
+		#gtk.gdk.threads_leave()
 		
-	def __append (self, match):
-		qstring, match_obj = match
+	def __append (self, qstring, match_obj):
 		if self.__categories.has_key (match_obj.get_category()):
-			self.__append_to_category (match)
+			iter = self.__append_to_category (qstring, match_obj)
 		else:
-			self.__create_category_with_match (match)
+			iter = self.__create_category_with_match (qstring, match_obj)
+		return iter
 			
-			
-	def __create_category_with_match (self, match):
+	def __create_category_with_match (self, qstring, match_obj):
 		"""
 		Assumes that the category for the match does not exist.
 		"""
-		qstring, match_obj = match
 		#FIXME: Check validity of category name and use  proper i18n
 		# Set up a new category
+		
 		cat = CuemiacCategory (match_obj.get_category(), self)
 		cat.set_priority(match_obj)	
-
-		iter = self.append_method (self, None, [cat, None])
+		
+		iter = self.append_method (self, None, ["", cat, ""])
 		cat.set_category_iter (iter)
 		self.__categories [match_obj.get_category()] = cat
 
 		# Append the match to the category	
-		self.__append_match_to_iter (iter, match)
+		iter = self.__append_match_to_iter (iter, qstring, match_obj)
 		cat.inc_count ()
 		self.emit ("category-added", cat, cat.get_category_row_path ())
 		
+		return iter
 	
-	def __append_to_category (self, match):
-		qstring, match_obj = match
+	def __append_to_category (self, qstring, match_obj):
 		cat = self.__categories [match_obj.get_category ()]
 		cat.set_priority(match_obj)
 		row_iter = None
 		
 		cat.inc_count ()
-		self.__append_match_to_iter (cat.get_category_iter(), match)
+		iter = self.__append_match_to_iter (cat.get_category_iter(), qstring, match_obj)
 				
 		# Update the row count in the view:
 		self.row_changed (cat.get_category_row_path(), cat.get_category_iter())
+		return iter		
 
-	def __append_match_to_iter (self, iter, match):
-		qstring, match_obj = match
-		# Pass unescaped query to the matches
-		verbs = {"text" : qstring}
-		verbs.update(match_obj.get_name(qstring))
-		# Escape the query now for display
-		verbs["text"] = cgi.escape(verbs["text"])
-		
-		self.append_method (self, iter, [match, match_obj.get_verb () % verbs])
-		
+	def __append_match_to_iter (self, iter, qstring, match_obj):
+		iter = self.append_method (self, iter, [qstring, match_obj, match_obj.get_name()])
+		return iter
+	
 	def clear (self):
 		"""Clears this model of data."""
 		gtk.TreeStore.clear (self)
 		self.__categories = {}
+		self.__match_hashes.clear()
 		
 	def paths_equal (self, path1, path2):
 		"""Returns true if the two paths point to the same cell."""

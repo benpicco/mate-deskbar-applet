@@ -1,36 +1,14 @@
 <gconfschemafile>
 	<schemalist>
 		<schema>
-			<key>/schemas/apps/deskbar/expand</key>
-			<applyto>/apps/deskbar/expand</applyto>
-			<owner>deskbar</owner>
-			<type>bool</type>
-			<default>FALSE</default>
-			<locale name="C">
-				<short>Whether the applet should take all the available space in the panel. Overrides the width preference.</short>
-				<long></long>
-			</locale>
-		</schema>
-		<schema>
-			<key>/schemas/apps/deskbar/width</key>
-			<applyto>/apps/deskbar/width</applyto>
-			<owner>deskbar</owner>
-			<type>int</type>
-			<default>20</default>
-			<locale name="C">
-				<short>The applet's entry width in number of characters</short>
-				<long></long>
-			</locale>
-		</schema>
-		<schema>
 			<key>/schemas/apps/deskbar/minchars</key>
 			<applyto>/apps/deskbar/minchars</applyto>
 			<owner>deskbar</owner>
 			<type>int</type>
 			<default>1</default>
 			<locale name="C">
-				<short>The minimum number of characters that need to be typed before the applet starts showing matches</short>
-				<long></long>
+				<short>Minimum number of characters needed to start searching</short>
+				<long>The minimum number of characters that need to be typed before the applet starts showing matches</long>
 			</locale>
 		</schema>
 		<schema>
@@ -40,8 +18,8 @@
 			<type>int</type>
 			<default>250</default>
 			<locale name="C">
-				<short>The time in miliseconds between a keystroke in the search entry and the actual search being performed</short>
-				<long></long>
+				<short>Milliseconds to wait before starting to search</short>
+				<long>The time in milliseconds between a keystroke in the search entry and the actual search being performed</long>
 			</locale>
 		</schema>
 		<schema>
@@ -51,8 +29,8 @@
 			<type>bool</type>
 			<default>FALSE</default>
 			<locale name="C">
-				<short>Choose whether triggering the keyboard shortcut also pastes the current selection in the search box.</short>
-				<long></long>
+				<short>Whether triggering Deskbar-Applet pastes the current selection</short>
+				<long>Choose whether triggering the keyboard shortcut also pastes the current selection in the search box.</long>
 			</locale>
 		</schema>
 		<schema>
@@ -62,19 +40,8 @@
 			<type>string</type>
 			<default>&lt;Alt&gt;F3</default>
 			<locale name="C">
-				<short>The key sequence will focus the deskbar applet, allowing to type quickly</short>
-				<long></long>
-			</locale>
-		</schema>
-		<schema>
-			<key>/schemas/apps/deskbar/ui_name</key>
-			<applyto>/apps/deskbar/ui_name</applyto>
-			<owner>deskbar</owner>
-			<type>string</type>
-			<default>Cuemiac</default>
-			<locale name="C">
-				<short>Selects the user interface to use, one of "Cuemiac" or "Entriac"</short>
-				<long></long>
+				<short>Keybinding</short>
+				<long>The key sequence will focus Deskbar-Applet, allowing to type quickly</long>
 			</locale>
 		</schema>
 		<schema>
@@ -85,8 +52,8 @@
         	<list_type>string</list_type>
         	<default>[HistoryHandler,ProgramsHandler,EvolutionHandler,WebAddressHandler,FileFolderHandler,EpiphanyBookmarksHandler,EpiphanySearchHandler,MozillaBookmarksHandler,MozillaSearchHandler]</default>
 			<locale name="C">
-				<short>The list of exported class names of the enabled handlers sorted by priority. Leftmost has highest priority</short>
-				<long></long>
+				<short>Enabled handlers</short>
+				<long>The list of exported class names of the enabled handlers sorted by priority. Leftmost has highest priority</long>
 			</locale>
 		</schema>
 		<schema>
@@ -97,8 +64,13 @@
         	<list_type>string</list_type>
         	<default>[]</default>
 			<locale name="C">
-				<short>The list of categories to be collapsed when displayed in the 'Cuemiac' UI. Valid category names are defined in Categories.py</short>
-				<long></long>
+				<short>Collapsed categpories</short>
+				<long>
+					The list of categories to be collapsed when displayed.
+					Valid categories are: default, history, documents, emails,
+					conversations, files, people, places, actions, web, websearch,
+					news and notes.
+				</long>
 			</locale>
 		</schema>
 		<schema>
@@ -108,8 +80,74 @@
 			<type>bool</type>
 	        	<default>FALSE</default>
 			<locale name="C">
-				<short>If enabled it will clear the entry after a search result has been selected</short>
-				<long></long>
+				<short>Clear entry after match has been selected</short>
+				<long>If enabled it will clear the entry after a search result has been selected</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/deskbar/show_history</key>
+			<applyto>/apps/deskbar/show_history</applyto>
+			<owner>deskbar</owner>
+			<type>bool</type>
+	        	<default>FALSE</default>
+			<locale name="C">
+				<short>Display history sidebar</short>
+				<long>If enabled the history sidebar will be displayed</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/deskbar/window_width</key>
+			<applyto>/apps/deskbar/window_width</applyto>
+			<owner>deskbar</owner>
+			<type>int</type>
+	        	<default>200</default>
+			<locale name="C">
+				<short>Window width</short>
+				<long>The default width of the window in pixels</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/deskbar/window_height</key>
+			<applyto>/apps/deskbar/window_height</applyto>
+			<owner>deskbar</owner>
+			<type>int</type>
+	        	<default>500</default>
+			<locale name="C">
+				<short>Window height</short>
+				<long>The default height of the window in pixels</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/deskbar/sidebar_width</key>
+			<applyto>/apps/deskbar/sidebar_width</applyto>
+			<owner>deskbar</owner>
+			<type>int</type>
+	        	<default>150</default>
+			<locale name="C">
+				<short>Sidebar width</short>
+				<long>The default width of the sidebar</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/deskbar/resultsview_width</key>
+			<applyto>/apps/deskbar/resultsview_width</applyto>
+			<owner>deskbar</owner>
+			<type>int</type>
+	        	<default>250</default>
+			<locale name="C">
+				<short>Width of the list of results</short>
+				<long>The default width of the list of results</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/deskbar/hide_after_action</key>
+			<applyto>/apps/deskbar/hide_after_action</applyto>
+			<owner>deskbar</owner>
+			<type>bool</type>
+	        	<default>FALSE</default>
+			<locale name="C">
+				<short>Whether to close the window after an actions has been activated</short>
+				<long>If enabled the window will be closed after an action has been activated</long>
 			</locale>
 		</schema>
 
@@ -120,8 +158,7 @@
 			<type>bool</type>
 			<default>FALSE</default>
 			<locale name="C">
-				<short>Whether to show only the preferred search engine, rather than all available engines.  This only affects Mozilla-based web browsers such as Firefox.</short>
-				<long></long>
+				<long>Whether to show only the preferred search engine, rather than all available engines.  This only affects Mozilla-based web browsers such as Firefox.</long>
 			</locale>
 		</schema>
 	</schemalist>

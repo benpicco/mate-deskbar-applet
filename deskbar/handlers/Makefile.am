@@ -1,3 +1,12 @@
+SUBDIRS = actions gdmclient
+
+if ENABLE_EVOLUTION
+SUBDIRS += evolution
+endif
+
+deskbar_handlers_modulesdir = $(pythondir)/deskbar/handlers
+deskbar_handlers_modules_PYTHON = __init__.py
+
 deskbar_handlersdir = $(libdir)/deskbar-applet/handlers
 deskbar_handlers_PYTHON = \
 	beagle-static.py \

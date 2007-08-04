@@ -1,112 +1,125 @@
-import os, cgi, os.path, deskbar, deskbar.Match, deskbar.Handler, deskbar.Utils
+import os, os.path, deskbar, deskbar.interfaces.Match, deskbar.interfaces.Module, deskbar.core.Utils, deskbar.core.GconfStore
 import gnomevfs, gtk, gconf
-
+import sys
 from gettext import gettext as _
 import xml.dom.minidom, urllib
 from deskbar.defs import VERSION
+from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 
-GCONF_DELICIOUS_USER  = deskbar.GCONF_DIR+"/desklicious/user"
+GCONF_DELICIOUS_USER  = deskbar.core.GconfStore.GCONF_DIR+"/desklicious/user"
 
 DEFAULT_QUERY_TAG = 'http://del.icio.us/rss/%s/%s'
 QUERY_DELAY = 1
+HANDLERS = ["DeliciousHandler"]
 
-def _check_requirements():
-	#We need user and password
-	if not deskbar.GCONF_CLIENT.get_string(GCONF_DELICIOUS_USER):
-		return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS, _("You need to configure your del.icio.us account."), _on_config_account)
-	else:
-		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, _("You can modify your del.icio.us account."), _on_config_account)
-
-HANDLERS = {
-	"DeliciousHandler" : {
-		"name": _("del.icio.us Bookmarks"),
-		"description": _("Search your del.icio.us bookmarks by tag name"),
-		"requirements" : _check_requirements,
-		"version": VERSION,
-	}
-}
-
-def _on_config_account(dialog):
-	dialog = gtk.Dialog(_("del.icio.us Account"), dialog,
-				gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-				(gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
-				gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+class DeliciousAction(ShowUrlAction):
 	
-	table = gtk.Table(rows=2, columns=2)
-	
-	table.attach(gtk.Label(_("Enter your del.icio.us username below")), 0, 2, 0, 1)
-
-	user_entry = gtk.Entry()
-	t = deskbar.GCONF_CLIENT.get_string(GCONF_DELICIOUS_USER)
-	if t != None:
-		user_entry.set_text(t)
-	table.attach(gtk.Label(_("Username: ")), 0, 1, 1, 2)
-	table.attach(user_entry, 1, 2, 1, 2)
-	
-	table.show_all()
-	dialog.vbox.add(table)
-	
-	response = dialog.run()
-	dialog.destroy()
-	
-	if response == gtk.RESPONSE_ACCEPT and user_entry.get_text() != "":
-		deskbar.GCONF_CLIENT.set_string(GCONF_DELICIOUS_USER, user_entry.get_text())
-
-class DeliciousMatch(deskbar.Match.Match):	
-	def __init__(self, handler, url=None, tags=None, author=None, **args):
-		deskbar.Match.Match.__init__ (self, handler, **args)
-		self.url = url
+	def __init__(self, name, url, tags):
+		ShowUrlAction.__init__(self, name, url)
 		self.tags = tags
-		self.author = author
 		
 	def get_verb(self):
 		return "<b>%(name)s</b>\n<span size='small' foreground='grey'>%(tags)s</span>"
 	
 	def get_name(self, text=None):
 		return {
-			"name": cgi.escape(self.name),
-			"tags": cgi.escape(' '.join(self.tags)),
+			"name": self._name,
+			"tags": ' '.join(self.tags),
 		}
 		
-	def action(self, text=None):
-		deskbar.Utils.url_show(self.url)
-
-	def get_category(self):
-		return "web"
+class DeliciousMatch(deskbar.interfaces.Match):
+	def __init__(self, url=None, tags=None, author=None, **args):
+		deskbar.interfaces.Match.__init__ (self, icon="delicious.png", **args)
+		self.url = url
+		self.author = author
+		self.add_action( DeliciousAction(self.get_name(), self.url, tags) )
 
 	def get_hash(self, text=None):
 		return self.url
 		
-class DeliciousHandler(deskbar.Handler.AsyncHandler):
+class DeliciousHandler(deskbar.interfaces.Module):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon("delicious.png"),
+			 "name": _("del.icio.us Bookmarks"),
+			 "description": _("Search your del.icio.us bookmarks by tag name"),
+			 "version": VERSION,
+			 }
+	
 	def __init__(self):
-		deskbar.Handler.AsyncHandler.__init__ (self, "delicious.png")
+		deskbar.interfaces.Module.__init__ (self)
 		self._delicious = DeliciousTagQueryEngine(self)
 
 	def query(self, tag):
 		#Hey man, calm down and query once a time :P
-		self.check_query_changed (timeout=QUERY_DELAY)
+		# TODO: Missing
+		#self.check_query_changed (timeout=QUERY_DELAY)
 		
 		# Yes, the google and yahoo search might take a long time
 		# and of course deliciuos too !!! ... better check if we're still valid	
-		self.check_query_changed ()
+		# TODO: Missing
+		#self.check_query_changed ()
 		
 		#The queryyyyYyyYy :)
 		print "Asking del.icio.us tags for %s" % tag
 		posts = self._delicious.get_posts_by_tag(tag)
 
-		self.check_query_changed (timeout=QUERY_DELAY)
+		# TODO: Missing
+		#self.check_query_changed (timeout=QUERY_DELAY)
 		print 'Returning del.icio.us result', posts
+		self.set_priority_for_matches( posts )
+		self._emit_query_ready(tag, posts )
 		
-		return posts
+	def has_config(self):
+		return True
+		
+	def show_config(self, parent):
+		dialog = gtk.Dialog(_("del.icio.us Account"), parent,
+				gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+				(gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
+				gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+	
+		table = gtk.Table(rows=2, columns=2)
+		
+		table.attach(gtk.Label(_("Enter your del.icio.us username below")), 0, 2, 0, 1)
+	
+		user_entry = gtk.Entry()
+		t = deskbar.core.GconfStore.get_instance().get_client().get_string(GCONF_DELICIOUS_USER)
+		if t != None:
+			user_entry.set_text(t)
+		table.attach(gtk.Label(_("Username: ")), 0, 1, 1, 2)
+		table.attach(user_entry, 1, 2, 1, 2)
+		
+		table.show_all()
+		dialog.vbox.add(table)
+		
+		response = dialog.run()
+		dialog.destroy()
+		
+		if response == gtk.RESPONSE_ACCEPT and user_entry.get_text() != "":
+			deskbar.core.GconfStore.get_instance().get_client().set_string(GCONF_DELICIOUS_USER, user_entry.get_text())
+
+	@staticmethod
+	def has_requirements():
+		#We need user and password
+		if not deskbar.core.GconfStore.get_instance().get_client().get_string(GCONF_DELICIOUS_USER):
+			DeliciousHandler.INSTRUCTIONS = _("You need to configure your del.icio.us account.")
+			# TODO
+			#_on_config_account()
+			return True
+		else:
+			DeliciousHandler.INSTRUCTIONS = _("You can modify your del.icio.us account.")
+			# TODO
+			#_on_config_account()
+			return True
 
 class DeliciousTagQueryEngine:	
 	def __init__(self, handler):
 		"""We need use the globals DELICIOUS_USER and DELICIOUS_PASS"""
 		self.handler = handler
 		
-		self._user = deskbar.GCONF_CLIENT.get_string(GCONF_DELICIOUS_USER)
+		self._user = deskbar.core.GconfStore.get_instance().get_client().get_string(GCONF_DELICIOUS_USER)
 			
-		deskbar.GCONF_CLIENT.notify_add(GCONF_DELICIOUS_USER, lambda x, y, z, a: self.on_username_change(z.value))
+		deskbar.core.GconfStore.get_instance().get_client().notify_add(GCONF_DELICIOUS_USER, lambda x, y, z, a: self.on_username_change(z.value))
 		
 	def on_username_change(self, value):
 		if value != None and value.type == gconf.VALUE_STRING:
@@ -116,7 +129,7 @@ class DeliciousTagQueryEngine:
 		#Get the info from del.icio.us and parse
 		url = DEFAULT_QUERY_TAG % (urllib.quote_plus(self._user), urllib.quote_plus(tag))
 
-		stream = urllib.urlopen(url, proxies=deskbar.Utils.get_proxy())
+		stream = urllib.urlopen(url, proxies=deskbar.core.Utils.get_proxy())
 		dom = xml.dom.minidom.parse(stream)
 		stream.close()
 		
@@ -124,11 +137,12 @@ class DeliciousTagQueryEngine:
 		posts=[]
 		for item in dom.getElementsByTagName("item"):
 			posts.append(
-				DeliciousMatch(self.handler,
+				DeliciousMatch(
 					name=item.getElementsByTagName("title")[0].firstChild.nodeValue,
 					url=item.getElementsByTagName("link")[0].firstChild.nodeValue,
 					tags=item.getElementsByTagName("dc:subject")[0].firstChild.nodeValue.split(" "),
-					author=item.getElementsByTagName("dc:creator")[0].firstChild.nodeValue))
+					author=item.getElementsByTagName("dc:creator")[0].firstChild.nodeValue,
+					category="web"))
 		
 		return posts
 

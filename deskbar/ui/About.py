@@ -2,7 +2,7 @@
 from os.path import join
 from gettext import gettext as _
 from deskbar.defs import VERSION
-from deskbar.Utils import load_icon
+from deskbar.core.Utils import load_icon
 import gtk, gtk.gdk, gnomevfs, gobject
 import deskbar
 
@@ -23,12 +23,15 @@ def show_about(parent):
 		"logo-icon-name" : "deskbar-applet",
 		"version" : VERSION,
 		"comments" : _("An all-in-one action bar."),
-		"copyright" : "Copyright © 2004-2006 Nigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen.",
+		"copyright" : "Copyright © 2004-2006 Nigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen, Sebastian Pölsterl.",
 		"website" : "http://raphael.slinckx.net/deskbar",
 		"website-label" : _("Deskbar Website"),
 	}
 
-	about.set_authors(["Nigel Tao <nigel.tao@myrealbox.com>", "Raphael Slinckx <raphael@slinckx.net>", "Mikkel Kamstrup Erlandsen <kamstrup@daimi.au.dk>"])
+	about.set_authors(["Nigel Tao <nigel.tao@myrealbox.com>",
+					   "Raphael Slinckx <raphael@slinckx.net>",
+					   "Mikkel Kamstrup Erlandsen <kamstrup@daimi.au.dk>",
+					   "Sebastian Pölsterl <marduk@k-d-w.org>"])
 #	about.set_artists([])
 #	about.set_documenters([])
 	

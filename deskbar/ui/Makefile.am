@@ -1,12 +1,9 @@
-SUBDIRS = cuemiac entriac window
+SUBDIRS = cuemiac iconentry preferences
 
-deskbardir = $(pythondir)/deskbar/ui
-deskbar_PYTHON = \
-	About.py \
-	DeskbarPreferencesUI.py \
-	DeskbarUI.py \
-	EntryHistoryManager.py \
+deskbar_uidir = $(pythondir)/deskbar/ui
+deskbar_ui_PYTHON = \
 	__init__.py \
-	ModuleListView.py 
-
-		
+	About.py \
+	CuemiacWindowController.py \
+	CuemiacWindowView.py \
+	DeskbarApplet.py

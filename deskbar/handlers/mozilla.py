@@ -3,11 +3,12 @@ from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
 from ConfigParser import RawConfigParser
 from xml.dom import minidom
-
+import  sys
 from deskbar.defs import VERSION
 import gtk
-from deskbar.Watcher import FileWatcher, DirWatcher
-import deskbar, deskbar.Indexer, deskbar.Handler
+from deskbar.core.Watcher import FileWatcher, DirWatcher
+import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module
+import deskbar.core.GconfStore
 
 # Check for presence of set to be compatible with python 2.3
 try:
@@ -15,8 +16,8 @@ try:
 except NameError:
 	from sets import Set as set
 
-from deskbar.BrowserMatch import is_preferred_browser
-from deskbar.BrowserMatch import BrowserSmartMatch, BrowserMatch
+from deskbar.core.BrowserMatch import is_preferred_browser
+from deskbar.core.BrowserMatch import BrowserSmartMatch, BrowserMatch
 
 # Whether we will index firefox or mozilla bookmarks
 USING_FIREFOX = False
@@ -55,14 +56,14 @@ def get_firefox_home_file(needed_file):
 
 # Whether we offer all of the browser's search engines, or only the primary
 # one (since by default Firefox seems to come with at least half a dozen)			
-GCONF_SHOW_ONLY_PRIMARY_KEY = deskbar.GCONF_DIR + "/mozilla/show_only_primary_search"
-SHOW_ONLY_PRIMARY = deskbar.GCONF_CLIENT.get_bool(GCONF_SHOW_ONLY_PRIMARY_KEY)
+GCONF_SHOW_ONLY_PRIMARY_KEY = deskbar.core.GconfStore.GCONF_DIR + "/mozilla/show_only_primary_search"
+SHOW_ONLY_PRIMARY = deskbar.core.GconfStore.get_instance().get_client().get_bool(GCONF_SHOW_ONLY_PRIMARY_KEY)
 if SHOW_ONLY_PRIMARY == None:
 	SHOW_ONLY_PRIMARY = False
 def _on_gconf_show_only_primary(value):
 	global SHOW_ONLY_PRIMARY
 	SHOW_ONLY_PRIMARY = value
-deskbar.GCONF_CLIENT.notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, lambda x, y, z, a: _on_gconf_show_only_primary(z.value.get_bool()))
+deskbar.core.GconfStore.get_instance().get_client().notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, lambda x, y, z, a: _on_gconf_show_only_primary(z.value.get_bool()))
 
 # TODO re-load PRIMARY_SEARCH_ENGINE everytime it changes (which should happen
 # only rarely).  One (unavoidable) problem may be that firefox doesn't actually
@@ -84,7 +85,7 @@ except:
 
 def _on_handler_preferences(dialog):
 	def toggled_cb(sender, show_all_radio, show_primary_radio):
-		deskbar.GCONF_CLIENT.set_bool(GCONF_SHOW_ONLY_PRIMARY_KEY, show_primary_radio.get_active())
+		deskbar.core.GconfStore.get_instance().get_client().set_bool(GCONF_SHOW_ONLY_PRIMARY_KEY, show_primary_radio.get_active())
 		
 	def sync_ui(new_show_only_primary, show_all_radio, show_primary_radio):
 		show_all_radio.set_active(not new_show_only_primary)
@@ -101,55 +102,28 @@ def _on_handler_preferences(dialog):
 	show_all_radio.connect ("toggled", toggled_cb, show_all_radio, show_primary_radio)
 	show_primary_radio.connect ("toggled", toggled_cb, show_all_radio, show_primary_radio)
 	
-	notify_id = deskbar.GCONF_CLIENT.notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, lambda x, y, z, a: sync_ui(z.value.get_bool(), show_all_radio, show_primary_radio))
+	notify_id = deskbar.core.GconfStore.get_instance().get_client().notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, lambda x, y, z, a: sync_ui(z.value.get_bool(), show_all_radio, show_primary_radio))
 	dialog.set_icon_name("deskbar-applet")
 	dialog.show_all()
 	dialog.run()
 	dialog.destroy()
-	deskbar.GCONF_CLIENT.notify_remove(notify_id)
+	deskbar.core.GconfStore.get_instance().get_client().notify_remove(notify_id)
 	
-def _check_requirements_bookmarks():
-#	if deskbar.UNINSTALLED_DESKBAR:
-#		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-	
-	if is_preferred_browser("firefox") or is_preferred_browser("mozilla"):
-		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-	else:
-		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Mozilla/Firefox is not your preferred browser, not using it.", None)
-		
-def _check_requirements_search():
-	if is_preferred_browser("firefox"):
-		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, _("You can customize which search engines are offered."), _on_handler_preferences)
-	elif is_preferred_browser("mozilla"):
-		# TODO - similar functionality for old-school mozilla (not firefox)
-		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-	else:
-		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Mozilla/Firefox is not your preferred browser, not using it.", None)
-		
-HANDLERS = {
-	"MozillaBookmarksHandler" : {
-		"name": _("Web Bookmarks"),
-		"description": _("Open your web bookmarks by name"),
-		"requirements": _check_requirements_bookmarks,
-		"version": VERSION,
-	},
-	"MozillaSearchHandler" : {
-		"name": _("Web Searches"),
-		"description": _("Search the web via your browser's search settings"),
-		"requirements": _check_requirements_search,
-		"version": VERSION,
-	},
-	"MozillaHistoryHandler" : {
-		"name": _("Web History"),
-		"description": _("Open your web history by name"),
-		"requirements": _check_requirements_bookmarks,
-		"version": VERSION,
-	}
-}
 
-class MozillaBookmarksHandler(deskbar.Handler.Handler):
+		
+HANDLERS = ["MozillaBookmarksHandler",
+	"MozillaSearchHandler",
+	"MozillaHistoryHandler"]
+
+class MozillaBookmarksHandler(deskbar.interfaces.Module):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon("stock_bookmark"),
+			 "name": _("Web Bookmarks"),
+			 "description": _("Open your web bookmarks by name"),
+			 "version": VERSION}
+	
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, "stock_bookmark")
+		deskbar.interfaces.Module.__init__(self)
 		self._bookmarks = None
 	
 	def initialize(self):
@@ -174,11 +148,14 @@ class MozillaBookmarksHandler(deskbar.Handler.Handler):
 		# "wp Foo" takes you to the wikipedia entry for Foo.
 		x = self.query_smart_bookmarks(query, deskbar.DEFAULT_RESULTS_PER_HANDLER)
 		if x != None:
-			return x
+			self.set_priority_for_matches( x )
+			self._emit_query_ready(query, x )
 		else:
 			# If none of the smart bookmarks matched as a prefix,
 			# then we'll just look up all bookmarks.
-			return self._bookmarks.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+			matches = self._bookmarks.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+			self.set_priority_for_matches( matches )
+			self._emit_query_ready(query, matches )
 	
 	def query_smart_bookmarks(self, query, max):
 		# if one of the smart bookmarks' shortcuts matches as a prefix,
@@ -189,16 +166,34 @@ class MozillaBookmarksHandler(deskbar.Handler.Handler):
 			try:
 				b = self._shortcuts_to_smart_bookmarks_map[prefix]
 				text = query[x+1:]
-				return [BrowserSmartMatch(b.get_handler(), b.name, b.url, prefix, b, icon=b.icon)]
+				return [BrowserSmartMatch(b.name, b.url, prefix, b, icon=b.icon)]
 			except KeyError:
 				# Probably from the b = ... line.  Getting here
 				# means that there is no such shortcut.
 				pass
 		return None
+	
+	@staticmethod
+	def has_requirements():
+		#	if deskbar.UNINSTALLED_DESKBAR:
+		#		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
+			
+		if is_preferred_browser("firefox") or is_preferred_browser("mozilla"):
+			return True
+		else:
+			MozillaBookmarksHandler.INSTRUCTIONS = _("Mozilla/Firefox is not your preferred browser.")
+			return False
+		
 
-class MozillaSearchHandler(deskbar.Handler.Handler):
+class MozillaSearchHandler(deskbar.interfaces.Module):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon("stock_bookmark"),
+			 "name": _("Web Searches"),
+			 "description": _("Search the web via your browser's search settings"),
+			 "version": VERSION}
+	
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, "stock_bookmark")
+		deskbar.interfaces.Module.__init__(self)
 		self._smart_bookmarks = None
 	
 	def initialize(self):
@@ -208,10 +203,10 @@ class MozillaSearchHandler(deskbar.Handler.Handler):
 				get_firefox_home_file("searchplugins"),
 				get_firefox_home_file("search"),
 				expanduser("~/.mozilla/searchplugins"),
-				"/usr/lib/firefox/searchplugins",
 				"/usr/local/lib/firefox/searchplugins",
 				"/usr/lib/mozilla-firefox/searchplugins",
-				"/usr/local/lib/mozilla-firefox/searchplugins"]
+				"/usr/local/lib/mozilla-firefox/searchplugins"] + \
+				glob.glob("/usr/lib*/firefox*/searchplugins")
 		else:
 			smart_dirs = [
 				get_mozilla_home_file("search"),
@@ -228,6 +223,7 @@ class MozillaSearchHandler(deskbar.Handler.Handler):
 		
 	def _parse_search_engines(self, smart_dirs):
 		self._smart_bookmarks = MozillaSmartBookmarksDirParser(self, smart_dirs).get_smart_bookmarks()
+		self.set_priority_for_matches( self._smart_bookmarks )
 
 	def stop(self):
 		self.watcher.remove_all()
@@ -236,10 +232,28 @@ class MozillaSearchHandler(deskbar.Handler.Handler):
 		if SHOW_ONLY_PRIMARY and PRIMARY_SEARCH_ENGINE != None:
 			for s in self._smart_bookmarks:
 				if s.name == PRIMARY_SEARCH_ENGINE:
-					return [s]
-			return self._smart_bookmarks
+					self._emit_query_ready(query, [s] )
+			self._emit_query_ready(query, self._smart_bookmarks )
 		else:
-			return self._smart_bookmarks
+			self._emit_query_ready(query, self._smart_bookmarks )
+	
+	def has_config(self):
+		return True
+	
+	def show_config(self, parent):
+		_on_handler_preferences(parent)
+	
+	@staticmethod
+	def has_requirements():
+		if is_preferred_browser("firefox"):
+			MozillaSearchHandler.INSTRUCTIONS = _("You can customize which search engines are offered.")
+			return True
+		elif is_preferred_browser("mozilla"):
+			# TODO - similar functionality for old-school mozilla (not firefox)
+			return True
+		else:
+			MozillaSearchHandler.INSTRUCTIONS = _("Mozilla/Firefox is not your preferred browser.")
+			return False
 		
 class MozillaBookmarksParser(HTMLParser.HTMLParser):
 	def __init__(self, handler):
@@ -253,7 +267,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 		self.bookmarks = set()
 		self._shortcuts_to_smart_bookmarks_map = {}
 		
-		self._indexer = deskbar.Indexer.Indexer()
+		self._indexer = deskbar.core.Indexer.Indexer()
 		
 		try:
 			if USING_FIREFOX:
@@ -312,27 +326,29 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
 			
 			pixbuf = None
 			if self.icon_data != None:
+				loader = gtk.gdk.PixbufLoader()
 				try:
-					# data:text/html;base64 should be the Header
-					header, content = self.icon_data.split(",", 2)
-					loader = gtk.gdk.PixbufLoader()
-					loader.set_size(deskbar.ICON_HEIGHT, deskbar.ICON_HEIGHT)
 					try:
-						# Python 2.4
-						loader.write(base64.b64decode(content))
-					except AttributeError:
-						# Python 2.3 and earlier
-						loader.write(base64.decodestring(content))
+						# data:text/html;base64 should be the Header
+						header, content = self.icon_data.split(",", 2)
+						loader.set_size(deskbar.ICON_HEIGHT, deskbar.ICON_HEIGHT)
+						try:
+							# Python 2.4
+							loader.write(base64.b64decode(content))
+						except AttributeError:
+							# Python 2.3 and earlier
+							loader.write(base64.decodestring(content))
+						pixbuf = loader.get_pixbuf()
+					except Exception, msg:
+						print 'Error:mozilla.py:handle_endtag:', msg
+				finally:
 					loader.close()
-					pixbuf = loader.get_pixbuf()
-				except Exception, msg:
-					print 'Error:mozilla.py:handle_endtag:', msg
 				# Reset icon data for the following icon
 				self.icon_data = None
 				
-			bookmark = BrowserMatch(self.handler, self.chars, self.href, icon=pixbuf)
+			bookmark = BrowserMatch(self.chars, self.href, icon=pixbuf)
 			if self.shortcuturl != None:
-				bookmark = BrowserSmartMatch(self.handler, self.chars, self.href, self.shortcuturl, bookmark, icon=pixbuf)
+				bookmark = BrowserSmartMatch(self.chars, self.href, self.shortcuturl, bookmark, icon=pixbuf)
 				self._shortcuts_to_smart_bookmarks_map[self.shortcuturl] = bookmark
 			else:
 				self._indexer.add("%s %s" % (self.chars, self.href), bookmark)
@@ -665,22 +681,17 @@ class MozillaSmartBookmarksDirParser:
 			# Detect Firefox <= 1.5 search engines  
 			for f in glob.glob(join(bookmarks_dir, '*.src')):
 				# Check if we already parsed the file
-				bmname = basename(f)
-				if bmname in bookmark_names:
-					continue
-				else:
+				if not basename(f) in bookmark_names:
 					found_bookmarks.append(f)
+					bookmark_names.append(basename(f))
 			
 			# Detect Firefox >= 2.0 search engines
 			for f in glob.glob(join(bookmarks_dir, '*.xml')):
 				# Check if we already parsed the file
-				bmname = basename(f)
-				if bmname in bookmark_names:
-					continue
-				else:
+				if not basename(f) in bookmark_names:
 					found_bookmarks.append(f)
-			
-			
+					bookmark_names.append(basename(f))
+		
 		for f in found_bookmarks:
 			img = None
 			if f.endswith (".xml"):
@@ -695,14 +706,14 @@ class MozillaSmartBookmarksDirParser:
 				infos = parser.get_infos()
 				
 				if infos.has_key("pixbuf"):
-					bookmark = BrowserMatch(handler, infos["name"], infos["url"], pixbuf=infos["pixbuf"])
-					bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], pixbuf=infos["pixbuf"], bookmark=bookmark)
+					bookmark = BrowserMatch(infos["name"], infos["url"], pixbuf=infos["pixbuf"])
+					bookmark = BrowserSmartMatch(infos["name"], infos["action"], pixbuf=infos["pixbuf"], bookmark=bookmark)
 				elif infos.has_key ("icon"):
-					bookmark = BrowserMatch(handler, infos["name"], infos["url"], icon=infos["icon"])
-					bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], icon=infos["icon"], bookmark=bookmark)
+					bookmark = BrowserMatch(infos["name"], infos["url"], icon=infos["icon"])
+					bookmark = BrowserSmartMatch(infos["name"], infos["action"], icon=infos["icon"], bookmark=bookmark)
 				else:
-					bookmark = BrowserMatch(handler, infos["name"], infos["url"])
-					bookmark = BrowserSmartMatch(handler, infos["name"], infos["action"], bookmark=bookmark)
+					bookmark = BrowserMatch(infos["name"], infos["url"])
+					bookmark = BrowserSmartMatch(infos["name"], infos["action"], bookmark=bookmark)
 					
 				self._smart_bookmarks.append(bookmark)
 				
@@ -717,13 +728,19 @@ class MozillaSmartBookmarksDirParser:
 		return self._smart_bookmarks
 
 MOZILLA_HISTORY_REGEX = re.compile("\=http[0-9a-zA-Z\-\&\%\=\?\:\/\.]*\)")
-class MozillaHistoryHandler(deskbar.Handler.Handler):
+class MozillaHistoryHandler(deskbar.interfaces.Module):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon("epiphany-history.png"),
+			"name": _("Web History"),
+			"description": _("Open your web history by name"),
+			 "version": VERSION}
+	
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, "epiphany-history.png")
+		deskbar.interfaces.Module.__init__(self)
 		self._history = None
 	
 	def initialize(self):
-		self._indexer = deskbar.Indexer.Indexer()
+		self._indexer = deskbar.core.Indexer.Indexer()
 		self._history = self._parse_history()
 		for history_url in self._history:
 			history_wo_http = history_url[history_url.find('//')+2:]
@@ -731,7 +748,7 @@ class MozillaHistoryHandler(deskbar.Handler.Handler):
 				history_wo_www = history_wo_http
 			else:
 				history_wo_www = history_wo_http[history_wo_http.find('www.')+4:]
-			self._indexer.add("%s %s %s" % (history_wo_www, history_wo_http, history_url), BrowserMatch(self, history_wo_www, history_url, True))
+			self._indexer.add("%s %s %s" % (history_wo_www, history_wo_http, history_url), BrowserMatch(history_wo_www, history_url, True))
 		
 	def _parse_history(self):
 		if USING_FIREFOX:
@@ -747,5 +764,11 @@ class MozillaHistoryHandler(deskbar.Handler.Handler):
 			return ""
 	
 	def query(self, query):
-		return self._indexer.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		matches = self._indexer.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		self.set_priority_for_matches( matches )
+		self._emit_query_ready(query, matches )
+		
+	@staticmethod
+	def has_requirements():
+		return MozillaBookmarksHandler.has_requirements()
 

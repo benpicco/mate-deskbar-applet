@@ -2,52 +2,12 @@ import xml.sax
 from os.path import join, expanduser, exists
 from gettext import gettext as _
 import gtk
-import deskbar, deskbar.Indexer, deskbar.Handler
-from deskbar.Watcher import FileWatcher
-from deskbar.BrowserMatch import get_url_host, is_preferred_browser, on_customize_search_shortcuts, on_entry_key_press, load_shortcuts
-from deskbar.BrowserMatch import BrowserSmartMatch, BrowserMatch
+import sys
+import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module
+from deskbar.core.Watcher import FileWatcher
+from deskbar.core.BrowserMatch import get_url_host, is_preferred_browser, on_customize_search_shortcuts, on_entry_key_press, load_shortcuts
+from deskbar.core.BrowserMatch import BrowserSmartMatch, BrowserMatch
 from deskbar.defs import VERSION
-
-def _check_requirements():
-#	if deskbar.UNINSTALLED_DESKBAR:
-#		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-		
-	if is_preferred_browser("epiphany"):
-		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-	else:
-		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Epiphany is not your preferred browser, not using it.", None)
-	
-def _check_requirements_search():
-	callback = lambda dialog: on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map)
-	
-#	if deskbar.UNINSTALLED_DESKBAR:
-#		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, "You can set shortcuts for your searches.", callback)
-		
-	if is_preferred_browser("epiphany"):
-		return (deskbar.Handler.HANDLER_IS_CONFIGURABLE, _("You can set shortcuts for your searches."), callback)
-	else:
-		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Epiphany is not your preferred browser, not using it.", None)
-	
-HANDLERS = {
-	"EpiphanyBookmarksHandler": {
-		"name": _("Web Bookmarks"),
-		"description": _("Open your web bookmarks by name"),
-		"requirements": _check_requirements,
-		"version": VERSION,
-	},
-	"EpiphanyHistoryHandler": {
-		"name": _("Web History"),
-		"description": _("Open your web history by name"),
-		"requirements": _check_requirements,
-		"version": VERSION,
-	},
-	"EpiphanySearchHandler": {
-		"name": _("Web Searches"),
-		"description": _("Search the web via your browser's search settings"),
-		"requirements": _check_requirements_search,
-		"version": VERSION,
-	},
-}
 
 EPHY_BOOKMARKS_FILE = expanduser("~/.gnome2/epiphany/bookmarks.rdf")
 EPHY_HISTORY_FILE   = expanduser("~/.gnome2/epiphany/ephy-history.xml")
@@ -57,9 +17,14 @@ bookmarks = None
 smart_bookmarks = None
 shortcuts_to_smart_bookmarks_map = {}
 
-class EpiphanyHandler(deskbar.Handler.Handler):
-	def __init__(self, watched_file, callback, icon="stock_bookmark"):
-		deskbar.Handler.Handler.__init__(self, icon)
+HANDLERS = ["EpiphanyBookmarksHandler",
+	"EpiphanyHistoryHandler",
+	"EpiphanySearchHandler"]
+
+class EpiphanyHandler(deskbar.interfaces.Module):
+	
+	def __init__(self, watched_file, callback):
+		deskbar.interfaces.Module.__init__(self)
 		self.watched_file = watched_file
 		self.watch_callback = callback
 		
@@ -80,6 +45,13 @@ class EpiphanyHandler(deskbar.Handler.Handler):
 			del self.watcher
 		
 class EpiphanyBookmarksHandler(EpiphanyHandler):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon('stock_bookmark'),
+			 "name": _("Web Bookmarks"),
+			 "description": _("Open your web bookmarks by name"),
+			 "version": VERSION,
+			 }
+	
 	def __init__(self):
 		EpiphanyHandler.__init__(self, EPHY_BOOKMARKS_FILE, lambda: self._parse_bookmarks(True))
 				
@@ -97,14 +69,37 @@ class EpiphanyBookmarksHandler(EpiphanyHandler):
 		
 	def query(self, query):
 		global bookmarks
-		return bookmarks.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		matches = bookmarks.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		self.set_priority_for_matches( matches )
+		self._emit_query_ready(query, matches )
+		
+	@staticmethod
+	def has_requirements():
+		#	if deskbar.UNINSTALLED_DESKBAR:
+		#		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
+			
+		if is_preferred_browser("epiphany"):
+			return True
+		else:
+			EpiphanyBookmarksHandler.INSTRUCTIONS = _("Epiphany is not your preferred browser.")
+			return False
 
 class EpiphanySearchHandler(EpiphanyBookmarksHandler):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon('stock_bookmark'),
+			 "name": _("Web Searches"),
+			 "description": _("Search the web via your browser's search settings"),
+			 "version": VERSION,
+			 }
+	
 	def __init__(self):
 		EpiphanyBookmarksHandler.__init__(self)
 	
 	def on_key_press(self, query, shortcut):
 		return on_entry_key_press(query, shortcut, shortcuts_to_smart_bookmarks_map)
+	
+	def has_config(self):
+		return True
 	
 	def query(self, query):
 		# if one of the smart bookmarks' shortcuts matches as a prefix,
@@ -115,17 +110,37 @@ class EpiphanySearchHandler(EpiphanyBookmarksHandler):
 			try:
 				b = shortcuts_to_smart_bookmarks_map[prefix]
 				text = query[x+1:]
-				return [BrowserSmartMatch(b.get_handler(), b.name, b.url, prefix, b, icon=b.icon)]
+				return [BrowserSmartMatch(b.get_name()["name"], b.url, prefix, b, icon=b._icon, priority=self.get_priority())]
 			except KeyError:
 				# Probably from the b = ... line.  Getting here
 				# means that there is no such shortcut.
 				pass
 		
-		return smart_bookmarks
+		self._emit_query_ready(query, smart_bookmarks )
+		
+	def show_config(self, parent):
+		on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map)
+		
+	@staticmethod
+	def has_requirements():
+		if is_preferred_browser("epiphany"):
+			EpiphanySearchHandler.INSTRUCTIONS = _("You can set shortcuts for your searches.")
+			return True
+		else:
+			EpiphanySearchHandler.INSTRUCTIONS = _("Epiphany is not your preferred browser.")
+			return False
+
 		
 class EpiphanyHistoryHandler(EpiphanyHandler):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon("epiphany-history.png"),
+			 "name": _("Web History"),
+			 "description": _("Open your web history by name"),
+			 "version": VERSION,
+			 }
+	
 	def __init__(self):
-		EpiphanyHandler.__init__(self, EPHY_HISTORY_FILE, self._parse_history, "epiphany-history.png")
+		EpiphanyHandler.__init__(self, EPHY_HISTORY_FILE, self._parse_history)
 		self._history = None
 		
 	def initialize(self):
@@ -137,7 +152,9 @@ class EpiphanyHistoryHandler(EpiphanyHandler):
 		self._history = EpiphanyHistoryParser(self, favicon_cache).get_indexer()
 			
 	def query(self, query):
-		return self._history.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		matches = self._history.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		self.set_priority_for_matches( matches )
+		self._emit_query_ready(query, matches )
 		
 class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 	def __init__(self, handler, cache):
@@ -150,7 +167,7 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 		self.href = None
 		self.smarthref = None
 		
-		self._indexer = deskbar.Indexer.Indexer()
+		self._indexer = deskbar.core.Indexer.Indexer()
 		self._smart_bookmarks = []
 		self._cache = cache;
 		
@@ -200,9 +217,9 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 			if host in self._cache:
 				icon = self._cache[host]
 
-			bookmark = BrowserMatch(self.handler, self.title, self.href, icon=icon)
+			bookmark = BrowserMatch(self.title, self.href, icon=icon)
 			if self.smarthref != None:
-				bookmark = BrowserSmartMatch(self.handler, self.title, self.smarthref, icon=icon, bookmark=bookmark)
+				bookmark = BrowserSmartMatch(self.title, self.smarthref, icon=icon, bookmark=bookmark)
 				self._smart_bookmarks.append(bookmark)
 			else:
 				self._indexer.add("%s %s" % (self.title, self.href), bookmark)
@@ -271,7 +288,7 @@ class EpiphanyHistoryParser(xml.sax.ContentHandler):
 		self.icon = None
 		self._id = None;
 	
-		self._indexer = deskbar.Indexer.Indexer()
+		self._indexer = deskbar.core.Indexer.Indexer()
 
 		self._index_history();
 
@@ -317,5 +334,5 @@ class EpiphanyHistoryParser(xml.sax.ContentHandler):
 			if self.icon in self._cache:
 				icon = self._cache[self.icon]
 
-			item = BrowserMatch(self.handler, self.title, self.url, True, icon=icon)
+			item = BrowserMatch(self.title, self.url, True, icon=icon)
 			self._indexer.add("%s %s" % (self.title, self.url), item)

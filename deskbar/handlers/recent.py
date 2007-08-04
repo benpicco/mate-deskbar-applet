@@ -1,63 +1,58 @@
 from gettext import gettext as _
-import gobject, gtk, gnome
+import sys, gobject, gtk, gnome
 
 import deskbar
-import deskbar.Handler
-import deskbar.Match
-import deskbar.Utils
+import deskbar.interfaces.Module
+import deskbar.interfaces.Match
 
+from deskbar.handlers.actions.OpenFileAction import OpenFileAction
 from deskbar.defs import VERSION
-from deskbar.Watcher import FileWatcher
+from deskbar.core.Watcher import FileWatcher
 
-def _check_requirements():
-	if gtk.pygtk_version >= (2,9,0):
-		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-	return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, _("This handler requires a more recent gtk version (2.9.0 or newer)."), None)
+HANDLERS = ["RecentHandler"]
 
-HANDLERS = {
-	"RecentHandler" : {
-		"name": _("Recent Documents"),
-		"description": _("Retrieve your recently accessed files and locations"),
-		"requirements": _check_requirements,
-		"version": VERSION,
-	},
-}
-
-class RecentMatch(deskbar.Match.Match):
-	def __init__(self, backend, recent_infos, **args):
-		deskbar.Match.Match.__init__(self, backend, name=recent_infos.get_display_name(), **args)
-		self._icon = recent_infos.get_icon(gtk.ICON_SIZE_MENU) # TODO: make use of deskbar.ICON_XXX ?
-		
-		self.recent_infos = recent_infos
-				
-	def action(self, text=None):
-		deskbar.Utils.url_show_file(self.recent_infos.get_uri())
+class OpenRecentAction(OpenFileAction):
 	
+	def __init__(self, name, url):
+		OpenFileAction.__init__(self, name, url, escape=False)
+
+	def skip_history(self):
+		return True
+
+class RecentMatch(deskbar.interfaces.Match):
+	def __init__(self, recent_infos, **args):
+		deskbar.interfaces.Match.__init__(self, pixbuf=recent_infos.get_icon(deskbar.ICON_HEIGHT), name=recent_infos.get_display_name(), **args)		
+		self.recent_infos = recent_infos
+		self.add_action( OpenRecentAction(self.get_name(), self.recent_infos.get_uri()) )
+
 	def is_valid(self, text=None):
 		return self.recent_infos.exists()
-		
-	def get_category(self):
-		return "files" 
-		
-	def get_verb(self):
-		return _("Open %s") % "<b>%(name)s</b>"
-	
+
 	def get_hash(self, text=None):
 		return self.recent_infos.get_uri()
-
-class RecentHandler(deskbar.Handler.Handler):
+	
+class RecentHandler(deskbar.interfaces.Module):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon(gtk.STOCK_FILE),
+			"name": _("Recent Documents"),
+			"description": _("Retrieve your recently accessed files and locations"),
+			 "version": VERSION}
+	
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, gtk.STOCK_FILE)
-                self._recent_manager = gtk.recent_manager_get_default()
+		deskbar.interfaces.Module.__init__(self)
+		self._recent_manager = gtk.recent_manager_get_default()
 		
 	def query(self, query):
 		result = []
 		for recent in self._recent_manager.get_items():
 			if not recent.get_display_name().lower().startswith(query): continue
 			if not recent.exists(): continue
-			result.append (RecentMatch (self, recent))
-		return result
+			result.append (RecentMatch (recent, category="files", priority=self.get_priority()))
+		self._emit_query_ready(query, result )
 			
-
-
-		
+	@staticmethod
+	def has_requirements():
+		if gtk.pygtk_version >= (2,9,0):
+			return True
+		RecentHandler.INSTRUCTIONS = _("This handler requires a more recent gtk version (2.9.0 or newer).")
+		return False

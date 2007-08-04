@@ -2,36 +2,22 @@ from gettext import gettext as _
 from gettext import ngettext
 from deskbar.defs import VERSION
 import wnck, gtk
-import deskbar.Handler, deskbar.Match, deskbar
+import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar.interfaces.Action, deskbar
 import re
 import cgi
 
-HANDLERS = {
-	"ISwitchWindowHandler" : {
-		"name": _("Window Switcher"),
-		"description": _("Switch to an existing window by name."),
+HANDLERS = ["ISwitchWindowHandler"]
 
-		"categories" : {
-			"windows"	: {
-				"name": _("Windows"),
-				}
-			},
-		"version": VERSION,
-			
-		}
-	}
-
-class ISwitchWindowMatch(deskbar.Match.Match):
-	def __init__(self, handler, window=None, pixbuf=None, **args):
-		deskbar.Match.Match.__init__ (self, handler, **args)
-		self.name = cgi.escape(self.name)
-		self._icon = pixbuf
+class SwitchToWindowAction(deskbar.interfaces.Action):
+	
+	def __init__(self, name, window):
+		deskbar.interfaces.Action.__init__(self, name)
 		self._window = window
-
+	
 	def get_verb(self):
 		return _("Switch to <b>%(name)s</b>")
 
-	def action(self, text=None):
+	def activate(self, text=None):
 		if self._window.is_active():
 			return
 		
@@ -45,23 +31,32 @@ class ISwitchWindowMatch(deskbar.Match.Match):
 		if hasattr(self._window.get_workspace(), 'activate') and self._window.get_workspace() != self._window.get_screen().get_active_workspace():
 			self._window.get_workspace().activate(time)
 
-		self._window.activate(time)
+		self._window.activate(time)	
 
-	def get_category(self):
-		return "windows"
-
-	def get_hash(self, text=None):
-		return self.name
-
-	def serialize(self):
-		return None
-	
 	def skip_history(self):
 		return True
 
-class ISwitchWindowHandler(deskbar.Handler.Handler):
+class ISwitchWindowMatch(deskbar.interfaces.Match):
+	def __init__(self, window=None, **args):
+		deskbar.interfaces.Match.__init__ (self, category="windows", **args)
+		self.add_action( SwitchToWindowAction(self.get_name(), window) )
+
+	def get_hash(self, text=None):
+		return self.get_name()
+	
+class ISwitchWindowHandler(deskbar.interfaces.Module):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon("panel-window-menu.png"),
+			 "name": _("Window Switcher"),
+			 "description": _("Switch to an existing window by name."),
+			 "version": VERSION,
+			 "categories" : {
+				"windows"	: {	"name": _("Windows"), }
+				}
+			 }
+	
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, "panel-window-menu.png")
+		deskbar.interfaces.Module.__init__(self)
 
 	def query(self, query):
 		results = []
@@ -72,7 +67,7 @@ class ISwitchWindowHandler(deskbar.Handler.Handler):
 				
 				for name in (w.get_name().lower(), w.get_application().get_name().lower()):
 						if name.find(query) != -1:
-								results.append(ISwitchWindowMatch(self, name=name, window=w, pixbuf=w.get_mini_icon()))
+								results.append( ISwitchWindowMatch(name=name, window=w, pixbuf=w.get_mini_icon(), priority=self.get_priority()) )
 								break
 
-		return results
+		self._emit_query_ready(query, results )

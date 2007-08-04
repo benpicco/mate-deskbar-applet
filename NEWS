@@ -1,15 +1,12 @@
 =====================
-deskbar-applet 2.19.3
+deskbar-applet 2.19.5
 =====================
 
-Changes:
-	* Instead of printing something to stderr, show an info box in the preference view when a handler is NOT_APPLICABLE. Patch by Rob Bradford. Fix bug #334150.
-	* Hide the entry icon when in button mode. This is just a workaround, not a real fix. The icon related code should be completely removed. fix bug #396688
-	* Additional check for modifier key when saving shortcut. Fix bug #427587. Patch by Sebastian Pölsterl
-	* fix gtk-update-icon-cache for uninstall-hook.
-	* Fixed bug the caused Deskbar to crash if NewStuffManager was in use
-
-Contributors to this release: Raphael Slinckx, Sebastian Pölsterl
+First release of the Google Summer of Code branch maintained by Sebastian Pölsterl.
+This release features major refactoring including a new GUI and Modules API.
+Therefore, old modules won't work with this version. No new big features are
+included, but this release should contain almost all the features that Deskbar
+had before refactoring.
 
 =====================
 deskbar-applet 2.18.1

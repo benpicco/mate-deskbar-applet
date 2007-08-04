@@ -1,0 +1,23 @@
+import deskbar.interfaces.Action
+from gettext import gettext as _
+from deskbar.core.Utils import url_show
+from os.path import exists
+
+class ShowUrlAction(deskbar.interfaces.Action):
+    
+	def __init__(self, name, url):
+		deskbar.interfaces.Action.__init__(self, name)
+		self._url = url
+		
+	def is_valid(self):
+		return exists(self._url)
+	    
+	def get_hash(self):
+		# TODO: What about http ftp etc??
+		return self._url
+	    
+	def get_verb(self):
+		return _("Open %s") % "<b>%(name)s</b>" 
+	
+	def activate(self, text=None):
+		url_show(self._url)

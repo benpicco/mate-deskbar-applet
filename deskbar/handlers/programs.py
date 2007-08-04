@@ -1,49 +1,44 @@
-import os, ConfigParser, cgi, re
+import os, ConfigParser, re
 import glob
 from os.path import join, isfile, abspath, splitext, expanduser, exists, isdir
 from gettext import gettext as _
 from deskbar.defs import VERSION
 import gobject
 import gtk
-import deskbar, deskbar.Indexer, deskbar.Utils
-import deskbar.Handler, deskbar.Match, deskbar.gnomedesktop
-from deskbar.Utils import get_xdg_data_dirs, is_program_in_path, spawn_async
+import deskbar, deskbar.core.Indexer, deskbar.core.Utils
+import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar.core.gnomedesktop
+from deskbar.core.Utils import get_xdg_data_dirs, is_program_in_path, spawn_async
+from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
+from deskbar.handlers.actions.OpenDesktopFileAction import OpenDesktopFileAction
+import deskbar.interfaces.Action
 
-HANDLERS = {
-	"ProgramsHandler" : {
-		"name": _("Programs"),
-		"description": _("Launch a program by its name and/or description"),
-		"version": VERSION,
-	},
-	"GnomeDictHandler" : {
-		"name": _("Dictionary"),
-		"description": _("Look up word definitions in the dictionary"),
-		"version": VERSION,
-	},
-	"GnomeSearchHandler" : {
-		"name": _("Files and Folders Search"),
-		"description": _("Find files and folders by searching for a name pattern"),
-		"version": VERSION,
-	},
-	"DevhelpHandler" : {
-		"name": _("Developer Documentation"),
-		"description": _("Search Devhelp for a function name"),
-		"version": VERSION,
-	},
-}
+HANDLERS = [
+	"ProgramsHandler",
+	"GnomeDictHandler",
+	"GnomeSearchHandler",
+	"DevhelpHandler"]
 
-EXACT_MATCH_PRIO = 100
-EXACT_WORD_PRIO = 50
+EXACT_MATCH_PRIO = 50
+EXACT_WORD_PRIO = 5
 
-class GenericProgramMatch(deskbar.Match.Match):
-	def __init__(self, backend, use_arg=False, desktop=None, desktop_file=None, **args):
-		deskbar.Match.Match.__init__(self, backend, **args)
+class GenericAction(OpenWithApplicationAction):
+	
+	def __init__(self, name, program, args, verb):
+		OpenWithApplicationAction.__init__(self, name, program, args)
+		
+	def get_verb(self):
+		return verb
+
+class GenericProgramMatch(deskbar.interfaces.Match):
+	def __init__(self, arguments=[], desktop=None, desktop_file=None, verb="", **args):
+		deskbar.interfaces.Match.__init__(self, category="actions", **args)
 		
 		self.desktop_file = desktop_file
-		self.use_arg = use_arg
+		self._args = arguments
+		self.verb = verb
 		
-		self._priority = EXACT_WORD_PRIO
-		self._icon = deskbar.Utils.load_icon_for_desktop_icon(self.icon)
+		self.set_priority(self.get_priority() + EXACT_WORD_PRIO)
+		
 		self._desktop = desktop
 		if desktop == None:
 			self._desktop = parse_desktop_filename(desktop_file)
@@ -56,70 +51,51 @@ class GenericProgramMatch(deskbar.Match.Match):
 		i = exe.split(" ")[0].rfind("/")
 		if i != -1:
 			exe = exe[i+1:]
+		self._display_prog = exe.strip()
 		
-		self._display_prog = cgi.escape(exe).strip()
+		if len(self._args) > 0:
+			program = self._desktop.get_string("Exec")
+			self._args += [text]
+			self.add_action( GenericAction(self.get_name(), program, self._args, verb) )
+		else:
+			self.add_action( OpenDesktopFileAction(self.get_name(), self._desktop) )
+
+	def __getstate__(self):
+		state = self.__dict__.copy()
+		del state["_desktop"]
+		return state
+	
+	def __setstate__(self, state):
+		self.__dict__ = state
+		self._desktop = parse_desktop_filename(self.desktop_file)
 	
 	def get_hash(self, text=None):
 		return "generic_"+self._display_prog
 		
-	def action(self, text=None):
-		if self.use_arg and text != None:
-			args = [self._desktop.get_string("Exec")]
-			if hasattr(self, "_args"):
-				args = args + self._args
-			args = args + [text]
-
-			spawn_async(args)
-			# FIXME: This does not launch the App with passed parameters because they are not files..
-			#self._desktop.launch(text.split(" "), deskbar.gnomedesktop.LAUNCH_APPEND_PATHS|deskbar.gnomedesktop.LAUNCH_ONLY_ONE)
-		else:
-			try:
-				self._desktop.launch([])
-			except Exception, e:
-				#FIXME: Proper dialog here. Also see end of Utils.py
-				print 'Warning:Could not launch .desktop file:', e
-
-	def get_category(self):
-		return "actions"
-	
-	def get_verb(self):
-		#translators: First %s is the programs full name, second is the executable name
-		#translators: For example: Launch Text Editor (gedit)
-		return _("Launch <b>%(name)s</b> (%(prog)s)")
-		
-	def get_name(self, text=None):
-		return {
-			"name": self.name,
-			"prog": self._display_prog,
-		}
-		
 class GnomeDictMatch(GenericProgramMatch):
-	def __init__(self, backend, use_arg=True, **args):
-		GenericProgramMatch.__init__(self, backend, use_arg=use_arg, **args)
-		self._args = ["--look-up"]
-	
-	def get_verb(self):
-		return _("Lookup %s in dictionary") % "<b>%(text)s</b>"
+	def __init__(self, **args):
+		GenericProgramMatch.__init__(self,
+			args = ["--look-up"],
+			verb=_("Lookup %s in dictionary") % "<b>%(text)s</b>",
+			**args) 
 
 class GnomeSearchMatch(GenericProgramMatch):
-	def __init__(self, backend, use_arg=True, **args):
-		GenericProgramMatch.__init__(self, backend, use_arg=use_arg, **args)
-		self._args = ["--start", "--path", expanduser("~"), "--named"]
-		
-	def get_verb(self):
-		return _("Search for file names like %s") % "<b>%(text)s</b>"
-
+	def __init__(self, **args):
+		GenericProgramMatch.__init__(self,
+			args=["--start", "--path", expanduser("~"), "--named"],
+			verb=_("Search for file names like %s") % "<b>%(text)s</b>",
+			**args)
+	
 class DevhelpMatch(GenericProgramMatch):
-	def __init__(self, backend, use_arg=True, **args):
-		GenericProgramMatch.__init__(self, backend, use_arg=use_arg, **args)
-		self._args = ["-s"]
-		
-	def get_verb(self):
-		return _("Search in Devhelp for %s") % "<b>%(text)s</b>"
+	def __init__(self, **args):
+		GenericProgramMatch.__init__(self, args = ["-s"],
+			verb=_("Search in Devhelp for %s") % "<b>%(text)s</b>",				
+			**args) 
 
-class SpecialProgramHandler(deskbar.Handler.Handler):
-	def __init__(self, desktop, icon=gtk.STOCK_EXECUTE):
-		deskbar.Handler.Handler.__init__(self, icon)
+class SpecialProgramHandler(deskbar.interfaces.Module):
+	
+	def __init__(self, desktop):
+		deskbar.interfaces.Module.__init__(self)
 		self._desktop = desktop
 		self._match = None
 		
@@ -133,63 +109,67 @@ class SpecialProgramHandler(deskbar.Handler.Handler):
 		
 	def query(self, qstring):
 		if self._match != None:
-			self._match._priority = get_priority_for_name(qstring, self._match._desktop.get_string("Exec"))
-			return [self._match]
-		else:
-			return []
+			self._match.set_priority( self.get_priority() + get_priority_for_name(qstring, self._match._desktop.get_string("Exec")) )
+			self._emit_query_ready(qstring, [self._match] )
 		
 class GnomeDictHandler(SpecialProgramHandler):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon('gdict'),
+			 'name': _("Dictionary"),
+			 'description': _("Look up word definitions in the dictionary"),
+			 'version': VERSION}
+	
 	def __init__(self):
-		SpecialProgramHandler.__init__(self, "gnome-dictionary.desktop", "gdict")
+		SpecialProgramHandler.__init__(self, "gnome-dictionary.desktop")
 	
 	def create_match(self, desktop, f):
 		return GnomeDictMatch(
-					self,
-					name=cgi.escape(desktop.get_localestring(deskbar.gnomedesktop.KEY_NAME)),
-					icon=desktop.get_string(deskbar.gnomedesktop.KEY_ICON),
+					name=desktop.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
+					icon=desktop.get_string(deskbar.core.gnomedesktop.KEY_ICON),
 					desktop=desktop,
 					desktop_file=f)
 
 class GnomeSearchHandler(SpecialProgramHandler):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon('gnome-searchtool'),
+			 'name': _("Files and Folders Search"),
+			 "description": _("Find files and folders by searching for a name pattern"),
+			 'version': VERSION}
+	
 	def __init__(self):
-		SpecialProgramHandler.__init__(self, "gnome-search-tool.desktop", "gnome-searchtool")
+		SpecialProgramHandler.__init__(self, "gnome-search-tool.desktop")
 	
 	def create_match(self, desktop, f):
 		return GnomeSearchMatch(
-					self,
-					name=cgi.escape(desktop.get_localestring(deskbar.gnomedesktop.KEY_NAME)),
-					icon=desktop.get_string(deskbar.gnomedesktop.KEY_ICON),
+					name=desktop.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
+					icon=desktop.get_string(deskbar.core.gnomedesktop.KEY_ICON),
 					desktop=desktop,
 					desktop_file=f)
 		
 class DevhelpHandler(SpecialProgramHandler):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon('devhelp'),
+			 "name": _("Developer Documentation"),
+			 "description": _("Search Devhelp for a function name"),
+			 'version': VERSION}
+	
 	def __init__(self):
-		SpecialProgramHandler.__init__(self, "devhelp.desktop", "devhelp")
+		SpecialProgramHandler.__init__(self, "devhelp.desktop")
 	
 	def create_match(self, desktop, f):
 		return DevhelpMatch(
-					self,
-					name=cgi.escape(desktop.get_localestring(deskbar.gnomedesktop.KEY_NAME)),
-					icon=desktop.get_string(deskbar.gnomedesktop.KEY_ICON),
+					name=desktop.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
+					icon=desktop.get_string(deskbar.core.gnomedesktop.KEY_ICON),
 					desktop=desktop,
 					desktop_file=f)
 
-class PathProgramMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, use_terminal=False, priority=0, **args):
-		deskbar.Match.Match.__init__(self, backend, name=name, **args)
+class OpenPathProgramAction(deskbar.interfaces.Action):
+	
+	def __init__(self, name, use_terminal):
+		deskbar.interfaces.Action.__init__(self, name)
 		self.use_terminal = use_terminal
-		self._priority = EXACT_MATCH_PRIO
 		
-	def set_with_terminal(self, terminal):
-		self.use_terminal = terminal
-		
-	def get_hash(self, text=None):
-		if not self.use_terminal:
-			return text
-		else:
-			return (text, True)
-		
-	def action(self, text=None):
+	def activate(self, text=None):
 		if self.use_terminal:
 			try:
 				prog = subprocess.Popen(
@@ -215,16 +195,36 @@ class PathProgramMatch(deskbar.Match.Match):
 		
 		spawn_async(text.split(" "))			
 
-	def get_category(self):
-		return "actions"
-	
 	def get_verb(self):
 		return _("Execute %s") % "<b>%(text)s</b>"
+
+class PathProgramMatch(deskbar.interfaces.Match):
+	
+	def __init__(self, name=None, use_terminal=False, priority=0, **args):
+		deskbar.interfaces.Match.__init__(self, name=name, icon="gtk-execute", category="actions", **args)
+		self.use_terminal = use_terminal
+		self.set_priority(self.get_priority() + EXACT_MATCH_PRIO)
+		self.add_action( OpenPathProgramAction(name, self.use_terminal) )
 		
-class ProgramsHandler(deskbar.Handler.Handler):
+	def set_with_terminal(self, terminal):
+		self.use_terminal = terminal
+		
+	def get_hash(self, text=None):
+		if not self.use_terminal:
+			return text
+		else:
+			return text+"_terminal"
+		
+class ProgramsHandler(deskbar.interfaces.Module):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon(gtk.STOCK_EXECUTE),
+			 "name": _("Programs"),
+			 "description": _("Launch a program by its name and/or description"),
+			 'version': VERSION}
+	
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, gtk.STOCK_EXECUTE)
-		self._indexer = deskbar.Indexer.Indexer()
+		deskbar.interfaces.Module.__init__(self)
+		self._indexer = deskbar.core.Indexer.Indexer()
 		
 	def initialize(self):
 		self._scan_desktop_files()
@@ -232,7 +232,8 @@ class ProgramsHandler(deskbar.Handler.Handler):
 	def query(self, query):
 		result = self.query_path_programs(query)
 		result += self.query_desktop_programs(query)
-		return result
+		self.set_priority_for_matches(result)
+		self._emit_query_ready(query, result )
 		
 	def query_path_programs(self, query):
 		args = query.split(" ")
@@ -262,7 +263,7 @@ class ProgramsHandler(deskbar.Handler.Handler):
 		
 	def _check_program(self, program):
 		if is_program_in_path(program):
-			return PathProgramMatch(self, program)	
+			return PathProgramMatch(program)
 				
 	def _scan_desktop_files(self):
 		for dir in get_xdg_data_dirs():
@@ -270,17 +271,16 @@ class ProgramsHandler(deskbar.Handler.Handler):
 				result = parse_desktop_file(f)
 				if result != None:
 					match = GenericProgramMatch(
-								self,
-								name=cgi.escape(result.get_localestring(deskbar.gnomedesktop.KEY_NAME)),
-								icon=result.get_string(deskbar.gnomedesktop.KEY_ICON),
+								name=result.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
+								icon=result.get_string(deskbar.core.gnomedesktop.KEY_ICON),
 								desktop=result,
 								desktop_file=f)
 					self._indexer.add("%s %s %s %s %s" % (
 								result.get_string("Exec"),
-								result.get_localestring(deskbar.gnomedesktop.KEY_NAME),
-								result.get_localestring(deskbar.gnomedesktop.KEY_COMMENT),
-								result.get_string(deskbar.gnomedesktop.KEY_NAME),
-								result.get_string(deskbar.gnomedesktop.KEY_COMMENT),
+								result.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
+								result.get_localestring(deskbar.core.gnomedesktop.KEY_COMMENT),
+								result.get_string(deskbar.core.gnomedesktop.KEY_NAME),
+								result.get_string(deskbar.core.gnomedesktop.KEY_COMMENT),
 							), match)
 
 def get_priority_for_name(query, name):
@@ -303,16 +303,16 @@ def parse_desktop_filename(desktop, only_if_visible=True):
 
 def parse_desktop_file(desktop, only_if_visible=True):
 	try:
-		desktop = deskbar.gnomedesktop.item_new_from_file(desktop, deskbar.gnomedesktop.LOAD_ONLY_IF_EXISTS)
+		desktop = deskbar.core.gnomedesktop.item_new_from_file(desktop, deskbar.core.gnomedesktop.LOAD_ONLY_IF_EXISTS)
 	except Exception, e:
 		print 'Couldn\'t read desktop file:%s:%s' % (desktop, e)
 		return None
 	
-	if desktop == None or desktop.get_entry_type() != deskbar.gnomedesktop.TYPE_APPLICATION:
+	if desktop == None or desktop.get_entry_type() != deskbar.core.gnomedesktop.TYPE_APPLICATION:
 		return None
-	if desktop.get_boolean(deskbar.gnomedesktop.KEY_TERMINAL):
+	if desktop.get_boolean(deskbar.core.gnomedesktop.KEY_TERMINAL):
 		return None
-	if only_if_visible and desktop.get_boolean(deskbar.gnomedesktop.KEY_NO_DISPLAY):
+	if only_if_visible and desktop.get_boolean(deskbar.core.gnomedesktop.KEY_NO_DISPLAY):
 		return None
 		
 	return desktop

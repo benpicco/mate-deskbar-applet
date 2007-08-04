@@ -1,12 +1,14 @@
 import os, sys, cgi, re
 import gobject,gtk, gnome, gnome.ui, gnomevfs
-import deskbar, deskbar.Handler, deskbar.Utils, deskbar.Match
+import deskbar, deskbar.interfaces.Module, deskbar.core.Utils, deskbar.interfaces.Match
 from gettext import gettext as _
 from os.path import exists, dirname
 from deskbar.defs import VERSION
-from deskbar.Utils import is_program_in_path, spawn_async, url_show, url_show_file
+from deskbar.core.Utils import is_program_in_path, spawn_async, url_show, url_show_file
+import deskbar.interfaces.Action
 
 MAX_RESULTS = 20 # per handler
+HANDLERS = ["BeagleLiveHandler"]
 
 try:
 	import beagle
@@ -14,60 +16,6 @@ except:
 	# If this fails we complain about it in _check_requirements()
 	# so do nothing now
 	pass
-
-def _show_start_beagle_dialog (dialog):
-	dialog = gtk.Dialog(_("Start Beagle Daemon?"), dialog,
-				gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT)
-	
-	dialog.set_default_size (350, 150)
-	dialog.add_button (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT)
-	dialog.add_button (_("Start Beagle Daemon"), gtk.RESPONSE_ACCEPT)
-	label = gtk.Label (_("The Beagle daemon does not appear to be running.\n You need to start it to use the Beagle Live handler."))
-	dialog.vbox.add (label)
-	label.show()
-
-	response = dialog.run()
-	dialog.destroy()
-	
-	if response == gtk.RESPONSE_ACCEPT :
-		print "Starting Beagle Daemon."
-		if not spawn_async(["beagled"]):
-			print >> sys.stfderr, "Failed to start beagled. Perhaps the beagle daemon isn't installed?"	
-			warn = gtk.MessageDialog(flags=gtk.DIALOG_MODAL, 
-						type=gtk.MESSAGE_WARNING,
-						buttons=gtk.BUTTONS_CLOSE,
-						message_format=_("Failed to start Beagle"))
-			warn.format_secondary_text (_("Perhaps the beagle daemon isn't installed?"))
-			warn.run()
-			warn.destroy()
-
-def _check_requirements():
-	# Check if we have python bindings for beagle
-	try:
-		import deskbar
-		import beagle
-	except Exception, e:
-		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Could not load beagle, libbeagle has been compiled without python bindings:"+str(e), None)
-
-	# Check if beagled is running		
-	if not beagle.beagle_util_daemon_is_running ():
-		if is_program_in_path("beagled"):
-			return (deskbar.Handler.HANDLER_HAS_REQUIREMENTS, "Beagle daemon is not running.", _show_start_beagle_dialog)
-		else:
-			return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Beagled could not be found in your $PATH. Unable to start the beagled daemon", None)
-	else:
-		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-	
-HANDLERS = {
-	"BeagleLiveHandler" : {
-		"name": _("Beagle Live"),
-		"description": _("Search all of your documents (using Beagle), as you type"),
-		# We must see how to detect properly beagle, for now it will fail on creating a new client
-		# when beagle is not available.
-		"requirements" : _check_requirements,
-		"version": VERSION,
-	}
-}
 
 # The TYPES dict contains Beagle HitTypes as keys with
 # templates for the valid fields.
@@ -156,50 +104,12 @@ TYPES = {
 for key, val in TYPES.items():
 	if "snippet" in val and val["snippet"]:
 		val["description"] += "%(snippet)s"
-		
-class BeagleLiveMatch (deskbar.Match.Match):
-	def __init__(self, handler, result=None, **args):
-		"""
-		result: a dict containing:
-			"name" : a name sensible to display for this match
-			"uri": the uri of the match as provided by the beagled 'Uri: '-field
-			"type": One of the types listed in the TYPES dict
 
-		-- and optionally extra fields as provided by the corresponding entry in TYPES.
-		Fx. "MailMessage". has an extra "sender" entry.
-		"""
-		deskbar.Match.Match.__init__ (self, handler, name=result["name"], **args)
+class OpenBeagleLiveAction(deskbar.interfaces.Action):
+	
+	def __init__(self, name, result):
+		deskbar.interfaces.Action.__init__(self, name)
 		self.result = result
-
-		# IM Log viewer take loca paths only		
-		action = TYPES[self.result["type"]]["action"]
-		if not callable(action) and action.startswith("beagle-imlogviewer"):
-			# Strip the uti descriptor, because imlogviewer takes a local path
-			self.result["uri"] = gnomevfs.get_local_path_from_uri(self.result["uri"])			
-		
-		# Load the correct icon
-		
-		#
-		# There is bug http://bugzilla.gnome.org/show_bug.cgi?id=319549
-		# which has been fixed and comitted, so we re-enable this snippet
-		#
-		
-		self._icon = None
-		if result["type"] == "File":
-			try:
-				self._icon = deskbar.Utils.load_icon_for_file(result["uri"])
-			except Exception:
-				pass
-		
-		if self._icon == None:
-			# Just use an icon from the ICON table
-			self._icon = handler.ICONS[result["type"]]
-		
-	def get_category (self):
-		try:
-			return TYPES[self.result["type"]]["category"]
-		except:
-			return "default"
 		
 	def get_name (self, text=None):
 		# We use the result dict itself to look up words
@@ -228,6 +138,41 @@ class BeagleLiveMatch (deskbar.Match.Match):
 
 			print "BeagleLive spawning:", action, args
 			spawn_async(args)
+		
+class BeagleLiveMatch (deskbar.interfaces.Match):
+	def __init__(self, result=None, **args):
+		"""
+		result: a dict containing:
+			"name" : a name sensible to display for this match
+			"uri": the uri of the match as provided by the beagled 'Uri: '-field
+			"type": One of the types listed in the TYPES dict
+
+		-- and optionally extra fields as provided by the corresponding entry in TYPES.
+		Fx. "MailMessage". has an extra "sender" entry.
+		"""
+		deskbar.interfaces.Match.__init__ (self, name=result["name"], **args)
+		self.result = result
+
+		# IM Log viewer take loca paths only		
+		action = TYPES[self.result["type"]]["action"]
+		if not callable(action) and action.startswith("beagle-imlogviewer"):
+			# Strip the uti descriptor, because imlogviewer takes a local path
+			self.result["uri"] = gnomevfs.get_local_path_from_uri(self.result["uri"])			
+		
+		self.add_action( OpenBeagleLiveAction(self.get_name(), self.result) )
+		
+		# Load the correct icon
+		
+		#
+		# There is bug http://bugzilla.gnome.org/show_bug.cgi?id=319549
+		# which has been fixed and comitted, so we re-enable this snippet
+		#
+		
+		if result["type"] == "File":
+			try:
+				self.icon = result["uri"]
+			except Exception:
+				pass
 	
 	def get_hash(self, text=None):
 		if "uri" in self.result:
@@ -238,9 +183,16 @@ class SnippetContainer:
 		self.hit = hit
 		self.snippet = None
 	
-class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
+class BeagleLiveHandler(deskbar.interfaces.Module):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon("system-search"),
+			"name": _("Beagle Live"),
+			"description": _("Search all of your documents (using Beagle), as you type"),
+			'version': VERSION,
+			}
+	
 	def __init__(self):
-		deskbar.Handler.SignallingHandler.__init__(self, ("system-search", "best"))
+		deskbar.interfaces.Module.__init__(self)
 		self.counter = {}
 		self.snippets = {}
 		self.set_delay (500)
@@ -254,7 +206,7 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 		for t in TYPES.iterkeys():
 			icon_file = TYPES[t]["icon"]
 			if not icon_file: continue
-			res[t] = deskbar.Utils.load_icon(icon_file)
+			res[t] = deskbar.core.Utils.load_icon(icon_file)
 		return res
 		
 	def query (self, qstring):
@@ -267,6 +219,9 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 			return
 			
 		self.counter[qstring] = {}
+	
+	def has_config(self):
+		return True
 		
 	def _on_snippet_received(self, request, response, query, container, qstring, qmax):
 		container.snippet = response.get_snippet()
@@ -357,9 +312,13 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 			
 		self.counter[qstring][hit.get_type()] = self.counter[qstring][hit.get_type()] +1
 
-		match = BeagleLiveMatch(self, result)
+		if TYPES.has_key(self.result["type"]):
+			cat_type = TYPES[self.result["type"]]["category"]
+		else:
+			cat_type = "default"
+		match = BeagleLiveMatch(result, category=cat_type, priority=self.get_priority())
 		if fire_signal:
-			self.emit_query_ready(qstring, [match])
+			self._emit_query_ready(query, [match])
 		else:	
 			return match
 		
@@ -385,4 +344,51 @@ class BeagleLiveHandler(deskbar.Handler.SignallingHandler):
 			if match != None:
 				hit_matches.append(match)				
 			
-		self.emit_query_ready(qstring, hit_matches)
+		self._emit_query_ready(query, hit_matches)
+		
+	def show_config(self, parent):
+		dialog = gtk.Dialog(_("Start Beagle Daemon?"), parent,
+				gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT)
+	
+		dialog.set_default_size (350, 150)
+		dialog.add_button (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT)
+		dialog.add_button (_("Start Beagle Daemon"), gtk.RESPONSE_ACCEPT)
+		label = gtk.Label (_("The Beagle daemon does not appear to be running.\n You need to start it to use the Beagle Live handler."))
+		dialog.vbox.add (label)
+		label.show()
+	
+		response = dialog.run()
+		dialog.destroy()
+		
+		if response == gtk.RESPONSE_ACCEPT :
+			print "Starting Beagle Daemon."
+			if not spawn_async(["beagled"]):
+				BeagleLiveHandler.INSTRUCTIONS = _("Failed to start beagled. Perhaps the beagle daemon isn't installed?")
+				warn = gtk.MessageDialog(flags=gtk.DIALOG_MODAL, 
+							type=gtk.MESSAGE_WARNING,
+							buttons=gtk.BUTTONS_CLOSE,
+							message_format=_("Failed to start Beagle"))
+				warn.format_secondary_text (_("Perhaps the beagle daemon isn't installed?"))
+				warn.run()
+				warn.destroy()
+		
+	@staticmethod
+	def has_requirements():
+		# Check if we have python bindings for beagle
+		try:
+			import deskbar
+			import beagle
+		except Exception, e:
+			BeagleLiveHandler.INSTRUCTIONS = _("Could not load beagle, libbeagle has been compiled without python bindings.")
+			return False
+	
+		# Check if beagled is running		
+		if not beagle.beagle_util_daemon_is_running ():
+			if is_program_in_path("beagled"):
+				BeagleLiveHandler.INSTRUCTIONS = "Beagle daemon is not running."
+				return False
+			else:
+				BeagleLiveHandler.INSTRUCTIONS = _("Beagled could not be found in your $PATH. Unable to start the beagled daemon")
+				return False
+		else:
+			return True

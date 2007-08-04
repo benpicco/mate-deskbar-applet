@@ -1,8 +1,4 @@
-SUBDIRS = ui handlers updater iconentry keybinder gnomedesktop gdmclient osutils
-
-if ENABLE_EVOLUTION
-SUBDIRS += evolution
-endif
+SUBDIRS = core handlers interfaces osutils ui
 	
 deskbar-applet: deskbar-applet.py
 	sed -e "s|\@PYTHONDIR\@|$(pythondir)/deskbar|" $< > $@
@@ -14,22 +10,7 @@ deskbardir = $(pythondir)/deskbar
 deskbar_PYTHON = \
 	defs.py \
 	gtkexcepthook.py \
-	BrowserMatch.py \
-	Categories.py \
-	DeskbarApplet.py \
-	DeskbarAppletPreferences.py \
-	DeskbarHistory.py \
-	Handler.py \
-	Indexer.py \
-	__init__.py \
-	Keybinder.py \
-	Match.py \
-	ModuleContext.py \
-	ModuleInstaller.py \
-	ModuleList.py \
-	ModuleLoader.py \
-	Utils.py \
-	Watcher.py
+	__init__.py
 	
 BUILT_SOURCES = \
 	deskbar-applet

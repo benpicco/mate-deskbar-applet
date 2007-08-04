@@ -1,12 +1,12 @@
 import gobject, gtk
 
-import deskbar
+import deskbar.ui.iconentry
 
 # Make epydoc document signal
 __extra_epydoc_fields__ = [('signal', 'Signals')]
 
 
-class CuemiacEntry (deskbar.iconentry.IconEntry):
+class CuemiacEntry (deskbar.ui.iconentry.IconEntry):
 	"""
 	For all outside purposes this widget should appear to be a gtk.Entry
 	with an icon inside it. Use it as such - if you find odd behavior
@@ -23,7 +23,7 @@ class CuemiacEntry (deskbar.iconentry.IconEntry):
 		
 	
 	def __init__(self, default_pixbuf):
-		deskbar.iconentry.IconEntry.__init__ (self)
+		deskbar.ui.iconentry.IconEntry.__init__ (self)
 		
 		self.entry = self.get_entry ()
 		self.entry_icon = gtk.Image ()
@@ -55,7 +55,7 @@ class CuemiacEntry (deskbar.iconentry.IconEntry):
 		self.event = self.entry.event
 		
 		# Forward commonly used entry signals
-		self.entry.connect ("changed", lambda entry: self.emit("changed"))
+		self.handler_changed_id = self.entry.connect ("changed", lambda entry: self.emit("changed"))
 		self.entry.connect ("activate", lambda entry: self.emit("activate"))
 		self.entry.connect ("key-press-event", lambda entry, event: self.emit("key-press-event", event))
 		self.entry.connect ("button-press-event", lambda entry, event: self.emit("button-press-event", event))
@@ -109,6 +109,20 @@ class CuemiacEntry (deskbar.iconentry.IconEntry):
 		Show the the entry - including the icon.
 		"""
 		self.show_all () # We need to show the icon
+
+	def set_history_item(self, item):
+		if item != None:
+			text, match = item
+			self.entry.handler_block( self.handler_changed_id )
+			self.entry.set_text(text)
+			icon = match.get_icon()
+			if isinstance(icon, gtk.gdk.Pixbuf) :
+			    pixbuf = icon
+			else:
+			    pixbuf = deskbar.core.Utils.load_icon(icon)
+			self.set_icon ( pixbuf )
+			self.entry.select_region(0, -1)
+			self.entry.handler_unblock( self.handler_changed_id )
 
 	def _on_icon_button_press (self, widget, event):
 		if not self.icon_event_box.get_property ('sensitive'):

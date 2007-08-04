@@ -2,9 +2,11 @@ import gtk
 import gobject
 import pango
 import gconf
+import logging
 
 import deskbar
 from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
+from deskbar.interfaces import Action, Match
 
 class CellRendererCuemiacCategory (gtk.CellRendererText):
 	"""
@@ -68,27 +70,56 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
 		
 		# Set up a pango.Layout for the category title
 		cat_layout = ctx.create_layout ()
-		cat_layout.set_text (self.get_property("category-header"))
 		cat_layout.set_font_description (self.header_font_desc)
+		
+		cat_layout.set_markup("...")		
+		cat_layout_width, cat_layout_height = cat_layout.get_pixel_size()
+		ellipsise_size = cat_layout_width
+		
+		cat_text = self.get_property("category-header")
+		cat_layout.set_markup(cat_text)
+		cat_layout_width, cat_layout_height = cat_layout.get_pixel_size()
 		
 		# Set up a pango.Layout for the hit count
 		count_layout = ctx.create_layout ()
 		count_layout.set_text ("(" + str(self.get_property("match-count")) + ")")
 		count_layout.set_font_description (self.header_font_desc)
 		
-		# Position and draw the layouts
-		ctx.move_to (18, background_area.y + 6)
-		ctx.show_layout (cat_layout)
-		w, h = count_layout.get_pixel_size()
-		ctx.move_to (background_area.width - w + 10, background_area.y + 6)
-		ctx.show_layout (count_layout)
+		count_layout_width, count_layout_height = count_layout.get_pixel_size()
 		
-		# Draw a line in the normal background color in the top of the header,
-		# to separate rows a bit.
-		ctx.set_source_color (self.header_bg)
-		ctx.move_to (0, background_area.y + 1)
-		ctx.line_to (background_area.width + 100, background_area.y + 1) #FIXME: This 100 should really be the icon column width
-		ctx.stroke ()
+		max_cat_layout_width = cell_area.width - count_layout_width - 10
+		
+		if cat_layout_width > max_cat_layout_width:
+			ratio = float(max_cat_layout_width - ellipsise_size)/cat_layout_width;
+			characters = int( ratio * len(cat_text) )
+			while (cat_layout_width > max_cat_layout_width):
+				if characters > 0:
+					cat_layout.set_markup( cat_text[0:characters].strip() + "..." )
+					characters -= 1
+					cat_layout_width, cat_layout_height = cat_layout.get_pixel_size()
+				else:
+					cat_layout.set_markup(cat_text.strip())
+					break
+				
+		state = self.renderer_state_to_widget_state(flag)
+		main_gc = widget.get_style().text_gc[state]
+		
+		window.draw_layout(main_gc,
+						18,
+						cell_area.y + ( (cell_area.height - cat_layout_height) / 2) + 1,
+						cat_layout)
+		
+		mod_gc = widget.get_style().text_gc[state]
+		window.draw_layout(mod_gc,
+						(cell_area.x + cell_area.width) - count_layout_width - 2,
+						cell_area.y + ( (cell_area.height - count_layout_height) / 2 ) + 1,
+						count_layout)
+	
+	def renderer_state_to_widget_state(self, flags):
+		state = gtk.STATE_NORMAL
+		if (gtk.CELL_RENDERER_SELECTED & flags) == gtk.CELL_RENDERER_SELECTED:
+			state = gtk.STATE_SELECTED
+		return state
 		
 	def do_get_property(self, property):
 		if property.name == 'category-header':
@@ -115,18 +146,19 @@ class CuemiacTreeView (gtk.TreeView):
 	activation_keys = [65293] # Enter  - Space makes a mess when users type in queries with spaces
 	
 	__gsignals__ = {
-		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
 	}
 	
 	def __init__ (self, model):
 		gtk.TreeView.__init__ (self, model)
 				
 		icon = gtk.CellRendererPixbuf ()
+		icon.set_property("xpad", 10)
 		hit_title = CellRendererCuemiacCategory ()
 		hit_title.set_property ("ellipsize", pango.ELLIPSIZE_END)
-		hit_title.set_property ("width-chars", 50) #FIXME: Pick width according to screen size
+		
 		hits = gtk.TreeViewColumn ("Hits")
-		hits.pack_start (icon)
+		hits.pack_start (icon, expand=False)
 		hits.pack_start (hit_title)
 		hits.set_cell_data_func(hit_title, self.__get_match_title_for_cell)			
 		hits.set_cell_data_func(icon, self.__get_match_icon_for_cell)
@@ -135,7 +167,7 @@ class CuemiacTreeView (gtk.TreeView):
 		self.connect ("cursor-changed", self.__on_cursor_changed)
 		self.set_property ("headers-visible", False)
 
-		self.connect ("row-activated", self.__on_activated)
+		self.connect ("row-activated", self.__on_activated) # Used activate result if enter in entry has been pressed 
 		self.connect ("button-press-event", self.__on_button_press)		
 		self.connect ("key-press-event", self.__on_key_press)
 				
@@ -145,17 +177,6 @@ class CuemiacTreeView (gtk.TreeView):
 		# gtkTreeView does not use normal gtk DnD api.
 		# it uses the api from hell
 		
-		# Stuff to handle persistant expansion states.
-		# A category will be expanded if it's in __collapsed_rows
-		self.__collapsed_rows = deskbar.GCONF_CLIENT.get_list(deskbar.GCONF_COLLAPSED_CAT, gconf.VALUE_STRING)
-		deskbar.GCONF_CLIENT.notify_add(deskbar.GCONF_COLLAPSED_CAT, lambda x, y, z, a: self.__on_config_expanded_cat(z.value))
-		
-		self.connect ("row-expanded", self.__on_row_expanded, model)
-		self.connect ("row-collapsed", self.__on_row_collapsed, model)
-		model.connect ("category-added", self.__on_category_added)
-		
-		self.qstring = ""
-
 	def is_ready (self):
 		""" Returns True if the view is ready for user interaction """
 		num_children = self.get_model().iter_n_children (None)
@@ -163,9 +184,6 @@ class CuemiacTreeView (gtk.TreeView):
 
 	def clear (self):
 		self.model.clear ()
-	
-	def set_query_string (self, qstring):
-		self.qstring = qstring
 	
 	def last_visible_path (self):
 		"""Returns the path to the last visible cell."""
@@ -212,7 +230,7 @@ class CuemiacTreeView (gtk.TreeView):
 			new_cell_y = rect.y - 5
 		else:
 			if count != 1:
-				print "WARNING in CuemiacTreeView - in move_cursor_up_down, the count must be 1 or -1."
+				logging.warning("CuemiacTreeView - in move_cursor_up_down, the count must be 1 or -1.")
 			# Select a point in the cell below the cursor
 			new_cell_y = rect.height + rect.y + 5
 				
@@ -254,27 +272,11 @@ class CuemiacTreeView (gtk.TreeView):
 			model = self.get_model ()
 			match = model[model.get_iter(path)][model.MATCHES]
 			if match.__class__ != CuemiacCategory:
-				self.emit ("row-activated", path, col)
-				#self.emit ("match-selected", match)
+				self.__on_activated(treeview, path, col, event)
 	
-	def __on_config_expanded_cat (self, value):
-		if value != None and value.type == gconf.VALUE_LIST:
-			self.__collapsed_rows = [h.get_string() for h in value.get_list()]
-			
-	def __on_row_expanded (self, widget, iter, path, model):
-		idx = model[iter][model.MATCHES].get_id ()
-		if idx in self.__collapsed_rows:
-			self.__collapsed_rows.remove (idx)
-			deskbar.GCONF_CLIENT.set_list(deskbar.GCONF_COLLAPSED_CAT, gconf.VALUE_STRING, self.__collapsed_rows)
-		
-	def __on_row_collapsed (self, widget, iter, path, model):
-		idx = model[iter][model.MATCHES].get_id ()
-		self.__collapsed_rows.append (idx)
-		deskbar.GCONF_CLIENT.set_list(deskbar.GCONF_COLLAPSED_CAT, gconf.VALUE_STRING, self.__collapsed_rows)
-	
-	def __on_category_added (self, widget, cat, path):
-		if cat.get_id() not in self.__collapsed_rows:
-			self.expand_row (path, False)
+#	def __on_config_expanded_cat (self, value):
+#		if value != None and value.type == gconf.VALUE_LIST:
+#			self.__collapsed_rows = [h.get_string() for h in value.get_list()]
 				
 	def __on_cursor_changed (self, view):
 		model, iter = self.get_selection().get_selected()
@@ -286,18 +288,17 @@ class CuemiacTreeView (gtk.TreeView):
 		
 		if match.__class__ == CuemiacCategory:
 			cell.set_property ("pixbuf", None)
+			cell.set_property ("visible", True)
 			cell.set_property ("cell-background-gdk", self.style.bg[gtk.STATE_NORMAL])
-			
-		elif match.__class__== tuple:
-			cell.set_property ("cell-background-gdk", self.style.base[gtk.STATE_NORMAL])
-			qstring, match_obj = match
-			cell.set_property ("pixbuf", match_obj.get_icon())
 		else:
-			print "ERROR:See bug 359251 and report this output: Match object of unexpected type: %r - %r" % (match.__class__, match)
 			cell.set_property ("cell-background-gdk", self.style.base[gtk.STATE_NORMAL])
-			cell.set_property ("pixbuf", None)
-
-
+			if isinstance(match, Match):
+				cell.set_property ("pixbuf", match.get_icon())
+				cell.set_property ("visible", True)
+			else:
+				logging.error("See bug 359251 and report this output: Match object of unexpected type: %r - %r" % (match.__class__, match))
+				cell.set_property ("pixbuf", None)
+				cell.set_property ("visible", False)
 		
 	def __get_match_title_for_cell (self, column, cell, model, iter, data=None):
 	
@@ -317,19 +318,19 @@ class CuemiacTreeView (gtk.TreeView):
 				
 		cell.set_property ("markup", model[iter][model.ACTIONS])
 
-	def __on_activated (self, treeview, path, col):
+	def __on_activated (self, treeview, path, col, event=None):
 		model = self.get_model()
 		iter = model.get_iter (path)
 		match = model[iter][model.MATCHES]
+		qstring = model[iter][model.QUERY]
 		
 		# Check if this s really a match and not just
 		# a category
-		if match.__class__ == CuemiacCategory:
+		if isinstance(match, CuemiacCategory):
 			return
-			
-		# So we have a Match, tell the world
-		self.emit ("match-selected", match)
-		
+		else:
+			# So we have a Match, tell the world
+			self.emit ("match-selected", qstring, match, event)
 		
 	def __on_key_press (self, widget, event):
 		# FIXME: In the future we should check for ctrl being pressed to create shortcuts

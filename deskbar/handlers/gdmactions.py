@@ -1,35 +1,27 @@
 import dbus, dbus.glib
 from gettext import gettext as _
-import deskbar, deskbar.Indexer, deskbar.Handler, deskbar.Utils
+import deskbar, deskbar.core.Indexer, deskbar.interfaces.Match, deskbar.interfaces.Module, deskbar.core.Utils
 from deskbar.defs import VERSION
-import gdmclient
+import deskbar.handlers.gdmclient
 import gtk, gnome, gnome.ui
+import deskbar.interfaces.Action
 
-HANDLERS = {
-	"GdmHandler" : {
-		"name": _("Computer Actions"),
-		"description": _("Logoff, shutdown, restart, suspend and related actions."),
-		"version": VERSION,
-	}
-}
+HANDLERS = ["GdmHandler"]
 
-class GpmMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, **args):
-		deskbar.Match.Match.__init__(self, backend, name=name, **args)
+class GpmAction(deskbar.interfaces.Action):
+	
+	def __init__(self):
+		deskbar.interfaces.Action.__init__(self, "")
 		bus = dbus.Bus(dbus.Bus.TYPE_SESSION)
 		obj = bus.get_object('org.gnome.PowerManager', '/org/gnome/PowerManager')
 		self._gpm = dbus.Interface (obj, "org.gnome.PowerManager")
-
-	def get_category(self):
-		return "actions"
-
-
-class SuspendMatch(GpmMatch):
-	def __init__(self, backend, name=None, **args):
-		GpmMatch.__init__(self, backend, name)
-		self._icon = deskbar.Utils.load_icon("gpm-suspend-to-ram.png")
-
-	def action(self, text=None):
+		
+class SuspendAction(GpmAction):
+	
+	def __init__(self):
+		GpmAction.__init__(self)
+	
+	def activate(self, text=None):
 		try:
 			self._gpm.Suspend()
 		except dbus.DBusException:
@@ -37,18 +29,15 @@ class SuspendMatch(GpmMatch):
 			# As a workaround we swallow it silently
 			pass
 
-	def get_category(self):
-		return "actions"
-
 	def get_verb(self):
 		return _("Suspend the machine")
+	
+class HibernateAction(GpmAction):
+	
+	def __init__(self):
+		GpmAction.__init__(self)
 
-class HibernateMatch(GpmMatch):
-	def __init__(self, backend, name=None, **args):
-		GpmMatch.__init__(self, backend, name)
-		self._icon = deskbar.Utils.load_icon("gpm-suspend-to-disk.png")
-
-	def action(self, text=None):
+	def activate(self, text=None):
 		try:
 			self._gpm.Hibernate()
 		except dbus.DBusException:
@@ -58,13 +47,13 @@ class HibernateMatch(GpmMatch):
 
 	def get_verb(self):
 		return _("Hibernate the machine")
-
-class ShutdownMatch(GpmMatch):
-	def __init__(self, backend, name=None, **args):
-		GpmMatch.__init__(self, backend, name)
-		self._icon = deskbar.Utils.load_icon(gtk.STOCK_QUIT) 
-
-	def action(self, text=None):
+	
+class ShutdownAction(GpmAction):
+		
+	def __init__(self):
+		GpmAction.__init__(self)
+		
+	def activate(self, text=None):
 		try:
 			self._gpm.Shutdown()
 		except dbus.DBusException:
@@ -74,18 +63,18 @@ class ShutdownMatch(GpmMatch):
 
 	def get_verb(self):
 		return _("Shutdown the machine")
-
-class LockScreenMatch(deskbar.Match.Match):
-	def __init__(self, backend, name=None, **args):
-		deskbar.Match.Match.__init__(self, backend, name=name, **args)
-		self._icon = deskbar.Utils.load_icon(gtk.STOCK_FULLSCREEN)
+	
+class LockScreenAction(deskbar.interfaces.Action):
+		
+	def __init__(self):
+		deskbar.interfaces.Action.__init__(self, "")
 		
 		bus = dbus.Bus(dbus.Bus.TYPE_SESSION)
 		obj = bus.get_object('org.gnome.ScreenSaver', '/org/gnome/ScreenSaver')
 		# FIXME : This timeouts ?
 		self._scrsvr = dbus.Interface (obj, "org.gnome.ScreenSaver")
 
-	def action(self, text=None):
+	def activate(self, text=None):
 		try:
 			self._scrsvr.Lock()
 		except dbus.DBusException:
@@ -93,21 +82,43 @@ class LockScreenMatch(deskbar.Match.Match):
 			# As a workaround we swallow it silently
 			pass
 
-	def get_category(self):
-		return "actions"
-
 	def get_verb(self):
 		return _("Lock the screen")
 
-class GdmMatch(deskbar.Match.Match):
-	def __init__(self, backend, name, **args):
-		deskbar.Match.Match.__init__(self, backend, name=name, **args)
-		self.logout_reentrance = 0
-		
+class GpmMatch(deskbar.interfaces.Match):
+	def __init__(self, **args):
+		deskbar.interfaces.Match.__init__(self, category="actions", **args)	
+
+class SuspendMatch(GpmMatch):
+	def __init__(self, **args):
+		GpmMatch.__init__(self, category="actions", icon="gpm-suspend-to-ram.png")
+		self.add_action( SuspendAction() )
+
+class HibernateMatch(GpmMatch):
+	def __init__(self, **args):
+		GpmMatch.__init__(self, icon = "gpm-suspend-to-disk.png")
+		self.add_action( HibernateAction() )
+
+class ShutdownMatch(GpmMatch):
+	def __init__(self, **args):
+		GpmMatch.__init__(self, icon = gtk.STOCK_QUIT)
+		self.add_action( ShutdownAction() )
+	
+class LockScreenMatch(deskbar.interfaces.Match):
+	def __init__(self, **args):
+		deskbar.interfaces.Match.__init__(self, name=_("Lock"), icon = gtk.STOCK_FULLSCREEN, **args)
+		self.add_action( LockScreenAction() )
+
 	def get_category(self):
 		return "actions"
-
-	def request_logout(self):
+	
+class GdmAction(deskbar.interfaces.Action):
+		
+	def __init__(self, name):
+		deskbar.interfaces.Action.__init__(self, name)
+		self.logout_reentrance = 0
+	
+	def __request_logout(self):
 		if self.logout_reentrance == 0:
 			self.logout_reentrance += 1
 
@@ -120,59 +131,93 @@ class GdmMatch(deskbar.Match.Match):
 					True) # Global?
 
 				self.logout_reentrance -= 1
-			
-class GdmShutdownMatch(GdmMatch):
-	def __init__(self, backend, **args):
-		GdmMatch.__init__(self, backend, _("Shut Down"), **args)
+				
+class GdmMatch(deskbar.interfaces.Match):
+	def __init__(self, **args):
+		deskbar.interfaces.Match.__init__(self, category="actions", **args)
+	
+class GdmShutdownAction(GdmAction):
+	
+	def __init__(self, name):
+		GdmAction.__init__(self, name)
 		
-	def action(self, text=None):
-		gdmclient.set_logout_action(gdmclient.LOGOUT_ACTION_SHUTDOWN)
+	def activate(self, text=None):
+		deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_SHUTDOWN)
 		self.request_logout()
 		
 	def get_verb(self):
 		return _("Turn off the computer")
-
-class GdmLogoutMatch(GdmMatch):
-	def __init__(self, backend, **args):
-		GdmMatch.__init__(self, backend, _("Log Out"), **args)
+			
+class GdmShutdownMatch(GdmMatch):
+	def __init__(self, **args):
+		GdmMatch.__init__(self, name=_("Shut Down"), **args)
+		self.add_action( GdmShutdownAction(self.get_name()) )
+	
+class GdmLogoutAction(GdmAction):
+	def __init__(self, name):
+		GdmAction.__init__(self, name)
 		
-	def action(self, text=None):
-		gdmclient.set_logout_action(gdmclient.LOGOUT_ACTION_NONE)
+	def activate(self, text=None):
+		deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_NONE)
 		self.request_logout()
 		
 	def get_verb(self):
 		return _("Log out")
 		
-class GdmRebootMatch(GdmMatch):
-	def __init__(self, backend, **args):
-		GdmMatch.__init__(self, backend, _("Restart"), **args)
+class GdmLogoutMatch(GdmMatch):
+	def __init__(self, **args):
+		GdmMatch.__init__(self, name=_("Log Out"), **args)
+		self.add_action( GdmLogoutAction(self.get_name()) )
+	
+class GdmRebootAction(GdmAction):
+	def __init__(self, name):
+		GdmAction.__init__(self, name)
 		
-	def action(self, text=None):
-		gdmclient.set_logout_action(gdmclient.LOGOUT_ACTION_REBOOT)
+	def activate(self, text=None):
+		deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_REBOOT)
 		self.request_logout()
 		
 	def get_verb(self):
 		return _("Restart the computer")
+	
+class GdmRebootMatch(GdmMatch):
+	def __init__(self, **args):
+		GdmMatch.__init__(self, name=_("Restart"), **args)
+		self.add_action( GdmRebootAction(self.get_name()) )
+	
+class GdmSwitchUserAction(GdmAction):	
+	def __init__(self, name):
+		GdmAction.__init__(self, name)
 		
-class GdmSwitchUserMatch(GdmMatch):
-	def __init__(self, backend, **args):
-		GdmMatch.__init__(self, backend, _("Switch User"), **args)
-		
-	def action(self, text=None):
-		gdmclient.new_login()
+	def activate(self, text=None):
+		deskbar.handlers.gdmclient.new_login()
 		
 	def get_verb(self):
 		return _("Switch User")
-				
-class GdmHandler(deskbar.Handler.Handler):
+					
+class GdmSwitchUserMatch(GdmMatch):
+	def __init__(self, **args):
+		GdmMatch.__init__(self, name=_("Switch User"), **args)
+		self.add_action( GdmSwitchUserAction(self.get_name()) )
+	
+class GdmHandler(deskbar.interfaces.Module):
+	
+	INFOS = {'icon':  deskbar.core.Utils.load_icon("gpm-suspend-to-ram.png"),
+			 "name": _("Computer Actions"),
+			 "description": _("Logoff, shutdown, restart, suspend and related actions."),
+			 "version": VERSION}
+	ACTIONS = ((GdmShutdownMatch, _("Shut Down")),
+			(GdmSwitchUserMatch, _("Switch User")),
+			(GdmRebootMatch, _("Restart")),
+			(GdmLogoutMatch, _("Log Out")))
 	def __init__(self):
-		deskbar.Handler.Handler.__init__(self, "gpm-suspend-to-ram.png")	
-		self.indexer = deskbar.Indexer.Indexer()
+		deskbar.interfaces.Module.__init__(self)	
+		self.indexer = deskbar.core.Indexer.Indexer()
 		
 	def initialize(self):
-		for klass in (GdmShutdownMatch,GdmSwitchUserMatch,GdmRebootMatch,GdmLogoutMatch):
-			match = klass(self)
-			self.indexer.add(match.get_verb(), match)
+		for klass, verb in self.ACTIONS:
+			match = klass()
+			self.indexer.add(verb, match)
 		
 		self.init_gpm_matches()
 		self.init_screensaver_matches()
@@ -182,7 +227,7 @@ class GdmHandler(deskbar.Handler.Handler):
 			bus = dbus.Bus(dbus.Bus.TYPE_SESSION)
 			obj = bus.get_object('org.gnome.ScreenSaver', '/org/gnome/ScreenSaver')
 			scrsvr = dbus.Interface (obj, "org.gnome.ScreenSaver")
-			self.indexer.add(_("Lock"), LockScreenMatch(self))
+			self.indexer.add(_("Lock"), LockScreenMatch())
 			return True
 		except dbus.DBusException:
 			return False
@@ -193,13 +238,15 @@ class GdmHandler(deskbar.Handler.Handler):
 			obj = bus.get_object('org.gnome.PowerManager', '/org/gnome/PowerManager')
 			gpm = dbus.Interface (obj, "org.gnome.PowerManager")
 			if gpm.canSuspend():
-				self.indexer.add(_("Suspend"), SuspendMatch(self))
+				self.indexer.add(_("Suspend"), SuspendMatch())
 			if gpm.canHibernate():
-				self.indexer.add(_("Hibernate"), HibernateMatch(self))
+				self.indexer.add(_("Hibernate"), HibernateMatch())
 			if gpm.canShutdown():
-				self.indexer.add(_("Shutdown"), ShutdownMatch(self))
+				self.indexer.add(_("Shutdown"), ShutdownMatch())
 		except dbus.DBusException:
 			return False
 			
 	def query(self, query):
-		return self.indexer.look_up(query)
+		matches = self.indexer.look_up(query)
+		self.set_priority_for_matches( matches )
+		self._emit_query_ready(query, matches )

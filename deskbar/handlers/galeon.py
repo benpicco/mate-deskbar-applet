@@ -4,41 +4,17 @@ from os.path import join, expanduser, exists
 from gettext import gettext as _
 import gtk
 import gnomevfs
-import deskbar, deskbar.Indexer, deskbar.Handler
-from deskbar.Watcher import FileWatcher
-from deskbar.BrowserMatch import get_url_host, is_preferred_browser
-from deskbar.BrowserMatch import BrowserSmartMatch, BrowserMatch
+import sys
+import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module
+from deskbar.core.Watcher import FileWatcher
+from deskbar.core.BrowserMatch import get_url_host, is_preferred_browser
+from deskbar.core.BrowserMatch import BrowserSmartMatch, BrowserMatch
 from deskbar.defs import VERSION
-
-def _check_requirements():
-#	if deskbar.UNINSTALLED_DESKBAR:
-#		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
 		
-	if is_preferred_browser("galeon"):
-		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-	else:
-		return (deskbar.Handler.HANDLER_IS_NOT_APPLICABLE, "Galeon is not your preferred browser, not using it.", None)
-		
-HANDLERS = {
-	"GaleonBookmarksHandler" : {
-		"name": _("Web Bookmarks"),
-		"description": _("Open your web bookmarks by name"),
-		"requirements": _check_requirements,
-		"version": VERSION,
-	},
-	"GaleonHistoryHandler" : {
-		"name": _("Web History"),
-		"description": _("Open your web history by name"),
-		"requirements": _check_requirements,
-		"version": VERSION,
-	},
-	"GaleonSearchHandler" : {
-		"name": _("Web Searches"),
-		"description": _("Search the web via your browser's search settings"),
-		"requirements": _check_requirements,
-		"version": VERSION,
-	},
-}
+HANDLERS = [
+	"GaleonBookmarksHandler",
+	"GaleonHistoryHandler" ,
+	"GaleonSearchHandler"]
 
 GALEON_HISTORY_FILE = expanduser("~/.galeon/history2.xml")
 if not exists(GALEON_HISTORY_FILE):
@@ -50,9 +26,10 @@ bookmarks = None
 smart_bookmarks = None
 quicksearches = None
 
-class GaleonHandler(deskbar.Handler.Handler):
-	def __init__(self, watched_file, callback, icon="stock_bookmark"):
-		deskbar.Handler.Handler.__init__(self, icon)
+class GaleonHandler(deskbar.interfaces.Module):
+	
+	def __init__(self, watched_file, callback):
+		deskbar.interfaces.Module.__init__(self)
 		self.watched_file = watched_file
 		self.watch_callback = callback
 		
@@ -71,7 +48,24 @@ class GaleonHandler(deskbar.Handler.Handler):
 	def stop(self):
 		self.watcher.remove(self.watched_file)
 		
+	@staticmethod
+	def has_requirements():
+		#	if deskbar.UNINSTALLED_DESKBAR:
+		#		return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
+		
+		if is_preferred_browser("galeon"):
+			return True
+		else:
+			GaleonHandler.INSTRUCTIONS = _("Galeon is not your preferred browser.")
+			return False
+	
 class GaleonBookmarksHandler(GaleonHandler):
+	
+	INFOS = {'icon':  deskbar.core.Utils.load_icon("stock_bookmark"),
+			 "name": _("Web Bookmarks"),
+			 "description": _("Open your web bookmarks by name"),
+			 "version": VERSION}
+	
 	def __init__(self):
 		GaleonHandler.__init__(self, GALEON_BOOKMARKS_FILE, lambda: self._parse_bookmarks(True))
 	
@@ -89,9 +83,17 @@ class GaleonBookmarksHandler(GaleonHandler):
 	
 	def query(self, query):
 		global bookmarks
-		return bookmarks.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		matches = bookmarks.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		self.set_priority_for_matches( matches )
+		self._emit_query_ready(query, matches )
 
 class GaleonSearchHandler(GaleonBookmarksHandler):
+	
+	INFOS = {'icon':  deskbar.core.Utils.load_icon("stock_bookmark"),
+			 "name": _("Web Searches"),
+			 "description": _("Search the web via your browser's search settings"),
+			 "version": VERSION}
+	
 	def __init__(self):
 		GaleonBookmarksHandler.__init__(self)
 	
@@ -100,13 +102,21 @@ class GaleonSearchHandler(GaleonBookmarksHandler):
 		global quicksearches
 		query_a = query.split(" ")
 		if len(query_a) > 1 and quicksearches.has_key(query_a[0]):
-			return (quicksearches[query_a[0]],)
+			quicksearches[query_a[0]].set_priority( self.get_priority() )
+			self._emit_query_ready(query, (quicksearches[query_a[0]],) )
 		else:
-			return smart_bookmarks
+			self.set_priority_for_matches( smart_bookmarks )
+			self._emit_query_ready(query, smart_bookmarks )
 		
 class GaleonHistoryHandler(GaleonHandler):
+	
+	INFOS = {'icon': deskbar.core.Utils.load_icon("epiphany-history.png"),
+			 "name": _("Web History"),
+			 "description": _("Open your web history by name"),
+			 "version": VERSION}
+	
 	def __init__(self):
-		GaleonHandler.__init__(self, GALEON_HISTORY_FILE, self._parse_history, "epiphany-history.png")
+		GaleonHandler.__init__(self, GALEON_HISTORY_FILE, self._parse_history)
 		self._history = None
 		
 	def initialize(self):
@@ -118,7 +128,9 @@ class GaleonHistoryHandler(GaleonHandler):
 		self._history = GaleonHistoryParser(self, favicon_cache).get_indexer()
 			
 	def query(self, query):
-		return self._history.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		matches = self._history.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
+		self.set_priority_for_matches( matches )
+		self._emit_query_ready(query, matches )
 
 class GaleonBookmarksParser(xml.sax.ContentHandler):
 	def __init__(self, handler, cache):
@@ -192,14 +204,14 @@ class GaleonBookmarksParser(xml.sax.ContentHandler):
 			if host in self._cache:
 				img = self._cache[host]
 
-			bookmark = BrowserMatch(self.handler, self.title, self.href, icon=img)
+			bookmark = BrowserMatch(self.title, self.href, icon=img)
 			self._indexer.add("%s %s" % (self.title, self.href), bookmark)
 			if self.nick != None and self.smarthref != None:
-				quicksearch = BrowserSmartMatch(self.handler, self.title, self.smarthref, icon=img, bookmark=bookmark, prefix_to_strip=self.nick)
+				quicksearch = BrowserSmartMatch(self.title, self.smarthref, icon=img, bookmark=bookmark, prefix_to_strip=self.nick)
 				self._qsindexer[self.nick] = quicksearch
 
 			if self.smarthref != None:
-				bookmark = BrowserSmartMatch(self.handler, self.title, self.smarthref, icon=img, bookmark=bookmark)
+				bookmark = BrowserSmartMatch(self.title, self.smarthref, icon=img, bookmark=bookmark)
 				self._smart_bookmarks.append(bookmark)
 
 class GaleonFaviconCacheParser(xml.sax.ContentHandler):
@@ -254,7 +266,7 @@ class GaleonHistoryParser(xml.sax.ContentHandler):
 		self.handler = handler;
 		self._cache = cache;
 
-		self._indexer = deskbar.Indexer.Indexer()
+		self._indexer = deskbar.core.Indexer.Indexer()
 
 		self._index_history();
 
@@ -285,7 +297,7 @@ class GaleonHistoryParser(xml.sax.ContentHandler):
 				# Most of the time we have an html page here, it could also be an unrecognized format
 				print 'Error:endElement(%s):Title:%s:%s' % (name.encode("utf8"), title, msg)
 
-			item = BrowserMatch(self.handler, title, url, True, icon=pixbuf)
+			item = BrowserMatch(title, url, True, icon=pixbuf)
 			self._indexer.add("%s %s" % (title, url), item)
 
 	def characters(self, chars):
