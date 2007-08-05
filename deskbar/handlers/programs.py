@@ -25,9 +25,14 @@ class GenericAction(OpenWithApplicationAction):
 	
 	def __init__(self, name, program, args, verb):
 		OpenWithApplicationAction.__init__(self, name, program, args)
+		self._verb = verb
+		
+	def activate(self, text=None):
+		self._arguments += [text]
+		OpenWithApplicationAction.activate(self, text)
 		
 	def get_verb(self):
-		return verb
+		return self._verb
 
 class GenericProgramMatch(deskbar.interfaces.Match):
 	def __init__(self, arguments=[], desktop=None, desktop_file=None, verb="", **args):
@@ -55,7 +60,6 @@ class GenericProgramMatch(deskbar.interfaces.Match):
 		
 		if len(self._args) > 0:
 			program = self._desktop.get_string("Exec")
-			self._args += [text]
 			self.add_action( GenericAction(self.get_name(), program, self._args, verb) )
 		else:
 			self.add_action( OpenDesktopFileAction(self.get_name(), self._desktop) )
@@ -75,20 +79,20 @@ class GenericProgramMatch(deskbar.interfaces.Match):
 class GnomeDictMatch(GenericProgramMatch):
 	def __init__(self, **args):
 		GenericProgramMatch.__init__(self,
-			args = ["--look-up"],
+			arguments = ["--look-up"],
 			verb=_("Lookup %s in dictionary") % "<b>%(text)s</b>",
 			**args) 
 
 class GnomeSearchMatch(GenericProgramMatch):
 	def __init__(self, **args):
 		GenericProgramMatch.__init__(self,
-			args=["--start", "--path", expanduser("~"), "--named"],
+			arguments=["--start", "--path", expanduser("~"), "--named"],
 			verb=_("Search for file names like %s") % "<b>%(text)s</b>",
 			**args)
 	
 class DevhelpMatch(GenericProgramMatch):
 	def __init__(self, **args):
-		GenericProgramMatch.__init__(self, args = ["-s"],
+		GenericProgramMatch.__init__(self, arguments = ["-s"],
 			verb=_("Search in Devhelp for %s") % "<b>%(text)s</b>",				
 			**args) 
 

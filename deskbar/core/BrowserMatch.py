@@ -4,6 +4,7 @@ import gnomevfs, gconf, gtk, gobject, os.path
 import deskbar, deskbar.interfaces.Match, deskbar.core.Utils
 import deskbar.interfaces.Action
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
+from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 
 def is_preferred_browser(test):
 	# We will import only if the user's preferred browser is mozilla
@@ -86,7 +87,8 @@ class BrowserMatch(deskbar.interfaces.Match):
 			 item_type = OpenBrowserItemAction.HISTORY_TYPE
 		else:
 			item_type = OpenBrowserItemAction.BOOKMARK_TYPE
-		self.add_action( OpenBrowserItemAction(name, self.url, item_type) )		
+		self.add_action( OpenBrowserItemAction(name, self.url, item_type) )
+		self.add_action( CopyToClipboardAction( _("URL"), self.url) )		
 	
 	def get_hash(self, text=None):
 		return self.url

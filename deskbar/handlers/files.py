@@ -36,6 +36,7 @@ class FolderMatch(deskbar.interfaces.Match):
 		deskbar.interfaces.Match.__init__(self, name=name, icon=absname, category="places", **args)
 		self.absname = absname
 		self.add_action( ShowUrlAction(name, absname) )
+		self.add_action( CopyToClipboardAction(_("Location"), absname) )
 	
 	def get_hash(self, text=None):
 		return self.absname
@@ -45,6 +46,7 @@ class GtkBookmarkMatch(deskbar.interfaces.Match):
 		deskbar.interfaces.Match.__init__(self, icon="gtk-open", name=name, category="places", **args)
 		self.path = path
 		self.add_action( OpenWithNautilusAction(name, path) )
+		self.add_action( CopyToClipboardAction(_("Location"), path) )
 	
 	def get_hash(self, text=None):
 		return self.path
@@ -54,6 +56,7 @@ class VolumeMatch (deskbar.interfaces.Match):
 		deskbar.interfaces.Match.__init__(self, name=name, category="places", icon=icon, **args)
 		self.drive = drive
 		self.add_action( OpenWithNautilusAction(drive) )
+		self.add_action( CopyToClipboardAction(_("Location"), drive) )
 
 	def get_hash(self, text=None):
 		return self.drive

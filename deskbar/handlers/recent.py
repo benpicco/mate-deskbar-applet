@@ -6,6 +6,7 @@ import deskbar.interfaces.Module
 import deskbar.interfaces.Match
 
 from deskbar.handlers.actions.OpenFileAction import OpenFileAction
+from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.defs import VERSION
 from deskbar.core.Watcher import FileWatcher
 
@@ -24,6 +25,7 @@ class RecentMatch(deskbar.interfaces.Match):
 		deskbar.interfaces.Match.__init__(self, pixbuf=recent_infos.get_icon(deskbar.ICON_HEIGHT), name=recent_infos.get_display_name(), **args)		
 		self.recent_infos = recent_infos
 		self.add_action( OpenRecentAction(self.get_name(), self.recent_infos.get_uri()) )
+		self.add_action( CopyToClipboardAction( _("Location"), self.recent_infos.get_uri()) )
 
 	def is_valid(self, text=None):
 		return self.recent_infos.exists()

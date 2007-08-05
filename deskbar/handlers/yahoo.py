@@ -5,6 +5,7 @@ import urllib
 import gnomevfs
 import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
+from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 import xml.dom.minidom
 
 YAHOO_API_KEY = 'deskbar-applet'
@@ -27,6 +28,7 @@ class YahooMatch(deskbar.interfaces.Match):
 		deskbar.interfaces.Match.__init__ (self, category="web", icon="yahoo.png", **args)
 		self.url = url
 		self.add_action( OpenYahooAction(self.get_name(), self.url) )
+		self.add_action( CopyToClipboardAction( _("URL"), self.url) )
 	
 	def get_hash(self, text=None):
 		return self.url
