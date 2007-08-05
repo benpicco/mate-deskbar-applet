@@ -65,7 +65,7 @@ class DeliciousHandler(deskbar.interfaces.Module):
 
 		# TODO: Missing
 		#self.check_query_changed (timeout=QUERY_DELAY)
-		print 'Returning del.icio.us result', posts
+		print 'Returning del.icio.us result'
 		self.set_priority_for_matches( posts )
 		self._emit_query_ready(tag, posts )
 		
