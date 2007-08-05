@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-05 04:08+0100\n"
-"PO-Revision-Date: 2007-08-05 13:15+0200\n"
+"POT-Creation-Date: 2007-08-05 12:19+0100\n"
+"PO-Revision-Date: 2007-08-05 13:26+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -91,7 +91,9 @@ msgstr "La anchura predeterminada de la ventana en píxeles"
 
 #: ../data/deskbar-applet.schemas.in.h:17
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
-msgstr "La secuencia de claves dará el foco a Deskbar, permitiendo escribir rápidamente"
+msgstr ""
+"La secuencia de claves dará el foco a Deskbar, permitiendo escribir "
+"rápidamente"
 
 #: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
@@ -99,9 +101,9 @@ msgid ""
 "default, history, documents, emails, conversations, files, people, places, "
 "actions, web, websearch, news and notes."
 msgstr ""
-"La lista de categorías a contraer cuando se muestre. Las categorías válidas son: "
-"predeterminado, historial, documentos, correos-e, conversaciones, archivos, "
-"gente, lugares, acciones, web, búsqueda web, noticias y notas."
+"La lista de categorías a contraer cuando se muestre. Las categorías válidas "
+"son: predeterminado, historial, documentos, correos-e, conversaciones, "
+"archivos, gente, lugares, acciones, web, búsqueda web, noticias y notas."
 
 #: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
@@ -181,8 +183,8 @@ msgid "<b>Behavior</b>"
 msgstr "<b>Comportamiento</b>"
 
 #: ../data/prefs-dialog.glade.h:3
-msgid "<b>Disabled Extensions</b>"
-msgstr "<b>Extensiones desactivadas</b>"
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>Extensiones con errores</b>"
 
 #: ../data/prefs-dialog.glade.h:4
 msgid "<b>Focus</b>"
@@ -201,28 +203,28 @@ msgid "Deskbar Preferences"
 msgstr "Preferencias de Deskbar"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Disabled Extensions"
-msgstr "Extensiones desactivadas"
+msgid "Extensions with Errors"
+msgstr "Extensiones con errores"
 
 #: ../data/prefs-dialog.glade.h:9
+msgid "General"
+msgstr "General"
+
+#: ../data/prefs-dialog.glade.h:10
 msgid "New Extensions"
 msgstr "Nuevas extensiones"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "Search selection when triggering the shortcut"
 msgstr "Buscar la selección cuando se dispare el atajo"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
 msgid "Searches"
 msgstr "Búsquedas"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
 msgid "Time to _wait before starting to search:"
 msgstr "Tiempo a _esperar antes de comenzar la búsqueda:"
-
-#: ../data/prefs-dialog.glade.h:13
-msgid "View"
-msgstr "Vista"
 
 #: ../data/prefs-dialog.glade.h:14
 msgid "_Check For Updates"
@@ -292,27 +294,31 @@ msgstr "Mostrar todos los motores de búsqueda disponibles"
 msgid "Show only the primary search engine"
 msgstr "Mostrar sólo el motor de búsqueda primario"
 
-#: ../deskbar/core/BrowserMatch.py:49 ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/core/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Open History Item %s"
 msgstr "Abrir el elemento del historial %s"
 
-#: ../deskbar/core/BrowserMatch.py:51
+#: ../deskbar/core/BrowserMatch.py:52
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Abrir marcador %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:64
+#: ../deskbar/core/BrowserMatch.py:65
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Buscar <b>%(text)s</b> en <i>%(name)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:224
+#: ../deskbar/core/BrowserMatch.py:91 ../deskbar/handlers/yahoo.py:31
+msgid "URL"
+msgstr "URL"
+
+#: ../deskbar/core/BrowserMatch.py:226
 msgid "Shortcut"
 msgstr "Atajo"
 
-#: ../deskbar/core/BrowserMatch.py:232
+#: ../deskbar/core/BrowserMatch.py:234
 msgid "Bookmark Name"
 msgstr "Nombre del marcador"
 
@@ -402,7 +408,7 @@ msgstr "de %s"
 #. translators: This is a file.
 #: ../deskbar/handlers/beagle-live.py:57
 #: ../deskbar/handlers/actions/OpenFileAction.py:19
-#: ../deskbar/handlers/actions/ShowUrlAction.py:20
+#: ../deskbar/handlers/actions/ShowUrlAction.py:25
 #, python-format
 msgid "Open %s"
 msgstr "Abrir %s"
@@ -473,11 +479,15 @@ msgstr "¿Quizás el servicio de beagle no está instalado?"
 
 #: ../deskbar/handlers/beagle-live.py:382
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
-msgstr "No se pudo cargar beagled, libbeagle se ha compilado sin los bindings de python."
+msgstr ""
+"No se pudo cargar beagled, libbeagle se ha compilado sin los bindings de "
+"python."
 
 #: ../deskbar/handlers/beagle-live.py:391
 msgid "Beagled could not be found in your $PATH. Unable to start the beagled daemon"
-msgstr "No se pudo encontrar bleagled en su $PATH. No se pudo iniciar el demonio beagled."
+msgstr ""
+"No se pudo encontrar bleagled en su $PATH. No se pudo iniciar el demonio "
+"beagled."
 
 #: ../deskbar/handlers/beagle-static.py:24
 #, python-format
@@ -574,19 +584,22 @@ msgid ""
 "choose Edit - Preferences, and then Autocompletion."
 msgstr ""
 "El autocompletado debe estar activado\n"
-"No se pueden proporcionar direcciones de correo-e de sus libretas de direcciones "
-"a no ser que el autocompletado esté activado. Para hacer esto, vaya al menú "
-"de su programa de correo, elija Editar - Preferencias y después Autocompletado."
+"No se pueden proporcionar direcciones de correo-e de sus libretas de "
+"direcciones a no ser que el autocompletado esté activado. Para hacer esto, "
+"vaya al menú de su programa de correo, elija Editar - Preferencias y después "
+"Autocompletado."
 
-#: ../deskbar/handlers/files.py:29
+#: ../deskbar/handlers/files.py:29 ../deskbar/handlers/files.py:39
+#: ../deskbar/handlers/files.py:49 ../deskbar/handlers/files.py:59
+#: ../deskbar/handlers/recent.py:28
 msgid "Location"
 msgstr "Ubicación"
 
-#: ../deskbar/handlers/files.py:64
+#: ../deskbar/handlers/files.py:67
 msgid "Files, Folders and Places"
 msgstr "Archivos, carpetas y lugares"
 
-#: ../deskbar/handlers/files.py:65
+#: ../deskbar/handlers/files.py:68
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "Vea sus archivos, carpetas, marcadores, unidades, lugares de red por nombre"
 
@@ -692,67 +705,67 @@ msgstr "Mozilla/Firefox no es su navegador preferido."
 msgid "You can customize which search engines are offered."
 msgstr "Puede personalizar qué motores de búsqueda se ofrecen."
 
-#: ../deskbar/handlers/programs.py:79
+#: ../deskbar/handlers/programs.py:83
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Buscar %s en el diccionario"
 
-#: ../deskbar/handlers/programs.py:86
+#: ../deskbar/handlers/programs.py:90
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Buscar nombres de archivo como %s"
 
-#: ../deskbar/handlers/programs.py:92
+#: ../deskbar/handlers/programs.py:96
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Buscar en DevHelp %s"
 
-#: ../deskbar/handlers/programs.py:118
+#: ../deskbar/handlers/programs.py:122
 msgid "Dictionary"
 msgstr "Diccionario"
 
-#: ../deskbar/handlers/programs.py:119
+#: ../deskbar/handlers/programs.py:123
 msgid "Look up word definitions in the dictionary"
 msgstr "Busque definiciones de palabras en el diccionario"
 
-#: ../deskbar/handlers/programs.py:135
+#: ../deskbar/handlers/programs.py:139
 msgid "Files and Folders Search"
 msgstr "Búsqueda de archivos y carpetas"
 
-#: ../deskbar/handlers/programs.py:136
+#: ../deskbar/handlers/programs.py:140
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Encuentre los archivos y carpetas buscando por un patrón del nombre"
 
-#: ../deskbar/handlers/programs.py:152
+#: ../deskbar/handlers/programs.py:156
 msgid "Developer Documentation"
 msgstr "Documentación del desarrollador"
 
-#: ../deskbar/handlers/programs.py:153
+#: ../deskbar/handlers/programs.py:157
 msgid "Search Devhelp for a function name"
 msgstr "Buscar en DevHelp el nombre de una función"
 
-#: ../deskbar/handlers/programs.py:199
+#: ../deskbar/handlers/programs.py:203
 #, python-format
 msgid "Execute %s"
 msgstr "Ejecutar %s"
 
-#: ../deskbar/handlers/programs.py:221
+#: ../deskbar/handlers/programs.py:225
 msgid "Programs"
 msgstr "Programas"
 
-#: ../deskbar/handlers/programs.py:222
+#: ../deskbar/handlers/programs.py:226
 msgid "Launch a program by its name and/or description"
 msgstr "Lanza un programa por su nombre y/o descripción"
 
-#: ../deskbar/handlers/recent.py:37
+#: ../deskbar/handlers/recent.py:39
 msgid "Recent Documents"
 msgstr "Documentos recientes"
 
-#: ../deskbar/handlers/recent.py:38
+#: ../deskbar/handlers/recent.py:40
 msgid "Retrieve your recently accessed files and locations"
 msgstr "Obtiene sus documentos y lugares recientemente accedidos"
 
-#: ../deskbar/handlers/recent.py:57
+#: ../deskbar/handlers/recent.py:59
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
 msgstr ""
 "Este manipulador requiere una versión más reciente de gtk (2.9.0 o más "
@@ -762,11 +775,11 @@ msgstr ""
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Abrir páginas web y enviar correo-e tecleando una dirección completa"
 
-#: ../deskbar/handlers/yahoo.py:37
+#: ../deskbar/handlers/yahoo.py:39
 msgid "Yahoo! Search"
 msgstr "Búsqueda en Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:38
+#: ../deskbar/handlers/yahoo.py:40
 msgid "Search Yahoo! as you type"
 msgstr "Buscar en Yahoo! mientras teclea"
 
@@ -787,17 +800,17 @@ msgstr "Lanzar <b>%(name)s</b>"
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
 msgstr "Abrir <b>%(name)s</b> con <b>%(program)s</b>"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:24
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:25
 #, python-format
 msgid "Open network place %s"
 msgstr "Abrir lugar de red %s"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:26
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:27
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Abrir disco de audio %s"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:29
 #, python-format
 msgid "Open location %s"
 msgstr "Abrir lugar %s"
@@ -875,8 +888,9 @@ msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
 msgstr ""
-"Se han encontrado algunos módulos potencialmente antiguos que usan la API vieja de Deskbar-Applet. "
-"Elimine estos archivos para que desaparezca esta advertencia.\n"
+"Se han encontrado algunos módulos potencialmente antiguos que usan la API "
+"vieja de Deskbar-Applet. Elimine estos archivos para que desaparezca esta "
+"advertencia.\n"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
