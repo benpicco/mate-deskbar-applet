@@ -150,7 +150,12 @@ class CuemiacModel (gtk.TreeStore):
 		return iter		
 
 	def __append_match_to_iter (self, iter, qstring, match_obj):
-		iter = self.append_method (self, iter, [qstring, match_obj, match_obj.get_name()])
+		if len(match_obj.get_actions()) == 1:
+			action = match_obj.get_actions()[0]
+			label = action.get_verb() % action.get_escaped_name(qstring)
+		else:
+			label = match_obj.get_name(qstring)
+		iter = self.append_method (self, iter, [qstring, match_obj, label])
 		return iter
 	
 	def clear (self):
