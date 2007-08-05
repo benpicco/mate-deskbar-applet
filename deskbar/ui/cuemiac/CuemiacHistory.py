@@ -41,7 +41,7 @@ class CuemiacHistoryView (gtk.TreeView):
 		
 		timestamp, text, action = model[iter]
 				
-		cell.set_property ("markup", action.get_verb () % action.get_name())
+		cell.set_property ("markup", action.get_verb () % action.get_escaped_name(text))
 
 	def __on_activated (self):
 		model, iter = self.get_selection().get_selected()
