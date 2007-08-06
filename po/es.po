@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-05 12:19+0100\n"
-"PO-Revision-Date: 2007-08-05 13:26+0200\n"
+"POT-Creation-Date: 2007-08-06 13:34+0100\n"
+"PO-Revision-Date: 2007-08-06 18:52+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,8 +32,8 @@ msgid "Clear entry after match has been selected"
 msgstr "Limpiar la entrada después de seleccionar la coincidencia"
 
 #: ../data/deskbar-applet.schemas.in.h:3
-msgid "Collapsed categpories"
-msgstr "Contraer las categorías"
+msgid "Collapsed categories"
+msgstr "Categorías contraídas"
 
 #: ../data/deskbar-applet.schemas.in.h:4
 msgid "Display history sidebar"
@@ -114,6 +114,10 @@ msgstr ""
 "ordenados por prioridad. Cuanto más a la izquierda más prioridad"
 
 #: ../data/deskbar-applet.schemas.in.h:20
+msgid "The maximum number of items stored in history"
+msgstr "El máximo número de elementos almacenados en el historial"
+
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
@@ -121,7 +125,7 @@ msgstr ""
 "El mínimo número de caracteres necesarios antes de que la miniaplicación "
 "comience a mostrar coincidencias."
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -129,11 +133,11 @@ msgstr ""
 "El tiempo en milisegundos entre la pulsación de una tecla en la entrada de "
 "búsqueda y la realización de la búsqueda actual"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether to close the window after an actions has been activated"
 msgstr "Indica si se debe cerrar la ventana después de activarse una acción"
 
-#: ../data/deskbar-applet.schemas.in.h:23
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -142,19 +146,19 @@ msgstr ""
 "disponibles. Esto sólo afecta a los navegadores basados en Mozilla como "
 "Firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:24
+#: ../data/deskbar-applet.schemas.in.h:25
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "Indica si al disparar el atajo de teclado se pegar la selección actual"
 
-#: ../data/deskbar-applet.schemas.in.h:25
+#: ../data/deskbar-applet.schemas.in.h:26
 msgid "Width of the list of results"
 msgstr "Anchura de la lista de resultados"
 
-#: ../data/deskbar-applet.schemas.in.h:26
+#: ../data/deskbar-applet.schemas.in.h:27
 msgid "Window height"
 msgstr "Altura de la ventana"
 
-#: ../data/deskbar-applet.schemas.in.h:27
+#: ../data/deskbar-applet.schemas.in.h:28
 msgid "Window width"
 msgstr "Anchura de la ventana"
 
@@ -211,46 +215,50 @@ msgid "General"
 msgstr "General"
 
 #: ../data/prefs-dialog.glade.h:10
+msgid "Maximum number of _items stored in history:"
+msgstr "Máximo número de _elementos almacenados en el historial:"
+
+#: ../data/prefs-dialog.glade.h:11
 msgid "New Extensions"
 msgstr "Nuevas extensiones"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "Buscar la selección cuando se dispare el atajo"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
 msgid "Searches"
 msgstr "Búsquedas"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "Time to _wait before starting to search:"
 msgstr "Tiempo a _esperar antes de comenzar la búsqueda:"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "_Check For Updates"
 msgstr "_Comprobar actualizaciones"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Check for new extensions"
 msgstr "_Comprobar si hay nuevas extensiones"
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:17
 msgid "_Install"
 msgstr "_Instalar"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:18
 msgid "_Keyboard shortcut to focus:"
 msgstr "Combinación de _teclas para enfocar:"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:19
 msgid "_More..."
 msgstr "_Más…"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:20
 msgid "_Update"
 msgstr "_Actualizar"
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:21
 msgid "milliseconds"
 msgstr "milisegundos"
 
@@ -375,9 +383,17 @@ msgstr "Noticias"
 msgid "Notes"
 msgstr "Notas"
 
-#: ../deskbar/core/DeskbarHistory.py:13
+#: ../deskbar/core/DeskbarHistory.py:14
 msgid "No History"
 msgstr "Sin historial"
+
+#: ../deskbar/core/Utils.py:108
+msgid "Cannot execute program:"
+msgstr "No se puede ejecutar el programa:"
+
+#: ../deskbar/core/Utils.py:145
+msgid "Cannot show URL:"
+msgstr "No se puede mostrar la URL:"
 
 #: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
@@ -911,15 +927,15 @@ msgstr ""
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Arrastre y suelte una extensión para cambiar su orden.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:336
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:344
 msgid "A problem occured"
 msgstr "Ocurrió un problema"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:401
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:409
 msgid "Handler has been installed successfully"
 msgstr "Se ha instalado el manipulador con éxito"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:404
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:412
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
 "El manipulador no se pudo instalar debido a un problema con el archivo "
