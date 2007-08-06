@@ -220,7 +220,6 @@ init (void)
 					books = g_slist_prepend (books, book);
 					e_book_open(book, TRUE, NULL);
 				}
-				g_free (uri);
 			}
 		}
 	}
