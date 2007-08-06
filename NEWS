@@ -1,4 +1,64 @@
 =====================
+deskbar-applet 2.19.6
+=====================
+
+This release contains all the work merged from the Google Summer of Code branch.
+The most notable features are actions. Each match can now contain one or more actions.
+If only one action is available Deskbar-Applet behaves the same way as before. If more
+than one action is available the user can choose from a list of actions.
+
+Changes:
+	* Added actions
+	* Fixed bug #461627: Change the amount of items in history
+	* Always show count in category header
+	* Fixed evolution address book search with evo-ldap (patch by Karl Relton)
+	* Removed obsolete definitions from GConf and preferences and added new controls to preferences for previously unsupported options
+	* Set process name to deskbar-applet
+	* Cell containing the icon of a match doesn't expand anymore
+	* Print tracebacks if module failed to load
+	* Renamed gsoc_deskbar.py to deskbar-applet.py
+	* Made sure that all icons are included in gnome-icon-theme
+	* Added default icons for each category
+	* Show window always in the foreground if triggered
+	* Adjusted schema file so that intltool-merge works fast
+	* Fixed: Pressing icon in panel didn't raise window
+	* Don't show matches from a previous search if entry has been cleared by hand (i.e. not by hitting escape)
+	* Fixed errors in epiphany and gdmactions module (Insted of printing error set INSTRUCION attribute)
+	* Fixed bugs in BrowserMatch.py (fixes bug #438080)
+	* Added: Check for duplicates
+	* Make return value of get_hash() hashable for all modules
+	* Only paste selection if keybinding has been activated
+	* Each category has its own default icon
+	* Fixed bug #456969: Desklicious plugin uses non-existent deskbar.Utils
+	* Fixed bug #456968: Find /usr/lib*/firefox*/searchplugins
+	* Fixed bug #456971: desklicious plugin improperly passess category to DeliciousMatch
+	* Fixed bug #457133: DeliciousMatch has no 'name' and only default icon
+	* Fixed bug #445145: Deskbar doesn't show up localized in the applet list
+	* Fixed bug #456417: Poorly written schema descriptions
+
+Contributors to this release: Sebastian Pölsterl, Luke Macken, Karl Relton
+
+Updated Translations:
+	* Basque
+	* Bengali
+	* Dutch
+	* Estonian
+	* Finnish
+	* French
+	* German
+	* Japanese
+	* Norwegian
+	* Slovenian
+	* Spanish
+	* Thai
+	* Vietnamese
+
+Contributors to the translations: Inaki Larranaga Murgoitio, Runa Bhattacharjee,
+Wouter Bolsterlee, Priit Laes, Ilkka Tuohela, Stéphane Raimbault, Johannes Schmid,
+Takeshi AIHANA, Kjartan Maraas, Matic Žgur, Jorge Gonzalez, Theppitak Karoonboonyanan,
+Nguyễn Thái Ngọc Duy
+
+=====================
 deskbar-applet 2.19.5
 =====================
 
