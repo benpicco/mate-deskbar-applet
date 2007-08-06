@@ -26,7 +26,8 @@ class CoreImpl(deskbar.interfaces.Core):
         
         self._threadpool = ThreadPool(5)
         self._gconf = GconfStore.get_instance()
-        self._history = DeskbarHistory().get_instance()
+        self._history = DeskbarHistory.get_instance(self._gconf.get_max_history_items())
+        self._gconf.connect("max-history-items-changed", lambda s, num: self._history.set_max_history_items(num))
         
         self._setup_module_loader(modules_dir)
         self._setup_module_list()
@@ -123,6 +124,9 @@ class CoreImpl(deskbar.interfaces.Core):
     def get_hide_after_action(self):
     	return self._gconf.get_hide_after_action()
     
+    def get_max_history_items(self):
+    	return self._gconf.get_max_history_items()
+    
     def set_keybinding(self, binding):
         self._gconf.set_keybinding(binding)
         if not self._keybinder.bind(binding):
@@ -167,10 +171,13 @@ class CoreImpl(deskbar.interfaces.Core):
         self._gconf.set_sidebar_width(width)
     
     def set_resultsview_width(self, width):
-    	return self._gconf.set_resultsview_width(width)
+    	self._gconf.set_resultsview_width(width)
     
     def set_hide_after_action(self, width):
-    	return self._gconf.set_hide_after_action(width)
+    	self._gconf.set_hide_after_action(width)
+    
+    def set_max_history_items(self, amount):
+    	self._gconf.set_max_history_items(amount)
     
     def get_history(self):
         """

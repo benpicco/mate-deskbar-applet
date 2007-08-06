@@ -64,7 +64,7 @@
         	<list_type>string</list_type>
         	<default>[]</default>
 			<locale name="C">
-				<short>Collapsed categpories</short>
+				<short>Collapsed categories</short>
 				<long>
 					The list of categories to be collapsed when displayed.
 					Valid categories are: default, history, documents, emails,
@@ -148,6 +148,16 @@
 			<locale name="C">
 				<short>Whether to close the window after an actions has been activated</short>
 				<long>If enabled the window will be closed after an action has been activated</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/deskbar/max_history_items</key>
+			<applyto>/apps/deskbar/max_history_items</applyto>
+			<owner>deskbar</owner>
+			<type>int</type>
+	        	<default>25</default>
+			<locale name="C">
+				<short>The maximum number of items stored in history</short>
 			</locale>
 		</schema>
 

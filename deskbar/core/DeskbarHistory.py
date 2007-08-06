@@ -3,9 +3,10 @@ import gtk, gobject
 import time
 import logging
 import deskbar.interfaces.Action
-from deskbar import MAX_HISTORY, HISTORY_FILE 
+from deskbar import HISTORY_FILE 
 from deskbar.core.Utils import load_icon
 from gettext import gettext as _
+from deskbar.core.GconfStore import GconfStore
 
 class EmptyHistoryAction(deskbar.interfaces.Action):
 	
@@ -34,18 +35,23 @@ class DeskbarHistory (gtk.ListStore) :
 	__instance = None
 	(COL_TIME, COL_TEXT, COL_ACTION) = range(3)
 	
-	def __init__ (self):
+	def __init__ (self, max_history_items=25):
 		gtk.ListStore.__init__ (self, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_PYOBJECT) # timestamp, query, match
 		self.set_sort_column_id (self.COL_TIME, gtk.SORT_ASCENDING)
 		self.set_sort_func (self.COL_TIME, self.sort_actions)
 		self.set_sort_order(gtk.SORT_DESCENDING)
 		self._index = -1
+		self.set_max_history_items(max_history_items)
 	
 	@staticmethod
-	def get_instance():
+	def get_instance(max_history_items=25):
 		if not DeskbarHistory.__instance:
-			DeskbarHistory.__instance = DeskbarHistory()
+			DeskbarHistory.__instance = DeskbarHistory(max_history_items)
 		return DeskbarHistory.__instance
+	
+	def set_max_history_items(self, num):
+		self.__max_history_items = num
+		self.__remove_too_many()
     
 	def set_sort_order (self, order):
 		"""order should be one of gtk.SORT_{ASCENDING,DESCENDING}"""
@@ -71,7 +77,10 @@ class DeskbarHistory (gtk.ListStore) :
 		try:
 			saved_history = cPickle.load(file(HISTORY_FILE))
 			
-			for timestamp, text, action in saved_history:
+			for i, data in enumerate(saved_history):
+				if i == self.__max_history_items-1:
+					break
+				timestamp, text, action = data
 				self.append(timestamp, text, action)
 			
 		except IOError:
@@ -113,14 +122,16 @@ class DeskbarHistory (gtk.ListStore) :
 				
 		timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
 		self.append (timestamp, text, action)
-		if len(self) > MAX_HISTORY:
-			# Remove the last element
-			last = self.get_iter_from_string (str(len(self) - 1))
-			self.remove (last)
+		self.__remove_too_many()
 
 		self.reset()
 		self.save()
 	
+	def __remove_too_many(self):
+		while len(self) > self.__max_history_items:
+			last = self.get_iter_from_string (str(len(self) - 1))
+			self.remove (last)
+    
 	def up(self):
 		if self._index < len(self)-1:
 			self._index = self._index + 1

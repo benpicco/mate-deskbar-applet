@@ -64,8 +64,6 @@ ART_DATA_DIR = join(SHARED_DATA_DIR, "art")
 ICON_WIDTH = 28
 ICON_HEIGHT = 16
 
-#Maximum number of history items
-MAX_HISTORY = 25
 HISTORY_FILE = join(USER_DESKBAR_DIR, "history_new.pickle")
 
 # FIXME: this , here ?
