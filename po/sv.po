@@ -1,161 +1,191 @@
-# translation of deskbar-applet.HEAD.po to Swedish
 # Swedish messages for deskbar-applet.
 # Copyright (C) 2005, 2006, 2007 Free Software Foundation, Inc.
-#
-# $Id: sv.po,v 1.10 2006/12/11 07:04:00 dnylande Exp $
-#
 # Daniel Nylander <po@danielnylander.se,> 2006, 2007.
 # Christian Rose <menthos@menthos.com>, 2005.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet.HEAD\n"
+"Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-06-23 19:52+0200\n"
-"PO-Revision-Date: 2007-06-23 19:35+0200\n"
+"POT-Creation-Date: 2007-08-06 20:01+0200\n"
+"PO-Revision-Date: 2007-08-06 20:51+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/deskbar-applet.schemas.in.h:1
-msgid ""
-"Choose whether triggering the keyboard shortcut also pastes the current "
-"selection in the search box."
-msgstr ""
-"Välj huruvida en aktivering av tangentbordsgenvägen även klistrar in den "
-"aktuella markeringen i sökrutan."
+msgid "Choose whether triggering the keyboard shortcut also pastes the current selection in the search box."
+msgstr "Välj huruvida en aktivering av tangentbordsgenvägen även klistrar in den aktuella markeringen i sökrutan."
 
 #: ../data/deskbar-applet.schemas.in.h:2
-msgid ""
-"If enabled it will clear the entry after a search result has been selected"
-msgstr ""
-"Om aktiverad kommer den att tömma inmatningsrutan efter ett sökresultat har "
-"valts"
+msgid "Clear entry after match has been selected"
+msgstr "Töm inmatningsrutan efter att ett sökresultat har valts"
 
 #: ../data/deskbar-applet.schemas.in.h:3
-msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
-msgstr ""
-"Väljer det användargränssnitt som ska användas, ett av \"Cuemiac\" eller "
-"\"Entriac\""
+msgid "Collapsed categories"
+msgstr "Infällda kategorier"
 
 #: ../data/deskbar-applet.schemas.in.h:4
-msgid "The applet's entry width in number of characters"
-msgstr "Bredd på panelprogrammets inmatningsruta, i antal tecken"
+msgid "Display history sidebar"
+msgstr "Visa historikpanel"
 
 #: ../data/deskbar-applet.schemas.in.h:5
-msgid ""
-"The key sequence will focus the deskbar applet, allowing to type quickly"
-msgstr ""
-"Tangentsekvensen kommer att fokusera skrivbordsradspanelprogrammet och "
-"tillåter snabb inmatning"
+msgid "Enabled handlers"
+msgstr "Aktiverade hanterare"
 
 #: ../data/deskbar-applet.schemas.in.h:6
-msgid ""
-"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
-"Valid category names are defined in Categories.py"
-msgstr ""
-"Lista över kategorier som ska fällas in när användargränssnittet \"Cuemiac\" "
-"visas. Giltiga kategorinamn definieras i Categories.py"
+msgid "If enabled it will clear the entry after a search result has been selected"
+msgstr "Om aktiverad kommer den att tömma inmatningsrutan efter ett sökresultat har valts"
 
 #: ../data/deskbar-applet.schemas.in.h:7
-msgid ""
-"The list of exported class names of the enabled handlers sorted by priority. "
-"Leftmost has highest priority"
-msgstr ""
-"Listan över exporterade klassnamn för aktiverade hanterare, sorterade efter "
-"prioritet. Den längst till vänster har högsta prioriteten"
+msgid "If enabled the history sidebar will be displayed"
+msgstr "Om aktiverad kommer historikpanelen att visas"
 
 #: ../data/deskbar-applet.schemas.in.h:8
-msgid ""
-"The minimum number of characters that need to be typed before the applet "
-"starts showing matches"
-msgstr ""
-"Det minsta antalet tecken som behöver anges innan panelprogrammet börjar "
-"visa sökträffar"
+msgid "If enabled the window will be closed after an action has been activated"
+msgstr "Om aktiverad kommer fönstret att stängas efter att en åtgärd har aktiverats"
 
 #: ../data/deskbar-applet.schemas.in.h:9
-msgid ""
-"The time in miliseconds between a keystroke in the search entry and the "
-"actual search being performed"
-msgstr ""
-"Tiden i millisekunder mellan en tangenttryckning i sökfältet och att den "
-"faktiska sökningen påbörjas"
+msgid "Keybinding"
+msgstr "Tangentbinding"
 
 #: ../data/deskbar-applet.schemas.in.h:10
-msgid ""
-"Whether the applet should take all the available space in the panel. "
-"Overrides the width preference."
-msgstr ""
-"Huruvida panelprogrammet ska ta upp allt tillgängligt utrymme i panelen. "
-"Åsidosätter inställningen för bredd."
+msgid "Milliseconds to wait before starting to search"
+msgstr "Millisekunder att vänta innan sökningen påbörjas"
 
 #: ../data/deskbar-applet.schemas.in.h:11
-msgid ""
-"Whether to show only the preferred search engine, rather than all available "
-"engines. This only affects Mozilla-based web browsers such as Firefox."
-msgstr ""
-"Huruvida endast den föredragna sökmotorn ska visas, istället för alla "
-"tillgängliga motorer. Det här påverkar endast Mozilla-baserade webbläsare, t."
-"ex. Firefox."
+msgid "Minimum number of characters needed to start searching"
+msgstr "Minimalt antal tecken som behövs för att påbörja sökning"
 
-#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "Sidebar width"
+msgstr "Bredd på sidopanel"
+
+#: ../data/deskbar-applet.schemas.in.h:13
+msgid "The default height of the window in pixels"
+msgstr "Standardhöjden på fönstret, i bildpunkter"
+
+#: ../data/deskbar-applet.schemas.in.h:14
+msgid "The default width of the list of results"
+msgstr "Standardbredden på resultatlistan"
+
+#: ../data/deskbar-applet.schemas.in.h:15
+msgid "The default width of the sidebar"
+msgstr "Standardbredden på sidopanelen"
+
+#: ../data/deskbar-applet.schemas.in.h:16
+msgid "The default width of the window in pixels"
+msgstr "Standardbredden på fönstret, i bildpunkter"
+
+#: ../data/deskbar-applet.schemas.in.h:17
+msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
+msgstr "Tangentsekvensen kommer att fokusera Deskbar-Applet och tillåter snabb inmatning"
+
+#: ../data/deskbar-applet.schemas.in.h:18
+msgid "The list of categories to be collapsed when displayed. Valid categories are: default, history, documents, emails, conversations, files, people, places, actions, web, websearch, news and notes."
+msgstr "Listan av kategorier att fällas in när den visas. Giltiga kategorier är: default, history, documents, emails, conversations, files, people, places, actions, web, websearch, news och notes."
+
+#: ../data/deskbar-applet.schemas.in.h:19
+msgid "The list of exported class names of the enabled handlers sorted by priority. Leftmost has highest priority"
+msgstr "Listan över exporterade klassnamn för aktiverade hanterare, sorterade efter prioritet. Den längst till vänster har högsta prioriteten"
+
+#: ../data/deskbar-applet.schemas.in.h:20
+msgid "The maximum number of items stored in history"
+msgstr "Maximalt antal objekt lagrade i historiken"
+
+#: ../data/deskbar-applet.schemas.in.h:21
+msgid "The minimum number of characters that need to be typed before the applet starts showing matches"
+msgstr "Det minsta antalet tecken som behöver anges innan panelprogrammet börjar visa sökträffar"
+
+#: ../data/deskbar-applet.schemas.in.h:22
+msgid "The time in milliseconds between a keystroke in the search entry and the actual search being performed"
+msgstr "Tiden i millisekunder mellan en tangenttryckning i sökfältet och att den faktiska sökningen påbörjas"
+
+#: ../data/deskbar-applet.schemas.in.h:23
+msgid "Whether to close the window after an actions has been activated"
+msgstr "Huruvida fönstret ska stängas efter att en åtgärd har aktiverats"
+
+#: ../data/deskbar-applet.schemas.in.h:24
+msgid "Whether to show only the preferred search engine, rather than all available engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr "Huruvida endast den föredragna sökmotorn ska visas, istället för alla tillgängliga motorer. Det här påverkar endast Mozilla-baserade webbläsare, t.ex. Firefox."
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "Whether triggering Deskbar-Applet pastes the current selection"
+msgstr "Huruvida aktivering av Deskbar-Applet klistrar in den aktuella markeringen"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "Width of the list of results"
+msgstr "Bredd på resultatlistan"
+
+#: ../data/deskbar-applet.schemas.in.h:27
+msgid "Window height"
+msgstr "Fönsterhöjd"
+
+#: ../data/deskbar-applet.schemas.in.h:28
+msgid "Window width"
+msgstr "Fönsterbredd"
+
+#: ../data/Deskbar_Applet.xml.h:1
+#: ../deskbar/ui/CuemiacWindowView.py:81
 msgid "_About"
 msgstr "_Om"
 
-#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
-msgid "_Clear History"
-msgstr "_Töm historik"
-
-#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
+#: ../data/Deskbar_Applet.xml.h:2
+#: ../deskbar/ui/CuemiacWindowView.py:78
 msgid "_Preferences"
 msgstr "_Inställningar"
+
+#: ../data/Deskbar_Applet.server.in.in.h:1
+msgid "An all-in-one action bar"
+msgstr "En allt-i-en-åtgärdsrad"
+
+#: ../data/Deskbar_Applet.server.in.in.h:2
+#: ../deskbar/ui/About.py:22
+msgid "Deskbar"
+msgstr "Skrivbordsrad"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Available Extensions</b>"
 msgstr "<b>Tillgängliga utökningar</b>"
 
 #: ../data/prefs-dialog.glade.h:2
+msgid "<b>Behavior</b>"
+msgstr "<b>Beteende</b>"
+
+#: ../data/prefs-dialog.glade.h:3
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>Utökningar med fel</b>"
+
+#: ../data/prefs-dialog.glade.h:4
 msgid "<b>Focus</b>"
 msgstr "<b>Fokus</b>"
 
-#: ../data/prefs-dialog.glade.h:3
-msgid "<b>Layout</b>"
-msgstr "<b>Layout</b>"
-
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.glade.h:5
 msgid "<b>Loaded Extensions</b>"
 msgstr "<b>Inlästa utökningar</b>"
 
-#: ../data/prefs-dialog.glade.h:5
-msgid "<b>Width</b>"
-msgstr "<b>Bredd</b>"
-
 #: ../data/prefs-dialog.glade.h:6
-msgid ""
-"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
-"small></i>"
-msgstr ""
-"<i><small><b>Notera:</b> Drag och släpp en utökning för att ändra dess "
-"ordning.</small></i>"
+msgid "Close window _after an action has been executed"
+msgstr "Stäng fönstret _efter att en åtgärd har startats"
 
 #: ../data/prefs-dialog.glade.h:7
-msgid "Button in panel"
-msgstr "Knapp i panel"
-
-#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Inställningar för skrivbordsrad"
 
+#: ../data/prefs-dialog.glade.h:8
+msgid "Extensions with Errors"
+msgstr "Utökningar med fel"
+
 #: ../data/prefs-dialog.glade.h:9
-msgid "Entry in panel"
-msgstr "Post i panel"
+msgid "General"
+msgstr "Allmänt"
 
 #: ../data/prefs-dialog.glade.h:10
-msgid "Fixed _width:"
-msgstr "Fast _bredd:"
+msgid "Maximum number of _items stored in history:"
+msgstr "Maximalt antal o_bjekt lagrade i historik:"
 
 #: ../data/prefs-dialog.glade.h:11
 msgid "New Extensions"
@@ -170,653 +200,48 @@ msgid "Searches"
 msgstr "Sökningar"
 
 #: ../data/prefs-dialog.glade.h:14
-msgid "Use _all available space"
-msgstr "Använd _allt tillgängligt utrymme"
+msgid "Time to _wait before starting to search:"
+msgstr "Tid att _vänta innan sökningen påbörjas:"
 
 #: ../data/prefs-dialog.glade.h:15
-msgid "View"
-msgstr "Visa"
-
-#: ../data/prefs-dialog.glade.h:16
 msgid "_Check For Updates"
 msgstr "_Leta efter uppdateringar"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Check for new extensions"
 msgstr "_Leta efter nya utökningar"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:17
 msgid "_Install"
 msgstr "_Installera"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:18
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Tangentbordsgenvägar för fokus:"
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:19
 msgid "_More..."
 msgstr "_Mer..."
 
-#: ../data/prefs-dialog.glade.h:21
+#: ../data/prefs-dialog.glade.h:20
 msgid "_Update"
 msgstr "_Uppdatera"
 
-#: ../data/prefs-dialog.glade.h:22
-msgid "characters"
-msgstr "tecken"
+#: ../data/prefs-dialog.glade.h:21
+msgid "milliseconds"
+msgstr "millisekunder"
 
 #: ../data/smart-bookmarks.glade.h:1
-msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
-msgstr ""
-"<i><small><b>Notera: </b>Om den genvägen är en enstaka bokstav (som <b>t</"
-"b>) kan du bara skriva \"<b>någonting</b>\" och sedan trycka <b>Alt-t</b> i "
-"skrivbordsraden.</small></i>"
+msgid "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in the deskbar.</small></i>"
+msgstr "<i><small><b>Notera: </b>Om den genvägen är en enstaka bokstav (som <b>t</b>) kan du bara skriva \"<b>någonting</b>\" och sedan trycka <b>Alt-t</b> i skrivbordsraden.</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
-msgid ""
-"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
-"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
-"i>."
-msgstr ""
-"<i><small><b>Notera:</b> För att använda en genväg (till exempel <b>wp</b>) "
-"för att söka efter <b>någonting</b>, skriv \"<b>wp någonting</b>\" i "
-"skrivbordsraden</small></i>."
+msgid "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></i>."
+msgstr "<i><small><b>Notera:</b> För att använda en genväg (till exempel <b>wp</b>) för att söka efter <b>någonting</b>, skriv \"<b>wp någonting</b>\" i skrivbordsraden</small></i>."
 
 #: ../data/smart-bookmarks.glade.h:3
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Genvägar för bokmärkta sökningar"
-
-#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
-#, python-format
-msgid "Open History Item %s"
-msgstr "Öppna historikposten %s"
-
-#: ../deskbar/BrowserMatch.py:52
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "Öppna bokmärket %s"
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:101
-#, python-format
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "Sök <b>%(name)s</b> efter <i>%(text)s</i>"
-
-#: ../deskbar/BrowserMatch.py:210
-msgid "Shortcut"
-msgstr "Genväg"
-
-#: ../deskbar/BrowserMatch.py:218
-msgid "Bookmark Name"
-msgstr "Bokmärkesnamn"
-
-#: ../deskbar/Categories.py:7
-msgid "Uncategorized"
-msgstr "Ej kategoriserad"
-
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
-msgid "History"
-msgstr "Historik"
-
-#: ../deskbar/Categories.py:15
-msgid "Documents"
-msgstr "Dokument"
-
-#: ../deskbar/Categories.py:18
-msgid "Emails"
-msgstr "E-post"
-
-#: ../deskbar/Categories.py:21
-msgid "Conversations"
-msgstr "Konversationer"
-
-#: ../deskbar/Categories.py:24
-msgid "Files"
-msgstr "Filer"
-
-#: ../deskbar/Categories.py:27
-msgid "People"
-msgstr "Folk"
-
-#: ../deskbar/Categories.py:30
-msgid "Places"
-msgstr "Platser"
-
-#: ../deskbar/Categories.py:33
-msgid "Actions"
-msgstr "Åtgärder"
-
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
-msgid "Web"
-msgstr "Webb"
-
-#: ../deskbar/Categories.py:39
-msgid "Web Search"
-msgstr "Webbsökning"
-
-#: ../deskbar/Categories.py:42
-msgid "News"
-msgstr "Nyheter"
-
-#: ../deskbar/Categories.py:45
-msgid "Notes"
-msgstr "Anteckningar"
-
-#: ../deskbar/DeskbarHistory.py:37
-msgid "No History"
-msgstr "Ingen historik"
-
-#: ../deskbar/Utils.py:109
-msgid "Cannot execute program:"
-msgstr "Kan inte köra program:"
-
-#: ../deskbar/Utils.py:144
-msgid "Cannot show URL:"
-msgstr "Kan inte visa url:"
-
-#: ../deskbar/gtkexcepthook.py:14
-msgid "A programming error has been detected"
-msgstr "Ett programmeringsfel har hittats"
-
-#: ../deskbar/gtkexcepthook.py:15
-msgid ""
-"It probably isn't fatal, but should be reported to the developers "
-"nonetheless. The program may behave erratically from now on."
-msgstr ""
-"Det är antagligen inte allvarligt men det bör oavsett rapporteras till "
-"utvecklarna. Programmet kan uppträda oberäkneligt från och med nu."
-
-#: ../deskbar/gtkexcepthook.py:17
-msgid "Bug Detected"
-msgstr "Fel påträffades"
-
-#: ../deskbar/handlers/beagle-live.py:19
-msgid "Start Beagle Daemon?"
-msgstr "Starta Beagle-demonen?"
-
-#: ../deskbar/handlers/beagle-live.py:24
-msgid "Start Beagle Daemon"
-msgstr "Starta Beagle-demonen"
-
-#: ../deskbar/handlers/beagle-live.py:25
-msgid ""
-"The Beagle daemon does not appear to be running.\n"
-" You need to start it to use the Beagle Live handler."
-msgstr ""
-"Beagle-demonen verkar inte köra.\n"
-" Du behöver starta den för att använda Beagle Live-hanteraren."
-
-#: ../deskbar/handlers/beagle-live.py:39
-msgid "Failed to start Beagle"
-msgstr "Misslyckades med att starta Beagle"
-
-#: ../deskbar/handlers/beagle-live.py:40
-msgid "Perhaps the beagle daemon isn't installed?"
-msgstr "Kanske är beagle-demonen inte installerad?"
-
-#: ../deskbar/handlers/beagle-live.py:63
-msgid "Beagle Live"
-msgstr "Beagle Live"
-
-#: ../deskbar/handlers/beagle-live.py:64
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Sök i alla din dokument (med Beagle), när du skriver"
-
-#: ../deskbar/handlers/beagle-live.py:92
-#, python-format
-msgid "Edit contact %s"
-msgstr "Redigera kontakt %s"
-
-#: ../deskbar/handlers/beagle-live.py:101
-#, python-format
-msgid "From %s"
-msgstr "Från %s"
-
-#. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
-#: ../deskbar/handlers/recent.py:43
-#, python-format
-msgid "Open %s"
-msgstr "Öppna %s"
-
-#: ../deskbar/handlers/beagle-live.py:117
-#, python-format
-msgid "News from %s"
-msgstr "Nyheter från %s"
-
-#: ../deskbar/handlers/beagle-live.py:126
-#, python-format
-msgid "Note: %s"
-msgstr "Anteckning: %s"
-
-#: ../deskbar/handlers/beagle-live.py:135
-#, python-format
-msgid "With %s"
-msgstr "Med %s"
-
-#: ../deskbar/handlers/beagle-live.py:143
-#, python-format
-msgid "Calendar: %s"
-msgstr "Kalender: %s"
-
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:318
-#: ../deskbar/handlers/beagle-live.py:340
-msgid "?"
-msgstr "?"
-
-#: ../deskbar/handlers/beagle-static.py:20
-msgid "Beagle"
-msgstr "Beagle"
-
-#: ../deskbar/handlers/beagle-static.py:21
-msgid "Search all of your documents (using Beagle)"
-msgstr "Sök i alla din dokument (med Beagle)"
-
-#: ../deskbar/handlers/beagle-static.py:36
-#, python-format
-msgid "Search for %s using Beagle"
-msgstr "Sök efter %s med Beagle"
-
-#: ../deskbar/handlers/desklicious.py:16
-msgid "You need to configure your del.icio.us account."
-msgstr "Du behöver konfigurera ditt konto på del.icio.us."
-
-#: ../deskbar/handlers/desklicious.py:18
-msgid "You can modify your del.icio.us account."
-msgstr "Du kan ändra ditt konto på del.icio.us."
-
-#: ../deskbar/handlers/desklicious.py:22
-msgid "del.icio.us Bookmarks"
-msgstr "Bokmärken på del.icio.us"
-
-#: ../deskbar/handlers/desklicious.py:23
-msgid "Search your del.icio.us bookmarks by tag name"
-msgstr "Sök bland dina del.icio.us-bokmärken med hjälp av taggnamnet"
-
-#: ../deskbar/handlers/desklicious.py:30
-msgid "del.icio.us Account"
-msgstr "Konto på del.icio.us"
-
-#: ../deskbar/handlers/desklicious.py:37
-msgid "Enter your del.icio.us username below"
-msgstr "Ange ditt användarnamn på del.icio.us nedan"
-
-#: ../deskbar/handlers/desklicious.py:43
-msgid "Username: "
-msgstr "Användarnamn: "
-
-#: ../deskbar/handlers/epiphany.py:27
-msgid "You can set shortcuts for your searches."
-msgstr "Du kan ställa in genvägar för dina sökningar."
-
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:131
-msgid "Web Bookmarks"
-msgstr "Webbokmärken"
-
-#: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:132
-msgid "Open your web bookmarks by name"
-msgstr "Öppna dina webbokmärken med hjälp av namnet"
-
-#: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:143
-msgid "Web History"
-msgstr "Webbhistorik"
-
-#: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:144
-msgid "Open your web history by name"
-msgstr "Öppna din webbhistorik med hjälp av namnet"
-
-#: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:137
-msgid "Web Searches"
-msgstr "Webbsökningar"
-
-#: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:138
-msgid "Search the web via your browser's search settings"
-msgstr "Sök på webben via din webbläsares sökinställningar"
-
-#: ../deskbar/handlers/evolution.py:12
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr "Du behöver aktivera automatisk komplettering i dina postinställningar"
-
-#: ../deskbar/handlers/evolution.py:15
-msgid "Autocompletion Needs to be Enabled"
-msgstr "Automatisk komplettering behöver vara aktiverad"
-
-#: ../deskbar/handlers/evolution.py:16
-msgid ""
-"We cannot provide e-mail addresses from your address book unless "
-"autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit - Preferences, and then Autocompletion."
-msgstr ""
-"Vi kan inte tillhandahålla e-postadresser från din adressbok om inte "
-"automatisk komplettering är aktiverat.  För att göra det, välj Redigera - "
-"Inställningar, och sedan Automatisk komplettering från ditt e-postprograms "
-"meny."
-
-#: ../deskbar/handlers/evolution.py:21
-msgid "Mail (Address Book)"
-msgstr "Post (Adressbok)"
-
-#: ../deskbar/handlers/evolution.py:22
-msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-"Skicka e-post till dina kontakter genom att skriva in deras namn eller e-"
-"postadress"
-
-#. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:48
-#, python-format
-msgid "Send Email to <b>%(name)s</b> (%(email)s)"
-msgstr "Skicka e-post till <b>%(name)s</b> (%(email)s)"
-
-#: ../deskbar/handlers/files.py:18
-msgid "Files, Folders and Places"
-msgstr "Filer, mappar och platser"
-
-#: ../deskbar/handlers/files.py:19
-msgid "View your files, folders, bookmarks, drives, network places by name"
-msgstr ""
-"Visa dina filer, mappar, bokmärken, enheter, nätverksplatser efter namn"
-
-#: ../deskbar/handlers/files.py:69
-#, python-format
-msgid "Open folder %s"
-msgstr "Öppna mappen %s"
-
-#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
-#, python-format
-msgid "Open location %s"
-msgstr "Öppna platsen %s"
-
-#: ../deskbar/handlers/files.py:118
-#, python-format
-msgid "Open network place %s"
-msgstr "Öppna nätverksplatsen %s"
-
-#: ../deskbar/handlers/files.py:120
-#, python-format
-msgid "Open audio disc %s"
-msgstr "Öppna ljudskivan %s"
-
-#: ../deskbar/handlers/gdmactions.py:10
-msgid "Computer Actions"
-msgstr "Datoråtgärder"
-
-#: ../deskbar/handlers/gdmactions.py:11
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr ""
-"Logga ut, stäng av, starta om, försätt i vänteläge och liknande åtgärder."
-
-#: ../deskbar/handlers/gdmactions.py:44
-msgid "Suspend the machine"
-msgstr "Försätt datorn i vänteläge"
-
-#: ../deskbar/handlers/gdmactions.py:60
-msgid "Hibernate the machine"
-msgstr "Försätt datorn i viloläge"
-
-#: ../deskbar/handlers/gdmactions.py:76
-msgid "Shutdown the machine"
-msgstr "Stäng av datorn"
-
-#: ../deskbar/handlers/gdmactions.py:100
-msgid "Lock the screen"
-msgstr "Lås skärmen"
-
-#: ../deskbar/handlers/gdmactions.py:126
-msgid "Shut Down"
-msgstr "Stäng av"
-
-#: ../deskbar/handlers/gdmactions.py:133
-msgid "Turn off the computer"
-msgstr "Stäng av datorn"
-
-#: ../deskbar/handlers/gdmactions.py:137
-msgid "Log Out"
-msgstr "Logga ut"
-
-#: ../deskbar/handlers/gdmactions.py:144
-msgid "Log out"
-msgstr "Logga ut"
-
-#: ../deskbar/handlers/gdmactions.py:148
-msgid "Restart"
-msgstr "Starta om"
-
-#: ../deskbar/handlers/gdmactions.py:155
-msgid "Restart the computer"
-msgstr "Starta om datorn"
-
-#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
-msgid "Switch User"
-msgstr "Byt användare"
-
-#: ../deskbar/handlers/gdmactions.py:185
-msgid "Lock"
-msgstr "Lås"
-
-#: ../deskbar/handlers/gdmactions.py:196
-msgid "Suspend"
-msgstr "Vänteläge"
-
-#: ../deskbar/handlers/gdmactions.py:198
-msgid "Hibernate"
-msgstr "Viloläge"
-
-#: ../deskbar/handlers/gdmactions.py:200
-msgid "Shutdown"
-msgstr "Stäng av"
-
-#: ../deskbar/handlers/history.py:12
-msgid "Recognize previously used searches"
-msgstr "Känn igen tidigare använda sökningar"
-
-#: ../deskbar/handlers/iswitch-window.py:11
-msgid "Window Switcher"
-msgstr "Fönsterbytare"
-
-#: ../deskbar/handlers/iswitch-window.py:12
-msgid "Switch to an existing window by name."
-msgstr "Byt till ett existerande fönster efter namn."
-
-#: ../deskbar/handlers/iswitch-window.py:16
-msgid "Windows"
-msgstr "Fönster"
-
-#: ../deskbar/handlers/iswitch-window.py:32
-#, python-format
-msgid "Switch to <b>%(name)s</b>"
-msgstr "Växla till <b>%(name)s</b>"
-
-#: ../deskbar/handlers/mozilla.py:122
-msgid "You can customize which search engines are offered."
-msgstr "Du kan anpassa vilka sökmotorer som erbjuds."
-
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Program"
-
-#: ../deskbar/handlers/programs.py:15
-msgid "Launch a program by its name and/or description"
-msgstr "Starta ett program efter dess namn och/eller beskrivning"
-
-#: ../deskbar/handlers/programs.py:19
-msgid "Dictionary"
-msgstr "Ordbok"
-
-#: ../deskbar/handlers/programs.py:20
-msgid "Look up word definitions in the dictionary"
-msgstr "Slå upp betydelsen för ett ord i ordboken"
-
-#: ../deskbar/handlers/programs.py:24
-msgid "Files and Folders Search"
-msgstr "Fil- och mappsökning"
-
-#: ../deskbar/handlers/programs.py:25
-msgid "Find files and folders by searching for a name pattern"
-msgstr "Sök filer och mappar genom att söka efter ett namnmönster"
-
-#: ../deskbar/handlers/programs.py:29
-msgid "Developer Documentation"
-msgstr "Utvecklardokumentation"
-
-#: ../deskbar/handlers/programs.py:30
-msgid "Search Devhelp for a function name"
-msgstr "Sök i Devhelp efter ett funktionsnamn"
-
-# FIXME:
-# http://bugzilla.gnome.org/show_bug.cgi?id=321396
-#
-#. translators: First %s is the programs full name, second is the executable name
-#. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:88
-#, python-format
-msgid "Launch <b>%(name)s</b> (%(prog)s)"
-msgstr "Starta <b>%(name)s</b> (%(prog)s)"
-
-#: ../deskbar/handlers/programs.py:102
-#, python-format
-msgid "Lookup %s in dictionary"
-msgstr "Slå upp %s i ordboken"
-
-#: ../deskbar/handlers/programs.py:110
-#, python-format
-msgid "Search for file names like %s"
-msgstr "Sök efter filnamn som %s"
-
-#: ../deskbar/handlers/programs.py:118
-#, python-format
-msgid "Search in Devhelp for %s"
-msgstr "Sök i Devhelp efter %s"
-
-#: ../deskbar/handlers/programs.py:222
-#, python-format
-msgid "Execute %s"
-msgstr "Kör %s"
-
-#: ../deskbar/handlers/recent.py:15
-msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
-msgstr ""
-"Den här hanteraren kräver en senare version av gtk (2.9.0 eller senare)."
-
-#: ../deskbar/handlers/recent.py:19
-msgid "Recent Documents"
-msgstr "Senaste dokumenten"
-
-#: ../deskbar/handlers/recent.py:20
-msgid "Retrieve your recently accessed files and locations"
-msgstr "Ta fram dina senaste åtkomna filer och platser"
-
-#: ../deskbar/handlers/web_address.py:13
-msgid "Open web pages and send emails by typing a complete address"
-msgstr ""
-"Öppna webbsidor och skicka e-post genom att skriv in en fullständig adress"
-
-#: ../deskbar/handlers/web_address.py:42
-#, python-format
-msgid "Open the web page %s"
-msgstr "Öppna webbsidan %s"
-
-#: ../deskbar/handlers/web_address.py:44
-#, python-format
-msgid "Open the location %s"
-msgstr "Öppna platsen %s"
-
-#: ../deskbar/handlers/web_address.py:61
-#, python-format
-msgid "Send Email to %s"
-msgstr "Skicka e-post till %s"
-
-#: ../deskbar/handlers/yahoo.py:16
-msgid "Yahoo! Search"
-msgstr "Yahoo!-sökning"
-
-#: ../deskbar/handlers/yahoo.py:17
-msgid "Search Yahoo! as you type"
-msgstr "Sök på Yahoo! när du skriver"
-
-#: ../deskbar/ui/About.py:22
-msgid "Deskbar"
-msgstr "Skrivbordsrad"
-
-#: ../deskbar/ui/About.py:25
-msgid "An all-in-one action bar."
-msgstr "En allt-i-en-åtgärdsrad."
-
-#: ../deskbar/ui/About.py:28
-msgid "Deskbar Website"
-msgstr "Webbplats för skrivbordsradspanelprogrammet"
-
-#. about.set_artists([])
-#. about.set_documenters([])
-#. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
-msgid "translator-credits"
-msgstr ""
-"Daniel Nylander\n"
-"Christian Rose\n"
-"\n"
-"Skicka synpunkter på översättningen till\n"
-"tp-sv@listor.tp-sv.se"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:112
-msgid "New accelerator..."
-msgstr "Ny snabbtangent..."
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:164
-#, python-format
-msgid ""
-"The shortcut \"%s\" cannot be used because it will become unusable to type "
-"using this key.\n"
-"Please try with a key such as Control, Alt or Shift at the same time.\n"
-msgstr ""
-"Genvägen \"%s\" kan inte användas därför att den kommer att vara oanvändbar "
-"när den här\n"
-"tangenten används. Prova den samtidigt med en tangent som Control, Alt eller "
-"Skift.\n"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:330
-msgid "Connection to repository failed"
-msgstr "Anslutningen till förrådet misslyckades"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:330
-msgid "Please check your internet connection"
-msgstr "Kontrollera din Internetanslutning"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:558
-msgid "Handler has been installed successfully"
-msgstr "Hanteraren har installerats"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:564
-msgid "Handler could not be installed due a problem with the provided file"
-msgstr ""
-"Hanteraren kunde inte installeras på grund av ett problem med den "
-"tillhandahållna filen"
-
-#: ../deskbar/ui/ModuleListView.py:55
-msgid "Update Available"
-msgstr "Uppdatering tillgänglig"
-
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
-msgid "Show search entry"
-msgstr "Visa sökfält"
-
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
-msgid "Show previously used actions"
-msgstr "Visa tidigare använda åtgärder"
 
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
@@ -834,79 +259,733 @@ msgstr "Visa alla tillgängliga sökmotorer"
 msgid "Show only the primary search engine"
 msgstr "Visa endast den primära sökmotorn"
 
+#: ../deskbar/core/BrowserMatch.py:50
+#: ../deskbar/handlers/beagle-live.py:98
+#, python-format
+msgid "Open History Item %s"
+msgstr "Öppna historikposten %s"
+
+#: ../deskbar/core/BrowserMatch.py:52
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "Öppna bokmärket %s"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/core/BrowserMatch.py:65
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "Sök <b>%(name)s</b> efter <i>%(text)s</i>"
+
+#: ../deskbar/core/BrowserMatch.py:91
+#: ../deskbar/handlers/yahoo.py:31
+msgid "URL"
+msgstr "URL"
+
+#: ../deskbar/core/BrowserMatch.py:226
+msgid "Shortcut"
+msgstr "Genväg"
+
+#: ../deskbar/core/BrowserMatch.py:234
+msgid "Bookmark Name"
+msgstr "Bokmärkesnamn"
+
+#: ../deskbar/core/Categories.py:7
+msgid "Uncategorized"
+msgstr "Ej kategoriserad"
+
+#: ../deskbar/core/Categories.py:11
+#: ../deskbar/handlers/history.py:20
+#: ../deskbar/ui/CuemiacWindowView.py:111
+msgid "History"
+msgstr "Historik"
+
+#: ../deskbar/core/Categories.py:17
+msgid "Documents"
+msgstr "Dokument"
+
+#: ../deskbar/core/Categories.py:21
+msgid "Emails"
+msgstr "E-post"
+
+#: ../deskbar/core/Categories.py:25
+msgid "Conversations"
+msgstr "Konversationer"
+
+#: ../deskbar/core/Categories.py:29
+msgid "Files"
+msgstr "Filer"
+
+#: ../deskbar/core/Categories.py:33
+msgid "People"
+msgstr "Folk"
+
+#: ../deskbar/core/Categories.py:37
+msgid "Places"
+msgstr "Platser"
+
+#: ../deskbar/core/Categories.py:41
+msgid "Actions"
+msgstr "Åtgärder"
+
+#: ../deskbar/core/Categories.py:45
+#: ../deskbar/handlers/web_address.py:48
+msgid "Web"
+msgstr "Webb"
+
+#: ../deskbar/core/Categories.py:49
+msgid "Web Search"
+msgstr "Webbsökning"
+
+#: ../deskbar/core/Categories.py:53
+msgid "News"
+msgstr "Nyheter"
+
+#: ../deskbar/core/Categories.py:57
+msgid "Notes"
+msgstr "Anteckningar"
+
+#: ../deskbar/core/DeskbarHistory.py:14
+msgid "No History"
+msgstr "Ingen historik"
+
+#: ../deskbar/core/Utils.py:108
+msgid "Cannot execute program:"
+msgstr "Kan inte köra program:"
+
+#: ../deskbar/core/Utils.py:145
+msgid "Cannot show URL:"
+msgstr "Kan inte visa url:"
+
+#: ../deskbar/gtkexcepthook.py:14
+msgid "A programming error has been detected"
+msgstr "Ett programmeringsfel har hittats"
+
+#: ../deskbar/gtkexcepthook.py:15
+msgid "It probably isn't fatal, but should be reported to the developers nonetheless. The program may behave erratically from now on."
+msgstr "Det är antagligen inte allvarligt men det bör oavsett rapporteras till utvecklarna. Programmet kan uppträda oberäkneligt från och med nu."
+
+#: ../deskbar/gtkexcepthook.py:17
+msgid "Bug Detected"
+msgstr "Fel påträffades"
+
+#: ../deskbar/handlers/beagle-live.py:40
+#, python-format
+msgid "Edit contact %s"
+msgstr "Redigera kontakt %s"
+
+#: ../deskbar/handlers/beagle-live.py:49
+#, python-format
+msgid "From %s"
+msgstr "Från %s"
+
+#. translators: This is a file.
+#: ../deskbar/handlers/beagle-live.py:57
+#: ../deskbar/handlers/actions/OpenFileAction.py:19
+#: ../deskbar/handlers/actions/ShowUrlAction.py:25
+#, python-format
+msgid "Open %s"
+msgstr "Öppna %s"
+
+#: ../deskbar/handlers/beagle-live.py:65
+#, python-format
+msgid "News from %s"
+msgstr "Nyheter från %s"
+
+#: ../deskbar/handlers/beagle-live.py:74
+#, python-format
+msgid "Note: %s"
+msgstr "Anteckning: %s"
+
+#: ../deskbar/handlers/beagle-live.py:83
+#, python-format
+msgid "With %s"
+msgstr "Med %s"
+
+#: ../deskbar/handlers/beagle-live.py:91
+#, python-format
+msgid "Calendar: %s"
+msgstr "Kalender: %s"
+
+#: ../deskbar/handlers/beagle-live.py:189
+#: ../deskbar/handlers/beagle-static.py:33
+msgid "Beagle Live"
+msgstr "Beagle Live"
+
+#: ../deskbar/handlers/beagle-live.py:190
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Sök i alla din dokument (med Beagle), när du skriver"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:273
+#: ../deskbar/handlers/beagle-live.py:295
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle-live.py:350
+msgid "Start Beagle Daemon?"
+msgstr "Starta Beagle-demonen?"
+
+#: ../deskbar/handlers/beagle-live.py:355
+msgid "Start Beagle Daemon"
+msgstr "Starta Beagle-demonen"
+
+#: ../deskbar/handlers/beagle-live.py:356
+msgid ""
+"The Beagle daemon does not appear to be running.\n"
+" You need to start it to use the Beagle Live handler."
+msgstr ""
+"Beagle-demonen verkar inte köra.\n"
+" Du behöver starta den för att använda Beagle Live-hanteraren."
+
+#: ../deskbar/handlers/beagle-live.py:366
+msgid "Failed to start beagled. Perhaps the beagle daemon isn't installed?"
+msgstr "Misslyckades med att starta beagled. Kanske är beagle-demonen inte installerad?"
+
+#: ../deskbar/handlers/beagle-live.py:370
+msgid "Failed to start Beagle"
+msgstr "Misslyckades med att starta Beagle"
+
+#: ../deskbar/handlers/beagle-live.py:371
+msgid "Perhaps the beagle daemon isn't installed?"
+msgstr "Kanske är beagle-demonen inte installerad?"
+
+#: ../deskbar/handlers/beagle-live.py:382
+msgid "Could not load beagle, libbeagle has been compiled without python bindings."
+msgstr "Kunde inte läsa in beagle, libbeagle har byggts utan stöd för python-bindingar."
+
+#: ../deskbar/handlers/beagle-live.py:391
+msgid "Beagled could not be found in your $PATH. Unable to start the beagled daemon"
+msgstr "Beagled kunde inte hittas i din $PATH. Kunde inte starta beagled-demonen"
+
+#: ../deskbar/handlers/beagle-static.py:24
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "Sök efter %s med Beagle"
+
+#: ../deskbar/handlers/beagle-static.py:34
+msgid "Search all of your documents (using Beagle)"
+msgstr "Sök i alla din dokument (med Beagle)"
+
+#: ../deskbar/handlers/beagle-static.py:50
+msgid "Beagle does not seem to be installed."
+msgstr "Beagle verkar inte vara installerat."
+
+#: ../deskbar/handlers/desklicious.py:43
+msgid "del.icio.us Bookmarks"
+msgstr "Bokmärken på del.icio.us"
+
+#: ../deskbar/handlers/desklicious.py:44
+msgid "Search your del.icio.us bookmarks by tag name"
+msgstr "Sök bland dina del.icio.us-bokmärken med hjälp av taggnamnet"
+
+#: ../deskbar/handlers/desklicious.py:76
+msgid "del.icio.us Account"
+msgstr "Konto på del.icio.us"
+
+#: ../deskbar/handlers/desklicious.py:83
+msgid "Enter your del.icio.us username below"
+msgstr "Ange ditt användarnamn på del.icio.us nedan"
+
+#: ../deskbar/handlers/desklicious.py:89
+msgid "Username: "
+msgstr "Användarnamn: "
+
+#: ../deskbar/handlers/desklicious.py:105
+msgid "You need to configure your del.icio.us account."
+msgstr "Du behöver konfigurera ditt konto på del.icio.us."
+
+#: ../deskbar/handlers/desklicious.py:110
+msgid "You can modify your del.icio.us account."
+msgstr "Du kan ändra ditt konto på del.icio.us."
+
+#: ../deskbar/handlers/epiphany.py:50
+#: ../deskbar/handlers/galeon.py:65
+#: ../deskbar/handlers/mozilla.py:121
+msgid "Web Bookmarks"
+msgstr "Webbokmärken"
+
+#: ../deskbar/handlers/epiphany.py:51
+#: ../deskbar/handlers/galeon.py:66
+#: ../deskbar/handlers/mozilla.py:122
+msgid "Open your web bookmarks by name"
+msgstr "Öppna dina webbokmärken med hjälp av namnet"
+
+#: ../deskbar/handlers/epiphany.py:84
+#: ../deskbar/handlers/epiphany.py:130
+msgid "Epiphany is not your preferred browser."
+msgstr "Epiphany är inte din föredragna webbläsare."
+
+#: ../deskbar/handlers/epiphany.py:90
+#: ../deskbar/handlers/galeon.py:93
+#: ../deskbar/handlers/mozilla.py:191
+msgid "Web Searches"
+msgstr "Webbsökningar"
+
+#: ../deskbar/handlers/epiphany.py:91
+#: ../deskbar/handlers/galeon.py:94
+#: ../deskbar/handlers/mozilla.py:192
+msgid "Search the web via your browser's search settings"
+msgstr "Sök på webben via din webbläsares sökinställningar"
+
+#: ../deskbar/handlers/epiphany.py:127
+msgid "You can set shortcuts for your searches."
+msgstr "Du kan ställa in genvägar för dina sökningar."
+
+#: ../deskbar/handlers/epiphany.py:137
+#: ../deskbar/handlers/galeon.py:114
+#: ../deskbar/handlers/mozilla.py:734
+msgid "Web History"
+msgstr "Webbhistorik"
+
+#: ../deskbar/handlers/epiphany.py:138
+#: ../deskbar/handlers/galeon.py:115
+#: ../deskbar/handlers/mozilla.py:735
+msgid "Open your web history by name"
+msgstr "Öppna din webbhistorik med hjälp av namnet"
+
+#: ../deskbar/handlers/evolution.py:23
+msgid "Mail (Address Book)"
+msgstr "Post (Adressbok)"
+
+#: ../deskbar/handlers/evolution.py:24
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr "Skicka e-post till dina kontakter genom att skriva in deras namn eller e-postadress"
+
+#: ../deskbar/handlers/evolution.py:49
+msgid ""
+"Autocompletion Needs to be Enabled\n"
+"We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"Automatisk komplettering behöver vara aktiverat\n"
+"Vi kan inte tillhandahålla e-postadresser från din adressbok om inte automatisk komplettering är aktiverat.  För att göra det, välj Redigera - Inställningar, och sedan Automatisk komplettering från menyn i ditt e-postprogram."
+
+#: ../deskbar/handlers/files.py:29
+#: ../deskbar/handlers/files.py:39
+#: ../deskbar/handlers/files.py:49
+#: ../deskbar/handlers/files.py:59
+#: ../deskbar/handlers/recent.py:28
+msgid "Location"
+msgstr "Plats"
+
+#: ../deskbar/handlers/files.py:67
+msgid "Files, Folders and Places"
+msgstr "Filer, mappar och platser"
+
+#: ../deskbar/handlers/files.py:68
+msgid "View your files, folders, bookmarks, drives, network places by name"
+msgstr "Visa dina filer, mappar, bokmärken, enheter, nätverksplatser efter namn"
+
+#: ../deskbar/handlers/galeon.py:59
+msgid "Galeon is not your preferred browser."
+msgstr "Galeon är inte din föredragna webbläsare."
+
+#: ../deskbar/handlers/gdmactions.py:33
+msgid "Suspend the machine"
+msgstr "Försätt datorn i vänteläge"
+
+#: ../deskbar/handlers/gdmactions.py:49
+msgid "Hibernate the machine"
+msgstr "Försätt datorn i viloläge"
+
+#: ../deskbar/handlers/gdmactions.py:65
+msgid "Shutdown the machine"
+msgstr "Stäng av datorn"
+
+#: ../deskbar/handlers/gdmactions.py:86
+msgid "Lock the screen"
+msgstr "Lås skärmen"
+
+#: ../deskbar/handlers/gdmactions.py:109
+#: ../deskbar/handlers/gdmactions.py:230
+msgid "Lock"
+msgstr "Lås"
+
+#: ../deskbar/handlers/gdmactions.py:149
+msgid "Turn off the computer"
+msgstr "Stäng av datorn"
+
+#: ../deskbar/handlers/gdmactions.py:153
+#: ../deskbar/handlers/gdmactions.py:209
+msgid "Shut Down"
+msgstr "Stäng av"
+
+#: ../deskbar/handlers/gdmactions.py:165
+msgid "Log out"
+msgstr "Logga ut"
+
+#: ../deskbar/handlers/gdmactions.py:169
+#: ../deskbar/handlers/gdmactions.py:212
+msgid "Log Out"
+msgstr "Logga ut"
+
+#: ../deskbar/handlers/gdmactions.py:181
+msgid "Restart the computer"
+msgstr "Starta om datorn"
+
+#: ../deskbar/handlers/gdmactions.py:185
+#: ../deskbar/handlers/gdmactions.py:211
+msgid "Restart"
+msgstr "Starta om"
+
+#: ../deskbar/handlers/gdmactions.py:196
+#: ../deskbar/handlers/gdmactions.py:200
+#: ../deskbar/handlers/gdmactions.py:210
+msgid "Switch User"
+msgstr "Byt användare"
+
+#: ../deskbar/handlers/gdmactions.py:206
+msgid "Computer Actions"
+msgstr "Datoråtgärder"
+
+#: ../deskbar/handlers/gdmactions.py:207
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "Logga ut, stäng av, starta om, försätt i vänteläge och liknande åtgärder."
+
+#: ../deskbar/handlers/gdmactions.py:241
+msgid "Suspend"
+msgstr "Vänteläge"
+
+#: ../deskbar/handlers/gdmactions.py:243
+msgid "Hibernate"
+msgstr "Viloläge"
+
+#: ../deskbar/handlers/gdmactions.py:245
+msgid "Shutdown"
+msgstr "Stäng av"
+
+#: ../deskbar/handlers/history.py:21
+msgid "Recognize previously used searches"
+msgstr "Känn igen tidigare använda sökningar"
+
+#: ../deskbar/handlers/iswitch-window.py:18
+#, python-format
+msgid "Switch to <b>%(name)s</b>"
+msgstr "Växla till <b>%(name)s</b>"
+
+#: ../deskbar/handlers/iswitch-window.py:50
+msgid "Window Switcher"
+msgstr "Fönsterbytare"
+
+#: ../deskbar/handlers/iswitch-window.py:51
+msgid "Switch to an existing window by name."
+msgstr "Byt till ett existerande fönster efter namn."
+
+#: ../deskbar/handlers/iswitch-window.py:54
+msgid "Windows"
+msgstr "Fönster"
+
+#: ../deskbar/handlers/mozilla.py:184
+#: ../deskbar/handlers/mozilla.py:255
+msgid "Mozilla/Firefox is not your preferred browser."
+msgstr "Mozilla/Firefox är inte din föredragna webbläsare."
+
+#: ../deskbar/handlers/mozilla.py:249
+msgid "You can customize which search engines are offered."
+msgstr "Du kan anpassa vilka sökmotorer som erbjuds."
+
+#: ../deskbar/handlers/programs.py:83
+#, python-format
+msgid "Lookup %s in dictionary"
+msgstr "Slå upp %s i ordboken"
+
+#: ../deskbar/handlers/programs.py:90
+#, python-format
+msgid "Search for file names like %s"
+msgstr "Sök efter filnamn som %s"
+
+#: ../deskbar/handlers/programs.py:96
+#, python-format
+msgid "Search in Devhelp for %s"
+msgstr "Sök i Devhelp efter %s"
+
+#: ../deskbar/handlers/programs.py:122
+msgid "Dictionary"
+msgstr "Ordbok"
+
+#: ../deskbar/handlers/programs.py:123
+msgid "Look up word definitions in the dictionary"
+msgstr "Slå upp betydelsen för ett ord i ordboken"
+
+#: ../deskbar/handlers/programs.py:139
+msgid "Files and Folders Search"
+msgstr "Fil- och mappsökning"
+
+#: ../deskbar/handlers/programs.py:140
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Sök filer och mappar genom att söka efter ett namnmönster"
+
+#: ../deskbar/handlers/programs.py:156
+msgid "Developer Documentation"
+msgstr "Utvecklardokumentation"
+
+#: ../deskbar/handlers/programs.py:157
+msgid "Search Devhelp for a function name"
+msgstr "Sök i Devhelp efter ett funktionsnamn"
+
+#: ../deskbar/handlers/programs.py:203
+#, python-format
+msgid "Execute %s"
+msgstr "Kör %s"
+
+#: ../deskbar/handlers/programs.py:225
+msgid "Programs"
+msgstr "Program"
+
+#: ../deskbar/handlers/programs.py:226
+msgid "Launch a program by its name and/or description"
+msgstr "Starta ett program efter dess namn och/eller beskrivning"
+
+#: ../deskbar/handlers/recent.py:39
+msgid "Recent Documents"
+msgstr "Senaste dokumenten"
+
+#: ../deskbar/handlers/recent.py:40
+msgid "Retrieve your recently accessed files and locations"
+msgstr "Ta fram dina senaste åtkomna filer och platser"
+
+#: ../deskbar/handlers/recent.py:59
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr "Den här hanteraren kräver en senare version av gtk (2.9.0 eller senare)."
+
+#: ../deskbar/handlers/web_address.py:49
+msgid "Open web pages and send emails by typing a complete address"
+msgstr "Öppna webbsidor och skicka e-post genom att skriv in en fullständig adress"
+
+#: ../deskbar/handlers/yahoo.py:39
+msgid "Yahoo! Search"
+msgstr "Yahoo!-sökning"
+
+#: ../deskbar/handlers/yahoo.py:40
+msgid "Search Yahoo! as you type"
+msgstr "Sök på Yahoo! när du skriver"
+
+#: ../deskbar/handlers/actions/CopyToClipboardAction.py:15
+#, python-format
+msgid "Copy <b>%(name)s</b> to clipboard"
+msgstr "Kopiera <b>%(name)s</b> till urklipp"
+
+# FIXME:
+# http://bugzilla.gnome.org/show_bug.cgi?id=321396
+#
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:17
+#, python-format
+msgid "Launch <b>%(name)s</b>"
+msgstr "Starta <b>%(name)s</b>"
+
+# FIXME:
+# http://bugzilla.gnome.org/show_bug.cgi?id=321396
+#
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:26
+#, python-format
+msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
+msgstr "Öppna <b>%(name)s</b> med <b>%(program)s</b>"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:25
+#, python-format
+msgid "Open network place %s"
+msgstr "Öppna nätverksplatsen %s"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:27
+#, python-format
+msgid "Open audio disc %s"
+msgstr "Öppna ljudskivan %s"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:29
+#, python-format
+msgid "Open location %s"
+msgstr "Öppna platsen %s"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/actions/SendEmailToAction.py:21
+#, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "Skicka e-post till <b>%(name)s</b> (%(email)s)"
+
+#: ../deskbar/ui/About.py:25
+msgid "An all-in-one action bar."
+msgstr "En allt-i-en-åtgärdsrad."
+
+#: ../deskbar/ui/About.py:28
+msgid "Deskbar Website"
+msgstr "Webbplats för skrivbordsradspanelprogrammet"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:39
+msgid "translator-credits"
+msgstr ""
+"Daniel Nylander\n"
+"Christian Rose\n"
+"\n"
+"Skicka synpunkter på översättningen till\n"
+"tp-sv@listor.tp-sv.se"
+
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
 msgid "<b>Search:</b>"
 msgstr "<b>Sök:</b>"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:49
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:20
+msgid "name"
+msgstr "namn"
+
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:23
+msgid "default"
+msgstr "standard"
+
+#: ../deskbar/ui/CuemiacWindowView.py:74
 msgid "_File"
 msgstr "_Arkiv"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:50
+#: ../deskbar/ui/CuemiacWindowView.py:75
 msgid "_Quit"
 msgstr "_Avsluta"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:51
+#: ../deskbar/ui/CuemiacWindowView.py:76
 msgid "_Edit"
 msgstr "R_edigera"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:54
+#: ../deskbar/ui/CuemiacWindowView.py:77
+msgid "_Clear History"
+msgstr "_Töm historik"
+
+#: ../deskbar/ui/CuemiacWindowView.py:79
 msgid "_View"
 msgstr "_Visa"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:55
+#: ../deskbar/ui/CuemiacWindowView.py:80
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:58
+#: ../deskbar/ui/CuemiacWindowView.py:83
 msgid "_History"
 msgstr "_Historik"
 
-#. History TreeView
-#: ../deskbar/ui/window/CuemiacWindowUI.py:84
-msgid "<b>History</b>"
-msgstr "<b>Historik</b>"
+#: ../deskbar/ui/DeskbarApplet.py:84
+msgid "Show search entry"
+msgstr "Visa sökfält"
 
-#: ../deskbar/updater/ErrorDialog.py:8
+#: ../deskbar/ui/DeskbarApplet.py:111
+msgid "Some potentially old modules that make use of an old Deskbar-Applet API have been found. Remove these files for this warning to disappear.\n"
+msgstr "Några möjligen gamla moduler som använder det äldre Deskbar-Applet API har hittats. Ta bort dessa filer för att ta bort den här varningen.\n"
+
+#: ../deskbar/ui/preferences/AccelEntry.py:102
+msgid "New accelerator..."
+msgstr "Ny snabbtangent..."
+
+#: ../deskbar/ui/preferences/AccelEntry.py:154
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become unusable to type using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"Genvägen \"%s\" kan inte användas därför att den kommer att vara oanvändbar när den här\n"
+"tangenten används. Prova den samtidigt med en tangent som Control, Alt eller Skift.\n"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:91
+msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
+msgstr "<i><small>Dra och släpp en utökning för att ändra dess ordning.</small></i>"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:344
+msgid "A problem occured"
+msgstr "Ett fel inträffade"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:409
+msgid "Handler has been installed successfully"
+msgstr "Hanteraren har installerats"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:412
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr "Hanteraren kunde inte installeras på grund av ett problem med den tillhandahållna filen"
+
+#: ../deskbar/ui/preferences/ErrorDialog.py:8
 msgid "Error"
 msgstr "Fel"
 
-#: ../deskbar/updater/ErrorDialog.py:25
-msgid "An error occured"
-msgstr "Ett fel inträffade"
-
-#: ../deskbar/updater/ErrorDialog.py:25
+#: ../deskbar/ui/preferences/ErrorDialog.py:26
 msgid "Check the description beneath for further details."
 msgstr "Se beskrivningen nedan för ytterligare detaljer."
 
-#: ../deskbar/updater/ErrorDialog.py:31
+#: ../deskbar/ui/preferences/ErrorDialog.py:32
 msgid "Details"
 msgstr "Detaljer"
 
-#: ../deskbar/updater/NewStuffUpdater.py:131
-#, python-format
-msgid "Updating %s"
-msgstr "Uppdaterar %s"
+#: ../deskbar/ui/preferences/ModuleListView.py:55
+msgid "Update Available"
+msgstr "Uppdatering tillgänglig"
 
-#: ../deskbar/updater/NewStuffUpdater.py:131
-msgid ""
-"The update is being downloaded from the internet. Please wait until the "
-"update is complete"
-msgstr ""
-"Uppdateringen hämtas nu från Internet. Vänta tills uppdateringen är färdig"
+#~ msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+#~ msgstr ""
+#~ "Väljer det användargränssnitt som ska användas, ett av \"Cuemiac\" eller "
+#~ "\"Entriac\""
+#~ msgid "The applet's entry width in number of characters"
+#~ msgstr "Bredd på panelprogrammets inmatningsruta, i antal tecken"
+#~ msgid ""
+#~ "The list of categories to be collapsed when displayed in the 'Cuemiac' "
+#~ "UI. Valid category names are defined in Categories.py"
+#~ msgstr ""
+#~ "Lista över kategorier som ska fällas in när användargränssnittet \"Cuemiac"
+#~ "\" visas. Giltiga kategorinamn definieras i Categories.py"
+#~ msgid ""
+#~ "Whether the applet should take all the available space in the panel. "
+#~ "Overrides the width preference."
+#~ msgstr ""
+#~ "Huruvida panelprogrammet ska ta upp allt tillgängligt utrymme i panelen. "
+#~ "Åsidosätter inställningen för bredd."
+#~ msgid "<b>Layout</b>"
+#~ msgstr "<b>Layout</b>"
+#~ msgid "<b>Width</b>"
+#~ msgstr "<b>Bredd</b>"
+#~ msgid "Button in panel"
+#~ msgstr "Knapp i panel"
+#~ msgid "Entry in panel"
+#~ msgstr "Post i panel"
+#~ msgid "Use _all available space"
+#~ msgstr "Använd _allt tillgängligt utrymme"
+#~ msgid "View"
+#~ msgstr "Visa"
+#~ msgid "characters"
+#~ msgstr "tecken"
+#~ msgid "Beagle"
+#~ msgstr "Beagle"
+#~ msgid "You need to enable autocomplete in your mail preferences"
+#~ msgstr ""
+#~ "Du behöver aktivera automatisk komplettering i dina postinställningar"
+#~ msgid "Autocompletion Needs to be Enabled"
+#~ msgstr "Automatisk komplettering behöver vara aktiverad"
+#~ msgid "Open folder %s"
+#~ msgstr "Öppna mappen %s"
+#~ msgid "Open the web page %s"
+#~ msgstr "Öppna webbsidan %s"
+#~ msgid "Open the location %s"
+#~ msgstr "Öppna platsen %s"
+#~ msgid "Send Email to %s"
+#~ msgstr "Skicka e-post till %s"
+#~ msgid "Connection to repository failed"
+#~ msgstr "Anslutningen till förrådet misslyckades"
+#~ msgid "Please check your internet connection"
+#~ msgstr "Kontrollera din Internetanslutning"
+#~ msgid "Show previously used actions"
+#~ msgstr "Visa tidigare använda åtgärder"
+#~ msgid "<b>History</b>"
+#~ msgstr "<b>Historik</b>"
+#~ msgid "Updating %s"
+#~ msgstr "Uppdaterar %s"
+#~ msgid ""
+#~ "The update is being downloaded from the internet. Please wait until the "
+#~ "update is complete"
+#~ msgstr ""
+#~ "Uppdateringen hämtas nu från Internet. Vänta tills uppdateringen är färdig"
+#~ msgid "Installing %s"
+#~ msgstr "Installerar %s"
+#~ msgid ""
+#~ "The handler is being downloaded from the internet. Please wait until the "
+#~ "installation is complete"
+#~ msgstr ""
+#~ "Hanteraren hämtas nu från Internet. Vänta tills installationen är färdig"
+#~ msgid "Downloading"
+#~ msgstr "Hämtar"
 
-#: ../deskbar/updater/NewStuffUpdater.py:156
-#, python-format
-msgid "Installing %s"
-msgstr "Installerar %s"
-
-#: ../deskbar/updater/NewStuffUpdater.py:156
-msgid ""
-"The handler is being downloaded from the internet. Please wait until the "
-"installation is complete"
-msgstr ""
-"Hanteraren hämtas nu från Internet. Vänta tills installationen är färdig"
-
-#: ../deskbar/updater/NewStuffUpdater.py:157
-msgid "Downloading"
-msgstr "Hämtar"
