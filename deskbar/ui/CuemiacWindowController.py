@@ -37,6 +37,7 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         
     def on_query_entry_changed(self, entry):
         self._view.clear_results()
+        self._view.clear_actions()
         self._model.stop_queries()
         # TODO: abort previous searches
         qstring = entry.get_text().strip()
@@ -97,6 +98,10 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         column = self._view.cview.get_column (0)
         # This emits a match-selected from the cview
         self._view.cview.emit ("row-activated", path, column)
+        
+    def on_treeview_cursor_changed(self, treeview):
+    	self._view.clear_actions()
+    	self._view.update_entry_icon ()
         
     def on_match_selected(self, treeview, text, match_obj, event):
         if len(match_obj.get_actions()) == 1:

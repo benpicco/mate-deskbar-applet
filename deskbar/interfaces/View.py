@@ -8,20 +8,24 @@ class View(object):
         gtk.window_set_default_icon_name("deskbar-applet")
         
     def clear_results(self):
-        raise NotImplemented
-    
+        raise NotImplementedError
+    	
+	def clear_actions(self):
+		raise NotImplementedError
+	
     def clear_query(self):
-        raise NotImplemented
+        raise NotImplementedError
     
     def clear_all(self):
         self.clear_query()
         self.clear_results()
+        self.clear_actions()
     
     def get_toplevel(self):
-        raise NotImplemented
+        raise NotImplementedError
     
     def get_entry(self):
-        raise NotImplemented
+        raise NotImplementedError
     
     def show_history(self, value):
         raise NotImplementedError

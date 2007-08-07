@@ -31,6 +31,9 @@ class Controller(object):
     def on_query_entry_activate(self, entry):
         raise NotImplementedError
         
+    def on_treeview_cursor_changed(self, treeview):
+    	raise NotImplementedError
+        
     def on_match_selected(self, treeview, text, match_obj, event):
         raise NotImplementedError
      
@@ -50,4 +53,7 @@ class Controller(object):
     	raise NotImplementedError
     
     def on_resultsview_width_changed(self, results_hpaned, value):
+    	raise NotImplementedError
+    
+    def update_entry_icon (self, icon=None):
     	raise NotImplementedError

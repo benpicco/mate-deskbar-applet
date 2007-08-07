@@ -1,4 +1,5 @@
 import gtk
+import gtk.gdk
 import gobject
 from gettext import gettext as _
 import deskbar.interfaces.View
@@ -119,7 +120,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.cview = CuemiacTreeView (self.treeview_model)
         #self.cview.connect ("key-press-event", self._on_cview_key_press)
         self.cview.connect ("match-selected", self._controller.on_match_selected)
-        self.cview.connect_after ("cursor-changed", lambda treeview : self._update_entry_icon())
+        self.cview.connect_after ("cursor-changed", self._controller.on_treeview_cursor_changed)
         self.cview.connect ("row-expanded", self._controller.on_category_expanded, self.treeview_model)
         self.cview.connect ("row-collapsed", self._controller.on_category_collapsed, self.treeview_model)
         self.cview.show()
@@ -170,11 +171,13 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
     
     def clear_results(self):
         self.treeview_model.clear()
+        
+    def clear_actions(self):
         self.actions_model.clear()
         
     def clear_query(self):
         self.entry.set_text("")
-        self._update_entry_icon()
+        self.update_entry_icon()
     
     def get_toplevel(self):
         return self
@@ -216,7 +219,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         that is currently in the entry
         """
         self.treeview_model.append (matches, self.entry.get_text())
-        self._update_entry_icon()
+        self.update_entry_icon()
         
     def set_sensitive (self, active):
         """
@@ -226,7 +229,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         if active:
             self.entry.grab_focus()
    
-    def _update_entry_icon (self, icon=None):
+    def update_entry_icon (self, icon=None):
         
         if icon == None:
             icon = self.default_entry_pixbuf
