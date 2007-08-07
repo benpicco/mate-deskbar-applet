@@ -23,6 +23,7 @@ class InfoBox(gtk.HBox):
         self.info_image.set_padding(3, 0)
         self.pack_start(self.info_image, expand=False, fill=False)
         self.label = gtk.Label()
+        self.label.set_line_wrap(True)
         self.label.set_alignment(0.0, 0.5)
         self.label.set_justify(gtk.JUSTIFY_LEFT)
         self.label.set_markup(text)
