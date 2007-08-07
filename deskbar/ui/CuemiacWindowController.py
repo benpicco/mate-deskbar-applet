@@ -36,14 +36,14 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         prefs.show_run_hide(self._view.get_toplevel())
         
     def on_query_entry_changed(self, entry):
-        self._view.treeview_model.clear()
+        self._view.clear_results()
         self._model.stop_queries()
         # TODO: abort previous searches
         qstring = entry.get_text().strip()
         if (qstring != ""):
             self._model.query( qstring )
         else:
-            self._view.treeview_model.clear()
+            self._view.clear_results()
             
     def on_query_entry_key_press_event(self, entry, event):
         # TODO: discard still running query threads
