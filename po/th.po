@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-06 13:26+0700\n"
-"PO-Revision-Date: 2007-08-06 15:36+0700\n"
+"POT-Creation-Date: 2007-08-07 11:44+0700\n"
+"PO-Revision-Date: 2007-08-07 11:46+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgid "Clear entry after match has been selected"
 msgstr "ล้างค่าในช่องป้อนคำค้นหลังจากที่เลือกผลการสืบค้น"
 
 #: ../data/deskbar-applet.schemas.in.h:3
-msgid "Collapsed categpories"
+msgid "Collapsed categories"
 msgstr "หัวข้อที่พับเก็บ"
 
 #: ../data/deskbar-applet.schemas.in.h:4
@@ -103,22 +103,26 @@ msgid ""
 msgstr "รายชื่อของคลาสตัวจัดการคำค้นที่เปิดใช้ เรียงตามลำดับความสำคัญ รายการซ้ายสุดสำคัญที่สุด"
 
 #: ../data/deskbar-applet.schemas.in.h:20
+msgid "The maximum number of items stored in history"
+msgstr "จำนวนรายการสูงสุดที่จะเก็บในประวัติการค้นหา"
+
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
 msgstr "จำนวนอักขระอย่างต่ำที่ผู้ใช้ต้องป้อน ก่อนที่แอพเพล็ตจะแสดงรายการที่ตรงกัน"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
 msgstr "ระยะเวลาเป็นมิลลิวินาที นับตั้งแต่แป้นพิมพ์ถูกกดในช่องคำค้น ก่อนที่จะเริ่มค้นหาจริง"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether to close the window after an actions has been activated"
 msgstr "จะปิดหน้าต่างหลังจากเรียกปฏิบัติการหรือไม่"
 
-#: ../data/deskbar-applet.schemas.in.h:23
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -126,19 +130,19 @@ msgstr ""
 "กำหนดว่าจะแสดงเฉพาะเครื่องมือค้นหาที่เลือกไว้ แทนที่จะแสดงเครื่องมือค้นหาทั้งหมดหรือไม่ "
 "ค่านี้จะมีผลต่อเว็บเบราว์เซอร์ตระกูล Mozilla เช่น Firefox เท่านั้น"
 
-#: ../data/deskbar-applet.schemas.in.h:24
+#: ../data/deskbar-applet.schemas.in.h:25
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "กำหนดว่าในการเรียกแอพเพล็ตเดสก์บาร์ จะแปะข้อความที่เลือกอยู่ด้วยเลยหรือไม่"
 
-#: ../data/deskbar-applet.schemas.in.h:25
+#: ../data/deskbar-applet.schemas.in.h:26
 msgid "Width of the list of results"
 msgstr "ความกว้างของรายการผลลัพธ์"
 
-#: ../data/deskbar-applet.schemas.in.h:26
+#: ../data/deskbar-applet.schemas.in.h:27
 msgid "Window height"
 msgstr "ความสูงของหน้าต่าง"
 
-#: ../data/deskbar-applet.schemas.in.h:27
+#: ../data/deskbar-applet.schemas.in.h:28
 msgid "Window width"
 msgstr "ความกว้างของหน้าต่าง"
 
@@ -195,46 +199,50 @@ msgid "General"
 msgstr "ทั่วไป"
 
 #: ../data/prefs-dialog.glade.h:10
+msgid "Maximum number of _items stored in history:"
+msgstr "_จำนวนรายการสูงสุดที่จะเก็บในประวัติการค้นหา:"
+
+#: ../data/prefs-dialog.glade.h:11
 msgid "New Extensions"
 msgstr "ส่วนขยายใหม่"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "ค้นหาข้อความที่เลือกเมื่อกดปุ่มลัด"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
 msgid "Searches"
 msgstr "การค้นหา"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "Time to _wait before starting to search:"
 msgstr "เวลาหยุด_คอยก่อนเริ่มค้นหา:"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "_Check For Updates"
 msgstr "_ตรวจสอบรุ่นออกใหม่"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Check for new extensions"
 msgstr "_ตรวจสอบส่วนขยายใหม่"
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:17
 msgid "_Install"
 msgstr "_ติดตั้ง"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:18
 msgid "_Keyboard shortcut to focus:"
 msgstr "ปุ่ม_ลัดเพื่อโฟกัส:"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:19
 msgid "_More..."
 msgstr "เ_พิ่มเติม..."
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:20
 msgid "_Update"
 msgstr "_ปรับรุ่น"
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:21
 msgid "milliseconds"
 msgstr "มิลลิวินาที"
 
@@ -357,9 +365,17 @@ msgstr "ข่าว"
 msgid "Notes"
 msgstr "บันทึก"
 
-#: ../deskbar/core/DeskbarHistory.py:13
+#: ../deskbar/core/DeskbarHistory.py:14
 msgid "No History"
 msgstr "ไม่มีประวัติการค้นหา"
+
+#: ../deskbar/core/Utils.py:108
+msgid "Cannot execute program:"
+msgstr "ไม่สามารถเรียกโปรแกรม:"
+
+#: ../deskbar/core/Utils.py:145
+msgid "Cannot show URL:"
+msgstr "ไม่สามารถแสดง URL:"
 
 #: ../deskbar/gtkexcepthook.py:14
 msgid "A programming error has been detected"
@@ -881,15 +897,15 @@ msgstr ""
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>ลากวางส่วนขยายเพื่อเปลี่ยนลำดับ</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:336
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:344
 msgid "A problem occured"
 msgstr "เกิดปัญหาบางประการ"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:401
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:409
 msgid "Handler has been installed successfully"
 msgstr "ติดตั้งเครื่องมือจัดการสำเร็จแล้ว"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:404
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:412
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "ไม่สามารถติดตั้งเครื่องมือจัดการได้ เนื่องจากปัญหาในแฟ้มที่ให้มา"
 
@@ -919,7 +935,8 @@ msgstr "มีรุ่นใหม่"
 #~ "The list of categories to be collapsed when displayed in the 'Cuemiac' "
 #~ "UI. Valid category names are defined in Categories.py"
 #~ msgstr ""
-#~ "รายการหมวดที่จะพับเก็บเมื่อแสดงใน UI แบบ 'Cuemiac' ชื่อหมวดที่ใช้ได้ดูได้จาก Categories.py"
+#~ "รายการหมวดที่จะพับเก็บเมื่อแสดงใน UI แบบ 'Cuemiac' ชื่อหมวดที่ใช้ได้ดูได้จาก Categories."
+#~ "py"
 
 #~ msgid ""
 #~ "Whether the applet should take all the available space in the panel. "
@@ -948,12 +965,6 @@ msgstr "มีรุ่นใหม่"
 
 #~ msgid "characters"
 #~ msgstr "อักขระ"
-
-#~ msgid "Cannot execute program:"
-#~ msgstr "ไม่สามารถเรียกโปรแกรม:"
-
-#~ msgid "Cannot show URL:"
-#~ msgstr "ไม่สามารถแสดง URL:"
 
 #~ msgid "Beagle"
 #~ msgstr "Beagle"
