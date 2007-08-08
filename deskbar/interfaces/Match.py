@@ -18,6 +18,7 @@ class Match:
 		self._category = "default"
 		self._priority = 0
 		self._actions = []
+		self._default_action = None
 		self.__actions_hashes = set()
 		if "name" in args:
 			self._name = args["name"]
@@ -74,11 +75,16 @@ class Match:
         
 	def get_actions(self):
 		return self._actions
+	
+	def get_default_action(self):
+		return self._default_action
     
-	def add_action(self, action):
+	def add_action(self, action, is_default=False):
 		if not action.get_hash() in self.__actions_hashes:
 			self.__actions_hashes.add(action.get_hash())
 			self._actions.append(action)
+		if is_default:
+			self._default_action = action
 	
 	def add_all_actions(self, actions):
 		for action in actions:

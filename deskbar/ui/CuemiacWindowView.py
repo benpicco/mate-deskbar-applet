@@ -145,20 +145,20 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
        
         # HPaned
         self.hpaned_right = gtk.HPaned()
-        self.hpaned_right.set_position( self._model.get_resultsview_width() )
+        scrolled_results.set_size_request( self._model.get_resultsview_width(), -1 )
         self.hpaned_right.connect("notify::position", self._controller.on_resultsview_width_changed)
         self.hpaned_right.pack1(scrolled_results)
         self.hpaned_right.pack2(scrolled_actions)
         self.hpaned_right.show()
         
         self.hpaned_left = gtk.HPaned()
-        self.hpaned_left.set_position( self._model.get_sidebar_width() )
+        self.sidebar.set_size_request( self._model.get_sidebar_width(), -1 )
         self.hpaned_left.connect("notify::position", self._controller.on_sidebar_width_changed)
-        self.vbox_main.pack_start(self.hpaned_left)
-        
         self.hpaned_left.pack1(self.sidebar)
         self.hpaned_left.pack2(self.hpaned_right)
         self.hpaned_left.show()
+        
+        self.vbox_main.pack_start(self.hpaned_left)
        
         # Statusbar
         self.statusbar = gtk.Statusbar()
