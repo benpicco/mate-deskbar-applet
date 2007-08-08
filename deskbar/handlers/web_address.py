@@ -28,7 +28,7 @@ class WebAddressMatch(deskbar.interfaces.Match):
 		if self.url.startswith("http"):
 			self.add_action( ShowUrlAction(name, self.url) )
 		else:
-			self._add_action( OpenWithNautilusAction(name, self.url) )
+			self.add_action( OpenWithNautilusAction(name, self.url) )
 	
 	def get_hash(self, text=None):
 		return self.url
