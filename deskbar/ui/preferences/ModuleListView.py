@@ -45,11 +45,12 @@ class ModuleListView (gtk.TreeView):
 	def get_description_data(self, column, cell, model, iter, data=None):
 		mod = model[iter][model.MODULE_CTX_COL]
 		name = mod.INFOS["name"]
+		version = mod.INFOS["version"]
 		description = ""
 		if "description" in mod.INFOS:
 			description = mod.INFOS["description"]
 
-		description = "<b>%s</b>\n%s" % (name, description)
+		description = "<b>%s</b> <small>(<i>%s</i> %s)</small>\n%s" % (name, _("Version:"), version, description)
 
 		if model[iter][model.UPDATEABLE_COL]:
 			description += "\n<i><b><small>%s</small></b></i>" % _("Update Available")
