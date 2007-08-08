@@ -100,7 +100,6 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         self._view.cview.emit ("row-activated", path, column)
         
     def on_treeview_cursor_changed(self, treeview):
-    	self._view.clear_actions()
     	self._view.update_entry_icon ()
         
     def on_match_selected(self, treeview, text, match_obj, event):
