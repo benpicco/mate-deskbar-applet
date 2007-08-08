@@ -25,8 +25,6 @@ class Match:
 		if "icon" in args:
 			self._icon = args["icon"]
 		if "pixbuf" in args and isinstance(args["pixbuf"], gtk.gdk.Pixbuf):
-			# WARNING: Only set a pixbuf if skip_history() always returns True
-			# Otherwise saving to history won't work
 			self._pixbuf = args["pixbuf"]
 		if "category" in args:
 			self._category = args["category"]
