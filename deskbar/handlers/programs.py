@@ -9,7 +9,7 @@ import deskbar, deskbar.core.Indexer, deskbar.core.Utils
 import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar.core.gnomedesktop
 from deskbar.core.Utils import get_xdg_data_dirs, is_program_in_path, spawn_async
 from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
-from deskbar.handlers.actions.OpenDesktopFileAction import OpenDesktopFileAction
+from deskbar.handlers.actions.OpenDesktopFileAction import OpenDesktopFileAction, parse_desktop_file, parse_desktop_filename
 import deskbar.interfaces.Action
 
 HANDLERS = [
@@ -62,17 +62,8 @@ class GenericProgramMatch(deskbar.interfaces.Match):
 			program = self._desktop.get_string("Exec")
 			self.add_action( GenericAction(self.get_name(), program, self._args, verb) )
 		else:
-			self.add_action( OpenDesktopFileAction(self.get_name(), self._desktop) )
+			self.add_action( OpenDesktopFileAction(self.get_name(), self._desktop, self.desktop_file) )
 
-	def __getstate__(self):
-		state = self.__dict__.copy()
-		del state["_desktop"]
-		return state
-	
-	def __setstate__(self, state):
-		self.__dict__ = state
-		self._desktop = parse_desktop_filename(self.desktop_file)
-	
 	def get_hash(self, text=None):
 		return "generic_"+self._display_prog
 		
@@ -98,15 +89,15 @@ class DevhelpMatch(GenericProgramMatch):
 
 class SpecialProgramHandler(deskbar.interfaces.Module):
 	
-	def __init__(self, desktop):
+	def __init__(self, desktop_file):
 		deskbar.interfaces.Module.__init__(self)
-		self._desktop = desktop
+		self._desktop_file = desktop_file
 		self._match = None
 		
 	def initialize(self):
-		result = parse_desktop_filename(self._desktop, False)
+		result = parse_desktop_filename(self._desktop_file, False)
 		if result != None:
-			self._match = self.create_match(result, self._desktop)
+			self._match = self.create_match(result, self._desktop_file)
 	
 	def create_match(self, desktop, f):
 		raise NotImplementedError
@@ -292,31 +283,3 @@ def get_priority_for_name(query, name):
 		return EXACT_MATCH_PRIO
 	else:
 		return EXACT_WORD_PRIO
-		
-def parse_desktop_filename(desktop, only_if_visible=True):
-	if desktop[0] == "/" and exists(desktop):
-		return parse_desktop_file(desktop, only_if_visible)
-			
-	for dir in get_xdg_data_dirs():
-		f = join(dir, "applications", desktop)
-		if exists(f):
-			return parse_desktop_file(f, only_if_visible)
-	
-	return None
-
-
-def parse_desktop_file(desktop, only_if_visible=True):
-	try:
-		desktop = deskbar.core.gnomedesktop.item_new_from_file(desktop, deskbar.core.gnomedesktop.LOAD_ONLY_IF_EXISTS)
-	except Exception, e:
-		print 'Couldn\'t read desktop file:%s:%s' % (desktop, e)
-		return None
-	
-	if desktop == None or desktop.get_entry_type() != deskbar.core.gnomedesktop.TYPE_APPLICATION:
-		return None
-	if desktop.get_boolean(deskbar.core.gnomedesktop.KEY_TERMINAL):
-		return None
-	if only_if_visible and desktop.get_boolean(deskbar.core.gnomedesktop.KEY_NO_DISPLAY):
-		return None
-		
-	return desktop
