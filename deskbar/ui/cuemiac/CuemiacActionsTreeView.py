@@ -19,13 +19,18 @@ class CuemiacActionsTreeView(gtk.TreeView):
    
     __gsignals__ = { 
         "action-selected": (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
+        "go-back": (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
     }
+    
+    activation_keys = [gtk.keysyms.Return, gtk.keysyms.Right]
+    back_keys = [gtk.keysyms.Left]
    
     def __init__(self, model=None):
         gtk.TreeView.__init__(self, model)
         self.set_property ("headers-visible", False)
         self.set_enable_search (False)
         self.connect("button-press-event", self.__on_button_press_event)
+        self.connect("key-press-event", self.__on_key_press_event)
         
         cell_icon = gtk.CellRendererPixbuf()
         cell_icon.set_property("xpad", 10)
@@ -47,3 +52,17 @@ class CuemiacActionsTreeView(gtk.TreeView):
             qstring = model[model.get_iter(path)][model.QUERY_COL]
             
             self.emit ("action-selected", qstring, action, event)
+            
+    def __on_key_press_event(self, treeview, event):
+        model, iter = self.get_selection().get_selected()
+        if iter is None:
+            return False
+        action = model[iter][model.ACTION_COL]
+
+        if event.keyval in self.activation_keys:
+            qstring = model[iter][model.QUERY_COL]
+            self.emit ("action-selected", qstring, action, event)
+        elif event.keyval in self.back_keys:
+            self.emit ("go-back")
+        return False
+		 

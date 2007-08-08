@@ -109,6 +109,7 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
             self.on_action_selected(None, text, action, event)
         elif len(match_obj.get_actions()) > 1:
             self._view.display_actions(match_obj.get_actions(), text)
+            self._view.aview.grab_focus()
         else:
             raise Exception("Match has no action")
         

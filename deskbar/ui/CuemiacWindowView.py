@@ -123,6 +123,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.cview.connect_after ("cursor-changed", self._controller.on_treeview_cursor_changed)
         self.cview.connect ("row-expanded", self._controller.on_category_expanded, self.treeview_model)
         self.cview.connect ("row-collapsed", self._controller.on_category_collapsed, self.treeview_model)
+        self.cview.connect ("go-back", self.__on_go_back)
         self.cview.show()
         
         scrolled_results = gtk.ScrolledWindow ()
@@ -135,6 +136,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.actions_model = CuemiacActionsModel()
         self.aview = CuemiacActionsTreeView(self.actions_model)
         self.aview.connect ("action-selected", self._controller.on_action_selected)
+        self.aview.connect ("go-back", self.__on_go_back)
         self.aview.show()
         
         scrolled_actions = gtk.ScrolledWindow()
@@ -246,3 +248,10 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
                     icon=match.get_icon()
                 
         self.entry.set_icon (icon)
+        
+    def __on_go_back(self, treeview):
+    	if isinstance(treeview, CuemiacTreeView):
+    		self.entry.grab_focus()
+    	elif isinstance(treeview, CuemiacActionsTreeView):
+    		self.cview.grab_focus()
+    	return False

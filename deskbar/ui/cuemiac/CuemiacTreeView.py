@@ -143,10 +143,12 @@ class CuemiacTreeView (gtk.TreeView):
 	to gtk.Style().bg[gtk.STATE_NORMAL].
 	"""
 	
-	activation_keys = [65293] # Enter  - Space makes a mess when users type in queries with spaces
+	activation_keys = [gtk.keysyms.Return, gtk.keysyms.Right]
+	back_keys = [gtk.keysyms.Left]
 	
 	__gsignals__ = {
 		"match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
+		"go-back": (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
 	}
 	
 	def __init__ (self, model):
@@ -164,7 +166,6 @@ class CuemiacTreeView (gtk.TreeView):
 		hits.set_cell_data_func(icon, self.__get_match_icon_for_cell)
 		self.append_column (hits)
 		
-		self.connect ("cursor-changed", self.__on_cursor_changed)
 		self.set_property ("headers-visible", False)
 
 		self.connect ("row-activated", self.__on_activated) # Used activate result if enter in entry has been pressed 
@@ -277,9 +278,6 @@ class CuemiacTreeView (gtk.TreeView):
 #	def __on_config_expanded_cat (self, value):
 #		if value != None and value.type == gconf.VALUE_LIST:
 #			self.__collapsed_rows = [h.get_string() for h in value.get_list()]
-				
-	def __on_cursor_changed (self, view):
-		model, iter = self.get_selection().get_selected()
 	
 	def __get_match_icon_for_cell (self, column, cell, model, iter, data=None):
 	
@@ -339,6 +337,7 @@ class CuemiacTreeView (gtk.TreeView):
 			return False
 		match = model[iter][model.MATCHES]
 		# If this is a category, toggle expansion state
+		
 		if event.keyval in self.activation_keys:
 			if match.__class__ == CuemiacCategory:
 				path = model.get_path (iter)
@@ -347,6 +346,12 @@ class CuemiacTreeView (gtk.TreeView):
 				else:
 					self.expand_row (path, False)
 				return True
+			else:
+				path = model.get_path(iter)
+				col = model.ACTIONS
+				self.__on_activated(widget, path, col, event)
+		elif event.keyval in self.back_keys:
+			self.emit ("go-back")
 			
 		return False
 
