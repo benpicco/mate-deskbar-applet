@@ -20,7 +20,7 @@ class OpenWithApplicationAction(deskbar.interfaces.Action):
         return exists(self._program)
        
     def get_hash(self):
-    	return self._program+" ".join(self._arguments)
+        return self._program+" ".join(self._arguments)
         
     def get_verb(self):
         return _("Open <b>%(name)s</b> with <b>%(program)s</b>")

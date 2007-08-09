@@ -100,7 +100,7 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         self._view.cview.emit ("row-activated", path, column)
         
     def on_treeview_cursor_changed(self, treeview):
-    	self._view.update_entry_icon ()
+        self._view.update_entry_icon ()
         
     def on_match_selected(self, treeview, text, match_obj, event):
         if len(match_obj.get_actions()) == 1:
@@ -117,7 +117,7 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         
         action.activate(text)
         if self._model.get_hide_after_action():
-        	self.on_quit()
+            self.on_quit()
         
     def on_clear_history(self, sender):
         self._model.get_history().clear()
@@ -151,4 +151,4 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         self._model.set_sidebar_width( sidebar.get_position() )
         
     def on_resultsview_width_changed(self, results_hpaned, value):
-    	self._model.set_resultsview_width( results_hpaned.get_position() )
+        self._model.set_resultsview_width( results_hpaned.get_position() )

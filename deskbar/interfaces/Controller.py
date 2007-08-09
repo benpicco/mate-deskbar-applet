@@ -32,7 +32,7 @@ class Controller(object):
         raise NotImplementedError
         
     def on_treeview_cursor_changed(self, treeview):
-    	raise NotImplementedError
+        raise NotImplementedError
         
     def on_match_selected(self, treeview, text, match_obj, event):
         raise NotImplementedError
@@ -50,10 +50,10 @@ class Controller(object):
         raise NotImplementedError
        
     def on_sidebar_width_changed(self, sidebar, value):
-    	raise NotImplementedError
+        raise NotImplementedError
     
     def on_resultsview_width_changed(self, results_hpaned, value):
-    	raise NotImplementedError
+        raise NotImplementedError
     
     def update_entry_icon (self, icon=None):
-    	raise NotImplementedError
+        raise NotImplementedError

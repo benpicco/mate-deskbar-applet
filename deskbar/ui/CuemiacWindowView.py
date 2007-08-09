@@ -250,8 +250,8 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.entry.set_icon (icon)
         
     def __on_go_back(self, treeview):
-    	if isinstance(treeview, CuemiacTreeView):
-    		self.entry.grab_focus()
-    	elif isinstance(treeview, CuemiacActionsTreeView):
-    		self.cview.grab_focus()
-    	return False
+        if isinstance(treeview, CuemiacTreeView):
+            self.entry.grab_focus()
+        elif isinstance(treeview, CuemiacActionsTreeView):
+            self.cview.grab_focus()
+        return False

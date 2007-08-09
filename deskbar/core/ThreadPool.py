@@ -28,7 +28,7 @@ class ThreadPool(object):
         self.adjustPoolsize()
 
     def startAWorker(self):
-	self.workers = self.workers + 1
+        self.workers = self.workers + 1
         name = "PoolThread-%s" % (self.name or self.workers)
         try:
             firstJob = self.q.get(0)

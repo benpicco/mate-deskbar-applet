@@ -13,7 +13,7 @@ class OpenFileAction(deskbar.interfaces.Action):
         return "gtk-open"
     
     def get_hash(self):
-    	return self._url
+        return self._url
         
     def get_verb(self):
         return _("Open %s") % "<b>%(name)s</b>"

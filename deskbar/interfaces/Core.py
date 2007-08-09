@@ -79,13 +79,13 @@ class Core(gobject.GObject):
         raise NotImplementedError
     
     def get_resultsview_width(self):
-    	raise NotImplementedError
+        raise NotImplementedError
     
     def get_hide_after_action(self):
-    	raise NotImplementedError
+        raise NotImplementedError
     
     def get_max_history_items(self):
-    	raise NotImplementedError
+        raise NotImplementedError
     
     def set_keybinding(self, binding):
         raise NotImplementedError
@@ -127,13 +127,13 @@ class Core(gobject.GObject):
         raise NotImplementedError
        
     def set_resultsview_width(self, width):
-    	raise NotImplementedError
+        raise NotImplementedError
     
     def set_hide_after_action(self, val):
-    	raise NotImplementedError
+        raise NotImplementedError
     
     def set_max_history_items(self, amount):
-    	raise NotImplementedError
+        raise NotImplementedError
     
     def get_history(self):
         """

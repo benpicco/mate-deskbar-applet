@@ -16,7 +16,7 @@ class OpenWithNautilusAction(OpenWithApplicationAction):
         return "file-manager"
       
     def is_valid(self):
-    	return exists(self._url)
+        return exists(self._url)
         
     def get_verb(self):
         uri_scheme = gnomevfs.get_uri_scheme(self._url)

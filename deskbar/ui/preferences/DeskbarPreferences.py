@@ -104,15 +104,15 @@ class DeskbarPreferences:
         self.button_bottom.connect("clicked", self.on_button_bottom_clicked)
 
     def __setup_general_tab(self):
-    	self.hide_after_action = self.glade.get_widget("hide_after_action")
-    	self.hide_after_action.connect("toggled", self.on_hide_after_action_toggled)
-    	
-    	self.typingdelay = self.glade.get_widget("typingdelay")
-    	self.typingdelay.connect("value-changed", self.on_typingdelay_value_changed)
-    	
-    	self.max_history_items = self.glade.get_widget("max_history_items")
-    	self.max_history_items.connect("value-changed", self.on_max_history_items_changed)
-    	
+        self.hide_after_action = self.glade.get_widget("hide_after_action")
+        self.hide_after_action.connect("toggled", self.on_hide_after_action_toggled)
+        
+        self.typingdelay = self.glade.get_widget("typingdelay")
+        self.typingdelay.connect("value-changed", self.on_typingdelay_value_changed)
+        
+        self.max_history_items = self.glade.get_widget("max_history_items")
+        self.max_history_items.connect("value-changed", self.on_max_history_items_changed)
+        
         self.keyboard_shortcut_entry = AccelEntry()
         self.keyboard_shortcut_entry.connect('accel-edited', self.on_keyboard_shortcut_entry_changed)
         self.glade.get_widget("keybinding_entry_container").pack_start(self.keyboard_shortcut_entry.get_widget(), False)
@@ -212,12 +212,12 @@ class DeskbarPreferences:
             self.newstuff.close()
         
     def sync_ui(self):
-    	self.hide_after_action.set_active( self._model.get_hide_after_action() )
-    	
-    	self.typingdelay.set_value( self._model.get_type_delay() )
-    	
-    	self.max_history_items.set_value( self._model.get_max_history_items() )
-    	
+        self.hide_after_action.set_active( self._model.get_hide_after_action() )
+        
+        self.typingdelay.set_value( self._model.get_type_delay() )
+        
+        self.max_history_items.set_value( self._model.get_max_history_items() )
+        
         if self.keybinding != None:
             self.keyboard_shortcut_entry.set_accelerator_name(self.keybinding)
         else:
@@ -226,13 +226,13 @@ class DeskbarPreferences:
         self.use_selection_box.set_active(self.use_selection)
    
     def on_hide_after_action_toggled(self, toggle):
-    	self._model.set_hide_after_action(toggle.get_active())
-    	
+        self._model.set_hide_after_action(toggle.get_active())
+        
     def on_typingdelay_value_changed(self, spinbutton):
-    	self._model.set_type_delay(spinbutton.get_value())
-    	
+        self._model.set_type_delay(spinbutton.get_value())
+        
     def on_max_history_items_changed(self, spinbutton):
-    	self._model.set_max_history_items(spinbutton.get_value())
+        self._model.set_max_history_items(spinbutton.get_value())
             
     def on_keyboard_shortcut_entry_changed(self, entry, accel_name, keyval, mods, keycode):        
         if accel_name != "":

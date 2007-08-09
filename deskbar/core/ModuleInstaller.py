@@ -145,8 +145,8 @@ class ModuleInstaller:
             handlers_path = join(deskbar.USER_HANDLERS_DIR[0], uri.short_name)
             self.local_path = uri.path
             if handlers_path == join(deskbar.USER_HANDLERS_DIR[0], self.local_path):
-            	# Source and destination are the same, nothing to do here
-            	return
+                # Source and destination are the same, nothing to do here
+                return
             if (gnomevfs.get_mime_type(uri_string) == "text/x-python"):
                 shutil.copy(self.local_path, deskbar.USER_HANDLERS_DIR[0])
                 return

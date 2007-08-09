@@ -49,11 +49,11 @@ if hasattr(locale, 'bind_textdomain_codeset'):
 locale.textdomain('deskbar-applet')
 
 try:
-	# attempt to set a name for killall
-	import deskbar.osutils
-	deskbar.osutils.set_process_name ("deskbar-applet")
+    # attempt to set a name for killall
+    import deskbar.osutils
+    deskbar.osutils.set_process_name ("deskbar-applet")
 except:
-	print "Unable to set processName"
+    print "Unable to set processName"
 
 # Enable threads
 gtk.gdk.threads_init()

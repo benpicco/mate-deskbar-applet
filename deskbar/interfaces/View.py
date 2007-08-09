@@ -9,10 +9,10 @@ class View(object):
         
     def clear_results(self):
         raise NotImplementedError
-    	
-	def clear_actions(self):
-		raise NotImplementedError
-	
+        
+    def clear_actions(self):
+        raise NotImplementedError
+    
     def clear_query(self):
         raise NotImplementedError
     

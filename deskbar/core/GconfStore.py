@@ -147,10 +147,10 @@ class GconfStore(gobject.GObject):
         return self._client.get_int(self.GCONF_SIDEBAR_WIDTH)
     
     def get_resultsview_width(self):
-    	return self._client.get_int(self.GCONF_RESULTSVIEW_WIDTH)
+        return self._client.get_int(self.GCONF_RESULTSVIEW_WIDTH)
     
     def get_hide_after_action(self):
-    	return self._client.get_bool(self.GCONF_HIDE_AFTER_ACTION)
+        return self._client.get_bool(self.GCONF_HIDE_AFTER_ACTION)
     
     def get_max_history_items(self):
         return self._client.get_int(self.GCONF_MAX_HISTORY_ITEMS)
@@ -198,10 +198,10 @@ class GconfStore(gobject.GObject):
         self._client.set_int(self.GCONF_SIDEBAR_WIDTH, width)
         
     def set_resultsview_width(self, width):
-    	self._client.set_int(self.GCONF_RESULTSVIEW_WIDTH, width)
-    	
+        self._client.set_int(self.GCONF_RESULTSVIEW_WIDTH, width)
+        
     def set_hide_after_action(self, val):
-    	self._client.set_bool(self.GCONF_HIDE_AFTER_ACTION, val)
-    	
+        self._client.set_bool(self.GCONF_HIDE_AFTER_ACTION, val)
+        
     def set_max_history_items(self, amount):
-    	self._client.set_int(self.GCONF_MAX_HISTORY_ITEMS, int(amount))
+        self._client.set_int(self.GCONF_MAX_HISTORY_ITEMS, int(amount))

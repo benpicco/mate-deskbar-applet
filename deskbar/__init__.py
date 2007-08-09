@@ -5,47 +5,47 @@ from os.path import join, exists, isdir, isfile, dirname, abspath, expanduser
 from defs import *
 
 try:
-	# Allows to load uninstalled .la libs
-	import ltihooks
+    # Allows to load uninstalled .la libs
+    import ltihooks
 except ImportError:
-	pass
+    pass
 
 # Allow to use uninstalled deskbar ---------------------------------------------
 UNINSTALLED_DESKBAR = False
 def _check(path):
-	return exists(path) and isdir(path) and isfile(path+"/AUTHORS")
-	
+    return exists(path) and isdir(path) and isfile(path+"/AUTHORS")
+    
 name = join(dirname(__file__), '..')
 if _check(name):
-	UNINSTALLED_DESKBAR = True
-	
+    UNINSTALLED_DESKBAR = True
+    
 # Sets SHARED_DATA_DIR to local copy, or the tem location
 # Shared data dir is most the time /usr/share/deskbar-applet
 if UNINSTALLED_DESKBAR:
-	SHARED_DATA_DIR = abspath(join(dirname(__file__), '..', 'data'))
+    SHARED_DATA_DIR = abspath(join(dirname(__file__), '..', 'data'))
 else:
-	SHARED_DATA_DIR = join(DATA_DIR, "deskbar-applet")
+    SHARED_DATA_DIR = join(DATA_DIR, "deskbar-applet")
 print "Data Dir: %s" % SHARED_DATA_DIR
 
 HANDLERS_DIR = []
 if UNINSTALLED_DESKBAR:
-	HANDLERS_DIR += [abspath(join(dirname(__file__), 'handlers'))]
+    HANDLERS_DIR += [abspath(join(dirname(__file__), 'handlers'))]
 
 HANDLERS_DIR += [join(LIB_DIR, "deskbar-applet", "handlers")]
 
 USER_DESKBAR_DIR = expanduser("~/.gnome2/deskbar-applet")
 if not exists(USER_DESKBAR_DIR):
-	try:
-		os.makedirs(USER_DESKBAR_DIR, 0744)
-	except Exception , msg:
-		print 'Error:could not create user handlers dir (%s): %s' % (USER_DESKBAR_DIR, msg)
-		
+    try:
+        os.makedirs(USER_DESKBAR_DIR, 0744)
+    except Exception , msg:
+        print 'Error:could not create user handlers dir (%s): %s' % (USER_DESKBAR_DIR, msg)
+        
 USER_HANDLERS_DIR = expanduser("~/.gnome2/deskbar-applet/handlers")
 if not exists(USER_HANDLERS_DIR):
-	try:
-		os.makedirs(USER_HANDLERS_DIR, 0744)
-	except Exception , msg:
-		print 'Error:could not create user handlers dir (%s): %s' % (USER_HANDLERS_DIR, msg)
+    try:
+        os.makedirs(USER_HANDLERS_DIR, 0744)
+    except Exception , msg:
+        print 'Error:could not create user handlers dir (%s): %s' % (USER_HANDLERS_DIR, msg)
 USER_HANDLERS_DIR = [USER_HANDLERS_DIR]
 
 MODULES_DIRS = USER_HANDLERS_DIR+HANDLERS_DIR

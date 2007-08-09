@@ -119,13 +119,13 @@ class CoreImpl(deskbar.interfaces.Core):
         return self._gconf.get_sidebar_width()
     
     def get_resultsview_width(self):
-    	return self._gconf.get_resultsview_width()
+        return self._gconf.get_resultsview_width()
     
     def get_hide_after_action(self):
-    	return self._gconf.get_hide_after_action()
+        return self._gconf.get_hide_after_action()
     
     def get_max_history_items(self):
-    	return self._gconf.get_max_history_items()
+        return self._gconf.get_max_history_items()
     
     def set_keybinding(self, binding):
         self._gconf.set_keybinding(binding)
@@ -171,13 +171,13 @@ class CoreImpl(deskbar.interfaces.Core):
         self._gconf.set_sidebar_width(width)
     
     def set_resultsview_width(self, width):
-    	self._gconf.set_resultsview_width(width)
+        self._gconf.set_resultsview_width(width)
     
     def set_hide_after_action(self, width):
-    	self._gconf.set_hide_after_action(width)
+        self._gconf.set_hide_after_action(width)
     
     def set_max_history_items(self, amount):
-    	self._gconf.set_max_history_items(amount)
+        self._gconf.set_max_history_items(amount)
     
     def get_history(self):
         """
