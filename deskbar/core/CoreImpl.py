@@ -200,7 +200,7 @@ class CoreImpl(deskbar.interfaces.Core):
         return self._module_installer.install(filename)
     
     def uninstall_module(self, mod):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def stop_module(self, mod, async=True):
         if async:

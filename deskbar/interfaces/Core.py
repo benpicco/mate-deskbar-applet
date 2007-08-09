@@ -40,43 +40,43 @@ class Core(gobject.GObject):
         raise NotImplementedError
     
     def get_keybinding(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_min_chars(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_type_delay(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_use_selection(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_clear_entry(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_use_http_proxy(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_proxy_host(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_proxy_port(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_collapsed_cat(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_show_history(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_window_width(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_window_height(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_sidebar_width(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_resultsview_width(self):
     	raise NotImplementedError
@@ -88,43 +88,43 @@ class Core(gobject.GObject):
     	raise NotImplementedError
     
     def set_keybinding(self, binding):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def set_min_chars(self, number):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def set_type_delay(self, seconds):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def set_use_selection(self, val):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def set_clear_entry(self, val):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def set_use_http_proxy(self, val):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def set_proxy_host(self, host):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def set_proxy_port(self, port):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def set_collapsed_cat(self, cat):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def set_show_history(self, val):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def set_window_width(self, width):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def set_window_height(self, height):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def set_sidebar_width(self, width):
-        raise NotImplmentedError
+        raise NotImplementedError
        
     def set_resultsview_width(self, width):
     	raise NotImplementedError
@@ -144,25 +144,25 @@ class Core(gobject.GObject):
             - prepend
             - clear
         """
-        raise NotImplmentedError
+        raise NotImplementedError
      
     def get_module_list(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def get_disabled_module_list(self):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def install_module(self, filename):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def uninstall_module(self, mod):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def stop_module(self, mod, async=True):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def initialize_module (self, module, async=True):
-        raise NotImplmentedError
+        raise NotImplementedError
     
     def stop_queries(self):
-        raise NotImplmentedError
+        raise NotImplementedError

@@ -103,7 +103,7 @@ class DeskbarHistory (gtk.ListStore) :
 		gtk.ListStore.append (self, (timestamp, text, action))
 	
 	def prepend (self, timestamp, text, action):
-		raise NotImplementError("DeskbarHistory does not support prepending of matches, use append() instead.")
+		raise NotImplementedError("DeskbarHistory does not support prepending of matches, use append() instead.")
 	
 	def add (self, text, action):
 		if action.__class__ == EmptyHistoryAction:
