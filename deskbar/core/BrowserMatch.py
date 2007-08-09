@@ -127,7 +127,7 @@ def get_url_host(url):
 			
 		return urllib.splithost(clean)[0]
 	except Exception, msg:
-		loggin.error('get_url_host(%s):%s' % (url, msg))
+		logging.error('get_url_host(%s):%s' % (url, msg))
 		return url
 
 
