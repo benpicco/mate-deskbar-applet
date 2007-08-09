@@ -158,5 +158,5 @@ class DeskbarApplet (gtk.HBox):
         self.set_button_image_from_file (join(deskbar.ART_DATA_DIR, image_name), s)
             
 if gtk.pygtk_version < (2,8,0):            
-    gobject.type_register(DeskbarAppletButton)
+    gobject.type_register(DeskbarApplet)
     gobject.type_register(ToggleEventBox)
