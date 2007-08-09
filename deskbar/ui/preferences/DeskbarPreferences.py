@@ -379,7 +379,7 @@ class DeskbarPreferences:
     def on_install_handler(self, button):
         # Install the selected new handler
         mod_id = self.webmoduleview.get_selected_module_id()
-        if module != None:
+        if mod_id != None:
             if self.newstuff != None:
                 self.newstuff.install_module(mod_id)
             button.set_sensitive(False)
