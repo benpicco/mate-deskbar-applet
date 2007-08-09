@@ -1,6 +1,4 @@
 from gettext import gettext as _
-import gnomevfs
-import sys
 import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module, deskbar.handlers.evolution, deskbar.core.Utils, deskbar.interfaces.Match
 from deskbar.defs import VERSION
 from deskbar.handlers.actions.SendEmailToAction import SendEmailToAction

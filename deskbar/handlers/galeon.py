@@ -1,10 +1,8 @@
 import xml.sax, traceback
-import re, urllib
+import re
 from os.path import join, expanduser, exists
 from gettext import gettext as _
 import gtk
-import gnomevfs
-import sys
 import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module
 from deskbar.core.Watcher import FileWatcher
 from deskbar.core.BrowserMatch import get_url_host, is_preferred_browser

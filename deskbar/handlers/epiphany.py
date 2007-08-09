@@ -1,8 +1,6 @@
 import xml.sax
 from os.path import join, expanduser, exists
 from gettext import gettext as _
-import gtk
-import sys
 import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module
 from deskbar.core.Watcher import FileWatcher
 from deskbar.core.BrowserMatch import get_url_host, is_preferred_browser, on_customize_search_shortcuts, on_entry_key_press, load_shortcuts

@@ -1,8 +1,8 @@
-import os, urllib, sys, cgi, ConfigParser
+import os, urllib
 from os.path import join, basename, normpath, abspath, dirname
-from os.path import split, expanduser, exists, isfile, isdir
+from os.path import split, expanduser, exists, isfile
 from gettext import gettext as _
-import gobject, gtk, gnome, gnome.ui, gnomevfs
+import gtk, gnome.ui, gnomevfs
 
 import deskbar, deskbar.core.Indexer
 import deskbar.interfaces.Module
@@ -10,7 +10,6 @@ import deskbar.interfaces.Match
 
 from deskbar.defs import VERSION
 from deskbar.core.Watcher import FileWatcher
-from deskbar.core.Utils import spawn_async, url_show_file
 from deskbar.handlers.actions.OpenWithNautilusAction import OpenWithNautilusAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction

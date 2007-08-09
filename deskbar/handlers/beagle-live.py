@@ -1,8 +1,7 @@
-import os, sys, cgi, re
-import gobject,gtk, gnome, gnome.ui, gnomevfs
+import cgi, re
+import gtk, gnome.ui, gnomevfs
 import deskbar, deskbar.interfaces.Module, deskbar.core.Utils, deskbar.interfaces.Match
 from gettext import gettext as _
-from os.path import exists, dirname
 from deskbar.defs import VERSION
 from deskbar.core.Utils import is_program_in_path, spawn_async, url_show, url_show_file
 import deskbar.interfaces.Action
@@ -376,7 +375,6 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
 	def has_requirements():
 		# Check if we have python bindings for beagle
 		try:
-			import deskbar
 			import beagle
 		except Exception, e:
 			BeagleLiveHandler.INSTRUCTIONS = _("Could not load beagle, libbeagle has been compiled without python bindings.")

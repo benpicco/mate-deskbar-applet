@@ -1,4 +1,4 @@
-import gtk, gobject, gconf
+import gtk, gobject
 import deskbar, deskbar.core.keybinder
 import logging
 

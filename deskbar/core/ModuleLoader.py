@@ -1,4 +1,4 @@
-import os, sys, pydoc
+import os, pydoc
 from os.path import abspath, expanduser, join, basename
 import traceback
 import gtk, gobject

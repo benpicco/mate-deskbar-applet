@@ -4,8 +4,8 @@ from gettext import gettext as _
 import deskbar, deskbar.core.gnomedesktop
 import gtk, gtk.gdk, gnome.ui, gobject, gnomevfs
 from htmlentitydefs import name2codepoint
-import gnomevfs
 import logging
+from deskbar.core.GconfStore import GconfStore
 
 ICON_THEME = gtk.icon_theme_get_default()
 factory = gnome.ui.ThumbnailFactory(deskbar.ICON_HEIGHT)
@@ -150,7 +150,7 @@ def url_show(url):
 
 def get_proxy():
 	# TODO: Very dirty, should use CoreImpl class
-	deskbarapplet = deskbar.core.GconfStore.get_instance()
+	deskbarapplet = GconfStore.get_instance()
 	if deskbarapplet.get_use_http_proxy():
 		proxy_string = "http://%s:%d/" % (deskbarapplet.get_proxy_host(), deskbarapplet.get_proxy_port())
 		proxies = {'http' : proxy_string}

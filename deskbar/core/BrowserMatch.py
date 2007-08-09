@@ -1,19 +1,20 @@
 import re,cgi, urllib, os, logging
 from gettext import gettext as _
-import gnomevfs, gconf, gtk, gobject, os.path
+import gtk, gobject, os.path
 import deskbar, deskbar.interfaces.Match, deskbar.core.Utils
 import deskbar.interfaces.Action
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
+from deskbar.core.GconfStore import GconfStore
 
 def is_preferred_browser(test):
 	# We will import only if the user's preferred browser is mozilla
-	http_handler = gconf.client_get_default().get_string("/desktop/gnome/url-handlers/http/command")
+	http_handler = GconfStore.get_instance().get_client().get_string("/desktop/gnome/url-handlers/http/command")
 	if http_handler == None:
 		return False
 		
 	http_handler = http_handler.strip().lower()
-	if not gconf.client_get_default().get_bool("/desktop/gnome/url-handlers/http/enabled"):
+	if not GconfStore.get_instance().get_client().get_bool("/desktop/gnome/url-handlers/http/enabled"):
 		return False
 	
 	if http_handler.find(test) != -1:

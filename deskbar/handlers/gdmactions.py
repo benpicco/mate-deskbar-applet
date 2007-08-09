@@ -3,7 +3,7 @@ from gettext import gettext as _
 import deskbar, deskbar.core.Indexer, deskbar.interfaces.Match, deskbar.interfaces.Module, deskbar.core.Utils
 from deskbar.defs import VERSION
 import deskbar.handlers.gdmclient
-import gtk, gnome, gnome.ui
+import gtk, gnome.ui
 import deskbar.interfaces.Action
 
 HANDLERS = ["GdmHandler"]

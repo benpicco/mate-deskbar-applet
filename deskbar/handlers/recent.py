@@ -1,5 +1,5 @@
 from gettext import gettext as _
-import sys, gobject, gtk, gnome
+import gtk
 
 import deskbar
 import deskbar.interfaces.Module
@@ -8,7 +8,6 @@ import deskbar.interfaces.Match
 from deskbar.handlers.actions.OpenFileAction import OpenFileAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.defs import VERSION
-from deskbar.core.Watcher import FileWatcher
 
 HANDLERS = ["RecentHandler"]
 

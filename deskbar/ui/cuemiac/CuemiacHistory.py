@@ -1,7 +1,4 @@
 import gtk, pango, gobject
-import cgi
-
-import deskbar
 
 class CuemiacHistoryView (gtk.TreeView):
 

@@ -1,10 +1,7 @@
 from gettext import gettext as _
-from gettext import ngettext
 from deskbar.defs import VERSION
 import wnck, gtk
 import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar.interfaces.Action, deskbar
-import re
-import cgi
 
 HANDLERS = ["ISwitchWindowHandler"]
 

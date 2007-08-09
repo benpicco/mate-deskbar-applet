@@ -1,11 +1,8 @@
 from gettext import gettext as _
-import re, os
-import gobject
-import gnomevfs
+import re
 import deskbar.interfaces.Module
 import deskbar.interfaces.Match
 from deskbar.defs import VERSION
-from deskbar.core.Utils import spawn_async, url_show
 from deskbar.handlers.actions.OpenWithNautilusAction import OpenWithNautilusAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from deskbar.handlers.actions.SendEmailToAction import SendEmailToAction

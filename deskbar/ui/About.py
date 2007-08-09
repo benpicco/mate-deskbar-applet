@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
-from os.path import join
 from gettext import gettext as _
 from deskbar.defs import VERSION
-from deskbar.core.Utils import load_icon
-import gtk, gtk.gdk, gnomevfs, gobject
-import deskbar
+import gtk, gtk.gdk, gnomevfs
 
 
 def on_email(about, mail):

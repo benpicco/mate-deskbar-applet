@@ -4,7 +4,7 @@ import gtk.glade
 import gobject
 import traceback
 from gettext import gettext as _
-from os.path import join, isdir
+from os.path import join
 import deskbar
 from deskbar.core.updater.NewStuffUpdater import NewStuffUpdater
 from deskbar.core.ModuleList import WebModuleList

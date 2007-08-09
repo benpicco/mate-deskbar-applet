@@ -1,10 +1,7 @@
-import os
-import sys
-from os.path import exists, join
+from os.path import join
 from glob import glob
 from gettext import gettext as _
 from deskbar.defs import VERSION
-import gobject
 import deskbar.interfaces.Module, deskbar.interfaces.Match
 from deskbar.core.Utils import get_xdg_data_dirs, spawn_async, load_icon
 import deskbar.interfaces.Action

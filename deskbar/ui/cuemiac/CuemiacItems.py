@@ -1,6 +1,5 @@
 import gtk
 
-import deskbar
 from deskbar.core.Categories import CATEGORIES
 import gettext
 

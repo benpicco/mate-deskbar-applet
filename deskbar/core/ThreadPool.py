@@ -1,6 +1,5 @@
 import Queue
 import threading
-import copy
 
 class ThreadPool(object):
 

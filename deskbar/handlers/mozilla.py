@@ -3,12 +3,11 @@ from os.path import join, expanduser, exists, basename
 from gettext import gettext as _
 from ConfigParser import RawConfigParser
 from xml.dom import minidom
-import  sys
 from deskbar.defs import VERSION
 import gtk
 from deskbar.core.Watcher import FileWatcher, DirWatcher
 import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module
-import deskbar.core.GconfStore
+from deskbar.core.GconfStore import GconfStore
 
 # Check for presence of set to be compatible with python 2.3
 try:
@@ -56,14 +55,14 @@ def get_firefox_home_file(needed_file):
 
 # Whether we offer all of the browser's search engines, or only the primary
 # one (since by default Firefox seems to come with at least half a dozen)			
-GCONF_SHOW_ONLY_PRIMARY_KEY = deskbar.core.GconfStore.GCONF_DIR + "/mozilla/show_only_primary_search"
-SHOW_ONLY_PRIMARY = deskbar.core.GconfStore.get_instance().get_client().get_bool(GCONF_SHOW_ONLY_PRIMARY_KEY)
+GCONF_SHOW_ONLY_PRIMARY_KEY = GconfStore.GCONF_DIR + "/mozilla/show_only_primary_search"
+SHOW_ONLY_PRIMARY = GconfStore.get_instance().get_client().get_bool(GCONF_SHOW_ONLY_PRIMARY_KEY)
 if SHOW_ONLY_PRIMARY == None:
 	SHOW_ONLY_PRIMARY = False
 def _on_gconf_show_only_primary(value):
 	global SHOW_ONLY_PRIMARY
 	SHOW_ONLY_PRIMARY = value
-deskbar.core.GconfStore.get_instance().get_client().notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, lambda x, y, z, a: _on_gconf_show_only_primary(z.value.get_bool()))
+GconfStore.get_instance().get_client().notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, lambda x, y, z, a: _on_gconf_show_only_primary(z.value.get_bool()))
 
 # TODO re-load PRIMARY_SEARCH_ENGINE everytime it changes (which should happen
 # only rarely).  One (unavoidable) problem may be that firefox doesn't actually
@@ -85,7 +84,7 @@ except:
 
 def _on_handler_preferences(dialog):
 	def toggled_cb(sender, show_all_radio, show_primary_radio):
-		deskbar.core.GconfStore.get_instance().get_client().set_bool(GCONF_SHOW_ONLY_PRIMARY_KEY, show_primary_radio.get_active())
+		GconfStore.get_instance().get_client().set_bool(GCONF_SHOW_ONLY_PRIMARY_KEY, show_primary_radio.get_active())
 		
 	def sync_ui(new_show_only_primary, show_all_radio, show_primary_radio):
 		show_all_radio.set_active(not new_show_only_primary)
@@ -102,12 +101,12 @@ def _on_handler_preferences(dialog):
 	show_all_radio.connect ("toggled", toggled_cb, show_all_radio, show_primary_radio)
 	show_primary_radio.connect ("toggled", toggled_cb, show_all_radio, show_primary_radio)
 	
-	notify_id = deskbar.core.GconfStore.get_instance().get_client().notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, lambda x, y, z, a: sync_ui(z.value.get_bool(), show_all_radio, show_primary_radio))
+	notify_id = GconfStore.get_instance().get_client().notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, lambda x, y, z, a: sync_ui(z.value.get_bool(), show_all_radio, show_primary_radio))
 	dialog.set_icon_name("deskbar-applet")
 	dialog.show_all()
 	dialog.run()
 	dialog.destroy()
-	deskbar.core.GconfStore.get_instance().get_client().notify_remove(notify_id)
+	GconfStore.get_instance().get_client().notify_remove(notify_id)
 	
 
 		

@@ -1,12 +1,10 @@
 import gtk
 import gobject
 import pango
-import gconf
 import logging
 
-import deskbar
 from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
-from deskbar.interfaces import Action, Match
+from deskbar.interfaces import Match
 
 class CellRendererCuemiacCategory (gtk.CellRendererText):
 	"""

@@ -2,7 +2,6 @@ from deskbar.core.Utils import strip_html, get_proxy
 from gettext import gettext as _
 from deskbar.defs import VERSION
 import urllib
-import gnomevfs
 import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction

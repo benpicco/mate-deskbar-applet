@@ -1,7 +1,5 @@
-import os, sys
+import os
 from os.path import join, exists, isdir, isfile, dirname, abspath, expanduser
-
-import gtk, gtk.gdk, gconf
 
 # Autotools set the actual data_dir in defs.py
 from defs import *
@@ -21,7 +19,7 @@ name = join(dirname(__file__), '..')
 if _check(name):
 	UNINSTALLED_DESKBAR = True
 	
-# Sets SHARED_DATA_DIR to local copy, or the system location
+# Sets SHARED_DATA_DIR to local copy, or the tem location
 # Shared data dir is most the time /usr/share/deskbar-applet
 if UNINSTALLED_DESKBAR:
 	SHARED_DATA_DIR = abspath(join(dirname(__file__), '..', 'data'))

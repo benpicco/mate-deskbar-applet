@@ -1,10 +1,8 @@
 import gtk
 import gtk.gdk
 import gobject
-import cgi
 import deskbar
 import deskbar.interfaces.Match
-from deskbar.core.Categories import CATEGORIES
 from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
 			
 # The sort function ids

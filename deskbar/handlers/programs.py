@@ -1,6 +1,6 @@
-import os, ConfigParser, re
+import re
 import glob
-from os.path import join, isfile, abspath, splitext, expanduser, exists, isdir
+from os.path import join, expanduser
 from gettext import gettext as _
 from deskbar.defs import VERSION
 import gobject
