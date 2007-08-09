@@ -167,6 +167,8 @@ class OpenPathProgramAction(deskbar.interfaces.Action):
 	def activate(self, text=None):
 		if self.use_terminal:
 			try:
+				import subprocess
+
 				prog = subprocess.Popen(
 					text.split(" "),
 					stdout=subprocess.PIPE,
