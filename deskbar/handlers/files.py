@@ -13,6 +13,7 @@ from deskbar.core.Watcher import FileWatcher
 from deskbar.handlers.actions.OpenWithNautilusAction import OpenWithNautilusAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
+from deskbar.handlers.actions.SendFileViaEmailAction import SendFileViaEmailAction
 
 MONITOR = gnomevfs.VolumeMonitor()
 
@@ -26,6 +27,7 @@ class FileMatch(deskbar.interfaces.Match):
         self.absname = absname
         self.add_action( ShowUrlAction(name, absname) )
         self.add_action( CopyToClipboardAction(_("Location"), absname) )
+        self.add_action( SendFileViaEmailAction(name, absname) )
     
     def get_hash(self, text=None):
         return self.absname

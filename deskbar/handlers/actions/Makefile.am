@@ -7,4 +7,5 @@ deskbar_actions_PYTHON = \
 	OpenWithApplicationAction.py \
 	OpenWithNautilusAction.py \
 	SendEmailToAction.py \
+	SendFileViaEmailAction.py \
 	ShowUrlAction.py

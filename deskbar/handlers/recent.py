@@ -7,6 +7,7 @@ import deskbar.interfaces.Match
 
 from deskbar.handlers.actions.OpenFileAction import OpenFileAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
+from deskbar.handlers.actions.SendFileViaEmailAction import SendFileViaEmailAction
 from deskbar.defs import VERSION
 
 HANDLERS = ["RecentHandler"]
@@ -25,6 +26,7 @@ class RecentMatch(deskbar.interfaces.Match):
         self.recent_infos = recent_infos
         self.add_action( OpenRecentAction(self.get_name(), self.recent_infos.get_uri()) )
         self.add_action( CopyToClipboardAction( _("Location"), self.recent_infos.get_uri()) )
+        self.add_action( SendFileViaEmailAction(self.get_name(), self.recent_infos.get_uri()) )
 
     def is_valid(self, text=None):
         return self.recent_infos.exists()
