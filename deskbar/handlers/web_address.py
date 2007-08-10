@@ -18,7 +18,6 @@ class WebAddressMatch(deskbar.interfaces.Match):
         deskbar.interfaces.Match.__init__(self, name=name, icon="stock_internet", category="web", **args)
         self.url = url
         
-        self.has_method = has_method
         if not has_method and not self.url.startswith("http://"):
             self.url = "http://" + url
             
@@ -57,7 +56,7 @@ class WebAddressHandler(deskbar.interfaces.Module):
     def query_http(self, query):
         match = AUTH_REGEX.match(query)
         if match != None:
-            return [WebAddressMatch(query)]
+            return [WebAddressMatch(query, query)]
         
         match = HTTP_REGEX.match(query)
         if match != None:
