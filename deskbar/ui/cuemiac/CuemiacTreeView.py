@@ -24,13 +24,21 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
                       
                  'match-count' : (gobject.TYPE_INT, 'number of hits in the category',
                       'the number of hits for the CuemiacCategory to be rendered',
-                      0,1000,0, gobject.PARAM_READWRITE)
+                      0,1000,0, gobject.PARAM_READWRITE),
+                 'has-more-actions' : (gobject.TYPE_BOOLEAN, 'whether the match has more than one action',
+                                    'If set to True a symbol will be displayed on the right',
+                                    False, gobject.PARAM_READWRITE),
+                 'match-markup' : (gobject.TYPE_STRING, 'markup for match description',
+                      'markup for match description',
+                      "", gobject.PARAM_READWRITE),
         }
     
     def __init__ (self):
         gtk.CellRendererText.__init__ (self)
         self.__category_header = None
         self.__match_count = 0
+        self.__has_more_actions = False
+        self.__match_markup = ""
         
         # Grab some default theme settings
         # they are probably incorrect, but we reset
@@ -52,10 +60,36 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
     
     def do_render (self, window, widget, background_area, cell_area, expose_area, flags):
         if not self.get_property ("category-header"):
-            gtk.CellRendererText.do_render (self, window, widget, background_area, cell_area, expose_area, flags)
+            self.render_match (window, widget, background_area, cell_area, expose_area, flags)
         else:
             self.render_category (window, widget, background_area, cell_area, expose_area, flags)
     
+    def render_match (self, window, widget, background_area, cell_area, expose_area, flag):
+        ctx = window.cairo_create ()
+        
+        # Set up a pango.Layout
+        more_actions_layout = ctx.create_layout ()
+        if self.get_property("has-more-actions"):
+            more_actions_layout.set_markup ("<b>&gt;</b>")
+        else:
+            more_actions_layout.set_text("")
+        more_actions_layout.set_font_description (self.header_font_desc)
+        
+        more_actions_layout_width, more_actions_layout_height = more_actions_layout.get_pixel_size()
+                
+        state = self.renderer_state_to_widget_state(flag)
+        
+        # Draw the actual text in the remaining area
+        cell_area_width = cell_area.width
+        cell_area.width -= more_actions_layout_width + 2
+        gtk.CellRendererText.do_render (self, window, widget, background_area, cell_area, expose_area, flag)
+        
+        mod_gc = widget.get_style().text_gc[state]
+        window.draw_layout(mod_gc,
+                        (cell_area.x + cell_area_width) - more_actions_layout_width - 2,
+                        cell_area.y + ( (cell_area.height - more_actions_layout_height) / 2 ) + 1,
+                        more_actions_layout)
+        
     def render_category (self, window, widget, background_area, cell_area, expose_area, flag):
         """
         Renders the category title from the "category-header" property and displays a rigth aligned
@@ -124,6 +158,10 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
             return self.__category_header
         elif property.name == 'match-count':
             return self.__match_count
+        elif property.name == 'has-more-actions':
+            return self.__has_more_actions
+        elif property.name == 'match-markup':
+            return self.__match_markup
         else:
             raise AttributeError, 'unknown property %s' % property.name
 
@@ -132,6 +170,10 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
             self.__category_header = value
         elif property.name == 'match-count':
             self.__match_count = value
+        elif property.name == 'has-more-actions':
+            self.__has_more_actions = value
+        elif property.name == 'match-markup':
+            self.__match_markup = value
         else:
             raise AttributeError, 'unknown property %s' % property.name
         
@@ -311,6 +353,8 @@ class CuemiacTreeView (gtk.TreeView):
         cell.set_property ("category-header", None)
         cell.set_property ("height", -1)
         cell.set_property ("cell-background-gdk", self.style.base[gtk.STATE_NORMAL])
+        
+        cell.set_property ("has-more-actions", len(match.get_actions()) > 1)
                 
         cell.set_property ("markup", model[iter][model.ACTIONS])
 
