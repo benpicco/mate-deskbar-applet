@@ -5,6 +5,7 @@ from gettext import gettext as _
 from deskbar.defs import VERSION
 from deskbar.core.Utils import is_program_in_path, spawn_async, url_show, url_show_file
 import deskbar.interfaces.Action
+import logging
 
 MAX_RESULTS = 20 # per handler
 HANDLERS = ["BeagleLiveHandler"]
@@ -50,7 +51,7 @@ TYPES = {
         },
     "File"         : {
         "name"    : ("beagle:ExactFilename",), 
-        "action": lambda d: url_show_file("file://"+d["uri"]),
+        "action": lambda d: url_show_file(d["uri"], False),
         "icon"    : "stock_new",
         #translators: This is a file.
         "description": _("Open %s") % "<b>%(name)s</b>",
@@ -121,13 +122,17 @@ class OpenBeagleLiveAction(deskbar.interfaces.Action):
     def get_verb(self):
         # Fetch the "description" template from TYPES
         return TYPES[self.result["type"]]["description"]
-        
-    def action(self, text=None):
+     
+    def get_icon(self):
+        return "system-search"
+            
+    def activate(self, text=None):
         # The call to get_name(text) ensures that we have
         # the text field in the result dict
         self.get_name(text)
         
         action = TYPES[self.result["type"]]["action"]
+
         if callable(action):
             action(self.result)
         else:
@@ -194,7 +199,6 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         deskbar.interfaces.Module.__init__(self)
         self.counter = {}
         self.snippets = {}
-        self.set_delay (500)
         
     def initialize (self):
         self.beagle = beagle.Client()
@@ -235,6 +239,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
     def _on_hit_added(self, query, hit, qstring, qmax):
         fire_signal = False
         snippet = None
+        
         if hit.__class__ == SnippetContainer:
             hit, snippet = hit.hit, hit.snippet
             fire_signal = True
@@ -311,13 +316,15 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             
         self.counter[qstring][hit.get_type()] = self.counter[qstring][hit.get_type()] +1
 
-        if TYPES.has_key(self.result["type"]):
-            cat_type = TYPES[self.result["type"]]["category"]
+        if TYPES.has_key(result["type"]):
+            cat_type = TYPES[result["type"]]["category"]
         else:
             cat_type = "default"
+        
         match = BeagleLiveMatch(result, category=cat_type, priority=self.get_priority())
+        
         if fire_signal:
-            self._emit_query_ready(query, [match])
+            self._emit_query_ready(qstring, [match])
         else:    
             return match
         
@@ -325,7 +332,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         hit_matches = []
         for hit in response.get_hits():
             if hit.get_type() not in TYPES:
-                print 'WARNING: Beagle live seen an unknown type:', hit.get_type()
+                logging.warning("Beagle live seen an unknown type:', hit.get_type()")
                 continue
 
             if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
@@ -340,6 +347,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                 continue
                             
             match = self._on_hit_added(query, hit, qstring, qmax)
+            
             if match != None:
                 hit_matches.append(match)                
             

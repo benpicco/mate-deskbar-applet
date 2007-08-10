@@ -13,16 +13,23 @@ class SearchWithBeagleAction(deskbar.interfaces.Action):
     def __init__(self, name):
         deskbar.interfaces.Action.__init__(self, name)
     
-    def action(self, text=None):
-        if not spawn_async(["beagle-search", self.name]):
-            spawn_async(["best", '--no-tray', '--show-window', self.name])
-            
+    def activate(self, text=None):
+        if not spawn_async(["beagle-search", self._name]):
+            spawn_async(["best", '--no-tray', '--show-window', self._name])
+    
     def get_verb(self):
-        return _("Search for %s using Beagle") % "<b>%(name)s</b>"    
+        return _("Search for %s using Beagle") % "<b>%(name)s</b>"
+    
+    def get_icon(self):
+        return "system-search"
         
 class BeagleMatch(deskbar.interfaces.Match):
     def __init__(self, **args):
-        deskbar.interfaces.Match.__init__(self, **args)
+        deskbar.interfaces.Match.__init__(self, icon="system-search", category="actions", **args)
+        self.add_action( SearchWithBeagleAction(self.get_name()) )
+    
+    def get_hash(self):
+        return "beagle_static_"+self.get_name()
             
 class BeagleHandler(deskbar.interfaces.Module):
     
@@ -36,7 +43,7 @@ class BeagleHandler(deskbar.interfaces.Module):
         deskbar.interfaces.Module.__init__(self)
                 
     def query(self, query):
-        self._emit_query_ready(query, [BeagleMatch(name=query, category="actions", priority=self.get_priority())] )
+        self._emit_query_ready(query, [BeagleMatch(name=query, priority=self.get_priority())] )
     
     @staticmethod
     def has_requirements():
