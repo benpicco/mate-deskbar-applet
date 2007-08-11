@@ -71,6 +71,7 @@ class DeskbarApplet (gtk.HBox):
         #self.button_main = gtk.ToggleButton ()
         #self.button_main.set_relief (gtk.RELIEF_NONE)
         self.button_main = ToggleEventBox()
+        self.button_main.set_sensitive(False)
         self.image = gtk.Image ()
         self.button_main.add (self.image)
         self.button_main.connect ("toggled", lambda widget, time: self.emit ("toggled-main", widget))
@@ -118,6 +119,7 @@ class DeskbarApplet (gtk.HBox):
                                   message_format=msg)
                 dialog.connect('response', lambda w, id: dialog.destroy())
                 dialog.show_all()
+        self.button_main.set_sensitive(True)
         self.__view.set_sensitive(True)
           
     def __show_toggle(self, widget, time):
