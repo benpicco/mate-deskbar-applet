@@ -47,11 +47,6 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
             self._view.clear_results()
             
     def on_query_entry_key_press_event(self, entry, event):
-        # TODO: discard still running query threads
-        if (event.keyval == gtk.keysyms.Escape):
-            self._view.clear_all()
-            return False
-        
         # For key UP to browse in history, we have either to be already in history mode, or have an empty text entry to trigger hist. mode
         up_history_condition = self._model.get_history().get_current() != None or (self._model.get_history().get_current() == None and entry.get_text() == "")
         # For key DOWN to browse history, we have to be already in history mode. Down cannot trigger history mode in that orient.

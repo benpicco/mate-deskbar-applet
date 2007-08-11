@@ -45,7 +45,9 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.set_title("Deskbar Applet")
         self.set_default_size( self._model.get_window_width(), self._model.get_window_height() )
         self.set_position(gtk.WIN_POS_CENTER)
+        self.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
         self.connect("configure-event", self._controller.on_window_resized)
+        self.connect("key-press-event", self.__on_window_key_press_event)
         
         #self._model.connect("query-ready", self.append_matches)
         self._model.connect("query-ready", lambda s,m: gobject.idle_add(self.append_matches, s, m))
@@ -254,4 +256,13 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
             self.entry.grab_focus()
         elif isinstance(treeview, CuemiacActionsTreeView):
             self.cview.grab_focus()
+        return False
+    
+    def __on_window_key_press_event(self, window, event):
+        if event.keyval == gtk.keysyms.Escape:
+            if self.entry.get_text() != "":
+                self.clear_all()
+                self.entry.grab_focus()
+            else:
+                self.emit("destroy-event", event)
         return False
