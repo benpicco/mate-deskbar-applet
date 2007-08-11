@@ -111,9 +111,9 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.scrolled_history.add(self.hview)
         self.scrolled_history.show()
         
-        self.sidebar = Sidebar( "<b>%s</b>" % _("History"))
-        self.sidebar.connect("closed", lambda w: self.ui_manager.get_action('/menubar/ViewMenu/History').activate())
-        self.sidebar.pack_start(self.scrolled_history)
+        #self.sidebar = Sidebar( "<b>%s</b>" % _("History"))
+        #self.sidebar.connect("closed", lambda w: self.ui_manager.get_action('/menubar/ViewMenu/History').activate())
+        #self.sidebar.pack_start(self.scrolled_history)
         
         # Results TreeView
         self.treeview_model = CuemiacModel ()
@@ -149,25 +149,25 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
        
         # HPaned
         self.hpaned_right = gtk.HPaned()
-        scrolled_results.set_size_request( self._model.get_resultsview_width(), -1 )
+        self.hpaned_right.set_position(self._model.get_resultsview_width())
         self.hpaned_right.connect("notify::position", self._controller.on_resultsview_width_changed)
-        self.hpaned_right.pack1(scrolled_results, resize=True)
-        self.hpaned_right.pack2(scrolled_actions, resize=False)
+        self.hpaned_right.pack1(scrolled_results)
+        self.hpaned_right.pack2(scrolled_actions)
         self.hpaned_right.show()
         
-        self.hpaned_left = gtk.HPaned()
-        self.sidebar.set_size_request( self._model.get_sidebar_width(), -1 )
-        self.hpaned_left.connect("notify::position", self._controller.on_sidebar_width_changed)
-        self.hpaned_left.pack1(self.sidebar, resize=False)
-        self.hpaned_left.pack2(self.hpaned_right, resize=True, shrink=False)
-        self.hpaned_left.show()
-        
-        self.vbox_main.pack_start(self.hpaned_left)
+        self.expander = gtk.Expander(_("History"))
+        self.expander.add(self.scrolled_history)
+        self.expander.show()        
+  
+        self.vbox_main.pack_start(self.hpaned_right)
+        self.vbox_main.pack_end(self.expander, False, True)
+       
+        #self.vbox_main.pack_start(self.hbox)
        
         # Statusbar
-        self.statusbar = gtk.Statusbar()
-        self.statusbar.show()
-        self.vbox.pack_end(self.statusbar, False, False, 0)
+        #self.statusbar = gtk.Statusbar()
+        #self.statusbar.show()
+        #self.vbox.pack_end(self.statusbar, False, False, 0)
         self.vbox.show()
         
         if self._model.get_show_history():
@@ -190,10 +190,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         return self.entry
     
     def show_history(self, value):
-        if value:
-            self.sidebar.show()
-        else:
-            self.sidebar.hide()
+        self.expander.set_expanded(value)
             
     def is_history_visible(self):
         return self.sidebar.get_property("visible")
