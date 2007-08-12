@@ -42,13 +42,6 @@ class DeskbarPreferences:
         
         # Since newstuff is optional we have to check if self.newstuff is None each time we use it
         self.newstuff = None
-            
-        # Retreive current values
-        # TODO: width and expand still missing
-        #self.width = deskbar.GCONF_CLIENT.get_int(applet.prefs.GCONF_WIDTH)
-        #self.expand = deskbar.GCONF_CLIENT.get_bool(applet.prefs.GCONF_EXPAND)
-        self.width = 20
-        self.expand = False
         
         self.keybinding = self._model.get_keybinding()
         
@@ -69,9 +62,6 @@ class DeskbarPreferences:
         self.sync_ui()
 
     def __setup_active_modules_tab(self):
-        # List of modules
-        self.module_list.connect ("rows-reordered", lambda a,b,c,d: self.update_gconf())
-        
         container = self.glade.get_widget("handlers")
         self.moduleview = ModuleListView(self.module_list)
         self.moduleview.connect ("row-toggled", self.on_module_toggled)
@@ -197,7 +187,8 @@ class DeskbarPreferences:
         self.moduleview.grab_focus()
         self.dialog.connect("response", self.on_dialog_response)
     
-    def on_dialog_response(self, dialog, response):    
+    def on_dialog_response(self, dialog, response):
+        self.update_gconf()    
         self.dialog.destroy()
         if self.newstuff != None:
             self.newstuff.close()
