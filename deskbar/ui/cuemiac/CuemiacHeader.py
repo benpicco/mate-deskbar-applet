@@ -1,4 +1,5 @@
 import gtk
+import gtk.gdk
 import gobject
 
 from gettext import gettext as _
@@ -7,9 +8,10 @@ class CuemiacHeader (gtk.Layout):
     def __init__ (self, entry):
         gtk.Layout.__init__ (self)
         
-        self.xof = 20
-        self.yof = 17
-        self.padding = 5
+        self.xpadding = 50
+        self.ypadding = 17
+        self.spacing = 6
+        self.min_entry_width = 200
         self.entry = entry
         
         self.label = gtk.Label ()
@@ -17,6 +19,7 @@ class CuemiacHeader (gtk.Layout):
         
         self._map_source = self.connect ("map", self.on_map)
         self._style_source = self.connect ("notify::style", self.set_styles) # gtk theme changes
+        self.connect("expose-event", self.on_expose)
         self._ignore_style = False
         self.label.show()
         self.entry.show ()
@@ -28,14 +31,22 @@ class CuemiacHeader (gtk.Layout):
         self.do_layout ()
 
     def do_layout (self):
-        self.put (self.label, self.xof, self.yof)
+        self.put (self.label, self.xpadding, self.ypadding)
         w, h = self.label.get_layout().get_pixel_size ()
         
-        self.put (self.entry,
-            self.xof + w + self.padding,
-            self.yof - h/3)
-        self.set_size_request (400, 3*h)
+        x =   self.xpadding + w + self.spacing
+        y =   self.ypadding - h/3
+        self.put (self.entry, x, y)
+    
+    def on_expose(self, widget, event):
+        label_width, label_height = self.label.get_layout().get_pixel_size ()
         
+        outer_width = event.area.width-2*self.xpadding
+        entry_width = outer_width - 2*label_width
+        
+        self.entry.set_size_request (entry_width ,  -1)
+        self.set_size_request (outer_width, 3*label_height)
+       
     def set_styles (self, obj, prop):
         if self._ignore_style:
             return

@@ -46,12 +46,6 @@ class Controller(object):
     def on_history_match_selected(self, history, text, match):
         raise NotImplementedError
     
-    def on_window_resized(self, window, event):
-        raise NotImplementedError
-       
-    def on_sidebar_width_changed(self, sidebar, value):
-        raise NotImplementedError
-    
     def on_resultsview_width_changed(self, results_hpaned, value):
         raise NotImplementedError
     

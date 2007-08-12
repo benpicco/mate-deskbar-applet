@@ -18,7 +18,8 @@ class CuemiacEntry (deskbar.ui.iconentry.IconEntry):
     __gsignals__ = { 
         "icon-clicked" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
         "changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
-        "activate" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [])
+        "activate" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
+        "go-next" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
         }
         
     
@@ -57,12 +58,18 @@ class CuemiacEntry (deskbar.ui.iconentry.IconEntry):
         # Forward commonly used entry signals
         self.handler_changed_id = self.entry.connect ("changed", lambda entry: self.emit("changed"))
         self.entry.connect ("activate", lambda entry: self.emit("activate"))
-        self.entry.connect ("key-press-event", lambda entry, event: self.emit("key-press-event", event))
+        self.entry.connect ("key-press-event", self.__on_key_press_event )
         self.entry.connect ("button-press-event", lambda entry, event: self.emit("button-press-event", event))
         self.entry.connect ("focus-out-event", lambda entry, event: self.emit("focus-out-event", event))
         
         # Set up tooltips
         self.tooltips = gtk.Tooltips()
+
+    def __on_key_press_event(self, entry, event):
+        if event.keyval == gtk.keysyms.Down:
+            self.emit("go-next")
+            return True
+        self.emit("key-press-event", event)
 
     def grab_focus (self):
         """

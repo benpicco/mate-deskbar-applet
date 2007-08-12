@@ -1,50 +1,55 @@
 import gtk, pango, gobject
+import deskbar.interfaces.Action
 
-class CuemiacHistoryView (gtk.TreeView):
+class CuemiacHistoryView (gtk.ComboBox):
 
     __gsignals__ = {
         "match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT]),
     }
     
     def __init__ (self, historystore):
-        gtk.TreeView.__init__ (self, historystore)
+        gtk.ComboBox.__init__ (self, historystore)
                 
         icon = gtk.CellRendererPixbuf ()
         icon.set_property("xpad", 4)
         icon.set_property("xalign", 0.1)
+        
         title = gtk.CellRendererText ()
         title.set_property ("ellipsize", pango.ELLIPSIZE_END)
         title.set_property ("width-chars", 25) #FIXME: Pick width according to screen size
-        hits = gtk.TreeViewColumn ("Hits")
-        hits.pack_start (icon, expand=False)
-        hits.pack_start (title)
-        hits.set_cell_data_func(title, self.__get_action_title_for_cell)            
-        hits.set_cell_data_func(icon, self.__get_action_icon_for_cell)
-        self.append_column (hits)
         
-        self.connect ("row-activated", lambda w,p,c: self.__on_activated())
-        self.connect ("button-press-event", lambda w,e: self.__on_activated())             
+        self.pack_start (icon, expand=False)
+        self.pack_start (title)
+        self.set_cell_data_func(title, self.__get_action_title_for_cell)            
+        self.set_cell_data_func(icon, self.__get_action_icon_for_cell)
         
-        self.set_property ("headers-visible", False)
-        self.set_property ("hover-selection", True)
+        self.set_active(0)
         
-    def __get_action_icon_for_cell (self, column, cell, model, iter, data=None):
-    
+        self.__changed_id = self.connect ("changed", lambda w: self.__on_activated())             
+        
+    def __get_action_icon_for_cell (self, celllayout, cell, model, iter, user_data=None):
+        
         timestamp, text, action = model[iter]
+        if action == None:
+            return
         if action.get_pixbuf() != None:
             cell.set_property ("pixbuf", action.get_pixbuf())
         
-    def __get_action_title_for_cell (self, column, cell, model, iter, data=None):
+    def __get_action_title_for_cell (self, celllayout, cell, model, iter, user_data=None):
         
         timestamp, text, action = model[iter]
-                
+        if action == None:
+            return
         cell.set_property ("markup", action.get_verb () % action.get_escaped_name(text))
 
     def __on_activated (self):
-        model, iter = self.get_selection().get_selected()
+        iter = self.get_active_iter()
         if iter != None:
-            timestamp, text, action = model[iter]
+            timestamp, text, action = self.get_model()[iter]
             self.emit ("match-selected", text, action)
+            self.handler_block(self.__changed_id)
+            self.set_active ( 0 )
+            self.handler_unblock(self.__changed_id)
         return False
 
 if gtk.pygtk_version < (2,8,0):    

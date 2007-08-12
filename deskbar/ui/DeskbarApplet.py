@@ -104,6 +104,7 @@ class DeskbarApplet (gtk.HBox):
             None, [
             ("About", lambda a,b: self.__controller.on_show_about(a)),
             ("Prefs", lambda a,b: self.__controller.on_show_preferences(a)),
+            ("Clear", lambda a,b: self.__controller.on_clear_history(a),)
             ])
         
     def __on_init(self, sender):

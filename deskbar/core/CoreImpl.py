@@ -115,9 +115,6 @@ class CoreImpl(deskbar.interfaces.Core):
     def get_window_height(self):
         return self._gconf.get_window_height()
     
-    def get_sidebar_width(self):
-        return self._gconf.get_sidebar_width()
-    
     def get_resultsview_width(self):
         return self._gconf.get_resultsview_width()
     
@@ -166,9 +163,6 @@ class CoreImpl(deskbar.interfaces.Core):
     
     def set_window_height(self, height):
         self._gconf.set_window_height(height)
-    
-    def set_sidebar_width(self, width):
-        self._gconf.set_sidebar_width(width)
     
     def set_resultsview_width(self, width):
         self._gconf.set_resultsview_width(width)

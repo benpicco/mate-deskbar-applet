@@ -1,5 +1,25 @@
 2007-08-12  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+	* data/Deskbar_Applet.xml
+	* data/deskbar-applet.schemas.in
+	* deskbar/interfaces/Controller.py
+	* deskbar/core/DeskbarHistory.py
+	* deskbar/core/GconfStore.py
+	* deskbar/core/CoreImpl.py
+	* deskbar/ui/CuemiacWindowView.py
+	* deskbar/ui/cuemiac/CuemiacEntry.py
+	* deskbar/ui/cuemiac/CuemiacHistory.py
+	* deskbar/ui/cuemiac/Sidebar.py
+	* deskbar/ui/cuemiac/CuemiacHeader.py
+	* deskbar/ui/DeskbarApplet.py
+	* deskbar/ui/CuemiacWindowController.py:
+	Remake of the GUI.
+	History is now in ComboBox. Menu and statusbar is gone.
+    Matches and actions	treeview is only visible
+	if search entry has	been entered.
+
+2007-08-12  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
 	* deskbar/ui/preferences/DeskbarPreferences.py:
 	Fixed: Module order won't be saved if reordered with
 	Drag & Drop

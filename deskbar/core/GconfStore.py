@@ -33,8 +33,6 @@ class GconfStore(gobject.GObject):
     GCONF_WINDOW_WIDTH = GCONF_DIR + "/window_width"
     GCONF_WINDOW_HEIGHT = GCONF_DIR + "/window_height"
     
-    GCONF_SIDEBAR_WIDTH = GCONF_DIR + "/sidebar_width"
-    
     GCONF_RESULTSVIEW_WIDTH = GCONF_DIR + "/resultsview_width"
     
     GCONF_HIDE_AFTER_ACTION = GCONF_DIR + "/hide_after_action"
@@ -143,9 +141,6 @@ class GconfStore(gobject.GObject):
     def get_window_height(self):
         return self._client.get_int(self.GCONF_WINDOW_HEIGHT)
     
-    def get_sidebar_width(self):
-        return self._client.get_int(self.GCONF_SIDEBAR_WIDTH)
-    
     def get_resultsview_width(self):
         return self._client.get_int(self.GCONF_RESULTSVIEW_WIDTH)
     
@@ -193,10 +188,7 @@ class GconfStore(gobject.GObject):
     
     def set_window_height(self, height):
         self._client.set_int(self.GCONF_WINDOW_HEIGHT, height)  
-    
-    def set_sidebar_width(self, width):
-        self._client.set_int(self.GCONF_SIDEBAR_WIDTH, width)
-        
+     
     def set_resultsview_width(self, width):
         self._client.set_int(self.GCONF_RESULTSVIEW_WIDTH, width)
         

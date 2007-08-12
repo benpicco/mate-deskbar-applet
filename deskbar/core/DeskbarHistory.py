@@ -7,17 +7,24 @@ from deskbar import HISTORY_FILE
 from deskbar.core.Utils import load_icon
 from gettext import gettext as _
 from deskbar.core.GconfStore import GconfStore
+from deskbar.core.Categories import CATEGORIES
 
-class EmptyHistoryAction(deskbar.interfaces.Action):
+class ChooseFromHistoryAction (deskbar.interfaces.Action):
     
     def __init__(self):
-        deskbar.interfaces.Action.__init__(self, _("No History"))
+        deskbar.interfaces.Action.__init__(self, "")
+        
+    def get_verb(self):
+        return _("<i>Choose action</i>")
     
     def activate(self, text=None):
         pass
-        
-    def get_verb(self):
-        return "%(name)s"
+    
+    def get_pixbuf(self):
+        return CATEGORIES["history"]["icon"]
+    
+    def skip_history(self):
+        return True
         
 class DeskbarHistory (gtk.ListStore) :
     """
@@ -37,11 +44,14 @@ class DeskbarHistory (gtk.ListStore) :
     
     def __init__ (self, max_history_items=25):
         gtk.ListStore.__init__ (self, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_PYOBJECT) # timestamp, query, match
-        self.set_sort_column_id (self.COL_TIME, gtk.SORT_ASCENDING)
+        
+        self.set_sort_column_id (self.COL_TIME, gtk.SORT_DESCENDING)
         self.set_sort_func (self.COL_TIME, self.sort_actions)
-        self.set_sort_order(gtk.SORT_DESCENDING)
+        
         self._index = -1
         self.set_max_history_items(max_history_items)
+        
+        self.append(0, "", ChooseFromHistoryAction())
     
     @staticmethod
     def get_instance(max_history_items=25):
@@ -53,25 +63,25 @@ class DeskbarHistory (gtk.ListStore) :
         self.__max_history_items = num
         self.__remove_too_many()
     
-    def set_sort_order (self, order):
-        """order should be one of gtk.SORT_{ASCENDING,DESCENDING}"""
-        self.set_sort_column_id (self.COL_TIME, order)
-    
     def sort_actions (self, model, iter1, iter2):
-        if self[iter1][self.COL_TIME] > self[iter2][self.COL_TIME] :
+        action1 = model[iter1][self.COL_ACTION]
+        action2 = model[iter2][self.COL_ACTION]
+        
+        if isinstance(action1, ChooseFromHistoryAction):
             return 1
-        else:
+        elif isinstance(action2, ChooseFromHistoryAction):
             return -1
+        else:        
+            if self[iter1][self.COL_TIME] > self[iter2][self.COL_TIME] :
+                return 1
+            else:
+                return -1
     
     def clear (self):
         gtk.ListStore.clear(self)
-        #self.append("", "", EmptyHistoryAction())
+        self.append("", "", ChooseFromHistoryAction())
         self._index = -1
     
-    def clear_stub(self):
-        if len(self) == 1 and self[self.get_iter_first()][self.COL_ACTION].__class__ == EmptyHistoryAction:
-            gtk.ListStore.clear(self)
-        
     def load (self, module_list):
         new_history = []
         try:
@@ -90,7 +100,7 @@ class DeskbarHistory (gtk.ListStore) :
     def save (self):
         save = []
         for timestamp, text, action in self:
-            if action.__class__ != EmptyHistoryAction:
+            if action.__class__ != ChooseFromHistoryAction:
                 save.append((timestamp, text, action))
         
         try:
@@ -106,13 +116,11 @@ class DeskbarHistory (gtk.ListStore) :
         raise NotImplementedError("DeskbarHistory does not support prepending of matches, use append() instead.")
     
     def add (self, text, action):
-        if action.__class__ == EmptyHistoryAction:
+        if action.__class__ == ChooseFromHistoryAction:
             return
         if action.skip_history():
             self.reset()
             return
-            
-        self.clear_stub()
         
         for idx, val in enumerate(self):
             htime, htext, haction = val

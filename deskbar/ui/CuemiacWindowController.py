@@ -20,16 +20,16 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         self._view.receive_focus(time)
         
     def on_quit(self, *args):
-        self._view.get_toplevel().hide()
+        window = self._view.get_toplevel()
+        window.hide()
         return True
 
     def on_show_about(self, sender):
         show_about(self._view.get_toplevel())
         
     def on_toggle_history(self, sender):
-        val = not self._view.is_history_visible()
+        val = self._view.is_history_visible()
         self._model.set_show_history( val )
-        self._view.show_history( val )
         
     def on_show_preferences(self, sender):
         prefs = DeskbarPreferences(self._model)
@@ -42,9 +42,10 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         # TODO: abort previous searches
         qstring = entry.get_text().strip()
         if (qstring != ""):
+            self._view.show_results()
             self._model.query( qstring )
         else:
-            self._view.clear_results()
+            self._view.clear_all()
             
     def on_query_entry_key_press_event(self, entry, event):
         # For key UP to browse in history, we have either to be already in history mode, or have an empty text entry to trigger hist. mode
@@ -109,7 +110,6 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         
     def on_action_selected(self, treeview, text, action, event):
         self._model.get_history().add(text, action)
-        
         action.activate(text)
         if self._model.get_hide_after_action():
             self.on_quit()
@@ -137,13 +137,6 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
     def on_category_added (self, widget, cat, path):
         if cat.get_id() not in self._model.get_collapsed_cat():
             self._view.cview.expand_row (path, False)
-            
-    def on_window_resized(self, window, event):
-        self._model.set_window_width( window.allocation.width )
-        self._model.set_window_height( window.allocation.height )
-        
-    def on_sidebar_width_changed(self, sidebar, value):
-        self._model.set_sidebar_width( sidebar.get_position() )
-        
+   
     def on_resultsview_width_changed(self, results_hpaned, value):
         self._model.set_resultsview_width( results_hpaned.get_position() )
