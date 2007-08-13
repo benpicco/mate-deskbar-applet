@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-13 04:05+0100\n"
-"PO-Revision-Date: 2007-08-13 14:58+0200\n"
+"POT-Creation-Date: 2007-08-13 16:27+0100\n"
+"PO-Revision-Date: 2007-08-13 17:51+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -74,20 +74,28 @@ msgid "The default height of the window in pixels"
 msgstr "La altura predeterminada de la ventana en píxeles"
 
 #: ../data/deskbar-applet.schemas.in.h:13
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "La anchura predeterminada de la ventana en píxeles (coordenada x)"
+
+#: ../data/deskbar-applet.schemas.in.h:14
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "La anchura predeterminada de la ventana en píxeles (coordenada y)"
+
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid "The default width of the list of results"
 msgstr "La anchura predeterminada de la lista de resultados"
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid "The default width of the window in pixels"
 msgstr "La anchura predeterminada de la ventana en píxeles"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "La secuencia de claves dará el foco a Deskbar, permitiendo escribir "
 "rápidamente"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -97,7 +105,7 @@ msgstr ""
 "son: predeterminado, histórico, documentos, correos-e, conversaciones, "
 "archivos, gente, lugares, acciones, web, búsqueda web, noticias y notas."
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -105,11 +113,11 @@ msgstr ""
 "La lista de nombres de las clases exportadas de los manejadores activados, "
 "ordenados por prioridad. Cuanto más a la izquierda más prioridad"
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid "The maximum number of items stored in history"
 msgstr "El máximo número de elementos almacenados en el histórico"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
@@ -117,7 +125,7 @@ msgstr ""
 "El mínimo número de caracteres necesarios antes de que la miniaplicación "
 "comience a mostrar coincidencias."
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -125,11 +133,11 @@ msgstr ""
 "El tiempo en milisegundos entre la pulsación de una tecla en la entrada de "
 "búsqueda y la realización de la búsqueda actual"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether to close the window after an actions has been activated"
 msgstr "Indica si se debe cerrar la ventana después de activarse una acción"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -138,21 +146,29 @@ msgstr ""
 "disponibles. Esto sólo afecta a los navegadores basados en Mozilla como "
 "Firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:23
+#: ../data/deskbar-applet.schemas.in.h:25
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "Indica si al disparar el atajo de teclado se pegar la selección actual"
 
-#: ../data/deskbar-applet.schemas.in.h:24
+#: ../data/deskbar-applet.schemas.in.h:26
 msgid "Width of the list of results"
 msgstr "Anchura de la lista de resultados"
 
-#: ../data/deskbar-applet.schemas.in.h:25
+#: ../data/deskbar-applet.schemas.in.h:27
 msgid "Window height"
 msgstr "Altura de la ventana"
 
-#: ../data/deskbar-applet.schemas.in.h:26
+#: ../data/deskbar-applet.schemas.in.h:28
 msgid "Window width"
 msgstr "Anchura de la ventana"
+
+#: ../data/deskbar-applet.schemas.in.h:29
+msgid "X-coordinate of window"
+msgstr "Coordenada X de la ventana"
+
+#: ../data/deskbar-applet.schemas.in.h:30
+msgid "Y-coordinate of window"
+msgstr "Coordenada Y de la ventana"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -311,7 +327,6 @@ msgid "Uncategorized"
 msgstr "Sin categorizar"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:23
-#: ../deskbar/ui/CuemiacWindowView.py:65
 msgid "History"
 msgstr "Histórico"
 
@@ -522,10 +537,9 @@ msgstr "Necesita configurar su cuenta del.icio.us."
 msgid "You can modify your del.icio.us account."
 msgstr "Puede modificar su cuenta del.icio.us."
 
-#: ../deskbar/handlers/epiphany.py:48 ../deskbar/handlers/galeon.py:63
-#: ../deskbar/handlers/mozilla.py:120
-msgid "Web Bookmarks"
-msgstr "Marcadores web"
+#: ../deskbar/handlers/epiphany.py:48
+msgid "Web Bookmarks (Epiphany)"
+msgstr "Marcadores web (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/galeon.py:64
 #: ../deskbar/handlers/mozilla.py:121
@@ -536,10 +550,9 @@ msgstr "Abra sus marcadores web por nombre"
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany no es su navegador preferido."
 
-#: ../deskbar/handlers/epiphany.py:88 ../deskbar/handlers/galeon.py:91
-#: ../deskbar/handlers/mozilla.py:190
-msgid "Web Searches"
-msgstr "Búsquedas web"
+#: ../deskbar/handlers/epiphany.py:88
+msgid "Web Searches (Epiphany)"
+msgstr "Búsquedas web (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/galeon.py:92
 #: ../deskbar/handlers/mozilla.py:191
@@ -550,10 +563,9 @@ msgstr "Busque por la web mediante de los ajustes de búsqueda de su navegador"
 msgid "You can set shortcuts for your searches."
 msgstr "Puede establecer combinaciones de teclas para sus búsquedas."
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/galeon.py:112
-#: ../deskbar/handlers/mozilla.py:733
-msgid "Web History"
-msgstr "Histórico web"
+#: ../deskbar/handlers/epiphany.py:135
+msgid "Web History (Epiphany)"
+msgstr "Histórico web (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:136 ../deskbar/handlers/galeon.py:113
 #: ../deskbar/handlers/mozilla.py:734
@@ -598,6 +610,18 @@ msgstr "Vea sus archivos, carpetas, marcadores, unidades, lugares de red por nom
 #: ../deskbar/handlers/galeon.py:57
 msgid "Galeon is not your preferred browser."
 msgstr "Galeon no es su navegador preferido."
+
+#: ../deskbar/handlers/galeon.py:63
+msgid "Web Bookmarks (Galeon)"
+msgstr "Marcadores web (Galeon)"
+
+#: ../deskbar/handlers/galeon.py:91
+msgid "Web Searches (Galeon)"
+msgstr "Búsquedas web (Galeon)"
+
+#: ../deskbar/handlers/galeon.py:112
+msgid "Web History (Galeon)"
+msgstr "Histórico web (Galeon)"
 
 #: ../deskbar/handlers/gdmactions.py:33
 msgid "Suspend the machine"
@@ -689,13 +713,25 @@ msgstr "Cambie a una ventana existente por nombre."
 msgid "Windows"
 msgstr "Ventanas"
 
+#: ../deskbar/handlers/mozilla.py:120
+msgid "Web Bookmarks (Mozilla)"
+msgstr "Marcadores web (Mozilla)"
+
 #: ../deskbar/handlers/mozilla.py:183 ../deskbar/handlers/mozilla.py:254
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox no es su navegador preferido."
 
+#: ../deskbar/handlers/mozilla.py:190
+msgid "Web Searches (Mozilla)"
+msgstr "Búsquedas web (Mozilla)"
+
 #: ../deskbar/handlers/mozilla.py:248
 msgid "You can customize which search engines are offered."
 msgstr "Puede personalizar qué motores de búsqueda se ofrecen."
+
+#: ../deskbar/handlers/mozilla.py:733
+msgid "Web History (Mozilla)"
+msgstr "Histórico web (Mozilla)"
 
 #: ../deskbar/handlers/programs.py:74
 #, python-format
@@ -848,6 +884,11 @@ msgstr "nombre"
 #: ../deskbar/ui/cuemiac/CuemiacItems.py:22
 msgid "default"
 msgstr "predeterminado"
+
+#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
+#: ../deskbar/ui/CuemiacWindowView.py:68
+msgid "_History"
+msgstr "_Histórico"
 
 #: ../deskbar/ui/DeskbarApplet.py:85
 msgid "Show search entry"
