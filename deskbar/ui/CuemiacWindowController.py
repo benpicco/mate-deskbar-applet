@@ -21,6 +21,9 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         
     def on_quit(self, *args):
         window = self._view.get_toplevel()
+        x, y = window.get_position()
+        self._model.set_window_x(x)
+        self._model.set_window_y(y)
         window.hide()
         return True
 

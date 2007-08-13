@@ -156,6 +156,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.realize()
         self.window.set_user_time(time)
         self.present()
+        self.move( self._model.get_window_x(), self._model.get_window_y() )
 
     def show_results(self):
         width, height = self.get_size()

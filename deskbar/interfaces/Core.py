@@ -75,10 +75,10 @@ class Core(gobject.GObject):
     def get_window_height(self):
         raise NotImplementedError
     
-    def get_sidebar_width(self):
+    def get_window_x(self):
         raise NotImplementedError
-    
-    def get_resultsview_width(self):
+        
+    def get_window_y(self):
         raise NotImplementedError
     
     def get_hide_after_action(self):
@@ -122,13 +122,13 @@ class Core(gobject.GObject):
     
     def set_window_height(self, height):
         raise NotImplementedError
-    
-    def set_sidebar_width(self, width):
+   
+    def set_window_x(self, x):
         raise NotImplementedError
-       
-    def set_resultsview_width(self, width):
+        
+    def set_window_y(self, y):
         raise NotImplementedError
-    
+   
     def set_hide_after_action(self, val):
         raise NotImplementedError
     

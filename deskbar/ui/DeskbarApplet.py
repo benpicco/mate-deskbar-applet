@@ -125,7 +125,7 @@ class DeskbarApplet (gtk.HBox):
           
     def __show_toggle(self, widget, time):
         if self.__view.get_toplevel().get_property("visible"):
-            self.__view.get_toplevel().hide()
+            self.__controller.on_quit()
         else:
             self.__controller.on_keybinding_activated(widget, time, False)
             
