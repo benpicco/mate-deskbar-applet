@@ -1,10 +1,7 @@
 #!/usr/bin/env python
-import deskbar
-import deskbar.defs
-from deskbar.ui.DeskbarApplet import DeskbarApplet
 import gtk, gtk.gdk
 import sys
-from os.path import abspath, join
+from os.path import abspath, join, dirname, exists
 import logging
 import gettext, locale
 import gnomeapplet
@@ -33,9 +30,23 @@ def applet_factory(applet, iid):
     applet.show_all()
     return True
 
+def check_deskbar_path ():
+    root_dir = dirname(dirname(__file__))
+    if exists(join(root_dir, "Makefile.am")):
+    	# Running in uninstalled mode
+    	sys.path.insert(0, abspath(root_dir))
+    	logging.info ("Running uninstalled, adding %s to system path" % abspath(root_dir))
+
 # Setup logging
 logging.basicConfig(level=logging.DEBUG, format='%(levelname)-8s %(message)s',)
 logging.getLogger("deskbar-applet")
+
+# Delay loading of deskbar modules until we have the path set up,
+# to allow running in uninstalled mode
+check_deskbar_path()
+import deskbar
+import deskbar.defs
+from deskbar.ui.DeskbarApplet import DeskbarApplet
 
 # Setup i18n
 gettext.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))
