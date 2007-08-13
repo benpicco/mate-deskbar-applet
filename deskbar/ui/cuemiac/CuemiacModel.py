@@ -83,6 +83,8 @@ class CuemiacModel (gtk.TreeStore):
         """
         match_iter = self.__match_hashes[hash]
         match_obj = self[match_iter][self.MATCHES]
+        if self[match_iter][self.ACTIONS] != match_obj.get_name():
+            self.set_value(match_iter, self.ACTIONS, match_obj.get_name())
         match_obj.add_all_actions(actions)
     
     def __append_match(self, match_obj, query_string):
