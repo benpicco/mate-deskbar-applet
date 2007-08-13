@@ -7,5 +7,4 @@ deskbar_cuemiac_PYTHON = \
 	CuemiacHistory.py \
 	CuemiacItems.py \
 	CuemiacModel.py \
-	CuemiacTreeView.py \
-	Sidebar.py
+	CuemiacTreeView.py
