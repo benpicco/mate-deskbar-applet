@@ -111,14 +111,11 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.scrolled_actions.set_shadow_type(gtk.SHADOW_IN)
         self.scrolled_actions.add(self.aview)
        
-        # HPaned
-        self.hpaned = gtk.HPaned()
-        self.hpaned.set_position(self._model.get_resultsview_width())
-        self.hpaned.connect("notify::position", self._controller.on_resultsview_width_changed)
-        self.hpaned.pack1(self.scrolled_results, True, True)
-        self.hpaned.pack2(self.scrolled_actions, True, True)
-        
-        self.vbox_main.pack_start(self.hpaned)
+        # Results
+        self.results_box = gtk.HBox()
+        self.results_box.pack_start(self.scrolled_results)
+        self.results_box.pack_start(self.scrolled_actions)
+        self.vbox_main.pack_start(self.results_box)
         
         if self._model.get_show_history():
             self.show_history(self._model.get_show_history())
@@ -130,7 +127,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self._model.set_window_height( height )
         
         self.resize( width, self.__small_window_height )
-        self.hpaned.hide()
+        self.results_box.hide()
     
     def clear_results(self):
         self.treeview_model.clear()
@@ -164,7 +161,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         width, height = self.get_size()
         if self.__small_window_height == None:
             self.__small_window_height = height
-        self.hpaned.show()
+        self.results_box.show()
         self.scrolled_results.show()
         self.scrolled_actions.hide()
         self.resize( width, self._model.get_window_height() )
@@ -226,7 +223,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         return False
     
     def __on_entry_go_next(self, entry):
-        if (self.hpaned.get_property("visible")):
+        if (self.results_box.get_property("visible")):
             self.cview.grab_focus()
         else:
             self.entry.grab_focus()

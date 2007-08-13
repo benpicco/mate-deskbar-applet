@@ -136,6 +136,3 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
     def on_category_added (self, widget, cat, path):
         if cat.get_id() not in self._model.get_collapsed_cat():
             self._view.cview.expand_row (path, False)
-   
-    def on_resultsview_width_changed(self, results_hpaned, value):
-        self._model.set_resultsview_width( results_hpaned.get_position() )
