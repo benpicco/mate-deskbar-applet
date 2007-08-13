@@ -60,7 +60,7 @@ class GaleonHandler(deskbar.interfaces.Module):
 class GaleonBookmarksHandler(GaleonHandler):
     
     INFOS = {'icon':  deskbar.core.Utils.load_icon("stock_bookmark"),
-             "name": _("Web Bookmarks"),
+             "name": _("Web Bookmarks (Galeon)"),
              "description": _("Open your web bookmarks by name"),
              "version": VERSION}
     
@@ -88,7 +88,7 @@ class GaleonBookmarksHandler(GaleonHandler):
 class GaleonSearchHandler(GaleonBookmarksHandler):
     
     INFOS = {'icon':  deskbar.core.Utils.load_icon("stock_bookmark"),
-             "name": _("Web Searches"),
+             "name": _("Web Searches (Galeon)"),
              "description": _("Search the web via your browser's search settings"),
              "version": VERSION}
     
@@ -109,7 +109,7 @@ class GaleonSearchHandler(GaleonBookmarksHandler):
 class GaleonHistoryHandler(GaleonHandler):
     
     INFOS = {'icon': deskbar.core.Utils.load_icon("epiphany-history.png"),
-             "name": _("Web History"),
+             "name": _("Web History (Galeon)"),
              "description": _("Open your web history by name"),
              "version": VERSION}
     

@@ -117,7 +117,7 @@ HANDLERS = ["MozillaBookmarksHandler",
 class MozillaBookmarksHandler(deskbar.interfaces.Module):
     
     INFOS = {'icon': deskbar.core.Utils.load_icon("stock_bookmark"),
-             "name": _("Web Bookmarks"),
+             "name": _("Web Bookmarks (Mozilla)"),
              "description": _("Open your web bookmarks by name"),
              "version": VERSION}
     
@@ -187,7 +187,7 @@ class MozillaBookmarksHandler(deskbar.interfaces.Module):
 class MozillaSearchHandler(deskbar.interfaces.Module):
     
     INFOS = {'icon': deskbar.core.Utils.load_icon("stock_bookmark"),
-             "name": _("Web Searches"),
+             "name": _("Web Searches (Mozilla)"),
              "description": _("Search the web via your browser's search settings"),
              "version": VERSION}
     
@@ -730,7 +730,7 @@ MOZILLA_HISTORY_REGEX = re.compile("\=http[0-9a-zA-Z\-\&\%\=\?\:\/\.]*\)")
 class MozillaHistoryHandler(deskbar.interfaces.Module):
     
     INFOS = {'icon': deskbar.core.Utils.load_icon("epiphany-history.png"),
-            "name": _("Web History"),
+            "name": _("Web History (Mozilla)"),
             "description": _("Open your web history by name"),
              "version": VERSION}
     

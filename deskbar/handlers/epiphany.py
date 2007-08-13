@@ -45,7 +45,7 @@ class EpiphanyHandler(deskbar.interfaces.Module):
 class EpiphanyBookmarksHandler(EpiphanyHandler):
     
     INFOS = {'icon': deskbar.core.Utils.load_icon('stock_bookmark'),
-             "name": _("Web Bookmarks"),
+             "name": _("Web Bookmarks (Epiphany)"),
              "description": _("Open your web bookmarks by name"),
              "version": VERSION,
              }
@@ -85,7 +85,7 @@ class EpiphanyBookmarksHandler(EpiphanyHandler):
 class EpiphanySearchHandler(EpiphanyBookmarksHandler):
     
     INFOS = {'icon': deskbar.core.Utils.load_icon('stock_bookmark'),
-             "name": _("Web Searches"),
+             "name": _("Web Searches (Epiphany)"),
              "description": _("Search the web via your browser's search settings"),
              "version": VERSION,
              }
@@ -132,7 +132,7 @@ class EpiphanySearchHandler(EpiphanyBookmarksHandler):
 class EpiphanyHistoryHandler(EpiphanyHandler):
     
     INFOS = {'icon': deskbar.core.Utils.load_icon("epiphany-history.png"),
-             "name": _("Web History"),
+             "name": _("Web History (Epiphany)"),
              "description": _("Open your web history by name"),
              "version": VERSION,
              }
