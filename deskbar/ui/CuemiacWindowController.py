@@ -113,6 +113,8 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
     def on_action_selected(self, treeview, text, action, event):
         self._model.get_history().add(text, action)
         action.activate(text)
+        if self._model.get_clear_entry():
+            self._view.get_entry().set_text("")
         if self._model.get_hide_after_action():
             self.on_quit()
         
