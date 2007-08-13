@@ -1,4 +1,5 @@
 import gtk
+import gtk.gdk
 import gobject
 import pango
 import logging
@@ -184,15 +185,20 @@ class CuemiacTreeView (gtk.TreeView):
     """
     
     activation_keys = [gtk.keysyms.Return, gtk.keysyms.Right]
-    back_keys = [gtk.keysyms.Left]
     
     __gsignals__ = {
         "match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
-        "go-back": (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
+        "match-double-clicked" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
     }
     
     def __init__ (self, model):
         gtk.TreeView.__init__ (self, model)
+        self.set_enable_search (False)
+        self.set_property ("headers-visible", False)
+        
+        self.connect ("row-activated", self.__on_activated) # Used activate result if enter in entry has been pressed 
+        self.connect ("button-press-event", self.__on_button_press)        
+        self.connect ("key-press-event", self.__on_key_press)
                 
         icon = gtk.CellRendererPixbuf ()
         icon.set_property("xpad", 10)
@@ -206,18 +212,15 @@ class CuemiacTreeView (gtk.TreeView):
         hits.set_cell_data_func(icon, self.__get_match_icon_for_cell)
         self.append_column (hits)
         
-        self.set_property ("headers-visible", False)
-
-        self.connect ("row-activated", self.__on_activated) # Used activate result if enter in entry has been pressed 
-        self.connect ("button-press-event", self.__on_button_press)        
-        self.connect ("key-press-event", self.__on_key_press)
-                
-        self.set_enable_search (False)
         #self.set_reorderable(True)
         # FIXME: Make it so that categories *only* can be reordered by dragging
         # gtkTreeView does not use normal gtk DnD api.
         # it uses the api from hell
-        
+    
+    def grab_focus(self):
+        self.__select_first_item()
+        gtk.TreeView.grab_focus(self)
+    
     def is_ready (self):
         """ Returns True if the view is ready for user interaction """
         num_children = self.get_model().iter_n_children (None)
@@ -249,50 +252,6 @@ class CuemiacTreeView (gtk.TreeView):
         iter = model.iter_nth_child (iter, num_children - 1)
         return model.get_path (iter)
 
-    def move_cursor_up_down (self, count):
-        """
-        Move cursor one step up or down in the tree.
-        @param count: 1 for up/next, -1 for down/previous.
-        @return: True if the move was succesful.
-        """
-        # The implementation of this method is one big hack. 
-        # This method is needed because gtk.TreeView does not handle events
-        # correctly when unfocused (and we need to forward events to it).
-        # See bug #326254.
-        # We cannot simply port the navigational model because 
-        # gtk.TreeView uses a GtkRBTree, which is not a part of the public api,
-        # to implement the navigational model.
-        path, col = self.get_cursor ()
-        rect = self.get_cell_area (path, col)
-        
-        new_cell_y = 0
-        if count == -1:
-            # Select a point in the cell above the cursor
-            new_cell_y = rect.y - 5
-        else:
-            if count != 1:
-                logging.warning("CuemiacTreeView - in move_cursor_up_down, the count must be 1 or -1.")
-            # Select a point in the cell below the cursor
-            new_cell_y = rect.height + rect.y + 5
-                
-        # Select the cell meeting the point (rect.x, new_cell_y)
-        cell_ctx = self.get_path_at_pos (rect.x, new_cell_y)
-        if cell_ctx is None:
-            return False
-        path, col, x, y = cell_ctx
-        self.set_cursor (path, col)
-        
-        return True
-        
-    def focus_bottom_match (self):
-        last = self.last_visible_path ()
-        self.set_cursor (last)
-    
-    def focus_top_match (self):
-        model = self.get_model ()
-        first = model.get_path(model.get_iter_first())
-        self.set_cursor (first)
-
     def coord_is_category (self, x, y):
         path_ctx = self.get_path_at_pos(int(x), int(y))
         if path_ctx is None:
@@ -323,7 +282,6 @@ class CuemiacTreeView (gtk.TreeView):
     
         match = model[iter][model.MATCHES]
 
-        
         if match.__class__ == CuemiacCategory:
             cell.set_property ("pixbuf", None)
             cell.set_property ("visible", True)
@@ -358,6 +316,14 @@ class CuemiacTreeView (gtk.TreeView):
                 
         cell.set_property ("markup", model[iter][model.ACTIONS])
 
+    def __on_double_clicked(self, treeview, path, col, event):
+        model = self.get_model()
+        iter = model.get_iter (path)
+        match = model[iter][model.MATCHES]
+        qstring = model[iter][model.QUERY]
+        
+        self.emit("match-double-clicked", qstring, match, event)
+
     def __on_activated (self, treeview, path, col, event=None):
         model = self.get_model()
         iter = model.get_iter (path)
@@ -378,9 +344,10 @@ class CuemiacTreeView (gtk.TreeView):
         if iter is None:
             return False
         match = model[iter][model.MATCHES]
-        # If this is a category, toggle expansion state
+        parent_iter = model.iter_parent(iter)
         
         if event.keyval in self.activation_keys:
+            # If this is a category, toggle expansion state
             if match.__class__ == CuemiacCategory:
                 path = model.get_path (iter)
                 if self.row_expanded (path):
@@ -392,10 +359,65 @@ class CuemiacTreeView (gtk.TreeView):
                 path = model.get_path(iter)
                 col = model.ACTIONS
                 self.__on_activated(widget, path, col, event)
-        elif event.keyval in self.back_keys:
-            self.emit ("go-back")
+        elif (event.keyval == gtk.keysyms.Down):
+            if match.__class__ == CuemiacCategory:
+                return False
+            elif model.get_path(iter) == self.__get_bottom_path():
+                # We're at the bottom of the list
+                self.__select_first_item()
+                return True
+            else:
+                iter_next = model.iter_next(iter)
+                if iter_next == None:
+                    # We're at the last item of a category
+                    # Select the first item of the next category
+                    parent = model.iter_parent(iter)
+                    num = model.get_path(parent)[0]+1
+                    self.__select_path( (num, 0) )
+                    return True
+        elif (event.keyval == gtk.keysyms.Up):
+            if match.__class__ == CuemiacCategory:
+                return False
+            elif model.get_path(iter) == (0,0):
+                # We're at the top of the list 
+                self.__select_last_item()
+                return True
+            elif model.get_path(iter)[1] == 0:
+                # We're at the first item of a category
+                # Select the last item of the previous category
+                parent = model.iter_parent(iter)
+                num = model.get_path(parent)[0]-1
+                prev_cat = model.get_iter( (num,) )
+                child = model.iter_n_children(prev_cat)-1
+                
+                self.__select_path( (num, child) )
+                return True
             
         return False
+    
+    def __select_first_item(self):
+        model = self.get_model()
+        path = model.get_path( model.iter_nth_child(model.get_iter_first(), 0))
+        self.__select_path(path)
+        
+    def __select_last_item(self):
+        path = self.__get_bottom_path()
+        self.__select_path(path)
+    
+    def __select_path(self, path):
+        self.get_selection().select_path( path )
+        gobject.idle_add(self.scroll_to_cell, path )
+        self.set_cursor_on_cell( path )
+        
+    def __select_iter(self, iter):
+        self.__select_path( self.get_model().get_path(iter) )
+    
+    def __get_bottom_path(self):
+        model = self.get_model()
+        last_cat = len(model)-1
+        last_cat_iter =  model.iter_nth_child(None, last_cat)
+        last_cat_children = model.iter_n_children(last_cat_iter)-1
+        return (last_cat, last_cat_children)
 
 if gtk.pygtk_version < (2,8,0):    
     gobject.type_register (CuemiacTreeView)
