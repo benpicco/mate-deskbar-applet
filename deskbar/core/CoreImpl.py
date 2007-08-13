@@ -63,7 +63,6 @@ class CoreImpl(deskbar.interfaces.Core):
             self.set_keybinding( DEFAULT_KEYBINDING )
         else:
             self.set_keybinding( self.get_keybinding() )
-        self._keybinder.connect("activated", lambda k,t: self._emit_keybinding_activated(t))
     
     def get_old_modules(self):
         return self._module_loader.get_old_modules()
@@ -235,11 +234,12 @@ class CoreImpl(deskbar.interfaces.Core):
                 self._threadpool.callInThread(mod.query, text)
         
     def on_modules_loaded(self, loader, callback=None):
-        self._emit_loaded()
-        
         enabled_list = self.get_enabled_modules()
         
         self.update_modules_priority(enabled_list)
+        
+        self._keybinder.connect("activated", lambda k,t: self._emit_keybinding_activated(t))
+        self._emit_loaded()
         
         for mod in enabled_list:
             modinst = self._module_list.get_module_instance_from_name( mod )
