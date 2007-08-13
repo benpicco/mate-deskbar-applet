@@ -61,16 +61,25 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         # History TreeView
         hhbox = gtk.HBox(spacing=6)
         hhbox.show()
+        self.vbox_main.pack_start(hhbox, False)
+        
         hlabel = gtk.Label()
-        hlabel.set_markup("<b>%s:</b>" % _("History"))
+        # translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
+        hlabel.set_markup_with_mnemonic("<b>%s:</b>" % _("_History"))
         hlabel.show()
         hhbox.pack_start(hlabel, False)
-        self.vbox_main.pack_start(hhbox, False)
         
         self.hview = CuemiacHistoryView(self._model.get_history())
         self.hview.connect("match-selected", self._controller.on_history_match_selected)
         self.hview.show()
         hhbox.pack_start(self.hview)
+        hlabel.set_mnemonic_widget(self.hview)
+        
+        empty_button = gtk.Button()
+        empty_button.set_image( gtk.image_new_from_stock(gtk.STOCK_DELETE, gtk.ICON_SIZE_MENU) )
+        empty_button.connect("clicked", self._controller.on_clear_history)
+        empty_button.show()
+        hhbox.pack_start(empty_button, False)
         
         # Results TreeView
         self.treeview_model = CuemiacModel ()
@@ -82,7 +91,6 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.cview.connect_after ("cursor-changed", self._controller.on_treeview_cursor_changed)
         self.cview.connect ("row-expanded", self._controller.on_category_expanded, self.treeview_model)
         self.cview.connect ("row-collapsed", self._controller.on_category_collapsed, self.treeview_model)
-        self.cview.connect ("go-back", self.__on_go_back)
         self.cview.show()
         
         self.scrolled_results = gtk.ScrolledWindow ()

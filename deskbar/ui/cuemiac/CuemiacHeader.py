@@ -44,6 +44,11 @@ class CuemiacHeader (gtk.Layout):
         outer_width = event.area.width-2*self.xpadding
         entry_width = outer_width - 2*label_width
         
+        if outer_width < -1:
+            outer_width = -1
+        if entry_width < -1:
+            entry_width = -1
+        
         self.entry.set_size_request (entry_width ,  -1)
         self.set_size_request (outer_width, 3*label_height)
        
