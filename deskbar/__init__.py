@@ -31,7 +31,7 @@ HANDLERS_DIR = []
 if UNINSTALLED_DESKBAR:
     HANDLERS_DIR += [abspath(join(dirname(__file__), 'handlers'))]
 
-HANDLERS_DIR += [join(LIB_DIR, "deskbar-applet", "handlers")]
+HANDLERS_DIR += [join(LIB_DIR, "deskbar-applet", "modules")]
 
 USER_DESKBAR_DIR = expanduser("~/.gnome2/deskbar-applet")
 if not exists(USER_DESKBAR_DIR):
@@ -40,7 +40,7 @@ if not exists(USER_DESKBAR_DIR):
     except Exception , msg:
         print 'Error:could not create user handlers dir (%s): %s' % (USER_DESKBAR_DIR, msg)
         
-USER_HANDLERS_DIR = expanduser("~/.gnome2/deskbar-applet/handlers")
+USER_HANDLERS_DIR = expanduser("~/.gnome2/deskbar-applet/modules")
 if not exists(USER_HANDLERS_DIR):
     try:
         os.makedirs(USER_HANDLERS_DIR, 0744)
