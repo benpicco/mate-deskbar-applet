@@ -184,7 +184,8 @@ class CuemiacTreeView (gtk.TreeView):
     to gtk.Style().bg[gtk.STATE_NORMAL].
     """
     
-    activation_keys = [gtk.keysyms.Return, gtk.keysyms.Right]
+    activation_keys = [gtk.keysyms.Return]
+    show_actions_keys = [gtk.keysyms.Right]
     
     __gsignals__ = {
         "match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
@@ -217,7 +218,7 @@ class CuemiacTreeView (gtk.TreeView):
         # gtkTreeView does not use normal gtk DnD api.
         # it uses the api from hell
     
-    def grab_focus(self):
+    def grab_focus_and_select_first(self):
         self.__select_first_item()
         gtk.TreeView.grab_focus(self)
     
@@ -359,6 +360,11 @@ class CuemiacTreeView (gtk.TreeView):
                     self.expand_row (path, False)
                 return True
             else:
+                path = model.get_path(iter)
+                col = model.ACTIONS
+                self.__on_do_default_action(widget, path, col, event)
+        elif event.keyval in self.show_actions_keys:
+            if not isinstance(match, CuemiacCategory):
                 path = model.get_path(iter)
                 col = model.ACTIONS
                 self.__on_activated(widget, path, col, event)

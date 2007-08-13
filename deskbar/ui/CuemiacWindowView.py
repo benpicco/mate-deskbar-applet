@@ -225,7 +225,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
     
     def __on_entry_go_next(self, entry):
         if (self.results_box.get_property("visible")):
-            self.cview.grab_focus()
+            self.cview.grab_focus_and_select_first()
         else:
             self.entry.grab_focus()
         
