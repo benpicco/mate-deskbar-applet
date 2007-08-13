@@ -188,7 +188,7 @@ class CuemiacTreeView (gtk.TreeView):
     
     __gsignals__ = {
         "match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
-        "match-double-clicked" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
+        "do-default-action" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
     }
     
     def __init__ (self, model):
@@ -272,7 +272,10 @@ class CuemiacTreeView (gtk.TreeView):
             model = self.get_model ()
             match = model[model.get_iter(path)][model.MATCHES]
             if match.__class__ != CuemiacCategory:
-                self.__on_activated(treeview, path, col, event)
+                if event.state & gtk.gdk.CONTROL_MASK:
+                    self.__on_activated(treeview, path, col, event)
+                else:
+                    self.__on_do_default_action(treeview, path, col, event)
     
 #    def __on_config_expanded_cat (self, value):
 #        if value != None and value.type == gconf.VALUE_LIST:
@@ -316,13 +319,13 @@ class CuemiacTreeView (gtk.TreeView):
                 
         cell.set_property ("markup", model[iter][model.ACTIONS])
 
-    def __on_double_clicked(self, treeview, path, col, event):
+    def __on_do_default_action(self, treeview, path, col, event):
         model = self.get_model()
         iter = model.get_iter (path)
         match = model[iter][model.MATCHES]
         qstring = model[iter][model.QUERY]
         
-        self.emit("match-double-clicked", qstring, match, event)
+        self.emit("do-default-action", qstring, match, event)
 
     def __on_activated (self, treeview, path, col, event=None):
         model = self.get_model()

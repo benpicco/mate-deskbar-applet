@@ -36,6 +36,9 @@ class Controller(object):
         
     def on_match_selected(self, treeview, text, match_obj, event):
         raise NotImplementedError
+    
+    def on_do_default_action(self, treeview, text, match_obj, event):
+        raise NotImplementedError
      
     def on_action_selected(self, treeview, text, action, event):
         raise NotImplementedError

@@ -109,6 +109,12 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
             self._view.display_actions(match_obj.get_actions(), text)
         else:
             raise Exception("Match has no action")
+     
+    def on_do_default_action(self, treeview, text, match_obj, event):
+        action = match_obj.get_default_action()
+        if action == None:
+            action = match_obj.get_actions()[0]
+        self.on_action_selected(treeview, text, action, event)
         
     def on_action_selected(self, treeview, text, action, event):
         self._model.get_history().add(text, action)
