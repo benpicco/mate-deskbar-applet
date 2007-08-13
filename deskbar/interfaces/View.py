@@ -21,6 +21,9 @@ class View(object):
         self.clear_results()
         self.clear_actions()
     
+    def show_results(self):
+        raise NotImplementedError
+    
     def get_toplevel(self):
         raise NotImplementedError
     

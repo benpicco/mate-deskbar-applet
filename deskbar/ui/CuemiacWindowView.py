@@ -106,30 +106,22 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.aview.connect ("go-back", self.__on_go_back)
         self.aview.show()
         
-        scrolled_actions = gtk.ScrolledWindow()
-        scrolled_actions.set_policy (gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        scrolled_actions.set_shadow_type(gtk.SHADOW_IN)
-        scrolled_actions.add(self.aview)
-        scrolled_actions.show()
+        self.scrolled_actions = gtk.ScrolledWindow()
+        self.scrolled_actions.set_policy (gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        self.scrolled_actions.set_shadow_type(gtk.SHADOW_IN)
+        self.scrolled_actions.add(self.aview)
        
         # HPaned
         self.hpaned = gtk.HPaned()
         self.hpaned.set_position(self._model.get_resultsview_width())
         self.hpaned.connect("notify::position", self._controller.on_resultsview_width_changed)
         self.hpaned.pack1(self.scrolled_results, True, True)
-        self.hpaned.pack2(scrolled_actions, True, True)
+        self.hpaned.pack2(self.scrolled_actions, True, True)
         
         self.vbox_main.pack_start(self.hpaned)
         
         if self._model.get_show_history():
             self.show_history(self._model.get_show_history())
-    
-    def show_results(self):
-        width, height = self.get_size()
-        if self.__small_window_height == None:
-            self.__small_window_height = height
-        self.hpaned.show()
-        self.resize( width, self._model.get_window_height() )
     
     def clear_all(self):
         deskbar.interfaces.View.clear_all(self)
@@ -168,8 +160,20 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.window.set_user_time(time)
         self.present()
 
+    def show_results(self):
+        width, height = self.get_size()
+        if self.__small_window_height == None:
+            self.__small_window_height = height
+        self.hpaned.show()
+        self.scrolled_results.show()
+        self.scrolled_actions.hide()
+        self.resize( width, self._model.get_window_height() )
+    
     def display_actions(self, actions, qstring):
         self.actions_model.clear()
+        self.scrolled_results.hide()
+        self.scrolled_actions.show()
+        self.aview.grab_focus()
         self.actions_model.add_actions(actions, qstring)
 
     def append_matches (self, sender, matches):
@@ -207,10 +211,9 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.entry.set_icon (icon)
         
     def __on_go_back(self, treeview):
-        if isinstance(treeview, CuemiacTreeView):
-            self.entry.grab_focus()
-        elif isinstance(treeview, CuemiacActionsTreeView):
-            self.cview.grab_focus()
+        self.scrolled_actions.hide()
+        self.scrolled_results.show()
+        self.cview.grab_focus()
         return False
     
     def __on_window_key_press_event(self, window, event):
