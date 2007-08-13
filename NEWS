@@ -1,4 +1,68 @@
 =======================
+deskbar-applet 2.19.80
+=======================
+
+This release features a completely new GUI and supports
+better navigation with the keyboard.
+If you type a search term you can jump to the results when pressing
+the down key. Pressing the right key while a match is selected
+displays its actions. In the actions panel, you can go back when
+you press the left key.
+Clicking on a match will no activate the default action.
+Pressing Ctrl at the same time will show you a list of actions.
+A match has more actions available if '>' is displayed on the right.
+
+Changes:
+	* Clear actions TreeView if query changed, too
+	* Wrap messages in the info area if they are too long
+	* Clear actions TreeView if selection has changed
+	* Added version to description of module
+	* Fixed: Save and restore OpenDesktopFileAction correctly
+	* Set correct icon for ISwitchWindowHandler
+	* Fixed small error in web_address.py handler
+	* Fixed bug #464732: Import subprocess before using it. (patch by Colin Watson)
+	* Fixed bug #464735: NotImplementedError misspelled (patch by Colin Watson)
+	* Fixed bug #464736: "loggin" typo in get_url_host exception handler (patch by Colin Watson)
+	* Fixed bug #464739: on_install_handler says module when it meant mod_id (patch by Colin Watson)
+	* Fixed bug #464768: pygtk < 2.8.0 compat code refers to obsolete DeskbarAppletButton name (patch by Colin Watson)
+	* Fixed couple of bugs in beagle and history handlers. Fixes bug #465212: 'BeagleLiveHandler' object has no	attribute 'set_delay'
+	* Fixed bug #388508: web_address.py", line 32: startswith on None
+	* Added action that sends file via e-mail as attachment
+	* Adjusted default values in GConf
+	* Mark applet icon insensitive when loading/initializing
+	* Removed geek options from preferences dialog
+	* Fixed: Module order won't be saved if reordered with Drag & Drop
+	* Remake of the GUI. History is now in ComboBox. Menu and statusbar is gone. Matches and actions treeview is only visible	if search entry has	been entered.
+	* Added button besides combobox to clear history
+	* Added mnemonic to focus history combobox
+	* Only show either matches treeview or actions treeview
+	* Save and restore window position.
+	* Moved handlers to modules directory
+	* Honor "clear_entry" setting
+	* Mark UI sensitive if modules have been loaded	and before they have been initialized
+	* Connect to keybinding-activated signal after modules have been loaded
+	* Added application name to epiphany, galeon and mozilla handlers
+	* If two matches with same hash get merged alter the label
+	* Pressing down on last item selects first item. Pressing up on first item selects last item.
+	* Categories will be skipped when navigating with up/down keys
+	* Added possibility to start Deskbar unininstalled out of the box (patch by Mikkel kamstrup Erlandsen)
+	* Set skip-taskbar-hint to True
+	* Pressing escape always clears the entry and treeviews	and closes the window
+	* Mouse click executes default action. Ctrl+click displays list of actions.
+
+Contributors to this release: Sebastian Pölsterl, Colin Watson, Mikkel kamstrup Erlandsen
+
+Updated Translations:
+	* Gujarati
+	* Spanish
+	* Swedish
+	* Tamil
+	* Thai
+
+Contributors to the translations: Ankit Patel, Jorge Gonzalez, Daniel Nylander, Tirumurthi Vasudevan,
+Theppitak Karoonboonyanan
+
+=======================
 deskbar-applet 2.19.6.1
 =======================
 
