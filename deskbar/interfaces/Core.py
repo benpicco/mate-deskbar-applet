@@ -4,6 +4,7 @@ class Core(gobject.GObject):
     
     __gsignals__ = {
         "query-ready" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+        "loaded" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
         "initialized" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
         "keybinding-activated" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_ULONG]),
     }
@@ -14,6 +15,10 @@ class Core(gobject.GObject):
     def _emit_query_ready (self, matches):
         """Idle handler to emit a 'query-ready' signal to the main loop."""
         self.emit ("query-ready", matches)
+        return False
+    
+    def _emit_loaded(self):
+        self.emit("loaded")
         return False
     
     def _emit_initialized (self):

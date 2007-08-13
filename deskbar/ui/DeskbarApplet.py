@@ -91,7 +91,7 @@ class DeskbarApplet (gtk.HBox):
        
     def __setup_mvc(self):
         self.__core = CoreImpl(deskbar.MODULES_DIRS)
-        self.__core.connect("initialized", self.__on_init)
+        self.__core.connect("loaded", self.__on_loaded)
         self.__core.run()
         
         self.__controller = CuemiacWindowController(self.__core)
@@ -107,7 +107,7 @@ class DeskbarApplet (gtk.HBox):
             ("Clear", lambda a,b: self.__controller.on_clear_history(a),)
             ])
         
-    def __on_init(self, sender):
+    def __on_loaded(self, sender):
         old_modules = self.__core.get_old_modules()
         if len(old_modules) > 0:
                 msg = _("Some potentially old modules that make use of an old Deskbar-Applet API have been found. Remove these files for this warning to disappear.\n")
