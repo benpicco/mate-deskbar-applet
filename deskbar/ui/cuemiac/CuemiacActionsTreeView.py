@@ -64,5 +64,20 @@ class CuemiacActionsTreeView(gtk.TreeView):
             self.emit ("action-selected", qstring, action, event)
         elif event.keyval in self.back_keys:
             self.emit ("go-back")
+        elif event.keyval == gtk.keysyms.Down and model.get_path(iter) == (len(model)-1,):
+            # Select first item
+            self.__select_path( (0,) )
+            return True
+        elif event.keyval == gtk.keysyms.Up and model.get_path(iter) == (0,):
+            # Select last item
+            self.__select_path( (len(model)-1,) )
+            return True
+            
         return False
+    
+    def __select_path(self, path):
+        self.get_selection().select_path( path )
+        gobject.idle_add(self.scroll_to_cell, path )
+        self.set_cursor_on_cell( path )
+       
          
