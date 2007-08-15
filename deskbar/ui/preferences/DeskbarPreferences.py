@@ -260,7 +260,8 @@ class DeskbarPreferences:
         
         if (len(self.disabledhandlers_box.get_children()) > 1):
             self.disabledhandlers_box.remove( self.disabledhandlers_box.get_children()[1] )
-        self.disabledhandlers_box.pack_end(InfoBox(module.INSTRUCTIONS, gtk.STOCK_DIALOG_ERROR), False, False, 0)
+        if hasattr(module, "INSTRUCTIONS") and module.INSTRUCTIONS != None and module.INSTRUCTIONS != "":
+            self.disabledhandlers_box.pack_end(InfoBox(module.INSTRUCTIONS, gtk.STOCK_DIALOG_ERROR), False, False, 0)
         self.disabledhandlers_box.show_all()
      
     def poll_requirements(self, module_context):
