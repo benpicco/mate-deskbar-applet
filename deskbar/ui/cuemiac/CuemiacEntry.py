@@ -20,6 +20,7 @@ class CuemiacEntry (deskbar.ui.iconentry.IconEntry):
         "changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
         "activate" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
         "go-next" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
+        "go-previous" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
         }
         
     
@@ -68,7 +69,8 @@ class CuemiacEntry (deskbar.ui.iconentry.IconEntry):
     def __on_key_press_event(self, entry, event):
         if event.keyval == gtk.keysyms.Down:
             self.emit("go-next")
-            return True
+        elif event.keyval == gtk.keysyms.Up:
+            self.emit("go-previous")
         self.emit("key-press-event", event)
 
     def grab_focus (self):
@@ -118,7 +120,9 @@ class CuemiacEntry (deskbar.ui.iconentry.IconEntry):
         self.show_all () # We need to show the icon
 
     def set_history_item(self, item):
-        if item != None:
+        if item == None:
+            self.set_icon( self._default_pixbuf )
+        else:
             text, match = item
             self.entry.handler_block( self.handler_changed_id )
             self.entry.set_text(text)

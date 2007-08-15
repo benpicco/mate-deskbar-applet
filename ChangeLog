@@ -1,5 +1,28 @@
 2007-08-15  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+	* deskbar/ui/CuemiacWindowView.py:
+	Select last match when up is pressed in entry.
+	Select entry on CuemiacTreeView's "pressed-up-at-top"
+	and "pressed-down-at-bottom" signals.
+	Only restore small window if it has been saved before.
+
+2007-08-15  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+	* deskbar/ui/cuemiac/CuemiacTreeView.py:
+	Added "pressed-up-at-top" and "pressed-down-at-bottom"
+	signals.
+	Emit above signals when down is pressed on last item
+	and when up is pressed on first item instead of
+	jumping to the top/bottom.
+
+2007-08-15  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+	* deskbar/ui/cuemiac/CuemiacEntry.py:
+	Added signals "go-previous".
+	Set default icon if history item is None.
+
+2007-08-15  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
 	* deskbar/core/CoreImpl.py:
 	Fixed: Disabled modules get still queried and return results
 

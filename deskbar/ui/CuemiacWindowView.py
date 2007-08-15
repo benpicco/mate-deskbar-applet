@@ -46,9 +46,11 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.default_entry_pixbuf = deskbar.core.Utils.load_icon("deskbar-applet-panel-h.png", width=23, height=14)
         self.entry = CuemiacEntry (self.default_entry_pixbuf)
         self.entry.connect("changed", self._controller.on_query_entry_changed)
+        # Connect this before "go-next/previous" to parse history
         self.entry.connect("key-press-event", self._controller.on_query_entry_key_press_event)
         self.entry.connect("activate", self._controller.on_query_entry_activate)
-        self.entry.connect("go-next", self.__on_entry_go_next)
+        self.entry.connect("go-next", lambda e: self.__focus_matches_if_visible("top"))
+        self.entry.connect("go-previous", lambda e: self.__focus_matches_if_visible("bottom"))
 #        self.entry.get_entry().set_completion(self.completion)
         self.entry.show()
         
@@ -89,6 +91,8 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         #self.cview.connect ("key-press-event", self._on_cview_key_press)
         self.cview.connect ("match-selected", self._controller.on_match_selected)
         self.cview.connect ("do-default-action", self._controller.on_do_default_action)
+        self.cview.connect ("pressed-up-at-top", lambda s: self.entry.grab_focus())
+        self.cview.connect ("pressed-down-at-bottom", lambda s: self.entry.grab_focus())
         self.cview.connect_after ("cursor-changed", self._controller.on_treeview_cursor_changed)
         self.cview.connect ("row-expanded", self._controller.on_category_expanded, self.treeview_model)
         self.cview.connect ("row-collapsed", self._controller.on_category_collapsed, self.treeview_model)
@@ -127,7 +131,8 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self._model.set_window_width( width )
         self._model.set_window_height( height )
         
-        self.resize( width, self.__small_window_height )
+        if self.__small_window_height != None:
+            self.resize( width, self.__small_window_height )
         self.results_box.hide()
     
     def clear_results(self):
@@ -223,9 +228,13 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
                 
         return False
     
-    def __on_entry_go_next(self, entry):
+    def __focus_matches_if_visible(self, mode):
         if (self.results_box.get_property("visible")):
-            self.cview.grab_focus_and_select_first()
+            if mode == "top":
+                self.cview.select_first_item()
+            elif mode == "bottom":
+                self.cview.select_last_item()
+            self.cview.grab_focus()
         else:
             self.entry.grab_focus()
         

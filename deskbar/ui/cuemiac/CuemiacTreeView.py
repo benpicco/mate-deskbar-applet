@@ -190,6 +190,8 @@ class CuemiacTreeView (gtk.TreeView):
     __gsignals__ = {
         "match-selected" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
         "do-default-action" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT]),
+        "pressed-up-at-top" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
+        "pressed-down-at-bottom" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
     }
     
     def __init__ (self, model):
@@ -217,11 +219,7 @@ class CuemiacTreeView (gtk.TreeView):
         # FIXME: Make it so that categories *only* can be reordered by dragging
         # gtkTreeView does not use normal gtk DnD api.
         # it uses the api from hell
-    
-    def grab_focus_and_select_first(self):
-        self.__select_first_item()
-        gtk.TreeView.grab_focus(self)
-    
+
     def is_ready (self):
         """ Returns True if the view is ready for user interaction """
         num_children = self.get_model().iter_n_children (None)
@@ -265,6 +263,15 @@ class CuemiacTreeView (gtk.TreeView):
         else:
             return False
 
+    def select_first_item(self):
+        model = self.get_model()
+        path = model.get_path( model.iter_nth_child(model.get_iter_first(), 0))
+        self.__select_path(path)
+        
+    def select_last_item(self):
+        path = self.__get_bottom_path()
+        self.__select_path(path)
+    
     def __on_button_press (self, treeview, event):
         # We want to activate items on single click
         path_ctx = self.get_path_at_pos (int(event.x), int(event.y))
@@ -373,7 +380,7 @@ class CuemiacTreeView (gtk.TreeView):
                 return False
             elif model.get_path(iter) == self.__get_bottom_path():
                 # We're at the bottom of the list
-                self.__select_first_item()
+                self.emit("pressed-up-at-top")
                 return True
             else:
                 iter_next = model.iter_next(iter)
@@ -389,7 +396,7 @@ class CuemiacTreeView (gtk.TreeView):
                 return False
             elif model.get_path(iter) == (0,0):
                 # We're at the top of the list 
-                self.__select_last_item()
+                self.emit("pressed-down-at-bottom")
                 return True
             elif model.get_path(iter)[1] == 0:
                 # We're at the first item of a category
@@ -403,15 +410,6 @@ class CuemiacTreeView (gtk.TreeView):
                 return True
             
         return False
-    
-    def __select_first_item(self):
-        model = self.get_model()
-        path = model.get_path( model.iter_nth_child(model.get_iter_first(), 0))
-        self.__select_path(path)
-        
-    def __select_last_item(self):
-        path = self.__get_bottom_path()
-        self.__select_path(path)
     
     def __select_path(self, path):
         self.get_selection().select_path( path )
