@@ -5,13 +5,17 @@ from os.path import exists
 
 class OpenWithApplicationAction(deskbar.interfaces.Action):
     
-    def __init__(self, name, program, arguments):
+    def __init__(self, name, program, arguments, display_program_name=None):
         deskbar.interfaces.Action.__init__(self, name)
         self._program = program
         if arguments != None and len(arguments) > 0:
             self._arguments = arguments
         else:
             self._arguments = []
+        if display_program_name == None:
+            self._display_program_name = program
+        else:
+            self._display_program_name = display_program_name
     
     def get_icon(self):
         return "gtk-open"
@@ -26,7 +30,7 @@ class OpenWithApplicationAction(deskbar.interfaces.Action):
         return _("Open <b>%(name)s</b> with <b>%(program)s</b>")
     
     def get_name(self, text=None):
-        return {"name": self._name, "program": self._program}
+        return {"name": self._name, "program": self._display_program_name}
     
     def activate(self, text=None):
         spawn_async([self._program] + self._arguments)

@@ -34,10 +34,7 @@ class SendFileViaEmailAction (deskbar.interfaces.Action):
             cmd = ["mailto:?attach=%s" % self._file]
         
         spawn_async([exe] + cmd)
-    
-    def get_name(self, text=None):
-        return {"file": basename(self._file)}
-    
+   
     def get_verb(self):
         # translators: %s is a filename
-        return _("Send %(file)s via e-mail")
+        return _("Send %s via e-mail") % "<b>%(name)s</b>"

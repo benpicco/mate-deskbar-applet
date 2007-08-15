@@ -5,6 +5,11 @@ from deskbar.core.Utils import url_show_file
 class OpenFileAction(deskbar.interfaces.Action):
     
     def __init__(self, name, url, escape=True):
+        """
+        @param uri: URI pointing to the file.
+        (has to start with 'file://')
+        @param escape: Whether to escape the URI
+        """
         deskbar.interfaces.Action.__init__(self, name)
         self._url = url
         self._escape = escape
