@@ -13,7 +13,7 @@ from deskbar.core.Watcher import FileWatcher
 from deskbar.handlers.actions.OpenWithNautilusAction import OpenWithNautilusAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
-from deskbar.handlers.actions.SendFileViaEmailAction import SendFileViaEmailAction
+from deskbar.handlers.actions.ActionsFactory import get_actions_for_uri
 
 MONITOR = gnomevfs.VolumeMonitor()
 
@@ -26,8 +26,7 @@ class FileMatch(deskbar.interfaces.Match):
         deskbar.interfaces.Match.__init__(self, name=name, icon=absname, category="files", **args)
         self.absname = absname
         self.add_action( ShowUrlAction(name, absname) )
-        self.add_action( CopyToClipboardAction(_("Location"), absname) )
-        self.add_action( SendFileViaEmailAction(name, absname) )
+        self.add_all_actions( get_actions_for_uri(absname) )
     
     def get_hash(self, text=None):
         return self.absname
@@ -37,7 +36,7 @@ class FolderMatch(deskbar.interfaces.Match):
         deskbar.interfaces.Match.__init__(self, name=name, icon=absname, category="places", **args)
         self.absname = absname
         self.add_action( ShowUrlAction(name, absname) )
-        self.add_action( CopyToClipboardAction(_("Location"), absname) )
+        self.add_all_actions( get_actions_for_uri(absname) )
     
     def get_hash(self, text=None):
         return self.absname
@@ -47,7 +46,7 @@ class GtkBookmarkMatch(deskbar.interfaces.Match):
         deskbar.interfaces.Match.__init__(self, icon="gtk-open", name=name, category="places", **args)
         self.path = path
         self.add_action( OpenWithNautilusAction(name, path) )
-        self.add_action( CopyToClipboardAction(_("Location"), path) )
+        self.add_all_actions( get_actions_for_uri(absname) )
     
     def get_hash(self, text=None):
         return self.path

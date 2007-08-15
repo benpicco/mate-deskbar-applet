@@ -1,10 +1,15 @@
-import cgi, re
-import gtk, gnome.ui, gnomevfs
-import deskbar, deskbar.interfaces.Module, deskbar.core.Utils, deskbar.interfaces.Match
-from gettext import gettext as _
+from deskbar.core.Utils import is_program_in_path, load_icon
 from deskbar.defs import VERSION
-from deskbar.core.Utils import is_program_in_path, spawn_async, url_show, url_show_file
-import deskbar.interfaces.Action
+from deskbar.handlers.actions.ActionsFactory import get_actions_for_uri
+from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
+from deskbar.handlers.actions.OpenFileAction import OpenFileAction
+from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
+from gettext import gettext as _
+from os.path import basename
+import cgi, re
+import deskbar, deskbar.interfaces.Module
+import deskbar.interfaces.Match
+import gtk, gnome.ui, gnomevfs
 import logging
 
 MAX_RESULTS = 20 # per handler
@@ -22,9 +27,6 @@ except:
 #
 # A Hit Type consists of:
 #    "name"        : Template used to find a user-displayable name
-#    "action"    : Command to execute
-#    "icon"        : The *name* of the icon to be sued for this type. Set to None for no icon.
-#    "description"    : A short description. %(*)s may refer to *=name,uri,action or any field in "extra" (see below)
 #
 # Optionally:
 #    "extra"    : A dict containing key:template pairs to search for. You can use %(key)s in "description".
@@ -35,113 +37,146 @@ except:
 TYPES = {
     "Contact"    : {
         "name"    : ("fixme:FileAs",),
-        "action": "evolution %(uri)s",
-        "icon"    : "stock_contact",
-        "description": _("Edit contact %s") % "<b>%(name)s</b>",
         "category": "people",
         },
     
     "MailMessage"     : {
         "name"    :("dc:title", "parent:dc:title"),
-        "action": "evolution %(uri)s",
-        "icon"    : "stock_mail",
         "extra": {"sender":("fixme:from_name", "parent:fixme:from_name")},
-        "description": (_("From %s") % "<i>%(sender)s</i>" ) + "\n<b>%(name)s</b>",
         "category": "emails",
         },
     "File"         : {
-        "name"    : ("beagle:ExactFilename",), 
-        "action": lambda d: url_show_file(d["uri"], False),
-        "icon"    : "stock_new",
-        #translators: This is a file.
-        "description": _("Open %s") % "<b>%(name)s</b>",
-        "snippet": True,
+        "name"    : ("beagle:ExactFilename",),
         "category": "files",
+        "snippet": True,
         },
     "FeedItem"    : {
         "name"    : ("dc:title",),
-        "action": lambda d: url_show(d["identifier"]),
-        "icon"    : "stock_news",
-        "description": (_("News from %s") % "<i>%(publisher)s</i>" ) + "\n<b>%(name)s</b>",
-        "snippet": True,
         "category": "news",
+        "snippet": True,
         "extra": {"publisher":("dc:publisher",), "identifier": ("dc:identifier",)},
         },
     "Note"        : {
         "name"    : ("dc:title",),
-        "action": "tomboy --open-note %(uri)s",
-        "icon"    :"stock_notes",
-        "description": _("Note: %s") % "<b>%(name)s</b>",
         "snippet": True,
         "category": "notes",
         },
     "IMLog"        : {
         "name"    : ("fixme:speakingto",),
         "extra" : {"client": ("fixme:client",)},
-        "action": "beagle-imlogviewer --client %(client)s --highlight-search '%(text)s' %(uri)s",
-        "icon"    : "im",
-        "description": _("With %s") % "<b>%(name)s</b>",
         "snippet": True,
         "category": "conversations",
         },
     "Calendar"    : {
         "name"    : ("fixme:summary",),
-        "action": "evolution %(uri)s",
-        "icon"    : "stock_calendar",
-        "description": _("Calendar: %s") % "<b>%(name)s</b>",
         "category": "documents",
         },
     "WebHistory": {
         "name"    : ("dc:title",), # FIX-BEAGLE bug #330053, dc:title returns as None even though it _is_ set
-        "action": lambda d: url_show_file(d["uri"]),
-        "icon"    : "stock_bookmark",
-        "description": (_("Open History Item %s") % "<i>%(name)s</i>") + "\n%(escaped_uri)s",
         "category": "web",
         },
 }
 
-# Append snippet text for snippet-enabled handlers
-for key, val in TYPES.items():
-    if "snippet" in val and val["snippet"]:
-        val["description"] += "%(snippet)s"
+### ===== END: TYPES ===== ###
 
-class OpenBeagleLiveAction(deskbar.interfaces.Action):
-    
-    def __init__(self, name, result):
-        deskbar.interfaces.Action.__init__(self, name)
-        self.result = result
+class OpenWithEvolutionAction(OpenWithApplicationAction):
+    def __init__(self, name, uri):
+        OpenWithApplicationAction.__init__(self, name, "evolution", uri, [])
         
-    def get_name (self, text=None):
-        # We use the result dict itself to look up words
-        if text:
-            self.result["text"] = text
-            # Escape text since we use '%(text)s' as parameter
-            self.result["text"] = self.result["text"].replace("'", "\\'")
-        return self.result
+class OpenContactAction(OpenWithEvolutionAction):
+    def __init__(self, name, uri):
+        OpenWithEvolutionAction.__init__(self, name, uri)
+        
+    def get_icon(self):
+        return "stock_contact"
     
     def get_verb(self):
-        # Fetch the "description" template from TYPES
-        return TYPES[self.result["type"]]["description"]
-     
+        return _("Edit contact %s") % "<b>%(name)s</b>"
+    
+class OpenMailMessageAction(OpenWithEvolutionAction):
+    def __init__(self, name, uri, sender):
+        OpenWithEvolutionAction.__init__(self, name, uri)
+        self._sender = sender
+        
+    def get_icon(self):
+        return "stock_mail"
+    
+    def get_verb(self):
+        return (_("From %s") % "<i>%(sender)s</i>" ) + "\n<b>%(name)s</b>"
+    
+    def get_name(self, text=None):
+        return {"name": self._name, "sender": self._sender}
+        
+class OpenFeedAction(ShowUrlAction):
+    def __init__(self, name, identifier, publisher, snippet):
+        ShowUrlAction.__init__(self, name, identifier)
+        self._publisher = publisher
+        self._snippet = snippet
+        
+    def get_icon(self):
+        return "stock_news"
+    
+    def get_verb(self):
+        return (_("News from %s") % "<i>%(publisher)s</i>" ) + "\n<b>%(name)s</b>%(snippet)s"
+    
+    def get_name(self, text=None):
+        return {"name": self._name, "publisher": self._publisher, "snippet": self._snippet}
+
+class OpenNoteAction(OpenWithApplicationAction):
+    def __init__(self, name, uri, snippet):
+        OpenWithApplicationAction.__init__(self, name, "tomboy", ["--open-note", uri])
+        self._snippet = snippet
+        
+    def get_icon(self):
+        return "stock_notes"
+    
+    def get_verb(self):
+        return _("Note: %s") % "<b>%(name)s</b>%(snippet)s"
+    
+    def get_name(self, text=None):
+        return {"name": self._name, "snippet": self._snippet}
+
+class OpenIMLogAction(OpenWithApplicationAction):
+    def __init__(self, name, uri, client, text):
+        OpenWithApplicationAction.__init__(self, name, "beagle-imlogviewer",
+                "--client", client, "--highlight-search", text,
+                gnomevfs.get_local_path_from_uri(uri))
+        self._snippet = snippet
+        
+    def get_icon(self):
+        return "im"
+
+    def get_verb(self):
+        return _("With %s") % "<b>%(name)s</b>%(snippet)s"
+
+    def get_name(self, text=None):
+        return {"name": self._name, "snippet": self._snippet}
+        
+class OpenCalendarAction(OpenWithEvolutionAction):
+    def __init__(self, name, uri):
+        OpenWithEvolutionAction.__init__(self, uri)
+        
+    def get_icon(self):
+        return "stock_calendar"
+    
+    def get_verb(self):
+        return _("Calendar: %s") % "<b>%(name)s</b>"
+        
+class OpenWebHistoryAction(ShowUrlAction):
+    def __init__(self, name, uri, escaped_uri):
+        ShowUrlAction.__init__(self, name, uri)
+        self._escaped_uri = escaped_uri
+        
     def get_icon(self):
         return "system-search"
-            
-    def activate(self, text=None):
-        # The call to get_name(text) ensures that we have
-        # the text field in the result dict
-        self.get_name(text)
-        
-        action = TYPES[self.result["type"]]["action"]
+    
+    def get_verb(self):
+        return (_("Open History Item %s") % "<i>%(name)s</i>") + "\n%(escaped_uri)s"
+    
+    def get_name(self, text=None):
+        return {"name": self._name, "escaped_uri": self._escaped_uri}
 
-        if callable(action):
-            action(self.result)
-        else:
-            # Retrieve the associated action
-            action = action % self.result
-            args = action.split(" ")
-
-            print "BeagleLive spawning:", action, args
-            spawn_async(args)
+### ===== End: Actions ===== ###
         
 class BeagleLiveMatch (deskbar.interfaces.Match):
     def __init__(self, result=None, **args):
@@ -156,15 +191,32 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
         """
         deskbar.interfaces.Match.__init__ (self, name=result["name"], **args)
         self.result = result
+        
+        if (result["type"] == "Contact"):
+            self.add_action( OpenContactAction(result["name"], result["uri"]) )
+        elif (result["type"] == "MailMessage"):
+            self.add_action( OpenMailMessageAction(result["name"], result["uri"], result["sender"]) )
+        elif (result["type"] == "FeedItem"):
+            self.add_action( OpenFeedAction(result["name"], result["identifier"], result["publisher"], result["snippet"]) )
+        elif (result["type"] == "Note"):
+            self.add_action( OpenNoteAction(result["name"], result["uri"], result["snippet"]) )
+        elif (result["type"] == "IMLog"):
+            self.add_action( OpenIMLogAction(result["name"], result["uri"], result["client"], result["text"], result["snippet"]) )
+        elif (result["type"] == "Calendar"):
+            self.add_action( OpenCalendarAction(result["name"], result["uri"]) )
+        elif (result["type"] == "WebHistory"):
+            self.add_action( OpenWebHistoryAction(result["name"], result["uri"], result["escaped_uri"]) )
+        elif (result["type"] == "File"):
+            # Unescape URI again
+            unescaped_uri = gnomevfs.unescape_string_for_display(result["escaped_uri"])
+            self.add_all_actions( [OpenFileAction(result["name"], result["uri"], False)] + 
+                                  get_actions_for_uri(unescaped_uri,
+                                    display_name=basename(unescaped_uri)
+                                  )
+                                )
+        else:
+            logging.warning("Unknown beagle match type found: "+result["type"] )
 
-        # IM Log viewer take loca paths only        
-        action = TYPES[self.result["type"]]["action"]
-        if not callable(action) and action.startswith("beagle-imlogviewer"):
-            # Strip the uti descriptor, because imlogviewer takes a local path
-            self.result["uri"] = gnomevfs.get_local_path_from_uri(self.result["uri"])            
-        
-        self.add_action( OpenBeagleLiveAction(self.get_name(), self.result) )
-        
         # Load the correct icon
         
         #
@@ -174,7 +226,7 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
         
         if result["type"] == "File":
             try:
-                self.icon = result["uri"]
+                self._icon = result["uri"]
             except Exception:
                 pass
     
@@ -189,7 +241,7 @@ class SnippetContainer:
     
 class BeagleLiveHandler(deskbar.interfaces.Module):
     
-    INFOS = {'icon': deskbar.core.Utils.load_icon("system-search"),
+    INFOS = {'icon': load_icon("system-search"),
             "name": _("Beagle Live"),
             "description": _("Search all of your documents (using Beagle), as you type"),
             'version': VERSION,
@@ -202,15 +254,6 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         
     def initialize (self):
         self.beagle = beagle.Client()
-        self.ICONS = self.__load_icons()
-    
-    def __load_icons (self):
-        res = {}
-        for t in TYPES.iterkeys():
-            icon_file = TYPES[t]["icon"]
-            if not icon_file: continue
-            res[t] = deskbar.core.Utils.load_icon(icon_file)
-        return res
         
     def query (self, qstring):
         beagle_query = beagle.Query()
@@ -332,7 +375,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         hit_matches = []
         for hit in response.get_hits():
             if hit.get_type() not in TYPES:
-                logging.warning("Beagle live seen an unknown type:', hit.get_type()")
+                logging.warning("Beagle live seen an unknown type:"+ hit.get_type())
                 continue
 
             if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
