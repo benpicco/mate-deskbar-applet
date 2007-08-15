@@ -61,6 +61,7 @@ class DeskbarApplet (gtk.HBox):
         """
         gtk.HBox.__init__ (self)
         self.applet = applet
+        applet.set_background_widget(applet)
         self.popup_dir = applet.get_orient()
         
         if self.popup_dir in [gnomeapplet.ORIENT_UP,gnomeapplet.ORIENT_DOWN]:
