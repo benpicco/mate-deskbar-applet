@@ -23,7 +23,6 @@ class CoreImpl(deskbar.interfaces.Core):
         self._start_query_id = 0
         self._last_query = None
         self._stop_queries = True
-        self._modules = []
         
         self._threadpool = ThreadPool(5)
         self._gconf = GconfStore.get_instance()
@@ -229,7 +228,8 @@ class CoreImpl(deskbar.interfaces.Core):
             
     def query_real(self, text):
         self._last_query = text
-        for mod in self._modules:
+        for modname in self.get_enabled_modules():
+            mod = self._module_list.get_module_instance_from_name( modname )
             if mod != None:
                 self._threadpool.callInThread(mod.query, text)
         
@@ -274,7 +274,6 @@ class CoreImpl(deskbar.interfaces.Core):
         
     def on_module_initialized(self, loader, module):
         self._inited_modules += 1
-        self._modules.append(module)
         # Forward results
         module.connect ('query-ready', self.forward_query_ready)
         
