@@ -71,9 +71,6 @@ class Core(gobject.GObject):
     def get_collapsed_cat(self):
         raise NotImplementedError
     
-    def get_show_history(self):
-        raise NotImplementedError
-    
     def get_window_width(self):
         raise NotImplementedError
     
@@ -117,9 +114,6 @@ class Core(gobject.GObject):
         raise NotImplementedError
     
     def set_collapsed_cat(self, cat):
-        raise NotImplementedError
-    
-    def set_show_history(self, val):
         raise NotImplementedError
     
     def set_window_width(self, width):

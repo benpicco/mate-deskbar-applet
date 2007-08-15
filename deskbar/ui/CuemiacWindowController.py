@@ -30,10 +30,6 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
     def on_show_about(self, sender):
         show_about(self._view.get_toplevel())
         
-    def on_toggle_history(self, sender):
-        val = self._view.is_history_visible()
-        self._model.set_show_history( val )
-        
     def on_show_preferences(self, sender):
         prefs = DeskbarPreferences(self._model)
         prefs.show_run_hide(self._view.get_toplevel())

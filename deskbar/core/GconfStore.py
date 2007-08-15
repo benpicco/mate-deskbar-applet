@@ -28,8 +28,6 @@ class GconfStore(gobject.GObject):
     # GConf key for collapsed categories in the cuemiac view
     GCONF_COLLAPSED_CAT = GCONF_DIR + "/collapsed_cat"
     
-    GCONF_SHOW_HISTORY = GCONF_DIR + "/show_history"
-    
     GCONF_WINDOW_WIDTH = GCONF_DIR + "/window_width"
     GCONF_WINDOW_HEIGHT = GCONF_DIR + "/window_height"
     
@@ -51,7 +49,6 @@ class GconfStore(gobject.GObject):
         "proxy-port-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING]),
         "enabled-modules-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
         "collapsed-rows-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
-        "show-history-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
         "hide-after-action-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
         "max-history-items-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_INT]),
     }
@@ -81,7 +78,6 @@ class GconfStore(gobject.GObject):
         self._client.notify_add(self.GCONF_PROXY_PORT_KEY, lambda x, y, z, a: self.emit("proxy-port-changed", z.value.get_string()))
         self._client.notify_add(self.GCONF_ENABLED_HANDLERS, lambda x, y, z, a: self.emit("enabled-modules-changed", [i.get_string() for i in z.value.get_list()]))
         self._client.notify_add(self.GCONF_COLLAPSED_CAT, lambda x, y, z, a: self.emit("collapsed-rows-changed", [i.get_string() for i in z.value.get_list()]))
-        self._client.notify_add(self.GCONF_SHOW_HISTORY, lambda x, y, z, a: self.emit("show-history-changed", z.value.get_bool()))
         self._client.notify_add(self.GCONF_HIDE_AFTER_ACTION, lambda x, y, z, a: self.emit("hide-after-action-changed", z.value.get_bool()))
         self._client.notify_add(self.GCONF_TYPINGDELAY, lambda x, y, z, a: self.emit("max-history-items-changed", z.value.get_int()))
     
@@ -133,9 +129,6 @@ class GconfStore(gobject.GObject):
     def get_collapsed_cat(self):
         return self._client.get_list(self.GCONF_COLLAPSED_CAT, gconf.VALUE_STRING)
     
-    def get_show_history(self):
-        return self._client.get_bool(self.GCONF_SHOW_HISTORY)
-    
     def get_window_width(self):
         return self._client.get_int(self.GCONF_WINDOW_WIDTH)
     
@@ -183,10 +176,7 @@ class GconfStore(gobject.GObject):
         
     def set_collapsed_cat(self, cat):
         self._client.set_list(self.GCONF_COLLAPSED_CAT, gconf.VALUE_STRING, cat)
-        
-    def set_show_history(self, val):
-        self._client.set_bool(self.GCONF_SHOW_HISTORY, val)
-    
+     
     def set_window_width(self, width):
         self._client.set_int(self.GCONF_WINDOW_WIDTH, width)
     

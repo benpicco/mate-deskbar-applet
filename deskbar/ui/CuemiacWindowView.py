@@ -121,9 +121,6 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.results_box.pack_start(self.scrolled_results)
         self.results_box.pack_start(self.scrolled_actions)
         self.vbox_main.pack_start(self.results_box)
-        
-        if self._model.get_show_history():
-            self.show_history(self._model.get_show_history())
     
     def clear_all(self):
         deskbar.interfaces.View.clear_all(self)
@@ -150,12 +147,6 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
     
     def get_entry(self):
         return self.entry
-    
-    def show_history(self, value):
-        self.expander.set_expanded(value)
-            
-    def is_history_visible(self):
-        return self.expander.get_expanded()
     
     def receive_focus(self, time):
         self.entry.grab_focus()

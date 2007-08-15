@@ -105,9 +105,6 @@ class CoreImpl(deskbar.interfaces.Core):
     def get_collapsed_cat(self):
         return self._gconf.get_collapsed_cat()
     
-    def get_show_history(self):
-        return self._gconf.get_show_history()
-    
     def get_window_width(self):
         return self._gconf.get_window_width()
     
@@ -156,9 +153,6 @@ class CoreImpl(deskbar.interfaces.Core):
     
     def set_collapsed_cat(self, cat):
         self._gconf.set_collapsed_cat(cat)
-    
-    def set_show_history(self, val):
-        self._gconf.set_show_history(val)
     
     def set_window_width(self, width):
         self._gconf.set_window_width(width)
