@@ -48,6 +48,3 @@ class Controller(object):
     
     def on_history_match_selected(self, history, text, match):
         raise NotImplementedError
-    
-    def update_entry_icon (self, icon=None):
-        raise NotImplementedError
