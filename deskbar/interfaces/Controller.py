@@ -7,7 +7,7 @@ class Controller(object):
     def register_view(self, view):
         self._view = view
     
-    def on_quit(self, sender):
+    def on_quit(self, *args):
         raise NotImplementedError
 
     def on_keybinding_activated(self, core, time):
