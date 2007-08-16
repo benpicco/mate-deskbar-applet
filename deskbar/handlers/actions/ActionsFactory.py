@@ -34,7 +34,9 @@ def get_actions_for_uri(uri, display_name=None):
     mime = gnomevfs.get_mime_type(uri)
     actions = []
     
-    mime_default_cmd = gnomevfs.mime_get_default_application(mime)[2]
+    mime_default_cmd = gnomevfs.mime_get_default_application(mime)
+    if mime_default_cmd != None:
+        mime_default_cmd = mime_default_cmd[2]
     mime_apps = gnomevfs.mime_get_all_applications(mime)
     for app in mime_apps:
         # 0: .desktop file (str)
@@ -43,7 +45,7 @@ def get_actions_for_uri(uri, display_name=None):
         # 3: can open multiple files (bool)
         # 4: expects_uri (int)
         # 5: supported uri schemes (list)
-        if app[2] != mime_default_cmd:
+        if mime_default_cmd == None or app[2] != mime_default_cmd:
             actions.append( OpenWithApplicationAction(display_name, app[2], [path],
                     display_program_name=app[1]) )
     
