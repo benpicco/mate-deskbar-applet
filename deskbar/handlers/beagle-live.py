@@ -117,10 +117,10 @@ class OpenFeedAction(ShowUrlAction):
         return "stock_news"
     
     def get_verb(self):
-        return (_("News from %s") % "<i>%(publisher)s</i>" ) + "\n<b>%(name)s</b>%(snippet)s"
+        return (_("News from %s") % "<i>%(publisher)s</i>" ) + "\n<b>%(name)s</b>" + self._snippet
     
     def get_name(self, text=None):
-        return {"name": self._name, "publisher": self._publisher, "snippet": self._snippet}
+        return {"name": self._name, "publisher": self._publisher}
 
 class OpenNoteAction(OpenWithApplicationAction):
     def __init__(self, name, uri, snippet):
@@ -131,11 +131,8 @@ class OpenNoteAction(OpenWithApplicationAction):
         return "stock_notes"
     
     def get_verb(self):
-        return _("Note: %s") % "<b>%(name)s</b>%(snippet)s"
-    
-    def get_name(self, text=None):
-        return {"name": self._name, "snippet": self._snippet}
-
+        return (_("Note: %s") % "<b>%(name)s</b>") + self._snippet
+   
 class OpenIMLogAction(OpenWithApplicationAction):
     def __init__(self, name, uri, client, snippet):
         OpenWithApplicationAction.__init__(self, name, "beagle-imlogviewer", [])
@@ -158,7 +155,7 @@ class OpenIMLogAction(OpenWithApplicationAction):
         
 class OpenCalendarAction(OpenWithEvolutionAction):
     def __init__(self, name, uri):
-        OpenWithEvolutionAction.__init__(self, uri)
+        OpenWithEvolutionAction.__init__(self, name, uri)
         
     def get_icon(self):
         return "stock_calendar"
@@ -213,11 +210,10 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
         elif (result["type"] == "File"):
             # Unescape URI again
             unescaped_uri = gnomevfs.unescape_string_for_display(result["escaped_uri"])
-            self.add_all_actions( [OpenFileAction(result["name"], result["uri"], False)] + 
-                                  get_actions_for_uri(unescaped_uri,
-                                    display_name=basename(unescaped_uri)
-                                  )
-                                )
+            actions = [OpenFileAction(result["name"], result["uri"], False)] + get_actions_for_uri(
+                                    unescaped_uri,
+                                    display_name=basename(unescaped_uri))
+            self.add_all_actions( actions )
         else:
             logging.warning("Unknown beagle match type found: "+result["type"] )
 
@@ -237,7 +233,10 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
     def get_hash(self, text=None):
         if "uri" in self.result:
             return self.result["uri"]
-
+        
+    def get_name(self, text=None):
+        return self._name + self.result["snippet"]
+        
 class SnippetContainer:
     def __init__(self, hit):
         self.hit = hit
@@ -381,7 +380,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             if hit.get_type() not in TYPES:
                 logging.warning("Beagle live seen an unknown type:"+ hit.get_type())
                 continue
-
+            
             if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
                 req = beagle.SnippetRequest()
                 req.set_query(query)
@@ -415,7 +414,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         dialog.destroy()
         
         if response == gtk.RESPONSE_ACCEPT :
-            print "Starting Beagle Daemon."
+            logging.info("Starting Beagle Daemon.")
             if not spawn_async(["beagled"]):
                 BeagleLiveHandler.INSTRUCTIONS = _("Failed to start beagled. Perhaps the beagle daemon isn't installed?")
                 warn = gtk.MessageDialog(flags=gtk.DIALOG_MODAL, 
