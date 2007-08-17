@@ -198,8 +198,7 @@ class CuemiacTreeView (gtk.TreeView):
         gtk.TreeView.__init__ (self, model)
         self.set_enable_search (False)
         self.set_property ("headers-visible", False)
-        
-        self.connect ("row-activated", self.__on_activated) # Used activate result if enter in entry has been pressed 
+
         self.connect ("button-press-event", self.__on_button_press)        
         self.connect ("key-press-event", self.__on_key_press)
                 
