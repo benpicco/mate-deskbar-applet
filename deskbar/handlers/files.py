@@ -46,7 +46,7 @@ class GtkBookmarkMatch(deskbar.interfaces.Match):
         deskbar.interfaces.Match.__init__(self, icon="gtk-open", name=name, category="places", **args)
         self.path = path
         self.add_action( OpenWithNautilusAction(name, path) )
-        self.add_all_actions( get_actions_for_uri(absname) )
+        self.add_all_actions( get_actions_for_uri(path) )
     
     def get_hash(self, text=None):
         return self.path
