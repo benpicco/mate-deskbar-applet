@@ -265,12 +265,14 @@ class CuemiacTreeView (gtk.TreeView):
 
     def select_first_item(self):
         model = self.get_model()
-        path = model.get_path( model.iter_nth_child(model.get_iter_first(), 0))
-        self.__select_path(path)
+        path = self.__find_top_path()
+        if path != None:
+            self.__select_path(path)
         
     def select_last_item(self):
-        path = self.__get_bottom_path()
-        self.__select_path(path)
+        path = self.__find_bottom_path()
+        if path != None:
+            self.__select_path(path)
     
     def __on_button_press (self, treeview, event):
         # We want to activate items on single click
@@ -378,7 +380,7 @@ class CuemiacTreeView (gtk.TreeView):
         elif (event.keyval == gtk.keysyms.Down):
             if match.__class__ == CuemiacCategory:
                 return False
-            elif model.get_path(iter) == self.__get_bottom_path():
+            elif model.get_path(iter) == self.__find_bottom_path():
                 # We're at the bottom of the list
                 self.emit("pressed-up-at-top")
                 return True
@@ -387,29 +389,63 @@ class CuemiacTreeView (gtk.TreeView):
                 if iter_next == None:
                     # We're at the last item of a category
                     # Select the first item of the next category
-                    parent = model.iter_parent(iter)
-                    num = model.get_path(parent)[0]+1
-                    self.__select_path( (num, 0) )
+                    next_cat = self.__find_next_cat(iter )
+                    if next_cat == None:
+                        return False
+                    else:
+                        num = model.get_path(next_cat)[0]
+                        self.__select_path( (num, 0) )
                     return True
         elif (event.keyval == gtk.keysyms.Up):
             if match.__class__ == CuemiacCategory:
                 return False
-            elif model.get_path(iter) == (0,0):
+            elif model.get_path(iter) == self.__find_top_path():
                 # We're at the top of the list 
                 self.emit("pressed-down-at-bottom")
                 return True
             elif model.get_path(iter)[1] == 0:
                 # We're at the first item of a category
                 # Select the last item of the previous category
-                parent = model.iter_parent(iter)
-                num = model.get_path(parent)[0]-1
-                prev_cat = model.get_iter( (num,) )
-                child = model.iter_n_children(prev_cat)-1
-                
-                self.__select_path( (num, child) )
-                return True
+                prev_cat = self.__find_previous_cat( iter )
+                if prev_cat == None:
+                    return False
+                else:
+                    num = model.get_path(prev_cat)[0]
+                    child = model.iter_n_children(prev_cat)-1
+                    self.__select_path( (num, child) )
+                    return True
             
         return False
+    
+    def __find_next_cat(self, iter):
+        """
+        Find next expanded category
+        """
+        model = self.get_model()
+        next_path = (model.get_path(iter)[0]+1, )
+        if next_path[0] >= len(model):
+            # All categories are collapsed
+            return None
+        next_iter = model.get_iter( next_path )
+        if self.row_expanded(next_path):
+            return next_iter
+        else:
+            return self.__find_next_cat( next_iter )
+    
+    def __find_previous_cat(self, iter):
+        """
+        Find next previous expanded category
+        """
+        model = self.get_model()
+        prev_path = (model.get_path(iter)[0]-1, )
+        if prev_path[0] < 0:
+            # All categories are collapsed
+            return None
+        prev_iter = model.get_iter(prev_path)
+        if self.row_expanded(prev_path):
+            return prev_iter
+        else:
+            return self.__find_previous_cat( prev_iter )    
     
     def __select_path(self, path):
         self.get_selection().select_path( path )
@@ -419,12 +455,33 @@ class CuemiacTreeView (gtk.TreeView):
     def __select_iter(self, iter):
         self.__select_path( self.get_model().get_path(iter) )
     
-    def __get_bottom_path(self):
+    def __find_bottom_path(self):
+        """
+        Find last item of last expanded category
+        """
         model = self.get_model()
         last_cat = len(model)-1
+        while (last_cat >= 0) and (not self.row_expanded( (last_cat,) )):
+            last_cat -= 1
+        if last_cat < 0:
+            # All categories are collapsed
+            return None
         last_cat_iter =  model.iter_nth_child(None, last_cat)
         last_cat_children = model.iter_n_children(last_cat_iter)-1
         return (last_cat, last_cat_children)
+    
+    def __find_top_path(self):
+        """
+        Find first item in first expanded category
+        """
+        model = self.get_model()
+        cat = 0
+        while (cat < len(model)) and (not self.row_expanded( (cat,) )):
+            cat += 1
+        if cat >= len(model):
+            # All categories are collapsed
+            return None
+        return (cat, 0)
 
 if gtk.pygtk_version < (2,8,0):    
     gobject.type_register (CuemiacTreeView)
