@@ -126,6 +126,8 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         
     def on_history_match_selected(self, history, text, action):
         action.activate(text)
+        if self._model.get_hide_after_action():
+            self.on_quit()
         
     def on_category_expanded(self, widget, iter, path, model):
         idx = model[iter][model.MATCHES].get_id ()
