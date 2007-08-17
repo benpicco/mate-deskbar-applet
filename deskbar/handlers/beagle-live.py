@@ -137,11 +137,11 @@ class OpenNoteAction(OpenWithApplicationAction):
         return {"name": self._name, "snippet": self._snippet}
 
 class OpenIMLogAction(OpenWithApplicationAction):
-    def __init__(self, name, uri, client, text):
-        OpenWithApplicationAction.__init__(self, name, "beagle-imlogviewer",
-                "--client", client, "--highlight-search", text,
-                gnomevfs.get_local_path_from_uri(uri))
+    def __init__(self, name, uri, client, snippet):
+        OpenWithApplicationAction.__init__(self, name, "beagle-imlogviewer", [])
         self._snippet = snippet
+        self._uri = gnomevfs.get_local_path_from_uri(uri)
+        self._client = client
         
     def get_icon(self):
         return "im"
@@ -151,6 +151,10 @@ class OpenIMLogAction(OpenWithApplicationAction):
 
     def get_name(self, text=None):
         return {"name": self._name, "snippet": self._snippet}
+    
+    def activate(self, text=None):
+        self._arguments = ["--client", self._client, "--highlight-search", text, self._uri]
+        OpenWithApplicationAction.activate(self, text)
         
 class OpenCalendarAction(OpenWithEvolutionAction):
     def __init__(self, name, uri):
@@ -201,7 +205,7 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
         elif (result["type"] == "Note"):
             self.add_action( OpenNoteAction(result["name"], result["uri"], result["snippet"]) )
         elif (result["type"] == "IMLog"):
-            self.add_action( OpenIMLogAction(result["name"], result["uri"], result["client"], result["text"], result["snippet"]) )
+            self.add_action( OpenIMLogAction(result["name"], result["uri"], result["client"], result["snippet"]) )
         elif (result["type"] == "Calendar"):
             self.add_action( OpenCalendarAction(result["name"], result["uri"]) )
         elif (result["type"] == "WebHistory"):
