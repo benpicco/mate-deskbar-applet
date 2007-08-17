@@ -151,7 +151,7 @@ class AccelEntry( gobject.GObject ):
                 gtk.DIALOG_DESTROY_WITH_PARENT | gtk.DIALOG_MODAL,
                 gtk.MESSAGE_WARNING,
                 gtk.BUTTONS_CANCEL,
-                _("The shortcut \"%s\" cannot be used because it will become unusable to type using this key.\nPlease try with a key such as Control, Alt or Shift at the same time.\n")
+                _("The shortcut \"%s\" cannot be used because it will prevent correct operation of your keyboard.\nPlease try with a key such as Control, Alt or Shift at the same time.\n")
                 % gtk.accelerator_name(accel_keyval, accel_mods)
             )
             dialog.run()
