@@ -269,10 +269,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             return
             
         self.counter[qstring] = {}
-    
-    def has_config(self):
-        return True
-        
+      
     def _on_snippet_received(self, request, response, query, container, qstring, qmax):
         container.snippet = response.get_snippet()
         self._on_hit_added(query, container, qstring, qmax)
@@ -400,33 +397,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                 hit_matches.append(match)                
             
         self._emit_query_ready(qstring, hit_matches)
-        
-    def show_config(self, parent):
-        dialog = gtk.Dialog(_("Start Beagle Daemon?"), parent,
-                gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT)
-    
-        dialog.set_default_size (350, 150)
-        dialog.add_button (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT)
-        dialog.add_button (_("Start Beagle Daemon"), gtk.RESPONSE_ACCEPT)
-        label = gtk.Label (_("The Beagle daemon does not appear to be running.\n You need to start it to use the Beagle Live handler."))
-        dialog.vbox.add (label)
-        label.show()
-    
-        response = dialog.run()
-        dialog.destroy()
-        
-        if response == gtk.RESPONSE_ACCEPT :
-            logging.info("Starting Beagle Daemon.")
-            if not spawn_async(["beagled"]):
-                BeagleLiveHandler.INSTRUCTIONS = _("Failed to start beagled. Perhaps the beagle daemon isn't installed?")
-                warn = gtk.MessageDialog(flags=gtk.DIALOG_MODAL, 
-                            type=gtk.MESSAGE_WARNING,
-                            buttons=gtk.BUTTONS_CLOSE,
-                            message_format=_("Failed to start Beagle"))
-                warn.format_secondary_text (_("Perhaps the beagle daemon isn't installed?"))
-                warn.run()
-                warn.destroy()
-        
+     
     @staticmethod
     def has_requirements():
         # Check if we have python bindings for beagle
@@ -442,7 +413,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                 BeagleLiveHandler.INSTRUCTIONS = "Beagle daemon is not running."
                 return False
             else:
-                BeagleLiveHandler.INSTRUCTIONS = _("Beagled could not be found in your $PATH. Unable to start the beagled daemon")
+                BeagleLiveHandler.INSTRUCTIONS = _("Beagled could not be found in your $PATH.")
                 return False
         else:
             return True
