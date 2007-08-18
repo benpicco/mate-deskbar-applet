@@ -31,9 +31,6 @@ class GconfStore(gobject.GObject):
     GCONF_WINDOW_WIDTH = GCONF_DIR + "/window_width"
     GCONF_WINDOW_HEIGHT = GCONF_DIR + "/window_height"
     
-    GCONF_WINDOW_X = GCONF_DIR + "/window_x"
-    GCONF_WINDOW_Y = GCONF_DIR + "/window_y"
-    
     GCONF_HIDE_AFTER_ACTION = GCONF_DIR + "/hide_after_action"
     
     GCONF_MAX_HISTORY_ITEMS = GCONF_DIR + "/max_history_items"
@@ -134,12 +131,6 @@ class GconfStore(gobject.GObject):
     
     def get_window_height(self):
         return self._client.get_int(self.GCONF_WINDOW_HEIGHT)
-    
-    def get_window_x(self):
-        return self._client.get_int(self.GCONF_WINDOW_X)
-        
-    def get_window_y(self):
-        return self._client.get_int(self.GCONF_WINDOW_Y)
    
     def get_hide_after_action(self):
         return self._client.get_bool(self.GCONF_HIDE_AFTER_ACTION)
@@ -182,12 +173,6 @@ class GconfStore(gobject.GObject):
     
     def set_window_height(self, height):
         self._client.set_int(self.GCONF_WINDOW_HEIGHT, height)  
-    
-    def set_window_x(self, x):
-        self._client.set_int(self.GCONF_WINDOW_X, x)
-        
-    def set_window_y(self, y):
-        self._client.set_int(self.GCONF_WINDOW_Y, y)
     
     def set_hide_after_action(self, val):
         self._client.set_bool(self.GCONF_HIDE_AFTER_ACTION, val)

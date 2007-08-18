@@ -23,11 +23,13 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.connect("delete-event", self._controller.on_quit)
         self.connect("destroy-event", self._controller.on_quit)
         self.connect("key-press-event", self.__on_window_key_press_event)
-        
+       
         self.set_title("Deskbar Applet")
         self.set_default_size( self._model.get_window_width(), -1 )
         self.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
         self.set_property("skip-taskbar-hint", True)
+        self.set_position(gtk.WIN_POS_CENTER_ALWAYS)
+        self.set_keep_above(True)
 
         self._model.connect("query-ready", lambda s,m: gobject.idle_add(self.append_matches, s, m))
         
@@ -153,7 +155,6 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.realize()
         self.window.set_user_time(time)
         self.present()
-        self.move( self._model.get_window_x(), self._model.get_window_y() )
 
     def show_results(self):
         width, height = self.get_size()
