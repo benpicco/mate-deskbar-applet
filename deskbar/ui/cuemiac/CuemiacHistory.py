@@ -1,4 +1,5 @@
 import gtk, pango, gobject
+import logging
 import deskbar.interfaces.Action
 
 class CuemiacHistoryView (gtk.ComboBox):
@@ -46,6 +47,11 @@ class CuemiacHistoryView (gtk.ComboBox):
         iter = self.get_active_iter()
         if iter != None:
             timestamp, text, action = self.get_model()[iter]
+            if not action.is_valid():
+                logging.warning("Action is not valid anymore. Removing it from history.")
+                self.get_model().remove(iter)
+                self.set_active(0)
+                return False
             self.emit ("match-selected", text, action)
             self.handler_block(self.__changed_id)
             self.set_active ( 0 )

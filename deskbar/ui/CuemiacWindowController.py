@@ -1,5 +1,6 @@
 import gtk
 import gtk.gdk
+import logging
 import deskbar.interfaces.Controller
 import deskbar.core.Utils
 from deskbar.ui.About import show_about
@@ -113,6 +114,9 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         self.on_action_selected(treeview, text, action, event)
         
     def on_action_selected(self, treeview, text, action, event):
+        if not action.is_valid():
+            logging.warning("Action is not valid anymore")
+            return
         self._model.get_history().add(text, action)
         action.activate(text)
         if self._model.get_clear_entry():

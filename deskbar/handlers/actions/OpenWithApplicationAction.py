@@ -1,7 +1,7 @@
 import deskbar.interfaces.Action
 from gettext import gettext as _
-from deskbar.core.Utils import spawn_async
-from os.path import exists
+from deskbar.core.Utils import spawn_async, is_program_in_path
+from os.path import exists, isabs
 
 class OpenWithApplicationAction(deskbar.interfaces.Action):
     
@@ -21,7 +21,10 @@ class OpenWithApplicationAction(deskbar.interfaces.Action):
         return "gtk-open"
     
     def is_valid(self):
-        return exists(self._program)
+        if isabs(self._program):
+            return exists(self._program)
+        else:
+            return is_program_in_path(self._program)
        
     def get_hash(self):
         return self._program+" ".join(self._arguments)

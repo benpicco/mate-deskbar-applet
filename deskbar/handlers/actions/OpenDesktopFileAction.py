@@ -20,6 +20,9 @@ class OpenDesktopFileAction(deskbar.interfaces.Action):
         self.__dict__ = state
         self._desktop = parse_desktop_filename(self._desktop_file)
     
+    def is_valid(self):
+        return exists(self._desktop_file)
+    
     def get_icon(self):
         return "gtk-open"
     

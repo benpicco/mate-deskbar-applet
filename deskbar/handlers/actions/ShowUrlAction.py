@@ -8,10 +8,7 @@ class ShowUrlAction(deskbar.interfaces.Action):
     def __init__(self, name, url):
         deskbar.interfaces.Action.__init__(self, name)
         self._url = url
-        
-    def is_valid(self):
-        return exists(self._url)
-        
+    
     def get_icon(self):
         if self._url.startswith("http") or self._url.startswith("ftp"):
             return "stock_internet"

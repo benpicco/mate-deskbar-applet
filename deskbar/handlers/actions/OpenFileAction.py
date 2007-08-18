@@ -1,6 +1,8 @@
 import deskbar.interfaces.Action
 from gettext import gettext as _
 from deskbar.core.Utils import url_show_file
+from os.path import exists
+import gnomevfs
 
 class OpenFileAction(deskbar.interfaces.Action):
     
@@ -16,6 +18,12 @@ class OpenFileAction(deskbar.interfaces.Action):
     
     def get_icon(self):
         return "gtk-open"
+    
+    def is_valid(self):
+        url = self._url[7:]
+        if not self._escape:
+            url = gnomevfs.unescape_string_for_display(url)
+        return exists( url )
     
     def get_hash(self):
         return self._url

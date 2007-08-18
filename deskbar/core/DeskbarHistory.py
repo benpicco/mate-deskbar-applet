@@ -91,7 +91,8 @@ class DeskbarHistory (gtk.ListStore) :
                 if i == self.__max_history_items-1:
                     break
                 timestamp, text, action = data
-                self.append(timestamp, text, action)
+                if action.is_valid():
+                    self.append(timestamp, text, action)
             
         except IOError:
             # There's probably no history file

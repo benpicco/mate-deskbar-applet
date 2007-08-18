@@ -9,15 +9,16 @@ class OpenWithNautilusAction(OpenWithApplicationAction):
     AUDIO_URIS = ["cdda"]
     
     def __init__(self, name, url):
+        """
+        @param url: URL including protocol
+        (e.g. file://, http://, ftp://)
+        """
         OpenWithApplicationAction.__init__(self, name, "nautilus", [url])
         self._url = url
     
     def get_icon(self):
         return "file-manager"
-      
-    def is_valid(self):
-        return exists(self._url)
-        
+    
     def get_verb(self):
         uri_scheme = gnomevfs.get_uri_scheme(self._url)
         
