@@ -227,7 +227,6 @@ class DeskbarPreferences:
         
         if module_context != None:
             self.check_requirements(module_context)
-            gobject.timeout_add(1000, self.poll_requirements, module_context)
             
         # Check if we can update
         if self.newstuff != None:
@@ -263,16 +262,7 @@ class DeskbarPreferences:
         if hasattr(module, "INSTRUCTIONS") and module.INSTRUCTIONS != None and module.INSTRUCTIONS != "":
             self.disabledhandlers_box.pack_end(InfoBox(module.INSTRUCTIONS, gtk.STOCK_DIALOG_ERROR), False, False, 0)
         self.disabledhandlers_box.show_all()
-     
-    def poll_requirements(self, module_context):
-        try:
-            if module_context != self.moduleview.get_selected_module():
-                return False
-        except AttributeError:
-            return False
-        self.check_requirements(module_context)
-        return True
-    
+  
     def check_requirements(self, module):
         if module is None:
             return
@@ -294,14 +284,15 @@ class DeskbarPreferences:
         self.old_info_message = message
         
         self.info_area.remove(self.info_area.get_children()[0])
-        if message == None or message == "":
-            self.info_area.add(self.default_info)
-            self.more_button.set_sensitive(False)
-        else:
+        
+        if callable(callback):
             other_info = InfoBox(message, stock_icon)
             self.info_area.add( other_info )
             other_info.show_all()
             self.more_button.set_sensitive(self.more_button_callback != None)
+        else:
+            self.info_area.add(self.default_info)
+            self.more_button.set_sensitive(False)
     
     def on_module_toggled(self, moduleview, module):
         if (module.is_enabled()):
