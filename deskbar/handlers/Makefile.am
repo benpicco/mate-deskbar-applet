@@ -14,7 +14,6 @@ deskbar_handlers_PYTHON = \
 	desklicious.py \
 	epiphany.py \
 	files.py \
-	galeon.py \
 	gdmactions.py \
 	history.py \
 	iswitch-window.py \
