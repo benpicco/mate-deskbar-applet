@@ -34,7 +34,7 @@ class BeagleMatch(deskbar.interfaces.Match):
 class BeagleHandler(deskbar.interfaces.Module):
     
     INFOS = {'icon': load_icon("system-search"),
-            "name": _("Beagle Live"),
+            "name": _("Beagle"),
             "description": _("Search all of your documents (using Beagle)"),
             'version': VERSION,
             }
