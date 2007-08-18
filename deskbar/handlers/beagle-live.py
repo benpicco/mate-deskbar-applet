@@ -81,7 +81,7 @@ TYPES = {
 
 class OpenWithEvolutionAction(OpenWithApplicationAction):
     def __init__(self, name, uri):
-        OpenWithApplicationAction.__init__(self, name, "evolution", uri, [])
+        OpenWithApplicationAction.__init__(self, name, "evolution", [uri])
         
 class OpenContactAction(OpenWithEvolutionAction):
     def __init__(self, name, uri):
@@ -356,7 +356,11 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         if snippet != None:
             tmp = re.sub(r"<.*?>", "", snippet)
             tmp = re.sub(r"</.*?>", "", tmp)
-            result["snippet"] = "\n<span foreground='grey' size='small'>%s</span>" % cgi.escape(tmp)
+            result["snippet"] = "\n<span size='small'>%s</span>" % cgi.escape(tmp)
+            #tmp = re.sub('<font color="', '<span foreground="', snippet)
+            #tmp = re.sub('</font>', '</span>', tmp)
+            #print tmp
+            #result["snippet"] = "\n"+tmp
         else:
             result["snippet"] = ""
             
@@ -397,7 +401,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             if match != None:
                 hit_matches.append(match)                
             
-        self._emit_query_ready(query, hit_matches)
+        self._emit_query_ready(qstring, hit_matches)
         
     def show_config(self, parent):
         dialog = gtk.Dialog(_("Start Beagle Daemon?"), parent,
