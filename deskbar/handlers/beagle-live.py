@@ -50,6 +50,10 @@ TYPES = {
         "category": "files",
         "snippet": True,
         },
+    "Directory"    : {
+        "name"    : ("beagle:ExactFilename",),
+        "category": "places",
+        },
     "FeedItem"    : {
         "name"    : ("dc:title",),
         "category": "news",
@@ -166,17 +170,16 @@ class OpenCalendarAction(OpenWithEvolutionAction):
 class OpenWebHistoryAction(ShowUrlAction):
     def __init__(self, name, uri, escaped_uri):
         ShowUrlAction.__init__(self, name, uri)
-        self._escaped_uri = escaped_uri
+        self._escaped_uri = gnomevfs.unescape_string_for_display(escaped_uri)
         
     def get_icon(self):
         return "system-search"
     
     def get_verb(self):
-        return (_("Open History Item %s") % "<i>%(name)s</i>") + "\n%(escaped_uri)s"
+        verb = _("Open History Item %s") % "<b>%(name)s</b>" 
+        verb += "\n<span size='small'>%s</span>" % self._escaped_uri
+        return verb
     
-    def get_name(self, text=None):
-        return {"name": self._name, "escaped_uri": self._escaped_uri}
-
 ### ===== End: Actions ===== ###
         
 class BeagleLiveMatch (deskbar.interfaces.Match):
@@ -208,7 +211,7 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
             self.add_action( OpenCalendarAction(result["name"], result["uri"]) )
         elif (result["type"] == "WebHistory"):
             self.add_action( OpenWebHistoryAction(result["name"], result["uri"], result["escaped_uri"]) )
-        elif (result["type"] == "File"):
+        elif (result["type"] == "File" or result["type"] == "Directory"):
             # Unescape URI again
             unescaped_uri = gnomevfs.unescape_string_for_display(result["escaped_uri"])
             actions = [OpenFileAction(result["name"], result["uri"], False)] + get_actions_for_uri(
@@ -287,22 +290,28 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         if hit.__class__ == SnippetContainer:
             hit, snippet = hit.hit, hit.snippet
             fire_signal = True
-            
-        if not hit.get_type() in self.counter[qstring]:
-            self.counter[qstring][hit.get_type()] = 0
+        
+        hit_type = hit.get_type()
+        if hit_type == "File":
+            filetype = hit.get_properties("beagle:FileType")
+            if filetype != None and filetype[0] == 'directory':
+                hit_type = "Directory"
+              
+        if not hit_type in self.counter[qstring]:
+            self.counter[qstring][hit_type] = 0
 
-        if self.counter[qstring][hit.get_type()] >= qmax:
+        if self.counter[qstring][hit_type] >= qmax:
             return
             
-        hit_type = TYPES[hit.get_type()]
+        hit_type_data = TYPES[hit_type]
+        
         result = {
             "uri":  hit.get_uri(),
-            "type": hit.get_type(),
-            "source": hit.get_source(),
+            "type": hit_type,
         }
-            
+          
         name = None
-        for prop in hit_type["name"]:
+        for prop in hit_type_data["name"]:
             try:
                 name = hit.get_properties(prop)[0] # get_property_one() would be cleaner, but this works around bug #330053
             except:
@@ -321,8 +330,8 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             #translators: for example unknown email sender, or unknown note title
             result["name"] = _("?")
             
-        if "extra" in hit_type:
-            for prop, keys in hit_type["extra"].items():
+        if "extra" in hit_type_data:
+            for prop, keys in hit_type_data["extra"].items():
                 val = None
                 for key in keys:
                     try:
@@ -359,7 +368,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         else:
             result["snippet"] = ""
             
-        self.counter[qstring][hit.get_type()] = self.counter[qstring][hit.get_type()] +1
+        self.counter[qstring][hit.get_type()] = self.counter[qstring][hit_type] +1
 
         if TYPES.has_key(result["type"]):
             cat_type = TYPES[result["type"]]["category"]
