@@ -186,6 +186,7 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
             "name" : a name sensible to display for this match
             "uri": the uri of the match as provided by the beagled 'Uri: '-field
             "type": One of the types listed in the TYPES dict
+            "source": Which beagle indexer found that result
 
         -- and optionally extra fields as provided by the corresponding entry in TYPES.
         Fx. "MailMessage". has an extra "sender" entry.
@@ -300,6 +301,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         result = {
             "uri":  hit.get_uri(),
             "type": hit.get_type(),
+            "source": hit.get_source(),
         }
             
         name = None
@@ -356,11 +358,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         if snippet != None:
             tmp = re.sub(r"<.*?>", "", snippet)
             tmp = re.sub(r"</.*?>", "", tmp)
-            result["snippet"] = "\n<span size='small'>%s</span>" % cgi.escape(tmp)
-            #tmp = re.sub('<font color="', '<span foreground="', snippet)
-            #tmp = re.sub('</font>', '</span>', tmp)
-            #print tmp
-            #result["snippet"] = "\n"+tmp
+            result["snippet"] = "\n<span size='small' style='italic'>%s</span>" % cgi.escape(tmp)
         else:
             result["snippet"] = ""
             
