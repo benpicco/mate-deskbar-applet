@@ -148,10 +148,7 @@ class OpenIMLogAction(OpenWithApplicationAction):
         return "im"
 
     def get_verb(self):
-        return _("With %s") % "<b>%(name)s</b>%(snippet)s"
-
-    def get_name(self, text=None):
-        return {"name": self._name, "snippet": self._snippet}
+        return (_("With %s") % "<b>%(name)s</b>") + self._snippet
     
     def activate(self, text=None):
         self._arguments = ["--client", self._client, "--highlight-search", text, self._uri]
