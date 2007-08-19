@@ -22,6 +22,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         gtk.Window.__init__(self)
         self._controller.register_view(self)
         self.__small_window_height = None
+        self._do_clear = True
         
         self.connect("delete-event", self._controller.on_quit)
         self.connect("destroy-event", self._controller.on_quit)
@@ -153,6 +154,13 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
     def get_entry(self):
         return self.entry
     
+    def set_clear(self):
+        """
+        Set a flag to clear the list of matches and actions
+        as soon as the first result arrives
+        """
+        self._do_clear = True
+    
     def receive_focus(self, time):
         self.entry.grab_focus()
         self.realize()
@@ -180,6 +188,10 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         We suppose that the results belong to the text
         that is currently in the entry
         """
+        if self._do_clear:
+            self._do_clear = False
+            self.clear_results()
+            self.clear_actions()
         self.treeview_model.append (matches, self.entry.get_text())
         self.update_entry_icon()
         

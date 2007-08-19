@@ -37,8 +37,7 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         prefs.show_run_hide(self._view.get_toplevel())
         
     def on_query_entry_changed(self, entry):
-        self._view.clear_results()
-        self._view.clear_actions()
+        self._view.set_clear()
         self._model.stop_queries()
         # TODO: abort previous searches
         qstring = entry.get_text().strip()
@@ -46,7 +45,7 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
             self._view.show_results()
             self._model.query( qstring )
         else:
-            self._view.clear_all()
+            self._view.set_clear()
             
     def on_query_entry_key_press_event(self, entry, event):
         # For key UP to browse in history, we have either to be already in history mode, or have an empty text entry to trigger hist. mode
@@ -121,7 +120,7 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         self._model.get_history().add(text, action)
         action.activate(text)
         if self._model.get_clear_entry():
-            self._view.get_entry().set_text("")
+            self._view.clear_query()
         if self._model.get_hide_after_action():
             self.on_quit()
         
