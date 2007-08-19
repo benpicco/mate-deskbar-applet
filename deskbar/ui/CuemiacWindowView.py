@@ -33,7 +33,6 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
         self.set_property("skip-taskbar-hint", True)
         self.set_position(gtk.WIN_POS_CENTER_ALWAYS)
-        self.set_keep_above(True)
 
         self._model.connect("query-ready", lambda s,m: gobject.idle_add(self.append_matches, s, m))
         
