@@ -79,21 +79,10 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         
         if iter == None or model.iter_has_child(iter):
             # No selection, select top element
-            iter = model.get_iter_first()
-            
-            while iter != None and (not (model.iter_has_child(iter) and self._view.cview.row_expanded(model.get_path(iter))) ):
-                iter = model.iter_next(iter)
-            if iter != None:
-                iter = model.iter_children(iter)
-
-        if iter is None:
-            return
-        # retrieve new path-col pair, since it might have been None to start out
-        path = model.get_path (iter)
-        
-        column = self._view.cview.get_column (0)
-        # This emits a match-selected from the cview
-        self._view.cview.emit ("row-activated", path, column)
+            self._view.cview.activate_first_item()
+        else:
+            # Activate selcted row
+            self._view.cview.activate_row(iter)
         
     def on_treeview_cursor_changed(self, treeview):
         self._view.update_entry_icon ()

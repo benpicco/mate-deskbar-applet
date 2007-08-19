@@ -262,6 +262,17 @@ class CuemiacTreeView (gtk.TreeView):
         else:
             return False
 
+    def activate_first_item(self):
+        path = self.__find_top_path()
+        self.activate_row( self.get_model().get_iter(path) )
+
+    def activate_row(self, iter):
+        path = self.get_model().get_path(iter)
+        if path != None:
+            self.__select_path(path)
+            col = self.get_column(0)
+            self.__on_activated(self, path, col)
+
     def select_first_item(self):
         model = self.get_model()
         path = self.__find_top_path()
