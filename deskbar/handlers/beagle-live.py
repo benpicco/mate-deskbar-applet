@@ -235,6 +235,8 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
                 pass
     
     def get_hash(self, text=None):
+        if self.result["type"] == "Contact":
+            return self.result["name"]
         if "uri" in self.result:
             return self.result["uri"]
         

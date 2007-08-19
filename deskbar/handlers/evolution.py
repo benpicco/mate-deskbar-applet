@@ -10,10 +10,11 @@ class EvolutionMatch(deskbar.interfaces.Match):
         deskbar.interfaces.Match.__init__(self, name=name, email=email, **args)
         self._icon = pixbuf
         self.email = email
+        
         self.add_action( SendEmailToAction(name, email) )
     
     def get_hash(self, text=None):
-        return self.email
+        return self.get_name()
         
 class EvolutionHandler(deskbar.interfaces.Module):
     
