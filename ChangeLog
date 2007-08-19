@@ -2,6 +2,16 @@
 
 	* deskbar/ui/cuemiac/CuemiacTreeView.py:
 	* deskbar/ui/CuemiacWindowController.py:
+	* deskbar/ui/CuemiacWindowView.py:
+	Clear entry, matches and actions list if "clear_entry" is True.
+	Otherwise, navigation in the TreeView is still possible and
+	would cause trouble.
+	Set default entry icon correctly if needed.
+
+2007-08-19  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+	* deskbar/ui/cuemiac/CuemiacTreeView.py:
+	* deskbar/ui/CuemiacWindowController.py:
 	Pressing Enter in entry either activates
 	selected match or top most that's not in a collapsed
 	category

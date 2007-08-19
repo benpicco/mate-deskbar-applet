@@ -146,7 +146,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         
     def clear_query(self):
         self.entry.set_text("")
-        self.update_entry_icon()
+        self.entry.set_icon( self.default_entry_pixbuf )
     
     def get_toplevel(self):
         return self
@@ -192,8 +192,9 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
             self._do_clear = False
             self.clear_results()
             self.clear_actions()
+            # Display default icon in entry
+            self.update_entry_icon()
         self.treeview_model.append (matches, self.entry.get_text())
-        self.update_entry_icon()
         
     def set_sensitive (self, active):
         """
@@ -204,7 +205,6 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
             self.entry.grab_focus()
    
     def update_entry_icon (self, icon=None):
-        
         if icon == None:
             icon = self.default_entry_pixbuf
             if not (self.cview.get_toplevel().flags() & gtk.MAPPED):
@@ -214,10 +214,10 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
                 
             path, column = self.cview.get_cursor ()
         
-            if path != None:
+            if path != None and self.entry.get_text() != "":
                 match = self.treeview_model[self.treeview_model.get_iter(path)][self.treeview_model.MATCHES]
                 if not isinstance(match, CuemiacCategory):
-                    icon=match.get_icon()
+                    icon = match.get_icon()
                 
         self.entry.set_icon (icon)
         

@@ -262,14 +262,22 @@ class CuemiacTreeView (gtk.TreeView):
         else:
             return False
 
-    def activate_first_item(self):
+    def activate_first_item(self, scroll=True):
+        """
+        Activate to the first item and scroll to it if C{scroll} is C{True}
+        """
         path = self.__find_top_path()
+        if scroll:
+            self.__select_path(path)
         self.activate_row( self.get_model().get_iter(path) )
 
     def activate_row(self, iter):
+        """
+        Doesn't scroll to the cell. We pretend
+        that the row is already selected.
+        """
         path = self.get_model().get_path(iter)
         if path != None:
-            self.__select_path(path)
             col = self.get_column(0)
             self.__on_activated(self, path, col)
 

@@ -79,7 +79,9 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         
         if iter == None or model.iter_has_child(iter):
             # No selection, select top element
-            self._view.cview.activate_first_item()
+            # Only scroll to the item if the TreeView still
+            # contains items after we activated the item
+            self._view.cview.activate_first_item( not self._model.get_clear_entry() )
         else:
             # Activate selcted row
             self._view.cview.activate_row(iter)
@@ -109,7 +111,7 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         self._model.get_history().add(text, action)
         action.activate(text)
         if self._model.get_clear_entry():
-            self._view.clear_query()
+            self._view.clear_all()
         if self._model.get_hide_after_action():
             self.on_quit()
         
