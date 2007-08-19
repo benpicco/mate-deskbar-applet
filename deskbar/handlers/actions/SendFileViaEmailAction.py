@@ -1,6 +1,6 @@
 import deskbar.interfaces.Action
 from gettext import gettext as _
-from os.path import exists, basename
+from os.path import exists
 from deskbar.core.GconfStore import GconfStore
 from deskbar.core.Utils import spawn_async
 

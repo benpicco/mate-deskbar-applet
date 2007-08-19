@@ -1,6 +1,5 @@
 from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
 from gettext import gettext as _
-from os.path import exists
 import gnomevfs
 
 class OpenWithNautilusAction(OpenWithApplicationAction):

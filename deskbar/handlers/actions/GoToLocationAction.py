@@ -1,5 +1,5 @@
 from deskbar.handlers.actions.OpenWithNautilusAction import OpenWithNautilusAction
-from os.path import dirname, isdir, exists
+from os.path import dirname, isdir
 from gettext import gettext as _
 
 class GoToLocationAction(OpenWithNautilusAction):

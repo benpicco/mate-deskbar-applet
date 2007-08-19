@@ -1,12 +1,10 @@
-import cPickle, os
+import cPickle
 import gtk, gobject
 import time
 import logging
 import deskbar.interfaces.Action
-from deskbar import HISTORY_FILE 
-from deskbar.core.Utils import load_icon
+from deskbar import HISTORY_FILE
 from gettext import gettext as _
-from deskbar.core.GconfStore import GconfStore
 from deskbar.core.Categories import CATEGORIES
 
 class ChooseFromHistoryAction (deskbar.interfaces.Action):

@@ -1,7 +1,6 @@
 import deskbar.interfaces.Action
 from gettext import gettext as _
 from deskbar.core.Utils import url_show
-from os.path import exists
 
 class ShowUrlAction(deskbar.interfaces.Action):
     """

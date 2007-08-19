@@ -1,7 +1,7 @@
-import os.path
 import deskbar, deskbar.interfaces.Match, deskbar.interfaces.Module, deskbar.core.Utils
 from deskbar.core.GconfStore import GconfStore
 import gtk
+import gconf
 from gettext import gettext as _
 import xml.dom.minidom, urllib
 from deskbar.defs import VERSION

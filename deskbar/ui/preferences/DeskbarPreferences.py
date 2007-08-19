@@ -1,7 +1,6 @@
 import gtk
 import gtk.gdk
 import gtk.glade
-import gobject
 import traceback
 from gettext import gettext as _
 from os.path import join

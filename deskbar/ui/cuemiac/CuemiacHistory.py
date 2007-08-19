@@ -1,6 +1,5 @@
 import gtk, pango, gobject
 import logging
-import deskbar.interfaces.Action
 
 class CuemiacHistoryView (gtk.ComboBox):
 

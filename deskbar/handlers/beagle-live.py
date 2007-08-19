@@ -9,7 +9,7 @@ from os.path import basename
 import cgi, re
 import deskbar, deskbar.interfaces.Module
 import deskbar.interfaces.Match
-import gtk, gnome.ui, gnomevfs
+import gnomevfs
 import logging
 
 MAX_RESULTS = 20 # per handler

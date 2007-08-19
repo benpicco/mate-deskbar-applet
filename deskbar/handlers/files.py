@@ -2,7 +2,7 @@ import os, urllib
 from os.path import join, basename, normpath, abspath, dirname
 from os.path import split, expanduser, exists, isfile
 from gettext import gettext as _
-import gtk, gnome.ui, gnomevfs
+import gtk, gnomevfs
 
 import deskbar, deskbar.core.Indexer
 import deskbar.interfaces.Module
