@@ -1,5 +1,17 @@
 2007-08-19  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+	* deskbar/deskbar-applet.py:
+	* deskbar/gtkexcepthook.py:
+	Install bug buddy exception hook.
+	Removed dialog that displays stack trace.
+	If an exception is raised in a module
+	only bring up bug buddy if its filename
+	is contained in a whitelist. That way
+	we want to prevent that exceptions in 3rd-party
+	handlers land in bugzilla.
+
+2007-08-19  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
 	* deskbar/ui/cuemiac/CuemiacModel.py:
 	Fixed: Match is labeled wrong if match has 2 actions
 

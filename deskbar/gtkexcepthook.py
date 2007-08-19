@@ -1,51 +1,32 @@
 import sys
-import gtk, pango
 from gettext import gettext as _
 from cStringIO import *
 import traceback
 import tempfile
 import os
-        
-def fallback_gtk_exception(type, value, tb):
-    dialog = gtk.MessageDialog(parent=None,
-                   flags=0,
-                   type=gtk.MESSAGE_WARNING,
-                   buttons=gtk.BUTTONS_CLOSE,
-                   message_format=_("A programming error has been detected"))
-    dialog.format_secondary_text(_("It probably isn't fatal, but should be reported"
-                                   " to the developers nonetheless. The program may behave erratically from now on."))
-    dialog.set_title(_("Bug Detected"))
-    dialog.set_default_response(gtk.RESPONSE_CLOSE)
-    #dialog.set_border_width(12)
-    #dialog.vbox.get_children()[0].set_spacing(12)
+import logging
+import threading
+from os.path import basename
 
-    # Details
-    textview = gtk.TextView(); textview.show()
-    textview.set_editable(False)
-    textview.modify_font(pango.FontDescription("Monospace"))
-    sw = gtk.ScrolledWindow(); sw.show()
-    sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-    sw.add(textview)
-    frame = gtk.Frame()
-    frame.set_shadow_type(gtk.SHADOW_IN)
-    frame.add(sw)
-    frame.set_border_width(6)
-    textbuffer = textview.get_buffer()
-    trace = StringIO()
-    traceback.print_exception(type, value, tb, None, trace)
-    textbuffer.set_text(trace.getvalue())
-    textview.set_size_request(gtk.gdk.screen_width()/2, gtk.gdk.screen_height()/3)
-    frame.show()
-    expander = gtk.Expander("Details")
-    expander.add(frame)
-    expander.show()
-    dialog.vbox.add(expander)
-    
-    dialog.set_position(gtk.WIN_POS_CENTER)
-    dialog.set_gravity(gtk.gdk.GRAVITY_CENTER)
-    
-    dialog.run()
-    dialog.destroy()
+# We don't want that errors in 3rd-party
+# handlers land in bugzilla
+
+# List of modules that will be reported
+# by bug buddy if an exception occurs
+BUG_BUDDY_MODULES_WHITELIST = set(
+    ["desklicious.py",
+     "epiphany.py",
+     "evolution.py",
+     "files.py",
+     "gdmactions.py",
+     "history.py",
+     "iswitch-window.py",
+     "mozilla.py",
+     "programs.py",
+     "recent.py",
+     "web_address.py",
+     "yahoo.py",]
+)
     
 def bug_buddy_exception(type, value, tb):
     # Shamelessly stolen from /gnome-python/examples/bug-buddy-integration.py
@@ -67,20 +48,53 @@ def _info(type, value, tb):
         _excepthook_save(type, value, tb)
         return
     _exception_in_progress = 1
-    
+   
     bug_buddy_exception(type, value, tb)
-    fallback_gtk_exception(type, value, tb)
     
     _exception_in_progress = 0
-    
+
+def install_thread_excepthook():
+    """
+    Workaround for sys.excepthook thread bug
+    (https://sourceforge.net/tracker/?func=detail&atid=105470&aid=1230540&group_id=5470).
+    Call once from __main__ before creating any threads.
+    If using psyco, call psyco.cannotcompile(threading.Thread.run)
+    since this replaces a new-style class method.
+    """
+    run_old = threading.Thread.run
+    def run(*args, **kwargs):
+        try:
+            run_old(*args, **kwargs)
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        except:
+            type, value, tb = sys.exc_info()
+            stack = traceback.extract_tb(tb)
+            display_bug_buddy = True
+            for (filename, line_number, function_name, text) in stack:
+                # First of all, check whether the file where the exception
+                # occured contains 'modules'
+                if "modules" in filename:
+                    # Now check whether the filename is in the whitelist
+                    if not basename(filename) in BUG_BUDDY_MODULES_WHITELIST:
+                        # Module is not in the whitelist
+                        # just print normal stack trace and not bug buddy
+                        display_bug_buddy = False
+            if display_bug_buddy:
+                # Display bug buddy
+                sys.excepthook(type, value, tb)
+            else:
+                # Display normal stack trace
+                _excepthook_save(type, value, tb)
+    threading.Thread.run = run
+
 if not sys.stderr.isatty():
-    print 'Using GTK exception handler'
+    logging.info('Using GTK exception handler')
     _excepthook_save = sys.excepthook
     sys.excepthook = _info
+    install_thread_excepthook()
 
 if __name__ == '__main__':
     _excepthook_save = sys.excepthook
     sys.excepthook = _info
     raise Exception
-
-    

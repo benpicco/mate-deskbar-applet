@@ -46,6 +46,7 @@ logging.getLogger("deskbar-applet")
 check_deskbar_path()
 import deskbar
 import deskbar.defs
+import deskbar.gtkexcepthook
 from deskbar.ui.DeskbarApplet import DeskbarApplet
 
 # Setup i18n
