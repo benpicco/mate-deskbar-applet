@@ -13,6 +13,9 @@ from deskbar.ui.cuemiac.CuemiacHistory import CuemiacHistoryView
 from deskbar.ui.cuemiac.CuemiacActionsTreeView import CuemiacActionsTreeView, CuemiacActionsModel
 
 class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
+    """
+    This class is responsible for setting up the GUI.
+    """
     
     def __init__(self, controller, model):
         deskbar.interfaces.View.__init__(self, controller, model)

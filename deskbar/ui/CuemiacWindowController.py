@@ -7,6 +7,10 @@ from deskbar.ui.About import show_about
 from deskbar.ui.preferences.DeskbarPreferences import DeskbarPreferences
 
 class CuemiacWindowController(deskbar.interfaces.Controller):
+    """
+    This class handels the input received from
+    L{CuemiacWindowView<deskbar.ui.CuemiacWindowView.CuemiacWindowView>}
+    """
     
     def __init__(self, model):
         super(CuemiacWindowController, self).__init__(model)

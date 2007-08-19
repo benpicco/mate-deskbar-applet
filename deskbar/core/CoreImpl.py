@@ -38,6 +38,9 @@ class CoreImpl(deskbar.interfaces.Core):
         self._module_installer = ModuleInstaller(self._module_loader)
         
     def run(self):
+        """
+        Load modules, set keybinding and create L{deskbar.core.ThreadPool.ThreadPool}
+        """
         # Ready to load modules
         self._module_loader.load_all_async()
         
@@ -64,21 +67,44 @@ class CoreImpl(deskbar.interfaces.Core):
             self.set_keybinding( self.get_keybinding() )
     
     def get_old_modules(self):
+        """
+        Get a list of modules that have been
+        written for Deskbar < 2.19.6
+        """
         return self._module_loader.get_old_modules()
     
     def get_modules_dir(self):
+        """
+        Get directory where modules are stored
+        """
         return self._modules_dir
     
     def get_modules(self):
+        """
+        Get a list of module
+        """
         return self._module_loader.filelist
     
     def get_enabled_modules(self):
+        """
+        Get a list of class names of enabled modules
+        """
         return self._gconf.get_enabled_modules()
     
     def set_enabled_modules(self, name):
+        """
+        Set enabled modules
+        
+        @type name: list of class names 
+        """
         self._gconf.set_enabled_modules(name)
     
     def get_keybinding(self):
+        """
+        Get keybinding
+        
+        @return: str
+        """
         return self._gconf.get_keybinding()
     
     def get_min_chars(self):
@@ -118,6 +144,9 @@ class CoreImpl(deskbar.interfaces.Core):
         return self._gconf.get_max_history_items()
     
     def set_keybinding(self, binding):
+        """
+        Store keybinding and actually bind it
+        """
         self._gconf.set_keybinding(binding)
         if not self._keybinder.bind(binding):
             logging.error("Keybinding is already in use")
@@ -162,16 +191,14 @@ class CoreImpl(deskbar.interfaces.Core):
     
     def get_history(self):
         """
-        Returns History object
-        
-        This one is able to:
-            - append
-            - prepend
-            - clear
+        @return: L{deskbar.core.DeskbarHistory.DeskbarHistory}
         """
         return self._history
     
     def get_module_list(self):
+        """
+        @return: L{deskbar.core.ModuleList.ModuleList}
+        """
         return self._module_list
     
     def get_disabled_module_list(self):
@@ -202,13 +229,20 @@ class CoreImpl(deskbar.interfaces.Core):
         self._threadpool.stop()
     
     def query(self, text):
+        """
+        Query all enables modules
+        
+        This method waits L{get_type_delay} milliseconds
+        until the querying is started. That way we only start
+        querying if search term hasn't changed for L{get_type_delay} milliseconds
+        """
         if (len(text) >= self.get_min_chars()):            
             if (self._start_query_id != 0):
                 gobject.source_remove(self._start_query_id)
-            self._start_query_id = gobject.timeout_add( self.get_type_delay(), self.query_real, text )
+            self._start_query_id = gobject.timeout_add( self.get_type_delay(), self._query_real, text )
             self._stop_queries = False
             
-    def query_real(self, text):
+    def _query_real(self, text):
         self._last_query = text
         for modname in self.get_enabled_modules():
             mod = self._module_list.get_module_instance_from_name( modname )
@@ -216,6 +250,9 @@ class CoreImpl(deskbar.interfaces.Core):
                 self._threadpool.callInThread(mod.query, text)
         
     def on_modules_loaded(self, loader, callback=None):
+        """
+        After module's have been loaded, initialize them
+        """
         enabled_list = self.get_enabled_modules()
         
         self.update_modules_priority(enabled_list)
@@ -231,12 +268,10 @@ class CoreImpl(deskbar.interfaces.Core):
     
     def update_modules_priority(self, enabled_modules):    
         """
-        module_list is a module_loader.ModuleList() with loaded modules
-        enabled_modules is a list of exported classnames.
+        @type enabled_modules: a list of exported classnames.
         
-        Update the module priority present in both module_list and enabled_modules according
-        to the ordering of enabled_modules. Optionally calls callback when != None on each
-        module context, in the correct order (from important to less important)
+        Update the module priority present in both L{self._module_list} and
+        C{enabled_modules} according to the ordering of C{enabled_modules}.
         """
         
         # Compute the highest priority
@@ -255,12 +290,16 @@ class CoreImpl(deskbar.interfaces.Core):
         self._module_list.reorder_with_priority(enabled_modules)
         
     def on_module_initialized(self, loader, module):
+        """
+        Connect to module's C{query-ready} signal
+        Load history if all modules have been initialized
+        """
         self._inited_modules += 1
         # Forward results
         module.connect ('query-ready', self.forward_query_ready)
         
         if (self._inited_modules == self._loaded_modules):
-            self._history.load(self._module_list)
+            self._history.load()
             self._emit_initialized()
             
     def _on_enabled_modules_changed(self, gconfstore, enabled_modules):

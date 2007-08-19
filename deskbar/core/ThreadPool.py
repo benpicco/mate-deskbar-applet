@@ -2,6 +2,11 @@ import Queue
 import threading
 
 class ThreadPool(object):
+    """
+    Implements a thread pool
+    
+    This class is used to query each module
+    """
 
     max = 20
     started = False # Whether the pool has been started

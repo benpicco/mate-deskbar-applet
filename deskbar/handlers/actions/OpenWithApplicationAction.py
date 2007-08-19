@@ -4,8 +4,17 @@ from deskbar.core.Utils import spawn_async, is_program_in_path
 from os.path import exists, isabs
 
 class OpenWithApplicationAction(deskbar.interfaces.Action):
+    """
+    Open application
+    """
     
     def __init__(self, name, program, arguments, display_program_name=None):
+        """
+        @param program: program name (if in $PATH) or absolute path of program
+        @param arguments: list of arguments that should be used
+        @param display_program_name: Name used for display.
+        If omitted C{program} is used.
+        """
         deskbar.interfaces.Action.__init__(self, name)
         self._program = program
         if arguments != None and len(arguments) > 0:

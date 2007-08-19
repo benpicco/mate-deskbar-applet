@@ -38,6 +38,13 @@ def strip_html(string):
     return re.sub(r"<.*?>|</.*?>","",string)
     
 def more_information_dialog(parent, title, content):
+    """
+    Display a information dialog
+    
+    @param parent: Parent window 
+    @param title: Title of the dialog
+    @param conent: Conent of the dialog 
+    """
     message_dialog = gtk.MessageDialog(parent=parent, buttons=gtk.BUTTONS_CLOSE)
     message_dialog.set_markup("<span size='larger' weight='bold'>%s</span>\n\n%s" % (cgi.escape(title), cgi.escape(content)))
     resp = message_dialog.run()
@@ -66,6 +73,12 @@ def load_icon_for_desktop_icon(icon):
 # If the iconfile is a path starting with /, load the file
 # else try to load a stock or named icon name
 def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
+    """
+    If C{icon} starts with C{file://} a icon for the specific file is returnted.
+    Otherwise, C{icon} should be the filename of an icon and it's returned as pixbuf.
+    
+    @return: gtk.gdk.Pixbuf
+    """
     pixbuf = None
     if icon != None and icon != "":
         if icon.startswith("file://") and gnomevfs.exists(icon):
@@ -93,6 +106,9 @@ def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
 
 PATH = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip() != "" and exists(path) and isdir(path)]
 def is_program_in_path(program):
+    """
+    Whether C{program} is in PATH
+    """
     for path in PATH:
         prog_path = join(path, program)
         if exists(prog_path) and isfile(prog_path) and os.access(prog_path, os.F_OK | os.R_OK | os.X_OK):
@@ -120,6 +136,9 @@ def add_to_recent(uri):
         manager.add_item(uri)
 
 def url_show_file(url, escape=True):
+    """
+    @param escape: Whether C{url} should be escaped or not 
+    """
     try:
         if escape:
             url = gnomevfs.escape_host_and_path_string(url)

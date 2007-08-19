@@ -2,6 +2,9 @@ import gconf
 import gobject
 
 class GconfStore(gobject.GObject):
+    """
+    Handles storing to and retrieving values from GConf 
+    """
 
     # GConf directory for deskbar in window mode and shared settings
     GCONF_DIR = "/apps/deskbar"
@@ -59,6 +62,9 @@ class GconfStore(gobject.GObject):
         return GconfStore.__instance
         
     def __init__(self):
+        """
+        *Do not* use the constructor directly. Always use L{get_instance}
+        """
         super(GconfStore, self).__init__()
         self._client = gconf.client_get_default()
         self.__connect_notifications()

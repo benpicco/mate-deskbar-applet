@@ -24,40 +24,82 @@ class Module(gobject.GObject):
         return False
     
     def is_enabled(self):
+        """
+        Whether the module is enabled
+        """
         return self._enabled
     
     def set_enabled(self, val):
+        """
+        Set handler's enabled state
+        """
         self._enabled = val
     
     def get_priority(self):
+        """
+        Get module's priority
+        """
         return self._priority
     
     def set_priority(self, prio):
+        """
+        Set module's priority
+        """
         self._priority = prio
         
     def get_filename(self):
+        """
+        Get the filename of the module
+        """
         return self._filename
     
     def set_filename(self, filename):
+        """
+        Set the filename of the module
+        """
         self._filename = filename
         
     def get_id(self):
+        """
+        Get module's id
+        
+        Usually, this is the filename
+        """
         return self._id
         
     def set_id(self, mod_id):
+        """
+        Set module's id
+        """
         self._id = mod_id
         
     def set_priority_for_matches(self, matches):
+        """
+        Set the module's priotity for each match
+        
+        @type matches: list of L{deskbar.interfaces.Match} 
+        """
         for m in matches:
             m.set_priority( self.get_priority( ))
     
     def query(self, text):
+        """
+        Perform the query
+        
+        @param text: search term 
+        """
         raise NotImplementedError
     
     def has_config(self):
+        """
+        Whether the module has a config dialog
+        """
         return False
     
     def show_config(self, parent):
+        """
+        Should contain code to display configuration dialog
+        """
         pass
     
     def initialize(self):
@@ -85,5 +127,8 @@ class Module(gobject.GObject):
     
     @staticmethod
     def has_requirements():
+        """
+        Whether all requirements are met to use this module
+        """
         return True
     

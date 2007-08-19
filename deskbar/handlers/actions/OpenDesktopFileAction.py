@@ -5,8 +5,16 @@ from os.path import join, exists
 from gettext import gettext as _
 
 class OpenDesktopFileAction(deskbar.interfaces.Action):
+    """
+    Retrieve information about an application from
+    its .desktop file
+    """
     
     def __init__(self, name, desktop, desktop_file):
+        """
+        @type desktop: L{deskbar.core.gnomedesktop.GnomeDesktopItem}
+        @type desktop_file: path pointing to .desktop file
+        """
         deskbar.interfaces.Action.__init__(self, name)
         self._desktop = desktop
         self._desktop_file = desktop_file

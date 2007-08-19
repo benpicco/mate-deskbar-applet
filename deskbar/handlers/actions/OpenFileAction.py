@@ -5,6 +5,12 @@ from os.path import exists
 import gnomevfs
 
 class OpenFileAction(deskbar.interfaces.Action):
+    """
+    Open file with its preferred application
+    
+    This class does *not* take into account whether
+    a preferred application is registered for the file
+    """
     
     def __init__(self, name, url, escape=True):
         """

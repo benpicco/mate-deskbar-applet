@@ -3,6 +3,9 @@ from os.path import dirname, isdir, exists
 from gettext import gettext as _
 
 class GoToLocationAction(OpenWithNautilusAction):
+    """
+    Open given location in nautilus
+    """
     
     def __init__(self, name, file_dir_path):
         """

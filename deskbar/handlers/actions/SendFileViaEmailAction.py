@@ -5,6 +5,10 @@ from deskbar.core.GconfStore import GconfStore
 from deskbar.core.Utils import spawn_async
 
 class SendFileViaEmailAction (deskbar.interfaces.Action):
+    """
+    Compose new e-mail in preferred mail client
+    and add given file as attachment
+    """
     
     def __init__(self, name, file_uri):
         deskbar.interfaces.Action.__init__(self, name)

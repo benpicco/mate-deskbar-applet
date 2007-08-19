@@ -2,6 +2,9 @@ from gettext import gettext as _
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 
 class SendEmailToAction(ShowUrlAction):
+    """
+    Compose new e-mail in preferred mail client
+    """
     
     def __init__(self, name, email):
         ShowUrlAction.__init__(self, name, "mailto:"+email)

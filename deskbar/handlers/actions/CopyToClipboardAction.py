@@ -3,6 +3,9 @@ from gettext import gettext as _
 import gtk
 
 class CopyToClipboardAction(deskbar.interfaces.Action):
+    """
+    Copy given text to clipboard
+    """
     
     def __init__(self, name, text):
         deskbar.interfaces.Action.__init__(self, name)

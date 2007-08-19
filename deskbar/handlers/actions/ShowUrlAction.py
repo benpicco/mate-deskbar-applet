@@ -4,6 +4,9 @@ from deskbar.core.Utils import url_show
 from os.path import exists
 
 class ShowUrlAction(deskbar.interfaces.Action):
+    """
+    Open an arbitrary URL
+    """
     
     def __init__(self, name, url):
         deskbar.interfaces.Action.__init__(self, name)

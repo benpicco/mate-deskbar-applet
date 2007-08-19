@@ -1,17 +1,10 @@
 import gtk, gobject
 
 class ModuleList (gtk.ListStore):
-    """Mostly generic implementation of a dynamic module handler.
-    Use a ModuleListView object to display the contents of a ModuleList. 
-    You can iterate over the list with
+    """
+    Stores a list of available enabled or disabaled modules
     
-        for modctx in modlist:
-            do_something (modctx)
-    
-    From this perspective the ModuleList stores ModuleContexts (it actually doesnt),
-    so to utilize the modules you'll have to acces modctx.module.
-    
-    Note that the gtk.ListView extends the following classes:
+    Note that the gtk.ListStore extends the following classes:
         gobject.GObject, gtk.TreeModel, gtk.TreeDragSource, gtk.TreeDragDest,
         gtk.TreeSortable
     More documentation:
@@ -47,15 +40,17 @@ class ModuleList (gtk.ListStore):
             return None
     
     def get_position_from_context (self, module):
-        """Returns a tuple (iter, index)
+        """
+        Returns a tuple C{(iter, index)}
         
-        iter is a gtk.TreeIter pointing to the row containing the given module module.
+        iter is a gtk.TreeIter pointing to the row containing the given
+        module module.
         index is the index of the module in the list.
         
         If the module is not found return (None, None).
         
         @param module: The module to get the position for
-        @type module: Either a Module instance or the name of a module
+        @type module: Either a L{deskbar.interfaces.Module.Module} instance or the name of a module
         """
         i = 0
         iter = self.get_iter_first ()
@@ -93,7 +88,8 @@ class ModuleList (gtk.ListStore):
         self.reorder(new_order)
         
     def add (self, module, iter=None):
-        """If iter is set this method updates the row pointed to by iter with the 
+        """
+        If iter is set this method updates the row pointed to by iter with the 
         values of module. 
         
         If iter is not set it will try to obtain an iter pointing

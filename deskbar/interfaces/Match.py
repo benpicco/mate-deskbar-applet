@@ -9,8 +9,21 @@ Represents a match returned by handlers
 class Match:
     def __init__(self, **args):
         """
-        You can pass the named paramter "icon" as a string being an
+        You can pass the named parameter "icon" as a string being an
         absolute path or name of an icon.
+        
+        Available keyword arguments:
+            - name: The query string. This value is mandatory.
+            - icon: The name or path of an icon. It's very important
+            that you don't try to store something else in it.
+            If you don't set a icon a default icon according to the
+            match's category is displayed.
+            - pixbuf: If you fetch the match's icon on the fly you can
+            provide a pixbuf as well and it overrides the value of icon.
+            - category: The category the match belongs to.
+            - priority: Match's priority. It's recommended that you use your
+            module's L{set_priority_for_matches<deskbar.interfaces.Module.Module.set_priority_for_matches>}
+            method to assign your matches the priority of your module.
         """
         self._name = ""
         self._icon = None
@@ -32,21 +45,36 @@ class Match:
             self._priority = args["priority"]
     
     def _get_default_icon(self):
+        """
+        Retrieve pixbuf depending on category
+        
+        @return: gtk.gdk.Pixbuf
+        """
         if CATEGORIES[self.get_category()].has_key("icon"):
             return CATEGORIES[self.get_category()]["icon"]
         else:
             return CATEGORIES["default"]["icon"]
     
     def get_priority(self):
+        """
+        Get priority of the match
+        """
         return self._priority
     
     def set_priority(self, prio):
+        """
+        Set priority of the match
+        
+        @type prio: int 
+        """
         self._priority = prio
         
     def get_icon(self):
         """
-        Returns a GdkPixbuf hat represents this match.
+        Returns a pixbuf hat represents this match.
         Returns None if there is no associated icon.
+        
+        @return: gtk.gdk.Pixbuf
         """
         if self._pixbuf != None:
             # Only for Matches that won't be stored in history
@@ -57,27 +85,54 @@ class Match:
             return self._get_default_icon()
     
     def set_icon(self, iconname):
+        """
+        Set the name if the icon
+        
+        @type iconname: string 
+        """
         self._icon = iconname
     
     def get_category(self):
         """
-        Returns a string corresponding to a key in the Categories.py file, indicating
-        in which category this match should be put in.
+        Returns a string corresponding to a key in the Categories.py file,
+        indicating in which category this match should be put in.
         
         Returning None, uses the default category
+        
+        @return: str
         """
         return self._category
     
     def set_category(self, cat):
+        """
+        Set category
+        
+        @type cat: A key from Categories.py
+        """
         self._category = cat
         
     def get_actions(self):
+        """
+        Get category
+        """
         return self._actions
     
     def get_default_action(self):
+        """
+        Get default action
+        """
         return self._default_action
     
     def add_action(self, action, is_default=False):
+        """
+        Add action to match
+        
+        @type action: L{deskbar.interfaces.action}
+        @param is_default: Whether the action should be
+        the default action. Will override previously set
+        default action.
+        @type is_default: bool  
+        """
         if not action.get_hash() in self.__actions_hashes:
             self.__actions_hashes.add(action.get_hash())
             self._actions.append(action)
@@ -85,6 +140,11 @@ class Match:
             self._default_action = action
     
     def add_all_actions(self, actions):
+        """
+        Add all actions
+        
+        @type actions: list of L{deskbar.interfaces.action}
+        """
         for action in actions:
             self.add_action(action)
     
@@ -93,11 +153,18 @@ class Match:
         Returns a hash used to verify if a query has one or more duplicates.
         Matches that have same hash will be selected based on the handler priority.
         text is the entered query string.
+        
         By default, if the handler does not override this, it will return None.
         Returning None means no duplication check will be performed.
         """
         return None
     
     def get_name(self, text=None):
+        """
+        Returns the name of the item the match represents
+        
+        By default this is the C{name} parameter you supplied
+        when creating the class
+        """
         return self._name
     

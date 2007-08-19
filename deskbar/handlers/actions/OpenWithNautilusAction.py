@@ -4,6 +4,9 @@ from os.path import exists
 import gnomevfs
 
 class OpenWithNautilusAction(OpenWithApplicationAction):
+    """
+    Open URI with Nautilus
+    """
     
     NETWORK_URIS = ["http", "ftp", "smb", "sftp"]
     AUDIO_URIS = ["cdda"]

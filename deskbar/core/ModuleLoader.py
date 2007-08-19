@@ -7,10 +7,13 @@ import deskbar, deskbar.core.Categories
 from deskbar.core.Watcher import DirWatcher
 
 class ModuleLoader (gobject.GObject):
-    """An auxilary class to ModuleList. Create an instance of ModuleLoader by
-    specifying the which directories to search and what extension to accept.
-    The load_all() method will load all qualified modules into the ModuleList
-    specified in the constructor.
+    """
+    An auxilary class to L{deskbar.core.ModuleList.ModuleList}.
+    
+    Create an instance of ModuleLoader by
+    specifying which directories to search and what extension to accept.
+    The L{load_all} method will load all qualified modules and tell
+    you when it's ready with the C{modules-loaded} signal.
     
     Most methods have a _async variant. These methods emits signals that is handled
     by the mainloop.
