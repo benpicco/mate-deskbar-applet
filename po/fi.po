@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-18 10:10+0300\n"
+"POT-Creation-Date: 2007-08-19 16:50+0300\n"
 "PO-Revision-Date: 2007-02-03 15:57+0300\n"
 "Last-Translator: Tommi Vainikainen <Tommi.Vainikainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -64,26 +64,14 @@ msgid "The default height of the window in pixels"
 msgstr "Ikkunan oletuskorkeus pikseleinä"
 
 #: ../data/deskbar-applet.schemas.in.h:11
-msgid "The default position of the window on the screen (x-coordinate)"
-msgstr "Ikkunan oletussijainti näytöllä (x-koordinaatti)"
-
-#: ../data/deskbar-applet.schemas.in.h:12
-msgid "The default position of the window on the screen (y-coordinate)"
-msgstr "Ikkunan oletussijainti näytöllä (y-koordinaatti)"
-
-#: ../data/deskbar-applet.schemas.in.h:13
-msgid "The default width of the list of results"
-msgstr "Hakutulosluettelon oletusleveys pikseleinä"
-
-#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The default width of the window in pixels"
 msgstr "Ikkunan oletusleveys pikseleinä"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:12
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr "Näppäinkomento, joka kohdistaa sovelman kirjoitusta varten"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -93,7 +81,7 @@ msgstr ""
 "ovat arvot default, history, documents, emails, conversations, files, "
 "places, actions, web, websearch, news ja notes."
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -101,18 +89,18 @@ msgstr ""
 "Luettelo käytössä olevien käsittelijöiden paljastamista luokkanimistä "
 "tärkeysjärjesteksessä. Tärkeimmät ovat vasemmalla."
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid "The maximum number of items stored in history"
 msgstr "Historiaan tallennettujen hakujen enimmäismäärä"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
 msgstr ""
 "Pienin määrä syötettäviä merkkejä ennen kuin sovelma alkaa näyttämään osumia."
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -120,11 +108,11 @@ msgstr ""
 "Aika millisekunteina hakukenttään näppäilyn jälkeen ennen kuin hakua aletaan "
 "suorittamaan"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid "Whether to close the window after an actions has been activated"
 msgstr "Suljetaanko ikkuna, kun toiminto on käynnistetty"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -132,29 +120,17 @@ msgstr ""
 "Näytetäänkö vain suosittu hakumoottori kaikkien käytettävissä olevien "
 "sijasta. Tämä vaikuttaa vain mozilla-pohjaisiin selaimiin kuten firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:23
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "Liittääkö työpöytäsovelman käynnistys nykyisen valinnan"
 
-#: ../data/deskbar-applet.schemas.in.h:24
-msgid "Width of the list of results"
-msgstr "Tulosluettelon leveys"
-
-#: ../data/deskbar-applet.schemas.in.h:25
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid "Window height"
 msgstr "Ikkunan korkeus"
 
-#: ../data/deskbar-applet.schemas.in.h:26
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Window width"
 msgstr "Ikkunan leveys"
-
-#: ../data/deskbar-applet.schemas.in.h:27
-msgid "X-coordinate of window"
-msgstr "Ikkunan x-koordinaatti"
-
-#: ../data/deskbar-applet.schemas.in.h:28
-msgid "Y-coordinate of window"
-msgstr "Ikkunan y-koordinaatti"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -280,7 +256,7 @@ msgstr "Näytä kaikki tarjolla olevat hakupalvelut"
 msgid "Show only the primary search engine"
 msgstr "Näytä vain ensisijainen hakupalvelu"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:175
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:179
 #, python-format
 msgid "Open History Item %s"
 msgstr "Avaa historiamerkintä %s"
@@ -360,15 +336,15 @@ msgstr "Uutiset"
 msgid "Notes"
 msgstr "Muistilaput"
 
-#: ../deskbar/core/DeskbarHistory.py:18
+#: ../deskbar/core/DeskbarHistory.py:20
 msgid "<i>Choose action</i>"
 msgstr "<i>Valitse toiminto</i>"
 
-#: ../deskbar/core/Utils.py:108
+#: ../deskbar/core/Utils.py:124
 msgid "Cannot execute program:"
 msgstr "Ohjelmaa ei voi suorittaa:"
 
-#: ../deskbar/core/Utils.py:145
+#: ../deskbar/core/Utils.py:164
 msgid "Cannot show URL:"
 msgstr "URL:ia ei voi näyttää:"
 
@@ -388,95 +364,68 @@ msgstr ""
 msgid "Bug Detected"
 msgstr "Havaittiin vika ohjelmassa"
 
-#: ../deskbar/handlers/beagle-live.py:94
+#: ../deskbar/handlers/beagle-live.py:98
 #, python-format
 msgid "Edit contact %s"
 msgstr "Muokkaa yhteystietoa %s"
 
-#: ../deskbar/handlers/beagle-live.py:105
+#: ../deskbar/handlers/beagle-live.py:109
 #, python-format
 msgid "From %s"
 msgstr "Lähteestä %s"
 
-#: ../deskbar/handlers/beagle-live.py:120
+#: ../deskbar/handlers/beagle-live.py:124
 #, python-format
 msgid "News from %s"
 msgstr "Uutisia (%s)"
 
-#: ../deskbar/handlers/beagle-live.py:134
+#: ../deskbar/handlers/beagle-live.py:138
 #, python-format
 msgid "Note: %s"
 msgstr "Muistilappu: %s"
 
-#: ../deskbar/handlers/beagle-live.py:147
+#: ../deskbar/handlers/beagle-live.py:151
 #, python-format
 msgid "With %s"
 msgstr "%s kanssa"
 
-#: ../deskbar/handlers/beagle-live.py:164
+#: ../deskbar/handlers/beagle-live.py:168
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalenteri: %s"
 
-#: ../deskbar/handlers/beagle-live.py:248
-#: ../deskbar/handlers/beagle-static.py:37
+#: ../deskbar/handlers/beagle-live.py:254
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:249
+#: ../deskbar/handlers/beagle-live.py:255
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Etsi asiakirjojasi (Beaglella) samalla kuin kirjoitat"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:323
-#: ../deskbar/handlers/beagle-live.py:345
+#: ../deskbar/handlers/beagle-live.py:333
+#: ../deskbar/handlers/beagle-live.py:355
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:403
-msgid "Start Beagle Daemon?"
-msgstr "Käynnistetäänkö beagle-palvelin?"
-
-#: ../deskbar/handlers/beagle-live.py:408
-msgid "Start Beagle Daemon"
-msgstr "Käynnistä beagle-palvelin"
-
-#: ../deskbar/handlers/beagle-live.py:409
-msgid ""
-"The Beagle daemon does not appear to be running.\n"
-" You need to start it to use the Beagle Live handler."
-msgstr ""
-"Näyttää siltä, ettei beagle-palvelin ole käynnistsä.\n"
-"Se täytyy käynnistää, jos haluat käyttää Beagle Live -käsittelijää."
-
-#: ../deskbar/handlers/beagle-live.py:419
-msgid "Failed to start beagled. Perhaps the beagle daemon isn't installed?"
-msgstr ""
-"Ohjelmaa beagled ei voitu käynnistää. Ehkä beagle-palvelin ei ole asennettu?"
-
-#: ../deskbar/handlers/beagle-live.py:423
-msgid "Failed to start Beagle"
-msgstr "Beaglea ei voitu käynnistää"
-
-#: ../deskbar/handlers/beagle-live.py:424
-msgid "Perhaps the beagle daemon isn't installed?"
-msgstr "Ehkä beagle-palvelin ei ole asennettu?"
-
-#: ../deskbar/handlers/beagle-live.py:434
+#: ../deskbar/handlers/beagle-live.py:418
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Beaglea ei voitu ladata, libbeagle on käännetty ilman python-sidoksia."
 
-#: ../deskbar/handlers/beagle-live.py:443
-msgid ""
-"Beagled could not be found in your $PATH. Unable to start the beagled daemon"
-msgstr "Ohjelmaa beagled ei löydy hakupolultasi. Ohjelmaa ei voi käynnistää"
+#: ../deskbar/handlers/beagle-live.py:427
+msgid "Beagled could not be found in your $PATH."
+msgstr "Ohjelmaa beagled ei löydy polulta $PATH."
 
 #: ../deskbar/handlers/beagle-static.py:21
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Etsi termiä %s Beaglella"
+
+#: ../deskbar/handlers/beagle-static.py:37
+msgid "Beagle"
+msgstr "Beagle"
 
 #: ../deskbar/handlers/beagle-static.py:38
 msgid "Search all of your documents (using Beagle)"
@@ -518,8 +467,7 @@ msgstr "Voit muokata del.icio.us -tiliäsi."
 msgid "Web Bookmarks (Epiphany)"
 msgstr "WWW-kirjanmerkit (epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/galeon.py:64
-#: ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:121
 msgid "Open your web bookmarks by name"
 msgstr "Avaa WWW-kirjanmerkkejä nimellä"
 
@@ -531,8 +479,7 @@ msgstr "Epiphany ei ole oletus-selaimesi."
 msgid "Web Searches (Epiphany)"
 msgstr "WWW-haut (epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/galeon.py:92
-#: ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:191
 msgid "Search the web via your browser's search settings"
 msgstr "Etsi webistä selaimen hakuasetuksin"
 
@@ -544,21 +491,20 @@ msgstr "Voit asettaa pikanäppäimiä hauillesi."
 msgid "Web History (Epiphany)"
 msgstr "WWW-historia (epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:136 ../deskbar/handlers/galeon.py:113
-#: ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/epiphany.py:136 ../deskbar/handlers/mozilla.py:734
 msgid "Open your web history by name"
 msgstr "Avaa WWW-historia nimellä"
 
-#: ../deskbar/handlers/evolution.py:21
+#: ../deskbar/handlers/evolution.py:22
 msgid "Mail (Address Book)"
 msgstr "Sähköposti (Osoitekirja)"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:23
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Lähetä sähköpostia tuttavillesi kirjoittamalla nimi tai sähköpostiosoite"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:48
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -584,22 +530,6 @@ msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Näytä tiedostoja, kansioita, kirjanmerkkejä tai verkkosijainteja nimen "
 "perusteella"
-
-#: ../deskbar/handlers/galeon.py:57
-msgid "Galeon is not your preferred browser."
-msgstr "Galeon ei ole oletus-selaimesi."
-
-#: ../deskbar/handlers/galeon.py:63
-msgid "Web Bookmarks (Galeon)"
-msgstr "WWW-kirjanmerkit (galeon)"
-
-#: ../deskbar/handlers/galeon.py:91
-msgid "Web Searches (Galeon)"
-msgstr "WWW-haut (galeon)"
-
-#: ../deskbar/handlers/galeon.py:112
-msgid "Web History (Galeon)"
-msgstr "WWW-historia (galeon)"
 
 #: ../deskbar/handlers/gdmactions.py:33
 msgid "Suspend the machine"
@@ -792,57 +722,57 @@ msgstr "Etsi Yahoosta samalla kuin kirjoitat"
 msgid "URL of %s"
 msgstr "Kohteen %s URL"
 
-#: ../deskbar/handlers/actions/CopyToClipboardAction.py:15
+#: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
 #, python-format
 msgid "Copy <b>%(name)s</b> to clipboard"
 msgstr "Kopioi <b>%(name)s</b> leikepöydälle"
 
-#: ../deskbar/handlers/actions/GoToLocationAction.py:17
+#: ../deskbar/handlers/actions/GoToLocationAction.py:23
 #, python-format
 msgid "Go to location of %s"
 msgstr "Siirry kohteen %s sijaintiin"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:29
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
 #, python-format
 msgid "Launch <b>%(name)s</b>"
 msgstr "Käynnistä <b>%(name)s</b>"
 
-#: ../deskbar/handlers/actions/OpenFileAction.py:24
-#: ../deskbar/handlers/actions/ShowUrlAction.py:25
+#: ../deskbar/handlers/actions/OpenFileAction.py:38
+#: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
 msgstr "Avaa %s"
 
-#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:30
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
 #, python-format
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
 msgstr "Avaa <b>%(name)s</b> ohjelmalla %(program)s"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:25
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
 #, python-format
 msgid "Open network place %s"
 msgstr "Avaa verkkosijainti %s"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:27
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Avaa äänilevy %s"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:29
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:32
 #, python-format
 msgid "Open location %s"
 msgstr "Avaa sijainti %s"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/actions/SendEmailToAction.py:21
+#: ../deskbar/handlers/actions/SendEmailToAction.py:24
 #, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Lähetä sähköpostia: <b>%(name)s</b> (%(email)s)"
 
 #. translators: %s is a filename
-#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:40
+#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:44
 #, python-format
 msgid "Send %s via e-mail"
 msgstr "Lähetä %s sähköpostilla"
@@ -879,7 +809,7 @@ msgid "default"
 msgstr "oletus"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:70
+#: ../deskbar/ui/CuemiacWindowView.py:76
 msgid "_History"
 msgstr "_Historia"
 
@@ -910,19 +840,19 @@ msgstr ""
 "näppäintä painamalla.\n"
 "Luo pikanäppäin painamalla Control, Alt tai Shift-näppäintä samaan aikaan.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:82
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Vaihda laajennosten järjestystä raahaamalla</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:322
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
 msgid "A problem occured"
 msgstr "Tapahtui virhe"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:387
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
 msgid "Handler has been installed successfully"
 msgstr "Käsittelijä asennettiin onnistuneesti"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:390
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
 "Käsittelijää ei voitu asentaa, koska tarjotussa tiedostossa oli ongelmia"
@@ -946,6 +876,60 @@ msgstr "Versio:"
 #: ../deskbar/ui/preferences/ModuleListView.py:56
 msgid "Update Available"
 msgstr "Päivitys saatavilla"
+
+#~ msgid "The default position of the window on the screen (x-coordinate)"
+#~ msgstr "Ikkunan oletussijainti näytöllä (x-koordinaatti)"
+
+#~ msgid "The default position of the window on the screen (y-coordinate)"
+#~ msgstr "Ikkunan oletussijainti näytöllä (y-koordinaatti)"
+
+#~ msgid "The default width of the list of results"
+#~ msgstr "Hakutulosluettelon oletusleveys pikseleinä"
+
+#~ msgid "Width of the list of results"
+#~ msgstr "Tulosluettelon leveys"
+
+#~ msgid "X-coordinate of window"
+#~ msgstr "Ikkunan x-koordinaatti"
+
+#~ msgid "Y-coordinate of window"
+#~ msgstr "Ikkunan y-koordinaatti"
+
+#~ msgid "Start Beagle Daemon?"
+#~ msgstr "Käynnistetäänkö beagle-palvelin?"
+
+#~ msgid "Start Beagle Daemon"
+#~ msgstr "Käynnistä beagle-palvelin"
+
+#~ msgid ""
+#~ "The Beagle daemon does not appear to be running.\n"
+#~ " You need to start it to use the Beagle Live handler."
+#~ msgstr ""
+#~ "Näyttää siltä, ettei beagle-palvelin ole käynnistsä.\n"
+#~ "Se täytyy käynnistää, jos haluat käyttää Beagle Live -käsittelijää."
+
+#~ msgid "Failed to start beagled. Perhaps the beagle daemon isn't installed?"
+#~ msgstr ""
+#~ "Ohjelmaa beagled ei voitu käynnistää. Ehkä beagle-palvelin ei ole "
+#~ "asennettu?"
+
+#~ msgid "Failed to start Beagle"
+#~ msgstr "Beaglea ei voitu käynnistää"
+
+#~ msgid "Perhaps the beagle daemon isn't installed?"
+#~ msgstr "Ehkä beagle-palvelin ei ole asennettu?"
+
+#~ msgid "Galeon is not your preferred browser."
+#~ msgstr "Galeon ei ole oletus-selaimesi."
+
+#~ msgid "Web Bookmarks (Galeon)"
+#~ msgstr "WWW-kirjanmerkit (galeon)"
+
+#~ msgid "Web Searches (Galeon)"
+#~ msgstr "WWW-haut (galeon)"
+
+#~ msgid "Web History (Galeon)"
+#~ msgstr "WWW-historia (galeon)"
 
 #~ msgid "Display history sidebar"
 #~ msgstr "Näytä historia sivupalkissa"
@@ -999,9 +983,6 @@ msgstr "Päivitys saatavilla"
 
 #~ msgid "No History"
 #~ msgstr "Ei historiaa"
-
-#~ msgid "Beagle"
-#~ msgstr "Beagle"
 
 #~ msgid "You need to enable autocomplete in your mail preferences"
 #~ msgstr "Automaattitäydennys täytyy valita sähköpostin asetuksista"
