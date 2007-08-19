@@ -9,7 +9,8 @@ class CuemiacHistoryView (gtk.ComboBox):
     
     def __init__ (self, historystore):
         gtk.ComboBox.__init__ (self, historystore)
-                
+        historystore.connect("cleared", self.__select_default_item)
+        
         icon = gtk.CellRendererPixbuf ()
         icon.set_property("xpad", 4)
         icon.set_property("xalign", 0.1)
@@ -49,13 +50,17 @@ class CuemiacHistoryView (gtk.ComboBox):
             if not action.is_valid():
                 logging.warning("Action is not valid anymore. Removing it from history.")
                 self.get_model().remove(iter)
-                self.set_active(0)
+                self.__select_default_item()
                 return False
             self.emit ("match-selected", text, action)
-            self.handler_block(self.__changed_id)
-            self.set_active ( 0 )
-            self.handler_unblock(self.__changed_id)
+            self.__select_default_item()
+            
         return False
+
+    def __select_default_item(self, model=None):
+        self.handler_block(self.__changed_id)
+        self.set_active ( 0 )
+        self.handler_unblock(self.__changed_id)
 
 if gtk.pygtk_version < (2,8,0):    
     gobject.type_register (CuemiacHistoryView)

@@ -37,7 +37,10 @@ class DeskbarHistory (gtk.ListStore) :
     with L{up}, L{down} and L{reset}. You retrieve the item in question
     by L{get_current}.
     """
-
+    
+    __gsignals__ = {
+        "cleared" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
+    }
     __instance = None
     (COL_TIME, COL_TEXT, COL_ACTION) = range(3)
     
@@ -99,6 +102,7 @@ class DeskbarHistory (gtk.ListStore) :
         gtk.ListStore.clear(self)
         self.append("", "", ChooseFromHistoryAction())
         self._index = -1
+        self.emit("cleared")
     
     def load (self):
         """
