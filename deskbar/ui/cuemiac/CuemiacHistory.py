@@ -41,7 +41,12 @@ class CuemiacHistoryView (gtk.ComboBox):
         timestamp, text, action = model[iter]
         if action == None:
             return
-        cell.set_property ("markup", action.get_verb () % action.get_escaped_name(text))
+        
+        text = action.get_verb () % action.get_escaped_name(text)
+        # We only want to display the first line of text
+        # E.g. some beagle-live actions display a snippet in the second line 
+        text = text.split("\n")[0]
+        cell.set_property ("markup", text)
 
     def __on_activated (self):
         iter = self.get_active_iter()
