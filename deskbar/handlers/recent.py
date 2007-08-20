@@ -34,7 +34,7 @@ class RecentMatch(deskbar.interfaces.Match):
     
 class RecentHandler(deskbar.interfaces.Module):
     
-    INFOS = {'icon': deskbar.core.Utils.load_icon(gtk.STOCK_FILE),
+    INFOS = {'icon': deskbar.core.Utils.load_icon('document-open-recent'),
             "name": _("Recent Documents"),
             "description": _("Retrieve your recently accessed files and locations"),
              "version": VERSION}

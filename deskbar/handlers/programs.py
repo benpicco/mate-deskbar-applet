@@ -109,7 +109,7 @@ class SpecialProgramHandler(deskbar.interfaces.Module):
         
 class GnomeDictHandler(SpecialProgramHandler):
     
-    INFOS = {'icon': deskbar.core.Utils.load_icon('gdict'),
+    INFOS = {'icon': deskbar.core.Utils.load_icon('accessories-dictionary'),
              'name': _("Dictionary"),
              'description': _("Look up word definitions in the dictionary"),
              'version': VERSION}

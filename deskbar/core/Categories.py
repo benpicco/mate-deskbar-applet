@@ -19,7 +19,7 @@ CATEGORIES = {
     },
     "emails"    : {    
         "name": _("Emails"),
-        "icon": load_icon("gnome-stock-mail-new"),
+        "icon": load_icon("emblem-mail"),
     },
     "conversations"    : {    
         "name": _("Conversations"),

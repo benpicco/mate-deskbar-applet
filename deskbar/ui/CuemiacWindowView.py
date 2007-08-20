@@ -83,7 +83,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         hlabel.set_mnemonic_widget(self.hview)
         
         empty_button = gtk.Button()
-        empty_button.set_image( gtk.image_new_from_stock(gtk.STOCK_DELETE, gtk.ICON_SIZE_MENU) )
+        empty_button.set_image( gtk.image_new_from_stock(gtk.STOCK_CLEAR, gtk.ICON_SIZE_MENU) )
         empty_button.connect("clicked", self._controller.on_clear_history)
         empty_button.show()
         hhbox.pack_start(empty_button, False)
