@@ -8,10 +8,8 @@ art_DATA = \
 	deskbar-applet-panel-v.png \
 	deskbar-applet-panel-h.png \
 	delicious.png \
-	folder-bookmark.png \
 	generic.png \
 	yahoo.png \
-	google.png \
 	epiphany-history.png \
 	gpm-suspend-to-disk.png \
 	gpm-suspend-to-ram.png
