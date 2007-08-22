@@ -9,7 +9,7 @@ CATEGORIES = {
     },
     "history" : {
         "name": _("History"),
-        "icon": load_icon("stock_form-time-field"),
+        "icon": load_icon("document-open-recent"),
     },
     
     # Standard handlers
