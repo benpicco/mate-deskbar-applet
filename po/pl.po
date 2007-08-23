@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.gnome-2-16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-06-11 23:37+0200\n"
-"PO-Revision-Date: 2007-06-11 17:01+0100\n"
+"POT-Creation-Date: 2007-08-23 18:39+0200\n"
+"PO-Revision-Date: 2007-08-22 16:59+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team:  <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,36 +34,69 @@ msgstr ""
 "wyszukiwania."
 
 #: ../data/deskbar-applet.schemas.in.h:2
+msgid "Clear entry after match has been selected"
+msgstr ""
+"Czyszczenie pola wprowadzania danych po zaznaczeniu wyniku wyszukiwania"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Collapsed categories"
+msgstr "Zwinięte kategorie"
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "Enabled handlers"
+msgstr "Włączone mechanizmy obsługi"
+
+#: ../data/deskbar-applet.schemas.in.h:5
 msgid ""
 "If enabled it will clear the entry after a search result has been selected"
 msgstr ""
 "Jeśli włączone, wyczyści pole wprowadzania danych po zaznaczeniu wyniku "
 "wyszukiwania"
 
-#: ../data/deskbar-applet.schemas.in.h:3
-msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
-msgstr "Wybiera rodzaj interfejsu, \"Cuemiac\" lub \"Entriac\""
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid "If enabled the window will be closed after an action has been activated"
+msgstr ""
+"Jeśli włączone, okno zostanie zamknięte po zaznaczeniu wyniku wyszukiwania"
 
-#: ../data/deskbar-applet.schemas.in.h:4
-msgid "The applet's entry width in number of characters"
-msgstr "Szerokość pola wprowadzania danych apletu w znakach"
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid "Keybinding"
+msgstr "Skrót klawiszowy"
 
-#: ../data/deskbar-applet.schemas.in.h:5
-msgid ""
-"The key sequence will focus the deskbar applet, allowing to type quickly"
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid "Milliseconds to wait before starting to search"
+msgstr "Opóźnienie uruchomienia wyszukiwania w milisekundach"
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid "Minimum number of characters needed to start searching"
+msgstr ""
+"Minimalna ilość znaków, które muszą zostać wprowadzone, zanim aplet "
+"rozpocznie wyszukiwanie"
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid "The default height of the window in pixels"
+msgstr "Domyślna wysokość okna w pikselach"
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default width of the window in pixels"
+msgstr "Domyślna szerokość okna w pikselach"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "Sekwencja przycisków, które zogniskują uwagę na aplecie deskbar, pozwalając "
 "na szybkie wprowadzanie danych"
 
-#: ../data/deskbar-applet.schemas.in.h:6
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid ""
-"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
-"Valid category names are defined in Categories.py"
+"The list of categories to be collapsed when displayed. Valid categories are: "
+"default, history, documents, emails, conversations, files, people, places, "
+"actions, web, websearch, news and notes."
 msgstr ""
-"Lista kategorii do zwinięcia gdy wyświetlana w interfejsie \"Cuemiac\". "
-"Poprawne nazwy kategorii są określone w Categories.py"
+"Lista kategorii do zwinięcia podczas wyświetlania. Poprawne wartości to:  "
+"default, history, documents, emails, conversations, files, people, places, "
+"actions, web, websearch, news and notes."
 
-#: ../data/deskbar-applet.schemas.in.h:7
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -71,7 +104,11 @@ msgstr ""
 "Lista wyeksportowanych nazw klas włączonych usługodawców sortowana wg "
 "priorytetu od lewej z najwyższym"
 
-#: ../data/deskbar-applet.schemas.in.h:8
+#: ../data/deskbar-applet.schemas.in.h:15
+msgid "The maximum number of items stored in history"
+msgstr "Maksymalna liczba elementów przechowywana w historii"
+
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
@@ -79,23 +116,19 @@ msgstr ""
 "Minimalna ilość znaków, które muszą zostać wprowadzone, zanim aplet "
 "rozpocznie wyszukiwanie"
 
-#: ../data/deskbar-applet.schemas.in.h:9
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid ""
-"The time in miliseconds between a keystroke in the search entry and the "
+"The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
 msgstr ""
 "Czas w milisekundach pomiędzy uderzeniem klawisza w polu wyszukiwania, a "
 "samym wyszukiwaniem"
 
-#: ../data/deskbar-applet.schemas.in.h:10
-msgid ""
-"Whether the applet should take all the available space in the panel. "
-"Overrides the width preference."
-msgstr ""
-"Określa, czy aplet ma zabrać całą dostępną przestrzeń na panelu. Ignoruje "
-"preferencje szerokości."
+#: ../data/deskbar-applet.schemas.in.h:18
+msgid "Whether to close the window after an actions has been activated"
+msgstr "Określa, czy zamykać okna po aktywacji działań"
 
-#: ../data/deskbar-applet.schemas.in.h:11
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -103,109 +136,103 @@ msgstr ""
 "Określa, czy wyświetlać tylko preferowaną wyszukiwarkę, zamiast wszystkie "
 "dostępne. Dotyczy tylko przeglądarek opartych o Mozilla, takich jak Firefox."
 
-#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
+#: ../data/deskbar-applet.schemas.in.h:20
+msgid "Whether triggering Deskbar-Applet pastes the current selection"
+msgstr ""
+"Czy wywołanie skrótu klawiszowego wkleja także bieżące zaznaczenie do pola "
+"wyszukiwania."
+
+#: ../data/deskbar-applet.schemas.in.h:21
+msgid "Window height"
+msgstr "Wysokość okna"
+
+#: ../data/deskbar-applet.schemas.in.h:22
+msgid "Window width"
+msgstr "Szerokość okna"
+
+#: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
 msgstr "_Informacje o"
 
-#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
+#: ../data/Deskbar_Applet.xml.h:2
 msgid "_Clear History"
 msgstr "Wyczyść _historię"
 
-#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
+#: ../data/Deskbar_Applet.xml.h:3
 msgid "_Preferences"
 msgstr "P_referencje"
+
+#: ../data/Deskbar_Applet.server.in.in.h:1
+msgid "An all-in-one action bar"
+msgstr "Pasek działań \"wszystko w jednym\""
+
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:19
+msgid "Deskbar"
+msgstr "Deskbar"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Available Extensions</b>"
 msgstr "<b>Dostępne rozszerzenia</b>"
 
 #: ../data/prefs-dialog.glade.h:2
-msgid "<b>Focus</b>"
-msgstr "<b>Skupienie</b>"
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>Rozszerzenia z błędami</b>"
 
 #: ../data/prefs-dialog.glade.h:3
-msgid "<b>Layout</b>"
-msgstr "<b>Układ</b>"
+msgid "<b>Focus</b>"
+msgstr "<b>Skupienie</b>"
 
 #: ../data/prefs-dialog.glade.h:4
 msgid "<b>Loaded Extensions</b>"
 msgstr "<b>Wczytane rozszerzenia</b>"
 
 #: ../data/prefs-dialog.glade.h:5
-msgid "<b>Width</b>"
-msgstr "<b>Szerokość</b>"
-
-#: ../data/prefs-dialog.glade.h:6
-msgid ""
-"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
-"small></i>"
-msgstr ""
-"<i><small><b>Uwaga:</b> Przeciągnij rozszerzenia, aby zmienić ich kolejność."
-"</small></i>"
-
-#: ../data/prefs-dialog.glade.h:7
-msgid "Button in panel"
-msgstr "Przycisk na panelu"
-
-#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Preferencje Deskbar"
 
-#: ../data/prefs-dialog.glade.h:9
-msgid "Entry in panel"
-msgstr "Wpis na panelu"
+#: ../data/prefs-dialog.glade.h:6
+msgid "Extensions with Errors"
+msgstr "Rozszerzenia z błędami"
 
-#: ../data/prefs-dialog.glade.h:10
-msgid "Fixed _width:"
-msgstr "Stała _szerokość:"
+#: ../data/prefs-dialog.glade.h:7
+msgid "General"
+msgstr "Ogólne"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:8
 msgid "New Extensions"
 msgstr "Nowe rozszerzenia"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:9
 msgid "Search selection when triggering the shortcut"
 msgstr "Wyszukiwanie zaznaczenia po wywołaniu skrótu"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:10
 msgid "Searches"
 msgstr "Wyszukiwania"
 
-#: ../data/prefs-dialog.glade.h:14
-msgid "Use _all available space"
-msgstr "Użycie _całej dostępnej powierzchni"
-
-#: ../data/prefs-dialog.glade.h:15
-msgid "View"
-msgstr "Widok"
-
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:11
 msgid "_Check For Updates"
 msgstr "_Szukaj aktualizacji"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:12
 msgid "_Check for new extensions"
 msgstr "_Szukaj nowych rozszerzeń"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Install"
 msgstr "_Instaluj"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Keyboard shortcut to focus:"
 msgstr "Skróty _klawiszy skupienia:"
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:15
 msgid "_More..."
 msgstr "_Więcej..."
 
-#: ../data/prefs-dialog.glade.h:21
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Update"
 msgstr "_Aktualizuj"
-
-#: ../data/prefs-dialog.glade.h:22
-msgid "characters"
-msgstr "znaki"
 
 #: ../data/smart-bookmarks.glade.h:1
 msgid ""
@@ -230,583 +257,6 @@ msgstr ""
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Skróty zapamiętanych wyszukiwarek"
 
-#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
-#, python-format
-msgid "Open History Item %s"
-msgstr "Otwórz element historii %s"
-
-#: ../deskbar/BrowserMatch.py:52
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "Otwórz zakładkę %s"
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:101
-#, python-format
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "Wyszukiwanie <i>%(text)s</i> za pomocą <b>%(name)s</b>"
-
-#: ../deskbar/BrowserMatch.py:210
-msgid "Shortcut"
-msgstr "Skrót"
-
-#: ../deskbar/BrowserMatch.py:218
-msgid "Bookmark Name"
-msgstr "Nazwa zakładki"
-
-#: ../deskbar/Categories.py:7
-msgid "Uncategorized"
-msgstr "Niesklasyfikowane"
-
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
-msgid "History"
-msgstr "Historia"
-
-#: ../deskbar/Categories.py:15
-msgid "Documents"
-msgstr "Dokumenty"
-
-#: ../deskbar/Categories.py:18
-msgid "Emails"
-msgstr "Poczta"
-
-#: ../deskbar/Categories.py:21
-msgid "Conversations"
-msgstr "Rozmowy"
-
-#: ../deskbar/Categories.py:24
-msgid "Files"
-msgstr "Pliki"
-
-#: ../deskbar/Categories.py:27
-msgid "People"
-msgstr "Ludzie"
-
-#: ../deskbar/Categories.py:30
-msgid "Places"
-msgstr "Miejsca"
-
-#: ../deskbar/Categories.py:33
-msgid "Actions"
-msgstr "Akcje"
-
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
-msgid "Web"
-msgstr "Sieć"
-
-#: ../deskbar/Categories.py:39
-msgid "Web Search"
-msgstr "Wyszukiwarka sieciowa"
-
-#: ../deskbar/Categories.py:42
-msgid "News"
-msgstr "Wiadomości"
-
-#: ../deskbar/Categories.py:45
-msgid "Notes"
-msgstr "Uwagi"
-
-#: ../deskbar/DeskbarHistory.py:37
-msgid "No History"
-msgstr "Brak historii"
-
-#: ../deskbar/Utils.py:109
-msgid "Cannot execute program:"
-msgstr "Nie można wykonać programu:"
-
-#: ../deskbar/Utils.py:144
-msgid "Cannot show URL:"
-msgstr "Nie można wyświetlić URL:"
-
-#: ../deskbar/gtkexcepthook.py:14
-msgid "A programming error has been detected"
-msgstr "Wykryto błąd oprogramowania"
-
-#: ../deskbar/gtkexcepthook.py:15
-msgid ""
-"It probably isn't fatal, but should be reported to the developers "
-"nonetheless. The program may behave erratically from now on."
-msgstr ""
-"Prawdopodobnie nie jest on krytyczny, niemniej powinien zostać zgłoszony do "
-"autorów. Od tej chwili program może się zachowywać nieprzewidywalnie."
-
-#: ../deskbar/gtkexcepthook.py:17
-msgid "Bug Detected"
-msgstr "Wykryto błąd"
-
-#: ../deskbar/handlers/beagle-live.py:19
-msgid "Start Beagle Daemon?"
-msgstr "Uruchomić demona Beagle?"
-
-#: ../deskbar/handlers/beagle-live.py:24
-msgid "Start Beagle Daemon"
-msgstr "Uruchomienie demona Beagle"
-
-#: ../deskbar/handlers/beagle-live.py:25
-msgid ""
-"The Beagle daemon does not appear to be running.\n"
-" You need to start it to use the Beagle Live handler."
-msgstr ""
-"Wygląda na to, że demon Beagle nie jest uruchomiony.\n"
-" Należy go uruchomić, aby używać agenta Beagle Live."
-
-#: ../deskbar/handlers/beagle-live.py:39
-msgid "Failed to start Beagle"
-msgstr "Nie można uruchomić Beagle"
-
-#: ../deskbar/handlers/beagle-live.py:40
-msgid "Perhaps the beagle daemon isn't installed?"
-msgstr "Być może demon beagle nie jest zainstalowany."
-
-#: ../deskbar/handlers/beagle-live.py:63
-msgid "Beagle Live"
-msgstr "Beagle na żywo"
-
-#: ../deskbar/handlers/beagle-live.py:64
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Przeszukuje wszystkie dokumenty (używając Beagle), podczas pisania"
-
-#: ../deskbar/handlers/beagle-live.py:92
-#, python-format
-msgid "Edit contact %s"
-msgstr "Modyfikacja kontaktu %s"
-
-#: ../deskbar/handlers/beagle-live.py:101
-#, python-format
-msgid "From %s"
-msgstr "Od %s"
-
-#. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
-#: ../deskbar/handlers/recent.py:43
-#, python-format
-msgid "Open %s"
-msgstr "Otwórz %s"
-
-#: ../deskbar/handlers/beagle-live.py:117
-#, python-format
-msgid "News from %s"
-msgstr "Wiadomości od %s"
-
-#: ../deskbar/handlers/beagle-live.py:126
-#, python-format
-msgid "Note: %s"
-msgstr "Uwaga: %s"
-
-#: ../deskbar/handlers/beagle-live.py:135
-#, python-format
-msgid "With %s"
-msgstr "Z %s"
-
-#: ../deskbar/handlers/beagle-live.py:143
-#, python-format
-msgid "Calendar: %s"
-msgstr "Kalendarz: %s"
-
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:318
-#: ../deskbar/handlers/beagle-live.py:340
-msgid "?"
-msgstr "?"
-
-#: ../deskbar/handlers/beagle-static.py:20
-msgid "Beagle"
-msgstr "Beagle"
-
-#: ../deskbar/handlers/beagle-static.py:21
-msgid "Search all of your documents (using Beagle)"
-msgstr "Przeszukaj wszystkie dokumenty (przy użyciu Beagle)"
-
-#: ../deskbar/handlers/beagle-static.py:36
-#, python-format
-msgid "Search for %s using Beagle"
-msgstr "Wyszukaj %s przy użyciu Beagle"
-
-#: ../deskbar/handlers/desklicious.py:16
-msgid "You need to configure your del.icio.us account."
-msgstr "Należy skonfigurować swoje wsp.ani.ałe konto."
-
-#: ../deskbar/handlers/desklicious.py:18
-msgid "You can modify your del.icio.us account."
-msgstr "Można zmodyfikować swoje wsp.ani.ałe konto."
-
-#: ../deskbar/handlers/desklicious.py:22
-msgid "del.icio.us Bookmarks"
-msgstr "wsp.ani.ałe zakładki"
-
-#: ../deskbar/handlers/desklicious.py:23
-msgid "Search your del.icio.us bookmarks by tag name"
-msgstr "Przeszukiwanie wsp.ani.ałych zakładek po nazwie znacznika"
-
-#: ../deskbar/handlers/desklicious.py:30
-msgid "del.icio.us Account"
-msgstr "wsp.ani.ałe konto"
-
-#: ../deskbar/handlers/desklicious.py:37
-msgid "Enter your del.icio.us username below"
-msgstr "Wprowadź poniżej wsp.ani.ałą nazwę użytkownika"
-
-#: ../deskbar/handlers/desklicious.py:43
-msgid "Username: "
-msgstr "Nazwa użytkownika: "
-
-#: ../deskbar/handlers/epiphany.py:27
-msgid "You can set shortcuts for your searches."
-msgstr "Można ustawić skróty do wyszukiwarek."
-
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:131
-msgid "Web Bookmarks"
-msgstr "Zakładki sieciowe"
-
-#: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:132
-msgid "Open your web bookmarks by name"
-msgstr "Otwieranie zakładek sieciowych wg nazw"
-
-#: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:143
-msgid "Web History"
-msgstr "Historia sieciowa"
-
-#: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:144
-msgid "Open your web history by name"
-msgstr "Otwieranie historii sieciowej wg nazw"
-
-#: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:137
-msgid "Web Searches"
-msgstr "Wyszukiwarki sieciowe"
-
-#: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:138
-msgid "Search the web via your browser's search settings"
-msgstr "Przeszukiwanie sieci przy pomocy ustawień wyszukiwania przeglądarki"
-
-#: ../deskbar/handlers/evolution.py:12
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr "Należy włączyć automatyczne uzupełnianie w ustawieniach poczty"
-
-#: ../deskbar/handlers/evolution.py:15
-msgid "Autocompletion Needs to be Enabled"
-msgstr "Wymagane włączenie automatycznego uzupełniania"
-
-#: ../deskbar/handlers/evolution.py:16
-msgid ""
-"We cannot provide e-mail addresses from your address book unless "
-"autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit - Preferences, and then Autocompletion."
-msgstr ""
-"Nie można dostarczyć adresów e-mail z książki adresowej do czasu, aż nie "
-"zostanie włączone automatyczne uzupełnianie. Aby to uczynić, z menu programu "
-"pocztowego wybierz Edycja - Ustawienia, a następnie Autouzupełnianie."
-
-#: ../deskbar/handlers/evolution.py:21
-msgid "Mail (Address Book)"
-msgstr "Poczta (książka adresowa)"
-
-#: ../deskbar/handlers/evolution.py:22
-msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-"Wysyłanie poczty do kontaktów poprzez wpisanie ich nazwy lub adresu e-mail"
-
-#. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:48
-#, python-format
-msgid "Send Email to <b>%(name)s</b> (%(email)s)"
-msgstr "Wysyłanie poczty do <b>%(name)s</b> (%(email)s)"
-
-#: ../deskbar/handlers/files.py:18
-msgid "Files, Folders and Places"
-msgstr "Pliki, foldery i miejsca"
-
-#: ../deskbar/handlers/files.py:19
-msgid "View your files, folders, bookmarks, drives, network places by name"
-msgstr ""
-"Wyświetlanie wg nazw plików, folderów, zakładek, napędów, miejsc sieciowych"
-
-#: ../deskbar/handlers/files.py:69
-#, python-format
-msgid "Open folder %s"
-msgstr "Otwórz folder %s"
-
-#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
-#, python-format
-msgid "Open location %s"
-msgstr "Otwórz położenie %s"
-
-#: ../deskbar/handlers/files.py:118
-#, python-format
-msgid "Open network place %s"
-msgstr "Otwórz miejsce sieciowe %s"
-
-#: ../deskbar/handlers/files.py:120
-#, python-format
-msgid "Open audio disc %s"
-msgstr "Otwórz płytę audio %s"
-
-#: ../deskbar/handlers/gdmactions.py:10
-msgid "Computer Actions"
-msgstr "Działania komputera"
-
-#: ../deskbar/handlers/gdmactions.py:11
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr ""
-"Wylogowanie, wyłączenie, ponowne uruchomienie, uśpienie i podobne działania."
-
-#: ../deskbar/handlers/gdmactions.py:44
-msgid "Suspend the machine"
-msgstr "Uśpienie komputera"
-
-#: ../deskbar/handlers/gdmactions.py:60
-msgid "Hibernate the machine"
-msgstr "Wstrzymanie komputera"
-
-#: ../deskbar/handlers/gdmactions.py:76
-msgid "Shutdown the machine"
-msgstr "Wyłączenie komputera"
-
-#: ../deskbar/handlers/gdmactions.py:100
-msgid "Lock the screen"
-msgstr "Zablokowanie ekranu"
-
-#: ../deskbar/handlers/gdmactions.py:126
-msgid "Shut Down"
-msgstr "Zamknij system"
-
-#: ../deskbar/handlers/gdmactions.py:133
-msgid "Turn off the computer"
-msgstr "Wyłącz komputer"
-
-#: ../deskbar/handlers/gdmactions.py:137
-msgid "Log Out"
-msgstr "Wylogowanie"
-
-#: ../deskbar/handlers/gdmactions.py:144
-msgid "Log out"
-msgstr "Wyloguj"
-
-#: ../deskbar/handlers/gdmactions.py:148
-msgid "Restart"
-msgstr "Uruchom ponownie"
-
-#: ../deskbar/handlers/gdmactions.py:155
-msgid "Restart the computer"
-msgstr "Uruchom ponownie komputer"
-
-#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
-msgid "Switch User"
-msgstr "Przełącz użytkownika"
-
-#: ../deskbar/handlers/gdmactions.py:185
-msgid "Lock"
-msgstr "Zablokuj"
-
-#: ../deskbar/handlers/gdmactions.py:196
-msgid "Suspend"
-msgstr "Uśpij"
-
-#: ../deskbar/handlers/gdmactions.py:198
-msgid "Hibernate"
-msgstr "Wstrzymaj"
-
-#: ../deskbar/handlers/gdmactions.py:200
-msgid "Shutdown"
-msgstr "Wyłącz"
-
-#: ../deskbar/handlers/history.py:12
-msgid "Recognize previously used searches"
-msgstr "Rozpoznaje poprzednio użyte wyszukiwarki"
-
-#: ../deskbar/handlers/iswitch-window.py:11
-msgid "Window Switcher"
-msgstr "Przełącznik okien"
-
-#: ../deskbar/handlers/iswitch-window.py:12
-msgid "Switch to an existing window by name."
-msgstr "Przełączanie do istniejącego okna, wg nazw"
-
-#: ../deskbar/handlers/iswitch-window.py:16
-msgid "Windows"
-msgstr "Okna"
-
-#: ../deskbar/handlers/iswitch-window.py:32
-#, python-format
-msgid "Switch to <b>%(name)s</b>"
-msgstr "Przełącz do <b>%(name)s</b>"
-
-#: ../deskbar/handlers/mozilla.py:122
-msgid "You can customize which search engines are offered."
-msgstr "Można wybrać, które wyszukiwarki będą oferowane."
-
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Programy"
-
-#: ../deskbar/handlers/programs.py:15
-msgid "Launch a program by its name and/or description"
-msgstr "Uruchamianie programów wg nazw lub opisu"
-
-#: ../deskbar/handlers/programs.py:19
-msgid "Dictionary"
-msgstr "Słownik"
-
-#: ../deskbar/handlers/programs.py:20
-msgid "Look up word definitions in the dictionary"
-msgstr "Wyszukiwanie definicji słów w słowniku"
-
-#: ../deskbar/handlers/programs.py:24
-msgid "Files and Folders Search"
-msgstr "Wyszukiwanie plików i folderów"
-
-#: ../deskbar/handlers/programs.py:25
-msgid "Find files and folders by searching for a name pattern"
-msgstr "Znajdywanie plików i folderów poprzez wyszukiwanie fragmentu nazwy"
-
-#: ../deskbar/handlers/programs.py:29
-msgid "Developer Documentation"
-msgstr "Dokumentacja programisty"
-
-#: ../deskbar/handlers/programs.py:30
-msgid "Search Devhelp for a function name"
-msgstr "Przeszukiwanie Devhelp w poszukiwaniu nazwy funkcji"
-
-#. translators: First %s is the programs full name, second is the executable name
-#. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:88
-#, python-format
-msgid "Launch <b>%(name)s</b> (%(prog)s)"
-msgstr "Uruchamia <b>%(name)s</b> (%(prog)s)"
-
-#: ../deskbar/handlers/programs.py:102
-#, python-format
-msgid "Lookup %s in dictionary"
-msgstr "Wyszukuje %s w słowniku"
-
-#: ../deskbar/handlers/programs.py:110
-#, python-format
-msgid "Search for file names like %s"
-msgstr "Wyszukiwanie nazw plików takich jak %s"
-
-#: ../deskbar/handlers/programs.py:118
-#, python-format
-msgid "Search in Devhelp for %s"
-msgstr "Wyszukiwanie w Devhelp %s"
-
-#: ../deskbar/handlers/programs.py:222
-#, python-format
-msgid "Execute %s"
-msgstr "Uruchom %s"
-
-#: ../deskbar/handlers/recent.py:15
-msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
-msgstr "Ten agent wymaga nowszej wersji gtk (2.9.0 lub lepszej)."
-
-#: ../deskbar/handlers/recent.py:19
-msgid "Recent Documents"
-msgstr "Ostatnie dokumenty"
-
-#: ../deskbar/handlers/recent.py:20
-msgid "Retrieve your recently accessed files and locations"
-msgstr "Wyświetla ostatnio otwierane pliki i miejsca"
-
-#: ../deskbar/handlers/web_address.py:13
-msgid "Open web pages and send emails by typing a complete address"
-msgstr "Otwiera strony internetowe i wysyła pocztę poprzez wpisanie adresu"
-
-#: ../deskbar/handlers/web_address.py:42
-#, python-format
-msgid "Open the web page %s"
-msgstr "Otwiera stronę internetową %s"
-
-#: ../deskbar/handlers/web_address.py:44
-#, python-format
-msgid "Open the location %s"
-msgstr "Otwiera położenie %s"
-
-#: ../deskbar/handlers/web_address.py:61
-#, python-format
-msgid "Send Email to %s"
-msgstr "Wysłanie poczty do %s"
-
-#: ../deskbar/handlers/yahoo.py:16
-msgid "Yahoo! Search"
-msgstr "Wyszukiwarka Yahoo!"
-
-#: ../deskbar/handlers/yahoo.py:17
-msgid "Search Yahoo! as you type"
-msgstr "Wyszukiwanie w Yahoo! podczas pisania"
-
-#: ../deskbar/ui/About.py:22
-msgid "Deskbar"
-msgstr "Deskbar"
-
-#: ../deskbar/ui/About.py:25
-msgid "An all-in-one action bar."
-msgstr "Pasek akcji \"wszystko w jednym\"."
-
-#: ../deskbar/ui/About.py:28
-msgid "Deskbar Website"
-msgstr "Strona internetowa Deskbar"
-
-#. about.set_artists([])
-#. about.set_documenters([])
-#. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
-msgid "translator-credits"
-msgstr ""
-"GNOME PL Team <translators@gnomepl.org>\n"
-"Tomasz Dominikowski <dominikowski@gmail.com>"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:112
-msgid "New accelerator..."
-msgstr "Nowy skrót..."
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:164
-#, python-format
-msgid ""
-"The shortcut \"%s\" cannot be used because it will become unusable to type "
-"using this key.\n"
-"Please try with a key such as Control, Alt or Shift at the same time.\n"
-msgstr ""
-"Skrót \"%s\" nie może być użyty dla tego skrótu, ponieważ nie będzie można "
-"wpisywać\n"
-"tekstu. Proszę wybrać skrót z klawiszem Ctrl, Alt lub Shift.\n"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:330
-msgid "Connection to repository failed"
-msgstr "Nie można połączyć się z repozytorium"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:330
-msgid "Please check your internet connection"
-msgstr "Proszę sprawdzić połączenie z internetem"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:558
-msgid "Handler has been installed successfully"
-msgstr "Agent został poprawnie zainstalowany"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:564
-msgid "Handler could not be installed due a problem with the provided file"
-msgstr ""
-"Nie można zainstalować agenta z powodu problemów z dostarczonym plikiem"
-
-#: ../deskbar/ui/ModuleListView.py:55
-msgid "Update Available"
-msgstr "Dostępna aktualizacja"
-
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
-msgid "Show search entry"
-msgstr "Wyświetlenie wejścia wyszukiwania"
-
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
-msgid "Show previously used actions"
-msgstr "Wyświetlenie poprzednio używanych działań"
-
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
 msgstr "<b>Wyszukiwarki</b>"
@@ -823,84 +273,755 @@ msgstr "Pokaż wszystkie dostępne wyszukiwarki"
 msgid "Show only the primary search engine"
 msgstr "Pokaż wyszukiwarkę główną"
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
+#, python-format
+msgid "Open History Item %s"
+msgstr "Otwórz element historii %s"
+
+#: ../deskbar/core/BrowserMatch.py:53
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "Otwórz zakładkę %s"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/core/BrowserMatch.py:66
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "Wyszukiwanie <i>%(text)s</i> za pomocą <b>%(name)s</b>"
+
+#: ../deskbar/core/BrowserMatch.py:92 ../deskbar/handlers/yahoo.py:30
+msgid "URL"
+msgstr "Adres URL"
+
+#: ../deskbar/core/BrowserMatch.py:227
+msgid "Shortcut"
+msgstr "Skrót"
+
+#: ../deskbar/core/BrowserMatch.py:235
+msgid "Bookmark Name"
+msgstr "Nazwa zakładki"
+
+#: ../deskbar/core/Categories.py:7
+msgid "Uncategorized"
+msgstr "Niesklasyfikowane"
+
+#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:23
+msgid "History"
+msgstr "Historia"
+
+#: ../deskbar/core/Categories.py:17
+msgid "Documents"
+msgstr "Dokumenty"
+
+#: ../deskbar/core/Categories.py:21
+msgid "Emails"
+msgstr "Poczta"
+
+#: ../deskbar/core/Categories.py:25
+msgid "Conversations"
+msgstr "Rozmowy"
+
+#: ../deskbar/core/Categories.py:29
+msgid "Files"
+msgstr "Pliki"
+
+#: ../deskbar/core/Categories.py:33
+msgid "People"
+msgstr "Ludzie"
+
+#: ../deskbar/core/Categories.py:37
+msgid "Places"
+msgstr "Miejsca"
+
+#: ../deskbar/core/Categories.py:41
+msgid "Actions"
+msgstr "Działania"
+
+#: ../deskbar/core/Categories.py:45 ../deskbar/handlers/web_address.py:44
+msgid "Web"
+msgstr "Sieć"
+
+#: ../deskbar/core/Categories.py:49
+msgid "Web Search"
+msgstr "Wyszukiwarka sieciowa"
+
+#: ../deskbar/core/Categories.py:53
+msgid "News"
+msgstr "Wiadomości"
+
+#: ../deskbar/core/Categories.py:57
+msgid "Notes"
+msgstr "Uwagi"
+
+#: ../deskbar/core/DeskbarHistory.py:20
+msgid "<i>Choose action</i>"
+msgstr "<i>Wybierz działanie</i>"
+
+#: ../deskbar/core/Utils.py:124
+msgid "Cannot execute program:"
+msgstr "Nie można wykonać programu:"
+
+#: ../deskbar/core/Utils.py:164
+msgid "Cannot show URL:"
+msgstr "Nie można wyświetlić URL:"
+
+#: ../deskbar/handlers/beagle-live.py:98
+#, python-format
+msgid "Edit contact %s"
+msgstr "Modyfikacja kontaktu %s"
+
+#: ../deskbar/handlers/beagle-live.py:109
+#, python-format
+msgid "From %s"
+msgstr "Od %s"
+
+#: ../deskbar/handlers/beagle-live.py:124
+#, python-format
+msgid "News from %s"
+msgstr "Wiadomości od %s"
+
+#: ../deskbar/handlers/beagle-live.py:138
+#, python-format
+msgid "Note: %s"
+msgstr "Uwaga: %s"
+
+#: ../deskbar/handlers/beagle-live.py:151
+#, python-format
+msgid "With %s"
+msgstr "Z %s"
+
+#: ../deskbar/handlers/beagle-live.py:165
+#, python-format
+msgid "Calendar: %s"
+msgstr "Kalendarz: %s"
+
+#: ../deskbar/handlers/beagle-live.py:251
+msgid "Beagle Live"
+msgstr "Beagle na żywo"
+
+#: ../deskbar/handlers/beagle-live.py:252
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Przeszukuje wszystkie dokumenty (używając Beagle), podczas pisania"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:330
+#: ../deskbar/handlers/beagle-live.py:352
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle-live.py:415
+msgid ""
+"Could not load beagle, libbeagle has been compiled without python bindings."
+msgstr ""
+"Nie można wczytać beagle, libbeagle został skompilowany bez dowiązań do "
+"python."
+
+#: ../deskbar/handlers/beagle-live.py:424
+msgid "Beagled could not be found in your $PATH."
+msgstr "Beagled nie został odnaleziony w $PATH."
+
+#: ../deskbar/handlers/beagle-static.py:21
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "Wyszukaj %s przy użyciu Beagle"
+
+#: ../deskbar/handlers/beagle-static.py:37
+msgid "Beagle"
+msgstr "Beagle"
+
+#: ../deskbar/handlers/beagle-static.py:38
+msgid "Search all of your documents (using Beagle)"
+msgstr "Przeszukaj wszystkie dokumenty (przy użyciu Beagle)"
+
+#: ../deskbar/handlers/beagle-static.py:54
+msgid "Beagle does not seem to be installed."
+msgstr "Beagle nie jest zainstalowany."
+
+#: ../deskbar/handlers/desklicious.py:44
+msgid "del.icio.us Bookmarks"
+msgstr "wsp.ani.ałe zakładki"
+
+#: ../deskbar/handlers/desklicious.py:45
+msgid "Search your del.icio.us bookmarks by tag name"
+msgstr "Przeszukiwanie wsp.ani.ałych zakładek po nazwie znacznika"
+
+#: ../deskbar/handlers/desklicious.py:77
+msgid "del.icio.us Account"
+msgstr "wsp.ani.ałe konto"
+
+#: ../deskbar/handlers/desklicious.py:84
+msgid "Enter your del.icio.us username below"
+msgstr "Wprowadź poniżej wsp.ani.ałą nazwę użytkownika"
+
+#: ../deskbar/handlers/desklicious.py:90
+msgid "Username: "
+msgstr "Nazwa użytkownika: "
+
+#: ../deskbar/handlers/desklicious.py:106
+msgid "You need to configure your del.icio.us account."
+msgstr "Należy skonfigurować swoje wsp.ani.ałe konto."
+
+#: ../deskbar/handlers/desklicious.py:111
+msgid "You can modify your del.icio.us account."
+msgstr "Można zmodyfikować swoje wsp.ani.ałe konto."
+
+#: ../deskbar/handlers/epiphany.py:48
+msgid "Web Bookmarks (Epiphany)"
+msgstr "Zakładki sieciowe (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:121
+msgid "Open your web bookmarks by name"
+msgstr "Otwieranie zakładek sieciowych wg nazw"
+
+#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:128
+msgid "Epiphany is not your preferred browser."
+msgstr "Epiphany nie jest domyślną przeglądarką."
+
+#: ../deskbar/handlers/epiphany.py:88
+msgid "Web Searches (Epiphany)"
+msgstr "Wyszukiwarki sieciowe (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:191
+msgid "Search the web via your browser's search settings"
+msgstr "Przeszukiwanie sieci przy pomocy ustawień wyszukiwania przeglądarki"
+
+#: ../deskbar/handlers/epiphany.py:125
+msgid "You can set shortcuts for your searches."
+msgstr "Można ustawić skróty do wyszukiwarek."
+
+#: ../deskbar/handlers/epiphany.py:135
+msgid "Web History (Epiphany)"
+msgstr "Historia sieciowa (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:136 ../deskbar/handlers/mozilla.py:734
+msgid "Open your web history by name"
+msgstr "Otwieranie historii sieciowej wg nazw"
+
+#: ../deskbar/handlers/evolution.py:22
+msgid "Mail (Address Book)"
+msgstr "Poczta (książka adresowa)"
+
+#: ../deskbar/handlers/evolution.py:23
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr ""
+"Wysyłanie poczty do kontaktów poprzez wpisanie ich nazwy lub adresu e-mail"
+
+#: ../deskbar/handlers/evolution.py:48
+msgid ""
+"Autocompletion Needs to be Enabled\n"
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"Należy włączyć automatyczne uzupełnianie\n"
+"Nie można dostarczyć adresów e-mail z książki adresowej do czasu, aż nie "
+"zostanie włączone automatyczne uzupełnianie. Aby to uczynić, z menu programu "
+"pocztowego wybierz Edycja - Preferencje, a następnie Autouzupełnianie."
+
+#: ../deskbar/handlers/files.py:59
+#: ../deskbar/handlers/actions/ActionsFactory.py:32
+msgid "Location"
+msgstr "Położenie"
+
+#: ../deskbar/handlers/files.py:67
+msgid "Files, Folders and Places"
+msgstr "Pliki, foldery i miejsca"
+
+#: ../deskbar/handlers/files.py:68
+msgid "View your files, folders, bookmarks, drives, network places by name"
+msgstr ""
+"Wyświetlanie wg nazw plików, folderów, zakładek, napędów, miejsc sieciowych"
+
+#: ../deskbar/handlers/gdmactions.py:33
+msgid "Suspend the machine"
+msgstr "Uśpienie komputera"
+
+#: ../deskbar/handlers/gdmactions.py:49
+msgid "Hibernate the machine"
+msgstr "Wstrzymanie komputera"
+
+#: ../deskbar/handlers/gdmactions.py:65
+msgid "Shutdown the machine"
+msgstr "Wyłączenie komputera"
+
+#: ../deskbar/handlers/gdmactions.py:86
+msgid "Lock the screen"
+msgstr "Zablokowanie ekranu"
+
+#: ../deskbar/handlers/gdmactions.py:109 ../deskbar/handlers/gdmactions.py:230
+msgid "Lock"
+msgstr "Zablokuj"
+
+#: ../deskbar/handlers/gdmactions.py:149
+msgid "Turn off the computer"
+msgstr "Wyłącz komputer"
+
+#: ../deskbar/handlers/gdmactions.py:153 ../deskbar/handlers/gdmactions.py:209
+msgid "Shut Down"
+msgstr "Zamknij system"
+
+#: ../deskbar/handlers/gdmactions.py:165
+msgid "Log out"
+msgstr "Wyloguj"
+
+#: ../deskbar/handlers/gdmactions.py:169 ../deskbar/handlers/gdmactions.py:212
+msgid "Log Out"
+msgstr "Wylogowanie"
+
+#: ../deskbar/handlers/gdmactions.py:181
+msgid "Restart the computer"
+msgstr "Uruchom ponownie komputer"
+
+#: ../deskbar/handlers/gdmactions.py:185 ../deskbar/handlers/gdmactions.py:211
+msgid "Restart"
+msgstr "Uruchom ponownie"
+
+#: ../deskbar/handlers/gdmactions.py:196 ../deskbar/handlers/gdmactions.py:200
+#: ../deskbar/handlers/gdmactions.py:210
+msgid "Switch User"
+msgstr "Przełącz użytkownika"
+
+#: ../deskbar/handlers/gdmactions.py:206
+msgid "Computer Actions"
+msgstr "Działania komputera"
+
+#: ../deskbar/handlers/gdmactions.py:207
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr ""
+"Wylogowanie, wyłączenie, ponowne uruchomienie, uśpienie i podobne działania."
+
+#: ../deskbar/handlers/gdmactions.py:241
+msgid "Suspend"
+msgstr "Uśpij"
+
+#: ../deskbar/handlers/gdmactions.py:243
+msgid "Hibernate"
+msgstr "Wstrzymaj"
+
+#: ../deskbar/handlers/gdmactions.py:245
+msgid "Shutdown"
+msgstr "Wyłącz"
+
+#: ../deskbar/handlers/history.py:24
+msgid "Recognize previously used searches"
+msgstr "Rozpoznaje poprzednio użyte wyszukiwarki"
+
+#: ../deskbar/handlers/iswitch-window.py:15
+#, python-format
+msgid "Switch to <b>%(name)s</b>"
+msgstr "Przełącz do <b>%(name)s</b>"
+
+#: ../deskbar/handlers/iswitch-window.py:47
+msgid "Window Switcher"
+msgstr "Przełącznik okien"
+
+#: ../deskbar/handlers/iswitch-window.py:48
+msgid "Switch to an existing window by name."
+msgstr "Przełączanie do istniejącego okna, wg nazw"
+
+#: ../deskbar/handlers/iswitch-window.py:51
+msgid "Windows"
+msgstr "Okna"
+
+#: ../deskbar/handlers/mozilla.py:120
+msgid "Web Bookmarks (Mozilla)"
+msgstr "Zakładki sieciowe (Mozilla)"
+
+#: ../deskbar/handlers/mozilla.py:183 ../deskbar/handlers/mozilla.py:254
+msgid "Mozilla/Firefox is not your preferred browser."
+msgstr "Mozilla/Firefox nie jest domyślną przeglądarką."
+
+#: ../deskbar/handlers/mozilla.py:190
+msgid "Web Searches (Mozilla)"
+msgstr "Wyszukiwarki sieciowe (Mozilla)"
+
+#: ../deskbar/handlers/mozilla.py:248
+msgid "You can customize which search engines are offered."
+msgstr "Można wybrać, które wyszukiwarki będą oferowane."
+
+#: ../deskbar/handlers/mozilla.py:733
+msgid "Web History (Mozilla)"
+msgstr "Historia sieciowa (Mozilla)"
+
+#: ../deskbar/handlers/programs.py:74
+#, python-format
+msgid "Lookup %s in dictionary"
+msgstr "Wyszukuje %s w słowniku"
+
+#: ../deskbar/handlers/programs.py:81
+#, python-format
+msgid "Search for file names like %s"
+msgstr "Wyszukiwanie nazw plików takich jak %s"
+
+#: ../deskbar/handlers/programs.py:87
+#, python-format
+msgid "Search in Devhelp for %s"
+msgstr "Wyszukiwanie w Devhelp %s"
+
+#: ../deskbar/handlers/programs.py:113
+msgid "Dictionary"
+msgstr "Słownik"
+
+#: ../deskbar/handlers/programs.py:114
+msgid "Look up word definitions in the dictionary"
+msgstr "Wyszukiwanie definicji słów w słowniku"
+
+#: ../deskbar/handlers/programs.py:130
+msgid "Files and Folders Search"
+msgstr "Wyszukiwanie plików i folderów"
+
+#: ../deskbar/handlers/programs.py:131
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Znajdywanie plików i folderów poprzez wyszukiwanie fragmentu nazwy"
+
+#: ../deskbar/handlers/programs.py:147
+msgid "Developer Documentation"
+msgstr "Dokumentacja programisty"
+
+#: ../deskbar/handlers/programs.py:148
+msgid "Search Devhelp for a function name"
+msgstr "Przeszukiwanie Devhelp w poszukiwaniu nazwy funkcji"
+
+#: ../deskbar/handlers/programs.py:196
+#, python-format
+msgid "Execute %s"
+msgstr "Uruchom %s"
+
+#: ../deskbar/handlers/programs.py:218
+msgid "Programs"
+msgstr "Programy"
+
+#: ../deskbar/handlers/programs.py:219
+msgid "Launch a program by its name and/or description"
+msgstr "Uruchamianie programów wg nazw lub opisu"
+
+#: ../deskbar/handlers/recent.py:38
+msgid "Recent Documents"
+msgstr "Ostatnie dokumenty"
+
+#: ../deskbar/handlers/recent.py:39
+msgid "Retrieve your recently accessed files and locations"
+msgstr "Wyświetla ostatnio otwierane pliki i miejsca"
+
+#: ../deskbar/handlers/recent.py:58
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr "Ten agent wymaga nowszej wersji gtk (2.9.0 lub lepszej)."
+
+#: ../deskbar/handlers/web_address.py:45
+msgid "Open web pages and send emails by typing a complete address"
+msgstr "Otwiera strony internetowe i wysyła pocztę poprzez wpisanie adresu"
+
+#: ../deskbar/handlers/yahoo.py:38
+msgid "Yahoo! Search"
+msgstr "Wyszukiwarka Yahoo!"
+
+#: ../deskbar/handlers/yahoo.py:39
+msgid "Search Yahoo! as you type"
+msgstr "Wyszukiwanie w Yahoo! podczas pisania"
+
+#: ../deskbar/handlers/actions/ActionsFactory.py:54
+#, python-format
+msgid "URL of %s"
+msgstr "Adres URL %s"
+
+#: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
+#, python-format
+msgid "Copy <b>%(name)s</b> to clipboard"
+msgstr "Skopiowanie <b>%(name)s</b> do schowka"
+
+#: ../deskbar/handlers/actions/GoToLocationAction.py:23
+#, python-format
+msgid "Go to location of %s"
+msgstr "Otwiera położenie %s"
+
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
+#, python-format
+msgid "Launch <b>%(name)s</b>"
+msgstr "Uruchamia <b>%(name)s</b>"
+
+#: ../deskbar/handlers/actions/OpenFileAction.py:38
+#: ../deskbar/handlers/actions/ShowUrlAction.py:24
+#, python-format
+msgid "Open %s"
+msgstr "Otwórz %s"
+
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
+#, python-format
+msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
+msgstr "Uruchamia <b>%(name)s</b> za pomocą <b>%(program)s</b>"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
+#, python-format
+msgid "Open network place %s"
+msgstr "Otwórz miejsce sieciowe %s"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
+#, python-format
+msgid "Open audio disc %s"
+msgstr "Otwórz płytę audio %s"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:32
+#, python-format
+msgid "Open location %s"
+msgstr "Otwórz położenie %s"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/actions/SendEmailToAction.py:24
+#, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "Wysyłanie poczty do <b>%(name)s</b> (%(email)s)"
+
+#. translators: %s is a filename
+#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:44
+#, python-format
+msgid "Send %s via e-mail"
+msgstr "Wysłanie %s przez e-mail"
+
+#: ../deskbar/ui/About.py:22
+msgid "An all-in-one action bar."
+msgstr "Pasek działań \"wszystko w jednym\"."
+
+#: ../deskbar/ui/About.py:25
+msgid "Deskbar Website"
+msgstr "Strona WWW Deskbar"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:36
+msgid "translator-credits"
+msgstr ""
+"GNOME PL Team <translators@gnomepl.org>\n"
+"Tomasz Dominikowski <dominikowski@gmail.com>"
+
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:18
 msgid "<b>Search:</b>"
 msgstr "<b>Wyszukaj:</b>"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:49
-msgid "_File"
-msgstr "_Plik"
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
+msgid "name"
+msgstr "nazwa"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:50
-msgid "_Quit"
-msgstr "Za_kończ"
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
+msgid "default"
+msgstr "domyślne"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:51
-msgid "_Edit"
-msgstr "_Edycja"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:54
-msgid "_View"
-msgstr "_Widok"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:55
-msgid "_Help"
-msgstr "_Pomoc"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:58
+#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
+#: ../deskbar/ui/CuemiacWindowView.py:75
 msgid "_History"
 msgstr "_Historia"
 
-#. History TreeView
-#: ../deskbar/ui/window/CuemiacWindowUI.py:84
-msgid "<b>History</b>"
-msgstr "<b>Historia</b>"
+#: ../deskbar/ui/DeskbarApplet.py:86
+msgid "Show search entry"
+msgstr "Wyświetlenie wejścia wyszukiwania"
 
-#: ../deskbar/updater/ErrorDialog.py:8
+#: ../deskbar/ui/DeskbarApplet.py:114
+msgid ""
+"Some potentially old modules that make use of an old Deskbar-Applet API have "
+"been found. Remove these files for this warning to disappear.\n"
+msgstr ""
+"Niektóre potencjalne nieaktualne moduły korzystające ze starego interfejsu "
+"Deskbar-Applet zostały odnalezione. Należy usunąć te moduły, aby te "
+"ostrzeżenie się nie pojawiało.\n"
+
+#: ../deskbar/ui/preferences/AccelEntry.py:102
+msgid "New accelerator..."
+msgstr "Nowy skrót..."
+
+#: ../deskbar/ui/preferences/AccelEntry.py:154
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will prevent correct operation "
+"of your keyboard.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"Skrót \"%s\" nie może być użyty dla tego skrótu, ponieważ nie będzie można "
+"wpisywać\n"
+"tekstu. Proszę wybrać skrót z klawiszem Ctrl, Alt lub Shift.\n"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
+msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
+msgstr ""
+"<i><small>Przeciągnij i upuść rozszerzenia, aby zmienić ich kolejność.</"
+"small></i>"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+msgid "A problem occured"
+msgstr "Napotkano błąd"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+msgid "Handler has been installed successfully"
+msgstr "Agent został poprawnie zainstalowany"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr ""
+"Nie można zainstalować agenta z powodu problemów z dostarczonym plikiem"
+
+#: ../deskbar/ui/preferences/ErrorDialog.py:8
 msgid "Error"
 msgstr "Błąd"
 
-#: ../deskbar/updater/ErrorDialog.py:25
-msgid "An error occured"
-msgstr "Napotkano błąd"
-
-#: ../deskbar/updater/ErrorDialog.py:25
+#: ../deskbar/ui/preferences/ErrorDialog.py:26
 msgid "Check the description beneath for further details."
 msgstr "Więcej szczegółów podano w opisie."
 
-#: ../deskbar/updater/ErrorDialog.py:31
+#: ../deskbar/ui/preferences/ErrorDialog.py:32
 msgid "Details"
 msgstr "Szczegóły"
 
-#: ../deskbar/updater/NewStuffUpdater.py:131
-#, python-format
-msgid "Updating %s"
-msgstr "Aktualizowanie %s"
+#: ../deskbar/ui/preferences/ModuleListView.py:53
+msgid "Version:"
+msgstr "Wersja:"
 
-#: ../deskbar/updater/NewStuffUpdater.py:131
-msgid ""
-"The update is being downloaded from the internet. Please wait until the "
-"update is complete"
-msgstr "Trwa pobieranie aktualizacji z internetu. Proszę czekać."
+#: ../deskbar/ui/preferences/ModuleListView.py:56
+msgid "Update Available"
+msgstr "Dostępna aktualizacja"
 
-#: ../deskbar/updater/NewStuffUpdater.py:156
-#, python-format
-msgid "Installing %s"
-msgstr "Instalowanie %s"
+#~ msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+#~ msgstr "Wybiera rodzaj interfejsu, \"Cuemiac\" lub \"Entriac\""
 
-#: ../deskbar/updater/NewStuffUpdater.py:156
-msgid ""
-"The handler is being downloaded from the internet. Please wait until the "
-"installation is complete"
-msgstr ""
-"Trwa pobieranie agenta z internetu. Proszę czekać na ukończenie instalacji."
+#~ msgid "The applet's entry width in number of characters"
+#~ msgstr "Szerokość pola wprowadzania danych apletu w znakach"
 
-#: ../deskbar/updater/NewStuffUpdater.py:157
-msgid "Downloading"
-msgstr "Pobieranie"
+#~ msgid ""
+#~ "The list of categories to be collapsed when displayed in the 'Cuemiac' "
+#~ "UI. Valid category names are defined in Categories.py"
+#~ msgstr ""
+#~ "Lista kategorii do zwinięcia gdy wyświetlana w interfejsie \"Cuemiac\". "
+#~ "Poprawne nazwy kategorii są określone w Categories.py"
 
-#~ msgid "An all-in-one action bar"
-#~ msgstr "Pasek akcji \"wszystko w jednym\""
+#~ msgid ""
+#~ "Whether the applet should take all the available space in the panel. "
+#~ "Overrides the width preference."
+#~ msgstr ""
+#~ "Określa, czy aplet ma zabrać całą dostępną przestrzeń na panelu. Ignoruje "
+#~ "preferencje szerokości."
+
+#~ msgid "<b>Layout</b>"
+#~ msgstr "<b>Układ</b>"
+
+#~ msgid "<b>Width</b>"
+#~ msgstr "<b>Szerokość</b>"
+
+#~ msgid "Button in panel"
+#~ msgstr "Przycisk na panelu"
+
+#~ msgid "Entry in panel"
+#~ msgstr "Wpis na panelu"
+
+#~ msgid "Fixed _width:"
+#~ msgstr "Stała _szerokość:"
+
+#~ msgid "Use _all available space"
+#~ msgstr "Użycie _całej dostępnej powierzchni"
+
+#~ msgid "View"
+#~ msgstr "Widok"
+
+#~ msgid "characters"
+#~ msgstr "znaki"
+
+#~ msgid "No History"
+#~ msgstr "Brak historii"
+
+#~ msgid "A programming error has been detected"
+#~ msgstr "Wykryto błąd oprogramowania"
+
+#~ msgid ""
+#~ "It probably isn't fatal, but should be reported to the developers "
+#~ "nonetheless. The program may behave erratically from now on."
+#~ msgstr ""
+#~ "Prawdopodobnie nie jest on krytyczny, niemniej powinien zostać zgłoszony "
+#~ "do autorów. Od tej chwili program może się zachowywać nieprzewidywalnie."
+
+#~ msgid "Bug Detected"
+#~ msgstr "Wykryto błąd"
+
+#~ msgid "Start Beagle Daemon?"
+#~ msgstr "Uruchomić demona Beagle?"
+
+#~ msgid "Start Beagle Daemon"
+#~ msgstr "Uruchomienie demona Beagle"
+
+#~ msgid ""
+#~ "The Beagle daemon does not appear to be running.\n"
+#~ " You need to start it to use the Beagle Live handler."
+#~ msgstr ""
+#~ "Wygląda na to, że demon Beagle nie jest uruchomiony.\n"
+#~ " Należy go uruchomić, aby używać agenta Beagle Live."
+
+#~ msgid "Failed to start Beagle"
+#~ msgstr "Nie można uruchomić Beagle"
+
+#~ msgid "Perhaps the beagle daemon isn't installed?"
+#~ msgstr "Być może demon beagle nie jest zainstalowany."
+
+#~ msgid "You need to enable autocomplete in your mail preferences"
+#~ msgstr "Należy włączyć automatyczne uzupełnianie w ustawieniach poczty"
+
+#~ msgid "Autocompletion Needs to be Enabled"
+#~ msgstr "Wymagane włączenie automatycznego uzupełniania"
+
+#~ msgid "Open folder %s"
+#~ msgstr "Otwórz folder %s"
+
+#~ msgid "Open the web page %s"
+#~ msgstr "Otwiera stronę internetową %s"
+
+#~ msgid "Send Email to %s"
+#~ msgstr "Wysłanie poczty do %s"
+
+#~ msgid "Connection to repository failed"
+#~ msgstr "Nie można połączyć się z repozytorium"
+
+#~ msgid "Please check your internet connection"
+#~ msgstr "Proszę sprawdzić połączenie z internetem"
+
+#~ msgid "Show previously used actions"
+#~ msgstr "Wyświetlenie poprzednio używanych działań"
+
+#~ msgid "_File"
+#~ msgstr "_Plik"
+
+#~ msgid "_Quit"
+#~ msgstr "Za_kończ"
+
+#~ msgid "_Edit"
+#~ msgstr "_Edycja"
+
+#~ msgid "_View"
+#~ msgstr "_Widok"
+
+#~ msgid "_Help"
+#~ msgstr "_Pomoc"
+
+#~ msgid "<b>History</b>"
+#~ msgstr "<b>Historia</b>"
+
+#~ msgid "Updating %s"
+#~ msgstr "Aktualizowanie %s"
+
+#~ msgid ""
+#~ "The update is being downloaded from the internet. Please wait until the "
+#~ "update is complete"
+#~ msgstr "Trwa pobieranie aktualizacji z internetu. Proszę czekać."
+
+#~ msgid "Installing %s"
+#~ msgstr "Instalowanie %s"
+
+#~ msgid ""
+#~ "The handler is being downloaded from the internet. Please wait until the "
+#~ "installation is complete"
+#~ msgstr ""
+#~ "Trwa pobieranie agenta z internetu. Proszę czekać na ukończenie "
+#~ "instalacji."
+
+#~ msgid "Downloading"
+#~ msgstr "Pobieranie"
 
 #~ msgid ""
 #~ "<i><small><b>Note:</b> The new shortcut will take effect on next login.</"
