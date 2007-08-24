@@ -71,6 +71,12 @@ class ModuleListView (gtk.TreeView):
         """Callback for the toggle buttons in the ModuleList.ENABLED_COL.
         Emits a 'row-toggled' signal passing the context in the row as argument."""
         self.emit ("row-toggled", model[model.get_iter(path)][model.MODULE_CTX_COL])
+        
+    def scroll_to_iter(self, iter):
+        path = self.get_model().get_path(iter)
+        self.get_selection().select_path( path )
+        gobject.idle_add(self.scroll_to_cell, path )
+        self.set_cursor_on_cell( path )
 
 if gtk.pygtk_version < (2,8,0):
     gobject.type_register(ModuleListView)

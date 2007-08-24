@@ -385,22 +385,30 @@ class DeskbarPreferences:
     def on_button_top_clicked(self, button):
         model, iter = self.moduleview.get_selection().get_selected()
         self.module_list.move_module_to_top(iter)
+        self.moduleview.scroll_to_iter(iter)
         self.set_buttons(self.moduleview.get_selection())
+        self.moduleview.grab_focus()
     
     def on_button_up_clicked(self, button):
         model, iter = self.moduleview.get_selection().get_selected()
         self.module_list.move_module_up(iter)
+        self.moduleview.scroll_to_iter(iter)
         self.set_buttons(self.moduleview.get_selection())
+        self.moduleview.grab_focus()
     
     def on_button_down_clicked(self, button):
         model, iter = self.moduleview.get_selection().get_selected()
         self.module_list.move_module_down(iter)
+        self.moduleview.scroll_to_iter(iter)
         self.set_buttons(self.moduleview.get_selection())
+        self.moduleview.grab_focus()
     
     def on_button_bottom_clicked(self, button):
         model, iter = self.moduleview.get_selection().get_selected()
         self.module_list.move_module_to_bottom(iter)
+        self.moduleview.scroll_to_iter(iter)
         self.set_buttons(self.moduleview.get_selection())
+        self.moduleview.grab_focus()
         
     def update_gconf(self):
          # Update the gconf enabled modules settings
