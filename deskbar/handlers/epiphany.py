@@ -84,7 +84,7 @@ class EpiphanyBookmarksHandler(EpiphanyHandler):
 
 class EpiphanySearchHandler(EpiphanyBookmarksHandler):
     
-    INFOS = {'icon': deskbar.core.Utils.load_icon('stock_bookmark'),
+    INFOS = {'icon': deskbar.core.Utils.load_icon('web-search.png'),
              "name": _("Web Searches (Epiphany)"),
              "description": _("Search the web via your browser's search settings"),
              "version": VERSION,

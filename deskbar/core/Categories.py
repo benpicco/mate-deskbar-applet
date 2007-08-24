@@ -47,7 +47,7 @@ CATEGORIES = {
     },
     "websearch"    : {    
         "name": _("Web Search"),
-        "icon": load_icon("gtk-find"),
+        "icon": load_icon("web-search.png"),
     },
     "news"    : {    
         "name": _("News"),

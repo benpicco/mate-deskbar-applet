@@ -12,7 +12,8 @@ art_DATA = \
 	yahoo.png \
 	epiphany-history.png \
 	gpm-suspend-to-disk.png \
-	gpm-suspend-to-ram.png
+	gpm-suspend-to-ram.png \
+	web-search.png
 
 16icondir = $(datadir)/icons/hicolor/16x16/apps
 16icon_DATA = 16x16/deskbar-applet.png
