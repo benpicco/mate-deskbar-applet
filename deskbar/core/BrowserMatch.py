@@ -229,7 +229,7 @@ def on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_
     
     def bookmark_to_bookmark_name(tree_view_column, cell_renderer, model, iter):
         bookmark = model.get_value(iter, 1)
-        cell_renderer.set_property("text", bookmark.get_name()["name"])
+        cell_renderer.set_property("text", bookmark.get_name())
 
     crt_name = gtk.CellRendererText()
     tvc_name = gtk.TreeViewColumn(_("Bookmark Name"), crt_name)
