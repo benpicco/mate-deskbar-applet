@@ -109,11 +109,12 @@ class EpiphanySearchHandler(EpiphanyBookmarksHandler):
                 b = shortcuts_to_smart_bookmarks_map[prefix]
                 text = query[x+1:]
                 self._emit_query_ready(query, [BrowserSmartMatch(b.get_name(), b.url, prefix, b, icon=b._icon, priority=self.get_priority())] )
+                return
             except KeyError:
                 # Probably from the b = ... line.  Getting here
                 # means that there is no such shortcut.
                 pass
-        
+        self._emit_query_ready(query, smart_bookmarks)
     def show_config(self, parent):
         on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map)
         
