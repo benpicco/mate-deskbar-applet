@@ -2,6 +2,15 @@
 deskbar-applet 2.19.91
 =======================
 
+This release contains numerous bug fixes. Navigation has been improved
+to better fit the navigation in previous Deskbar releases. The GUI
+will be displayed in the center of the screen. You can also switch to the
+list of actions when you click in the '>' on the right of a match and
+go back from the list of actions when clicking the new "Back to Matches"
+button. Furthermore, developers that want to write their own modules
+can make use of the new ActionFactory that returns a list of actions
+depending on a file's MIME-type.
+
 Changes:
 	* Resolved some displaying issues with OpenFileAction, OpenWithApplicationAction and SendFileViaEmailAction actions
 	* Added GoToLocationAction.
@@ -42,11 +51,13 @@ Changes:
 	* Added new epiphany-history icon (thanks to Michael Monreal)
 	* Changed default icon for category history to "document-open-recent"
 	* Added web-search icon
-	* Changed icon of MozillaSearchHandler, EpiphanySearchHandler	and websearch category to web-search
+	* Changed icon of MozillaSearchHandler, EpiphanySearchHandler and websearch category to web-search
 	* Fixed bug #468813: Yahoo Extension Icon (thanks to Michael Monreal)
 	* Fixed: When moving modules with buttons the view didn't follow the selected module
 	* Fixed: Exception when using epiphany handler
 	* Removed description that matches can be activated	with Alt+LETTER, because this feature isn't available anymore.
+	* Add "Back to Matches" button under the list of actions.
+	* Make the '>' beneath matches that have more than one action clickable to go the list of actions. This replaces that you have to press ctrl while clicking on a match to display its actions.
 
 Contributors to this release: Sebastian Pölsterl, Michael Monreal
 

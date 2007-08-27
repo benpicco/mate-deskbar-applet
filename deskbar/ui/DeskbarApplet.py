@@ -87,8 +87,8 @@ class DeskbarApplet (gtk.HBox):
         
         self.on_change_size()
         
-        self.__setup_mvc()
         self.__setup_applet_menu()
+        self.__setup_mvc()
        
     def __setup_mvc(self):
         self.__core = CoreImpl(deskbar.MODULES_DIRS)

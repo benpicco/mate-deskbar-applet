@@ -29,10 +29,13 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
                  'has-more-actions' : (gobject.TYPE_BOOLEAN, 'whether the match has more than one action',
                                     'If set to True a symbol will be displayed on the right',
                                     False, gobject.PARAM_READWRITE),
-                 'match-markup' : (gobject.TYPE_STRING, 'markup for match description',
-                      'markup for match description',
-                      "", gobject.PARAM_READWRITE),
         }
+    __gsignals__ = {
+        # This signal will be emited when '>' on the right is clicked
+        "show-actions-activated": (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+        # This signal will be emited then an area that's not the '>' from above is clicked
+        "do-action-activated": (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+    }
     
     def __init__ (self):
         gtk.CellRendererText.__init__ (self)
@@ -40,6 +43,12 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
         self.__match_count = 0
         self.__has_more_actions = False
         self.__match_markup = ""
+        self.__button_x = 0
+        self.__button_y = 0
+        self.__button_width = 0
+        self.__button_height = 0
+        
+        self.set_property("mode", gtk.CELL_RENDERER_MODE_ACTIVATABLE)
         
         # Grab some default theme settings
         # they are probably incorrect, but we reset
@@ -64,32 +73,53 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
             self.render_match (window, widget, background_area, cell_area, expose_area, flags)
         else:
             self.render_category (window, widget, background_area, cell_area, expose_area, flags)
-    
-    def render_match (self, window, widget, background_area, cell_area, expose_area, flag):
+   
+    def render_match (self, window, widget, background_area, cell_area, expose_area, flags):
         ctx = window.cairo_create ()
         
         # Set up a pango.Layout
         more_actions_layout = ctx.create_layout ()
         if self.get_property("has-more-actions"):
             more_actions_layout.set_markup ("<b>&gt;</b>")
-        else:
-            more_actions_layout.set_text("")
+        
         more_actions_layout.set_font_description (self.header_font_desc)
         
         more_actions_layout_width, more_actions_layout_height = more_actions_layout.get_pixel_size()
                 
-        state = self.renderer_state_to_widget_state(flag)
+        state = self.renderer_state_to_widget_state(flags)
+        
+        self.__button_width = more_actions_layout_width + 2
+        self.__button_height = cell_area.height 
         
         # Draw the actual text in the remaining area
         cell_area_width = cell_area.width
-        cell_area.width -= more_actions_layout_width + 2
-        gtk.CellRendererText.do_render (self, window, widget, background_area, cell_area, expose_area, flag)
+        cell_area.width -= self.__button_width
+        gtk.CellRendererText.do_render (self, window, widget, background_area, cell_area, expose_area, flags)
         
         mod_gc = widget.get_style().text_gc[state]
+        
+        self.__button_x = (cell_area.x + cell_area_width) - more_actions_layout_width - 2
+        self.__button_y = cell_area.y + ( (cell_area.height - more_actions_layout_height) / 2 ) + 1
+        
         window.draw_layout(mod_gc,
-                        (cell_area.x + cell_area_width) - more_actions_layout_width - 2,
-                        cell_area.y + ( (cell_area.height - more_actions_layout_height) / 2 ) + 1,
+                        self.__button_x,
+                        self.__button_y,
                         more_actions_layout)
+        
+        if self.get_property("has-more-actions"):
+            # Add some additional area around the '>' to activate it
+            self.__button_x -= 3
+            self.__button_y = cell_area.y
+            self.__button_width += 3
+        else:
+            self.__button_height = 0
+            self.__button_width = 0
+            self.__button_x = 0
+            self.__button_y = 0
+        
+        #window.draw_rectangle(mod_gc, False, self.__button_x, self.__button_y,
+        #            self.__button_width, self.__button_height          
+        #            )
         
     def render_category (self, window, widget, background_area, cell_area, expose_area, flag):
         """
@@ -105,7 +135,7 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
         cat_layout = ctx.create_layout ()
         cat_layout.set_font_description (self.header_font_desc)
         
-        cat_layout.set_markup("...")        
+        cat_layout.set_markup("...")
         cat_layout_width, cat_layout_height = cat_layout.get_pixel_size()
         ellipsise_size = cat_layout_width
         
@@ -153,6 +183,33 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
         if (gtk.CELL_RENDERER_SELECTED & flags) == gtk.CELL_RENDERER_SELECTED:
             state = gtk.STATE_SELECTED
         return state
+    
+    def do_activate(self, event, widget, path_string, background_area, cell_area, flags):
+        if not isinstance(widget, gtk.TreeView):
+            # Not a treeview
+            return False
+        
+        if event.type != gtk.gdk.BUTTON_PRESS:
+            # Event type not GDK_BUTTON_PRESS
+            return True
+        
+        ex = event.x
+        ey = event.y
+        bx = self.__button_x
+        # Otherwise, we get problems when the cell
+        # is at the top of the visible part of the treeview
+        by = cell_area.y 
+        bw = self.__button_width
+        bh = self.__button_height
+        
+        path = tuple([int(i) for i in path_string.split(':')])
+        if (ex < bx or ex > (bx+bw) or ey < by or ey > (by+bh)):
+            # Click wasn't on the icon
+            self.emit("do-action-activated", path)
+            return True
+        else:
+            self.emit("show-actions-activated", path)
+            return False
         
     def do_get_property(self, property):
         if property.name == 'category-header':
@@ -161,8 +218,6 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
             return self.__match_count
         elif property.name == 'has-more-actions':
             return self.__has_more_actions
-        elif property.name == 'match-markup':
-            return self.__match_markup
         else:
             raise AttributeError, 'unknown property %s' % property.name
 
@@ -173,8 +228,6 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
             self.__match_count = value
         elif property.name == 'has-more-actions':
             self.__has_more_actions = value
-        elif property.name == 'match-markup':
-            self.__match_markup = value
         else:
             raise AttributeError, 'unknown property %s' % property.name
         
@@ -198,15 +251,16 @@ class CuemiacTreeView (gtk.TreeView):
         gtk.TreeView.__init__ (self, model)
         self.set_enable_search (False)
         self.set_property ("headers-visible", False)
-
-        self.connect ("button-press-event", self.__on_button_press)        
+        
         self.connect ("key-press-event", self.__on_key_press)
                 
         icon = gtk.CellRendererPixbuf ()
         icon.set_property("xpad", 10)
         hit_title = CellRendererCuemiacCategory ()
+        hit_title.connect("show-actions-activated", self.__on_show_actions_activated)
+        hit_title.connect("do-action-activated", self.__on_do_action_activated)
         hit_title.set_property ("ellipsize", pango.ELLIPSIZE_END)
-        
+       
         hits = gtk.TreeViewColumn ("Hits")
         hits.pack_start (icon, expand=False)
         hits.pack_start (hit_title)
@@ -291,20 +345,7 @@ class CuemiacTreeView (gtk.TreeView):
         path = self.__find_bottom_path()
         if path != None:
             self.__select_path(path)
-    
-    def __on_button_press (self, treeview, event):
-        # We want to activate items on single click
-        path_ctx = self.get_path_at_pos (int(event.x), int(event.y))
-        if path_ctx is not None:
-            path, col, x, y = path_ctx
-            model = self.get_model ()
-            match = model[model.get_iter(path)][model.MATCHES]
-            if match.__class__ != CuemiacCategory:
-                if event.state & gtk.gdk.CONTROL_MASK:
-                    self.__on_activated(treeview, path, col, event)
-                else:
-                    self.__on_do_default_action(treeview, path, col, event)
-    
+
 #    def __on_config_expanded_cat (self, value):
 #        if value != None and value.type == gconf.VALUE_LIST:
 #            self.__collapsed_rows = [h.get_string() for h in value.get_list()]
@@ -346,7 +387,18 @@ class CuemiacTreeView (gtk.TreeView):
         cell.set_property ("has-more-actions", len(match.get_actions()) > 1)
                 
         cell.set_property ("markup", model[iter][model.ACTIONS])
+        
+    def __on_show_actions_activated(self, widget, path):
+        col = self.get_model().ACTIONS
+        self.__on_activated(self, path, col, None)
 
+    def __on_do_action_activated(self, widget, path):
+        model = self.get_model ()
+        match = model[model.get_iter(path)][model.MATCHES]
+        col = self.get_model().ACTIONS
+        if match.__class__ != CuemiacCategory:
+            self.__on_do_default_action(self, path, col, None)
+                    
     def __on_do_default_action(self, treeview, path, col, event):
         model = self.get_model()
         iter = model.get_iter (path)
