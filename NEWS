@@ -1,4 +1,75 @@
 =======================
+deskbar-applet 2.19.91
+=======================
+
+Changes:
+	* Resolved some displaying issues with OpenFileAction, OpenWithApplicationAction and SendFileViaEmailAction actions
+	* Added GoToLocationAction.
+	* Added Factory to easily get actions for given file.
+	* Refactored beagle-live module.
+	* Fixed bug #466541: deskbar-applet crashed with AttributeError	in on_disabled_module_changed()
+	* Fixed: Disabled modules get still queried and return results
+	* Select last match when up is pressed in entry.
+	* Select entry on CuemiacTreeView's "pressed-up-at-top"	and "pressed-down-at-bottom" signals.
+	* Only restore small window if it has been saved before.
+	* Removed "show_history" from GConf schema.
+	* Removed obsolote code to show/hide history
+	* Fixed: Missing transparency
+	* Fixed: Doesn't close window after history action has been selected
+	* Fixed: Navigation issues if one or more categories where collapsed
+	* Fixed bug #413097: wierd text-string in deskbar-applet
+	* Fixed: Execute actions twice
+	* Fixed: GtkBookmarkMatch throws exception
+	* Removed 'handlersdir' from deskbar-applet.pc and added 'modulesdir'
+	* Implemented is_valid method properly and checking	is_valid before restoring history and activating an action
+	* Fixed bug #467825: Beagle VS Beagle-Live plugin
+	* Display windows always in the middle of the screen
+	* Removed storing/setting window position.
+	* Removed galeon handler because galeon isn't maintained anymore
+	* Changed default value from "clear_entry" to TRUE in GConf
+	* Set More button sensitive when callback (module's	show_config method) is callable and don't depend on value of INSTRUCTIONS attribute
+	* Removed config dialog of beagle-live handler
+	* Clear list of matches and actions not until first new match arrives
+	* Fixed: Match is labeled wrong if match has 2 actions
+	* Install bug buddy exception hook.	Removed dialog that displays stack trace. If an exception is raised in a module	only bring up bug buddy if its filename is contained in a whitelist. That way we want to prevent that exceptions in 3rd-party handlers land in bugzilla.
+	* Display "Choose action" after history item has been selected and history has been cleared.
+	* Clear entry, matches and actions list if "clear_entry" is True. Otherwise, navigation in the TreeView is still possible and	would cause trouble.
+	* Changed icon of button to clear history to gtk.STOCK_CLEAR (patch by Michael Monreal)
+	* Changed icon for GnomeDictHandler to 'accessories-dictionary'	because gdict isn't included in gnome-icon-theme anymore.(patch by Michael Monreal)
+	* Changed icon of RecentHandler to 'document-open-recent' (patch by Michael Monreal)
+	* Changed icon of email category to 'emblem-mail' (patch by Michael Monreal)
+	* Fixed bug #468452: History widget size. Only the first line of text will be displayed	in the history combobox.
+	* Added new epiphany-history icon (thanks to Michael Monreal)
+	* Changed default icon for category history to "document-open-recent"
+	* Added web-search icon
+	* Changed icon of MozillaSearchHandler, EpiphanySearchHandler	and websearch category to web-search
+	* Fixed bug #468813: Yahoo Extension Icon (thanks to Michael Monreal)
+	* Fixed: When moving modules with buttons the view didn't follow the selected module
+	* Fixed: Exception when using epiphany handler
+	* Removed description that matches can be activated	with Alt+LETTER, because this feature isn't available anymore.
+
+Contributors to this release: Sebastian Pölsterl, Michael Monreal
+
+Updated Translations:
+	* Brazilian Portuguese
+	* Canadian English
+	* Estonian
+	* Finnish
+	* Gujarati
+	* Hungarian
+	* Japanese
+	* Korean
+	* Lithuanian
+	* Polish
+	* Portuguese
+	* Macedonian
+	* Spanish
+	* Swedish
+	* Thai
+
+Contributors to the translations: Vladimir Melo, Adam Weinberger, Ivar Smolin, Ilkka Tuohela, Ankit Patel, Gabor Kelemen, Takeshi AIHANA, Young-Ho Cha, Žygimantas Beručka, Artur Flinta, Duarte Loreto, Jovan Naumovski, Jorge Gonzalez, Daniel Nylander, Theppitak Karoonboonyanan
+
+=======================
 deskbar-applet 2.19.90.1
 =======================
 
