@@ -321,9 +321,10 @@ class CuemiacTreeView (gtk.TreeView):
         Activate to the first item and scroll to it if C{scroll} is C{True}
         """
         path = self.__find_top_path()
-        if scroll:
-            self.__select_path(path)
-        self.activate_row( self.get_model().get_iter(path) )
+        if path != None:
+            if scroll:
+                self.__select_path(path)
+            self.activate_row( self.get_model().get_iter(path) )
 
     def activate_row(self, iter):
         """
