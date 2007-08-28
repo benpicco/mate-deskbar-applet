@@ -249,8 +249,8 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
     
     def __on_window_key_press_event(self, window, event):
         if event.keyval == gtk.keysyms.Escape:
-            self.clear_all()
-            self.clear_query()
+            if self._model.get_clear_entry():
+                self.clear_all()
             self.emit("destroy-event", event)
                 
         return False
