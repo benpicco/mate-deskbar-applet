@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-18 22:41+0100\n"
-"PO-Revision-Date: 2007-08-19 11:17+0200\n"
+"POT-Creation-Date: 2007-08-28 04:36+0100\n"
+"PO-Revision-Date: 2007-08-28 14:07+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -224,16 +224,6 @@ msgstr "_Actualizar"
 
 #: ../data/smart-bookmarks.glade.h:1
 msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
-msgstr ""
-"<i><small><b>Nota: </b>Si esa combinación de teclas es una sola letra (como "
-"<b>t</b>) puede también teclear tan sólo teclear \"<b>algo</b>\" y después "
-"pulsar <b>Alt-t</b> en la barra del escritorio.</small></i>"
-
-#: ../data/smart-bookmarks.glade.h:2
-msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
@@ -242,7 +232,7 @@ msgstr ""
 "<b>wp</b>) para buscar <b>algo</b>, teclee \"<b>wp algo</b>\" en la barra "
 "del escritorio</small></i>."
 
-#: ../data/smart-bookmarks.glade.h:3
+#: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Combinaciones de teclas para las búsquedas almacenadas"
 
@@ -262,7 +252,7 @@ msgstr "Mostrar todos los motores de búsqueda disponibles"
 msgid "Show only the primary search engine"
 msgstr "Mostrar sólo el motor de búsqueda primario"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:179
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
 #, python-format
 msgid "Open History Item %s"
 msgstr "Abrir el elemento %s del histórico"
@@ -342,33 +332,17 @@ msgstr "Noticias"
 msgid "Notes"
 msgstr "Notas"
 
-#: ../deskbar/core/DeskbarHistory.py:18
+#: ../deskbar/core/DeskbarHistory.py:20
 msgid "<i>Choose action</i>"
 msgstr "<i>Elija una acción</i>"
 
-#: ../deskbar/core/Utils.py:108
+#: ../deskbar/core/Utils.py:124
 msgid "Cannot execute program:"
 msgstr "No se puede ejecutar el programa:"
 
-#: ../deskbar/core/Utils.py:145
+#: ../deskbar/core/Utils.py:164
 msgid "Cannot show URL:"
 msgstr "No se puede mostrar la URL:"
-
-#: ../deskbar/gtkexcepthook.py:14
-msgid "A programming error has been detected"
-msgstr "Se ha detectado un error de programación"
-
-#: ../deskbar/gtkexcepthook.py:15
-msgid ""
-"It probably isn't fatal, but should be reported to the developers "
-"nonetheless. The program may behave erratically from now on."
-msgstr ""
-"Probablemente no es fatal, pero debería ser informado a los desarrolladores "
-"de todas formas. El programa puede comportarse erráticamente desde ahora."
-
-#: ../deskbar/gtkexcepthook.py:17
-msgid "Bug Detected"
-msgstr "Error detectado"
 
 #: ../deskbar/handlers/beagle-live.py:98
 #, python-format
@@ -395,33 +369,33 @@ msgstr "Nota: %s"
 msgid "With %s"
 msgstr "con %s"
 
-#: ../deskbar/handlers/beagle-live.py:168
+#: ../deskbar/handlers/beagle-live.py:165
 #, python-format
 msgid "Calendar: %s"
 msgstr "Calendario: %s"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:251
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:253
+#: ../deskbar/handlers/beagle-live.py:252
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Busque todos sus documentos (usando Beagle), mientras teclea"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:331
-#: ../deskbar/handlers/beagle-live.py:353
+#: ../deskbar/handlers/beagle-live.py:330
+#: ../deskbar/handlers/beagle-live.py:352
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:416
+#: ../deskbar/handlers/beagle-live.py:415
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "No se pudo cargar beagled, libbeagle se ha compilado sin los bindings de "
 "python."
 
-#: ../deskbar/handlers/beagle-live.py:425
+#: ../deskbar/handlers/beagle-live.py:424
 msgid "Beagled could not be found in your $PATH."
 msgstr "No se pudo encontrar bleagled en su $PATH."
 
@@ -478,7 +452,7 @@ msgstr "Marcadores web (Epiphany)"
 msgid "Open your web bookmarks by name"
 msgstr "Abra sus marcadores web por nombre"
 
-#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:128
+#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany no es su navegador preferido."
 
@@ -490,27 +464,27 @@ msgstr "Búsquedas web (Epiphany)"
 msgid "Search the web via your browser's search settings"
 msgstr "Busque por la web mediante de los ajustes de búsqueda de su navegador"
 
-#: ../deskbar/handlers/epiphany.py:125
+#: ../deskbar/handlers/epiphany.py:124
 msgid "You can set shortcuts for your searches."
 msgstr "Puede establecer combinaciones de teclas para sus búsquedas."
 
-#: ../deskbar/handlers/epiphany.py:135
+#: ../deskbar/handlers/epiphany.py:134
 msgid "Web History (Epiphany)"
 msgstr "Histórico web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:136 ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:734
 msgid "Open your web history by name"
 msgstr "Abra su histórico web por nombre"
 
-#: ../deskbar/handlers/evolution.py:21
+#: ../deskbar/handlers/evolution.py:22
 msgid "Mail (Address Book)"
 msgstr "Correo (Libreta de direcciones)"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:23
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Envíe correos-e a sus contactos tecleando su nombre o dirección de correo-e"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:48
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -729,57 +703,57 @@ msgstr "Buscar en Yahoo! mientras teclea"
 msgid "URL of %s"
 msgstr "URL de %s"
 
-#: ../deskbar/handlers/actions/CopyToClipboardAction.py:15
+#: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
 #, python-format
 msgid "Copy <b>%(name)s</b> to clipboard"
 msgstr "Copiar <b>%(name)s</b> al portapapeles"
 
-#: ../deskbar/handlers/actions/GoToLocationAction.py:20
+#: ../deskbar/handlers/actions/GoToLocationAction.py:23
 #, python-format
 msgid "Go to location of %s"
 msgstr "Ir a la ubicación de %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:32
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
 #, python-format
 msgid "Launch <b>%(name)s</b>"
 msgstr "Lanzar <b>%(name)s</b>"
 
-#: ../deskbar/handlers/actions/OpenFileAction.py:32
-#: ../deskbar/handlers/actions/ShowUrlAction.py:22
+#: ../deskbar/handlers/actions/OpenFileAction.py:38
+#: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
 msgstr "Abrir %s"
 
-#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:33
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
 #, python-format
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
 msgstr "Abrir <b>%(name)s</b> con <b>%(program)s</b>"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:26
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
 #, python-format
 msgid "Open network place %s"
 msgstr "Abrir lugar de red %s"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Abrir disco de audio %s"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:32
 #, python-format
 msgid "Open location %s"
 msgstr "Abrir lugar %s"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/actions/SendEmailToAction.py:21
+#: ../deskbar/handlers/actions/SendEmailToAction.py:24
 #, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Enviar correo-e a <b>%(name)s</b> (%(email)s)"
 
 #. translators: %s is a filename
-#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:40
+#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:44
 #, python-format
 msgid "Send %s via e-mail"
 msgstr "Enviar %s por correo-e"
@@ -815,9 +789,13 @@ msgid "default"
 msgstr "predeterminado"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:72
+#: ../deskbar/ui/CuemiacWindowView.py:75
 msgid "_History"
 msgstr "_Histórico"
+
+#: ../deskbar/ui/CuemiacWindowView.py:133
+msgid "Back to Matches"
+msgstr "Volver a las coincidencias"
 
 #: ../deskbar/ui/DeskbarApplet.py:86
 msgid "Show search entry"
@@ -847,19 +825,19 @@ msgstr ""
 "usar correctamente el teclado.\n"
 "Por favor, pruebe con una tecla como Control, Alt o Mayús. al mismo tiempo.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:82
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Arrastre y suelte una extensión para cambiar su orden.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:313
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
 msgid "A problem occured"
 msgstr "Ocurrió un problema"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:378
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
 msgid "Handler has been installed successfully"
 msgstr "Se ha instalado el manipulador con éxito"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:381
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
 "El manipulador no se pudo instalar debido a un problema con el archivo "
