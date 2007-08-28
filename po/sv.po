@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-18 23:39+0200\n"
-"PO-Revision-Date: 2007-08-18 23:41+0100\n"
+"POT-Creation-Date: 2007-08-28 17:17+0200\n"
+"PO-Revision-Date: 2007-08-28 17:17+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -190,14 +190,10 @@ msgid "_Update"
 msgstr "_Uppdatera"
 
 #: ../data/smart-bookmarks.glade.h:1
-msgid "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in the deskbar.</small></i>"
-msgstr "<i><small><b>Notera: </b>Om den genvägen är en enstaka bokstav (som <b>t</b>) kan du bara skriva \"<b>någonting</b>\" och sedan trycka <b>Alt-t</b> i skrivbordsraden.</small></i>"
-
-#: ../data/smart-bookmarks.glade.h:2
 msgid "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></i>."
 msgstr "<i><small><b>Notera:</b> För att använda en genväg (till exempel <b>wp</b>) för att söka efter <b>någonting</b>, skriv \"<b>wp någonting</b>\" i skrivbordsraden</small></i>."
 
-#: ../data/smart-bookmarks.glade.h:3
+#: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Genvägar för bokmärkta sökningar"
 
@@ -218,7 +214,7 @@ msgid "Show only the primary search engine"
 msgstr "Visa endast den primära sökmotorn"
 
 #: ../deskbar/core/BrowserMatch.py:51
-#: ../deskbar/handlers/beagle-live.py:179
+#: ../deskbar/handlers/beagle-live.py:176
 #, python-format
 msgid "Open History Item %s"
 msgstr "Öppna historikposten %s"
@@ -301,29 +297,17 @@ msgstr "Nyheter"
 msgid "Notes"
 msgstr "Anteckningar"
 
-#: ../deskbar/core/DeskbarHistory.py:18
+#: ../deskbar/core/DeskbarHistory.py:20
 msgid "<i>Choose action</i>"
 msgstr "<i>Välj åtgärd</i>"
 
-#: ../deskbar/core/Utils.py:108
+#: ../deskbar/core/Utils.py:124
 msgid "Cannot execute program:"
 msgstr "Kan inte köra program:"
 
-#: ../deskbar/core/Utils.py:145
+#: ../deskbar/core/Utils.py:164
 msgid "Cannot show URL:"
 msgstr "Kan inte visa url:"
-
-#: ../deskbar/gtkexcepthook.py:14
-msgid "A programming error has been detected"
-msgstr "Ett programmeringsfel har hittats"
-
-#: ../deskbar/gtkexcepthook.py:15
-msgid "It probably isn't fatal, but should be reported to the developers nonetheless. The program may behave erratically from now on."
-msgstr "Det är antagligen inte allvarligt men det bör oavsett rapporteras till utvecklarna. Programmet kan uppträda oberäkneligt från och med nu."
-
-#: ../deskbar/gtkexcepthook.py:17
-msgid "Bug Detected"
-msgstr "Fel påträffades"
 
 #: ../deskbar/handlers/beagle-live.py:98
 #, python-format
@@ -350,31 +334,31 @@ msgstr "Anteckning: %s"
 msgid "With %s"
 msgstr "Med %s"
 
-#: ../deskbar/handlers/beagle-live.py:168
+#: ../deskbar/handlers/beagle-live.py:165
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalender: %s"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:251
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:253
+#: ../deskbar/handlers/beagle-live.py:252
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Sök i alla din dokument (med Beagle), när du skriver"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:331
-#: ../deskbar/handlers/beagle-live.py:353
+#: ../deskbar/handlers/beagle-live.py:330
+#: ../deskbar/handlers/beagle-live.py:352
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:416
+#: ../deskbar/handlers/beagle-live.py:415
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Kunde inte läsa in beagle, libbeagle har byggts utan stöd för python-bindingar."
 
-#: ../deskbar/handlers/beagle-live.py:425
+#: ../deskbar/handlers/beagle-live.py:424
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagled hittades inte i din $PATH."
 
@@ -433,7 +417,7 @@ msgid "Open your web bookmarks by name"
 msgstr "Öppna dina webbokmärken med hjälp av namnet"
 
 #: ../deskbar/handlers/epiphany.py:82
-#: ../deskbar/handlers/epiphany.py:128
+#: ../deskbar/handlers/epiphany.py:127
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany är inte din föredragna webbläsare."
 
@@ -446,28 +430,28 @@ msgstr "Webbsökningar (Epiphany)"
 msgid "Search the web via your browser's search settings"
 msgstr "Sök på webben via din webbläsares sökinställningar"
 
-#: ../deskbar/handlers/epiphany.py:125
+#: ../deskbar/handlers/epiphany.py:124
 msgid "You can set shortcuts for your searches."
 msgstr "Du kan ställa in genvägar för dina sökningar."
 
-#: ../deskbar/handlers/epiphany.py:135
+#: ../deskbar/handlers/epiphany.py:134
 msgid "Web History (Epiphany)"
 msgstr "Webbhistorik (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:136
+#: ../deskbar/handlers/epiphany.py:135
 #: ../deskbar/handlers/mozilla.py:734
 msgid "Open your web history by name"
 msgstr "Öppna din webbhistorik med hjälp av namnet"
 
-#: ../deskbar/handlers/evolution.py:21
+#: ../deskbar/handlers/evolution.py:22
 msgid "Mail (Address Book)"
 msgstr "Post (Adressbok)"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:23
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Skicka e-post till dina kontakter genom att skriva in deras namn eller e-postadress"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:48
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion."
@@ -685,12 +669,12 @@ msgstr "Sök på Yahoo! när du skriver"
 msgid "URL of %s"
 msgstr "Url för %s"
 
-#: ../deskbar/handlers/actions/CopyToClipboardAction.py:15
+#: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
 #, python-format
 msgid "Copy <b>%(name)s</b> to clipboard"
 msgstr "Kopiera <b>%(name)s</b> till urklipp"
 
-#: ../deskbar/handlers/actions/GoToLocationAction.py:20
+#: ../deskbar/handlers/actions/GoToLocationAction.py:23
 #, python-format
 msgid "Go to location of %s"
 msgstr "Gå till platsen för %s"
@@ -700,13 +684,13 @@ msgstr "Gå till platsen för %s"
 #
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:32
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
 #, python-format
 msgid "Launch <b>%(name)s</b>"
 msgstr "Starta <b>%(name)s</b>"
 
-#: ../deskbar/handlers/actions/OpenFileAction.py:32
-#: ../deskbar/handlers/actions/ShowUrlAction.py:22
+#: ../deskbar/handlers/actions/OpenFileAction.py:38
+#: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
 msgstr "Öppna %s"
@@ -714,34 +698,34 @@ msgstr "Öppna %s"
 # FIXME:
 # http://bugzilla.gnome.org/show_bug.cgi?id=321396
 #
-#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:33
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
 #, python-format
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
 msgstr "Öppna <b>%(name)s</b> med <b>%(program)s</b>"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:26
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
 #, python-format
 msgid "Open network place %s"
 msgstr "Öppna nätverksplatsen %s"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
 #, python-format
 msgid "Open audio disc %s"
 msgstr "Öppna ljudskivan %s"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:32
 #, python-format
 msgid "Open location %s"
 msgstr "Öppna platsen %s"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/actions/SendEmailToAction.py:21
+#: ../deskbar/handlers/actions/SendEmailToAction.py:24
 #, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "Skicka e-post till <b>%(name)s</b> (%(email)s)"
 
 #. translators: %s is a filename
-#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:40
+#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:44
 #, python-format
 msgid "Send %s via e-mail"
 msgstr "Skicka %s via e-post"
@@ -779,9 +763,13 @@ msgid "default"
 msgstr "standard"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:72
+#: ../deskbar/ui/CuemiacWindowView.py:75
 msgid "_History"
 msgstr "_Historik"
+
+#: ../deskbar/ui/CuemiacWindowView.py:133
+msgid "Back to Matches"
+msgstr "Tillbaka till sökträffar"
 
 #: ../deskbar/ui/DeskbarApplet.py:86
 msgid "Show search entry"
@@ -804,19 +792,19 @@ msgstr ""
 "Genvägen \"%s\" kan inte användas därför att den kommer att förhindra normal användning\n"
 "av ditt tangentbord. Prova den samtidigt med en tangent som Control, Alt eller Skift.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:82
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Dra och släpp en utökning för att ändra dess ordning.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:313
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
 msgid "A problem occured"
 msgstr "Ett fel inträffade"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:378
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
 msgid "Handler has been installed successfully"
 msgstr "Hanteraren har installerats"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:381
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "Hanteraren kunde inte installeras på grund av ett problem med den tillhandahållna filen"
 
@@ -840,6 +828,24 @@ msgstr "Version:"
 msgid "Update Available"
 msgstr "Uppdatering tillgänglig"
 
+#~ msgid ""
+#~ "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</"
+#~ "b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</"
+#~ "b> in the deskbar.</small></i>"
+#~ msgstr ""
+#~ "<i><small><b>Notera: </b>Om den genvägen är en enstaka bokstav (som <b>t</"
+#~ "b>) kan du bara skriva \"<b>någonting</b>\" och sedan trycka <b>Alt-t</b> "
+#~ "i skrivbordsraden.</small></i>"
+#~ msgid "A programming error has been detected"
+#~ msgstr "Ett programmeringsfel har hittats"
+#~ msgid ""
+#~ "It probably isn't fatal, but should be reported to the developers "
+#~ "nonetheless. The program may behave erratically from now on."
+#~ msgstr ""
+#~ "Det är antagligen inte allvarligt men det bör oavsett rapporteras till "
+#~ "utvecklarna. Programmet kan uppträda oberäkneligt från och med nu."
+#~ msgid "Bug Detected"
+#~ msgstr "Fel påträffades"
 #~ msgid "Display history sidebar"
 #~ msgstr "Visa historikpanel"
 #~ msgid "If enabled the history sidebar will be displayed"
