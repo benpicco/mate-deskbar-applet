@@ -189,7 +189,7 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
             # Not a treeview
             return False
         
-        if event.type != gtk.gdk.BUTTON_PRESS:
+        if event == None or event.type != gtk.gdk.BUTTON_PRESS:
             # Event type not GDK_BUTTON_PRESS
             return True
         
