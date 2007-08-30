@@ -11,11 +11,15 @@ HANDLERS = ["HistoryHandler"]
 
 class HistoryMatch(deskbar.interfaces.Match):
     
-    def __init__(self, name):
+    def __init__(self, name, action):
         deskbar.interfaces.Match.__init__(self, name=name, category="history")
-        
+        self._action = action
+   
     def get_hash(self, text=None):
-        return "history_"+self.get_name()
+        return "history_"+self._action.get_hash()
+    
+    def get_icon(self):
+        return self._action.get_pixbuf()
 
 class HistoryHandler(deskbar.interfaces.Module):
     
@@ -46,7 +50,8 @@ class HistoryHandler(deskbar.interfaces.Module):
             
         for timestamp, text, action in DeskbarHistory.get_instance():
             if text.startswith(query):
-                match = HistoryMatch(action.get_verb() % action.get_escaped_name(query))
+                match_name = action.get_verb() % action.get_escaped_name(text)
+                match = HistoryMatch(match_name, action)
                 match.add_action(action)
                 match.set_priority( self.get_priority() + priority )
                 result.append(match)
