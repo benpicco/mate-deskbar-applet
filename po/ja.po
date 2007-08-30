@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-24 00:38+0900\n"
-"PO-Revision-Date: 2007-08-24 00:26+0900\n"
+"POT-Creation-Date: 2007-08-30 17:27+0900\n"
+"PO-Revision-Date: 2007-08-30 17:26+0900\n"
 "Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -219,16 +219,6 @@ msgstr "更新(_U)"
 
 #: ../data/smart-bookmarks.glade.h:1
 msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
-msgstr ""
-"<i><small><b>補足: </b>ショートカットが１文字の場合、例えば <b>t</b> なら単"
-"に \"<b>something</b>\" を入力してからデスクバーの中で <b>Alt-t</b> を押して"
-"下さい。</small></i>"
-
-#: ../data/smart-bookmarks.glade.h:2
-msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
@@ -237,7 +227,7 @@ msgstr ""
 "を検索するショートカットが <b>wp</b> ならば、デスクバーの中に \"<b>wp "
 "something</b>\" と入力して下さい。</small></i>"
 
-#: ../data/smart-bookmarks.glade.h:3
+#: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "ブックマーク検索のショートカット"
 
@@ -339,7 +329,7 @@ msgstr "メモ"
 
 #: ../deskbar/core/DeskbarHistory.py:20
 msgid "<i>Choose action</i>"
-msgstr ""
+msgstr "<i>アクションを選択して下さい</i>"
 
 #: ../deskbar/core/Utils.py:124
 msgid "Cannot execute program:"
@@ -402,11 +392,8 @@ msgstr ""
 "イルされています)"
 
 #: ../deskbar/handlers/beagle-live.py:424
-#, fuzzy
 msgid "Beagled could not be found in your $PATH."
-msgstr ""
-"Beagle が $PATH で指定されるフォルダの中にありませんでした (Beagle デーモンを"
-"起動できません)"
+msgstr "Beagle が $PATH で指定されているフォルダの中にありませんでした"
 
 #: ../deskbar/handlers/beagle-static.py:21
 #, python-format
@@ -414,9 +401,8 @@ msgid "Search for %s using Beagle"
 msgstr "Beagle で %s を検索する"
 
 #: ../deskbar/handlers/beagle-static.py:37
-#, fuzzy
 msgid "Beagle"
-msgstr "Beagle ライブ"
+msgstr "Beagle"
 
 #: ../deskbar/handlers/beagle-static.py:38
 msgid "Search all of your documents (using Beagle)"
@@ -455,37 +441,34 @@ msgid "You can modify your del.icio.us account."
 msgstr "del.icio.us のアカウントを変更できます。"
 
 #: ../deskbar/handlers/epiphany.py:48
-#, fuzzy
 msgid "Web Bookmarks (Epiphany)"
-msgstr "ウェブ・ブックマーク"
+msgstr "ウェブ・ブックマーク (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:121
 msgid "Open your web bookmarks by name"
 msgstr "名前を指定してウェブ・ブックマークを開きます"
 
-#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:128
+#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany がお気に入りのブラウザとして指定されていません"
 
 #: ../deskbar/handlers/epiphany.py:88
-#, fuzzy
 msgid "Web Searches (Epiphany)"
-msgstr "ウェブ検索"
+msgstr "ウェブ検索 (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:191
 msgid "Search the web via your browser's search settings"
 msgstr "ブラウザの検索機能を使ってウェブから検索します"
 
-#: ../deskbar/handlers/epiphany.py:125
+#: ../deskbar/handlers/epiphany.py:124
 msgid "You can set shortcuts for your searches."
 msgstr "検索する際のショートカット・キーを指定できます"
 
-#: ../deskbar/handlers/epiphany.py:135
-#, fuzzy
+#: ../deskbar/handlers/epiphany.py:134
 msgid "Web History (Epiphany)"
-msgstr "ウェブの訪問履歴"
+msgstr "ウェブの訪問履歴 (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:136 ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:734
 msgid "Open your web history by name"
 msgstr "名前を指定してウェブの訪問履歴を開きます"
 
@@ -616,27 +599,24 @@ msgid "Windows"
 msgstr "ウィンドウ"
 
 #: ../deskbar/handlers/mozilla.py:120
-#, fuzzy
 msgid "Web Bookmarks (Mozilla)"
-msgstr "ウェブ・ブックマーク"
+msgstr "ウェブ・ブックマーク (Mozilla)"
 
 #: ../deskbar/handlers/mozilla.py:183 ../deskbar/handlers/mozilla.py:254
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox がお気に入りのブラウザとして指定されていません"
 
 #: ../deskbar/handlers/mozilla.py:190
-#, fuzzy
 msgid "Web Searches (Mozilla)"
-msgstr "ウェブ検索"
+msgstr "ウェブ検索 (Mozilla)"
 
 #: ../deskbar/handlers/mozilla.py:248
 msgid "You can customize which search engines are offered."
 msgstr "どの検索エンジンを使用するか変更できます"
 
 #: ../deskbar/handlers/mozilla.py:733
-#, fuzzy
 msgid "Web History (Mozilla)"
-msgstr "ウェブの訪問履歴"
+msgstr "ウェブの訪問履歴 (Mozilla)"
 
 #: ../deskbar/handlers/programs.py:74
 #, python-format
@@ -717,17 +697,17 @@ msgstr "入力しながら Yahoo! から検索します"
 #: ../deskbar/handlers/actions/ActionsFactory.py:54
 #, python-format
 msgid "URL of %s"
-msgstr ""
+msgstr "%s の URL"
 
 #: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
 #, python-format
 msgid "Copy <b>%(name)s</b> to clipboard"
-msgstr "<b>%(name)s</b>をクリップボードにコピーする"
+msgstr "<b>%(name)s</b> をクリップボードにコピーする"
 
 #: ../deskbar/handlers/actions/GoToLocationAction.py:23
-#, fuzzy, python-format
+#, python-format
 msgid "Go to location of %s"
-msgstr "場所 %s を開く"
+msgstr "%s がある場所へ移動する"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
@@ -740,7 +720,7 @@ msgstr "<b>%(name)s</b> を起動する"
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
-msgstr "%sを開く"
+msgstr "%s を開く"
 
 #: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
 #, python-format
@@ -770,9 +750,9 @@ msgstr "<b>%(name)s</b> (%(email)s) さんに E-メールを送信する"
 
 #. translators: %s is a filename
 #: ../deskbar/handlers/actions/SendFileViaEmailAction.py:44
-#, fuzzy, python-format
+#, python-format
 msgid "Send %s via e-mail"
-msgstr "E-メールで %(file)s を送信する"
+msgstr "%s をメールで送信する"
 
 #: ../deskbar/ui/About.py:22
 msgid "An all-in-one action bar."
@@ -809,6 +789,10 @@ msgstr "default"
 msgid "_History"
 msgstr "履歴(_H)"
 
+#: ../deskbar/ui/CuemiacWindowView.py:133
+msgid "Back to Matches"
+msgstr "アイテムの一覧へ戻る"
+
 #: ../deskbar/ui/DeskbarApplet.py:86
 msgid "Show search entry"
 msgstr "検索バーを表示します"
@@ -827,20 +811,22 @@ msgid "New accelerator..."
 msgstr "新しいアクセラレータ..."
 
 #: ../deskbar/ui/preferences/AccelEntry.py:154
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The shortcut \"%s\" cannot be used because it will prevent correct operation "
 "of your keyboard.\n"
 "Please try with a key such as Control, Alt or Shift at the same time.\n"
 msgstr ""
-"\"%s\" というショートカット・キーを単独では利用できません。\n"
-"[Control] や [Alt] または [Shift] キーと同時に入力するようにして下さい。\n"
+"妥当なキーボード操作ができなくなるため \"%s\" というショートカット・キーは利"
+"用できません。\n"
+"[Control] や [Alt] または [Shift] キーといった修飾キーと一緒に指定してみて下"
+"さい。\n"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:81
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr ""
-"<i><small>優先順位を変更する場合は、モジュールをドラッグ＆ドロップして入れ替"
-"えて下さい</small></i>"
+"<i><small>優先順位を変更する場合は、上にあるモジュールをドラッグ＆ドロップし"
+"て入れ替えて下さい</small></i>"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:312
 msgid "A problem occured"
@@ -873,79 +859,3 @@ msgstr "バージョン:"
 #: ../deskbar/ui/preferences/ModuleListView.py:56
 msgid "Update Available"
 msgstr "アップデートできます"
-
-#~ msgid "Display history sidebar"
-#~ msgstr "履歴をサイドバーに表示するかどうか"
-
-#~ msgid "If enabled the history sidebar will be displayed"
-#~ msgstr "履歴をサイドバーに表示するかどうかです。"
-
-#~ msgid "Sidebar width"
-#~ msgstr "サイドバーの幅"
-
-#~ msgid "The default width of the list of results"
-#~ msgstr "検索結果の一覧の幅 (デフォルト値) です。"
-
-#~ msgid "The default width of the sidebar"
-#~ msgstr "サイドバーのデフォルトの幅です。"
-
-#~ msgid "Width of the list of results"
-#~ msgstr "検索結果を表示する際の幅"
-
-#~ msgid "No History"
-#~ msgstr "履歴なし"
-
-#~ msgid "A programming error has been detected"
-#~ msgstr "プログラムのエラーを検出しました"
-
-#~ msgid ""
-#~ "It probably isn't fatal, but should be reported to the developers "
-#~ "nonetheless. The program may behave erratically from now on."
-#~ msgstr ""
-#~ "おそらく深刻なものではありませんが、いずれにせよ開発者に報告するべきでしょ"
-#~ "う。プログラムはこれから予測不能な動作になります"
-
-#~ msgid "Bug Detected"
-#~ msgstr "検出したバグ"
-
-#~ msgid "Start Beagle Daemon?"
-#~ msgstr "Beagle デーモンを起動しますか？"
-
-#~ msgid "Start Beagle Daemon"
-#~ msgstr "Beagle デーモンの起動"
-
-#~ msgid ""
-#~ "The Beagle daemon does not appear to be running.\n"
-#~ " You need to start it to use the Beagle Live handler."
-#~ msgstr ""
-#~ "Beagle デーモンが起動されていないようです。\n"
-#~ "Beagle ライブを利用するにはデーモンを起動して下さい。"
-
-#~ msgid "Failed to start beagled. Perhaps the beagle daemon isn't installed?"
-#~ msgstr ""
-#~ "Beagle デーモンを起動できませんでした (Beagle デーモンがインストールされて"
-#~ "いないかも？)"
-
-#~ msgid "Failed to start Beagle"
-#~ msgstr "Beagle の起動に失敗しました"
-
-#~ msgid "Perhaps the beagle daemon isn't installed?"
-#~ msgstr "Beagle のパッケージはインストールされていますか？"
-
-#~ msgid "Galeon is not your preferred browser."
-#~ msgstr "Galeon がお気に入りのブラウザとして指定されていません"
-
-#~ msgid "_File"
-#~ msgstr "ファイル(_F)"
-
-#~ msgid "_Quit"
-#~ msgstr "終了(_Q)"
-
-#~ msgid "_Edit"
-#~ msgstr "編集(_E)"
-
-#~ msgid "_View"
-#~ msgstr "表示(_V)"
-
-#~ msgid "_Help"
-#~ msgstr "ヘルプ(_H)"
