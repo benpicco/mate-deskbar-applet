@@ -61,6 +61,9 @@ class OpenSmartBookmarkAction(deskbar.interfaces.Action):
         self._url = url
         self._prefix_to_strip = prefix_to_strip
         
+    def get_icon(self):
+        return "web-search.png"
+        
     def get_verb(self):
         #translators: First %s is the search engine name, second %s is the search term
         return _("Search <b>%(name)s</b> for <i>%(text)s</i>")
