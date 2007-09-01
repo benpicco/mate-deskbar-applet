@@ -1,13 +1,17 @@
-import os, re, HTMLParser, base64, glob
-from os.path import join, expanduser, exists, basename
-from gettext import gettext as _
 from ConfigParser import RawConfigParser
-from xml.dom import minidom
-from deskbar.defs import VERSION
-import gtk
-from deskbar.core.Watcher import FileWatcher, DirWatcher
-import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module
+from deskbar.core.BrowserMatch import BrowserSmartMatch, BrowserMatch
+from deskbar.core.BrowserMatch import is_preferred_browser
 from deskbar.core.GconfStore import GconfStore
+from deskbar.core.Watcher import FileWatcher, DirWatcher
+from deskbar.defs import VERSION
+from gettext import gettext as _
+from os.path import join, expanduser, exists, basename
+from xml.dom import minidom
+import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module
+import gtk
+import logging
+import os, re, HTMLParser, base64, glob
+import urllib
 
 # Check for presence of set to be compatible with python 2.3
 try:
@@ -15,8 +19,6 @@ try:
 except NameError:
     from sets import Set as set
 
-from deskbar.core.BrowserMatch import is_preferred_browser
-from deskbar.core.BrowserMatch import BrowserSmartMatch, BrowserMatch
 
 # Whether we will index firefox or mozilla bookmarks
 USING_FIREFOX = False
@@ -275,7 +277,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
                 self.indexed_file = self._index_mozilla()
             self.close()
         except Exception, e:
-            print 'Warning:Could not index Firefox bookmarks:', e
+            logging.error('Could not index Firefox bookmarks: %s' % e)
         
     def get_indexer(self):
         """
@@ -293,7 +295,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
                 self.feed(file(bookmarks_file).read())
                 return bookmarks_file
         except Exception, msg:
-            print 'Error retreiving Mozilla Bookmarks:', msg
+            logging.error('Retrieving Mozilla Bookmarks: %s' % msg)
         
     def _index_firefox(self):
         try:
@@ -302,12 +304,14 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
                 self.feed(file(bookmarks_file).read())
                 return bookmarks_file
         except Exception, msg:
-            print 'Error retreiving Mozilla Bookmarks:', msg
+            logging.error('Retrieving Firefox Bookmarks: %s' % msg)
     
     def handle_starttag(self, tag, attrs):
         tag = tag.lower()
         if tag == "a":
             self.chars = ""
+            self.href = None
+            self.icon_data = None
             self.shortcuturl = None
             for tag, value in attrs:
                 if tag.lower() == 'href':
@@ -327,27 +331,24 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
             if self.icon_data != None:
                 loader = gtk.gdk.PixbufLoader()
                 try:
+                    # data:text/html;base64 should be the Header
+                    header, content = self.icon_data.split(",", 2)
+                    loader.set_size(deskbar.ICON_HEIGHT, deskbar.ICON_HEIGHT)
                     try:
-                        # data:text/html;base64 should be the Header
-                        header, content = self.icon_data.split(",", 2)
-                        loader.set_size(deskbar.ICON_HEIGHT, deskbar.ICON_HEIGHT)
-                        try:
-                            # Python 2.4
-                            loader.write(base64.b64decode(content))
-                        except AttributeError:
-                            # Python 2.3 and earlier
-                            loader.write(base64.decodestring(content))
-                        pixbuf = loader.get_pixbuf()
-                    except Exception, msg:
-                        print 'Error:mozilla.py:handle_endtag:', msg
+                        # Python 2.4
+                        loader.write(base64.b64decode(urllib.unquote(content)))
+                    except AttributeError:
+                        # Python 2.3 and earlier
+                        loader.write(base64.decodestring(urllib.unquote(content)))
                 finally:
                     loader.close()
+                    pixbuf = loader.get_pixbuf()
                 # Reset icon data for the following icon
                 self.icon_data = None
                 
-            bookmark = BrowserMatch(self.chars, self.href, icon=pixbuf)
+            bookmark = BrowserMatch(self.chars, self.href, pixbuf=pixbuf)
             if self.shortcuturl != None:
-                bookmark = BrowserSmartMatch(self.chars, self.href, self.shortcuturl, bookmark, icon=pixbuf)
+                bookmark = BrowserSmartMatch(self.chars, self.href, self.shortcuturl, bookmark, pixbuf=pixbuf)
                 self._shortcuts_to_smart_bookmarks_map[self.shortcuturl] = bookmark
             else:
                 self._indexer.add("%s %s" % (self.chars, self.href), bookmark)
@@ -383,7 +384,7 @@ class Firefox2SearchEngineParser :
         try:
             self._parse_image (xml)
         except Exception, msg:
-            print "Error parsing icon for %s\n%s" % (self.filename,msg)
+            logging.error("Parsing icon for %s\n%s" % (self.filename,msg))
     
     def _detect_namespace (self, xml):
         # Manually added search engines use the "os" namespace
@@ -469,10 +470,10 @@ class Firefox2SearchEngineParser :
         
         try:
             # Python 2.4
-            loader.write(base64.b64decode(content))
+            loader.write(base64.b64decode(urrlib.unquote(content)))
         except AttributeError:
             # Python 2.3 and earlier
-            loader.write(base64.decodestring(content))
+            loader.write(base64.decodestring(urrlib.unquote(content)))
         
         loader.close()
         pixbuf = loader.get_pixbuf()
@@ -545,7 +546,7 @@ class MozillaSmartBookmarksParser:
             parent_dir = self.f[:self.f.rindex("/")]
             return [img for img in glob.glob(join(parent_dir, '%s.*' % self.f[:-4])) if not img.endswith(".src")][0]
         except Exception, msg:
-            print "WARNING: Error detecting icon for smart bookmark:%s\n%s" % (self.f,msg)
+            logging.warning("Error detecting icon for smart bookmark:%s\n%s" % (self.f,msg))
             return None
     
     def _handle_token(self, state, tokens):
@@ -717,7 +718,7 @@ class MozillaSmartBookmarksDirParser:
                 self._smart_bookmarks.append(bookmark)
                 
             except Exception, msg:
-                print 'Error:MozillaSmartBookmarksDirParser:cannot parse smart bookmark: %s\n%s' % (f,msg)
+                logging.error('MozillaSmartBookmarksDirParser:cannot parse smart bookmark: %s\n%s' % (f,msg))
                     
     
     def get_smart_bookmarks(self):
