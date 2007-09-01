@@ -55,7 +55,7 @@ class VolumeMatch (deskbar.interfaces.Match):
     def __init__(self, name=None, drive=None, icon=None, **args):
         deskbar.interfaces.Match.__init__(self, name=name, category="places", icon=icon, **args)
         self.drive = drive
-        self.add_action( OpenWithNautilusAction(drive) )
+        self.add_action( OpenWithNautilusAction(name, drive) )
         self.add_action( CopyToClipboardAction(_("Location"), drive) )
 
     def get_hash(self, text=None):
