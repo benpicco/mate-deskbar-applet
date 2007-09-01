@@ -1,11 +1,11 @@
-import deskbar, deskbar.interfaces.Match, deskbar.interfaces.Module, deskbar.core.Utils
 from deskbar.core.GconfStore import GconfStore
-import gtk
-import gconf
-from gettext import gettext as _
-import xml.dom.minidom, urllib
 from deskbar.defs import VERSION
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
+from gettext import gettext as _
+import deskbar, deskbar.interfaces.Match, deskbar.interfaces.Module, deskbar.core.Utils
+import gconf
+import gtk
+import xml.dom.minidom, urllib
 
 GCONF_DELICIOUS_USER  = GconfStore.GCONF_DIR+"/desklicious/user"
 
@@ -127,6 +127,9 @@ class DeliciousTagQueryEngine:
             self._user = value.get_string()
             
     def get_posts_by_tag(self, tag):
+        if self._user == None:
+            return []
+        
         #Get the info from del.icio.us and parse
         url = DEFAULT_QUERY_TAG % (urllib.quote_plus(self._user), urllib.quote_plus(tag))
 
