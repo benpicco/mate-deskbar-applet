@@ -22,8 +22,12 @@ class Keybinder(gobject.GObject):
             
 
         logging.info('Binding Global shortcut %s to focus the deskbar' % keybinding)
-        self.bound = deskbar.core.keybinder.tomboy_keybinder_bind(keybinding, self.on_keyboard_shortcut)
-        self.prevbinding = keybinding
+        try:
+            self.bound = deskbar.core.keybinder.tomboy_keybinder_bind(keybinding, self.on_keyboard_shortcut)
+            self.prevbinding = keybinding
+        except KeyError:
+            # binding failed
+            self.bound = False
         
         return self.bound
                     
