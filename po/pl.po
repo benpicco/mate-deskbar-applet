@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.gnome-2-16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-23 18:39+0200\n"
+"POT-Creation-Date: 2007-09-02 13:31+0200\n"
 "PO-Revision-Date: 2007-08-22 16:59+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team:  <pl@li.org>\n"
@@ -236,16 +236,6 @@ msgstr "_Aktualizuj"
 
 #: ../data/smart-bookmarks.glade.h:1
 msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
-msgstr ""
-"<i><small><b>Uwaga: </b>Jeżeli skrót jest pojedynczą literą (np. <b>t</b>), "
-"można wpisać w deskbar \"<b>coś</b>\" a następnie nacisnąć <b>Alt-t</b>.</"
-"small></i>"
-
-#: ../data/smart-bookmarks.glade.h:2
-msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
@@ -253,7 +243,7 @@ msgstr ""
 "<i><small><b>Uwaga:</b> Aby użyć skrótu (np. <b>wp</b>) do wyszukiwania "
 "<b>coś</b>, wpisz w deskbar \"<b>wp coś</b>\"</small></i>."
 
-#: ../data/smart-bookmarks.glade.h:3
+#: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Skróty zapamiętanych wyszukiwarek"
 
@@ -284,20 +274,20 @@ msgid "Open Bookmark %s"
 msgstr "Otwórz zakładkę %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:66
+#: ../deskbar/core/BrowserMatch.py:69
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Wyszukiwanie <i>%(text)s</i> za pomocą <b>%(name)s</b>"
 
-#: ../deskbar/core/BrowserMatch.py:92 ../deskbar/handlers/yahoo.py:30
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
 msgid "URL"
 msgstr "Adres URL"
 
-#: ../deskbar/core/BrowserMatch.py:227
+#: ../deskbar/core/BrowserMatch.py:230
 msgid "Shortcut"
 msgstr "Skrót"
 
-#: ../deskbar/core/BrowserMatch.py:235
+#: ../deskbar/core/BrowserMatch.py:238
 msgid "Bookmark Name"
 msgstr "Nazwa zakładki"
 
@@ -305,7 +295,7 @@ msgstr "Nazwa zakładki"
 msgid "Uncategorized"
 msgstr "Niesklasyfikowane"
 
-#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:23
+#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
 msgid "History"
 msgstr "Historia"
 
@@ -440,19 +430,19 @@ msgstr "Beagle nie jest zainstalowany."
 
 #: ../deskbar/handlers/desklicious.py:44
 msgid "del.icio.us Bookmarks"
-msgstr "wsp.ani.ałe zakładki"
+msgstr "Zakładki del.icio.us"
 
 #: ../deskbar/handlers/desklicious.py:45
 msgid "Search your del.icio.us bookmarks by tag name"
-msgstr "Przeszukiwanie wsp.ani.ałych zakładek po nazwie znacznika"
+msgstr "Przeszukiwanie zakładek del.icio.us po nazwie znacznika"
 
 #: ../deskbar/handlers/desklicious.py:77
 msgid "del.icio.us Account"
-msgstr "wsp.ani.ałe konto"
+msgstr "Konto del.icio.us"
 
 #: ../deskbar/handlers/desklicious.py:84
 msgid "Enter your del.icio.us username below"
-msgstr "Wprowadź poniżej wsp.ani.ałą nazwę użytkownika"
+msgstr "Wprowadź poniżej nazwę użytkownika del.icio.us"
 
 #: ../deskbar/handlers/desklicious.py:90
 msgid "Username: "
@@ -460,21 +450,21 @@ msgstr "Nazwa użytkownika: "
 
 #: ../deskbar/handlers/desklicious.py:106
 msgid "You need to configure your del.icio.us account."
-msgstr "Należy skonfigurować swoje wsp.ani.ałe konto."
+msgstr "Należy skonfigurować konto del.icio.us."
 
 #: ../deskbar/handlers/desklicious.py:111
 msgid "You can modify your del.icio.us account."
-msgstr "Można zmodyfikować swoje wsp.ani.ałe konto."
+msgstr "Można zmodyfikować konto del.icio.us."
 
 #: ../deskbar/handlers/epiphany.py:48
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Zakładki sieciowe (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:123
 msgid "Open your web bookmarks by name"
 msgstr "Otwieranie zakładek sieciowych wg nazw"
 
-#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:128
+#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany nie jest domyślną przeglądarką."
 
@@ -482,19 +472,19 @@ msgstr "Epiphany nie jest domyślną przeglądarką."
 msgid "Web Searches (Epiphany)"
 msgstr "Wyszukiwarki sieciowe (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:193
 msgid "Search the web via your browser's search settings"
 msgstr "Przeszukiwanie sieci przy pomocy ustawień wyszukiwania przeglądarki"
 
-#: ../deskbar/handlers/epiphany.py:125
+#: ../deskbar/handlers/epiphany.py:124
 msgid "You can set shortcuts for your searches."
 msgstr "Można ustawić skróty do wyszukiwarek."
 
-#: ../deskbar/handlers/epiphany.py:135
+#: ../deskbar/handlers/epiphany.py:134
 msgid "Web History (Epiphany)"
 msgstr "Historia sieciowa (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:136 ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:735
 msgid "Open your web history by name"
 msgstr "Otwieranie historii sieciowej wg nazw"
 
@@ -603,7 +593,7 @@ msgstr "Wstrzymaj"
 msgid "Shutdown"
 msgstr "Wyłącz"
 
-#: ../deskbar/handlers/history.py:24
+#: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
 msgstr "Rozpoznaje poprzednio użyte wyszukiwarki"
 
@@ -624,23 +614,23 @@ msgstr "Przełączanie do istniejącego okna, wg nazw"
 msgid "Windows"
 msgstr "Okna"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:122
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Zakładki sieciowe (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:183 ../deskbar/handlers/mozilla.py:254
+#: ../deskbar/handlers/mozilla.py:185 ../deskbar/handlers/mozilla.py:256
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox nie jest domyślną przeglądarką."
 
-#: ../deskbar/handlers/mozilla.py:190
+#: ../deskbar/handlers/mozilla.py:192
 msgid "Web Searches (Mozilla)"
 msgstr "Wyszukiwarki sieciowe (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:248
+#: ../deskbar/handlers/mozilla.py:250
 msgid "You can customize which search engines are offered."
 msgstr "Można wybrać, które wyszukiwarki będą oferowane."
 
-#: ../deskbar/handlers/mozilla.py:733
+#: ../deskbar/handlers/mozilla.py:734
 msgid "Web History (Mozilla)"
 msgstr "Historia sieciowa (Mozilla)"
 
@@ -778,7 +768,7 @@ msgstr "Wysyłanie poczty do <b>%(name)s</b> (%(email)s)"
 #: ../deskbar/handlers/actions/SendFileViaEmailAction.py:44
 #, python-format
 msgid "Send %s via e-mail"
-msgstr "Wysłanie %s przez e-mail"
+msgstr "Wysłanie %s poprzez e-mail"
 
 #: ../deskbar/ui/About.py:22
 msgid "An all-in-one action bar."
@@ -813,6 +803,10 @@ msgstr "domyślne"
 #: ../deskbar/ui/CuemiacWindowView.py:75
 msgid "_History"
 msgstr "_Historia"
+
+#: ../deskbar/ui/CuemiacWindowView.py:133
+msgid "Back to Matches"
+msgstr "Powrót do wyszukanych"
 
 #: ../deskbar/ui/DeskbarApplet.py:86
 msgid "Show search entry"
@@ -880,6 +874,15 @@ msgstr "Wersja:"
 #: ../deskbar/ui/preferences/ModuleListView.py:56
 msgid "Update Available"
 msgstr "Dostępna aktualizacja"
+
+#~ msgid ""
+#~ "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</"
+#~ "b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</"
+#~ "b> in the deskbar.</small></i>"
+#~ msgstr ""
+#~ "<i><small><b>Uwaga: </b>Jeżeli skrót jest pojedynczą literą (np. <b>t</"
+#~ "b>), można wpisać w deskbar \"<b>coś</b>\" a następnie nacisnąć <b>Alt-t</"
+#~ "b>.</small></i>"
 
 #~ msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
 #~ msgstr "Wybiera rodzaj interfejsu, \"Cuemiac\" lub \"Entriac\""
