@@ -470,10 +470,10 @@ class Firefox2SearchEngineParser :
         
         try:
             # Python 2.4
-            loader.write(base64.b64decode(urrlib.unquote(content)))
+            loader.write(base64.b64decode(urllib.unquote(content)))
         except AttributeError:
             # Python 2.3 and earlier
-            loader.write(base64.decodestring(urrlib.unquote(content)))
+            loader.write(base64.decodestring(urllib.unquote(content)))
         
         loader.close()
         pixbuf = loader.get_pixbuf()
