@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-19 13:42+0700\n"
-"PO-Revision-Date: 2007-08-19 13:44+0700\n"
+"POT-Creation-Date: 2007-09-02 20:05+0700\n"
+"PO-Revision-Date: 2007-09-02 20:07+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -208,15 +208,6 @@ msgstr "_ปรับรุ่น"
 
 #: ../data/smart-bookmarks.glade.h:1
 msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
-msgstr ""
-"<i><small><b>หมายเหตุ: </b>ถ้าคีย์ลัดเป็นตัวอักษรเดียว (เช่น <b>t</b>) คุณสามารถป้อน "
-"\"<b>อะไรบางอย่าง</b>\" แล้วกด <b>Alt-t</b> ในเดสก์บาร์ได้เลย</small></i>"
-
-#: ../data/smart-bookmarks.glade.h:2
-msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
@@ -224,7 +215,7 @@ msgstr ""
 "<i><small><b>หมายเหตุ:</b> การใช้ทางลัด (เช่น <b>wp</b>) เพื่อค้นหา <b>something</"
 "b> ทำได้โดยป้อน \"<b>wp something</b>\" ในเดสก์บาร์</small></i>"
 
-#: ../data/smart-bookmarks.glade.h:3
+#: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "ทางลัดสำหรับการค้นหาที่คั่นหน้าไว้"
 
@@ -244,7 +235,7 @@ msgstr "แสดงเครื่องมือค้นหาที่มี
 msgid "Show only the primary search engine"
 msgstr "แสดงเฉพาะเครื่องมือค้นหาหลักเท่านั้น"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:179
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
 #, python-format
 msgid "Open History Item %s"
 msgstr "เปิดรายการ %s จากประวัติการท่องเว็บ"
@@ -255,20 +246,20 @@ msgid "Open Bookmark %s"
 msgstr "เปิดที่คั่นหน้า %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:66
+#: ../deskbar/core/BrowserMatch.py:69
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "ค้น <b>%(name)s</b> เพื่อหา <i>%(text)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:92 ../deskbar/handlers/yahoo.py:30
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
 msgid "URL"
 msgstr "URL"
 
-#: ../deskbar/core/BrowserMatch.py:227
+#: ../deskbar/core/BrowserMatch.py:230
 msgid "Shortcut"
 msgstr "คีย์ลัด"
 
-#: ../deskbar/core/BrowserMatch.py:235
+#: ../deskbar/core/BrowserMatch.py:238
 msgid "Bookmark Name"
 msgstr "ชื่อที่คั่นหน้า"
 
@@ -276,7 +267,7 @@ msgstr "ชื่อที่คั่นหน้า"
 msgid "Uncategorized"
 msgstr "ไร้หมวด"
 
-#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:23
+#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
 msgid "History"
 msgstr "ประวัติการค้นหา"
 
@@ -324,32 +315,17 @@ msgstr "ข่าว"
 msgid "Notes"
 msgstr "บันทึก"
 
-#: ../deskbar/core/DeskbarHistory.py:18
+#: ../deskbar/core/DeskbarHistory.py:20
 msgid "<i>Choose action</i>"
 msgstr "<i>เลือกปฏิบัติการ</i>"
 
-#: ../deskbar/core/Utils.py:108
+#: ../deskbar/core/Utils.py:124
 msgid "Cannot execute program:"
 msgstr "ไม่สามารถเรียกโปรแกรม:"
 
-#: ../deskbar/core/Utils.py:145
+#: ../deskbar/core/Utils.py:164
 msgid "Cannot show URL:"
 msgstr "ไม่สามารถแสดง URL:"
-
-#: ../deskbar/gtkexcepthook.py:14
-msgid "A programming error has been detected"
-msgstr "ตรวจพบข้อผิดพลาดเกี่ยวกับการเขียนโปรแกรม"
-
-#: ../deskbar/gtkexcepthook.py:15
-msgid ""
-"It probably isn't fatal, but should be reported to the developers "
-"nonetheless. The program may behave erratically from now on."
-msgstr ""
-"อาจไม่ใช่ข้อผิดพลาดร้ายแรง แต่ก็ควรรายงานให้นักพัฒนาทราบ ต่อจากนี้ โปรแกรมอาจทำงานผิดเพี้ยนได้"
-
-#: ../deskbar/gtkexcepthook.py:17
-msgid "Bug Detected"
-msgstr "ตรวจพบข้อบกพร่องของโปรแกรม"
 
 #: ../deskbar/handlers/beagle-live.py:98
 #, python-format
@@ -376,32 +352,32 @@ msgstr "บันทึก: %s"
 msgid "With %s"
 msgstr "กับ %s"
 
-#: ../deskbar/handlers/beagle-live.py:168
+#: ../deskbar/handlers/beagle-live.py:165
 #, python-format
 msgid "Calendar: %s"
 msgstr "ปฏิทิน: %s"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:251
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:253
+#: ../deskbar/handlers/beagle-live.py:252
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "ค้นเอกสารทั้งหมดของคุณ (โดยใช้ Beagle) ไปพร้อมกับการป้อนคำค้น"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:331
-#: ../deskbar/handlers/beagle-live.py:353
+#: ../deskbar/handlers/beagle-live.py:330
+#: ../deskbar/handlers/beagle-live.py:352
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:416
+#: ../deskbar/handlers/beagle-live.py:415
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "ไม่สามารถโหลด Beagle ได้ libbeagle ถูกคอมไพล์ไว้โดยไม่มีส่วนเชื่อมโยงกับ python"
 
-#: ../deskbar/handlers/beagle-live.py:425
+#: ../deskbar/handlers/beagle-live.py:424
 msgid "Beagled could not be found in your $PATH."
 msgstr "ไม่พบ beagled ใน $PATH ของคุณ"
 
@@ -454,11 +430,11 @@ msgstr "คุณสามารถแก้ไขบัญชี del.icio.us �
 msgid "Web Bookmarks (Epiphany)"
 msgstr "ที่คั่นหน้าเว็บ (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:123
 msgid "Open your web bookmarks by name"
 msgstr "เปิดที่คั่นหน้าเว็บตามชื่อ"
 
-#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:128
+#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany ไม่ได้ถูกกำหนดเป็นเบราว์เซอร์หลักของคุณ"
 
@@ -466,31 +442,31 @@ msgstr "Epiphany ไม่ได้ถูกกำหนดเป็นเบร
 msgid "Web Searches (Epiphany)"
 msgstr "การค้นเว็บ (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:193
 msgid "Search the web via your browser's search settings"
 msgstr "ค้นเว็บตามค่าตั้งในเว็บเบราว์เซอร์ของคุณ"
 
-#: ../deskbar/handlers/epiphany.py:125
+#: ../deskbar/handlers/epiphany.py:124
 msgid "You can set shortcuts for your searches."
 msgstr "คุณสามารถกำหนดทางลัดสำหรับการค้นหาต่างๆ ได้"
 
-#: ../deskbar/handlers/epiphany.py:135
+#: ../deskbar/handlers/epiphany.py:134
 msgid "Web History (Epiphany)"
 msgstr "ประวัติการท่องเว็บ (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:136 ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:735
 msgid "Open your web history by name"
 msgstr "เปิดเว็บที่เคยอ่านตามชื่อ"
 
-#: ../deskbar/handlers/evolution.py:21
+#: ../deskbar/handlers/evolution.py:22
 msgid "Mail (Address Book)"
 msgstr "เมล (สมุดที่อยู่)"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:23
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "ส่งเมลไปยังผู้ที่ติดต่อกับคุณโดยป้อนชื่อหรือที่อยู่อีเมล"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:48
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -583,7 +559,7 @@ msgstr "จำศีลเครื่อง"
 msgid "Shutdown"
 msgstr "ปิดเครื่อง"
 
-#: ../deskbar/handlers/history.py:24
+#: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
 msgstr "รู้จำการค้นหาที่เคยค้นมาแล้ว"
 
@@ -604,23 +580,23 @@ msgstr "สลับไปยังหน้าต่างที่เปิด
 msgid "Windows"
 msgstr "หน้าต่าง"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:122
 msgid "Web Bookmarks (Mozilla)"
 msgstr "ที่คั่นหน้าเว็บ (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:183 ../deskbar/handlers/mozilla.py:254
+#: ../deskbar/handlers/mozilla.py:185 ../deskbar/handlers/mozilla.py:256
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox ไม่ได้ถูกกำหนดเป็นเบราว์เซอร์หลักของคุณ"
 
-#: ../deskbar/handlers/mozilla.py:190
+#: ../deskbar/handlers/mozilla.py:192
 msgid "Web Searches (Mozilla)"
 msgstr "การค้นเว็บ (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:248
+#: ../deskbar/handlers/mozilla.py:250
 msgid "You can customize which search engines are offered."
 msgstr "คุณสามารถกำหนดได้ว่าจะใช้เครื่องมือค้นหาตัวไหน"
 
-#: ../deskbar/handlers/mozilla.py:733
+#: ../deskbar/handlers/mozilla.py:734
 msgid "Web History (Mozilla)"
 msgstr "ประวัติการท่องเว็บ (Mozilla)"
 
@@ -705,57 +681,57 @@ msgstr "ค้น Yahoo! ไปพร้อมกับการป้อนค�
 msgid "URL of %s"
 msgstr "URL ของ %s"
 
-#: ../deskbar/handlers/actions/CopyToClipboardAction.py:15
+#: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
 #, python-format
 msgid "Copy <b>%(name)s</b> to clipboard"
 msgstr "คัดลอก <b>%(name)s</b> ไปยังคลิปบอร์ด"
 
-#: ../deskbar/handlers/actions/GoToLocationAction.py:20
+#: ../deskbar/handlers/actions/GoToLocationAction.py:23
 #, python-format
 msgid "Go to location of %s"
 msgstr "ไปยังตำแหน่งเก็บของ %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:32
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
 #, python-format
 msgid "Launch <b>%(name)s</b>"
 msgstr "เรียกใช้ <b>%(name)s</b>"
 
-#: ../deskbar/handlers/actions/OpenFileAction.py:32
-#: ../deskbar/handlers/actions/ShowUrlAction.py:22
+#: ../deskbar/handlers/actions/OpenFileAction.py:38
+#: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
 msgstr "เปิด %s"
 
-#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:33
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
 #, python-format
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
 msgstr "เปิด <b>%(name)s</b> ด้วย <b>%(program)s</b>"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:26
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
 #, python-format
 msgid "Open network place %s"
 msgstr "เปิดแหล่งเครือข่าย %s"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
 #, python-format
 msgid "Open audio disc %s"
 msgstr "เปิดแผ่นเพลง %s"
 
-#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:32
 #, python-format
 msgid "Open location %s"
 msgstr "เปิดตำแหน่ง %s"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/actions/SendEmailToAction.py:21
+#: ../deskbar/handlers/actions/SendEmailToAction.py:24
 #, python-format
 msgid "Send Email to <b>%(name)s</b> (%(email)s)"
 msgstr "ส่งเมลถึง <b>%(name)s</b> (%(email)s)"
 
 #. translators: %s is a filename
-#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:40
+#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:44
 #, python-format
 msgid "Send %s via e-mail"
 msgstr "ส่งแฟ้ม %s ทางอีเมล"
@@ -788,9 +764,13 @@ msgid "default"
 msgstr "default"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:72
+#: ../deskbar/ui/CuemiacWindowView.py:75
 msgid "_History"
 msgstr "_ประวัติการค้นหา"
+
+#: ../deskbar/ui/CuemiacWindowView.py:133
+msgid "Back to Matches"
+msgstr "กลับไปที่ผลการสืบค้น"
 
 #: ../deskbar/ui/DeskbarApplet.py:86
 msgid "Show search entry"
@@ -818,19 +798,19 @@ msgstr ""
 "ไม่สามารถใช้ปุ่มลัด \"%s\" ได้ เพราะจะทำให้ไม่สามารถป้อนอักขระนี้ได้\n"
 "กรุณาลองใช้ปุ่มอย่าง Control, Alt หรือ Shift ประกอบด้วย\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:82
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>ลากวางส่วนขยายเพื่อเปลี่ยนลำดับ</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:313
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
 msgid "A problem occured"
 msgstr "เกิดปัญหาบางประการ"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:378
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
 msgid "Handler has been installed successfully"
 msgstr "ติดตั้งเครื่องมือจัดการสำเร็จแล้ว"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:381
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "ไม่สามารถติดตั้งเครื่องมือจัดการได้ เนื่องจากปัญหาในแฟ้มที่ให้มา"
 
@@ -853,6 +833,27 @@ msgstr "รุ่น:"
 #: ../deskbar/ui/preferences/ModuleListView.py:56
 msgid "Update Available"
 msgstr "มีรุ่นใหม่"
+
+#~ msgid ""
+#~ "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</"
+#~ "b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</"
+#~ "b> in the deskbar.</small></i>"
+#~ msgstr ""
+#~ "<i><small><b>หมายเหตุ: </b>ถ้าคีย์ลัดเป็นตัวอักษรเดียว (เช่น <b>t</b>) คุณสามารถป้อน "
+#~ "\"<b>อะไรบางอย่าง</b>\" แล้วกด <b>Alt-t</b> ในเดสก์บาร์ได้เลย</small></i>"
+
+#~ msgid "A programming error has been detected"
+#~ msgstr "ตรวจพบข้อผิดพลาดเกี่ยวกับการเขียนโปรแกรม"
+
+#~ msgid ""
+#~ "It probably isn't fatal, but should be reported to the developers "
+#~ "nonetheless. The program may behave erratically from now on."
+#~ msgstr ""
+#~ "อาจไม่ใช่ข้อผิดพลาดร้ายแรง แต่ก็ควรรายงานให้นักพัฒนาทราบ ต่อจากนี้ "
+#~ "โปรแกรมอาจทำงานผิดเพี้ยนได้"
+
+#~ msgid "Bug Detected"
+#~ msgstr "ตรวจพบข้อบกพร่องของโปรแกรม"
 
 #~ msgid "The default position of the window on the screen (x-coordinate)"
 #~ msgstr "ตำแหน่งปริยายบนจอของหน้าต่าง (พิกัด X)"
