@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-02 22:49+0200\n"
+"POT-Creation-Date: 2007-09-03 12:53+0200\n"
 "PO-Revision-Date: 2007-07-22 22:33+0200\n"
 "Last-Translator: Johannes Schmid <jhs@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
@@ -55,26 +55,30 @@ msgid "Keybinding"
 msgstr "Tastenbelegung"
 
 #: ../data/deskbar-applet.schemas.in.h:8
+msgid "Milliseconds to wait before starting to search"
+msgstr "Zeit in Millisekunden, die vor dem Starten der Suche gewartet wird"
+
+#: ../data/deskbar-applet.schemas.in.h:9
 msgid "Minimum number of characters needed to start searching"
 msgstr ""
 "Die Anzahl von Buchstaben, die eingetippt werden müssen, bevor die Suche "
 "gestartet wird"
 
-#: ../data/deskbar-applet.schemas.in.h:9
+#: ../data/deskbar-applet.schemas.in.h:10
 msgid "The default height of the window in pixels"
 msgstr "Vorgabe für der Höhe des Fensters in Pixel"
 
-#: ../data/deskbar-applet.schemas.in.h:10
+#: ../data/deskbar-applet.schemas.in.h:11
 msgid "The default width of the window in pixels"
 msgstr "Vorgabe für die Breite des Fensters in Pixel"
 
-#: ../data/deskbar-applet.schemas.in.h:11
+#: ../data/deskbar-applet.schemas.in.h:12
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "Die Tastenfolge, welche den Fokus in das Eingabefeld des Deskbar Applets "
 "verschiebt und eine schnelle Eingabe erlaubt"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -84,7 +88,7 @@ msgstr ""
 "sind: default, history, documents, emails, conversations, files, people, "
 "places, actions, web, websearch, news und notes."
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -92,11 +96,11 @@ msgstr ""
 "Eine Liste der exportierten Klassennamen der aktivierten Handler sortiert "
 "nach Priorität. Die Priorität ist ganz links am höchsten."
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid "The maximum number of items stored in history"
 msgstr "Die maximale Anzahl von Chronik-Einträgen"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
@@ -104,12 +108,20 @@ msgstr ""
 "Die Anzahl von Buchstaben, die eingetippt werden müssen, bevor "
 "Suchergebnisse angezeigt werden."
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:17
+msgid ""
+"The time in milliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr ""
+"Zeit in Millisekunden zwischen einem Tastendruck im Suchfeld und dem Start "
+"der eigentlichen Suche."
+
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid "Whether to close the window after an actions has been activated"
 msgstr ""
 "Legt fest, ob das Fenster geschlossen wird sobald eine Aktion aktiviert wurde"
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -118,17 +130,17 @@ msgstr ""
 "anstatt aller verfügbaren. Dies beeinflusst nur Mozilla-basierte Webbrowser "
 "wie z.B. Firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr ""
 "Legt fest, ob das Aktivieren des Deskbar-Applets die momentane Auswahl in "
 "das Eingabefeld einfügt"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid "Window height"
 msgstr "Fensterhöhe"
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Window width"
 msgstr "Fensterbreite"
 
@@ -620,55 +632,55 @@ msgstr "Sie können anpassen, welche Suchmaschinen angezeigt werden."
 msgid "Web History (Mozilla)"
 msgstr "Internet-Chronik (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:74
+#: ../deskbar/handlers/programs.py:78
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s im Wörterbuch nachschlagen"
 
-#: ../deskbar/handlers/programs.py:81
+#: ../deskbar/handlers/programs.py:85
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Nach Dateinamen ähnlich wie %s suchen"
 
-#: ../deskbar/handlers/programs.py:87
+#: ../deskbar/handlers/programs.py:91
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "In Devhelp nach %s suchen"
 
-#: ../deskbar/handlers/programs.py:113
+#: ../deskbar/handlers/programs.py:117
 msgid "Dictionary"
 msgstr "Wörterbuch"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:118
 msgid "Look up word definitions in the dictionary"
 msgstr "Wörter im Wörterbuch nachschlagen"
 
-#: ../deskbar/handlers/programs.py:130
+#: ../deskbar/handlers/programs.py:134
 msgid "Files and Folders Search"
 msgstr "Datei- und Ordnersuche"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:135
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Dateien und Ordner über Namensteile finden"
 
-#: ../deskbar/handlers/programs.py:147
+#: ../deskbar/handlers/programs.py:151
 msgid "Developer Documentation"
 msgstr "Entwicklerdokumentation"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:152
 msgid "Search Devhelp for a function name"
 msgstr "Devhelp nach einem Funktionsnamen durchsuchen"
 
-#: ../deskbar/handlers/programs.py:196
+#: ../deskbar/handlers/programs.py:200
 #, python-format
 msgid "Execute %s"
 msgstr "%s ausführen"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:222
 msgid "Programs"
 msgstr "Programme"
 
-#: ../deskbar/handlers/programs.py:219
+#: ../deskbar/handlers/programs.py:223
 msgid "Launch a program by its name and/or description"
 msgstr "Ein Programm über den Namen und/oder die Beschreibung öffnen"
 
@@ -880,13 +892,6 @@ msgstr "Aktualisierung vorhanden"
 #~ "Eine Liste von Kategorien, die eingeklappt werden, falls die »Cuemiac«-"
 #~ "Benutzeroberfläche ausgewählt ist. Gültige Kategorien sind in Categories."
 #~ "py aufgeführt"
-
-#~ msgid ""
-#~ "The time in milliseconds between a keystroke in the search entry and the "
-#~ "actual search being performed"
-#~ msgstr ""
-#~ "Zeit in Millisekunden zwischen einem Tastendruck im Suchfeld und dem "
-#~ "Start der eigentlichen Suche."
 
 #~ msgid ""
 #~ "Whether the applet should take all the available space in the panel. "
