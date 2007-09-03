@@ -1,4 +1,52 @@
 =======================
+deskbar-applet 2.19.92
+=======================
+
+This is mostly a bug fix release.
+The minimum version of GTK+, PyGTK and PyGObject has been increased to 2.10.
+If you don't have at least version 2.10 please use Deskbar-Applet 2.18.x.
+The directory where modules are stored changed to modules-2.20-compatible to
+point out what API the modules have to use.
+
+Changes:
+	* Only clear entry, matches and actions when pressing escape if clear_entry is TRUE
+	* Only activate first item when pressing Enter in entry	if results are already available
+	* Fixed: Exception when activating match pressing Enter
+	* Matches of history handler have icon of action
+	* Bump minimum version of gtk+, pygtk and pygobject to 2.10
+	* OpenSmartBoomarkAction has "web-search" icon
+	* Fixed bug #472069: crash in Web Bookmarks (Mozilla) entering search terms or scrolling
+	* Fixed bug #472449: Opening a volume causes an exception
+	* Fixed: Throw exception if keybinding is already in use
+	* Changed modules folder to modules-2.20-compatible
+	* Changed history file to history-2.20-compatible
+	* Replace gnome-searchtool icon with system-search icon	because it got removed from gnome-icon-theme
+	* Fixed bug #473107: Deskbar opens all last searched words when searching in dictionary
+	* Fixed bug #472930: del.icio.us Tango icon (thanks to Rodney Dawes)
+	* Added type checks for icon and pixbuf
+
+Contributors to this release: Sebastian Pölsterl, Rodney Dawes
+
+Updated Translations:
+	* Brazilian Portuguese
+	* Bulgarian
+	* Estonian
+	* Finnish
+	* Galician
+	* German
+	* Gujarati
+	* Japanese
+	* Malayalam
+	* Polish
+	* Spanish
+	* Swedish
+	* Tamil
+	* Thai
+	* Vietnamese
+
+Contributors to the translations: Raphael Higino, Alexander Shopov, Ivar Smolin, Ilkka Tuohela, Ignacio Casal Quinteiro, Johannes Schmid, Ankit Patel, Takeshi AIHANA, Ani Peter, Artur Flinta, Jorge Gonzalez, Daniel Nylander, Tirumurthi Vasudevan, Theppitak Karoonboonyanan, Clytie Siddall
+
+=======================
 deskbar-applet 2.19.91
 =======================
 
