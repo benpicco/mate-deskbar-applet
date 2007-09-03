@@ -1,5 +1,6 @@
 import os
 from os.path import join, exists, isdir, isfile, dirname, abspath, expanduser
+import logging
 
 # Autotools set the actual data_dir in defs.py
 from defs import *
@@ -25,31 +26,31 @@ if UNINSTALLED_DESKBAR:
     SHARED_DATA_DIR = abspath(join(dirname(__file__), '..', 'data'))
 else:
     SHARED_DATA_DIR = join(DATA_DIR, "deskbar-applet")
-print "Data Dir: %s" % SHARED_DATA_DIR
+logging.debug("Data Dir: %s" % SHARED_DATA_DIR)
 
 HANDLERS_DIR = []
 if UNINSTALLED_DESKBAR:
     HANDLERS_DIR += [abspath(join(dirname(__file__), 'handlers'))]
 
-HANDLERS_DIR += [join(LIB_DIR, "deskbar-applet", "modules")]
+HANDLERS_DIR += [join(LIB_DIR, "deskbar-applet", "modules-2.20-compatible")]
 
 USER_DESKBAR_DIR = expanduser("~/.gnome2/deskbar-applet")
 if not exists(USER_DESKBAR_DIR):
     try:
         os.makedirs(USER_DESKBAR_DIR, 0744)
     except Exception , msg:
-        print 'Error:could not create user handlers dir (%s): %s' % (USER_DESKBAR_DIR, msg)
+        logging.error('Could not create user handlers dir (%s): %s' % (USER_DESKBAR_DIR, msg))
         
-USER_HANDLERS_DIR = expanduser("~/.gnome2/deskbar-applet/modules")
+USER_HANDLERS_DIR = expanduser("~/.gnome2/deskbar-applet/modules-2.20-compatible")
 if not exists(USER_HANDLERS_DIR):
     try:
         os.makedirs(USER_HANDLERS_DIR, 0744)
     except Exception , msg:
-        print 'Error:could not create user handlers dir (%s): %s' % (USER_HANDLERS_DIR, msg)
+        logging.error('Could not create user handlers dir (%s): %s' % (USER_HANDLERS_DIR, msg))
 USER_HANDLERS_DIR = [USER_HANDLERS_DIR]
 
 MODULES_DIRS = USER_HANDLERS_DIR+HANDLERS_DIR
-print "Handlers Dir: %s" % MODULES_DIRS
+logging.debug("Handlers Dir: %s" % MODULES_DIRS)
 # ------------------------------------------------------------------------------
 
 # Set the cwd to the home directory so spawned processes behave correctly
@@ -62,7 +63,7 @@ ART_DATA_DIR = join(SHARED_DATA_DIR, "art")
 ICON_WIDTH = 28
 ICON_HEIGHT = 16
 
-HISTORY_FILE = join(USER_DESKBAR_DIR, "history_new.pickle")
+HISTORY_FILE = join(USER_DESKBAR_DIR, "history-2.20-compatible.pickle")
 
 # FIXME: this , here ?
 DEFAULT_RESULTS_PER_HANDLER = 6
