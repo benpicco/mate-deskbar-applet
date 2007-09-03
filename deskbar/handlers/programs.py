@@ -28,12 +28,10 @@ class GenericAction(OpenWithApplicationAction):
         self._verb = verb
         
     def activate(self, text=None):
-        # Store old arguments temporarily
-        old_args = self._arguments[:]
         self._arguments += [text]
         OpenWithApplicationAction.activate(self, text)
         # Restore old arguments
-        self._arguments = old_args
+        del self._arguments[-1]
         
     def get_verb(self):
         return self._verb
