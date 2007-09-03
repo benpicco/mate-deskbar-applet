@@ -35,9 +35,13 @@ class Match:
         self.__actions_hashes = set()
         if "name" in args:
             self._name = args["name"]
-        if "icon" in args:
+        if "icon" in args and args["icon"] != None:
+            if not isinstance(args["icon"], str):
+                raise TypeError, "icon must be a string"
             self._icon = args["icon"]
-        if "pixbuf" in args and isinstance(args["pixbuf"], gtk.gdk.Pixbuf):
+        if "pixbuf" in args and args["pixbuf"] != None:
+            if not isinstance(args["pixbuf"], gtk.gdk.Pixbuf):
+                raise TypeError, "pixbuf must be a gtk.gdk.Pixbuf"
             self._pixbuf = args["pixbuf"]
         if "category" in args:
             self._category = args["category"]
