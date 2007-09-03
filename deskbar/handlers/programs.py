@@ -126,7 +126,7 @@ class GnomeDictHandler(SpecialProgramHandler):
 
 class GnomeSearchHandler(SpecialProgramHandler):
     
-    INFOS = {'icon': deskbar.core.Utils.load_icon('gnome-searchtool'),
+    INFOS = {'icon': deskbar.core.Utils.load_icon('system-search'),
              'name': _("Files and Folders Search"),
              "description": _("Find files and folders by searching for a name pattern"),
              'version': VERSION}
