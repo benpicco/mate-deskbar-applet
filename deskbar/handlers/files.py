@@ -56,6 +56,8 @@ class VolumeMatch (deskbar.interfaces.Match):
         deskbar.interfaces.Match.__init__(self, name=name, category="places", icon=icon, **args)
         self.drive = drive
         self.add_action( OpenWithNautilusAction(name, drive) )
+        # FIXME:
+        # _("Location") should be _("Location of %s") % name
         self.add_action( CopyToClipboardAction(_("Location"), drive) )
 
     def get_hash(self, text=None):
@@ -108,8 +110,10 @@ class FileFolderHandler(deskbar.interfaces.Module):
             if not drive.is_mounted () : continue
             if not drive.get_display_name().lower().startswith(query): continue
             
-            vol_match = VolumeMatch (drive.get_display_name(), drive.get_activation_uri(), drive.get_icon(), priority=self.get_priority())
-            result.append (vol_match)
+            uri = drive.get_activation_uri()
+            if uri != None:
+                vol_match = VolumeMatch (drive.get_display_name(), uri, drive.get_icon(), priority=self.get_priority())
+                result.append (vol_match)
         
         self._emit_query_ready(query, result )
     
