@@ -118,7 +118,7 @@ class GdmAction(deskbar.interfaces.Action):
         deskbar.interfaces.Action.__init__(self, name)
         self.logout_reentrance = 0
     
-    def __request_logout(self):
+    def request_logout(self):
         if self.logout_reentrance == 0:
             self.logout_reentrance += 1
 
