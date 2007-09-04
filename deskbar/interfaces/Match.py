@@ -36,9 +36,7 @@ class Match:
         if "name" in args:
             self._name = args["name"]
         if "icon" in args and args["icon"] != None:
-            if not isinstance(args["icon"], str):
-                raise TypeError, "icon must be a string"
-            self._icon = args["icon"]
+            self.set_icon(args["icon"])
         if "pixbuf" in args and args["pixbuf"] != None:
             if not isinstance(args["pixbuf"], gtk.gdk.Pixbuf):
                 raise TypeError, "pixbuf must be a gtk.gdk.Pixbuf"
@@ -94,6 +92,8 @@ class Match:
         
         @type iconname: string 
         """
+        if not isinstance(iconname, str):
+            raise TypeError, "icon must be a string"
         self._icon = iconname
     
     def get_category(self):
