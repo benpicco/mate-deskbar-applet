@@ -44,8 +44,6 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         if (qstring != ""):
             self._view.show_results()
             self._model.query( qstring )
-        else:
-            self._view.set_clear()
             
     def on_query_entry_key_press_event(self, entry, event):
         # For key UP to browse in history, we have either to be already in history mode, or have an empty text entry to trigger hist. mode

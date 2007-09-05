@@ -24,6 +24,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.__small_window_height = None
         self._do_clear = True
         
+        self.connect("configure-event", self.__save_window_size)
         self.connect("delete-event", self._controller.on_quit)
         self.connect("destroy-event", self._controller.on_quit)
         self.connect("key-press-event", self.__on_window_key_press_event)
@@ -139,6 +140,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
        
         # Results
         self.results_box = gtk.HBox()
+        self.results_box.connect("unmap", self.__save_window_height)
         self.results_box.pack_start(self.scrolled_results)
         self.results_box.pack_start(self.actions_box)
         self.vbox_main.pack_start(self.results_box)
@@ -146,8 +148,6 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
     def clear_all(self):
         deskbar.interfaces.View.clear_all(self)
         width, height = self.get_size()
-        self._model.set_window_width( width )
-        self._model.set_window_height( height )
         
         if self.__small_window_height != None:
             self.resize( width, self.__small_window_height )
@@ -192,8 +192,6 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
     
     def show_results(self):
         width, height = self.get_size()
-        if self.__small_window_height == None:
-            self.__small_window_height = height
         self.results_box.show()
         self.__show_matches()
         self.resize( width, self._model.get_window_height() )
@@ -265,3 +263,17 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         else:
             self.entry.grab_focus()
         
+    def __save_window_size(self, window, event):
+        """
+        Save window width and height of the window when
+        results_box is not visible
+        """
+        self._model.set_window_width( event.width )
+        if self.__small_window_height == None:
+            self.__small_window_height = event.height
+            
+    def __save_window_height(self, resultsbox):
+        """
+        Save window height before results_box disappears
+        """
+        self._model.set_window_height( self.get_size()[1] )
