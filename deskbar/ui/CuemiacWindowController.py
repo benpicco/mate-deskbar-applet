@@ -25,6 +25,8 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         self._view.receive_focus(time)
         
     def on_quit(self, *args):
+        if self._model.get_clear_entry():
+            self._view.clear_all()
         window = self._view.get_toplevel()
         window.hide()
         return True
