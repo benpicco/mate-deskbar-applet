@@ -18,11 +18,17 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         self._clipboard = gtk.clipboard_get (selection="PRIMARY")
         
     def on_keybinding_activated(self, core, time, paste=True):
-        if self._model.get_use_selection() and paste:
-            text = self._clipboard.wait_for_text()
-            if text != None:
-                self._view.get_entry().set_text(text)
-        self._view.receive_focus(time)
+        """
+        Toggle view if keybinding has been activated
+        """
+        if self._view.get_toplevel().get_property("visible"):
+            self.on_quit()
+        else:
+            if self._model.get_use_selection() and paste:
+                text = self._clipboard.wait_for_text()
+                if text != None:
+                    self._view.get_entry().set_text(text)
+            self._view.receive_focus(time)
         
     def on_quit(self, *args):
         if self._model.get_clear_entry():
