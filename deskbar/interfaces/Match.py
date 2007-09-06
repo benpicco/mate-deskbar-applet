@@ -158,10 +158,10 @@ class Match:
         Matches that have same hash will be selected based on the handler priority.
         text is the entered query string.
         
-        By default, if the handler does not override this, it will return None.
-        Returning None means no duplication check will be performed.
+        By default, if the handler does not override this, it will return the
+        id of the class.
         """
-        return None
+        return id(self)
     
     def get_name(self, text=None):
         """
