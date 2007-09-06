@@ -69,7 +69,9 @@ GconfStore.get_instance().get_client().notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, l
 # TODO re-load PRIMARY_SEARCH_ENGINE everytime it changes (which should happen
 # only rarely).  One (unavoidable) problem may be that firefox doesn't actually
 # save the change to disk until you quit firefox.
-PRIMARY_SEARCH_ENGINE = None
+
+# Google is the default search engine 
+PRIMARY_SEARCH_ENGINE = "Google"
 try:
     if USING_FIREFOX:
         prefs_file = file(get_firefox_home_file("prefs.js"))
@@ -232,8 +234,9 @@ class MozillaSearchHandler(deskbar.interfaces.Module):
     def query(self, query):
         if SHOW_ONLY_PRIMARY and PRIMARY_SEARCH_ENGINE != None:
             for s in self._smart_bookmarks:
-                if s.name == PRIMARY_SEARCH_ENGINE:
+                if s.get_name() == PRIMARY_SEARCH_ENGINE:
                     self._emit_query_ready(query, [s] )
+                    return
             self._emit_query_ready(query, self._smart_bookmarks )
         else:
             self._emit_query_ready(query, self._smart_bookmarks )
