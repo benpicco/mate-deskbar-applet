@@ -211,9 +211,10 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
         elif (result["type"] == "File" or result["type"] == "Directory"):
             # Unescape URI again
             unescaped_uri = gnomevfs.unescape_string_for_display(result["escaped_uri"])
-            actions = [OpenFileAction(result["name"], result["uri"], False)] + get_actions_for_uri(
-                                    unescaped_uri,
-                                    display_name=basename(unescaped_uri))
+            actions = [OpenFileAction(result["name"], result["uri"], False)] \
+                       + get_actions_for_uri( unescaped_uri,
+                                              display_name=basename(unescaped_uri)
+                                            )
             self.add_all_actions( actions )
         else:
             logging.warning("Unknown beagle match type found: "+result["type"] )
@@ -227,7 +228,7 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
         
         if result["type"] == "File":
             try:
-                self._icon = result["uri"]
+                self.set_icon( result["uri"] )
             except Exception:
                 pass
     
@@ -255,31 +256,54 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
     
     def __init__(self):
         deskbar.interfaces.Module.__init__(self)
+        # FIXME: each time we enter a search entry
+        # a new key in inserted and it isn't removed
+        # therefore, dict is getting bigger and bigger
         self.counter = {}
-        self.snippets = {}
         
     def initialize (self):
         self.beagle = beagle.Client()
-        
+   
     def query (self, qstring):
+        self.counter[qstring] = {}
         beagle_query = beagle.Query()
         beagle_query.add_text(qstring)
         beagle_query.connect("hits-added", self.hits_added, qstring, MAX_RESULTS)
-        try:
-            self.beagle.send_request_async(beagle_query)
-        except:
-            return
+        self.beagle.send_request_async(beagle_query)
+       
+    def hits_added(self, query, response, qstring, qmax):
+        hit_matches = []
+        for hit in response.get_hits():
+            if hit.get_type() not in TYPES:
+                logging.info("Beagle live seen an unknown type:"+ hit.get_type())
+                continue
             
-        self.counter[qstring] = {}
-      
+            if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
+                snippet_request = beagle.SnippetRequest()
+                snippet_request.set_query(query)
+                snippet_request.set_hit(hit)
+                container = SnippetContainer(hit)
+                hit.ref()
+                snippet_request.connect('response', self._on_snippet_received, query, container, qstring, qmax)
+                snippet_request.connect('closed', self._on_snippet_closed, query, container, qstring, qmax)
+                self.beagle.send_request_async(snippet_request)
+                continue
+                            
+            match = self._on_hit_added(query, hit, qstring, qmax)
+            
+            if match != None:
+                hit_matches.append(match)
+            
+        self._emit_query_ready(qstring, hit_matches)
+    
     def _on_snippet_received(self, request, response, query, container, qstring, qmax):
-        container.snippet = response.get_snippet()
+        # Remove trailing whitespaces and escape '%'
+        container.snippet = response.get_snippet().strip().replace("%", "%%")
         self._on_hit_added(query, container, qstring, qmax)
     
     def _on_snippet_closed(self, request, query, container, qstring, qmax):
         if container.snippet == None:
             self._on_hit_added(query, container, qstring, qmax)
-            
         container.hit.unref()
             
     def _on_hit_added(self, query, hit, qstring, qmax):
@@ -360,7 +384,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                 result[key] = cgi.escape(val)
         
         # Add the snippet, in escaped form if available
-        if snippet != None:
+        if snippet != None and snippet != "":
             tmp = re.sub(r"<.*?>", "", snippet)
             tmp = re.sub(r"</.*?>", "", tmp)
             result["snippet"] = "\n<span size='small' style='italic'>%s</span>" % cgi.escape(tmp)
@@ -380,32 +404,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             self._emit_query_ready(qstring, [match])
         else:    
             return match
-        
-    def hits_added(self, query, response, qstring, qmax):
-        hit_matches = []
-        for hit in response.get_hits():
-            if hit.get_type() not in TYPES:
-                logging.warning("Beagle live seen an unknown type:"+ hit.get_type())
-                continue
-            
-            if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
-                req = beagle.SnippetRequest()
-                req.set_query(query)
-                req.set_hit(hit)
-                container = SnippetContainer(hit)
-                hit.ref()
-                req.connect('response', self._on_snippet_received, query, container, qstring, qmax)
-                req.connect('closed', self._on_snippet_closed, query, container, qstring, qmax)
-                self.beagle.send_request_async(req)
-                continue
-                            
-            match = self._on_hit_added(query, hit, qstring, qmax)
-            
-            if match != None:
-                hit_matches.append(match)                
-            
-        self._emit_query_ready(qstring, hit_matches)
-     
+    
     @staticmethod
     def has_requirements():
         # Check if we have python bindings for beagle
