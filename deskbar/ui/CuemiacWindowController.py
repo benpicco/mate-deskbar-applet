@@ -34,6 +34,9 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         if self._model.get_clear_entry():
             self._view.clear_all()
         window = self._view.get_toplevel()
+        x, y = window.get_position()      
+        self._model.set_window_x(x)      
+        self._model.set_window_y(y)
         window.hide()
         return True
 

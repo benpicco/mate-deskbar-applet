@@ -137,6 +137,12 @@ class CoreImpl(deskbar.interfaces.Core):
     def get_window_height(self):
         return self._gconf.get_window_height()
     
+    def get_window_x(self):      
+        return self._gconf.get_window_x()      
+       
+    def get_window_y(self):      
+        return self._gconf.get_window_y()
+    
     def get_hide_after_action(self):
         return self._gconf.get_hide_after_action()
     
@@ -182,6 +188,12 @@ class CoreImpl(deskbar.interfaces.Core):
     
     def set_window_height(self, height):
         self._gconf.set_window_height(height)
+    
+    def set_window_x(self, x):      
+        self._gconf.set_window_x(x)      
+       
+    def set_window_y(self, y):      
+        self._gconf.set_window_y(y)
     
     def set_hide_after_action(self, width):
         self._gconf.set_hide_after_action(width)

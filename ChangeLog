@@ -1,5 +1,17 @@
 2007-09-06	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * data/deskbar-applet.schemas.in:
+	* deskbar/core/CoreImpl.py:
+	* deskbar/core/GconfStore.py:
+	* deskbar/interfaces/Core.py:
+	* deskbar/ui/CuemiacWindowController.py:
+	* deskbar/ui/CuemiacWindowView.py:
+	Reverted revision 1545:
+	Display windows always in the middle of the screen and keep it above.
+	Removed storing/setting window position.
+	
+2007-09-06	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/handlers/mozilla.py:
     Fixed bug #473375
     Fixed: "Show only primary search engines" with Mozilla handler has no effect
