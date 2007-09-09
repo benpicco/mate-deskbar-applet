@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-25 16:09+0200\n"
-"PO-Revision-Date: 2007-03-06 22:26+0100\n"
+"POT-Creation-Date: 2007-09-09 03:40+0200\n"
+"PO-Revision-Date: 2007-09-09 00:53+0200\n"
 "Last-Translator: Kenneth Nielsen <k.nielsen81@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -20,121 +20,215 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr ""
+"Vælg om det at aktivere genvejstasten også sætter den nuværende markering "
+"ind i søgefeltet."
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid "Clear entry after match has been selected"
+msgstr "Ryd indtastning efter at et træf er valgt"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Collapsed categories"
+msgstr "Sammenklappede kategorier"
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "Enabled handlers"
+msgstr "Aktiverede håndteringsinstanser"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
+msgstr ""
+"Hvis slået til vil indtastningen blive ryddet efter at et søgetræf er blevet "
+"valgt"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid "If enabled the window will be closed after an action has been activated"
+msgstr ""
+"Hvis slået til vil vinduet blive lukket efter at en handling er blevet udført"
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid "Keybinding"
+msgstr "Tastegenvej"
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid "Milliseconds to wait before starting to search"
+msgstr "Millisekunder, der skal ventes før søgningen startes"
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid "Minimum number of characters needed to start searching"
+msgstr "Mindste antal tegn som kræves før søgningen startes"
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid "The default height of the window in pixels"
+msgstr "Standardhøjden af vinduet i skærmpunkter"
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default width of the window in pixels"
+msgstr "Standardbredden af vinduet i skærmpunkter"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
+msgstr ""
+"Denne tastesekvens vil fokusere Deskbar-Applet således at du kan indtaste "
+"hurtigt"
+
+#: ../data/deskbar-applet.schemas.in.h:13
+msgid ""
+"The list of categories to be collapsed when displayed. Valid categories are: "
+"default, history, documents, emails, conversations, files, people, places, "
+"actions, web, websearch, news and notes."
+msgstr ""
+"Liste af kategorier som skal klappes sammen når de vises. Gyldige kategorier "
+"er: \"default\", \"history\", \"documents\", \"emails\", \"conversations\", "
+"\"files\", \"people\", \"places\", \"actions\", \"web\", \"websearch\", "
+"\"news\" og \"notes\"."
+
+#: ../data/deskbar-applet.schemas.in.h:14
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr ""
+"Listen af eksporterede klassenavne for de aktiverede håndteringsinstanser "
+"sorteret efter prioritet. Længst til venstre er højest prioritet"
+
+#: ../data/deskbar-applet.schemas.in.h:15
+msgid "The maximum number of items stored in history"
+msgstr "Det maksimale antal objekter der lagres i historikken"
+
+#: ../data/deskbar-applet.schemas.in.h:16
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr ""
+"Det mindste antal af tegn der skal skrives før søge-panelprogrammet begynder "
+"at vise træfninger"
+
+#: ../data/deskbar-applet.schemas.in.h:17
+msgid ""
+"The time in milliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr ""
+"Tiden i millisekunder der går, fra der foretages en indtastning i "
+"søgefeltet, til søgningen udføres"
+
+#: ../data/deskbar-applet.schemas.in.h:18
+msgid "Whether to close the window after an actions has been activated"
+msgstr "Om vinduet skal lukkes efter at en handling er blevet udført"
+
+#: ../data/deskbar-applet.schemas.in.h:19
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr ""
+"Om kun den foretrukne søgemotor skal vises i stedet for alle de "
+"tilgængelige. Denne indstilling har kun indflydelse på Mozilla-baserede "
+"internetbrowsere som f.eks. Firefox."
+
+#: ../data/deskbar-applet.schemas.in.h:20
+msgid "Whether triggering Deskbar-Applet pastes the current selection"
+msgstr ""
+"Hvorvidt aktivering af Deskbar-Applet medfører at den nuværende markering "
+"indsættes"
+
+#: ../data/deskbar-applet.schemas.in.h:21
+msgid "Window height"
+msgstr "Vindueshøjde"
+
+#: ../data/deskbar-applet.schemas.in.h:22
+msgid "Window width"
+msgstr "Vinduesbredde"
+
+#: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
 msgstr "_Om"
 
-#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
+#: ../data/Deskbar_Applet.xml.h:2
 msgid "_Clear History"
 msgstr "_Ryd historik"
 
-#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
+#: ../data/Deskbar_Applet.xml.h:3
 msgid "_Preferences"
 msgstr "_Indstillinger"
+
+#: ../data/Deskbar_Applet.server.in.in.h:1
+msgid "An all-in-one action bar"
+msgstr "Et alt i en-kommandofelt"
+
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:19
+msgid "Deskbar"
+msgstr "Kommandofelt"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Available Extensions</b>"
 msgstr "<b>Tilgængelige moduler</b>"
 
 #: ../data/prefs-dialog.glade.h:2
-msgid "<b>Focus</b>"
-msgstr "<b>Fokus</b>"
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>Moduler med fejl</b>"
 
 #: ../data/prefs-dialog.glade.h:3
-msgid "<b>Layout</b>"
-msgstr "<b>Layout</b>"
+msgid "<b>Focus</b>"
+msgstr "<b>Fokus</b>"
 
 #: ../data/prefs-dialog.glade.h:4
 msgid "<b>Loaded Extensions</b>"
 msgstr "<b>Indlæste moduler</b>"
 
 #: ../data/prefs-dialog.glade.h:5
-msgid "<b>Width</b>"
-msgstr "<b>Bredde</b>"
-
-#: ../data/prefs-dialog.glade.h:6
-msgid ""
-"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
-"small></i>"
-msgstr ""
-"<i><small><b>Bemærk:</b> Træk og slip et modul for ændre dets orden.</"
-"small></i>"
-
-#: ../data/prefs-dialog.glade.h:7
-msgid "Button in panel"
-msgstr "Knap i panel"
-
-#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Indstillinger for kommandofelt"
 
-#: ../data/prefs-dialog.glade.h:9
-msgid "Entry in panel"
-msgstr "Indtastningsfelt i panel"
+#: ../data/prefs-dialog.glade.h:6
+msgid "Extensions with Errors"
+msgstr "Moduler med fejl"
 
-#: ../data/prefs-dialog.glade.h:10
-msgid "Fixed _width:"
-msgstr "Fast _bredde:"
+#: ../data/prefs-dialog.glade.h:7
+msgid "General"
+msgstr "Generelt"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:8
 msgid "New Extensions"
 msgstr "Nye moduler"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:9
 msgid "Search selection when triggering the shortcut"
 msgstr "Gennemsøg valgte når genvejen aktiveres"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:10
 msgid "Searches"
 msgstr "Søgninger"
 
-#: ../data/prefs-dialog.glade.h:14
-msgid "Use _all available space"
-msgstr "Anvend _al tilgængelig plads"
-
-#: ../data/prefs-dialog.glade.h:15
-msgid "View"
-msgstr "Visning"
-
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:11
 msgid "_Check For Updates"
 msgstr "_Kontrollér for opdateringer"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:12
 msgid "_Check for new extensions"
 msgstr "_Kontrollér for nye moduler"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Install"
 msgstr "_Installér"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Tastegenvej for at fokusere:"
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:15
 msgid "_More..."
 msgstr "_Mere..."
 
-#: ../data/prefs-dialog.glade.h:21
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Update"
 msgstr "_Opdatér"
 
-#: ../data/prefs-dialog.glade.h:22
-msgid "characters"
-msgstr "tegn"
-
 #: ../data/smart-bookmarks.glade.h:1
-msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
-msgstr ""
-"<i><small><b>Bemærk: </b>Hvis genvejen er et enkelt tegn (som f.eks. <b>t</"
-"b>), kan du også bare taste \"<b>noget</b>\" og trykke <b>Alt-t</b> i "
-"kommandofeltet.</small></i>"
-
-#: ../data/smart-bookmarks.glade.h:2
 msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
@@ -144,600 +238,9 @@ msgstr ""
 "søge for <b>noget</b> så indtast \"<b>wp noget</b>\" i kommandofeltet</"
 "small></i>."
 
-#: ../data/smart-bookmarks.glade.h:3
+#: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Genveje til gemte søgninger"
-
-#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
-#, python-format
-msgid "Open History Item %s"
-msgstr "Åbn historikpunkt %s"
-
-#: ../deskbar/BrowserMatch.py:52
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "Åbn bogmærket %s"
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:101
-#, python-format
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "Søg <b>%(name)s</b> efter <i>%(text)s</i>"
-
-#: ../deskbar/BrowserMatch.py:210
-msgid "Shortcut"
-msgstr "Genvej"
-
-#: ../deskbar/BrowserMatch.py:218
-msgid "Bookmark Name"
-msgstr "Bogmærkenavn"
-
-#: ../deskbar/Categories.py:7
-msgid "Uncategorized"
-msgstr "Ukategoriseret"
-
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
-msgid "History"
-msgstr "Historik"
-
-#: ../deskbar/Categories.py:15
-msgid "Documents"
-msgstr "Dokumenter"
-
-#: ../deskbar/Categories.py:18
-msgid "Emails"
-msgstr "E-post"
-
-#: ../deskbar/Categories.py:21
-msgid "Conversations"
-msgstr "Samtaler"
-
-#: ../deskbar/Categories.py:24
-msgid "Files"
-msgstr "Filer"
-
-#: ../deskbar/Categories.py:27
-msgid "People"
-msgstr "Personer"
-
-#: ../deskbar/Categories.py:30
-msgid "Places"
-msgstr "Steder"
-
-#: ../deskbar/Categories.py:33
-msgid "Actions"
-msgstr "Handlinger"
-
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
-msgid "Web"
-msgstr "Internettet"
-
-#: ../deskbar/Categories.py:39
-msgid "Web Search"
-msgstr "Internetsøgning"
-
-#: ../deskbar/Categories.py:42
-msgid "News"
-msgstr "Nyheder"
-
-# det drejer sig om en notits, ikke verbet "to note" i bydeform
-#: ../deskbar/Categories.py:45
-msgid "Notes"
-msgstr "Noter"
-
-#: ../deskbar/DeskbarHistory.py:37
-msgid "No History"
-msgstr "Ingen historik"
-
-#: ../deskbar/Utils.py:109
-msgid "Cannot execute program:"
-msgstr "Kan ikke køre program:"
-
-#: ../deskbar/Utils.py:144
-msgid "Cannot show URL:"
-msgstr "Kan ikke vise adresse:"
-
-#: ../deskbar/gtkexcepthook.py:14
-msgid "A programming error has been detected"
-msgstr "Der er fundet en programmeringsfejl"
-
-#: ../deskbar/gtkexcepthook.py:15
-msgid ""
-"It probably isn't fatal, but should be reported to the developers "
-"nonetheless. The program may behave erratically from now on."
-msgstr ""
-"Den er sandsynligvis ikke fatal, men bør blive rapporteret til udviklerne "
-"alligevel. Programmet kan opføre sig fejlagtigt fra nu af."
-
-#: ../deskbar/gtkexcepthook.py:17
-msgid "Bug Detected"
-msgstr "Fejl fundet"
-
-#: ../deskbar/handlers/beagle-live.py:19
-msgid "Start Beagle Daemon?"
-msgstr "Start Beagle-tjeneste?"
-
-#: ../deskbar/handlers/beagle-live.py:24
-msgid "Start Beagle Daemon"
-msgstr "Start Beagle-tjeneste"
-
-#: ../deskbar/handlers/beagle-live.py:25
-msgid ""
-"The Beagle daemon does not appear to be running.\n"
-" You need to start it to use the Beagle Live handler."
-msgstr ""
-"Det ser ikke ud til at Beagle-tjenesten kører.\n"
-" Du skal starte den for at kunne bruge Beagle Live-håndtering."
-
-#: ../deskbar/handlers/beagle-live.py:39
-msgid "Failed to start Beagle"
-msgstr "Kunne ikke starte Beagle"
-
-#: ../deskbar/handlers/beagle-live.py:40
-msgid "Perhaps the beagle daemon isn't installed?"
-msgstr "Måske er beagle-tjenesten ikke installeret?"
-
-#: ../deskbar/handlers/beagle-live.py:63
-msgid "Beagle Live"
-msgstr "Beagle Live"
-
-#: ../deskbar/handlers/beagle-live.py:64
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Søg i alle dine dokumenter (med Beagle) efterhånden som du taster"
-
-#: ../deskbar/handlers/beagle-live.py:92
-#, python-format
-msgid "Edit contact %s"
-msgstr "Redigér kontakt %s"
-
-#: ../deskbar/handlers/beagle-live.py:101
-#, python-format
-msgid "From %s"
-msgstr "Fra %s"
-
-#. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
-#: ../deskbar/handlers/recent.py:43
-#, python-format
-msgid "Open %s"
-msgstr "Åbn %s"
-
-#: ../deskbar/handlers/beagle-live.py:117
-#, python-format
-msgid "News from %s"
-msgstr "Nyheder fra %s"
-
-# det drejer sig om en notits, ikke verbet "to note" i bydeform
-#: ../deskbar/handlers/beagle-live.py:126
-#, python-format
-msgid "Note: %s"
-msgstr "Note: %s"
-
-#: ../deskbar/handlers/beagle-live.py:135
-#, python-format
-msgid "With %s"
-msgstr "Med %s"
-
-#: ../deskbar/handlers/beagle-live.py:143
-#, python-format
-msgid "Calendar: %s"
-msgstr "Kalender: %s"
-
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:318
-#: ../deskbar/handlers/beagle-live.py:340
-msgid "?"
-msgstr "?"
-
-#: ../deskbar/handlers/beagle-static.py:20
-msgid "Beagle"
-msgstr "Beagle"
-
-#: ../deskbar/handlers/beagle-static.py:21
-msgid "Search all of your documents (using Beagle)"
-msgstr "Søg i alle dine dokumenter (med Beagle)"
-
-#: ../deskbar/handlers/beagle-static.py:36
-#, python-format
-msgid "Search for %s using Beagle"
-msgstr "Søg efter %s med Beagle"
-
-#: ../deskbar/handlers/desklicious.py:16
-msgid "You need to configure your del.icio.us account."
-msgstr "Du er nødt til at konfigurere din del.icio.us-konto."
-
-#: ../deskbar/handlers/desklicious.py:18
-msgid "You can modify your del.icio.us account."
-msgstr "Du kan ændre din del.icio.us-konto."
-
-#: ../deskbar/handlers/desklicious.py:22
-msgid "del.icio.us Bookmarks"
-msgstr "del.icio.us-bogmærker"
-
-#: ../deskbar/handlers/desklicious.py:23
-msgid "Search your del.icio.us bookmarks by tag name"
-msgstr "Søg igennem dine del.icio.us-bogmærker efter mærkenavn"
-
-#: ../deskbar/handlers/desklicious.py:30
-msgid "del.icio.us Account"
-msgstr "del.icio.us-konto"
-
-#: ../deskbar/handlers/desklicious.py:37
-msgid "Enter your del.icio.us username below"
-msgstr "Skriv dit del.icio.us-brugernavn nedenunder"
-
-#: ../deskbar/handlers/desklicious.py:43
-msgid "Username: "
-msgstr "Brugernavn: "
-
-#: ../deskbar/handlers/epiphany.py:27
-msgid "You can set shortcuts for your searches."
-msgstr "Du kan angive genveje til dine søgninger."
-
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:131
-msgid "Web Bookmarks"
-msgstr "Internetbogmærker"
-
-#: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:132
-msgid "Open your web bookmarks by name"
-msgstr "Åbn dine internetbogmærker efter navn"
-
-#: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:143
-msgid "Web History"
-msgstr "Internethistorik"
-
-#: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:144
-msgid "Open your web history by name"
-msgstr "Åbn din internethistorik efter navn"
-
-#: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:137
-msgid "Web Searches"
-msgstr "Internetsøgninger"
-
-#: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:138
-msgid "Search the web via your browser's search settings"
-msgstr "Søg på nettet via din internetbrowsers søgeindstillinger"
-
-#: ../deskbar/handlers/evolution.py:12
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr "Du skal aktivere automatisk fuldførelse i dine postindstillinger"
-
-#: ../deskbar/handlers/evolution.py:15
-msgid "Autocompletion Needs to be Enabled"
-msgstr "Auto-fuldførelse skal være aktiveret"
-
-#: ../deskbar/handlers/evolution.py:16
-msgid ""
-"We cannot provide e-mail addresses from your address book unless "
-"autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit - Preferences, and then Autocompletion."
-msgstr ""
-"Der kan ikke tilbydes e-post-adresser fra din adressebog medmindre "
-"automatisk fuldførelse er aktiveret. Vælg Redigér - Indstillinger og så "
-"Automatisk fuldførelse i dit postprograms menu for at gøre dette."
-
-#: ../deskbar/handlers/evolution.py:21
-msgid "Mail (Address Book)"
-msgstr "Post (adressebog)"
-
-#: ../deskbar/handlers/evolution.py:22
-msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-"Send e-post til dine kontakter ved at indtaste deres navn eller e-post-"
-"adresse"
-
-#. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:48
-#, python-format
-msgid "Send Email to <b>%(name)s</b> (%(email)s)"
-msgstr "Send e-post til <b>%(name)s</b> (%(email)s)"
-
-#: ../deskbar/handlers/files.py:18
-msgid "Files, Folders and Places"
-msgstr "Filer, mapper og steder"
-
-#: ../deskbar/handlers/files.py:19
-msgid "View your files, folders, bookmarks, drives, network places by name"
-msgstr "Vis dine filer, mapper, bogmærker, drev og netværk-steder efter navn"
-
-#: ../deskbar/handlers/files.py:69
-#, python-format
-msgid "Open folder %s"
-msgstr "Åbn mappen %s"
-
-#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
-#, python-format
-msgid "Open location %s"
-msgstr "Åbn stedet %s"
-
-#: ../deskbar/handlers/files.py:118
-#, python-format
-msgid "Open network place %s"
-msgstr "Åbn netværksstedet %s"
-
-#: ../deskbar/handlers/files.py:120
-#, python-format
-msgid "Open audio disc %s"
-msgstr "Åbn lyddisk %s"
-
-#: ../deskbar/handlers/gdmactions.py:10
-msgid "Computer Actions"
-msgstr "Computer handlinger"
-
-#: ../deskbar/handlers/gdmactions.py:11
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr "Log af, luk ned, genstart, stil i bero og lignende handlinger."
-
-#: ../deskbar/handlers/gdmactions.py:44
-msgid "Suspend the machine"
-msgstr "Stil maskinen i bero"
-
-#: ../deskbar/handlers/gdmactions.py:60
-msgid "Hibernate the machine"
-msgstr "Sæt maskinen i dvale"
-
-#: ../deskbar/handlers/gdmactions.py:76
-msgid "Shutdown the machine"
-msgstr "Luk maskinen ned"
-
-#: ../deskbar/handlers/gdmactions.py:100
-msgid "Lock the screen"
-msgstr "Lås skærmen"
-
-#: ../deskbar/handlers/gdmactions.py:126
-msgid "Shut Down"
-msgstr "Luk ned"
-
-#: ../deskbar/handlers/gdmactions.py:133
-msgid "Turn off the computer"
-msgstr "Sluk computeren"
-
-#: ../deskbar/handlers/gdmactions.py:137
-msgid "Log Out"
-msgstr "Log ud"
-
-#: ../deskbar/handlers/gdmactions.py:144
-msgid "Log out"
-msgstr "Log ud"
-
-#: ../deskbar/handlers/gdmactions.py:148
-msgid "Restart"
-msgstr "Genstart"
-
-#: ../deskbar/handlers/gdmactions.py:155
-msgid "Restart the computer"
-msgstr "Genstart computeren"
-
-#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
-msgid "Switch User"
-msgstr "Skift bruger"
-
-#: ../deskbar/handlers/gdmactions.py:185
-msgid "Lock"
-msgstr "Lås"
-
-#: ../deskbar/handlers/gdmactions.py:196
-msgid "Suspend"
-msgstr "Stil i bero"
-
-#: ../deskbar/handlers/gdmactions.py:198
-msgid "Hibernate"
-msgstr "Sæt i dvale"
-
-#: ../deskbar/handlers/gdmactions.py:200
-msgid "Shutdown"
-msgstr "Luk ned"
-
-#: ../deskbar/handlers/history.py:12
-msgid "Recognize previously used searches"
-msgstr "Genkend tidligere anvendte søgninger"
-
-#: ../deskbar/handlers/iswitch-window.py:11
-msgid "Window Switcher"
-msgstr "Vindues-skifter"
-
-#: ../deskbar/handlers/iswitch-window.py:12
-msgid "Switch to an existing window by name."
-msgstr "Skift til et eksisterende vindue efter navn."
-
-#: ../deskbar/handlers/iswitch-window.py:16
-msgid "Windows"
-msgstr "Vinduer"
-
-#: ../deskbar/handlers/iswitch-window.py:32
-#, python-format
-msgid "Switch to <b>%(name)s</b>"
-msgstr "Skift til <b>%(name)s</b>"
-
-#: ../deskbar/handlers/mozilla.py:122
-msgid "You can customize which search engines are offered."
-msgstr "Du kan tilpasse hvilke søgemotorer der bliver tilbudt."
-
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Programmer"
-
-#: ../deskbar/handlers/programs.py:15
-msgid "Launch a program by its name and/or description"
-msgstr "Start et program efter dets navn eller beskrivelse"
-
-#: ../deskbar/handlers/programs.py:19
-msgid "Dictionary"
-msgstr "Ordbog"
-
-#: ../deskbar/handlers/programs.py:20
-msgid "Look up word definitions in the dictionary"
-msgstr "Slå ordbogsdefinitioner op i ordbogen"
-
-#: ../deskbar/handlers/programs.py:24
-msgid "Files and Folders Search"
-msgstr "Fil- og mappesøgning"
-
-#: ../deskbar/handlers/programs.py:25
-msgid "Find files and folders by searching for a name pattern"
-msgstr "Find filer og mapper ved at søge efter et navnemønster"
-
-#: ../deskbar/handlers/programs.py:29
-msgid "Developer Documentation"
-msgstr "Programudvikler-dokumentation"
-
-#: ../deskbar/handlers/programs.py:30
-msgid "Search Devhelp for a function name"
-msgstr "Søg igennem Devhelp efter et funktionsnavn"
-
-# FIXME:
-# http://bugzilla.gnome.org/show_bug.cgi?id=321396
-#
-#. translators: First %s is the programs full name, second is the executable name
-#. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:88
-#, python-format
-msgid "Launch <b>%(name)s</b> (%(prog)s)"
-msgstr "Start <b>%(name)s</b> (%(prog)s)"
-
-#: ../deskbar/handlers/programs.py:102
-#, python-format
-msgid "Lookup %s in dictionary"
-msgstr "Slå %s op i ordbog"
-
-#: ../deskbar/handlers/programs.py:110
-#, python-format
-msgid "Search for file names like %s"
-msgstr "Søg efter filnavne som %s"
-
-#: ../deskbar/handlers/programs.py:118
-#, python-format
-msgid "Search in Devhelp for %s"
-msgstr "Søg igennem Devhelp efter %s"
-
-#: ../deskbar/handlers/programs.py:222
-#, python-format
-msgid "Execute %s"
-msgstr "Start %s"
-
-#: ../deskbar/handlers/recent.py:15
-msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
-msgstr "Denne håndtering kræver en nyere version af gtk (2.9.0 eller nyere)."
-
-#: ../deskbar/handlers/recent.py:19
-msgid "Recent Documents"
-msgstr "Seneste dokumenter"
-
-#: ../deskbar/handlers/recent.py:20
-msgid "Retrieve your recently accessed files and locations"
-msgstr "Indsaml dine nyligt besøgte filer og steder"
-
-#: ../deskbar/handlers/web_address.py:13
-msgid "Open web pages and send emails by typing a complete address"
-msgstr "Åbn internetsider og send e-post ved at indtaste en komplet adresse"
-
-#: ../deskbar/handlers/web_address.py:42
-#, python-format
-msgid "Open the web page %s"
-msgstr "Åbn internetsiden %s"
-
-#: ../deskbar/handlers/web_address.py:44
-#, python-format
-msgid "Open the location %s"
-msgstr "Åbn stedet %s"
-
-#: ../deskbar/handlers/web_address.py:61
-#, python-format
-msgid "Send Email to %s"
-msgstr "Send e-post til %s"
-
-#: ../deskbar/handlers/yahoo.py:16
-msgid "Yahoo! Search"
-msgstr "Yahoo!-søgning"
-
-#: ../deskbar/handlers/yahoo.py:17
-msgid "Search Yahoo! as you type"
-msgstr "Søg på Yahoo! efterhånden som du taster"
-
-#: ../deskbar/ui/About.py:22
-msgid "Deskbar"
-msgstr "Kommandofelt"
-
-#: ../deskbar/ui/About.py:25
-msgid "An all-in-one action bar."
-msgstr "Et alt i en-kommandofelt."
-
-#: ../deskbar/ui/About.py:28
-msgid "Deskbar Website"
-msgstr "Kommandofeltets hjemmeside"
-
-#. about.set_artists([])
-#. about.set_documenters([])
-#. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
-msgid "translator-credits"
-msgstr ""
-"Ole Laursen\n"
-"Kenneth Nielsen\n"
-"\n"
-"Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
-"Mere info: http://www.dansk-gruppen.dk"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:112
-msgid "New accelerator..."
-msgstr "Ny genvejstast..."
-
-# FIXME
-# Jeg oversat denne under forudsætning af at der er en fejl i original-strengen
-# således at jeg går ud fra at meningen er sådan som jeg har oversat den.
-# Den norske er oversat med en lignende mening:
-# Snarveien s kan ikke brukes fordi den ikke vil kunne aktiveres med denne 
-# tasten.
-# Vennligst prøv med f.eks. Control, Alt eller Shift i tillegg.
-# Og noget lignende i den svenske
-#: ../deskbar/ui/DeskbarPreferencesUI.py:164
-#, python-format
-msgid ""
-"The shortcut \"%s\" cannot be used because it will become unusable to type "
-"using this key.\n"
-"Please try with a key such as Control, Alt or Shift at the same time.\n"
-msgstr ""
-"Genvejen \"%s\" kan ikke bruges, idet det ikke vil blive muligt at aktivere "
-"den ved at trykke denne tast.\n"
-"Prøv venligst med en tast sådan som ctrl, alt eller skift på samme tid.\n"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:330
-msgid "Connection to repository failed"
-msgstr "Forbindelse til arkiv fejlede"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:330
-msgid "Please check your internet connection"
-msgstr "Kontrollér venligst din internetforbindelse"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:558
-msgid "Handler has been installed successfully"
-msgstr "Håndteringen er nu blevet installeret"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:564
-msgid "Handler could not be installed due a problem with the provided file"
-msgstr "Håndteringen kunne ikke installeres pga. et problem med den givne fil"
-
-#: ../deskbar/ui/ModuleListView.py:55
-msgid "Update Available"
-msgstr "Opdatering tilgængelig"
-
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
-msgid "Show search entry"
-msgstr "Vis søgeindgang"
-
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
-msgid "Show previously used actions"
-msgstr "Vis tidligere anvendte handlinger"
 
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
@@ -755,87 +258,758 @@ msgstr "Vis alle tilgængelige søgemotorer"
 msgid "Show only the primary search engine"
 msgstr "Vis kun den primære søgemotor"
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
+#, python-format
+msgid "Open History Item %s"
+msgstr "Åbn historikpunkt %s"
+
+#: ../deskbar/core/BrowserMatch.py:53
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "Åbn bogmærket %s"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/core/BrowserMatch.py:69
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "Søg <b>%(name)s</b> efter <i>%(text)s</i>"
+
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
+msgid "URL"
+msgstr "URL"
+
+#: ../deskbar/core/BrowserMatch.py:230
+msgid "Shortcut"
+msgstr "Genvej"
+
+#: ../deskbar/core/BrowserMatch.py:238
+msgid "Bookmark Name"
+msgstr "Bogmærkenavn"
+
+#: ../deskbar/core/Categories.py:7
+msgid "Uncategorized"
+msgstr "Ukategoriseret"
+
+#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
+msgid "History"
+msgstr "Historik"
+
+#: ../deskbar/core/Categories.py:17
+msgid "Documents"
+msgstr "Dokumenter"
+
+#: ../deskbar/core/Categories.py:21
+msgid "Emails"
+msgstr "E-post"
+
+#: ../deskbar/core/Categories.py:25
+msgid "Conversations"
+msgstr "Samtaler"
+
+#: ../deskbar/core/Categories.py:29
+msgid "Files"
+msgstr "Filer"
+
+#: ../deskbar/core/Categories.py:33
+msgid "People"
+msgstr "Personer"
+
+#: ../deskbar/core/Categories.py:37
+msgid "Places"
+msgstr "Steder"
+
+#: ../deskbar/core/Categories.py:41
+msgid "Actions"
+msgstr "Handlinger"
+
+#: ../deskbar/core/Categories.py:45 ../deskbar/handlers/web_address.py:44
+msgid "Web"
+msgstr "Internettet"
+
+#: ../deskbar/core/Categories.py:49
+msgid "Web Search"
+msgstr "Internetsøgning"
+
+#: ../deskbar/core/Categories.py:53
+msgid "News"
+msgstr "Nyheder"
+
+# det drejer sig om en notits, ikke verbet "to note" i bydeform
+#: ../deskbar/core/Categories.py:57
+msgid "Notes"
+msgstr "Noter"
+
+#: ../deskbar/core/DeskbarHistory.py:20
+msgid "<i>Choose action</i>"
+msgstr "<i>Vælg handling</i>"
+
+#: ../deskbar/core/Utils.py:124
+msgid "Cannot execute program:"
+msgstr "Kan ikke køre program:"
+
+#: ../deskbar/core/Utils.py:164
+msgid "Cannot show URL:"
+msgstr "Kan ikke vise adresse:"
+
+#: ../deskbar/handlers/beagle-live.py:98
+#, python-format
+msgid "Edit contact %s"
+msgstr "Redigér kontakt %s"
+
+#: ../deskbar/handlers/beagle-live.py:109
+#, python-format
+msgid "From %s"
+msgstr "Fra %s"
+
+#: ../deskbar/handlers/beagle-live.py:124
+#, python-format
+msgid "News from %s"
+msgstr "Nyheder fra %s"
+
+# det drejer sig om en notits, ikke verbet "to note" i bydeform
+#: ../deskbar/handlers/beagle-live.py:138
+#, python-format
+msgid "Note: %s"
+msgstr "Note: %s"
+
+#: ../deskbar/handlers/beagle-live.py:151
+#, python-format
+msgid "With %s"
+msgstr "Med %s"
+
+#: ../deskbar/handlers/beagle-live.py:165
+#, python-format
+msgid "Calendar: %s"
+msgstr "Kalender: %s"
+
+#: ../deskbar/handlers/beagle-live.py:252
+msgid "Beagle Live"
+msgstr "Beagle Live"
+
+#: ../deskbar/handlers/beagle-live.py:253
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Søg i alle dine dokumenter (med Beagle) efterhånden som du taster"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:354
+#: ../deskbar/handlers/beagle-live.py:376
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle-live.py:414
+msgid ""
+"Could not load beagle, libbeagle has been compiled without python bindings."
+msgstr ""
+"Kan ikke indlæse beagle, libbeagle ar blevet kompileret uden python-"
+"bindinger."
+
+#: ../deskbar/handlers/beagle-live.py:423
+msgid "Beagled could not be found in your $PATH."
+msgstr "Beagle blev ikke findet i din $PATH."
+
+#: ../deskbar/handlers/beagle-static.py:21
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "Søg efter %s med Beagle"
+
+#: ../deskbar/handlers/beagle-static.py:37
+msgid "Beagle"
+msgstr "Beagle"
+
+#: ../deskbar/handlers/beagle-static.py:38
+msgid "Search all of your documents (using Beagle)"
+msgstr "Søg i alle dine dokumenter (med Beagle)"
+
+#: ../deskbar/handlers/beagle-static.py:54
+msgid "Beagle does not seem to be installed."
+msgstr "Beagle ser ikke ud til at være installeret."
+
+#: ../deskbar/handlers/desklicious.py:44
+msgid "del.icio.us Bookmarks"
+msgstr "del.icio.us-bogmærker"
+
+#: ../deskbar/handlers/desklicious.py:45
+msgid "Search your del.icio.us bookmarks by tag name"
+msgstr "Søg igennem dine del.icio.us-bogmærker efter mærkenavn"
+
+#: ../deskbar/handlers/desklicious.py:77
+msgid "del.icio.us Account"
+msgstr "del.icio.us-konto"
+
+#: ../deskbar/handlers/desklicious.py:84
+msgid "Enter your del.icio.us username below"
+msgstr "Skriv dit del.icio.us-brugernavn nedenunder"
+
+#: ../deskbar/handlers/desklicious.py:90
+msgid "Username: "
+msgstr "Brugernavn: "
+
+#: ../deskbar/handlers/desklicious.py:106
+msgid "You need to configure your del.icio.us account."
+msgstr "Du er nødt til at konfigurere din del.icio.us-konto."
+
+#: ../deskbar/handlers/desklicious.py:111
+msgid "You can modify your del.icio.us account."
+msgstr "Du kan ændre din del.icio.us-konto."
+
+#: ../deskbar/handlers/epiphany.py:48
+msgid "Web Bookmarks (Epiphany)"
+msgstr "Internetbogmærker (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
+msgid "Open your web bookmarks by name"
+msgstr "Åbn dine internetbogmærker efter navn"
+
+#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
+msgid "Epiphany is not your preferred browser."
+msgstr "Epiphany er ikke din foretrukne browser."
+
+#: ../deskbar/handlers/epiphany.py:88
+msgid "Web Searches (Epiphany)"
+msgstr "Internetsøgninger (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:195
+msgid "Search the web via your browser's search settings"
+msgstr "Søg på nettet via din internetbrowsers søgeindstillinger"
+
+#: ../deskbar/handlers/epiphany.py:124
+msgid "You can set shortcuts for your searches."
+msgstr "Du kan angive genveje til dine søgninger."
+
+#: ../deskbar/handlers/epiphany.py:134
+msgid "Web History (Epiphany)"
+msgstr "Internethistorik (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
+msgid "Open your web history by name"
+msgstr "Åbn din internethistorik efter navn"
+
+#: ../deskbar/handlers/evolution.py:21
+msgid "Mail (Address Book)"
+msgstr "Post (adressebog)"
+
+#: ../deskbar/handlers/evolution.py:22
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr ""
+"Send e-post til dine kontakter ved at indtaste deres navn eller e-post-"
+"adresse"
+
+#: ../deskbar/handlers/evolution.py:47
+msgid ""
+"Autocompletion Needs to be Enabled\n"
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"Aktivering af automatisk fuldførelse er påkrævet\n"
+"Der kan ikke tilbydes e-post-adresser fra din adressebog medmindre "
+"automatisk fuldførelse er aktiveret. Vælg Redigér - Indstillinger og så "
+"Automatisk fuldførelse i dit postprograms menu for at gøre dette."
+
+#. FIXME:
+#. _("Location") should be _("Location of %s") % name
+#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/actions/ActionsFactory.py:32
+msgid "Location"
+msgstr "Placering"
+
+#: ../deskbar/handlers/files.py:69
+msgid "Files, Folders and Places"
+msgstr "Filer, mapper og steder"
+
+#: ../deskbar/handlers/files.py:70
+msgid "View your files, folders, bookmarks, drives, network places by name"
+msgstr "Vis dine filer, mapper, bogmærker, drev og netværk-steder efter navn"
+
+#: ../deskbar/handlers/gdmactions.py:33
+msgid "Suspend the machine"
+msgstr "Stil maskinen i bero"
+
+#: ../deskbar/handlers/gdmactions.py:49
+msgid "Hibernate the machine"
+msgstr "Sæt maskinen i dvale"
+
+#: ../deskbar/handlers/gdmactions.py:65
+msgid "Shutdown the machine"
+msgstr "Luk maskinen ned"
+
+#: ../deskbar/handlers/gdmactions.py:86
+msgid "Lock the screen"
+msgstr "Lås skærmen"
+
+#: ../deskbar/handlers/gdmactions.py:109 ../deskbar/handlers/gdmactions.py:230
+msgid "Lock"
+msgstr "Lås"
+
+#: ../deskbar/handlers/gdmactions.py:149
+msgid "Turn off the computer"
+msgstr "Sluk computeren"
+
+#: ../deskbar/handlers/gdmactions.py:153 ../deskbar/handlers/gdmactions.py:209
+msgid "Shut Down"
+msgstr "Luk ned"
+
+#: ../deskbar/handlers/gdmactions.py:165
+msgid "Log out"
+msgstr "Log ud"
+
+#: ../deskbar/handlers/gdmactions.py:169 ../deskbar/handlers/gdmactions.py:212
+msgid "Log Out"
+msgstr "Log ud"
+
+#: ../deskbar/handlers/gdmactions.py:181
+msgid "Restart the computer"
+msgstr "Genstart computeren"
+
+#: ../deskbar/handlers/gdmactions.py:185 ../deskbar/handlers/gdmactions.py:211
+msgid "Restart"
+msgstr "Genstart"
+
+#: ../deskbar/handlers/gdmactions.py:196 ../deskbar/handlers/gdmactions.py:200
+#: ../deskbar/handlers/gdmactions.py:210
+msgid "Switch User"
+msgstr "Skift bruger"
+
+#: ../deskbar/handlers/gdmactions.py:206
+msgid "Computer Actions"
+msgstr "Computer handlinger"
+
+#: ../deskbar/handlers/gdmactions.py:207
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "Log af, luk ned, genstart, stil i bero og lignende handlinger."
+
+#: ../deskbar/handlers/gdmactions.py:241
+msgid "Suspend"
+msgstr "Stil i bero"
+
+#: ../deskbar/handlers/gdmactions.py:243
+msgid "Hibernate"
+msgstr "Sæt i dvale"
+
+#: ../deskbar/handlers/gdmactions.py:245
+msgid "Shutdown"
+msgstr "Luk ned"
+
+#: ../deskbar/handlers/history.py:28
+msgid "Recognize previously used searches"
+msgstr "Genkend tidligere anvendte søgninger"
+
+#: ../deskbar/handlers/iswitch-window.py:15
+#, python-format
+msgid "Switch to <b>%(name)s</b>"
+msgstr "Skift til <b>%(name)s</b>"
+
+#: ../deskbar/handlers/iswitch-window.py:47
+msgid "Window Switcher"
+msgstr "Vindues-skifter"
+
+#: ../deskbar/handlers/iswitch-window.py:48
+msgid "Switch to an existing window by name."
+msgstr "Skift til et eksisterende vindue efter navn."
+
+#: ../deskbar/handlers/iswitch-window.py:51
+msgid "Windows"
+msgstr "Vinduer"
+
+#: ../deskbar/handlers/mozilla.py:124
+msgid "Web Bookmarks (Mozilla)"
+msgstr "Internetbogmærker (Mozilla)"
+
+#: ../deskbar/handlers/mozilla.py:187 ../deskbar/handlers/mozilla.py:259
+msgid "Mozilla/Firefox is not your preferred browser."
+msgstr "Mozilla/Firefox er ikke din foretrukne browser."
+
+#: ../deskbar/handlers/mozilla.py:194
+msgid "Web Searches (Mozilla)"
+msgstr "Internetsøgninger (Mozilla)"
+
+#: ../deskbar/handlers/mozilla.py:253
+msgid "You can customize which search engines are offered."
+msgstr "Du kan tilpasse hvilke søgemotorer der bliver tilbudt."
+
+#: ../deskbar/handlers/mozilla.py:737
+msgid "Web History (Mozilla)"
+msgstr "Internethistorik (Mozilla)"
+
+#: ../deskbar/handlers/programs.py:76
+#, python-format
+msgid "Lookup %s in dictionary"
+msgstr "Slå %s op i ordbog"
+
+#: ../deskbar/handlers/programs.py:83
+#, python-format
+msgid "Search for file names like %s"
+msgstr "Søg efter filnavne som %s"
+
+#: ../deskbar/handlers/programs.py:89
+#, python-format
+msgid "Search in Devhelp for %s"
+msgstr "Søg igennem Devhelp efter %s"
+
+#: ../deskbar/handlers/programs.py:115
+msgid "Dictionary"
+msgstr "Ordbog"
+
+#: ../deskbar/handlers/programs.py:116
+msgid "Look up word definitions in the dictionary"
+msgstr "Slå ordbogsdefinitioner op i ordbogen"
+
+#: ../deskbar/handlers/programs.py:132
+msgid "Files and Folders Search"
+msgstr "Fil- og mappesøgning"
+
+#: ../deskbar/handlers/programs.py:133
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Find filer og mapper ved at søge efter et navnemønster"
+
+#: ../deskbar/handlers/programs.py:149
+msgid "Developer Documentation"
+msgstr "Programudvikler-dokumentation"
+
+#: ../deskbar/handlers/programs.py:150
+msgid "Search Devhelp for a function name"
+msgstr "Søg igennem Devhelp efter et funktionsnavn"
+
+#: ../deskbar/handlers/programs.py:198
+#, python-format
+msgid "Execute %s"
+msgstr "Start %s"
+
+#: ../deskbar/handlers/programs.py:220
+msgid "Programs"
+msgstr "Programmer"
+
+#: ../deskbar/handlers/programs.py:221
+msgid "Launch a program by its name and/or description"
+msgstr "Start et program efter dets navn eller beskrivelse"
+
+#: ../deskbar/handlers/recent.py:38
+msgid "Recent Documents"
+msgstr "Seneste dokumenter"
+
+#: ../deskbar/handlers/recent.py:39
+msgid "Retrieve your recently accessed files and locations"
+msgstr "Indsaml dine nyligt besøgte filer og steder"
+
+#: ../deskbar/handlers/recent.py:58
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr "Denne håndtering kræver en nyere version af gtk (2.9.0 eller nyere)."
+
+#: ../deskbar/handlers/web_address.py:45
+msgid "Open web pages and send emails by typing a complete address"
+msgstr "Åbn internetsider og send e-post ved at indtaste en komplet adresse"
+
+#: ../deskbar/handlers/yahoo.py:38
+msgid "Yahoo! Search"
+msgstr "Yahoo!-søgning"
+
+#: ../deskbar/handlers/yahoo.py:39
+msgid "Search Yahoo! as you type"
+msgstr "Søg på Yahoo! efterhånden som du taster"
+
+#: ../deskbar/handlers/actions/ActionsFactory.py:54
+#, python-format
+msgid "URL of %s"
+msgstr "URL til %s"
+
+#: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
+#, python-format
+msgid "Copy <b>%(name)s</b> to clipboard"
+msgstr "Kopiér <b>%(name)s</b> til klippebordet"
+
+#: ../deskbar/handlers/actions/GoToLocationAction.py:23
+#, python-format
+msgid "Go to location of %s"
+msgstr "Gå til placeringen for %s"
+
+# FIXME:
+# http://bugzilla.gnome.org/show_bug.cgi?id=321396
+#
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
+#, python-format
+msgid "Launch <b>%(name)s</b>"
+msgstr "Start <b>%(name)s</b>"
+
+#: ../deskbar/handlers/actions/OpenFileAction.py:38
+#: ../deskbar/handlers/actions/ShowUrlAction.py:24
+#, python-format
+msgid "Open %s"
+msgstr "Åbn %s"
+
+# FIXME:
+# http://bugzilla.gnome.org/show_bug.cgi?id=321396
+#
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
+#, python-format
+msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
+msgstr "Åbn <b>%(name)s</b> med <b>%(program)s</b>"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
+#, python-format
+msgid "Open network place %s"
+msgstr "Åbn netværksstedet %s"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
+#, python-format
+msgid "Open audio disc %s"
+msgstr "Åbn lyddisk %s"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:32
+#, python-format
+msgid "Open location %s"
+msgstr "Åbn stedet %s"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/actions/SendEmailToAction.py:24
+#, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "Send e-post til <b>%(name)s</b> (%(email)s)"
+
+#. translators: %s is a filename
+#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:44
+#, python-format
+msgid "Send %s via e-mail"
+msgstr "Send %s via e-brev"
+
+#: ../deskbar/ui/About.py:22
+msgid "An all-in-one action bar."
+msgstr "Et alt i en-kommandofelt."
+
+#: ../deskbar/ui/About.py:25
+msgid "Deskbar Website"
+msgstr "Kommandofeltets hjemmeside"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:36
+msgid "translator-credits"
+msgstr ""
+"Ole Laursen\n"
+"Kenneth Nielsen\n"
+"\n"
+"Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
+"Mere info: http://www.dansk-gruppen.dk"
+
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:18
 msgid "<b>Search:</b>"
 msgstr "<b>Søg:</b>"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:49
-msgid "_File"
-msgstr "_Fil"
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
+msgid "name"
+msgstr "navn"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:50
-msgid "_Quit"
-msgstr "_Afslut"
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
+msgid "default"
+msgstr "forvalg"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:51
-msgid "_Edit"
-msgstr "_Redigér"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:54
-msgid "_View"
-msgstr "_Vis"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:55
-msgid "_Help"
-msgstr "_Hjælp"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:58
+#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
+#: ../deskbar/ui/CuemiacWindowView.py:75
 msgid "_History"
 msgstr "_Historik"
 
-#. History TreeView
-#: ../deskbar/ui/window/CuemiacWindowUI.py:84
-msgid "<b>History</b>"
-msgstr "<b>Historik</b>"
+#: ../deskbar/ui/CuemiacWindowView.py:133
+msgid "Back to Matches"
+msgstr "Tilbage til træfninger"
 
-#: ../deskbar/updater/ErrorDialog.py:8
+#: ../deskbar/ui/DeskbarApplet.py:86
+msgid "Show search entry"
+msgstr "Vis søgeindgang"
+
+#: ../deskbar/ui/DeskbarApplet.py:114
+msgid ""
+"Some potentially old modules that make use of an old Deskbar-Applet API have "
+"been found. Remove these files for this warning to disappear.\n"
+msgstr ""
+"Nogle potentielt gamle moduler som benytter en gammel Deskbar-Applet API er "
+"blevet fundet. Fjern disse filer for at få denne advarsel til at forsvinde.\n"
+
+#: ../deskbar/ui/preferences/AccelEntry.py:102
+msgid "New accelerator..."
+msgstr "Ny genvejstast..."
+
+#: ../deskbar/ui/preferences/AccelEntry.py:154
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will prevent correct operation "
+"of your keyboard.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"Genvejen \"%s\" kan ikke bruges, idet den vil forhindre korrekt brug af dit "
+"tastatur.\n"
+"Prøv venligst med en tast som f.eks. ctrl, alt eller skift på samme tid.\n"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
+msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
+msgstr "<i><small>Træk og slip et modul for ændre dets orden.</small></i>"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+msgid "A problem occured"
+msgstr "Der opstod et problem"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+msgid "Handler has been installed successfully"
+msgstr "Håndteringen er nu blevet installeret"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr "Håndteringen kunne ikke installeres pga. et problem med den givne fil"
+
+#: ../deskbar/ui/preferences/ErrorDialog.py:8
 msgid "Error"
 msgstr "Fejl"
 
-#: ../deskbar/updater/ErrorDialog.py:25
-msgid "An error occured"
-msgstr "Der opstod en fejl"
-
-#: ../deskbar/updater/ErrorDialog.py:25
+#: ../deskbar/ui/preferences/ErrorDialog.py:26
 msgid "Check the description beneath for further details."
 msgstr "Se i beskrivelsen nedenunder for yderligere detaljer."
 
-#: ../deskbar/updater/ErrorDialog.py:31
+#: ../deskbar/ui/preferences/ErrorDialog.py:32
 msgid "Details"
 msgstr "Detaljer"
 
-#: ../deskbar/updater/NewStuffUpdater.py:131
-#, python-format
-msgid "Updating %s"
-msgstr "Opdaterer %s"
+#: ../deskbar/ui/preferences/ModuleListView.py:53
+msgid "Version:"
+msgstr "Version:"
 
-#: ../deskbar/updater/NewStuffUpdater.py:131
-msgid ""
-"The update is being downloaded from the internet. Please wait until the "
-"update is complete"
-msgstr ""
-"Opdateringen hentes fra internettet. Vent venligst indtil opdateringen er "
-"fuldført"
+#: ../deskbar/ui/preferences/ModuleListView.py:56
+msgid "Update Available"
+msgstr "Opdatering tilgængelig"
 
-#: ../deskbar/updater/NewStuffUpdater.py:156
-#, python-format
-msgid "Installing %s"
-msgstr "Installerer %s"
+#~ msgid "<b>Layout</b>"
+#~ msgstr "<b>Layout</b>"
 
-#: ../deskbar/updater/NewStuffUpdater.py:156
-msgid ""
-"The handler is being downloaded from the internet. Please wait until the "
-"installation is complete"
-msgstr ""
-"Håndteringen hentes fra internettet. Vent venligst indtil installationen er "
-"fuldført"
+#~ msgid "<b>Width</b>"
+#~ msgstr "<b>Bredde</b>"
 
-#: ../deskbar/updater/NewStuffUpdater.py:157
-msgid "Downloading"
-msgstr "Henter"
+#~ msgid "Button in panel"
+#~ msgstr "Knap i panel"
 
-#~ msgid "An all-in-one action bar"
-#~ msgstr "Et alt i en-kommandofelt"
+#~ msgid "Entry in panel"
+#~ msgstr "Indtastningsfelt i panel"
+
+#~ msgid "Fixed _width:"
+#~ msgstr "Fast _bredde:"
+
+#~ msgid "Use _all available space"
+#~ msgstr "Anvend _al tilgængelig plads"
+
+#~ msgid "View"
+#~ msgstr "Visning"
+
+#~ msgid "characters"
+#~ msgstr "tegn"
+
+#~ msgid ""
+#~ "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</"
+#~ "b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</"
+#~ "b> in the deskbar.</small></i>"
+#~ msgstr ""
+#~ "<i><small><b>Bemærk: </b>Hvis genvejen er et enkelt tegn (som f.eks. "
+#~ "<b>t</b>), kan du også bare taste \"<b>noget</b>\" og trykke <b>Alt-t</b> "
+#~ "i kommandofeltet.</small></i>"
+
+#~ msgid "No History"
+#~ msgstr "Ingen historik"
+
+#~ msgid "A programming error has been detected"
+#~ msgstr "Der er fundet en programmeringsfejl"
+
+#~ msgid ""
+#~ "It probably isn't fatal, but should be reported to the developers "
+#~ "nonetheless. The program may behave erratically from now on."
+#~ msgstr ""
+#~ "Den er sandsynligvis ikke fatal, men bør blive rapporteret til udviklerne "
+#~ "alligevel. Programmet kan opføre sig fejlagtigt fra nu af."
+
+#~ msgid "Bug Detected"
+#~ msgstr "Fejl fundet"
+
+#~ msgid "Start Beagle Daemon?"
+#~ msgstr "Start Beagle-tjeneste?"
+
+#~ msgid "Start Beagle Daemon"
+#~ msgstr "Start Beagle-tjeneste"
+
+#~ msgid ""
+#~ "The Beagle daemon does not appear to be running.\n"
+#~ " You need to start it to use the Beagle Live handler."
+#~ msgstr ""
+#~ "Det ser ikke ud til at Beagle-tjenesten kører.\n"
+#~ " Du skal starte den for at kunne bruge Beagle Live-håndtering."
+
+#~ msgid "Failed to start Beagle"
+#~ msgstr "Kunne ikke starte Beagle"
+
+#~ msgid "Perhaps the beagle daemon isn't installed?"
+#~ msgstr "Måske er beagle-tjenesten ikke installeret?"
+
+#~ msgid "You need to enable autocomplete in your mail preferences"
+#~ msgstr "Du skal aktivere automatisk fuldførelse i dine postindstillinger"
+
+#~ msgid "Autocompletion Needs to be Enabled"
+#~ msgstr "Auto-fuldførelse skal være aktiveret"
+
+#~ msgid "Open folder %s"
+#~ msgstr "Åbn mappen %s"
+
+#~ msgid "Open the web page %s"
+#~ msgstr "Åbn internetsiden %s"
+
+#~ msgid "Send Email to %s"
+#~ msgstr "Send e-post til %s"
+
+#~ msgid "Connection to repository failed"
+#~ msgstr "Forbindelse til arkiv fejlede"
+
+#~ msgid "Please check your internet connection"
+#~ msgstr "Kontrollér venligst din internetforbindelse"
+
+#~ msgid "Show previously used actions"
+#~ msgstr "Vis tidligere anvendte handlinger"
+
+#~ msgid "_File"
+#~ msgstr "_Fil"
+
+#~ msgid "_Quit"
+#~ msgstr "_Afslut"
+
+#~ msgid "_Edit"
+#~ msgstr "_Redigér"
+
+#~ msgid "_View"
+#~ msgstr "_Vis"
+
+#~ msgid "_Help"
+#~ msgstr "_Hjælp"
+
+#~ msgid "<b>History</b>"
+#~ msgstr "<b>Historik</b>"
+
+#~ msgid "Updating %s"
+#~ msgstr "Opdaterer %s"
+
+#~ msgid ""
+#~ "The update is being downloaded from the internet. Please wait until the "
+#~ "update is complete"
+#~ msgstr ""
+#~ "Opdateringen hentes fra internettet. Vent venligst indtil opdateringen er "
+#~ "fuldført"
+
+#~ msgid "Installing %s"
+#~ msgstr "Installerer %s"
+
+#~ msgid ""
+#~ "The handler is being downloaded from the internet. Please wait until the "
+#~ "installation is complete"
+#~ msgstr ""
+#~ "Håndteringen hentes fra internettet. Vent venligst indtil installationen "
+#~ "er fuldført"
+
+#~ msgid "Downloading"
+#~ msgstr "Henter"
 
 #~ msgid "%s more result"
 #~ msgid_plural "%s more results"
@@ -867,9 +1041,6 @@ msgstr "Henter"
 
 #~ msgid "Send mail by typing a complete e-mail address"
 #~ msgstr "Send email ved at indtaste en komplet e-post-adresse"
-
-#~ msgid "Files and Folders"
-#~ msgstr "Filer og mapper"
 
 #~ msgid "Open your files and folders by name"
 #~ msgstr "Åbn dine filer og mapper efter navn"
