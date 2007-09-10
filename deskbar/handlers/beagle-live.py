@@ -47,6 +47,7 @@ TYPES = {
         },
     "File"         : {
         "name"    : ("beagle:ExactFilename",),
+        "extra" : {"inside_archive": ("fixme:inside_archive",) },
         "category": "files",
         "snippet": True,
         },
@@ -177,6 +178,21 @@ class OpenWebHistoryAction(ShowUrlAction):
         verb += "\n<span size='small'>%s</span>" % self._escaped_uri
         return verb
     
+class OpenBeagleFileAction(OpenFileAction):
+    def __init__(self, name, uri, inside_archive):
+        self._complete_uri = uri
+        if inside_archive == "true":
+            uri = self.__get_archive_uri(uri)
+        OpenFileAction.__init__(self, name, uri, False)
+        
+    def __get_archive_uri(self, uri):
+        match = re.search("(.+?)#(.+)", uri)
+        if match != None:
+            return match.groups()[0]
+        
+    def get_hash(self):
+        return self._complete_uri
+    
 ### ===== End: Actions ===== ###
         
 class BeagleLiveMatch (deskbar.interfaces.Match):
@@ -211,7 +227,7 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
         elif (result["type"] == "File" or result["type"] == "Directory"):
             # Unescape URI again
             unescaped_uri = gnomevfs.unescape_string_for_display(result["escaped_uri"])
-            actions = [OpenFileAction(result["name"], result["uri"], False)] \
+            actions = [OpenBeagleFileAction(result["name"], result["uri"], result["inside_archive"])] \
                        + get_actions_for_uri( unescaped_uri,
                                               display_name=basename(unescaped_uri)
                                             )
@@ -266,13 +282,14 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
    
     def query (self, qstring):
         self.counter[qstring] = {}
-        beagle_query = beagle.Query()
-        beagle_query.add_text(qstring)
-        beagle_query.connect("hits-added", self.hits_added, qstring, MAX_RESULTS)
-        self.beagle.send_request_async(beagle_query)
+        self.beagle_query = beagle.Query()
+        self.beagle_query.add_text(qstring)
+        self.beagle_query.connect("hits-added", self.hits_added, qstring, MAX_RESULTS)
+        self.beagle.send_request_async(self.beagle_query)
        
     def hits_added(self, query, response, qstring, qmax):
         hit_matches = []
+        self.hits = {}
         for hit in response.get_hits():
             if hit.get_type() not in TYPES:
                 logging.info("Beagle live seen an unknown type:"+ hit.get_type())
@@ -287,6 +304,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                 snippet_request.connect('response', self._on_snippet_received, query, container, qstring, qmax)
                 snippet_request.connect('closed', self._on_snippet_closed, query, container, qstring, qmax)
                 self.beagle.send_request_async(snippet_request)
+                self.hits[hit] = snippet_request
                 continue
                             
             match = self._on_hit_added(query, hit, qstring, qmax)
@@ -304,6 +322,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
     def _on_snippet_closed(self, request, query, container, qstring, qmax):
         if container.snippet == None:
             self._on_hit_added(query, container, qstring, qmax)
+        del self.hits[container.hit]
         container.hit.unref()
             
     def _on_hit_added(self, query, hit, qstring, qmax):
