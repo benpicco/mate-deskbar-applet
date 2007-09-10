@@ -226,6 +226,8 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
             self.add_action( OpenWebHistoryAction(result["name"], result["uri"], result["escaped_uri"]) )
         elif (result["type"] == "File" or result["type"] == "Directory"):
             # Unescape URI again
+            # For files inside archives only work with the archive itsself
+            result["escaped_uri"] = result["escaped_uri"].split('#')[0]
             unescaped_uri = gnomevfs.unescape_string_for_display(result["escaped_uri"])
             actions = [OpenBeagleFileAction(result["name"], result["uri"], result["inside_archive"])] \
                        + get_actions_for_uri( unescaped_uri,
