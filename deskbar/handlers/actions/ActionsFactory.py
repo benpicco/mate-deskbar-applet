@@ -1,4 +1,5 @@
 import gnomevfs
+import os
 from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.handlers.actions.GoToLocationAction import GoToLocationAction
@@ -26,6 +27,10 @@ def get_actions_for_uri(uri, display_name=None):
         uri = "file://"+path
     if display_name == None:
         display_name = basename(path)
+        
+    # Check if path exists and is readable
+    if not os.access(path, os.F_OK | os.R_OK):
+        return []
     
     # If we have a directory only return one action
     if isdir(path):
