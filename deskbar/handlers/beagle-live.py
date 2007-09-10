@@ -229,6 +229,8 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
             # For files inside archives only work with the archive itsself
             result["escaped_uri"] = result["escaped_uri"].split('#')[0]
             unescaped_uri = gnomevfs.unescape_string_for_display(result["escaped_uri"])
+            if not result.has_key("inside_archive"):
+                result["inside_archive"] = "false"
             actions = [OpenBeagleFileAction(result["name"], result["uri"], result["inside_archive"])] \
                        + get_actions_for_uri( unescaped_uri,
                                               display_name=basename(unescaped_uri)
@@ -284,6 +286,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
    
     def query (self, qstring):
         self.counter[qstring] = {}
+        self.hits = {}
         self.beagle_query = beagle.Query()
         self.beagle_query.add_text(qstring)
         self.beagle_query.connect("hits-added", self.hits_added, qstring, MAX_RESULTS)
@@ -291,7 +294,6 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
        
     def hits_added(self, query, response, qstring, qmax):
         hit_matches = []
-        self.hits = {}
         for hit in response.get_hits():
             if hit.get_type() not in TYPES:
                 logging.info("Beagle live seen an unknown type:"+ hit.get_type())
