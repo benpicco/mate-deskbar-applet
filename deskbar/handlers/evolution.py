@@ -7,7 +7,7 @@ HANDLERS = ["EvolutionHandler"]
 
 class EvolutionMatch(deskbar.interfaces.Match):
     def __init__(self, name=None, email=None, pixbuf=None, **args):
-        deskbar.interfaces.Match.__init__(self, name=name, email=email, pixbuf=pixbuf)
+        deskbar.interfaces.Match.__init__(self, name=name, email=email, pixbuf=pixbuf, category="people")
         self.email = email
         
         self.add_action( SendEmailToAction(name, email) )
@@ -36,7 +36,7 @@ class EvolutionHandler(deskbar.interfaces.Module):
             if name == None or email == None:
                 continue
             
-            matches.append(EvolutionMatch(name, email, pixbuf, category="people", priority=self.get_priority()))
+            matches.append(EvolutionMatch(name, email, pixbuf, priority=self.get_priority()))
         self._emit_query_ready(query, matches )
         
     @staticmethod
