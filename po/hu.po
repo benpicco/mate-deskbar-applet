@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-20 02:49+0100\n"
-"PO-Revision-Date: 2007-08-26 13:27+0200\n"
+"POT-Creation-Date: 2007-09-07 04:04+0100\n"
+"PO-Revision-Date: 2007-09-13 14:24+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,9 @@ msgstr ""
 
 #: ../data/deskbar-applet.schemas.in.h:6
 msgid "If enabled the window will be closed after an action has been activated"
-msgstr "Ha engedélyezett, akkor egy művelet kiválasztása után az ablak bezárásra kerül"
+msgstr ""
+"Ha engedélyezett, akkor egy művelet kiválasztása után az ablak bezárásra "
+"kerül"
 
 #: ../data/deskbar-applet.schemas.in.h:7
 msgid "Keybinding"
@@ -79,7 +81,12 @@ msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
 "actions, web, websearch, news and notes."
-msgstr "A megjelenítéskor összecsukandó kategóriák listája. Az érvényes kategóriák: default (alapértelmezett), history (előzmények), documents (dokumentumok), emails (e-mailek), conversations (társalgások), files (fájlok), people (személyek), places (helyek), actions (műveletek), web (web), websearch (webkeresés), news (hírek) és notes (jegyzetek)."
+msgstr ""
+"A megjelenítéskor összecsukandó kategóriák listája. Az érvényes kategóriák: "
+"default (alapértelmezett), history (előzmények), documents (dokumentumok), "
+"emails (e-mailek), conversations (társalgások), files (fájlok), people "
+"(személyek), places (helyek), actions (műveletek), web (web), websearch "
+"(webkeresés), news (hírek) és notes (jegyzetek)."
 
 #: ../data/deskbar-applet.schemas.in.h:14
 msgid ""
@@ -107,8 +114,8 @@ msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
 msgstr ""
-"A keresőmezőben bekövetkezett leütés és a keresés tényleges végrehajtása közti idő "
-"ezredmásodpercben"
+"A keresőmezőben bekövetkezett leütés és a keresés tényleges végrehajtása "
+"közti idő ezredmásodpercben"
 
 #: ../data/deskbar-applet.schemas.in.h:18
 msgid "Whether to close the window after an actions has been activated"
@@ -220,16 +227,6 @@ msgstr "_Frissítés"
 
 #: ../data/smart-bookmarks.glade.h:1
 msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
-msgstr ""
-"<i><small><b>Megjegyzés:</b> Ha ez a gyorsbillentyű egyetlen betű (például "
-"<b>t</b>), akkor a \"<b>valami</b>\" kereséséhez írja be a \"<b>Alt-t "
-"valami</b>\" karaktersorozatot a deskbarba.</small></i>"
-
-#: ../data/smart-bookmarks.glade.h:2
-msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
@@ -238,7 +235,7 @@ msgstr ""
 "használatához a <b>valami</b> kereséséhez írja be a \"<b>wp valami</b>\" "
 "karaktersorozatot a deskbarba.</small></i>"
 
-#: ../data/smart-bookmarks.glade.h:3
+#: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Könyvjelzős keresések parancsikonjai"
 
@@ -269,20 +266,20 @@ msgid "Open Bookmark %s"
 msgstr "%s könyvjelző megnyitása"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:66
+#: ../deskbar/core/BrowserMatch.py:69
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<i>%(text)s</i> keresése ezzel: <b>%(name)s</b>"
 
-#: ../deskbar/core/BrowserMatch.py:92 ../deskbar/handlers/yahoo.py:30
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
 msgid "URL"
 msgstr "URL"
 
-#: ../deskbar/core/BrowserMatch.py:227
+#: ../deskbar/core/BrowserMatch.py:230
 msgid "Shortcut"
 msgstr "Gyorsbillentyű"
 
-#: ../deskbar/core/BrowserMatch.py:235
+#: ../deskbar/core/BrowserMatch.py:238
 msgid "Bookmark Name"
 msgstr "Könyvjelzőnév"
 
@@ -290,7 +287,7 @@ msgstr "Könyvjelzőnév"
 msgid "Uncategorized"
 msgstr "Kategorizálatlan"
 
-#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:23
+#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
 msgid "History"
 msgstr "Előzmények"
 
@@ -380,26 +377,28 @@ msgstr "Ezzel: %s"
 msgid "Calendar: %s"
 msgstr "Naptár: %s"
 
-#: ../deskbar/handlers/beagle-live.py:251
+#: ../deskbar/handlers/beagle-live.py:252
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:253
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Keresés az összes dokumentumban (a Beagle használatával), gépelés közben"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:330
-#: ../deskbar/handlers/beagle-live.py:352
+#: ../deskbar/handlers/beagle-live.py:354
+#: ../deskbar/handlers/beagle-live.py:376
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:415
+#: ../deskbar/handlers/beagle-live.py:414
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
-msgstr "A Beagle nem tölthető be, a libbeagle python kötések nélkül került lefordításra."
+msgstr ""
+"A Beagle nem tölthető be, a libbeagle python kötések nélkül került "
+"lefordításra."
 
-#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:423
 msgid "Beagled could not be found in your $PATH."
 msgstr "A Beagled nem található a $PATH változóban."
 
@@ -452,11 +451,11 @@ msgstr "Módosíthatja del.icio.us fiókját."
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Webkönyvjelzők (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
 msgid "Open your web bookmarks by name"
 msgstr "Webkönyvjelzők megnyitása név alapján"
 
-#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:128
+#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
 msgid "Epiphany is not your preferred browser."
 msgstr "Az alapértelmezett böngésző nem az Epiphany"
 
@@ -464,33 +463,33 @@ msgstr "Az alapértelmezett böngésző nem az Epiphany"
 msgid "Web Searches (Epiphany)"
 msgstr "Webkeresések (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:195
 msgid "Search the web via your browser's search settings"
 msgstr "Keresés a weben a böngésző keresési beállításainak használatával"
 
-#: ../deskbar/handlers/epiphany.py:125
+#: ../deskbar/handlers/epiphany.py:124
 msgid "You can set shortcuts for your searches."
 msgstr "Beállíthat parancsikonokat a keresésekhez."
 
-#: ../deskbar/handlers/epiphany.py:135
+#: ../deskbar/handlers/epiphany.py:134
 msgid "Web History (Epiphany)"
 msgstr "Webes előzmények (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:136 ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
 msgid "Open your web history by name"
 msgstr "A webes előzmények megnyitása név alapján"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:21
 msgid "Mail (Address Book)"
 msgstr "Levél (Címjegyzék)"
 
-#: ../deskbar/handlers/evolution.py:23
+#: ../deskbar/handlers/evolution.py:22
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Levél küldése névjegyek közt szereplő személynek a név vagy e-mail cím "
 "begépelésével"
 
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:47
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -502,16 +501,18 @@ msgstr ""
 "automatikus kiegészítés nincs engedélyezve. Ehhez válassza a levelezőprogram "
 "menüjének Szerkesztés -> Tulajdonságok -> Automatikus kiegészítés pontját."
 
-#: ../deskbar/handlers/files.py:59
+#. FIXME:
+#. _("Location") should be _("Location of %s") % name
+#: ../deskbar/handlers/files.py:61
 #: ../deskbar/handlers/actions/ActionsFactory.py:32
 msgid "Location"
 msgstr "Hely"
 
-#: ../deskbar/handlers/files.py:67
+#: ../deskbar/handlers/files.py:69
 msgid "Files, Folders and Places"
 msgstr "Fájlok, mappák és helyek keresése"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:70
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Fájlok, mappák, könyvjelzők, meghajtók és hálózati helyek megnyitása név "
@@ -586,7 +587,7 @@ msgstr "Hibernálás"
 msgid "Shutdown"
 msgstr "Leállítás"
 
-#: ../deskbar/handlers/history.py:24
+#: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
 msgstr "Korábban használt keresések felismerése"
 
@@ -607,75 +608,75 @@ msgstr "Váltás meglévő ablakra név alapján."
 msgid "Windows"
 msgstr "Ablakok"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:124
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Webkönyvjelzők (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:183 ../deskbar/handlers/mozilla.py:254
+#: ../deskbar/handlers/mozilla.py:187 ../deskbar/handlers/mozilla.py:259
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Az alapértelmezett böngésző nem a Mozilla/Firefox"
 
-#: ../deskbar/handlers/mozilla.py:190
+#: ../deskbar/handlers/mozilla.py:194
 msgid "Web Searches (Mozilla)"
 msgstr "Webkeresések (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:248
+#: ../deskbar/handlers/mozilla.py:253
 msgid "You can customize which search engines are offered."
 msgstr "Személyre szabhatja a felajánlott keresőmotorokat."
 
-#: ../deskbar/handlers/mozilla.py:733
+#: ../deskbar/handlers/mozilla.py:737
 msgid "Web History (Mozilla)"
 msgstr "Webes előzmények (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:74
+#: ../deskbar/handlers/programs.py:76
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s keresése a szótárban"
 
-#: ../deskbar/handlers/programs.py:81
+#: ../deskbar/handlers/programs.py:83
 #, python-format
 msgid "Search for file names like %s"
 msgstr "A következőhöz hasonló fájlnevek keresése: %s"
 
-#: ../deskbar/handlers/programs.py:87
+#: ../deskbar/handlers/programs.py:89
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "%s keresése a Devhelpben"
 
-#: ../deskbar/handlers/programs.py:113
+#: ../deskbar/handlers/programs.py:115
 msgid "Dictionary"
 msgstr "Szótár"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:116
 msgid "Look up word definitions in the dictionary"
 msgstr "Szódefiníciók keresése a szótárban"
 
-#: ../deskbar/handlers/programs.py:130
+#: ../deskbar/handlers/programs.py:132
 msgid "Files and Folders Search"
 msgstr "Fájlok és mappák keresése"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:133
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Fájlok és mappák keresése névminta alapján"
 
-#: ../deskbar/handlers/programs.py:147
+#: ../deskbar/handlers/programs.py:149
 msgid "Developer Documentation"
 msgstr "Fejlesztői dokumentáció"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:150
 msgid "Search Devhelp for a function name"
 msgstr "Függvénynév keresése a Devhelp használatával"
 
-#: ../deskbar/handlers/programs.py:196
+#: ../deskbar/handlers/programs.py:198
 #, python-format
 msgid "Execute %s"
 msgstr "%s indítása"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:220
 msgid "Programs"
 msgstr "Programok"
 
-#: ../deskbar/handlers/programs.py:219
+#: ../deskbar/handlers/programs.py:221
 msgid "Launch a program by its name and/or description"
 msgstr "Program indítása név és/vagy leírás alapján"
 
@@ -796,6 +797,10 @@ msgstr "alapértelmezett"
 msgid "_History"
 msgstr "_Előzmények"
 
+#: ../deskbar/ui/CuemiacWindowView.py:133
+msgid "Back to Matches"
+msgstr "Vissza a találatokhoz"
+
 #: ../deskbar/ui/DeskbarApplet.py:86
 msgid "Show search entry"
 msgstr "Keresőbejegyzés megjelenítése"
@@ -804,7 +809,9 @@ msgstr "Keresőbejegyzés megjelenítése"
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
-msgstr "Néhány régi, az elavult Deskbar API-t használó modul található a rendszeren. Távolítsa el ezeket a fájlokat ezen figyelmeztetés eltüntetéséhez.\n"
+msgstr ""
+"Néhány régi, az elavult Deskbar API-t használó modul található a rendszeren. "
+"Távolítsa el ezeket a fájlokat ezen figyelmeztetés eltüntetéséhez.\n"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -819,11 +826,14 @@ msgid ""
 msgstr ""
 "A(z) \"%s\" gyorsbillentyű nem használható, mivel a billentyű használatával "
 "a gépelés használhatatlanná válna.\n"
-"Próbálkozzon a Control, Alt vagy Shift billentyűk valamelyikének használatával.\n"
+"Próbálkozzon a Control, Alt vagy Shift billentyűk valamelyikének "
+"használatával.\n"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:81
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
-msgstr "<i><small>Fogd és ejtsd módszerrel megváltoztathatja a kiterjesztések sorrendjét.</small></i>"
+msgstr ""
+"<i><small>Fogd és ejtsd módszerrel megváltoztathatja a kiterjesztések "
+"sorrendjét.</small></i>"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:312
 msgid "A problem occured"
