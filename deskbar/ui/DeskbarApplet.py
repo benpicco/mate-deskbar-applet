@@ -93,11 +93,12 @@ class DeskbarApplet (gtk.HBox):
     def __setup_mvc(self):
         self.__core = CoreImpl(deskbar.MODULES_DIRS)
         self.__core.connect("loaded", self.__on_loaded)
-        self.__core.run()
         
         self.__controller = CuemiacWindowController(self.__core)
         self.__view = CuemiacWindowView(self.__controller, self.__core)
         self.__view.set_sensitive(False)
+        
+        self.__core.run()
         
     def __setup_applet_menu(self):
         self.applet.setup_menu_from_file (
