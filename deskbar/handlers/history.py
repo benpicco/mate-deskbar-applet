@@ -16,7 +16,7 @@ class HistoryMatch(deskbar.interfaces.Match):
         self._action = action
    
     def get_hash(self, text=None):
-        return "history_"+self._action.get_hash()
+        return "history_"+str(self._action.get_hash())
     
     def get_icon(self):
         return self._action.get_pixbuf()
