@@ -1,4 +1,58 @@
 =======================
+deskbar-applet 2.20.0
+=======================
+
+This release is a stable release. Its main focus are bug fixes.
+In addition, you can now move the window wherever you want and
+the position will be restored each time you open Deskbar-Applet.
+
+Changes:
+    * Fixed exception when creating VolumeMatch in files handler
+    * Added type check for set_icon method to Match class
+    * Fixed bug #473295: Contacts with image cause exception
+    * Fixed bug #473445: GdmRebootAction instance has no attribute 'request_logout'
+    * Save and restore window height when results are visible correctly
+    * Make pressing escape and alt-f4 behave the same way
+    * Fixed bug #473375: BrowserSmartMatch instance has no attribute 'name'
+    * Fixed: "Show only primary search engines" with Mozilla handler has no effect
+    * Reverted revision 1545: Display windows always in the middle of the screen and keep it above. Removed storing/setting window position.
+    * Changed default implementation of get_hash to return id of class in Match class
+    * Fixed bug #470848: One-line hits displayed with a second line
+    * Fixed bug #474364: Evolution contact hits are uncategorized
+    * Added: Check if path exists and is readable in get_actions_for_uri
+    * Fixed bug #474496: Files inside archives
+    * Retrieve snippets without causing exceptions in beagled
+    * Fixed bug when "inside_archive" key is not in result (beagle-live)
+    * Fix crasher when the returned action's hash is None by wrapping it in a str()
+    * Fixed bug #470838: 'DeskbarApplet' object has no attribute '_DeskbarApplet__view'
+    
+Contributors to this release: Sebastian Pölsterl, Mikkel Kamstrup Elandsen, Tom Parker
+
+Updated Translations:
+    * Albanian
+    * Arabic
+    * Basque
+    * British English
+    * Catalan
+    * Danish
+    * Dutch
+    * French
+    * Galician
+    * Hungarian
+    * Lithuanian
+    * Macedonian
+    * Norwegian bokmål
+    * Occitan
+    * Portuguese
+    * Russian
+    * Serbian
+    * Slovak
+    * Turkish
+    * Ukrainian
+
+Contributors to the translations: Laurent Dhima, Youssef Chahibi, Inaki Larranaga Murgoitio, David Lodge, Sílvia Miranda, Kenneth Nielsen, Wouter Bolsterlee, Stéphane Raimbault, Ignacio Casal Quinteiro, Gabor Kelemen, Gintautas Miliauskas, Jovan Naumovski, Kjartan Maraas, Yannig Marchegay, Duarte Loreto, Alexandre Prokoudine, Goran Rakić, Peter Tuharsky, Deniz Kocak, Maxim Dziumanenko
+
+=======================
 deskbar-applet 2.19.92
 =======================
 
