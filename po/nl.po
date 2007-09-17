@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the deskbar-applet package.
 #
 # Reinout van Schouwen <reinout@cs.vu.nl>, 2005, 2006
-# Tino Meinen <a.t.meinen@chello.nl>, 2006
+# Tino Meinen <a.t.meinen@chello.nl>, 2006, 2007.
 # Wouter Bolsterlee <wbolster@gnome.org>, 2006, 2007
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-16 18:31+0200\n"
-"PO-Revision-Date: 2007-07-16 18:39+0200 \n"
-"Last-Translator: Wouter Bolsterlee <wbolster@gnome.org>\n"
+"POT-Creation-Date: 2007-09-07 04:04+0100\n"
+"PO-Revision-Date: 2007-09-17 04:49+0200\n"
+"Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,96 +23,153 @@ msgstr ""
 msgid ""
 "Choose whether triggering the keyboard shortcut also pastes the current "
 "selection in the search box."
-msgstr ""
-"Geeft aan of bij indrukken van de sneltoets de huidige selectie in het Invoerveld wordt ingevuld."
+msgstr "Geeft aan of bij indrukken van de sneltoets de huidige selectie in het invoerveld wordt ingevuld."
 
 #: ../data/deskbar-applet.schemas.in.h:2
-msgid ""
-"If enabled it will clear the entry after a search result has been selected"
-msgstr ""
-"Geeft aan of het invoerveld gewist wordt nadat een zoekresultaat is gekozen" 
+msgid "Clear entry after match has been selected"
+msgstr "Invoerveld wissen nadat een zoekresultaat gekozen is"
 
 #: ../data/deskbar-applet.schemas.in.h:3
-msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
-msgstr "Selecteert de gebruikte interface: ‘Cuemiac’ of ‘Entriac’"
+msgid "Collapsed categories"
+msgstr "Opgevouwen categoriën"
 
+# behandelaars/afhandelaars/afhandelprogramma's
 #: ../data/deskbar-applet.schemas.in.h:4
-msgid "The applet's entry width in number of characters"
-msgstr "De breedte van het applet-invoerveld (in aantal tekens)"
+msgid "Enabled handlers"
+msgstr "Ingeschakelde afhandelaars"
 
 #: ../data/deskbar-applet.schemas.in.h:5
 msgid ""
-"The key sequence will focus the deskbar applet, allowing to type quickly"
+"If enabled it will clear the entry after a search result has been selected"
 msgstr ""
-"De toetscombinatie om het invoerveld te activeren, zodat men snel iets kan invullen"
+"Geeft aan of het invoerveld gewist wordt nadat een zoekresultaat is gekozen"
 
 #: ../data/deskbar-applet.schemas.in.h:6
-msgid ""
-"The list of categories to be collapsed when displayed in the 'Cuemiac' UI. "
-"Valid category names are defined in Categories.py"
-msgstr ""
-"De list met categorieën die ingeklapt worden als de ‘Cuemiac’ gebruikersinterface gebruikt wordt. Geldige waarden zijn te vinden in Categories.py."
+msgid "If enabled the window will be closed after an action has been activated"
+msgstr "Geeft aan of het het venster gesloten wordt nadat een actie uitgevoerd is"
 
+# meervoud?
 #: ../data/deskbar-applet.schemas.in.h:7
+msgid "Keybinding"
+msgstr "Toetsbinding"
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid "Milliseconds to wait before starting to search"
+msgstr "Aantal milliseconden voordat de zoekopdracht uitgevoerd wordt"
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid "Minimum number of characters needed to start searching"
+msgstr "Het minimum aantal tekens voor een zoekopdracht"
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid "The default height of the window in pixels"
+msgstr "De standaardhoogte van het venster in beeldpunten"
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default width of the window in pixels"
+msgstr "De standaardbreedte van het venster in beeldpunten"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
+msgstr "De toetscombinatie om het invoerveld te activeren, zodat men direct iets kan invullen"
+
+# bij weergeven/opstarten
+#: ../data/deskbar-applet.schemas.in.h:13
+msgid ""
+"The list of categories to be collapsed when displayed. Valid categories are: "
+"default, history, documents, emails, conversations, files, people, places, "
+"actions, web, websearch, news and notes."
+msgstr "De lijst met categoriën die ingevouwen wordt bij weergeven. Geldige categoriën zijn: default, history, documents, emails, conversations, files, people, places, actions, web, websearch, news and notes."
+
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
 msgstr ""
-"De lijst met geëxporteerde klassenamen van de ingeschakelde afhandelaars, gesorteerd op prioriteit (aflopend van links naar rechts)"
+"De lijst met geëxporteerde klassenamen van de ingeschakelde afhandelaars, "
+"gesorteerd op prioriteit (aflopend van links naar rechts)"
 
-#: ../data/deskbar-applet.schemas.in.h:8
+# geschiedenis klint te veel als het middelbare schoolvak, 
+# historie zou beter zijn.
+#: ../data/deskbar-applet.schemas.in.h:15
+msgid "The maximum number of items stored in history"
+msgstr "Het maximum aantal items in de geschiedenis"
+
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
 msgstr ""
-"Het minimum aantal tekens dat ingevoerd dient te worden voordat het applet resultaten begint te tonen."
+"Het minimum aantal tekens dat ingevoerd dient te worden voordat het applet "
+"resultaten begint te tonen."
 
-#: ../data/deskbar-applet.schemas.in.h:9
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid ""
-"The time in miliseconds between a keystroke in the search entry and the "
+"The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
-msgstr ""
-"Het aantal milliseconden tussen een toetsaanslag in het invoerveld en het starten van de daadwerkelijke zoekopdracht."
+msgstr "Het aantal milliseconden tussen een toetsaanslag in het invoerveld en het starten van de daadwerkelijke zoekopdracht."
 
-#: ../data/deskbar-applet.schemas.in.h:10
-msgid ""
-"Whether the applet should take all the available space in the panel. "
-"Overrides the width preference."
-msgstr ""
-"Geeft aan of het applet alle beschikbare ruimte in het paneel dient te gebruiken."
+# Engels bug: "after an actions has been activated"
+#: ../data/deskbar-applet.schemas.in.h:18
+msgid "Whether to close the window after an actions has been activated"
+msgstr "Geeft aan of het venster gesloten wordt nadat een actie uitgevoerd is"
 
-#: ../data/deskbar-applet.schemas.in.h:11
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
 msgstr ""
-"Geeft aan of slechts een enkele zoekmachine, in )laats van allemaal getoond dient te worden. Dit is alleen van belang voor Mozilla-gebaseerde webbrowsers, zoals Firefox."
+"Geeft aan of slechts een enkele zoekmachine, in )laats van allemaal getoond "
+"dient te worden. Dit is alleen van belang voor Mozilla-gebaseerde "
+"webbrowsers, zoals Firefox."
 
-#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
+# Geeft aan of bij indrukken van de sneltoets de huidige selectie in
+# het invoerveld wordt ingevuld
+#: ../data/deskbar-applet.schemas.in.h:20
+msgid "Whether triggering Deskbar-Applet pastes the current selection"
+msgstr "Geeft aan of bij het opstarten van Deskbar-Applet de huidige selectie in het invoerveld wordt ingevuld."
+
+#: ../data/deskbar-applet.schemas.in.h:21
+msgid "Window height"
+msgstr "Vensterhoogte"
+
+#: ../data/deskbar-applet.schemas.in.h:22
+msgid "Window width"
+msgstr "Vensterbreedte"
+
+#: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
 msgstr "I_nfo"
 
-#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
+#: ../data/Deskbar_Applet.xml.h:2
 msgid "_Clear History"
 msgstr "Geschiedenis _wissen"
 
-#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
+#: ../data/Deskbar_Applet.xml.h:3
 msgid "_Preferences"
 msgstr "_Voorkeuren"
+
+#: ../data/Deskbar_Applet.server.in.in.h:1
+msgid "An all-in-one action bar"
+msgstr "Een alles-in-één actiebalk"
+
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:19
+msgid "Deskbar"
+msgstr "Actiebalk"
 
 # Extra functies/Meer functies/Meer mogelijkheden/Uitbreidingen
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Available Extensions</b>"
 msgstr "<b>Beschikbare uitbreidingen</b>"
 
+# Extra functies/Meer functies/Meer mogelijkheden/Uitbreidingen
 #: ../data/prefs-dialog.glade.h:2
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>Uitbreidingen met foutmeldingen</b>"
+
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Focus</b>"
 msgstr "<b>Focus</b>"
-
-# layout/opmaak/indeling
-#: ../data/prefs-dialog.glade.h:3
-msgid "<b>Layout</b>"
-msgstr "<b>Indeling</b>"
 
 # Geladen niet meevertaald, overbodig
 # andere vertaling:
@@ -122,96 +179,56 @@ msgid "<b>Loaded Extensions</b>"
 msgstr "<b>Uitbreidingen</b>"
 
 #: ../data/prefs-dialog.glade.h:5
-msgid "<b>Width</b>"
-msgstr "<b>Breedte</b>"
-
-# slepen en laten vallen is een te letterlijke vertaling.
-# Verslepen is duidelijk genoeg, (je zult toch eens moeten loslaten...)
-#: ../data/prefs-dialog.glade.h:6
-msgid ""
-"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
-"small></i>"
-msgstr ""
-"<i><small><b>Opmerking:</b> Om de volgorde te wijzigen kunt u de "
-"uitbreidingen verslepen.</small></i>"
-
-#: ../data/prefs-dialog.glade.h:7
-msgid "Button in panel"
-msgstr "Knop in paneel"
-
-#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "Actiebalk-voorkeuren"
 
-#: ../data/prefs-dialog.glade.h:9
-msgid "Entry in panel"
-msgstr "Invoerveld in paneel"
+#: ../data/prefs-dialog.glade.h:6
+msgid "Extensions with Errors"
+msgstr "Uitbreidingen met foutmeldingen"
 
-#: ../data/prefs-dialog.glade.h:10
-msgid "Fixed _width:"
-msgstr "Vaste _breedte:"
+#: ../data/prefs-dialog.glade.h:7
+msgid "General"
+msgstr "Algemeen"
 
 # Extra functies/Meer functies/Meer mogelijkheden/Uitbreidingen
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:8
 msgid "New Extensions"
 msgstr "Nieuwe uitbreidingen"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:9
 msgid "Search selection when triggering the shortcut"
-msgstr "Naar huidige selectie zoeken bij het indrukken van de sneltoets"
+msgstr "Zoekopdracht naar de huidige selectie uitvoeren bij het geven van de sneltoets"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:10
 msgid "Searches"
 msgstr "Zoekopdrachten"
 
-#: ../data/prefs-dialog.glade.h:14
-msgid "Use _all available space"
-msgstr "_Alle beschikbare ruimte gebruiken"
-
-#: ../data/prefs-dialog.glade.h:15
-msgid "View"
-msgstr "Beeld"
-
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:11
 msgid "_Check For Updates"
 msgstr "_Controleren op updates"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:12
 msgid "_Check for new extensions"
 msgstr "_Controleren op nieuwe uitbreidingen"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Install"
 msgstr "I_nstalleren"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Sneltoets voor focus:"
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:15
 msgid "_More..."
-msgstr "_Meer..."
+msgstr "_Meer…"
 
 # bijwerken/updaten
-#: ../data/prefs-dialog.glade.h:21
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Update"
 msgstr "_Bijwerken"
 
-#: ../data/prefs-dialog.glade.h:22
-msgid "characters"
-msgstr "tekens"
-
 #: ../data/smart-bookmarks.glade.h:1
-msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
-msgstr ""
-"<i><small><b>Opmerking: </b>Als de sneltoets een enkele letter is (zoals "
-"<b>t</b>) dan kunt u ook gewoon ’<b>iets</b>’ intoetsen gevolgd door <b>Alt-"
-"t</b> in de actiebalk.</small></i>"
-
-#: ../data/smart-bookmarks.glade.h:2
 msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
@@ -221,600 +238,9 @@ msgstr ""
 "<b>wp</b>) om ergens naar te zoeken, typt u ’<b>wp iets</b>’ in de "
 "actiebalk</small></i>."
 
-#: ../data/smart-bookmarks.glade.h:3
+#: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Afkortingen voor bladwijzer-zoekopdrachten"
-
-#: ../deskbar/BrowserMatch.py:50 ../deskbar/handlers/beagle-live.py:150
-#, python-format
-msgid "Open History Item %s"
-msgstr "Geschiedenis-item %s openen"
-
-#: ../deskbar/BrowserMatch.py:52
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "Bladwijzer %s openen"
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:101
-#, python-format
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "<b>%(name)s</b> doorzoeken op <i>%(text)s</i>"
-
-#: ../deskbar/BrowserMatch.py:210
-msgid "Shortcut"
-msgstr "Afkorting"
-
-#: ../deskbar/BrowserMatch.py:218
-msgid "Bookmark Name"
-msgstr "Bladwijzernaam"
-
-#: ../deskbar/Categories.py:7
-msgid "Uncategorized"
-msgstr "Zonder categorie"
-
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:11
-msgid "History"
-msgstr "Geschiedenis"
-
-#: ../deskbar/Categories.py:15
-msgid "Documents"
-msgstr "Documenten"
-
-#: ../deskbar/Categories.py:18
-msgid "Emails"
-msgstr "E-mails"
-
-#: ../deskbar/Categories.py:21
-msgid "Conversations"
-msgstr "Gesprekken"
-
-#: ../deskbar/Categories.py:24
-msgid "Files"
-msgstr "Bestanden"
-
-#: ../deskbar/Categories.py:27
-msgid "People"
-msgstr "Personen"
-
-# in overeenstemming met het paneel
-#: ../deskbar/Categories.py:30
-msgid "Places"
-msgstr "Locaties"
-
-#: ../deskbar/Categories.py:33
-msgid "Actions"
-msgstr "Acties"
-
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:12
-msgid "Web"
-msgstr "Web"
-
-#: ../deskbar/Categories.py:39
-msgid "Web Search"
-msgstr "Web-zoekopdracht"
-
-#: ../deskbar/Categories.py:42
-msgid "News"
-msgstr "Nieuws"
-
-#: ../deskbar/Categories.py:45
-msgid "Notes"
-msgstr "Notities"
-
-#: ../deskbar/DeskbarHistory.py:37
-msgid "No History"
-msgstr "Geen geschiedenis"
-
-#: ../deskbar/Utils.py:109
-msgid "Cannot execute program:"
-msgstr "Kon programma niet uitvoeren:"
-
-#: ../deskbar/Utils.py:144
-msgid "Cannot show URL:"
-msgstr "Kon URL niet openen:"
-
-#: ../deskbar/gtkexcepthook.py:14
-msgid "A programming error has been detected"
-msgstr "Er is een programmeerfout bespeurd"
-
-#: ../deskbar/gtkexcepthook.py:15
-msgid ""
-"It probably isn't fatal, but should be reported to the developers "
-"nonetheless. The program may behave erratically from now on."
-msgstr ""
-"Het is waarschijnlijk niet zeer ernstig, maar dient niettemin gemeld te "
-"worden aan de ontwikkelaars. Het programma zou zich vanaf nu ongebruikelijk "
-"kunnen gedragen."
-
-#: ../deskbar/gtkexcepthook.py:17
-msgid "Bug Detected"
-msgstr "Programmafout gevonden"
-
-#: ../deskbar/handlers/beagle-live.py:19
-msgid "Start Beagle Daemon?"
-msgstr "Beagle daemon starten?"
-
-#: ../deskbar/handlers/beagle-live.py:24
-msgid "Start Beagle Daemon"
-msgstr "Beagle daemon starten"
-
-#: ../deskbar/handlers/beagle-live.py:25
-msgid ""
-"The Beagle daemon does not appear to be running.\n"
-" You need to start it to use the Beagle Live handler."
-msgstr ""
-"De Beagle daemon is nog niet opgestart.\n"
-"Om Beagle Live te kunnen gebruiken moet u het opstarten."
-
-#: ../deskbar/handlers/beagle-live.py:39
-msgid "Failed to start Beagle"
-msgstr "Beagle kon niet gestart worden"
-
-#: ../deskbar/handlers/beagle-live.py:40
-msgid "Perhaps the beagle daemon isn't installed?"
-msgstr "Misschien is de Beagle-daemon niet geïnstalleerd?"
-
-#: ../deskbar/handlers/beagle-live.py:63
-msgid "Beagle Live"
-msgstr "Beagle Live"
-
-#: ../deskbar/handlers/beagle-live.py:64
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Al uw documenten doorzoeken (met Beagle) terwijl u typt"
-
-#: ../deskbar/handlers/beagle-live.py:92
-#, python-format
-msgid "Edit contact %s"
-msgstr "Contact %s bewerken"
-
-#: ../deskbar/handlers/beagle-live.py:101
-#, python-format
-msgid "From %s"
-msgstr "Van %s"
-
-#. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:109 ../deskbar/handlers/files.py:47
-#: ../deskbar/handlers/recent.py:43
-#, python-format
-msgid "Open %s"
-msgstr "%s openen"
-
-#: ../deskbar/handlers/beagle-live.py:117
-#, python-format
-msgid "News from %s"
-msgstr "Nieuws van %s"
-
-#: ../deskbar/handlers/beagle-live.py:126
-#, python-format
-msgid "Note: %s"
-msgstr "Notities: %s"
-
-#: ../deskbar/handlers/beagle-live.py:135
-#, python-format
-msgid "With %s"
-msgstr "Met %s"
-
-# in overeenstemming met evolution terminologie
-#: ../deskbar/handlers/beagle-live.py:143
-#, python-format
-msgid "Calendar: %s"
-msgstr "Agenda: %s"
-
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:318
-#: ../deskbar/handlers/beagle-live.py:340
-msgid "?"
-msgstr "?"
-
-#: ../deskbar/handlers/beagle-static.py:20
-msgid "Beagle"
-msgstr "Beagle"
-
-#: ../deskbar/handlers/beagle-static.py:21
-msgid "Search all of your documents (using Beagle)"
-msgstr "Al uw documenten doorzoeken (met Beagle)"
-
-#: ../deskbar/handlers/beagle-static.py:36
-#, python-format
-msgid "Search for %s using Beagle"
-msgstr "Zoeken naar %s met Beagle"
-
-#: ../deskbar/handlers/desklicious.py:16
-msgid "You need to configure your del.icio.us account."
-msgstr "U moet uw del.icio.us account configureren."
-
-# wijzigen/aanpassen
-#: ../deskbar/handlers/desklicious.py:18
-msgid "You can modify your del.icio.us account."
-msgstr "U kunt uw del.icio.us account aanpassen."
-
-#: ../deskbar/handlers/desklicious.py:22
-msgid "del.icio.us Bookmarks"
-msgstr "del.icio.us web-bladwijzers"
-
-#: ../deskbar/handlers/desklicious.py:23
-msgid "Search your del.icio.us bookmarks by tag name"
-msgstr "Uw del.icio.us web-bladwijzers op label doorzoeken"
-
-#: ../deskbar/handlers/desklicious.py:30
-msgid "del.icio.us Account"
-msgstr "del.icio.us account"
-
-#: ../deskbar/handlers/desklicious.py:37
-msgid "Enter your del.icio.us username below"
-msgstr "Geef hieronder uw gebruikersnaam voor del.icio.us"
-
-#: ../deskbar/handlers/desklicious.py:43
-msgid "Username: "
-msgstr "Gebruikersnaam:"
-
-#: ../deskbar/handlers/epiphany.py:27
-msgid "You can set shortcuts for your searches."
-msgstr "U kunt sneltoetsen maken voor uw zoekopdrachten."
-
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:131
-msgid "Web Bookmarks"
-msgstr "Web-bladwijzers"
-
-#: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:132
-msgid "Open your web bookmarks by name"
-msgstr "Uw web-bladwijzers op naam openen"
-
-#: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:143
-msgid "Web History"
-msgstr "Web-geschiedenis"
-
-#: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:144
-msgid "Open your web history by name"
-msgstr "Uw web-geschiedenis op naam openen"
-
-#: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:137
-msgid "Web Searches"
-msgstr "Web-zoekopdrachten"
-
-#: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:138
-msgid "Search the web via your browser's search settings"
-msgstr "Het web doorzoeken via de zoekinstellingen van uw browser"
-
-#: ../deskbar/handlers/evolution.py:12
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr "U dient auto-aanvullen in te schakelen in uw e-mailvoorkeuren"
-
-#: ../deskbar/handlers/evolution.py:15
-msgid "Autocompletion Needs to be Enabled"
-msgstr "Auto-aanvullen dient ingeschakeld te zijn"
-
-#: ../deskbar/handlers/evolution.py:16
-msgid ""
-"We cannot provide e-mail addresses from your address book unless "
-"autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit - Preferences, and then Autocompletion."
-msgstr ""
-"Het is niet mogelijk om e-mailadressen uit uw adresboek te tonen tenzij auto-"
-"aanvullen is ingeschakeld. Om dit te doen, kiest u Bewerken → Voorkeuren en "
-"dan Auto-aanvullen."
-
-#: ../deskbar/handlers/evolution.py:21
-msgid "Mail (Address Book)"
-msgstr "E-mail (adresboek)"
-
-#: ../deskbar/handlers/evolution.py:22
-msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-"E-mails versturen naar uw contactpersonen door hun naam of e-mailadres te "
-"typen"
-
-#. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:48
-#, python-format
-msgid "Send Email to <b>%(name)s</b> (%(email)s)"
-msgstr "E-mail versturen naar <b>%(name)s</b> (%(email)s)"
-
-#: ../deskbar/handlers/files.py:18
-msgid "Files, Folders and Places"
-msgstr "Bestanden, mappen en locaties"
-
-#: ../deskbar/handlers/files.py:19
-msgid "View your files, folders, bookmarks, drives, network places by name"
-msgstr ""
-"Uw bestanden, mappen, bladwijzers, stations en netwerklocaties op naam openen"
-
-#: ../deskbar/handlers/files.py:69
-#, python-format
-msgid "Open folder %s"
-msgstr "Map %s openen"
-
-#: ../deskbar/handlers/files.py:89 ../deskbar/handlers/files.py:122
-#, python-format
-msgid "Open location %s"
-msgstr "Locatie %s openen"
-
-#: ../deskbar/handlers/files.py:118
-#, python-format
-msgid "Open network place %s"
-msgstr "Netwerklocatie %s openen"
-
-#: ../deskbar/handlers/files.py:120
-#, python-format
-msgid "Open audio disc %s"
-msgstr "Audioschijf %s openen"
-
-#: ../deskbar/handlers/gdmactions.py:10
-msgid "Computer Actions"
-msgstr "Computer-acties"
-
-#: ../deskbar/handlers/gdmactions.py:11
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr "Afmelden, uitzetten, herstarten, pauzeren en soortgelijke acties."
-
-#: ../deskbar/handlers/gdmactions.py:44
-msgid "Suspend the machine"
-msgstr "De computer pauzeren"
-
-#: ../deskbar/handlers/gdmactions.py:60
-msgid "Hibernate the machine"
-msgstr "De computer in slaapstand zetten"
-
-#: ../deskbar/handlers/gdmactions.py:76
-msgid "Shutdown the machine"
-msgstr "De computer afsluiten"
-
-#: ../deskbar/handlers/gdmactions.py:100
-msgid "Lock the screen"
-msgstr "Het scherm vergrendelen"
-
-# afsluiten/uitzetten
-#: ../deskbar/handlers/gdmactions.py:126
-msgid "Shut Down"
-msgstr "Uitzetten"
-
-#: ../deskbar/handlers/gdmactions.py:133
-msgid "Turn off the computer"
-msgstr "De computer uitzetten"
-
-#: ../deskbar/handlers/gdmactions.py:137
-msgid "Log Out"
-msgstr "Afmelden"
-
-#: ../deskbar/handlers/gdmactions.py:144
-msgid "Log out"
-msgstr "Afmelden"
-
-#: ../deskbar/handlers/gdmactions.py:148
-msgid "Restart"
-msgstr "Herstarten"
-
-#: ../deskbar/handlers/gdmactions.py:155
-msgid "Restart the computer"
-msgstr "De computer herstarten"
-
-#: ../deskbar/handlers/gdmactions.py:159 ../deskbar/handlers/gdmactions.py:165
-msgid "Switch User"
-msgstr "Gebruiker wisselen"
-
-#: ../deskbar/handlers/gdmactions.py:185
-msgid "Lock"
-msgstr "Vergrendelen"
-
-#: ../deskbar/handlers/gdmactions.py:196
-msgid "Suspend"
-msgstr "Pauzestand"
-
-#: ../deskbar/handlers/gdmactions.py:198
-msgid "Hibernate"
-msgstr "Slaapstand"
-
-#: ../deskbar/handlers/gdmactions.py:200
-msgid "Shutdown"
-msgstr "Uitzetten"
-
-#: ../deskbar/handlers/history.py:12
-msgid "Recognize previously used searches"
-msgstr "Eerder gebruikte zoekopdrachten herkennen"
-
-#: ../deskbar/handlers/iswitch-window.py:11
-msgid "Window Switcher"
-msgstr "Vensterwisselaar"
-
-#: ../deskbar/handlers/iswitch-window.py:12
-msgid "Switch to an existing window by name."
-msgstr "Wissel naar een bestaand venster op naam."
-
-#: ../deskbar/handlers/iswitch-window.py:16
-msgid "Windows"
-msgstr "Vensters"
-
-#: ../deskbar/handlers/iswitch-window.py:32
-#, python-format
-msgid "Switch to <b>%(name)s</b>"
-msgstr "Wisselen naar <b>%(name)s</b>"
-
-#: ../deskbar/handlers/mozilla.py:122
-msgid "You can customize which search engines are offered."
-msgstr "U kunt instellen welke zoekmachines getoond worden."
-
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Programma's"
-
-# opstarten/starten
-#: ../deskbar/handlers/programs.py:15
-msgid "Launch a program by its name and/or description"
-msgstr "Een programma starten op naam en/of omschrijving"
-
-#: ../deskbar/handlers/programs.py:19
-msgid "Dictionary"
-msgstr "Woordenboek"
-
-#: ../deskbar/handlers/programs.py:20
-msgid "Look up word definitions in the dictionary"
-msgstr "Woorddefinities opzoeken in het woordenboek"
-
-#: ../deskbar/handlers/programs.py:24
-msgid "Files and Folders Search"
-msgstr "Bestanden en mappen zoeken"
-
-# via een patroon/door een patroon/met gebruik van een patroon
-#: ../deskbar/handlers/programs.py:25
-msgid "Find files and folders by searching for a name pattern"
-msgstr "Bestanden en mappen zoeken met gebruik van een naampatroon"
-
-#: ../deskbar/handlers/programs.py:29
-msgid "Developer Documentation"
-msgstr "Documentatie voor ontwikkelaars"
-
-#: ../deskbar/handlers/programs.py:30
-msgid "Search Devhelp for a function name"
-msgstr "Doorzoek Devhelp op functienaam"
-
-#. translators: First %s is the programs full name, second is the executable name
-#. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:88
-#, python-format
-msgid "Launch <b>%(name)s</b> (%(prog)s)"
-msgstr "<b>%(name)s</b> (%(prog)s) opstarten"
-
-#: ../deskbar/handlers/programs.py:102
-#, python-format
-msgid "Lookup %s in dictionary"
-msgstr "%s opzoeken in woordenboek"
-
-#: ../deskbar/handlers/programs.py:110
-#, python-format
-msgid "Search for file names like %s"
-msgstr "Zoeken naar bestandsnamen zoals %s"
-
-#: ../deskbar/handlers/programs.py:118
-#, python-format
-msgid "Search in Devhelp for %s"
-msgstr "Devhelp doorzoeken op %s"
-
-#: ../deskbar/handlers/programs.py:222
-#, python-format
-msgid "Execute %s"
-msgstr "%s uitvoeren"
-
-#: ../deskbar/handlers/recent.py:15
-msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
-msgstr ""
-"Deze uitbreiding vereist een nieuwere versie van GTK+ (2.9.0 of nieuwer)."
-
-#: ../deskbar/handlers/recent.py:19
-msgid "Recent Documents"
-msgstr "Recent gebruikte documenten"
-
-#: ../deskbar/handlers/recent.py:20
-msgid "Retrieve your recently accessed files and locations"
-msgstr "Uw recent gebruikte bestanden en locaties opvragen"
-
-#: ../deskbar/handlers/web_address.py:13
-msgid "Open web pages and send emails by typing a complete address"
-msgstr ""
-"Webpagina's openen en e-mails verzenden door een volledig adres in te typen"
-
-#: ../deskbar/handlers/web_address.py:42
-#, python-format
-msgid "Open the web page %s"
-msgstr "De webpagina %s openen"
-
-#: ../deskbar/handlers/web_address.py:44
-#, python-format
-msgid "Open the location %s"
-msgstr "De locatie %s openen"
-
-#: ../deskbar/handlers/web_address.py:61
-#, python-format
-msgid "Send Email to %s"
-msgstr "E-mail versturen naar %s"
-
-#: ../deskbar/handlers/yahoo.py:16
-msgid "Yahoo! Search"
-msgstr "Yahoo!-zoekopdracht"
-
-#: ../deskbar/handlers/yahoo.py:17
-msgid "Search Yahoo! as you type"
-msgstr "Yahoo! doorzoeken terwijl u typt"
-
-#: ../deskbar/ui/About.py:22
-msgid "Deskbar"
-msgstr "Actiebalk"
-
-#: ../deskbar/ui/About.py:25
-msgid "An all-in-one action bar."
-msgstr "Een alles-in-één actiebalk."
-
-#: ../deskbar/ui/About.py:28
-msgid "Deskbar Website"
-msgstr "Actiebalk-webstek"
-
-#. about.set_artists([])
-#. about.set_documenters([])
-#. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
-msgid "translator-credits"
-msgstr ""
-"Reinout van Schouwen\n"
-"Tino Meinen\n"
-"\n"
-"Kijk voor meer informatie op http://nl.gnome.org/"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:112
-msgid "New accelerator..."
-msgstr "Nieuwe sneltoets..."
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:164
-#, python-format
-msgid ""
-"The shortcut \"%s\" cannot be used because it will become unusable to type "
-"using this key.\n"
-"Please try with a key such as Control, Alt or Shift at the same time.\n"
-msgstr ""
-"De sneltoets ‘%s’ kan niet gebruikt worden, omdat het dan onmogelijk wordt "
-"deze toets te gebruiken om te typen. \n"
-"U kunt een combinatie met bijvoorbeeld Control, Alt of Shift gebruiken.\n"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:330
-msgid "Connection to repository failed"
-msgstr "Verbinding met online archief mislukt"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:330
-msgid "Please check your internet connection"
-msgstr "Controleer uw internetverbinding"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:558
-msgid "Handler has been installed successfully"
-msgstr "De uitbreiding is succesvol geïnstalleerd."
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:564
-msgid "Handler could not be installed due a problem with the provided file"
-msgstr ""
-"De uitbreiding kan niet geïnstalleerd worden door een probleem met het "
-"geleverde bestand."
-
-# beschikbare updates installeren/controleren op beschikbare updates ?
-#: ../deskbar/ui/ModuleListView.py:55
-msgid "Update Available"
-msgstr "Beschikbare updates"
-
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
-msgid "Show search entry"
-msgstr "Zoekopdracht tonen"
-
-# gebruikte/gedane/_/
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
-msgid "Show previously used actions"
-msgstr "Eerdere acties tonen"
 
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
@@ -832,88 +258,784 @@ msgstr "Alle beschikbare zoekmachines tonen"
 msgid "Show only the primary search engine"
 msgstr "Alleen de primaire zoekmachine tonen"
 
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
+#, python-format
+msgid "Open History Item %s"
+msgstr "Geschiedenis-item %s openen"
+
+#: ../deskbar/core/BrowserMatch.py:53
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "Bladwijzer %s openen"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/core/BrowserMatch.py:69
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "<b>%(name)s</b> doorzoeken op <i>%(text)s</i>"
+
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
+msgid "URL"
+msgstr "URL"
+
+#: ../deskbar/core/BrowserMatch.py:230
+msgid "Shortcut"
+msgstr "Afkorting"
+
+#: ../deskbar/core/BrowserMatch.py:238
+msgid "Bookmark Name"
+msgstr "Bladwijzernaam"
+
+#: ../deskbar/core/Categories.py:7
+msgid "Uncategorized"
+msgstr "Zonder categorie"
+
+#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
+msgid "History"
+msgstr "Geschiedenis"
+
+#: ../deskbar/core/Categories.py:17
+msgid "Documents"
+msgstr "Documenten"
+
+#: ../deskbar/core/Categories.py:21
+msgid "Emails"
+msgstr "E-mails"
+
+#: ../deskbar/core/Categories.py:25
+msgid "Conversations"
+msgstr "Gesprekken"
+
+#: ../deskbar/core/Categories.py:29
+msgid "Files"
+msgstr "Bestanden"
+
+#: ../deskbar/core/Categories.py:33
+msgid "People"
+msgstr "Personen"
+
+# in overeenstemming met het paneel
+#: ../deskbar/core/Categories.py:37
+msgid "Places"
+msgstr "Locaties"
+
+#: ../deskbar/core/Categories.py:41
+msgid "Actions"
+msgstr "Acties"
+
+#: ../deskbar/core/Categories.py:45 ../deskbar/handlers/web_address.py:44
+msgid "Web"
+msgstr "Web"
+
+#: ../deskbar/core/Categories.py:49
+msgid "Web Search"
+msgstr "Web-zoekopdracht"
+
+#: ../deskbar/core/Categories.py:53
+msgid "News"
+msgstr "Nieuws"
+
+#: ../deskbar/core/Categories.py:57
+msgid "Notes"
+msgstr "Notities"
+
+#: ../deskbar/core/DeskbarHistory.py:20
+msgid "<i>Choose action</i>"
+msgstr "<i>Action kiezen</i>"
+
+#: ../deskbar/core/Utils.py:124
+msgid "Cannot execute program:"
+msgstr "Kon programma niet uitvoeren:"
+
+#: ../deskbar/core/Utils.py:164
+msgid "Cannot show URL:"
+msgstr "Kon URL niet openen:"
+
+#: ../deskbar/handlers/beagle-live.py:98
+#, python-format
+msgid "Edit contact %s"
+msgstr "Contact %s bewerken"
+
+#: ../deskbar/handlers/beagle-live.py:109
+#, python-format
+msgid "From %s"
+msgstr "Van %s"
+
+#: ../deskbar/handlers/beagle-live.py:124
+#, python-format
+msgid "News from %s"
+msgstr "Nieuws van %s"
+
+#: ../deskbar/handlers/beagle-live.py:138
+#, python-format
+msgid "Note: %s"
+msgstr "Notities: %s"
+
+#: ../deskbar/handlers/beagle-live.py:151
+#, python-format
+msgid "With %s"
+msgstr "Met %s"
+
+# in overeenstemming met evolution terminologie
+#: ../deskbar/handlers/beagle-live.py:165
+#, python-format
+msgid "Calendar: %s"
+msgstr "Agenda: %s"
+
+#: ../deskbar/handlers/beagle-live.py:252
+msgid "Beagle Live"
+msgstr "Beagle Live"
+
+#: ../deskbar/handlers/beagle-live.py:253
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Al uw documenten doorzoeken (met Beagle) terwijl u typt"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:354
+#: ../deskbar/handlers/beagle-live.py:376
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle-live.py:414
+msgid ""
+"Could not load beagle, libbeagle has been compiled without python bindings."
+msgstr "Kon beagle niet laden, libbeagle is gecompileerd zonder python-bindingen."
+
+#: ../deskbar/handlers/beagle-live.py:423
+msgid "Beagled could not be found in your $PATH."
+msgstr "Beagled is niet aangetroffen in uw $PATH."
+
+#: ../deskbar/handlers/beagle-static.py:21
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "Zoeken naar %s met Beagle"
+
+#: ../deskbar/handlers/beagle-static.py:37
+msgid "Beagle"
+msgstr "Beagle"
+
+#: ../deskbar/handlers/beagle-static.py:38
+msgid "Search all of your documents (using Beagle)"
+msgstr "Al uw documenten doorzoeken (met Beagle)"
+
+#: ../deskbar/handlers/beagle-static.py:54
+msgid "Beagle does not seem to be installed."
+msgstr "Het lijkt erop alsof Beagle niet geïnstalleerd is."
+
+#: ../deskbar/handlers/desklicious.py:44
+msgid "del.icio.us Bookmarks"
+msgstr "del.icio.us web-bladwijzers"
+
+#: ../deskbar/handlers/desklicious.py:45
+msgid "Search your del.icio.us bookmarks by tag name"
+msgstr "Uw del.icio.us web-bladwijzers op label doorzoeken"
+
+#: ../deskbar/handlers/desklicious.py:77
+msgid "del.icio.us Account"
+msgstr "del.icio.us account"
+
+#: ../deskbar/handlers/desklicious.py:84
+msgid "Enter your del.icio.us username below"
+msgstr "Geef hieronder uw gebruikersnaam voor del.icio.us"
+
+#: ../deskbar/handlers/desklicious.py:90
+msgid "Username: "
+msgstr "Gebruikersnaam:"
+
+#: ../deskbar/handlers/desklicious.py:106
+msgid "You need to configure your del.icio.us account."
+msgstr "U moet uw del.icio.us account configureren."
+
+# wijzigen/aanpassen
+#: ../deskbar/handlers/desklicious.py:111
+msgid "You can modify your del.icio.us account."
+msgstr "U kunt uw del.icio.us account aanpassen."
+
+#: ../deskbar/handlers/epiphany.py:48
+msgid "Web Bookmarks (Epiphany)"
+msgstr "Web-bladwijzers (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
+msgid "Open your web bookmarks by name"
+msgstr "Uw web-bladwijzers op naam openen"
+
+#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
+msgid "Epiphany is not your preferred browser."
+msgstr "Epiphany is niet uw voorkeursbrowser."
+
+#: ../deskbar/handlers/epiphany.py:88
+msgid "Web Searches (Epiphany)"
+msgstr "Web-zoekopdrachten (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:195
+msgid "Search the web via your browser's search settings"
+msgstr "Het web doorzoeken via de zoekinstellingen van uw browser"
+
+#: ../deskbar/handlers/epiphany.py:124
+msgid "You can set shortcuts for your searches."
+msgstr "U kunt sneltoetsen maken voor uw zoekopdrachten."
+
+#: ../deskbar/handlers/epiphany.py:134
+msgid "Web History (Epiphany)"
+msgstr "Web-geschiedenis (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
+msgid "Open your web history by name"
+msgstr "Uw web-geschiedenis op naam openen"
+
+#: ../deskbar/handlers/evolution.py:21
+msgid "Mail (Address Book)"
+msgstr "E-mail (adresboek)"
+
+#: ../deskbar/handlers/evolution.py:22
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr ""
+"E-mails versturen naar uw contactpersonen door hun naam of e-mailadres te "
+"typen"
+
+#: ../deskbar/handlers/evolution.py:47
+msgid ""
+"Autocompletion Needs to be Enabled\n"
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"Auto-aanvullen moet aangezet worden\n"
+"Het is niet mogelijk om e-mailadressen uit uw adresboek te tonen tenzij auto-aanvullen is ingeschakeld. Om dit te doen kiest u in uw e-mailprogramma Bewerken → Voorkeuren en dan Auto-aanvullen."
+
+#. FIXME:
+#. _("Location") should be _("Location of %s") % name
+#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/actions/ActionsFactory.py:32
+msgid "Location"
+msgstr "Locatie"
+
+#: ../deskbar/handlers/files.py:69
+msgid "Files, Folders and Places"
+msgstr "Bestanden, mappen en locaties"
+
+#: ../deskbar/handlers/files.py:70
+msgid "View your files, folders, bookmarks, drives, network places by name"
+msgstr ""
+"Uw bestanden, mappen, bladwijzers, stations en netwerklocaties op naam openen"
+
+#: ../deskbar/handlers/gdmactions.py:33
+msgid "Suspend the machine"
+msgstr "De computer pauzeren"
+
+#: ../deskbar/handlers/gdmactions.py:49
+msgid "Hibernate the machine"
+msgstr "De computer in slaapstand zetten"
+
+#: ../deskbar/handlers/gdmactions.py:65
+msgid "Shutdown the machine"
+msgstr "De computer afsluiten"
+
+#: ../deskbar/handlers/gdmactions.py:86
+msgid "Lock the screen"
+msgstr "Het scherm vergrendelen"
+
+#: ../deskbar/handlers/gdmactions.py:109 ../deskbar/handlers/gdmactions.py:230
+msgid "Lock"
+msgstr "Vergrendelen"
+
+#: ../deskbar/handlers/gdmactions.py:149
+msgid "Turn off the computer"
+msgstr "De computer uitzetten"
+
+# afsluiten/uitzetten
+#: ../deskbar/handlers/gdmactions.py:153 ../deskbar/handlers/gdmactions.py:209
+msgid "Shut Down"
+msgstr "Uitzetten"
+
+#: ../deskbar/handlers/gdmactions.py:165
+msgid "Log out"
+msgstr "Afmelden"
+
+#: ../deskbar/handlers/gdmactions.py:169 ../deskbar/handlers/gdmactions.py:212
+msgid "Log Out"
+msgstr "Afmelden"
+
+#: ../deskbar/handlers/gdmactions.py:181
+msgid "Restart the computer"
+msgstr "De computer herstarten"
+
+#: ../deskbar/handlers/gdmactions.py:185 ../deskbar/handlers/gdmactions.py:211
+msgid "Restart"
+msgstr "Herstarten"
+
+#: ../deskbar/handlers/gdmactions.py:196 ../deskbar/handlers/gdmactions.py:200
+#: ../deskbar/handlers/gdmactions.py:210
+msgid "Switch User"
+msgstr "Gebruiker wisselen"
+
+#: ../deskbar/handlers/gdmactions.py:206
+msgid "Computer Actions"
+msgstr "Computer-acties"
+
+#: ../deskbar/handlers/gdmactions.py:207
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "Afmelden, uitzetten, herstarten, pauzeren en soortgelijke acties."
+
+#: ../deskbar/handlers/gdmactions.py:241
+msgid "Suspend"
+msgstr "Pauzestand"
+
+#: ../deskbar/handlers/gdmactions.py:243
+msgid "Hibernate"
+msgstr "Slaapstand"
+
+#: ../deskbar/handlers/gdmactions.py:245
+msgid "Shutdown"
+msgstr "Uitzetten"
+
+#: ../deskbar/handlers/history.py:28
+msgid "Recognize previously used searches"
+msgstr "Eerder gebruikte zoekopdrachten herkennen"
+
+#: ../deskbar/handlers/iswitch-window.py:15
+#, python-format
+msgid "Switch to <b>%(name)s</b>"
+msgstr "Wisselen naar <b>%(name)s</b>"
+
+#: ../deskbar/handlers/iswitch-window.py:47
+msgid "Window Switcher"
+msgstr "Vensterwisselaar"
+
+#: ../deskbar/handlers/iswitch-window.py:48
+msgid "Switch to an existing window by name."
+msgstr "Wissel naar een bestaand venster op naam."
+
+#: ../deskbar/handlers/iswitch-window.py:51
+msgid "Windows"
+msgstr "Vensters"
+
+#: ../deskbar/handlers/mozilla.py:124
+msgid "Web Bookmarks (Mozilla)"
+msgstr "Web-bladwijzers (Mozilla)"
+
+#: ../deskbar/handlers/mozilla.py:187 ../deskbar/handlers/mozilla.py:259
+msgid "Mozilla/Firefox is not your preferred browser."
+msgstr "Mozilla/Firefox is niet uw voorkeursbrowser."
+
+#: ../deskbar/handlers/mozilla.py:194
+msgid "Web Searches (Mozilla)"
+msgstr "Web-zoekopdrachten (Mozilla)"
+
+#: ../deskbar/handlers/mozilla.py:253
+msgid "You can customize which search engines are offered."
+msgstr "U kunt instellen welke zoekmachines getoond worden."
+
+#: ../deskbar/handlers/mozilla.py:737
+msgid "Web History (Mozilla)"
+msgstr "Web-geschiedenis (Mozilla)"
+
+#: ../deskbar/handlers/programs.py:76
+#, python-format
+msgid "Lookup %s in dictionary"
+msgstr "%s opzoeken in woordenboek"
+
+#: ../deskbar/handlers/programs.py:83
+#, python-format
+msgid "Search for file names like %s"
+msgstr "Zoeken naar bestandsnamen zoals %s"
+
+#: ../deskbar/handlers/programs.py:89
+#, python-format
+msgid "Search in Devhelp for %s"
+msgstr "Devhelp doorzoeken op %s"
+
+#: ../deskbar/handlers/programs.py:115
+msgid "Dictionary"
+msgstr "Woordenboek"
+
+#: ../deskbar/handlers/programs.py:116
+msgid "Look up word definitions in the dictionary"
+msgstr "Woorddefinities opzoeken in het woordenboek"
+
+#: ../deskbar/handlers/programs.py:132
+msgid "Files and Folders Search"
+msgstr "Bestanden en mappen zoeken"
+
+# via een patroon/door een patroon/met gebruik van een patroon
+#: ../deskbar/handlers/programs.py:133
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Bestanden en mappen zoeken met gebruik van een naampatroon"
+
+#: ../deskbar/handlers/programs.py:149
+msgid "Developer Documentation"
+msgstr "Documentatie voor ontwikkelaars"
+
+#: ../deskbar/handlers/programs.py:150
+msgid "Search Devhelp for a function name"
+msgstr "Doorzoek Devhelp op functienaam"
+
+#: ../deskbar/handlers/programs.py:198
+#, python-format
+msgid "Execute %s"
+msgstr "%s uitvoeren"
+
+#: ../deskbar/handlers/programs.py:220
+msgid "Programs"
+msgstr "Programma's"
+
+# opstarten/starten
+#: ../deskbar/handlers/programs.py:221
+msgid "Launch a program by its name and/or description"
+msgstr "Een programma starten op naam en/of omschrijving"
+
+#: ../deskbar/handlers/recent.py:38
+msgid "Recent Documents"
+msgstr "Recent gebruikte documenten"
+
+#: ../deskbar/handlers/recent.py:39
+msgid "Retrieve your recently accessed files and locations"
+msgstr "Uw recent gebruikte bestanden en locaties opvragen"
+
+#: ../deskbar/handlers/recent.py:58
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr ""
+"Deze uitbreiding vereist een nieuwere versie van GTK+ (2.9.0 of nieuwer)."
+
+#: ../deskbar/handlers/web_address.py:45
+msgid "Open web pages and send emails by typing a complete address"
+msgstr ""
+"Webpagina's openen en e-mails verzenden door een volledig adres in te typen"
+
+#: ../deskbar/handlers/yahoo.py:38
+msgid "Yahoo! Search"
+msgstr "Yahoo!-zoekopdracht"
+
+#: ../deskbar/handlers/yahoo.py:39
+msgid "Search Yahoo! as you type"
+msgstr "Yahoo! doorzoeken terwijl u typt"
+
+#: ../deskbar/handlers/actions/ActionsFactory.py:54
+#, python-format
+msgid "URL of %s"
+msgstr "URL van %s"
+
+#: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
+#, python-format
+msgid "Copy <b>%(name)s</b> to clipboard"
+msgstr "<b>%(name)s</b> naar het klembord kopiëren"
+
+#: ../deskbar/handlers/actions/GoToLocationAction.py:23
+#, python-format
+msgid "Go to location of %s"
+msgstr "De locatie van %s openen"
+
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
+#, python-format
+msgid "Launch <b>%(name)s</b>"
+msgstr "<b>%(name)s</b> opstarten"
+
+#: ../deskbar/handlers/actions/OpenFileAction.py:38
+#: ../deskbar/handlers/actions/ShowUrlAction.py:24
+#, python-format
+msgid "Open %s"
+msgstr "%s openen"
+
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
+#, python-format
+msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
+msgstr "<b>%(name)s</b> met <b>%(program)s</b> openen"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
+#, python-format
+msgid "Open network place %s"
+msgstr "Netwerklocatie %s openen"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
+#, python-format
+msgid "Open audio disc %s"
+msgstr "Audioschijf %s openen"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:32
+#, python-format
+msgid "Open location %s"
+msgstr "Locatie %s openen"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/actions/SendEmailToAction.py:24
+#, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "E-mail versturen naar <b>%(name)s</b> (%(email)s)"
+
+# versturen/verzenden
+#. translators: %s is a filename
+#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:44
+#, python-format
+msgid "Send %s via e-mail"
+msgstr "%s via e-mail versturen"
+
+#: ../deskbar/ui/About.py:22
+msgid "An all-in-one action bar."
+msgstr "Een alles-in-één actiebalk."
+
+#: ../deskbar/ui/About.py:25
+msgid "Deskbar Website"
+msgstr "Actiebalk-webstek"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:36
+msgid "translator-credits"
+msgstr ""
+"Reinout van Schouwen\n"
+"Tino Meinen\n"
+"\n"
+"Kijk voor meer informatie op http://nl.gnome.org/"
+
 # zoekopdracht/zoeken
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:18
 msgid "<b>Search:</b>"
 msgstr "<b>Zoeken:</b>"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:49
-msgid "_File"
-msgstr "_Bestand"
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
+msgid "name"
+msgstr "naam"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:50
-msgid "_Quit"
-msgstr "Sl_uiten"
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
+msgid "default"
+msgstr "standaard"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:51
-msgid "_Edit"
-msgstr "Be_werken"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:54
-msgid "_View"
-msgstr "Beel_d"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:55
-msgid "_Help"
-msgstr "_Hulp"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:58
+#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
+#: ../deskbar/ui/CuemiacWindowView.py:75
 msgid "_History"
 msgstr "_Geschiedenis"
 
-#. History TreeView
-#: ../deskbar/ui/window/CuemiacWindowUI.py:84
-msgid "<b>History</b>"
-msgstr "<b>Geschiedenis</b>"
+#: ../deskbar/ui/CuemiacWindowView.py:133
+msgid "Back to Matches"
+msgstr "Terug naar zoekresultaten"
 
-#: ../deskbar/updater/ErrorDialog.py:8
+#: ../deskbar/ui/DeskbarApplet.py:86
+msgid "Show search entry"
+msgstr "Zoekopdracht tonen"
+
+#: ../deskbar/ui/DeskbarApplet.py:114
+msgid ""
+"Some potentially old modules that make use of an old Deskbar-Applet API have "
+"been found. Remove these files for this warning to disappear.\n"
+msgstr "Er zijn een aantal oude modules gevonden die gebruik maken van een verouderde Deskbar-Applet API. Verwijder deze bestanden om deze waarschuwing te laten verdwijnen.\n"
+
+#: ../deskbar/ui/preferences/AccelEntry.py:102
+msgid "New accelerator..."
+msgstr "Nieuwe sneltoets…"
+
+#: ../deskbar/ui/preferences/AccelEntry.py:154
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will prevent correct operation "
+"of your keyboard.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"De sneltoets ‘%s’ kan niet gebruikt worden, omdat het dan onmogelijk wordt deze toets te gebruiken om te typen.\n"
+"U kunt het wel in combinatie met bijvoorbeeld Control, Alt of Shift gebruiken.\n"
+
+# slepen en laten vallen is een te letterlijke vertaling.
+# Verslepen is duidelijk genoeg, (je zult toch eens moeten loslaten...)
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
+msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
+msgstr "<i><small>Om de volgorde te wijzigen kunt u de uitbreidingen verslepen.</small></i>"
+
+# er doet zich een probleem voor/er is een probleem
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+msgid "A problem occured"
+msgstr "Er is een fout opgetreden"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+msgid "Handler has been installed successfully"
+msgstr "De uitbreiding is succesvol geïnstalleerd."
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr ""
+"De uitbreiding kan niet geïnstalleerd worden door een probleem met het "
+"geleverde bestand."
+
+#: ../deskbar/ui/preferences/ErrorDialog.py:8
 msgid "Error"
 msgstr "Fout"
 
-#: ../deskbar/updater/ErrorDialog.py:25
-msgid "An error occured"
-msgstr "Er is een fout opgetreden"
-
-#: ../deskbar/updater/ErrorDialog.py:25
+#: ../deskbar/ui/preferences/ErrorDialog.py:26
 msgid "Check the description beneath for further details."
 msgstr "Lees de omschrijving hieronder voor meer informatie."
 
-#: ../deskbar/updater/ErrorDialog.py:31
+#: ../deskbar/ui/preferences/ErrorDialog.py:32
 msgid "Details"
 msgstr "Details"
 
-#: ../deskbar/updater/NewStuffUpdater.py:131
-#, python-format
-msgid "Updating %s"
-msgstr "%s bijwerken"
+#: ../deskbar/ui/preferences/ModuleListView.py:53
+msgid "Version:"
+msgstr "Versie:"
 
-#: ../deskbar/updater/NewStuffUpdater.py:131
-msgid ""
-"The update is being downloaded from the internet. Please wait until the "
-"update is complete"
-msgstr ""
-"De update wordt gedownload van het internet. Wacht totdat de update voltooid "
-"is."
+# beschikbare updates installeren/controleren op beschikbare updates ?
+#: ../deskbar/ui/preferences/ModuleListView.py:56
+msgid "Update Available"
+msgstr "Beschikbare updates"
 
-#: ../deskbar/updater/NewStuffUpdater.py:156
-#, python-format
-msgid "Installing %s"
-msgstr "%s installeren"
+#~ msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
+#~ msgstr "Selecteert de gebruikte interface: ‘Cuemiac’ of ‘Entriac’"
 
-#: ../deskbar/updater/NewStuffUpdater.py:156
-msgid ""
-"The handler is being downloaded from the internet. Please wait until the "
-"installation is complete"
-msgstr ""
-"De handler wordt gedownload van het internet. Wacht totdat de installatie "
-"voltooid is."
+#~ msgid "The applet's entry width in number of characters"
+#~ msgstr "De breedte van het applet-invoerveld (in aantal tekens)"
 
-#: ../deskbar/updater/NewStuffUpdater.py:157
-msgid "Downloading"
-msgstr "Downloaden"
+#~ msgid ""
+#~ "The list of categories to be collapsed when displayed in the 'Cuemiac' "
+#~ "UI. Valid category names are defined in Categories.py"
+#~ msgstr ""
+#~ "De list met categorieën die ingeklapt worden als de ‘Cuemiac’ "
+#~ "gebruikersinterface gebruikt wordt. Geldige waarden zijn te vinden in "
+#~ "Categories.py."
 
-#~ msgid "An all-in-one action bar"
-#~ msgstr "Een alles-in-één actiebalk"
+#~ msgid ""
+#~ "Whether the applet should take all the available space in the panel. "
+#~ "Overrides the width preference."
+#~ msgstr ""
+#~ "Geeft aan of het applet alle beschikbare ruimte in het paneel dient te "
+#~ "gebruiken."
+
+# layout/opmaak/indeling
+#~ msgid "<b>Layout</b>"
+#~ msgstr "<b>Indeling</b>"
+
+#~ msgid "<b>Width</b>"
+#~ msgstr "<b>Breedte</b>"
+
+#~ msgid "Button in panel"
+#~ msgstr "Knop in paneel"
+
+#~ msgid "Entry in panel"
+#~ msgstr "Invoerveld in paneel"
+
+#~ msgid "Fixed _width:"
+#~ msgstr "Vaste _breedte:"
+
+#~ msgid "Use _all available space"
+#~ msgstr "_Alle beschikbare ruimte gebruiken"
+
+#~ msgid "View"
+#~ msgstr "Beeld"
+
+#~ msgid "characters"
+#~ msgstr "tekens"
+
+#~ msgid ""
+#~ "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</"
+#~ "b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</"
+#~ "b> in the deskbar.</small></i>"
+#~ msgstr ""
+#~ "<i><small><b>Opmerking: </b>Als de sneltoets een enkele letter is (zoals "
+#~ "<b>t</b>) dan kunt u ook gewoon ’<b>iets</b>’ intoetsen gevolgd door "
+#~ "<b>Alt-t</b> in de actiebalk.</small></i>"
+
+#~ msgid "No History"
+#~ msgstr "Geen geschiedenis"
+
+#~ msgid "A programming error has been detected"
+#~ msgstr "Er is een programmeerfout bespeurd"
+
+#~ msgid ""
+#~ "It probably isn't fatal, but should be reported to the developers "
+#~ "nonetheless. The program may behave erratically from now on."
+#~ msgstr ""
+#~ "Het is waarschijnlijk niet zeer ernstig, maar dient niettemin gemeld te "
+#~ "worden aan de ontwikkelaars. Het programma zou zich vanaf nu "
+#~ "ongebruikelijk kunnen gedragen."
+
+#~ msgid "Bug Detected"
+#~ msgstr "Programmafout gevonden"
+
+#~ msgid "Start Beagle Daemon?"
+#~ msgstr "Beagle daemon starten?"
+
+#~ msgid "Start Beagle Daemon"
+#~ msgstr "Beagle daemon starten"
+
+#~ msgid ""
+#~ "The Beagle daemon does not appear to be running.\n"
+#~ " You need to start it to use the Beagle Live handler."
+#~ msgstr ""
+#~ "De Beagle daemon is nog niet opgestart.\n"
+#~ "Om Beagle Live te kunnen gebruiken moet u het opstarten."
+
+#~ msgid "Failed to start Beagle"
+#~ msgstr "Beagle kon niet gestart worden"
+
+#~ msgid "Perhaps the beagle daemon isn't installed?"
+#~ msgstr "Misschien is de Beagle-daemon niet geïnstalleerd?"
+
+#~ msgid "You need to enable autocomplete in your mail preferences"
+#~ msgstr "U dient auto-aanvullen in te schakelen in uw e-mailvoorkeuren"
+
+#~ msgid "Autocompletion Needs to be Enabled"
+#~ msgstr "Auto-aanvullen dient ingeschakeld te zijn"
+
+#~ msgid "Open folder %s"
+#~ msgstr "Map %s openen"
+
+#~ msgid "Open the web page %s"
+#~ msgstr "De webpagina %s openen"
+
+#~ msgid "Send Email to %s"
+#~ msgstr "E-mail versturen naar %s"
+
+#~ msgid "Connection to repository failed"
+#~ msgstr "Verbinding met online archief mislukt"
+
+#~ msgid "Please check your internet connection"
+#~ msgstr "Controleer uw internetverbinding"
+
+# gebruikte/gedane/_/
+#~ msgid "Show previously used actions"
+#~ msgstr "Eerdere acties tonen"
+
+#~ msgid "_File"
+#~ msgstr "_Bestand"
+
+#~ msgid "_Quit"
+#~ msgstr "Sl_uiten"
+
+#~ msgid "_Edit"
+#~ msgstr "Be_werken"
+
+#~ msgid "_View"
+#~ msgstr "Beel_d"
+
+#~ msgid "_Help"
+#~ msgstr "_Hulp"
+
+#~ msgid "<b>History</b>"
+#~ msgstr "<b>Geschiedenis</b>"
+
+#~ msgid "Updating %s"
+#~ msgstr "%s bijwerken"
+
+#~ msgid ""
+#~ "The update is being downloaded from the internet. Please wait until the "
+#~ "update is complete"
+#~ msgstr ""
+#~ "De update wordt gedownload van het internet. Wacht totdat de update "
+#~ "voltooid is."
+
+#~ msgid "Installing %s"
+#~ msgstr "%s installeren"
+
+#~ msgid ""
+#~ "The handler is being downloaded from the internet. Please wait until the "
+#~ "installation is complete"
+#~ msgstr ""
+#~ "De handler wordt gedownload van het internet. Wacht totdat de installatie "
+#~ "voltooid is."
+
+#~ msgid "Downloading"
+#~ msgstr "Downloaden"
 
 #~ msgid ""
 #~ "You need a Google account to use Google Live.  To get one, go to http://"
@@ -1018,9 +1140,6 @@ msgstr "Downloaden"
 
 #~ msgid "Send mail by typing a complete e-mail address"
 #~ msgstr "E-mails versturen door een volledig e-mailadres in te typen"
-
-#~ msgid "Files and Folders"
-#~ msgstr "Bestanden en mappen"
 
 #~ msgid "Open your files and folders by name"
 #~ msgstr "Uw bestanden en mappen op naam openen"
