@@ -319,8 +319,13 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         self._emit_query_ready(qstring, hit_matches)
     
     def _on_snippet_received(self, request, response, query, container, qstring, qmax):
-        # Remove trailing whitespaces and escape '%'
-        container.snippet = response.get_snippet().strip().replace("%", "%%")
+        snippet = response.get_snippet()
+        # Older versions of beagle return None
+        # if an error occured during snippet retrival 
+        if snippet != None:
+            # Remove trailing whitespaces and escape '%'
+            container.snippet = snippet.strip().replace("%", "%%")
+         
         self._on_hit_added(query, container, qstring, qmax)
     
     def _on_snippet_closed(self, request, query, container, qstring, qmax):
