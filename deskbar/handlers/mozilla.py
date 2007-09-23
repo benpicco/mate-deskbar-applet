@@ -169,7 +169,7 @@ class MozillaBookmarksHandler(deskbar.interfaces.Module):
             try:
                 b = self._shortcuts_to_smart_bookmarks_map[prefix]
                 text = query[x+1:]
-                return [BrowserSmartMatch(b.get_name(), b.url, prefix, b, icon=b.icon)]
+                return [BrowserSmartMatch(b.get_name(), b.url, prefix, b, pixbuf=b.get_icon())]
             except KeyError:
                 # Probably from the b = ... line.  Getting here
                 # means that there is no such shortcut.
