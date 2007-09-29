@@ -1,16 +1,15 @@
 # translation of deskbar-applet.HEAD.es.po to Spanish
-# Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2005, 2006.
-# Jorge González <jorge.gonzalez.gonzalez@hispalinux.es>, 2007.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007.
-# Deskbar applet Spanish translation.
 # Copyright (C) 2005 The Free Software Foundation
 # This file is distributed under the same license as the deskbar-applet package.
+#
+# Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2005, 2006.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-28 04:36+0100\n"
-"PO-Revision-Date: 2007-08-28 14:07+0200\n"
+"POT-Creation-Date: 2007-09-29 19:11+0100\n"
+"PO-Revision-Date: 2007-09-29 20:28+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -66,16 +65,24 @@ msgid "The default height of the window in pixels"
 msgstr "La altura predeterminada de la ventana en píxeles"
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "La posición predeterminada de la ventana en la pantalla (coordenada x)"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "La posición predeterminada de la ventana en la pantalla (coordenada y)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default width of the window in pixels"
 msgstr "La anchura predeterminada de la ventana en píxeles"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "La secuencia de claves dará el foco a Deskbar, permitiendo escribir "
 "rápidamente"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -85,7 +92,7 @@ msgstr ""
 "son: predeterminado, histórico, documentos, correos-e, conversaciones, "
 "archivos, gente, lugares, acciones, web, búsqueda web, noticias y notas."
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -93,11 +100,11 @@ msgstr ""
 "La lista de nombres de las clases exportadas de los manejadores activados, "
 "ordenados por prioridad. Cuanto más a la izquierda más prioridad"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid "The maximum number of items stored in history"
 msgstr "El máximo número de elementos almacenados en el histórico"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
@@ -105,7 +112,7 @@ msgstr ""
 "El mínimo número de caracteres necesarios antes de que la miniaplicación "
 "comience a mostrar coincidencias."
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -113,11 +120,11 @@ msgstr ""
 "El tiempo en milisegundos entre la pulsación de una tecla en la entrada de "
 "búsqueda y la realización de la búsqueda actual"
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid "Whether to close the window after an actions has been activated"
 msgstr "Indica si se debe cerrar la ventana después de activarse una acción"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -126,17 +133,25 @@ msgstr ""
 "disponibles. Esto sólo afecta a los navegadores basados en Mozilla como "
 "Firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "Indica si al disparar el atajo de teclado se pegar la selección actual"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Window height"
 msgstr "Altura de la ventana"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window width"
 msgstr "Anchura de la ventana"
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "X-coordinate of window"
+msgstr "Coordenada X de la ventana"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "Y-coordinate of window"
+msgstr "Coordenada Y de la ventana"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -252,7 +267,7 @@ msgstr "Mostrar todos los motores de búsqueda disponibles"
 msgid "Show only the primary search engine"
 msgstr "Mostrar sólo el motor de búsqueda primario"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:177
 #, python-format
 msgid "Open History Item %s"
 msgstr "Abrir el elemento %s del histórico"
@@ -263,20 +278,20 @@ msgid "Open Bookmark %s"
 msgstr "Abrir marcador %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:66
+#: ../deskbar/core/BrowserMatch.py:69
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Buscar <b>%(text)s</b> en <i>%(name)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:92 ../deskbar/handlers/yahoo.py:30
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
 msgid "URL"
 msgstr "URL"
 
-#: ../deskbar/core/BrowserMatch.py:227
+#: ../deskbar/core/BrowserMatch.py:230
 msgid "Shortcut"
 msgstr "Atajo"
 
-#: ../deskbar/core/BrowserMatch.py:235
+#: ../deskbar/core/BrowserMatch.py:238
 msgid "Bookmark Name"
 msgstr "Nombre del marcador"
 
@@ -284,7 +299,7 @@ msgstr "Nombre del marcador"
 msgid "Uncategorized"
 msgstr "Sin categorizar"
 
-#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:23
+#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
 msgid "History"
 msgstr "Histórico"
 
@@ -344,58 +359,58 @@ msgstr "No se puede ejecutar el programa:"
 msgid "Cannot show URL:"
 msgstr "No se puede mostrar la URL:"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "Edit contact %s"
 msgstr "Editar contacto %s"
 
-#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/beagle-live.py:110
 #, python-format
 msgid "From %s"
 msgstr "de %s"
 
-#: ../deskbar/handlers/beagle-live.py:124
+#: ../deskbar/handlers/beagle-live.py:125
 #, python-format
 msgid "News from %s"
 msgstr "Noticias de %s"
 
-#: ../deskbar/handlers/beagle-live.py:138
+#: ../deskbar/handlers/beagle-live.py:139
 #, python-format
 msgid "Note: %s"
 msgstr "Nota: %s"
 
-#: ../deskbar/handlers/beagle-live.py:151
+#: ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "With %s"
 msgstr "con %s"
 
-#: ../deskbar/handlers/beagle-live.py:165
+#: ../deskbar/handlers/beagle-live.py:166
 #, python-format
 msgid "Calendar: %s"
 msgstr "Calendario: %s"
 
-#: ../deskbar/handlers/beagle-live.py:251
+#: ../deskbar/handlers/beagle-live.py:272
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:273
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Busque todos sus documentos (usando Beagle), mientras teclea"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:330
-#: ../deskbar/handlers/beagle-live.py:352
+#: ../deskbar/handlers/beagle-live.py:382
+#: ../deskbar/handlers/beagle-live.py:404
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:415
+#: ../deskbar/handlers/beagle-live.py:442
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "No se pudo cargar beagled, libbeagle se ha compilado sin los bindings de "
 "python."
 
-#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:451
 msgid "Beagled could not be found in your $PATH."
 msgstr "No se pudo encontrar bleagled en su $PATH."
 
@@ -448,7 +463,7 @@ msgstr "Puede modificar su cuenta del.icio.us."
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Marcadores web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
 msgid "Open your web bookmarks by name"
 msgstr "Abra sus marcadores web por nombre"
 
@@ -460,7 +475,7 @@ msgstr "Epiphany no es su navegador preferido."
 msgid "Web Searches (Epiphany)"
 msgstr "Búsquedas web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:195
 msgid "Search the web via your browser's search settings"
 msgstr "Busque por la web mediante de los ajustes de búsqueda de su navegador"
 
@@ -472,19 +487,19 @@ msgstr "Puede establecer combinaciones de teclas para sus búsquedas."
 msgid "Web History (Epiphany)"
 msgstr "Histórico web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
 msgid "Open your web history by name"
 msgstr "Abra su histórico web por nombre"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:21
 msgid "Mail (Address Book)"
 msgstr "Correo (Libreta de direcciones)"
 
-#: ../deskbar/handlers/evolution.py:23
+#: ../deskbar/handlers/evolution.py:22
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Envíe correos-e a sus contactos tecleando su nombre o dirección de correo-e"
 
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:47
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -497,16 +512,18 @@ msgstr ""
 "vaya al menú de su programa de correo, elija Editar - Preferencias y después "
 "Autocompletado."
 
-#: ../deskbar/handlers/files.py:59
-#: ../deskbar/handlers/actions/ActionsFactory.py:32
+#. FIXME:
+#. _("Location") should be _("Location of %s") % name
+#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/actions/ActionsFactory.py:37
 msgid "Location"
 msgstr "Ubicación"
 
-#: ../deskbar/handlers/files.py:67
+#: ../deskbar/handlers/files.py:69
 msgid "Files, Folders and Places"
 msgstr "Archivos, carpetas y lugares"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:70
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "Vea sus archivos, carpetas, marcadores, unidades, lugares de red por nombre"
 
@@ -579,7 +596,7 @@ msgstr "Hibernar"
 msgid "Shutdown"
 msgstr "Apagar"
 
-#: ../deskbar/handlers/history.py:24
+#: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
 msgstr "Reconocer búsquedas realizadas previamente"
 
@@ -600,75 +617,75 @@ msgstr "Cambie a una ventana existente por nombre."
 msgid "Windows"
 msgstr "Ventanas"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:124
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Marcadores web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:183 ../deskbar/handlers/mozilla.py:254
+#: ../deskbar/handlers/mozilla.py:187 ../deskbar/handlers/mozilla.py:259
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox no es su navegador preferido."
 
-#: ../deskbar/handlers/mozilla.py:190
+#: ../deskbar/handlers/mozilla.py:194
 msgid "Web Searches (Mozilla)"
 msgstr "Búsquedas web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:248
+#: ../deskbar/handlers/mozilla.py:253
 msgid "You can customize which search engines are offered."
 msgstr "Puede personalizar qué motores de búsqueda se ofrecen."
 
-#: ../deskbar/handlers/mozilla.py:733
+#: ../deskbar/handlers/mozilla.py:737
 msgid "Web History (Mozilla)"
 msgstr "Histórico web (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:74
+#: ../deskbar/handlers/programs.py:76
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Buscar %s en el diccionario"
 
-#: ../deskbar/handlers/programs.py:81
+#: ../deskbar/handlers/programs.py:83
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Buscar nombres de archivo como %s"
 
-#: ../deskbar/handlers/programs.py:87
+#: ../deskbar/handlers/programs.py:89
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Buscar en DevHelp %s"
 
-#: ../deskbar/handlers/programs.py:113
+#: ../deskbar/handlers/programs.py:115
 msgid "Dictionary"
 msgstr "Diccionario"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:116
 msgid "Look up word definitions in the dictionary"
 msgstr "Busque definiciones de palabras en el diccionario"
 
-#: ../deskbar/handlers/programs.py:130
+#: ../deskbar/handlers/programs.py:132
 msgid "Files and Folders Search"
 msgstr "Búsqueda de archivos y carpetas"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:133
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Encuentre los archivos y carpetas buscando por un patrón del nombre"
 
-#: ../deskbar/handlers/programs.py:147
+#: ../deskbar/handlers/programs.py:149
 msgid "Developer Documentation"
 msgstr "Documentación del desarrollador"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:150
 msgid "Search Devhelp for a function name"
 msgstr "Buscar en DevHelp el nombre de una función"
 
-#: ../deskbar/handlers/programs.py:196
+#: ../deskbar/handlers/programs.py:198
 #, python-format
 msgid "Execute %s"
 msgstr "Ejecutar %s"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:220
 msgid "Programs"
 msgstr "Programas"
 
-#: ../deskbar/handlers/programs.py:219
+#: ../deskbar/handlers/programs.py:221
 msgid "Launch a program by its name and/or description"
 msgstr "Lanza un programa por su nombre y/o descripción"
 
@@ -698,7 +715,7 @@ msgstr "Búsqueda en Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "Buscar en Yahoo! mientras teclea"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:54
+#: ../deskbar/handlers/actions/ActionsFactory.py:59
 #, python-format
 msgid "URL of %s"
 msgstr "URL de %s"
@@ -801,7 +818,7 @@ msgstr "Volver a las coincidencias"
 msgid "Show search entry"
 msgstr "Mostrar la entrada de búsqueda"
 
-#: ../deskbar/ui/DeskbarApplet.py:114
+#: ../deskbar/ui/DeskbarApplet.py:115
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
