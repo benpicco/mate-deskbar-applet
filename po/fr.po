@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 2.19.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-06 10:14+0200\n"
-"PO-Revision-Date: 2007-09-06 10:14+0200\n"
-"Last-Translator:  Stéphane Raimbault <stephane.raimbault@gmail.com>\n"
+"POT-Creation-Date: 2007-09-29 20:18+0200\n"
+"PO-Revision-Date: 2007-09-29 20:24+0200\n"
+"Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,16 +72,24 @@ msgid "The default height of the window in pixels"
 msgstr "La hauteur par défaut de la fenêtre en pixels"
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "La position par défaut de la fenêtre à l'écran (coordonnée X)"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "La position par défaut de la fenêtre à l'écran (coordonnée Y)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default width of the window in pixels"
 msgstr "La largeur par défaut de la fenêtre en pixels"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "La séquence de touches donnera le focus sur l'applet deskbar, permettant de "
 "saisir rapidement"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -95,7 +103,7 @@ msgstr ""
 "« web » (Web), « werbsearch » (recherche sur le Web), « news » (actualités) "
 "et « notes » (notes)."
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -103,11 +111,11 @@ msgstr ""
 "La liste des noms des classes exportées depuis les gestionnaires actifs, "
 "triée par priorité. La plus à gauche a la plus haute priorité"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid "The maximum number of items stored in history"
 msgstr "Le nombre maximum d'éléments présents dans l'historique"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
@@ -115,7 +123,7 @@ msgstr ""
 "Le nombre minimum de caractères devant être saisis avant que l'applet "
 "commence l'affichage des correspondances"
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -123,12 +131,12 @@ msgstr ""
 "Le temps en millisecondes entre une frappe de touche dans la zone de "
 "recherche et le moment où la recherche est lancée."
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid "Whether to close the window after an actions has been activated"
 msgstr ""
 "Indique s'il faut fermer la fenêtre après que les actions aient été activées."
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -137,19 +145,27 @@ msgstr ""
 "plutôt que tous les moteurs disponibles. Ceci affecte seulement les "
 "navigateurs basés sur Mozilla, tel que Firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr ""
 "Indique si le déclenchement de l'applet Deskbar colle la sélection actuelle "
 "dans la zone de recherche."
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Window height"
 msgstr "Hauteur de la fenêtre"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window width"
 msgstr "Largeur de la fenêtre"
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "X-coordinate of window"
+msgstr "Coordonnée X de la fenêtre"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "Y-coordinate of window"
+msgstr "Coordonnée Y de la fenêtre"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -265,7 +281,7 @@ msgstr "Afficher tous les moteurs de recherche disponibles"
 msgid "Show only the primary search engine"
 msgstr "Afficher uniquement le moteur de recherche principal"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:177
 #, python-format
 msgid "Open History Item %s"
 msgstr "Ouvrir l'élément %s de l'historique"
@@ -357,41 +373,41 @@ msgstr "Impossible d'exécuter le programme :"
 msgid "Cannot show URL:"
 msgstr "Impossible d'afficher l'URL :"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "Edit contact %s"
 msgstr "Éditer le contact %s"
 
-#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/beagle-live.py:110
 #, python-format
 msgid "From %s"
 msgstr "De %s"
 
-#: ../deskbar/handlers/beagle-live.py:124
+#: ../deskbar/handlers/beagle-live.py:125
 #, python-format
 msgid "News from %s"
 msgstr "Nouvelle de %s"
 
-#: ../deskbar/handlers/beagle-live.py:138
+#: ../deskbar/handlers/beagle-live.py:139
 #, python-format
 msgid "Note: %s"
 msgstr "Note : %s"
 
-#: ../deskbar/handlers/beagle-live.py:151
+#: ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "With %s"
 msgstr "Avec %s"
 
-#: ../deskbar/handlers/beagle-live.py:165
+#: ../deskbar/handlers/beagle-live.py:166
 #, python-format
 msgid "Calendar: %s"
 msgstr "Calendrier : %s"
 
-#: ../deskbar/handlers/beagle-live.py:251
+#: ../deskbar/handlers/beagle-live.py:272
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:273
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr ""
 "Recherche tous vos documents (en utilisant Beagle), au fur et à mesure de la "
@@ -399,19 +415,19 @@ msgstr ""
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:330
-#: ../deskbar/handlers/beagle-live.py:352
+#: ../deskbar/handlers/beagle-live.py:382
+#: ../deskbar/handlers/beagle-live.py:404
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:415
+#: ../deskbar/handlers/beagle-live.py:442
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "Impossible de charger Beagle, la librairie libbeagle a été compilée sans les "
 "bindings Python."
 
-#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:451
 msgid "Beagled could not be found in your $PATH."
 msgstr "Impossible de trouver Beagled dans le $PATH."
 
@@ -464,7 +480,7 @@ msgstr "Vous pouvez modifier votre compte del.icio.us."
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Signets Web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:123
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
 msgid "Open your web bookmarks by name"
 msgstr "Ouvre vos signets Web d'après leur nom"
 
@@ -476,7 +492,7 @@ msgstr "Epiphany n'est pas votre navigateur par défaut."
 msgid "Web Searches (Epiphany)"
 msgstr "Recherches Web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:193
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:195
 msgid "Search the web via your browser's search settings"
 msgstr ""
 "Recherche sur le Web à partir des paramètres de recherches de votre "
@@ -490,7 +506,7 @@ msgstr "Vous pouvez définir des raccourcis pour vos recherches."
 msgid "Web History (Epiphany)"
 msgstr "Historique Web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:735
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
 msgid "Open your web history by name"
 msgstr "Recherche dans l'historique de votre navigateur Web"
 
@@ -520,7 +536,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:61
-#: ../deskbar/handlers/actions/ActionsFactory.py:32
+#: ../deskbar/handlers/actions/ActionsFactory.py:37
 msgid "Location"
 msgstr "Emplacement"
 
@@ -624,23 +640,23 @@ msgstr "Bascule à une fenêtre existante d'après son nom."
 msgid "Windows"
 msgstr "Fenêtres"
 
-#: ../deskbar/handlers/mozilla.py:122
+#: ../deskbar/handlers/mozilla.py:124
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Signets Web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:185 ../deskbar/handlers/mozilla.py:256
+#: ../deskbar/handlers/mozilla.py:187 ../deskbar/handlers/mozilla.py:259
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox n'est pas votre navigateur préféré."
 
-#: ../deskbar/handlers/mozilla.py:192
+#: ../deskbar/handlers/mozilla.py:194
 msgid "Web Searches (Mozilla)"
 msgstr "Recherches Web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:250
+#: ../deskbar/handlers/mozilla.py:253
 msgid "You can customize which search engines are offered."
 msgstr "Vous pouvez personnaliser la liste des moteurs de recherche proposés."
 
-#: ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/mozilla.py:737
 msgid "Web History (Mozilla)"
 msgstr "Historique Web (Mozilla)"
 
@@ -724,7 +740,7 @@ msgstr "Recherche sur Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "Recherche sur Yahoo! au fur et à mesure de la saisie"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:54
+#: ../deskbar/handlers/actions/ActionsFactory.py:59
 #, python-format
 msgid "URL of %s"
 msgstr "URL de %s"
@@ -820,11 +836,11 @@ msgid "default"
 msgstr "défaut"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:76
+#: ../deskbar/ui/CuemiacWindowView.py:75
 msgid "_History"
 msgstr "_Historique"
 
-#: ../deskbar/ui/CuemiacWindowView.py:134
+#: ../deskbar/ui/CuemiacWindowView.py:133
 msgid "Back to Matches"
 msgstr "Retour aux résultats"
 
@@ -832,7 +848,7 @@ msgstr "Retour aux résultats"
 msgid "Show search entry"
 msgstr "Afficher la zone de saisie de recherche"
 
-#: ../deskbar/ui/DeskbarApplet.py:114
+#: ../deskbar/ui/DeskbarApplet.py:115
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
