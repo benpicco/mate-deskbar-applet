@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.20\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-13 09:16+0100\n"
-"PO-Revision-Date: 2007-09-13 09:20+0000\n"
+"POT-Creation-Date: 2007-09-30 20:20+0100\n"
+"PO-Revision-Date: 2007-09-30 20:25+0000\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -63,16 +63,24 @@ msgid "The default height of the window in pixels"
 msgstr "A altura por omissão da janela, em pixels"
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "A posição por omissão da janela no ecrã (coordenada-x)"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "A posição por omissão da janela no ecrã (coordenada-y)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default width of the window in pixels"
 msgstr "A largura por omissão da janela, em pixels"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "A sequência de teclas que transmitirá o foco à Deskbar-Applet, permitindo "
 "escrever rapidamente"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -83,7 +91,7 @@ msgstr ""
 "\"files\", \"people\", \"places\", \"actions\", \"web\", \"websearch\", "
 "\"news\" e \"notes\"."
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -91,11 +99,11 @@ msgstr ""
 "A lista de nomes de classes exportados dos manípuladores activos ordenados "
 "por prioridade. O mais à esquerda tem a prioridade mais elevada"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid "The maximum number of items stored in history"
 msgstr "O número máximo de itens armazenados no histórico"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
@@ -103,7 +111,7 @@ msgstr ""
 "O número mínimo de caracteres que é necessário introduzir antes da applet "
 "começar a apresentar equivalências"
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -111,11 +119,11 @@ msgstr ""
 "O tempo em milisegundos entre uma pressão de tecla no campo de introdução e "
 "a realização da procura"
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid "Whether to close the window after an actions has been activated"
 msgstr "Se fechar ou não a janela após ser activada uma acção"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -124,17 +132,25 @@ msgstr ""
 "motores disponíveis. Apenas afecta navegadores web baseados no Mozilla tais "
 "como o Firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "Se activar a Deskbar-Applet cola a selecção actual"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Window height"
 msgstr "Altura da janela"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window width"
 msgstr "Largura da janela"
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "X-coordinate of window"
+msgstr "Coordenada-x da janela"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "Y-coordinate of window"
+msgstr "Coordenada-y da janela"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -388,17 +404,17 @@ msgstr ""
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:377
-#: ../deskbar/handlers/beagle-live.py:399
+#: ../deskbar/handlers/beagle-live.py:382
+#: ../deskbar/handlers/beagle-live.py:404
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:437
+#: ../deskbar/handlers/beagle-live.py:442
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Incapaz de ler o beagle, libbeagle foi compilada sem suporte python."
 
-#: ../deskbar/handlers/beagle-live.py:446
+#: ../deskbar/handlers/beagle-live.py:451
 msgid "Beagled could not be found in your $PATH."
 msgstr "Incapaz de encontrar o beagle no seu $PATH."
 
@@ -807,7 +823,7 @@ msgstr "Regressar aos Resultados"
 msgid "Show search entry"
 msgstr "Apresentar a entrada de procura"
 
-#: ../deskbar/ui/DeskbarApplet.py:114
+#: ../deskbar/ui/DeskbarApplet.py:115
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
