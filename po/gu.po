@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-28 04:36+0100\n"
-"PO-Revision-Date: 2007-08-29 13:10+0530\n"
+"POT-Creation-Date: 2007-09-29 19:11+0100\n"
+"PO-Revision-Date: 2007-10-01 11:26+0530\n"
 "Last-Translator: Ankit Patel <ankit@redhat.com>\n"
 "Language-Team: Gujarati <fedora-trans-gu@redhat.com>\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n!=1);\n\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -89,14 +90,22 @@ msgid "The default height of the window in pixels"
 msgstr "વિન્ડોની મૂળભૂત ઊંચાઈ પિક્સેલોમાં"
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "સ્ક્રીન પર વિન્ડોનું મૂળભૂત સ્થાન (x-અક્ષ)"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "સ્ક્રીન પર વિન્ડોનું મૂળભૂત સ્થાન (y-અક્ષ)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default width of the window in pixels"
 msgstr "વિન્ડોની મૂળભૂત પહોળાઈ પિક્સેલોમાં"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr "કી ક્રમ ડેસ્કબાર-એપ્લેટ પર ફોકસ કરશે, ઝડપથી લખવાની પરવાનગી આપીને"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -106,7 +115,7 @@ msgstr ""
 "દસ્તાવેજો, ઈમેઈલો, વાર્તાલાપો, ફાઈલો, લોકો, સ્થળો, ક્રિયાઓ, વેબ, વેબશોધ, સમાચાર, અને "
 "નોંધો."
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -114,17 +123,17 @@ msgstr ""
 "નિકાસ થયેલ ક્લાસ નામોની યાદી સક્રિયકૃત નિયંત્રકો મારફતે પ્રાધાન્ય પ્રમાણે ક્રમમાં ગોઠવાય "
 "છે. ડાબી બાજુની સૌથી વધુ પ્રાધાન્ય"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid "The maximum number of items stored in history"
 msgstr "ઈતિહાસમાં સંગ્રહાયેલ મહત્તમ સંખ્યાની વસ્તુઓ"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
 msgstr "અક્ષરોની ન્યૂનતમ સંખ્યા કે જેને એપ્લેટ શરૂ થાય તે પહેલાં જોડણી સરખાવવા માટે શરૂ કરવી જરૂરી છે"
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -132,11 +141,11 @@ msgstr ""
 "શોધ પ્રવેશમાં કીસ્ટ્રોક કરવામાં આવે અને વાસ્તવમાં શોધ કરવામાં આવે તે વચ્ચેનો સમયગાળો "
 "મિલિસેકન્ડોમાં"
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid "Whether to close the window after an actions has been activated"
 msgstr "શું ક્રિયાઓ સક્રિય થઈ જાય પછી વિન્ડો બંધ કરવી"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -144,17 +153,25 @@ msgstr ""
 "શું માત્ર પ્રાધાન્યવાળું શોધ એંજીન જ બતાવવું, બધા ઉપલબ્ધ એંજીનોની જગ્યાએ. આ માત્ર મોઝિલ્લા-"
 "આધારિત વેબ બ્રાઉઝરો જેમ કે ફાયરફોક્સને જ અસર કરે છે."
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "શું ડેસ્કબાર-એપ્લેટ બદલવાનું વર્તમાન પસંદગી ચોંટાડશે"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Window height"
 msgstr "વિન્ડો ઊંચાઈ"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window width"
 msgstr "વિન્ડો પહોળાઈ"
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "X-coordinate of window"
+msgstr ""
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "Y-coordinate of window"
+msgstr ""
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -269,7 +286,7 @@ msgstr "બધા ઉપલબ્ધ શોધ યંત્રો બતાવ�
 msgid "Show only the primary search engine"
 msgstr "માત્ર પ્રાથમિક શોધ યંત્ર બતાવો"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:177
 #, python-format
 msgid "Open History Item %s"
 msgstr "ઈતિહાસ વસ્તુ %s ખોલો"
@@ -280,20 +297,20 @@ msgid "Open Bookmark %s"
 msgstr "બુકમાર્ક %s ખોલો"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:66
+#: ../deskbar/core/BrowserMatch.py:69
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<b>%(name)s</b> ને <i>%(text)s</i> માટે શોધો"
 
-#: ../deskbar/core/BrowserMatch.py:92 ../deskbar/handlers/yahoo.py:30
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
 msgid "URL"
 msgstr "URL"
 
-#: ../deskbar/core/BrowserMatch.py:227
+#: ../deskbar/core/BrowserMatch.py:230
 msgid "Shortcut"
 msgstr "ટુંકાણ"
 
-#: ../deskbar/core/BrowserMatch.py:235
+#: ../deskbar/core/BrowserMatch.py:238
 msgid "Bookmark Name"
 msgstr "બુકમાર્ક નામ"
 
@@ -301,7 +318,7 @@ msgstr "બુકમાર્ક નામ"
 msgid "Uncategorized"
 msgstr "બિનવર્ગીકૃત"
 
-#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:23
+#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
 msgid "History"
 msgstr "ઈતિહાસ"
 
@@ -361,56 +378,56 @@ msgstr "કાર્યક્રમ ચલાવી શકતા નથી:"
 msgid "Cannot show URL:"
 msgstr "URL બતાવી શકતા નથી:"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "Edit contact %s"
 msgstr "સંપર્ક %s માં ફેરફાર કરો"
 
-#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/beagle-live.py:110
 #, python-format
 msgid "From %s"
 msgstr "%s તરફથી"
 
-#: ../deskbar/handlers/beagle-live.py:124
+#: ../deskbar/handlers/beagle-live.py:125
 #, python-format
 msgid "News from %s"
 msgstr "%s માંથી સમાચાર"
 
-#: ../deskbar/handlers/beagle-live.py:138
+#: ../deskbar/handlers/beagle-live.py:139
 #, python-format
 msgid "Note: %s"
 msgstr "નોંધ: %s"
 
-#: ../deskbar/handlers/beagle-live.py:151
+#: ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "With %s"
 msgstr "%s સાથે"
 
-#: ../deskbar/handlers/beagle-live.py:165
+#: ../deskbar/handlers/beagle-live.py:166
 #, python-format
 msgid "Calendar: %s"
 msgstr "કેલેન્ડર: %s"
 
-#: ../deskbar/handlers/beagle-live.py:251
+#: ../deskbar/handlers/beagle-live.py:272
 msgid "Beagle Live"
 msgstr "બીગલ જીવંત"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:273
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "તમારા બધા દસ્તાવેજો (બીગલની મદદથી) શોધો, જેમ તમે લખો"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:330
-#: ../deskbar/handlers/beagle-live.py:352
+#: ../deskbar/handlers/beagle-live.py:382
+#: ../deskbar/handlers/beagle-live.py:404
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:415
+#: ../deskbar/handlers/beagle-live.py:442
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "beagle લાવી શક્યા નહિં, libbeagle એ python બાઈન્ડીંગો વિના કમ્પાઈલ થયેલ છે."
 
-#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:451
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagled તમારા $PATH માં શોધી શક્યા નહિં."
 
@@ -463,7 +480,7 @@ msgstr "તમે તમારું del.icio.us ખાતું સુધાર
 msgid "Web Bookmarks (Epiphany)"
 msgstr "વેબ બુકમાર્કો (એપીફની)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
 msgid "Open your web bookmarks by name"
 msgstr "તમારી વેબ બુકમાર્કો નામ દ્વારા ખોલો"
 
@@ -475,7 +492,7 @@ msgstr "Epiphany એ તમારું પ્રાધાન્યવાળુ�
 msgid "Web Searches (Epiphany)"
 msgstr "વેબ શોધો (એપીફની)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:195
 msgid "Search the web via your browser's search settings"
 msgstr "તમારા બ્રાઉઝરના શોધ સુયોજનો મુજબ વેબમાં શોધો"
 
@@ -487,19 +504,19 @@ msgstr "તમે તમારી શોધો માટે ટુંકાણ�
 msgid "Web History (Epiphany)"
 msgstr "વેબ ઈતિહાસ (એપીફની)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
 msgid "Open your web history by name"
 msgstr "તમારો વેબ ઈતિહાસ નામ પ્રમાણે ખોલો"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:21
 msgid "Mail (Address Book)"
 msgstr "મેઈલ (સરનામા પુસ્તિકા)"
 
-#: ../deskbar/handlers/evolution.py:23
+#: ../deskbar/handlers/evolution.py:22
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "તમારા સંપર્કોને તેમના નામ અથવા ઈ-મેઈલ સરનામા લખીને મેઈલ મોકલો"
 
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:47
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -511,16 +528,18 @@ msgstr ""
 "સમાપ્તિ સક્રિય કરેલ નહિં હોય.  આવું કરવા માટે, તમારા મેઈલ કાર્યક્રમના મેનુમાંથી, ફેરફાર - "
 "પસંદગીઓ, અને પછી આપોઆપસમાપ્તિ પસંદ કરો."
 
-#: ../deskbar/handlers/files.py:59
-#: ../deskbar/handlers/actions/ActionsFactory.py:32
+#. FIXME:
+#. _("Location") should be _("Location of %s") % name
+#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/actions/ActionsFactory.py:37
 msgid "Location"
 msgstr "સ્થાન"
 
-#: ../deskbar/handlers/files.py:67
+#: ../deskbar/handlers/files.py:69
 msgid "Files, Folders and Places"
 msgstr "ફાઈલો, ફોલ્ડરો અને જગ્યાઓ"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:70
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "તમારી ફાઈલો, ફોલ્ડરો, બુકમાર્કો, ડ્રાઈવો, નેટવર્ક જગ્યાઓ નામ પ્રમાણે જૂઓ"
 
@@ -593,7 +612,7 @@ msgstr "હાયબરનેટ"
 msgid "Shutdown"
 msgstr "બંધ કરો"
 
-#: ../deskbar/handlers/history.py:24
+#: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
 msgstr "પહેલા વપરાયેલ શોધો ઓળખો"
 
@@ -614,75 +633,75 @@ msgstr "નામ પ્રમાણે વર્તમાન વિન્ડો
 msgid "Windows"
 msgstr "વિન્ડો"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:124
 msgid "Web Bookmarks (Mozilla)"
 msgstr "વેબ બુકમાર્કો (મોઝિલ્લા)"
 
-#: ../deskbar/handlers/mozilla.py:183 ../deskbar/handlers/mozilla.py:254
+#: ../deskbar/handlers/mozilla.py:187 ../deskbar/handlers/mozilla.py:259
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox એ તમારું પ્રાધાન્યવાળું બ્રાઉઝર નથી."
 
-#: ../deskbar/handlers/mozilla.py:190
+#: ../deskbar/handlers/mozilla.py:194
 msgid "Web Searches (Mozilla)"
 msgstr "વેબ શોધો (મોઝિલ્લા)"
 
-#: ../deskbar/handlers/mozilla.py:248
+#: ../deskbar/handlers/mozilla.py:253
 msgid "You can customize which search engines are offered."
 msgstr "તમે એ વૈવિધ્યપૂર્ણ કરી શકો છો કે જે શોધ યંત્રોની તક અપાયેલ છે."
 
-#: ../deskbar/handlers/mozilla.py:733
+#: ../deskbar/handlers/mozilla.py:737
 msgid "Web History (Mozilla)"
 msgstr "વેબ ઈતિહાસ (મોઝિલ્લા)"
 
-#: ../deskbar/handlers/programs.py:74
+#: ../deskbar/handlers/programs.py:76
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s માટે શબ્દકોષમાં જુઓ"
 
-#: ../deskbar/handlers/programs.py:81
+#: ../deskbar/handlers/programs.py:83
 #, python-format
 msgid "Search for file names like %s"
 msgstr "%s જેવા ફાઈલ નામો માટે શોધો"
 
-#: ../deskbar/handlers/programs.py:87
+#: ../deskbar/handlers/programs.py:89
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Devhelp માં %s માટે શોધો"
 
-#: ../deskbar/handlers/programs.py:113
+#: ../deskbar/handlers/programs.py:115
 msgid "Dictionary"
 msgstr "શબ્દકોષ"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:116
 msgid "Look up word definitions in the dictionary"
 msgstr "શબ્દકોષમાં શબ્દ વ્યાખ્યાઓ માટે જુઓ"
 
-#: ../deskbar/handlers/programs.py:130
+#: ../deskbar/handlers/programs.py:132
 msgid "Files and Folders Search"
 msgstr "ફાઈલો અને ફોલ્ડરો શોધ"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:133
 msgid "Find files and folders by searching for a name pattern"
 msgstr "નામ ભાત માટે શોધ કરીને ફાઈલો અને ફોલ્ડરો શોધો"
 
-#: ../deskbar/handlers/programs.py:147
+#: ../deskbar/handlers/programs.py:149
 msgid "Developer Documentation"
 msgstr "વિકાસકર્તા દસ્તાવેજીકરણ"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:150
 msgid "Search Devhelp for a function name"
 msgstr "વિધેય નામ માટે Devhelp શોધો"
 
-#: ../deskbar/handlers/programs.py:196
+#: ../deskbar/handlers/programs.py:198
 #, python-format
 msgid "Execute %s"
 msgstr "%s ચલાવો"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:220
 msgid "Programs"
 msgstr "કાર્યક્રમો"
 
-#: ../deskbar/handlers/programs.py:219
+#: ../deskbar/handlers/programs.py:221
 msgid "Launch a program by its name and/or description"
 msgstr "કાર્યક્રમને તેનું નામ અને/અથવા વર્ણન અનુસાર લોન્ચ કરો"
 
@@ -710,7 +729,7 @@ msgstr "Yahoo! શોધ"
 msgid "Search Yahoo! as you type"
 msgstr "તમે જેમ લખો તેમ Yahoo! શોધો"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:54
+#: ../deskbar/handlers/actions/ActionsFactory.py:59
 #, python-format
 msgid "URL of %s"
 msgstr "%s ની URL"
@@ -811,7 +830,7 @@ msgstr "જોડણીઓ પર પાછા"
 msgid "Show search entry"
 msgstr "શોધ પ્રવેશ બતાવો"
 
-#: ../deskbar/ui/DeskbarApplet.py:114
+#: ../deskbar/ui/DeskbarApplet.py:115
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
