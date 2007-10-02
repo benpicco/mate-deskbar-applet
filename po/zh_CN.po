@@ -6,10 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-28 04:36+0100\n"
-"PO-Revision-Date: 2007-09-06 15:25+0800\n"
-"Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
-"Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
+"POT-Creation-Date: 2007-09-29 19:11+0100\n"
+"PO-Revision-Date: 2007-10-02 22:16+0800\n"
+"Last-Translator: YangZhang <zyangmath@gmail.com>\n"
+"Language-Team: Chinese i18n <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,8 +19,7 @@ msgstr ""
 msgid ""
 "Choose whether triggering the keyboard shortcut also pastes the current "
 "selection in the search box."
-msgstr ""
-"选择在触发键盘快捷键时是否将当前选择粘贴在搜索框中。"
+msgstr "选择在触发键盘快捷键时是否将当前选择粘贴在搜索框中。"
 
 #: ../data/deskbar-applet.schemas.in.h:2
 msgid "Clear entry after match has been selected"
@@ -37,8 +36,7 @@ msgstr "启用处理器"
 #: ../data/deskbar-applet.schemas.in.h:5
 msgid ""
 "If enabled it will clear the entry after a search result has been selected"
-msgstr ""
-"如果启用，它将在一个搜索结果被选择后清除输入"
+msgstr "如果启用，它将在一个搜索结果被选择后清除输入"
 
 #: ../data/deskbar-applet.schemas.in.h:6
 msgid "If enabled the window will be closed after an action has been activated"
@@ -61,71 +59,84 @@ msgid "The default height of the window in pixels"
 msgstr "以像素计的默认窗口高度"
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "窗口在屏幕上的默认位置(x 坐标)"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "窗口在屏幕上的默认位置(y 坐标)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default width of the window in pixels"
 msgstr "以像素计的默认的窗口宽度"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr "使 Deskbar-Applet 获得焦点以快速输入的键序列"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
 "actions, web, websearch, news and notes."
 msgstr ""
-"折叠显示的类目列表。可用的类目为 default、history、documents、"
-"emails、conversations、files、people、places、actions、web、"
-"websearch、news 和 notes。"
-
-#: ../data/deskbar-applet.schemas.in.h:14
-msgid ""
-"The list of exported class names of the enabled handlers sorted by priority. "
-"Leftmost has highest priority"
-msgstr ""
-"按优先级排序的所启用的处理器所输出的类名称的列表，最左端的优先级最高"
-
-#: ../data/deskbar-applet.schemas.in.h:15
-msgid "The maximum number of items stored in history"
-msgstr "历史记录中保存的最大条目数"
+"折叠显示的类目列表。可用的类目为 default、history、documents、emails、"
+"conversations、files、people、places、actions、web、websearch、news 和 "
+"notes。"
 
 #: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
-"The minimum number of characters that need to be typed before the applet "
-"starts showing matches"
-msgstr ""
-"在程序开始显示匹配项前需输入的最小的字符数"
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr "按优先级排序的所启用的处理器所输出的类名称的列表，最左端的优先级最高"
 
 #: ../data/deskbar-applet.schemas.in.h:17
+msgid "The maximum number of items stored in history"
+msgstr "历史记录中保存的最大条目数"
+
+#: ../data/deskbar-applet.schemas.in.h:18
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr "在程序开始显示匹配项前需输入的最小的字符数"
+
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
-msgstr ""
-"搜索框中击键到开始实际搜索的时间间隔，以毫秒记"
+msgstr "搜索框中击键到开始实际搜索的时间间隔，以毫秒记"
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid "Whether to close the window after an actions has been activated"
 msgstr "动作被激活后是否关闭窗口"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
 msgstr ""
-"是否只显示首选搜索引擎，而不是显示所有可用引擎。只影响基"
-"于 Mozilla 的浏览器，如 Firefox。"
+"是否只显示首选搜索引擎，而不是显示所有可用引擎。只影响基于 Mozilla 的浏览器，"
+"如 Firefox。"
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "是否触发 Deskbar-Applet 粘贴当前选择"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Window height"
 msgstr "窗口高度"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window width"
 msgstr "窗口宽度"
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "X-coordinate of window"
+msgstr "窗口的 X 坐标"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "Y-coordinate of window"
+msgstr "窗口的 Y 坐标"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -240,7 +251,7 @@ msgstr "显示可用的全部搜索引擎"
 msgid "Show only the primary search engine"
 msgstr "只显示最主要的搜索引擎"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:177
 #, python-format
 msgid "Open History Item %s"
 msgstr "打开历史项 %s"
@@ -251,20 +262,20 @@ msgid "Open Bookmark %s"
 msgstr "打开书签 %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:66
+#: ../deskbar/core/BrowserMatch.py:69
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "在 <b>%(name)s</b> 中搜索 <i>%(text)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:92 ../deskbar/handlers/yahoo.py:30
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
 msgid "URL"
 msgstr "URL"
 
-#: ../deskbar/core/BrowserMatch.py:227
+#: ../deskbar/core/BrowserMatch.py:230
 msgid "Shortcut"
 msgstr "快捷键"
 
-#: ../deskbar/core/BrowserMatch.py:235
+#: ../deskbar/core/BrowserMatch.py:238
 msgid "Bookmark Name"
 msgstr "书签名称"
 
@@ -272,7 +283,7 @@ msgstr "书签名称"
 msgid "Uncategorized"
 msgstr "未分类"
 
-#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:23
+#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
 msgid "History"
 msgstr "历史"
 
@@ -332,58 +343,57 @@ msgstr "无法执行程序："
 msgid "Cannot show URL:"
 msgstr "无法显示 URL："
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "Edit contact %s"
 msgstr "编辑联系人 %s"
 
-#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/beagle-live.py:110
 #, python-format
 msgid "From %s"
 msgstr "来自 %s"
 
-#: ../deskbar/handlers/beagle-live.py:124
+#: ../deskbar/handlers/beagle-live.py:125
 #, python-format
 msgid "News from %s"
 msgstr "%s 的新闻"
 
-#: ../deskbar/handlers/beagle-live.py:138
+#: ../deskbar/handlers/beagle-live.py:139
 #, python-format
 msgid "Note: %s"
 msgstr "备忘：%s"
 
-#: ../deskbar/handlers/beagle-live.py:151
+#: ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "With %s"
 msgstr "与 %s"
 
-#: ../deskbar/handlers/beagle-live.py:165
+#: ../deskbar/handlers/beagle-live.py:166
 #, python-format
 msgid "Calendar: %s"
 msgstr "日历 %s"
 
-#: ../deskbar/handlers/beagle-live.py:251
+#: ../deskbar/handlers/beagle-live.py:272
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:273
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "(通过 Beagel)随时搜索您所有的文档"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:330
-#: ../deskbar/handlers/beagle-live.py:352
+#: ../deskbar/handlers/beagle-live.py:382
+#: ../deskbar/handlers/beagle-live.py:404
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:415
+#: ../deskbar/handlers/beagle-live.py:442
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
-msgstr ""
-"不能加载 beagle，libbeagle 未编译 python 绑定。"
+msgstr "不能加载 beagle，libbeagle 未编译 python 绑定。"
 
-#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:451
 msgid "Beagled could not be found in your $PATH."
 msgstr "在您的 $PATH 中无法找到 Beagled。"
 
@@ -436,7 +446,7 @@ msgstr "您可以修改您的 del.icio.us 账户。"
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Web 书签(Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
 msgid "Open your web bookmarks by name"
 msgstr "按名称打开您的 Web 书签"
 
@@ -448,7 +458,7 @@ msgstr "Epiphany 目前不是您的首选浏览器。"
 msgid "Web Searches (Epiphany)"
 msgstr "Web 搜索(Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:195
 msgid "Search the web via your browser's search settings"
 msgstr "通过您浏览器搜索设置搜索 Web"
 
@@ -460,19 +470,19 @@ msgstr "您可以为您的搜索设定快捷键。"
 msgid "Web History (Epiphany)"
 msgstr "Web 历史(Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
 msgid "Open your web history by name"
 msgstr "按名称打开您的 Web 历史"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:21
 msgid "Mail (Address Book)"
 msgstr "邮件(地址簿)"
 
-#: ../deskbar/handlers/evolution.py:23
+#: ../deskbar/handlers/evolution.py:22
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "输入姓名或电子邮件地址以便向您的联系人发送邮件"
 
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:47
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -483,16 +493,18 @@ msgstr ""
 "除非您启用自动补全，否则我们无法从您的地址簿中提供电子邮件地址。要启用这一功"
 "能，请从您邮件程序的菜单中选择 编辑 - 首选项，然后设置自动补全功能。"
 
-#: ../deskbar/handlers/files.py:59
-#: ../deskbar/handlers/actions/ActionsFactory.py:32
+#. FIXME:
+#. _("Location") should be _("Location of %s") % name
+#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/actions/ActionsFactory.py:37
 msgid "Location"
 msgstr "位置"
 
-#: ../deskbar/handlers/files.py:67
+#: ../deskbar/handlers/files.py:69
 msgid "Files, Folders and Places"
 msgstr "文件、文件夹和位置"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:70
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "按名称查看您的文件、文件夹、书签、驱动器和网络位置"
 
@@ -565,7 +577,7 @@ msgstr "休眠"
 msgid "Shutdown"
 msgstr "关机"
 
-#: ../deskbar/handlers/history.py:24
+#: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
 msgstr "识别先前使用过的搜索"
 
@@ -586,75 +598,75 @@ msgstr "按照名称切换到已有窗口。"
 msgid "Windows"
 msgstr "窗口"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:124
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Web 书签(Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:183 ../deskbar/handlers/mozilla.py:254
+#: ../deskbar/handlers/mozilla.py:187 ../deskbar/handlers/mozilla.py:259
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox 不是您的首选浏览器。"
 
-#: ../deskbar/handlers/mozilla.py:190
+#: ../deskbar/handlers/mozilla.py:194
 msgid "Web Searches (Mozilla)"
 msgstr "Web 搜索(Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:248
+#: ../deskbar/handlers/mozilla.py:253
 msgid "You can customize which search engines are offered."
 msgstr "您可以自定义提供哪些搜索引擎。"
 
-#: ../deskbar/handlers/mozilla.py:733
+#: ../deskbar/handlers/mozilla.py:737
 msgid "Web History (Mozilla)"
 msgstr "Web 历史(Mozilla)"
 
-#: ../deskbar/handlers/programs.py:74
+#: ../deskbar/handlers/programs.py:76
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "在字典中查阅 %s"
 
-#: ../deskbar/handlers/programs.py:81
+#: ../deskbar/handlers/programs.py:83
 #, python-format
 msgid "Search for file names like %s"
 msgstr "搜索文件名类似 %s 的文件"
 
-#: ../deskbar/handlers/programs.py:87
+#: ../deskbar/handlers/programs.py:89
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "在 Devhelp 中搜索 %s"
 
-#: ../deskbar/handlers/programs.py:113
+#: ../deskbar/handlers/programs.py:115
 msgid "Dictionary"
 msgstr "字典"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:116
 msgid "Look up word definitions in the dictionary"
 msgstr "查阅字典中的单词定义"
 
-#: ../deskbar/handlers/programs.py:130
+#: ../deskbar/handlers/programs.py:132
 msgid "Files and Folders Search"
 msgstr "文件和文件夹搜索"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:133
 msgid "Find files and folders by searching for a name pattern"
 msgstr "搜索匹配名称模式的文件和文件夹"
 
-#: ../deskbar/handlers/programs.py:147
+#: ../deskbar/handlers/programs.py:149
 msgid "Developer Documentation"
 msgstr "开发者文档"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:150
 msgid "Search Devhelp for a function name"
 msgstr "在 Devhelp 中搜索函数名称"
 
-#: ../deskbar/handlers/programs.py:196
+#: ../deskbar/handlers/programs.py:198
 #, python-format
 msgid "Execute %s"
 msgstr "执行 %s"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:220
 msgid "Programs"
 msgstr "程序"
 
-#: ../deskbar/handlers/programs.py:219
+#: ../deskbar/handlers/programs.py:221
 msgid "Launch a program by its name and/or description"
 msgstr "按名称和/或描述调用程序"
 
@@ -682,7 +694,7 @@ msgstr "雅虎搜索"
 msgid "Search Yahoo! as you type"
 msgstr "随时用雅虎搜索"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:54
+#: ../deskbar/handlers/actions/ActionsFactory.py:59
 #, python-format
 msgid "URL of %s"
 msgstr "%s 的 URL"
@@ -783,13 +795,13 @@ msgstr "返回搜索结果"
 msgid "Show search entry"
 msgstr "显示搜索项"
 
-#: ../deskbar/ui/DeskbarApplet.py:114
+#: ../deskbar/ui/DeskbarApplet.py:115
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
 msgstr ""
-"发现一些潜在的使用旧版 Deskbar-Applet API 的模块。删除这些文件"
-"以消除此警告。\n"
+"发现一些潜在的使用旧版 Deskbar-Applet API 的模块。删除这些文件以消除此警"
+"告。\n"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
