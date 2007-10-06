@@ -71,6 +71,7 @@ PKG_CHECK_MODULES(DESKBAR,
 	pygobject-2.0			>= 2.10
 	gnome-python-2.0		>= 2.10
 	gnome-desktop-2.0		>= 2.10
+	dbus-python				>= 0.80.2
 )
 AC_SUBST(DESKBAR_CFLAGS)
 AC_SUBST(DESKBAR_LIBS)
