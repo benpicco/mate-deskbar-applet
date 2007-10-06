@@ -1,4 +1,4 @@
-# Bulgarian translation of deskbar-applet
+# Bulgarian translation of deskbar-applet po-file.
 # Copyright (C) 2005, 2006, 2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the deskbar-applet package.
 # Alexander Shopov <ash@contact.bg>, 2005, 2006, 2007.
@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-01 13:18+0300\n"
-"PO-Revision-Date: 2007-09-01 13:15+0300\n"
+"POT-Creation-Date: 2007-10-06 08:39+0300\n"
+"PO-Revision-Date: 2007-10-06 08:38+0300\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -62,16 +62,24 @@ msgid "The default height of the window in pixels"
 msgstr "Стандартната височина на прозореца в пиксели"
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "Стандартното местоположение на прозореца по екрана (по X)"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "Стандартното местоположение на прозореца по екрана (по Y)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default width of the window in pixels"
 msgstr "Стандартната широчина на прозореца в пиксели"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "Клавишната комбинация, която ще прехвърли фокуса на аплета Deskbar, което "
 "позволява бързо въвеждане"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -83,7 +91,7 @@ msgstr ""
 "„people“ (хора), „places“ (места), „actions“ (действия), „web“ (уеб), "
 "„websearch“ (търсения в Интернет), „news“ (новини) и „notes“ (бележки)."
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -91,11 +99,11 @@ msgstr ""
 "Списък с публичните имена на класове на включените обработващи модули "
 "подредени по приоритет. Тези отляво са с по-голям приоритет."
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid "The maximum number of items stored in history"
 msgstr "Максимален брой елементи съхранявани в историята"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
@@ -103,7 +111,7 @@ msgstr ""
 "Минималният брой знаци, които трябва да бъдат въведени, преди аплетът да "
 "започне да показва съвпадения"
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -111,11 +119,11 @@ msgstr ""
 "Времето в милисекунди между натискане на клавиш в полето за въвеждане и "
 "изпълняването на самото търсене"
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid "Whether to close the window after an actions has been activated"
 msgstr "Дали прозорецът да се затвори след избор на действие"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -123,17 +131,25 @@ msgstr ""
 "Дали да се показва само предпочитаната търсачка, вместо всички налични. Това "
 "влияе само върху браузърите базирани на Mozilla като Firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "Дали задействането на аплета Deskbar вмъква текущо избраното"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Window height"
 msgstr "Височина на прозореца"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window width"
 msgstr "Широчина на прозореца"
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "X-coordinate of window"
+msgstr "Координата X на прозореца"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "Y-coordinate of window"
+msgstr "Координата Y на прозореца"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -248,7 +264,7 @@ msgstr "Показване на всички налични търсачки"
 msgid "Show only the primary search engine"
 msgstr "Показване само на основната търсачка"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:177
 #, python-format
 msgid "Open History Item %s"
 msgstr "Отваряне от историята: %s"
@@ -340,59 +356,59 @@ msgstr "Не може да се изпълни програмата:"
 msgid "Cannot show URL:"
 msgstr "Не може да се отвори адрес:"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "Edit contact %s"
 msgstr "Редактиране на контакта %s"
 
-#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/beagle-live.py:110
 #, python-format
 msgid "From %s"
 msgstr "От %s"
 
-#: ../deskbar/handlers/beagle-live.py:124
+#: ../deskbar/handlers/beagle-live.py:125
 #, python-format
 msgid "News from %s"
 msgstr "Новини от %s"
 
-#: ../deskbar/handlers/beagle-live.py:138
+#: ../deskbar/handlers/beagle-live.py:139
 #, python-format
 msgid "Note: %s"
 msgstr "Бележка: %s"
 
-#: ../deskbar/handlers/beagle-live.py:151
+#: ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "With %s"
 msgstr "С %s"
 
-#: ../deskbar/handlers/beagle-live.py:165
+#: ../deskbar/handlers/beagle-live.py:166
 #, python-format
 msgid "Calendar: %s"
 msgstr "Календар: %s"
 
-#: ../deskbar/handlers/beagle-live.py:251
+#: ../deskbar/handlers/beagle-live.py:272
 msgid "Beagle Live"
 msgstr "Beagle на живо"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:273
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Претърсване на всичките ви документи (с Beagle) докато пишете"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:330
-#: ../deskbar/handlers/beagle-live.py:352
+#: ../deskbar/handlers/beagle-live.py:382
+#: ../deskbar/handlers/beagle-live.py:404
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:415
+#: ../deskbar/handlers/beagle-live.py:442
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "Beagle не може да се зареди. Библиотеката libbeagle е компилирана без "
 "поддръжка на Python."
 
-#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:451
 msgid "Beagled could not be found in your $PATH."
 msgstr "Програмата beagled не може да бъде открита в $PATH."
 
@@ -445,7 +461,7 @@ msgstr "Можете да промените регистрацията си в 
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Отметки в уеб (в Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
 msgid "Open your web bookmarks by name"
 msgstr "Отваряне на отметките по име"
 
@@ -457,7 +473,7 @@ msgstr "Epiphany не е предпочитаният браузър."
 msgid "Web Searches (Epiphany)"
 msgstr "Търсене в Интернет (с Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:195
 msgid "Search the web via your browser's search settings"
 msgstr "Търсене в Интернет чрез настройките на уеб браузъра"
 
@@ -469,20 +485,20 @@ msgstr "Можете да задавате бързи клавиши за тър
 msgid "Web History (Epiphany)"
 msgstr "История на уеб (в Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
 msgid "Open your web history by name"
 msgstr "Отваряне на елементите в историята по име"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:21
 msgid "Mail (Address Book)"
 msgstr "Поща (адресна книга)"
 
-#: ../deskbar/handlers/evolution.py:23
+#: ../deskbar/handlers/evolution.py:22
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Пращане на е-писмо до познати като напишете името или адреса им на е-поща"
 
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:47
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -495,16 +511,18 @@ msgstr ""
 "програмата си за е-поща и от менюто отидете в Редактиране -> Настройки -> "
 "Автоматично дописване."
 
-#: ../deskbar/handlers/files.py:59
-#: ../deskbar/handlers/actions/ActionsFactory.py:32
+#. FIXME:
+#. _("Location") should be _("Location of %s") % name
+#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/actions/ActionsFactory.py:37
 msgid "Location"
 msgstr "Местоположение"
 
-#: ../deskbar/handlers/files.py:67
+#: ../deskbar/handlers/files.py:69
 msgid "Files, Folders and Places"
 msgstr "Файлове, папки и места"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:70
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Преглеждане на файловете, папките, отметките, устройствата и мрежовите места "
@@ -601,75 +619,75 @@ msgstr "Избиране и преминаване към прозорец по 
 msgid "Windows"
 msgstr "Прозорци"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:124
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Отметки в уеб (с Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:183 ../deskbar/handlers/mozilla.py:254
+#: ../deskbar/handlers/mozilla.py:187 ../deskbar/handlers/mozilla.py:259
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox не е предпочитаният браузър."
 
-#: ../deskbar/handlers/mozilla.py:190
+#: ../deskbar/handlers/mozilla.py:194
 msgid "Web Searches (Mozilla)"
 msgstr "Търсене в Интернет (с Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:248
+#: ../deskbar/handlers/mozilla.py:253
 msgid "You can customize which search engines are offered."
 msgstr "Може да персонализирате кои търсачки да се използват."
 
-#: ../deskbar/handlers/mozilla.py:733
+#: ../deskbar/handlers/mozilla.py:737
 msgid "Web History (Mozilla)"
 msgstr "История на уеб (в Mozilla)"
 
-#: ../deskbar/handlers/programs.py:74
+#: ../deskbar/handlers/programs.py:76
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Търсене на %s в речник"
 
-#: ../deskbar/handlers/programs.py:81
+#: ../deskbar/handlers/programs.py:83
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Търсене на файлове с имена подобни на %s"
 
-#: ../deskbar/handlers/programs.py:87
+#: ../deskbar/handlers/programs.py:89
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Търсене в документацията за %s"
 
-#: ../deskbar/handlers/programs.py:113
+#: ../deskbar/handlers/programs.py:115
 msgid "Dictionary"
 msgstr "Речник"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:116
 msgid "Look up word definitions in the dictionary"
 msgstr "Търсене на превод или дефиниция на дума в речник"
 
-#: ../deskbar/handlers/programs.py:130
+#: ../deskbar/handlers/programs.py:132
 msgid "Files and Folders Search"
 msgstr "Търсене на файлове и папки"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:133
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Търсене на файлове и папки чрез шаблон за името им"
 
-#: ../deskbar/handlers/programs.py:147
+#: ../deskbar/handlers/programs.py:149
 msgid "Developer Documentation"
 msgstr "Документация за разработчици"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:150
 msgid "Search Devhelp for a function name"
 msgstr "Търсене в документацията за разработчици за име на функция"
 
-#: ../deskbar/handlers/programs.py:196
+#: ../deskbar/handlers/programs.py:198
 #, python-format
 msgid "Execute %s"
 msgstr "Изпълняване на %s"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:220
 msgid "Programs"
 msgstr "Програми"
 
-#: ../deskbar/handlers/programs.py:219
+#: ../deskbar/handlers/programs.py:221
 msgid "Launch a program by its name and/or description"
 msgstr "Стартиране на програма чрез име и/или описание"
 
@@ -699,7 +717,7 @@ msgstr "Търсене с Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "Търсене с Yahoo! докато пишете"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:54
+#: ../deskbar/handlers/actions/ActionsFactory.py:59
 #, python-format
 msgid "URL of %s"
 msgstr "Адресът на %s"
@@ -804,7 +822,7 @@ msgstr "Обратно към съвпаденията"
 msgid "Show search entry"
 msgstr "Показване на търсения елемент"
 
-#: ../deskbar/ui/DeskbarApplet.py:114
+#: ../deskbar/ui/DeskbarApplet.py:115
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
