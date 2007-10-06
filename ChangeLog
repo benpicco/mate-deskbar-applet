@@ -1,5 +1,13 @@
 2007-10-06	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/handlers/desklicious.py:
+    * deskbar/handlers/yahoo.py:    
+    Fixed bug #483985 and bug #482379:
+    Catch IOErrors and print exception using logging.error
+    Replaced print statements with logging.info
+    
+2007-10-06	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/handlers/actions/ActionsFactory.py:
     Retrieve MIME type with gnomevfs.get_file_info
     instead of gnomevfs.get_mime_type, because this

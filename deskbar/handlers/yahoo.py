@@ -1,10 +1,11 @@
 from deskbar.core.Utils import strip_html, get_proxy
-from gettext import gettext as _
 from deskbar.defs import VERSION
-import urllib
-import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar
-from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
+from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
+from gettext import gettext as _
+import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar
+import logging
+import urllib
 import xml.dom.minidom
 
 YAHOO_API_KEY = 'deskbar-applet'
@@ -50,15 +51,19 @@ class YahooHandler(deskbar.interfaces.Module):
         # TODO: Missing
         #self.check_query_changed (timeout=QUERY_DELAY)
         
-        print 'Query yahoo for:', qstring
-        stream = urllib.urlopen(
-            YAHOO_URL % 
-            urllib.urlencode(
+        logging.info('Query yahoo for: '+qstring)
+        url = YAHOO_URL % urllib.urlencode(
                 {'appid': YAHOO_API_KEY,
                 'query': qstring,
-                'results': 15}), proxies=get_proxy())
+                'results': 15})
+        try:
+            stream = urllib.urlopen(url, proxies=get_proxy())
+        except IOError, msg:
+            logging.error("Could not open URL %s: %s, %s" % (url, msg[0], msg[1]))
+            return
+        
         dom = xml.dom.minidom.parse(stream)
-        print 'Got yahoo answer for:', qstring
+        logging.info('Got yahoo answer for: '+qstring)
         
         # TODO: Missing
         #self.check_query_changed ()    
@@ -74,5 +79,5 @@ class YahooHandler(deskbar.interfaces.Module):
             for r in dom.getElementsByTagName("Result")]
         # TODO: Missing
         #self.check_query_changed ()
-        print "Returning yahoo answer for:", qstring
+        logging.info("Returning yahoo answer for: "+qstring)
         self._emit_query_ready(qstring, matches )
