@@ -1,5 +1,5 @@
 import gnomevfs
-import os
+import logging
 from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.handlers.actions.GoToLocationAction import GoToLocationAction
@@ -27,16 +27,17 @@ def get_actions_for_uri(uri, display_name=None):
         uri = "file://"+path
     if display_name == None:
         display_name = basename(path)
-        
-    # Check if path exists and is readable
-    if not os.access(path, os.F_OK | os.R_OK):
-        return []
     
     # If we have a directory only return one action
     if isdir(path):
         return [CopyToClipboardAction( _("Location"), path)]
-    
-    mime = gnomevfs.get_mime_type(uri)
+        
+    try:
+        fileinfo = gnomevfs.get_file_info(uri, gnomevfs.FILE_INFO_GET_MIME_TYPE | gnomevfs.FILE_INFO_FOLLOW_LINKS)
+    except Exception, msg:
+        logging.error("Could not retrieve MIME type of %s: %s" % (uri, msg))
+        return []
+    mime = fileinfo.mime_type
     actions = []
     
     mime_default_cmd = gnomevfs.mime_get_default_application(mime)

@@ -1,5 +1,12 @@
 2007-10-06	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/handlers/actions/ActionsFactory.py:
+    Retrieve MIME type with gnomevfs.get_file_info
+    instead of gnomevfs.get_mime_type, because this
+    function returns detailed errors
+
+2007-10-06	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * configure.ac:
     Fixed bug #475630: No module named dbus
     Added dbus-python >= 0.80.2 as dependency
