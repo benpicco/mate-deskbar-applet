@@ -1,6 +1,7 @@
 import sys
 import logging
 import gobject
+import gtk
 import deskbar
 from deskbar.core.GconfStore import GconfStore
 from deskbar.core.ModuleInstaller import ModuleInstaller
@@ -61,8 +62,9 @@ class CoreImpl(deskbar.interfaces.Core):
         
     def _setup_keybinder(self):
         self._keybinder = Keybinder()
-        if (self.get_keybinding() == None):
-            self.set_keybinding( DEFAULT_KEYBINDING )
+        if (self.get_keybinding() == None or gtk.accelerator_parse(self.get_keybinding()) == (0,0)):
+            # Keybinding is not set or invalid, set default keybinding
+            self.set_keybinding( self.DEFAULT_KEYBINDING )
         else:
             self.set_keybinding( self.get_keybinding() )
     
