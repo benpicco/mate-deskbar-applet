@@ -1,5 +1,6 @@
 import re
 import glob
+import os
 from os.path import join, expanduser
 from gettext import gettext as _
 from deskbar.defs import VERSION
@@ -199,11 +200,11 @@ class OpenPathProgramAction(deskbar.interfaces.Action):
 
 class PathProgramMatch(deskbar.interfaces.Match):
     
-    def __init__(self, name=None, use_terminal=False, priority=0, **args):
+    def __init__(self, name, command, use_terminal=False, priority=0, **args):
         deskbar.interfaces.Match.__init__(self, name=name, icon="gtk-execute", category="actions", **args)
         self.use_terminal = use_terminal
         self.set_priority(self.get_priority() + EXACT_MATCH_PRIO)
-        self.add_action( OpenPathProgramAction(name, self.use_terminal) )
+        self.add_action( OpenPathProgramAction(command, self.use_terminal) )
         
     def set_with_terminal(self, terminal):
         self.use_terminal = terminal
@@ -235,11 +236,9 @@ class ProgramsHandler(deskbar.interfaces.Module):
         self._emit_query_ready(query, result )
         
     def query_path_programs(self, query):
-        args = query.split(" ")
-        match = self._check_program(args[0])
-
-        if match != None:
-            return [match]
+        program = query.split(" ")[0]
+        if is_program_in_path(program):
+            return [PathProgramMatch(program, query)]
         else:
             return []
     
@@ -258,29 +257,26 @@ class ProgramsHandler(deskbar.interfaces.Module):
                 match.set_with_terminal(True)
                 return match
             
-        return None
-        
-    def _check_program(self, program):
-        if is_program_in_path(program):
-            return PathProgramMatch(program)
+        return None    
                 
     def _scan_desktop_files(self):
         for dir in get_xdg_data_dirs():
-            for f in glob.glob(join(dir, "applications", "*.desktop")):
-                result = parse_desktop_file(f)
-                if result != None:
-                    match = GenericProgramMatch(
-                                name=result.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
-                                icon=result.get_string(deskbar.core.gnomedesktop.KEY_ICON),
-                                desktop=result,
-                                desktop_file=f)
-                    self._indexer.add("%s %s %s %s %s" % (
-                                result.get_string("Exec"),
-                                result.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
-                                result.get_localestring(deskbar.core.gnomedesktop.KEY_COMMENT),
-                                result.get_string(deskbar.core.gnomedesktop.KEY_NAME),
-                                result.get_string(deskbar.core.gnomedesktop.KEY_COMMENT),
-                            ), match)
+            for root, dirs, files in os.walk( join(dir, "applications") ):
+                for f in glob.glob( join(root, "*.desktop") ):
+                    result = parse_desktop_file(f)
+                    if result != None:
+                        match = GenericProgramMatch(
+                                    name=result.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
+                                    icon=result.get_string(deskbar.core.gnomedesktop.KEY_ICON),
+                                    desktop=result,
+                                    desktop_file=f)
+                        self._indexer.add("%s %s %s %s %s" % (
+                                    result.get_string("Exec"),
+                                    result.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
+                                    result.get_localestring(deskbar.core.gnomedesktop.KEY_COMMENT),
+                                    result.get_string(deskbar.core.gnomedesktop.KEY_NAME),
+                                    result.get_string(deskbar.core.gnomedesktop.KEY_COMMENT),
+                                ), match)
 
 def get_priority_for_name(query, name):
     if name.split(" ")[0].endswith(query):
