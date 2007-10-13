@@ -246,6 +246,8 @@ class ProgramsHandler(deskbar.interfaces.Module):
         result = []
         for match in self._indexer.look_up(query):
             match._priority = get_priority_for_name(query, match._desktop.get_string("Exec"))
+            if match == None:
+                raise ValueError, "Error when retrieving match for query '%s'" % query
             result.append(match)
         return result
             
