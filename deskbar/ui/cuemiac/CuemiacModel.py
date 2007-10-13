@@ -39,15 +39,35 @@ class CuemiacModel (gtk.TreeStore):
         self.__match_hashes = {}
         self.append_method = gtk.TreeStore.append # Alternatively gtk.TreeStore.prepend for bottom panel layout
         self.set_sort_func(SORT_BY_CATEGORY, self.__on_sort_categories)
-        self.set_sort_order(gtk.SORT_DESCENDING)
+        self.set_sort_order(gtk.SORT_ASCENDING)
     
     def set_sort_order(self, order):
         self.set_sort_column_id(SORT_BY_CATEGORY, order)
     
-    def __compare(self, item1, item2):
+    def __compare_priorities(self, item1, item2):
+        """
+        @type item1: int
+        @type item2: int
+        """
         if (item1 > item2):
-            return 1
+            # item1 comes before item2
+            return -1
         elif (item1 < item2):
+            # item1 comes after item2
+            return 1
+        else:
+            return 0
+        
+    def __compare_alphabetically(self, word1, word2):
+        """
+        @type word1: str
+        @type word2: str
+        """
+        if (word1 > word2):
+            # word1 comes before word2
+            return 1
+        elif (word1 < word2):
+            # word1 comes after word2
             return -1
         else:
             return 0
@@ -59,17 +79,14 @@ class CuemiacModel (gtk.TreeStore):
         if match_obj1 == None or match_obj2 == None:
             return 0
         
-        if isinstance(match_obj1, CuemiacCategory):
-            return self.__compare( match_obj1.get_priority(), match_obj2.get_priority() )
-        
         if match_obj1.get_priority() == match_obj2.get_priority():
             # Sort alphabetically
             a = treemodel[iter1][self.ACTIONS]
             b = treemodel[iter2][self.ACTIONS]
             if a != None and b != None:
-                return self.__compare( a.strip().lower(), b.strip().lower() )
+                return self.__compare_alphabetically( a.strip().lower(), b.strip().lower() )
         
-        return self.__compare( match_obj1.get_priority(), match_obj2.get_priority() )
+        return self.__compare_priorities( match_obj1.get_priority(), match_obj2.get_priority() )
     
     def __add_to_hash_iter_map(self, hash, iter):
         """

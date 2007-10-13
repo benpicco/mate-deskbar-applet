@@ -222,11 +222,8 @@ class MozillaSearchHandler(deskbar.interfaces.Module):
         self._parse_search_engines(smart_dirs)
         
     def _parse_search_engines(self, smart_dirs):
-        self._smart_bookmarks = []
-        # Make sure that bookmarks will be displayed in alphabetical order 
-        for i,bookmark in enumerate( MozillaSmartBookmarksDirParser(smart_dirs).get_smart_bookmarks() ):
-            bookmark.set_priority(self.get_priority() - i)
-            self._smart_bookmarks.append(bookmark)
+        self._smart_bookmarks = MozillaSmartBookmarksDirParser(smart_dirs).get_smart_bookmarks()
+        self.set_priority_for_matches(self._smart_bookmarks)
 
     def stop(self):
         self.watcher.remove_all()
@@ -694,10 +691,7 @@ class MozillaSmartBookmarksDirParser:
                 if not basename(f) in bookmark_names:
                     found_bookmarks.append(f)
                     bookmark_names.append(basename(f))
-        
-        # Sort bookmarks alphabetically 
-        found_bookmarks.sort()
-       
+      
         for f in found_bookmarks:
             img = None
             if f.endswith (".xml"):
