@@ -149,16 +149,13 @@ class MozillaBookmarksHandler(deskbar.interfaces.Module):
     def query(self, query):
         # First, check the smart bookmarks, or "keywords", where
         # "wp Foo" takes you to the wikipedia entry for Foo.
-        x = self.query_smart_bookmarks(query, deskbar.DEFAULT_RESULTS_PER_HANDLER)
-        if x != None:
-            self.set_priority_for_matches( x )
-            self._emit_query_ready(query, x )
-        else:
+        matches = self.query_smart_bookmarks(query, deskbar.DEFAULT_RESULTS_PER_HANDLER)
+        if matches == None:
             # If none of the smart bookmarks matched as a prefix,
             # then we'll just look up all bookmarks.
             matches = self._bookmarks.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
-            self.set_priority_for_matches( matches )
-            self._emit_query_ready(query, matches )
+        self.set_priority_for_matches( matches )
+        self._emit_query_ready(query, matches )
     
     def query_smart_bookmarks(self, query, max):
         # if one of the smart bookmarks' shortcuts matches as a prefix,
@@ -225,8 +222,11 @@ class MozillaSearchHandler(deskbar.interfaces.Module):
         self._parse_search_engines(smart_dirs)
         
     def _parse_search_engines(self, smart_dirs):
-        self._smart_bookmarks = MozillaSmartBookmarksDirParser(self, smart_dirs).get_smart_bookmarks()
-        self.set_priority_for_matches( self._smart_bookmarks )
+        self._smart_bookmarks = []
+        # Make sure that bookmarks will be displayed in alphabetical order 
+        for i,bookmark in enumerate( MozillaSmartBookmarksDirParser(smart_dirs).get_smart_bookmarks() ):
+            bookmark.set_priority(self.get_priority() - i)
+            self._smart_bookmarks.append(bookmark)
 
     def stop(self):
         self.watcher.remove_all()
@@ -668,7 +668,7 @@ class Tokenizer:
             return token
             
 class MozillaSmartBookmarksDirParser:
-    def __init__(self, handler, dirs):
+    def __init__(self, dirs):
         self._smart_bookmarks = []
         
         # Avoid getting duplicate search engines
@@ -695,6 +695,9 @@ class MozillaSmartBookmarksDirParser:
                     found_bookmarks.append(f)
                     bookmark_names.append(basename(f))
         
+        # Sort bookmarks alphabetically 
+        found_bookmarks.sort()
+       
         for f in found_bookmarks:
             img = None
             if f.endswith (".xml"):
