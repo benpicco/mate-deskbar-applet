@@ -79,6 +79,11 @@ class CuemiacModel (gtk.TreeStore):
         if match_obj1 == None or match_obj2 == None:
             return 0
         
+        if isinstance(match_obj1, CuemiacCategory) or isinstance(match_obj2, CuemiacCategory):
+            # Avoid that two categories with same priority get sorted alphabetically,
+            # because that would cause an exception     
+            return self.__compare_priorities( match_obj1.get_priority(), match_obj2.get_priority() )
+        
         if match_obj1.get_priority() == match_obj2.get_priority():
             # Sort alphabetically
             a = treemodel[iter1][self.ACTIONS]
