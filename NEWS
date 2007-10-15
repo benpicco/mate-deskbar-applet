@@ -1,4 +1,45 @@
 =======================
+deskbar-applet 2.20.1
+=======================
+
+This release fixes some really annoying bugs
+that has been discovered since the last release.
+
+Changes:
+    * Fixed bug #470985: EOFError when loading history
+    * Fixed bug #474179: ImportError when loading history
+    * Fixed bug #478223: Error in beagle-live handler when retrieving snippet
+    * Fixed bug in MozillaBookmarksHandler concerning smart bookmarks
+    * Fixed bug #481029: deskbar-applet.py missing final newline
+    * Fixed bug #478067: gconf schema problem.
+    * Fixed bug #475630: No module named dbus. Added dbus-python >= 0.80.2 as dependency
+    * Fixed bug #483985 and bug #482379: Catch IOErrors and print exception using logging.error
+    * Fixed bug #474627: global name 'DEFAULT_KEYBINDING' is not defined
+    * Fixed bug #483544: Search directories recursive for .desktop files
+	* Fixed bug: Don't replace OpenPathProgramAction in history when arguments differ
+	* Fixed bug #486337: Make sure that results will displayed in alphabetical order
+	* Fixed bug #486550: Set icon of OpenPathProgramAction to gtk-execute.	Don't display an icon in history, if none is set.
+
+Contributors to this release: Sebastian Pölsterl
+
+Updated Translations:
+    * Belarusian latin
+    * Bulgarian
+    * Danish
+    * Dutch
+    * Estonian
+    * French
+    * Gujarati
+    * Italian
+    * Korean
+    * Macedonian
+    * Portuguese
+    * Slovenian
+    * Spanish
+
+Contributors to the translations: Ihar Hrachyshka, Alexander Shopov, Kenneth Nielsen, Tino Meinen, Ivar Smolin, Claude Paroz, Ankit Patel, Luca Ferretti, Changwoo Ryu, Jovan Naumovski, Duarte Loreto, Urbančič Matej, Jorge Gonzalez
+
+=======================
 deskbar-applet 2.20.0
 =======================
 
