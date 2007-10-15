@@ -33,8 +33,8 @@ class CuemiacHistoryView (gtk.ComboBox):
         timestamp, text, action = model[iter]
         if action == None:
             return
-        if action.get_pixbuf() != None:
-            cell.set_property ("pixbuf", action.get_pixbuf())
+        
+        cell.set_property ("pixbuf", action.get_pixbuf())
         
     def __get_action_title_for_cell (self, celllayout, cell, model, iter, user_data=None):
         

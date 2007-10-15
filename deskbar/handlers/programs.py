@@ -167,6 +167,9 @@ class OpenPathProgramAction(deskbar.interfaces.Action):
         deskbar.interfaces.Action.__init__(self, name)
         self.use_terminal = use_terminal
         
+    def get_icon(self):
+        return "gtk-execute"
+        
     def activate(self, text=None):
         if self.use_terminal:
             try:
