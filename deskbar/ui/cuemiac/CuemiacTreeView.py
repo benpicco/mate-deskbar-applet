@@ -47,6 +47,7 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
         self.__button_y = 0
         self.__button_width = 0
         self.__button_height = 0
+        self.__relative_header_size = -0.2 # Make header 20% smaller than normal fonts
         
         self.set_property("mode", gtk.CELL_RENDERER_MODE_ACTIVATABLE)
         
@@ -55,8 +56,8 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
         # them on each render anyway.
         style = gtk.Style ()
         self.header_font_desc = style.font_desc
-        self.header_font_desc.set_weight (pango.WEIGHT_BOLD)
-        self.header_font_desc.set_size (self.header_font_desc.get_size () - pango.SCALE *2)
+        self.header_font_desc.set_weight (pango.WEIGHT_BOLD)        
+        self.header_font_desc.set_size (self.header_font_desc.get_size () + int(self.header_font_desc.get_size ()*self.__relative_header_size))
         self.header_bg = style.base [gtk.STATE_NORMAL]
     
     def set_style (self, widget):
@@ -65,7 +66,7 @@ class CellRendererCuemiacCategory (gtk.CellRendererText):
         """
         self.header_font_desc = widget.style.font_desc
         self.header_font_desc.set_weight (pango.WEIGHT_BOLD)
-        self.header_font_desc.set_size (self.header_font_desc.get_size () - pango.SCALE *2)
+        self.header_font_desc.set_size (self.header_font_desc.get_size () + int(self.header_font_desc.get_size ()*self.__relative_header_size))
         self.header_bg = widget.style.base [gtk.STATE_NORMAL]
     
     def do_render (self, window, widget, background_area, cell_area, expose_area, flags):
