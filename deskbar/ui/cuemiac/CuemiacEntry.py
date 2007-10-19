@@ -19,8 +19,8 @@ class CuemiacEntry (deskbar.ui.iconentry.IconEntry):
         "icon-clicked" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
         "changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
         "activate" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
-        "go-next" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
-        "go-previous" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
+        "go-next" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_BOOLEAN, []),
+        "go-previous" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_BOOLEAN, []),
         }
         
     
@@ -68,10 +68,14 @@ class CuemiacEntry (deskbar.ui.iconentry.IconEntry):
 
     def __on_key_press_event(self, entry, event):
         if event.keyval == gtk.keysyms.Down:
-            self.emit("go-next")
+            ret = self.emit("go-next")
+            if ret:
+                return True
         elif event.keyval == gtk.keysyms.Up:
-            self.emit("go-previous")
-        self.emit("key-press-event", event)
+            ret = self.emit("go-previous")
+            if ret:
+                return True
+        return self.emit("key-press-event", event)
 
     def grab_focus (self):
         """

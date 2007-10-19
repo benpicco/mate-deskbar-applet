@@ -260,6 +260,8 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
             self.cview.grab_focus()
         else:
             self.entry.grab_focus()
+
+        return True
         
     def __save_window_size(self, window, event):
         """
