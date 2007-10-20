@@ -14,6 +14,7 @@ def build_window():
     app.connect("destroy", gtk.main_quit)
     
     applet = gnomeapplet.Applet()
+    applet.set_flags(applet.flags() | gnomeapplet.EXPAND_MINOR)
     applet.get_orient = lambda: gnomeapplet.ORIENT_DOWN
     applet_factory(applet, None)
     applet.reparent(app)
@@ -23,9 +24,9 @@ def build_window():
     return app
 
 def applet_factory(applet, iid):
-    print 'Starting Deskbar instance:', applet, iid
-    dapplet = DeskbarApplet(applet)
-    applet.add(dapplet)
+    logging.info ('Starting Deskbar instance: %s %s', applet, iid)
+    tray = DeskbarTray(applet)
+    applet.add(tray)
     
     applet.show_all()
     return True
@@ -47,7 +48,7 @@ check_deskbar_path()
 import deskbar
 import deskbar.defs
 import deskbar.gtkexcepthook
-from deskbar.ui.DeskbarApplet import DeskbarApplet
+from deskbar.ui.DeskbarTray import DeskbarTray
 
 # Setup i18n
 gettext.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))

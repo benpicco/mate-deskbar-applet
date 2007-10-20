@@ -1,3 +1,13 @@
+2007-10-16	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+	* deskbar/ui/deskbar-applet.py:
+	* deskbar/ui/DeskbarApplet.py:
+	* deskbar/ui/DeskbarTray.py:
+	* deskbar/ui/Makefile.am:
+	Fixed bug #488066: deskbar applet should use complete vertical panel space
+	Removed ToggleEventBox and replaced DeskbarApplet with DeskbarTray, a gtk.EventBox
+	sub-class.
+
 2007-10-19  Owen Taylor  <otaylor@redhat.com>
 
 	* deskbar/ui/cuemiac/CuemiacEntry.py:

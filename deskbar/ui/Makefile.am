@@ -6,4 +6,4 @@ deskbar_ui_PYTHON = \
 	About.py \
 	CuemiacWindowController.py \
 	CuemiacWindowView.py \
-	DeskbarApplet.py
+	DeskbarTray.py
