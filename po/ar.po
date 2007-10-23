@@ -8,22 +8,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-26 14:14-0700\n"
-"PO-Revision-Date: 2007-08-29 20:00+0000\n"
-"Last-Translator: Youssef Chahibi <chahibi@gmail.com>\n"
+"POT-Creation-Date: 2007-10-23 21:42+0100\n"
+"PO-Revision-Date: 2007-10-21 20:36+0100\n"
+"Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.2\n"
-"Plural-Forms: Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : 3\n"
-"\n"
+"Plural-Forms: Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && "
+"n<=10 ? 2 : 3\n"
 
 #: ../data/deskbar-applet.schemas.in.h:1
 msgid ""
 "Choose whether triggering the keyboard shortcut also pastes the current "
 "selection in the search box."
-msgstr "اختر ما إذا كنت تريد أن تجعل استعمال مختصر لوحة المفاتيح يُلصق المنتقى الحالي في صندوق البحث."
+msgstr ""
+"اختر ما إذا كنت تريد أن تجعل استعمال مختصر لوحة المفاتيح يُلصق المنتقى الحالي "
+"في صندوق البحث."
 
 #: ../data/deskbar-applet.schemas.in.h:2
 msgid "Clear entry after match has been selected"
@@ -38,7 +40,8 @@ msgid "Enabled handlers"
 msgstr "المقابض المفعَّلة"
 
 #: ../data/deskbar-applet.schemas.in.h:5
-msgid "If enabled it will clear the entry after a search result has been selected"
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
 msgstr "إذا فعِّل، يمحي المدخل بعد انتقاء أحد نتائج البحث"
 
 #: ../data/deskbar-applet.schemas.in.h:6
@@ -62,67 +65,91 @@ msgid "The default height of the window in pixels"
 msgstr "الارتفاع الافتراضي للنافذة بالبكسلات"
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "المكان الافتراضي للنافذة  (س)"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "المكان الافتراضي للنافذة (ع)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default width of the window in pixels"
 msgstr "العرض الافتراضي للنافذة بالبكسلات"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr "متتالية المفاتيح التي ستركز على بريمج شريط المكتب، للكتابة بسرعة"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
 "actions, web, websearch, news and notes."
 msgstr ""
-"لائحة التصنيفات التي سترتب عند العرض. التصنيفات الصالحة هي: "
-"افتراضي، وتاريخ، ووثائق، وبريد إلكتروني، ومحادثات، وملفات، وأشخاص، وإجراءات، وبحث في الوب، وأخبار، وملاحظات."
+"لائحة التصنيفات التي سترتب عند العرض. التصنيفات الصالحة هي: افتراضي، وتاريخ، "
+"ووثائق، وبريد إلكتروني، ومحادثات، وملفات، وأشخاص، وإجراءات، وبحث في الوب، "
+"وأخبار، وملاحظات."
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
 msgstr ""
-"لائحة أسماء الأصناف المصدَّرة للمدبّرات المفعّلة مرتبة حسب الأولوية. "
-"أقصى اليمين هو الذي له أعلى أولوية."
+"لائحة أسماء الأصناف المصدَّرة للمدبّرات المفعّلة مرتبة حسب الأولوية. أقصى اليمين "
+"هو الذي له أعلى أولوية."
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid "The maximum number of items stored in history"
 msgstr "العدد الأقصى للعناصر المخزونة في التاريخ."
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
-msgstr "العدد الأدنى من المحارف التي يجب كتابتها قبل أن يبدأ البريمج في إظهار المطابقات"
-
-#: ../data/deskbar-applet.schemas.in.h:17
-msgid ""
-"The time in milliseconds between a keystroke in the search entry and the "
-"actual search being performed"
-msgstr "المدة بأجزاء الألف من الثانية بين ضربات المفاتيح في مدخل البحث والبحث الجاري أيضا."
-
-#: ../data/deskbar-applet.schemas.in.h:18
-msgid "Whether to close the window after an actions has been activated"
-msgstr "ما إذا كان يجب إغلاق النافذة بعد تنشيط الإجراءات"
+msgstr ""
+"العدد الأدنى من المحارف التي يجب كتابتها قبل أن يبدأ البريمج في إظهار "
+"المطابقات"
 
 #: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
-"Whether to show only the preferred search engine, rather than all available "
-"engines. This only affects Mozilla-based web browsers such as Firefox."
-msgstr "ما إذا كان يجب إظهار محرّك البحث المفضّل، بدل كل محرّكات البحث المتوفّرة. يتعلق هذا الأمر بالمتصفحات المبنية على موزيلا مثل فايرفوكس."
+"The time in milliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr ""
+"المدة بأجزاء الألف من الثانية بين ضربات المفاتيح في مدخل البحث والبحث الجاري "
+"أيضا."
 
 #: ../data/deskbar-applet.schemas.in.h:20
+#, fuzzy
+msgid "Whether to close the window after an action has been activated"
+msgstr "ما إذا كان يجب إغلاق النافذة بعد تنشيط الإجراءات"
+
+#: ../data/deskbar-applet.schemas.in.h:21
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr ""
+"ما إذا كان يجب إظهار محرّك البحث المفضّل، بدل كل محرّكات البحث المتوفّرة. يتعلق "
+"هذا الأمر بالمتصفحات المبنية على موزيلا مثل فايرفوكس."
+
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "ما إذا كان استعمال بريمج شريط المكتب يُلصق المنتقى الحالي"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Window height"
 msgstr "ارتفاع النافذة"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window width"
 msgstr "عرض النافذة"
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "X-coordinate of window"
+msgstr "فاصلة النافذة (س)"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "Y-coordinate of window"
+msgstr "ترتيب النافذة (ع)"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -210,16 +237,6 @@ msgstr "_حدِّث"
 
 #: ../data/smart-bookmarks.glade.h:1
 msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
-msgstr ""
-"<i><small><b> ملاحظة:</b>إذا كان الإختصار عبارة عن حرف واحد (مثل <b>ح</b>) "
-"يمكنك كذلك أن تكتب \"<b>شيئا ما</b>\" وأن تضغط  <b>Alt-ح</b> في شريط المكتب."
-"</small></i>"
-
-#: ../data/smart-bookmarks.glade.h:2
-msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
@@ -227,7 +244,7 @@ msgstr ""
 "<i><small><b> ملاحظة:</b>من أجل استعمال إختصار (مثلا <b>wp</b>) للبحث عن "
 "<b>شيء ما</b>، اكتب \" <b>wp شيئ ما</b>\" في شريط المكتب</small></i>."
 
-#: ../data/smart-bookmarks.glade.h:3
+#: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "إختصارات للبحوث المؤشرة"
 
@@ -247,7 +264,7 @@ msgstr "اظهر جميع محركات البحث المتوفرة"
 msgid "Show only the primary search engine"
 msgstr "اظهر محرك البحث الأولي فقط"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:177
 #, python-format
 msgid "Open History Item %s"
 msgstr "افتح عنصر التاريخ %s"
@@ -258,20 +275,20 @@ msgid "Open Bookmark %s"
 msgstr "افتح علامة الموقع %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:66
+#: ../deskbar/core/BrowserMatch.py:69
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "ابحث في <b>%(name)s</b> عن <i>%(text)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:92 ../deskbar/handlers/yahoo.py:30
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:31
 msgid "URL"
 msgstr "المسار"
 
-#: ../deskbar/core/BrowserMatch.py:227
+#: ../deskbar/core/BrowserMatch.py:230
 msgid "Shortcut"
 msgstr "إختصار"
 
-#: ../deskbar/core/BrowserMatch.py:235
+#: ../deskbar/core/BrowserMatch.py:238
 msgid "Bookmark Name"
 msgstr "اسم علامة الموقع"
 
@@ -279,7 +296,7 @@ msgstr "اسم علامة الموقع"
 msgid "Uncategorized"
 msgstr "غير مصنف"
 
-#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:23
+#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
 msgid "History"
 msgstr "تاريخ"
 
@@ -339,56 +356,57 @@ msgstr "تعذّر تنفيذ البرنامج:"
 msgid "Cannot show URL:"
 msgstr "تعذّر عرض المسار:"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "Edit contact %s"
 msgstr "تحرير المعارف %s"
 
-#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/beagle-live.py:110
 #, python-format
 msgid "From %s"
 msgstr "مِن %s"
 
-#: ../deskbar/handlers/beagle-live.py:124
+#: ../deskbar/handlers/beagle-live.py:125
 #, python-format
 msgid "News from %s"
 msgstr "أخبار من %s"
 
-#: ../deskbar/handlers/beagle-live.py:138
+#: ../deskbar/handlers/beagle-live.py:139
 #, python-format
 msgid "Note: %s"
 msgstr "ملاحظة: %s"
 
-#: ../deskbar/handlers/beagle-live.py:151
+#: ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "With %s"
 msgstr "مع %s"
 
-#: ../deskbar/handlers/beagle-live.py:165
+#: ../deskbar/handlers/beagle-live.py:166
 #, python-format
 msgid "Calendar: %s"
 msgstr "تقويم: %s"
 
-#: ../deskbar/handlers/beagle-live.py:251
+#: ../deskbar/handlers/beagle-live.py:272
 msgid "Beagle Live"
 msgstr "بيجل لايف"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:273
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "ابحث في كل وثائقك (باستعمال بيجل)، وأنت تكتب"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:330
-#: ../deskbar/handlers/beagle-live.py:352
+#: ../deskbar/handlers/beagle-live.py:382
+#: ../deskbar/handlers/beagle-live.py:404
 msgid "?"
 msgstr "؟"
 
-#: ../deskbar/handlers/beagle-live.py:415
-msgid "Could not load beagle, libbeagle has been compiled without python bindings."
+#: ../deskbar/handlers/beagle-live.py:442
+msgid ""
+"Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "تعذر تحميل بيجل، صُرِّفت المكتبة libbeagle دون ارتباطات بيثون."
 
-#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:451
 msgid "Beagled could not be found in your $PATH."
 msgstr "تعذر العثور على الرقيب beagled في مسارك $PATH."
 
@@ -409,31 +427,31 @@ msgstr "ابحث في كل وثائقك (باستعمال بيجل)"
 msgid "Beagle does not seem to be installed."
 msgstr "لا يبدو أن بيجل مثبَّت."
 
-#: ../deskbar/handlers/desklicious.py:44
+#: ../deskbar/handlers/desklicious.py:45
 msgid "del.icio.us Bookmarks"
 msgstr "علامات موقع del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:45
+#: ../deskbar/handlers/desklicious.py:46
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "ابحث في مؤشرات del.icio.us حسب اسم التصنيف"
 
-#: ../deskbar/handlers/desklicious.py:77
+#: ../deskbar/handlers/desklicious.py:78
 msgid "del.icio.us Account"
 msgstr "حساب del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:84
+#: ../deskbar/handlers/desklicious.py:85
 msgid "Enter your del.icio.us username below"
 msgstr "أدخل اسم مستخدمك ل del.icio.us بأسفل"
 
-#: ../deskbar/handlers/desklicious.py:90
+#: ../deskbar/handlers/desklicious.py:91
 msgid "Username: "
 msgstr "اسم المستخدم: "
 
-#: ../deskbar/handlers/desklicious.py:106
+#: ../deskbar/handlers/desklicious.py:107
 msgid "You need to configure your del.icio.us account."
 msgstr "يجب عليك إعداد حسابك ل del.icio.us."
 
-#: ../deskbar/handlers/desklicious.py:111
+#: ../deskbar/handlers/desklicious.py:112
 msgid "You can modify your del.icio.us account."
 msgstr "يمكنك تعديل حسابك ل del.icio.us."
 
@@ -441,11 +459,11 @@ msgstr "يمكنك تعديل حسابك ل del.icio.us."
 msgid "Web Bookmarks (Epiphany)"
 msgstr "علامات الوب (إبيفاني)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:121
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
 msgid "Open your web bookmarks by name"
 msgstr "&افتح علامات مواقع الوب خاصتك حسب الاسم"
 
-#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:128
+#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
 msgid "Epiphany is not your preferred browser."
 msgstr "أبيفاني ليس متصفحك المفضل."
 
@@ -453,31 +471,31 @@ msgstr "أبيفاني ليس متصفحك المفضل."
 msgid "Web Searches (Epiphany)"
 msgstr "بحوث الوب (إبيفاني)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:192
 msgid "Search the web via your browser's search settings"
 msgstr "ابحث في الوب حسب إعدادت بحث متصفحك"
 
-#: ../deskbar/handlers/epiphany.py:125
+#: ../deskbar/handlers/epiphany.py:124
 msgid "You can set shortcuts for your searches."
 msgstr "يمكنك إعداد إختصارات لبحوثك."
 
-#: ../deskbar/handlers/epiphany.py:135
+#: ../deskbar/handlers/epiphany.py:134
 msgid "Web History (Epiphany)"
 msgstr "تاريخ الوب  (إبيفاني)"
 
-#: ../deskbar/handlers/epiphany.py:136 ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:735
 msgid "Open your web history by name"
 msgstr "افتح تاريخ الوب لك حسب الاسم"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:21
 msgid "Mail (Address Book)"
 msgstr "بريد (دفتر العناوين)"
 
-#: ../deskbar/handlers/evolution.py:23
+#: ../deskbar/handlers/evolution.py:22
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "ارسل البريد إلى معارفك بكتابة اسمهم أو بريدهم الإلكتروني"
 
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:47
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -489,16 +507,18 @@ msgstr ""
 "التلقائي مفعلا. للقيام بذلك، اختر من من قائمة خيارات برنامج بريدك تحرير - "
 "تفضيلات ثم اتمام تلقائي."
 
-#: ../deskbar/handlers/files.py:59
-#: ../deskbar/handlers/actions/ActionsFactory.py:32
+#. FIXME:
+#. _("Location") should be _("Location of %s") % name
+#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/actions/ActionsFactory.py:33
 msgid "Location"
 msgstr "الموقع"
 
-#: ../deskbar/handlers/files.py:67
+#: ../deskbar/handlers/files.py:69
 msgid "Files, Folders and Places"
 msgstr "ملفات ومجلدات وأماكن"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:70
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "اعرض ملفاتك ومجلداتك وعلامات مواقعك وأماكن الشبكة حسب الاسم"
 
@@ -571,7 +591,7 @@ msgstr "إسبات"
 msgid "Shutdown"
 msgstr "إطفاء"
 
-#: ../deskbar/handlers/history.py:24
+#: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
 msgstr "تعرّف على البحوث المستعملة سابقا"
 
@@ -592,75 +612,75 @@ msgstr "بدّل إلى نافذة موجودة مسبقة باستخدام ال
 msgid "Windows"
 msgstr "النوافذ"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/mozilla.py:124
 msgid "Web Bookmarks (Mozilla)"
 msgstr "علامات الوب (موزيلا"
 
-#: ../deskbar/handlers/mozilla.py:183 ../deskbar/handlers/mozilla.py:254
+#: ../deskbar/handlers/mozilla.py:184 ../deskbar/handlers/mozilla.py:256
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "موزيلا/فايرفوكس ليس متصفحك المفضل."
 
-#: ../deskbar/handlers/mozilla.py:190
+#: ../deskbar/handlers/mozilla.py:191
 msgid "Web Searches (Mozilla)"
 msgstr "بحوث الوب (موزيلا)"
 
-#: ../deskbar/handlers/mozilla.py:248
+#: ../deskbar/handlers/mozilla.py:250
 msgid "You can customize which search engines are offered."
 msgstr "يمكنك تخصيص محركات البحث المتوفرة."
 
-#: ../deskbar/handlers/mozilla.py:733
+#: ../deskbar/handlers/mozilla.py:734
 msgid "Web History (Mozilla)"
 msgstr "تاريخ الوب (موزيلا)"
 
-#: ../deskbar/handlers/programs.py:74
+#: ../deskbar/handlers/programs.py:77
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "ابحث عن %s في القاموس"
 
-#: ../deskbar/handlers/programs.py:81
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Search for file names like %s"
 msgstr "ابحث عن أسماء ملفات مثل %s"
 
-#: ../deskbar/handlers/programs.py:87
+#: ../deskbar/handlers/programs.py:90
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "ابحث في Devhelp عن %s"
 
-#: ../deskbar/handlers/programs.py:113
+#: ../deskbar/handlers/programs.py:116
 msgid "Dictionary"
 msgstr "قاموس"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:117
 msgid "Look up word definitions in the dictionary"
 msgstr "ابحث عن تعاريف الكلمات في القاموس"
 
-#: ../deskbar/handlers/programs.py:130
+#: ../deskbar/handlers/programs.py:133
 msgid "Files and Folders Search"
 msgstr "بحث عن الملفات والمجلدات"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:134
 msgid "Find files and folders by searching for a name pattern"
 msgstr "اعثر على الملفات والمجلدات بالبحث عن نمط للأسماء"
 
-#: ../deskbar/handlers/programs.py:147
+#: ../deskbar/handlers/programs.py:150
 msgid "Developer Documentation"
 msgstr "وثائق المطور"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:151
 msgid "Search Devhelp for a function name"
 msgstr "ابحث في Devhelp عن اسم دالة"
 
-#: ../deskbar/handlers/programs.py:196
+#: ../deskbar/handlers/programs.py:202
 #, python-format
 msgid "Execute %s"
 msgstr "نفّذ %s"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:224
 msgid "Programs"
 msgstr "برامج"
 
-#: ../deskbar/handlers/programs.py:219
+#: ../deskbar/handlers/programs.py:225
 msgid "Launch a program by its name and/or description"
 msgstr "اطلق برنامج حسب اسمه أو/و وصفه"
 
@@ -680,15 +700,15 @@ msgstr "يحتاج هذا المُتناوِل إصدارة أحدث من gtk (2
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "افتح صفحات وب وأرسل بريد إلكتروني بكتابة العنوان كاملا"
 
-#: ../deskbar/handlers/yahoo.py:38
+#: ../deskbar/handlers/yahoo.py:39
 msgid "Yahoo! Search"
 msgstr "بحث ياهو!"
 
-#: ../deskbar/handlers/yahoo.py:39
+#: ../deskbar/handlers/yahoo.py:40
 msgid "Search Yahoo! as you type"
 msgstr "ابحث في ياهو! وأنت تكتب"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:54
+#: ../deskbar/handlers/actions/ActionsFactory.py:60
 #, python-format
 msgid "URL of %s"
 msgstr "مسار %s"
@@ -767,12 +787,11 @@ msgstr ""
 "يوسف الشهيبي\t<chahibi@gmail.com>\n"
 "خالد حسني\t<khaledhosny@eglug.org>"
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:18
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
 msgstr "<b>ابحث:</b>"
 
 #: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
 msgid "name"
 msgstr "الاسم"
 
@@ -785,15 +804,21 @@ msgstr "افتراضي"
 msgid "_History"
 msgstr "_تاريخ"
 
-#: ../deskbar/ui/DeskbarApplet.py:86
+#: ../deskbar/ui/CuemiacWindowView.py:133
+msgid "Back to Matches"
+msgstr "الرجوع نحو التطابق"
+
+#: ../deskbar/ui/DeskbarTray.py:42
 msgid "Show search entry"
 msgstr "اظهر مُدْخل البحث"
 
-#: ../deskbar/ui/DeskbarApplet.py:114
+#: ../deskbar/ui/DeskbarTray.py:87
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
-msgstr "وجدت بعض الوحدات، ربما قديمة، تستعمل واجهة برمجية قديمة لبريمج شريط المكتب.  أزل هذه الملفات ليختفي هذا الإنذار.\n"
+msgstr ""
+"وجدت بعض الوحدات، ربما قديمة، تستعمل واجهة برمجية قديمة لبريمج شريط المكتب.  "
+"أزل هذه الملفات ليختفي هذا الإنذار.\n"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -845,3 +870,11 @@ msgstr "النسخة:"
 msgid "Update Available"
 msgstr "يوجد تحديث"
 
+#~ msgid ""
+#~ "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</"
+#~ "b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</"
+#~ "b> in the deskbar.</small></i>"
+#~ msgstr ""
+#~ "<i><small><b> ملاحظة:</b>إذا كان الإختصار عبارة عن حرف واحد (مثل <b>ح</"
+#~ "b>) يمكنك كذلك أن تكتب \"<b>شيئا ما</b>\" وأن تضغط  <b>Alt-ح</b> في شريط "
+#~ "المكتب.</small></i>"
