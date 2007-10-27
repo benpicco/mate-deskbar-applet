@@ -19,7 +19,6 @@ class Keybinder(gobject.GObject):
     def bind(self, keybinding):
         if self.bound:
             self.unbind()
-            
 
         logging.info('Binding Global shortcut %s to focus the deskbar' % keybinding)
         try:
@@ -32,6 +31,7 @@ class Keybinder(gobject.GObject):
         return self.bound
                     
     def unbind(self):
+        logging.info('Unbinding Global shortcut %s to focus the deskbar' % self.prevbinding)
         try:
             deskbar.core.keybinder.tomboy_keybinder_unbind(self.prevbinding)
             self.bound = False
