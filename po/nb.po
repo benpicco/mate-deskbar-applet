@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-05 13:39+0200\n"
-"PO-Revision-Date: 2007-09-05 13:46+0200\n"
+"POT-Creation-Date: 2007-10-27 11:24+0200\n"
+"PO-Revision-Date: 2007-10-27 11:26+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -60,63 +60,88 @@ msgid "The default height of the window in pixels"
 msgstr "Forvalgt høyde på vinduet i piksler"
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "Forvalgt posisjon på skjermen for vinduet (x koordinat)"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "Forvalgt posisjon på skjermen for vinduet (y-koordinat)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default width of the window in pixels"
 msgstr "Forvalgt bredde på vinduet i piksler"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
-msgstr "Tastesekvens som gir programmet fokus for å kunne bruke det med det samme."
+msgstr ""
+"Tastesekvens som gir programmet fokus for å kunne bruke det med det samme."
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
 "actions, web, websearch, news and notes."
-msgstr "Liste med kategorier som skal slås sammen når de vises. Gyldige kategorier er: forvalg, historikk, dokumenter, e-post, konversasjoner, filer, folk, steder, handlinger, web, websøk, nyheter og notater."
+msgstr ""
+"Liste med kategorier som skal slås sammen når de vises. Gyldige kategorier "
+"er: forvalg, historikk, dokumenter, e-post, konversasjoner, filer, folk, "
+"steder, handlinger, web, websøk, nyheter og notater."
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
-msgstr "Liste med eksporterte klassenavn for aktiverte håndterere sortert etter prioritet. Oppføringen til venstre har høyest prioritet"
+msgstr ""
+"Liste med eksporterte klassenavn for aktiverte håndterere sortert etter "
+"prioritet. Oppføringen til venstre har høyest prioritet"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid "The maximum number of items stored in history"
 msgstr "Maksimalt antall oppføringer som lagres i historikken"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
 msgstr "Minste antall tegn som må skrives før programmet begynner å vise treff"
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
-msgstr "Tid i millisekunder etter et tastetrykk i søkeoppføringen før søket startes"
+msgstr ""
+"Tid i millisekunder etter et tastetrykk i søkeoppføringen før søket startes"
 
-#: ../data/deskbar-applet.schemas.in.h:18
-msgid "Whether to close the window after an actions has been activated"
-msgstr "Om vinduet skal lukkes etter handlingene er utført"
+#: ../data/deskbar-applet.schemas.in.h:20
+msgid "Whether to close the window after an action has been activated"
+msgstr "Om vinduet skal lukkes etter at handlingene er utført"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
-msgstr "Om kun foretrukket søkemotor skal vises i stedet for alle tilgjengelige motorer. Dette påvirker kun Mozilla-baserte nettlesere slik som Firefox."
+msgstr ""
+"Om kun foretrukket søkemotor skal vises i stedet for alle tilgjengelige "
+"motorer. Dette påvirker kun Mozilla-baserte nettlesere slik som Firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "Velg om tastatursnarveien skal lime inn aktivt utvalg i søkeboksen."
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Window height"
 msgstr "Høyde på vindu"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window width"
 msgstr "Bredde på vindu"
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "X-coordinate of window"
+msgstr "X koordinat for vinduet"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "Y-coordinate of window"
+msgstr "Y koordinat for vinduet"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -232,7 +257,7 @@ msgstr "Bruk alle tilgjengelige søkemotorer"
 msgid "Show only the primary search engine"
 msgstr "Bare vis primær søkemotor"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:177
 #, python-format
 msgid "Open History Item %s"
 msgstr "Åpne historikkoppføring %s"
@@ -248,7 +273,7 @@ msgstr "Åpne bokmerke %s"
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Søk i <b>%(name)s</b> etter <i>%(text)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:31
 msgid "URL"
 msgstr "URL"
 
@@ -324,57 +349,57 @@ msgstr "Kan ikke kjøre program:"
 msgid "Cannot show URL:"
 msgstr "Kan ikke vise URL:"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#: ../deskbar/handlers/beagle-live.py:99
 #, python-format
 msgid "Edit contact %s"
 msgstr "Rediger kontakt %s"
 
-#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/beagle-live.py:110
 #, python-format
 msgid "From %s"
 msgstr "Fra %s"
 
-#: ../deskbar/handlers/beagle-live.py:124
+#: ../deskbar/handlers/beagle-live.py:125
 #, python-format
 msgid "News from %s"
 msgstr "Nyheter fra %s"
 
-#: ../deskbar/handlers/beagle-live.py:138
+#: ../deskbar/handlers/beagle-live.py:139
 #, python-format
 msgid "Note: %s"
 msgstr "Notat: %s"
 
-#: ../deskbar/handlers/beagle-live.py:151
+#: ../deskbar/handlers/beagle-live.py:152
 #, python-format
 msgid "With %s"
 msgstr "Med %s"
 
-#: ../deskbar/handlers/beagle-live.py:165
+#: ../deskbar/handlers/beagle-live.py:166
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalender: %s"
 
-#: ../deskbar/handlers/beagle-live.py:251
+#: ../deskbar/handlers/beagle-live.py:272
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:273
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Søk gjennom alle dine dokumenter med Beagle mens du skriver"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:330
-#: ../deskbar/handlers/beagle-live.py:352
+#: ../deskbar/handlers/beagle-live.py:382
+#: ../deskbar/handlers/beagle-live.py:404
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:415
+#: ../deskbar/handlers/beagle-live.py:442
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Kunne ikke laste beagle, libbeagle er kompilert uten python-bindinger."
 
-#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:451
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagled ble ikke funnet i $PATH."
 
@@ -395,31 +420,31 @@ msgstr "Søk i alle dine dokumenter (med Beagle)"
 msgid "Beagle does not seem to be installed."
 msgstr "Beagle ser ikke ut til å være installert."
 
-#: ../deskbar/handlers/desklicious.py:44
+#: ../deskbar/handlers/desklicious.py:45
 msgid "del.icio.us Bookmarks"
 msgstr "del.icio.us bokmerker"
 
-#: ../deskbar/handlers/desklicious.py:45
+#: ../deskbar/handlers/desklicious.py:46
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "Søk i dine de.icio.us-bokmerker etter navn på etikett"
 
-#: ../deskbar/handlers/desklicious.py:77
+#: ../deskbar/handlers/desklicious.py:78
 msgid "del.icio.us Account"
 msgstr "del.icio.us konto"
 
-#: ../deskbar/handlers/desklicious.py:84
+#: ../deskbar/handlers/desklicious.py:85
 msgid "Enter your del.icio.us username below"
 msgstr "Oppgi ditt brukernavn for del.icio.us under"
 
-#: ../deskbar/handlers/desklicious.py:90
+#: ../deskbar/handlers/desklicious.py:91
 msgid "Username: "
 msgstr "Brukernavn: "
 
-#: ../deskbar/handlers/desklicious.py:106
+#: ../deskbar/handlers/desklicious.py:107
 msgid "You need to configure your del.icio.us account."
 msgstr "Du må konfigurere din del.icio.us konto."
 
-#: ../deskbar/handlers/desklicious.py:111
+#: ../deskbar/handlers/desklicious.py:112
 msgid "You can modify your del.icio.us account."
 msgstr "Du kan endre din del.icio.us konto."
 
@@ -427,7 +452,7 @@ msgstr "Du kan endre din del.icio.us konto."
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Bokmerker på nettet (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:123
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
 msgid "Open your web bookmarks by name"
 msgstr "Åpne bokmerker i nettleseren etter navn"
 
@@ -439,7 +464,7 @@ msgstr "Epiphany er ikke din foretrukne nettleser."
 msgid "Web Searches (Epiphany)"
 msgstr "Søk på nettet (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:193
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:192
 msgid "Search the web via your browser's search settings"
 msgstr "Søk på nettet med nettleserens innstillinger for søk"
 
@@ -480,7 +505,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:61
-#: ../deskbar/handlers/actions/ActionsFactory.py:32
+#: ../deskbar/handlers/actions/ActionsFactory.py:33
 msgid "Location"
 msgstr "Lokasjon"
 
@@ -583,15 +608,15 @@ msgstr "Bytt til et eksisterende vindu etter navn."
 msgid "Windows"
 msgstr "Vinduer"
 
-#: ../deskbar/handlers/mozilla.py:122
+#: ../deskbar/handlers/mozilla.py:124
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Bokmerker på nettet (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:185 ../deskbar/handlers/mozilla.py:256
+#: ../deskbar/handlers/mozilla.py:184 ../deskbar/handlers/mozilla.py:256
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox er ikke din foretrukne nettleser."
 
-#: ../deskbar/handlers/mozilla.py:192
+#: ../deskbar/handlers/mozilla.py:191
 msgid "Web Searches (Mozilla)"
 msgstr "Søk på nettet (Mozilla)"
 
@@ -603,55 +628,55 @@ msgstr "Du kan stille inn hvilke søkemotorer som skal tilbys."
 msgid "Web History (Mozilla)"
 msgstr "Historikk for nettleser (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:76
+#: ../deskbar/handlers/programs.py:77
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Slå opp %s i ordbok"
 
-#: ../deskbar/handlers/programs.py:83
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Søk etter filnavn som %s"
 
-#: ../deskbar/handlers/programs.py:89
+#: ../deskbar/handlers/programs.py:90
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Søk etter %s i Devhelp"
 
-#: ../deskbar/handlers/programs.py:115
+#: ../deskbar/handlers/programs.py:116
 msgid "Dictionary"
 msgstr "Ordbok"
 
-#: ../deskbar/handlers/programs.py:116
+#: ../deskbar/handlers/programs.py:117
 msgid "Look up word definitions in the dictionary"
 msgstr "Slå opp definisjoner av ord i ordboken"
 
-#: ../deskbar/handlers/programs.py:132
+#: ../deskbar/handlers/programs.py:133
 msgid "Files and Folders Search"
 msgstr "Søk etter filer og mapper"
 
-#: ../deskbar/handlers/programs.py:133
+#: ../deskbar/handlers/programs.py:134
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Finn filer og mapper ved å søke etter et navnemønster"
 
-#: ../deskbar/handlers/programs.py:149
+#: ../deskbar/handlers/programs.py:150
 msgid "Developer Documentation"
 msgstr "Dokumentasjon for utviklere"
 
-#: ../deskbar/handlers/programs.py:150
+#: ../deskbar/handlers/programs.py:151
 msgid "Search Devhelp for a function name"
 msgstr "Søk etter funksjonsnavn i Devhelp"
 
-#: ../deskbar/handlers/programs.py:198
+#: ../deskbar/handlers/programs.py:202
 #, python-format
 msgid "Execute %s"
 msgstr "Kjør %s"
 
-#: ../deskbar/handlers/programs.py:220
+#: ../deskbar/handlers/programs.py:224
 msgid "Programs"
 msgstr "Programmer"
 
-#: ../deskbar/handlers/programs.py:221
+#: ../deskbar/handlers/programs.py:225
 msgid "Launch a program by its name and/or description"
 msgstr "Start et program etter navn eller beskrivelse"
 
@@ -671,15 +696,15 @@ msgstr "Denne håndtereren krever en nyere versjon av Gtk+ (2.9.0 eller nyere)."
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Åpne nettsider og send e-post ved å skrive inn en fullstendig adresse"
 
-#: ../deskbar/handlers/yahoo.py:38
+#: ../deskbar/handlers/yahoo.py:39
 msgid "Yahoo! Search"
 msgstr "Yahoo-søk"
 
-#: ../deskbar/handlers/yahoo.py:39
+#: ../deskbar/handlers/yahoo.py:40
 msgid "Search Yahoo! as you type"
 msgstr "Søk i Yahoo mens du skriver"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:54
+#: ../deskbar/handlers/actions/ActionsFactory.py:60
 #, python-format
 msgid "URL of %s"
 msgstr "URL for %s"
@@ -754,7 +779,7 @@ msgstr "Nettsted for Deskbar"
 msgid "translator-credits"
 msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:18
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
 msgstr "<b>Søk:</b>"
 
@@ -767,23 +792,25 @@ msgid "default"
 msgstr "forvalgt"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:76
+#: ../deskbar/ui/CuemiacWindowView.py:75
 msgid "_History"
 msgstr "_Historikk"
 
-#: ../deskbar/ui/CuemiacWindowView.py:134
+#: ../deskbar/ui/CuemiacWindowView.py:133
 msgid "Back to Matches"
 msgstr "Tilbake til treff"
 
-#: ../deskbar/ui/DeskbarApplet.py:86
+#: ../deskbar/ui/DeskbarTray.py:42
 msgid "Show search entry"
 msgstr "Vis søkeoppføring"
 
-#: ../deskbar/ui/DeskbarApplet.py:114
+#: ../deskbar/ui/DeskbarTray.py:87
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
-msgstr "Noen gamle moduler som bruker et gammelt API ble funnet. Fjern disse filene for å få bort denne advarselen.\n"
+msgstr ""
+"Noen gamle moduler som bruker et gammelt API ble funnet. Fjern disse filene "
+"for å få bort denne advarselen.\n"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -796,7 +823,8 @@ msgid ""
 "of your keyboard.\n"
 "Please try with a key such as Control, Alt or Shift at the same time.\n"
 msgstr ""
-"Snarveien «%s» kan ikke brukes fordi den vil forhindre tastaturet i å virke.\n"
+"Snarveien «%s» kan ikke brukes fordi den vil forhindre tastaturet i å "
+"virke.\n"
 "\n"
 "Vennligst prøv med f.eks. Control, Alt eller Shift i tillegg.\n"
 
