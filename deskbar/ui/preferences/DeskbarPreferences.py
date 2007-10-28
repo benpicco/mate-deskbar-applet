@@ -235,23 +235,29 @@ class DeskbarPreferences:
     def set_buttons(self, selection):
         model, iter = selection.get_selected()
         if iter == None:
+            self.__set_top_buttons_sensitive(False)
+            self.__set_buttom_buttons_sensitive(False)
             return
         sensitive = model.is_module_enabled(iter)
         if sensitive:
             path = model.get_path(iter)
             path_first = model.get_path(model.get_iter_first())
             up = not (path == path_first)
-            self.button_top.set_sensitive(up)
-            self.button_up.set_sensitive(up)
+            self.__set_top_buttons_sensitive(up)
             iter_next = model.iter_next(iter)
             down = not (iter_next == None or not model.is_module_enabled(iter_next))
-            self.button_down.set_sensitive(down)
-            self.button_bottom.set_sensitive(down)
+            self.__set_buttom_buttons_sensitive(down)
         else:
-            self.button_top.set_sensitive(sensitive)
-            self.button_up.set_sensitive(sensitive)
-            self.button_down.set_sensitive(sensitive)
-            self.button_bottom.set_sensitive(sensitive)
+            self.__set_top_buttons_sensitive(sensitive)
+            self.__set_buttom_buttons_sensitive(sensitive)
+    
+    def __set_top_buttons_sensitive(self, sensitive):
+        self.button_top.set_sensitive(sensitive)
+        self.button_up.set_sensitive(sensitive)
+        
+    def __set_buttom_buttons_sensitive(self, sensitive):
+        self.button_down.set_sensitive(sensitive)
+        self.button_bottom.set_sensitive(sensitive)
     
     def on_disabled_module_changed(self, selection):
         module = self.disabledmoduleview.get_selected_module()
