@@ -11,7 +11,7 @@ import deskbar.interfaces.Match
 from deskbar.defs import VERSION
 from deskbar.core.Watcher import FileWatcher
 from deskbar.handlers.actions.OpenWithNautilusAction import OpenWithNautilusAction
-from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
+from deskbar.handlers.actions.OpenFileAction import OpenFileAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.handlers.actions.ActionsFactory import get_actions_for_uri
 
@@ -25,7 +25,7 @@ class FileMatch(deskbar.interfaces.Match):
     def __init__(self, name=None, absname=None, **args):
         deskbar.interfaces.Match.__init__(self, name=name, icon=absname, category="files", **args)
         self.absname = absname
-        self.add_action( ShowUrlAction(name, absname) )
+        self.add_action( OpenFileAction(name, absname ) )
         self.add_all_actions( get_actions_for_uri(absname) )
     
     def get_hash(self, text=None):
