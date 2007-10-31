@@ -12,6 +12,7 @@ from deskbar.defs import VERSION
 from deskbar.core.Watcher import FileWatcher
 from deskbar.handlers.actions.OpenWithNautilusAction import OpenWithNautilusAction
 from deskbar.handlers.actions.OpenFileAction import OpenFileAction
+from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.handlers.actions.ActionsFactory import get_actions_for_uri
 
