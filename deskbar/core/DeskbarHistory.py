@@ -54,7 +54,7 @@ class DeskbarHistory (gtk.ListStore) :
         self.set_sort_column_id (self.COL_TIME, gtk.SORT_DESCENDING)
         self.set_sort_func (self.COL_TIME, self.__sort_actions)
         
-        self._index = -1
+        self._index = 0 # We don't want to show ChooseFromHistoryAction
         self.set_max_history_items(max_history_items)
         
         self.append(0, "", ChooseFromHistoryAction())
@@ -207,8 +207,8 @@ class DeskbarHistory (gtk.ListStore) :
         """
         Reset index
         """
-        if self._index != -1:
-            self._index = -1
+        if self._index != 0:
+            self._index = 0
             return self.get_current()
     
     def last(self):
@@ -230,7 +230,7 @@ class DeskbarHistory (gtk.ListStore) :
         """
         Get action where the current index points to
         """
-        if self._index == -1:
+        if self._index == 0:
             return None
         col_id, direction = self.get_sort_column_id()
         index = self._index

@@ -126,11 +126,14 @@ class CuemiacEntry (deskbar.ui.iconentry.IconEntry):
     def set_history_item(self, item):
         if item == None:
             self.set_icon( self._default_pixbuf )
+            self.entry.set_text("")
         else:
             text, match = item
             self.entry.handler_block( self.handler_changed_id )
             self.entry.set_text(text)
             icon = match.get_icon()
+            if icon == None:
+                icon = self._default_pixbuf
             if isinstance(icon, gtk.gdk.Pixbuf) :
                 pixbuf = icon
             else:

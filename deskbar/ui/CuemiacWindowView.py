@@ -258,10 +258,9 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
             elif mode == "bottom":
                 self.cview.select_last_item()
             self.cview.grab_focus()
+            return True
         else:
-            self.entry.grab_focus()
-
-        return True
+            return False
         
     def __save_window_size(self, window, event):
         """

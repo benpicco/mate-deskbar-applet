@@ -61,10 +61,12 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         up_history_condition = self._model.get_history().get_current() != None or (self._model.get_history().get_current() == None and entry.get_text() == "")
         # For key DOWN to browse history, we have to be already in history mode. Down cannot trigger history mode in that orient.
         down_history_condition = self._model.get_history().get_current() != None
-
+        
         if event.keyval == gtk.keysyms.Up and up_history_condition:
-            # Browse back history
-            entry.set_history_item( self._model.get_history().up() )
+            # Browse back history#
+            item = self._model.get_history().up()
+            if item != None:
+                entry.set_history_item( item )
             return True
                 
         if event.keyval == gtk.keysyms.Down and down_history_condition:
