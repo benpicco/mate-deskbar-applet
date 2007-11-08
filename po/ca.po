@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-17 21:43+0200\n"
+"POT-Creation-Date: 2007-11-08 10:51+0100\n"
 "PO-Revision-Date: 2007-0-17 16:52+0100\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.net>\n"
@@ -65,16 +65,24 @@ msgid "The default height of the window in pixels"
 msgstr "L'alçada predeterminada de la finestra en píxels"
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "La posició predeterminada de la finestra en la pantalla (coordenada x)"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "La posició predeterminada de la finestra en la pantalla (coordenada y)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default width of the window in pixels"
 msgstr "L'amplada predeterminada de la finestra en píxels"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "La seqüència de tecles que donarà el focus a la miniaplicació de la barra "
 "d'escriptori, de manera que us permeti escriure ràpidament"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -86,7 +94,7 @@ msgstr ""
 "«people» (persones), «places» (llocs), «actions» (accions), «web», "
 "«websearch» (cerques a Internet) , «news» (notícies) i «notes»."
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -94,11 +102,11 @@ msgstr ""
 "La llista, ordenada per prioritat, de noms de classe exportats dels gestors "
 "habilitats. El de més a l'esquerra té més prioritat."
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid "The maximum number of items stored in history"
 msgstr "El nombre màxim d'elements emmagatzemats a l'historial"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
@@ -106,7 +114,7 @@ msgstr ""
 "El nombre mínim de caràcters que s'han d'escriure abans que la miniaplicació "
 "comenci a mostrar coincidències"
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -114,11 +122,11 @@ msgstr ""
 "El temps, en mil·lisegons, entre prémer una tecla en l'entrada de cerca i "
 "l'inici de la cerca"
 
-#: ../data/deskbar-applet.schemas.in.h:18
-msgid "Whether to close the window after an actions has been activated"
+#: ../data/deskbar-applet.schemas.in.h:20
+msgid "Whether to close the window after an action has been activated"
 msgstr "Si s'ha de tancar la finestra després que s'hagi activat una acció"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -127,19 +135,27 @@ msgstr ""
 "motors disponibles. Això només afecta els navegadors web basats en el "
 "Mozilla, com el Firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr ""
 "Si en activar la miniaplicació de la barra d'escriptori s'ha d'enganxar la "
 "selecció actual"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Window height"
 msgstr "Alçada de la finestra"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window width"
 msgstr "Amplada de la finestra"
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "X-coordinate of window"
+msgstr "Coordenada x de la finestra"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "Y-coordinate of window"
+msgstr "Coordenada Y de la finestra"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -271,7 +287,7 @@ msgstr "Obre l'adreça d'interès %s"
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Cerca <b>%(name)s</b> a <i>%(text)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:31
 msgid "URL"
 msgstr "URL"
 
@@ -387,19 +403,19 @@ msgstr "Cerqueu en tots els documents (utilitzant el Beagle) mentre escriviu"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:377
-#: ../deskbar/handlers/beagle-live.py:399
+#: ../deskbar/handlers/beagle-live.py:382
+#: ../deskbar/handlers/beagle-live.py:404
 msgid "?"
 msgstr "(desconegut)"
 
-#: ../deskbar/handlers/beagle-live.py:437
+#: ../deskbar/handlers/beagle-live.py:442
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "No s'ha pogut iniciar el beagle; la libbeagle s'ha compilat sense les "
 "vinculacions de python."
 
-#: ../deskbar/handlers/beagle-live.py:446
+#: ../deskbar/handlers/beagle-live.py:451
 msgid "Beagled could not be found in your $PATH."
 msgstr "No s'ha pogut trobar el Beagled en el $PATH."
 
@@ -420,32 +436,32 @@ msgstr "Cerqueu en tots els vostres documents (utilitzant el Beagle)"
 msgid "Beagle does not seem to be installed."
 msgstr "Sembla que el Beagle no estigui instal·lat."
 
-#: ../deskbar/handlers/desklicious.py:44
+#: ../deskbar/handlers/desklicious.py:45
 msgid "del.icio.us Bookmarks"
 msgstr "Adreces d'interès de deli.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:45
+#: ../deskbar/handlers/desklicious.py:46
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr ""
 "Cerqueu en les vostres adreces d'interès de deli.icio.us pel nom d'etiqueta"
 
-#: ../deskbar/handlers/desklicious.py:77
+#: ../deskbar/handlers/desklicious.py:78
 msgid "del.icio.us Account"
 msgstr "Compte a deli.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:84
+#: ../deskbar/handlers/desklicious.py:85
 msgid "Enter your del.icio.us username below"
 msgstr "Introduïu el vostre nom d'usuari de deli.icio.us aquí sota"
 
-#: ../deskbar/handlers/desklicious.py:90
+#: ../deskbar/handlers/desklicious.py:91
 msgid "Username: "
 msgstr "Nom d'usuari: "
 
-#: ../deskbar/handlers/desklicious.py:106
+#: ../deskbar/handlers/desklicious.py:107
 msgid "You need to configure your del.icio.us account."
 msgstr "Heu de configurar el vostre compte a deli.icio.us."
 
-#: ../deskbar/handlers/desklicious.py:111
+#: ../deskbar/handlers/desklicious.py:112
 msgid "You can modify your del.icio.us account."
 msgstr "Podeu modificar el vostre compte a deli.icio.us."
 
@@ -465,7 +481,7 @@ msgstr "L'Epiphany no és el navegador predeterminat."
 msgid "Web Searches (Epiphany)"
 msgstr "Cerques a la web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:195
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:192
 msgid "Search the web via your browser's search settings"
 msgstr ""
 "Cerqueu a la web mitjançant els paràmetres de cerca del vostre navegador"
@@ -478,7 +494,7 @@ msgstr "Podeu posar dreceres a les vostres cerques."
 msgid "Web History (Epiphany)"
 msgstr "Historial web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:735
 msgid "Open your web history by name"
 msgstr "Obre l'historial web per nom"
 
@@ -506,16 +522,16 @@ msgstr ""
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
-#: ../deskbar/handlers/files.py:61
-#: ../deskbar/handlers/actions/ActionsFactory.py:37
+#: ../deskbar/handlers/files.py:62
+#: ../deskbar/handlers/actions/ActionsFactory.py:33
 msgid "Location"
 msgstr "Ubicació"
 
-#: ../deskbar/handlers/files.py:69
+#: ../deskbar/handlers/files.py:70
 msgid "Files, Folders and Places"
 msgstr "Fitxers, directoris i llocs"
 
-#: ../deskbar/handlers/files.py:70
+#: ../deskbar/handlers/files.py:71
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Visualitzeu els vostres fitxers, directoris, adreces d'interès, unitats i "
@@ -615,71 +631,71 @@ msgstr "Finestres"
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Adreces d'interès de webs (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:187 ../deskbar/handlers/mozilla.py:259
+#: ../deskbar/handlers/mozilla.py:184 ../deskbar/handlers/mozilla.py:256
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "El Mozilla/Firefox no és el navegador predeterminat."
 
-#: ../deskbar/handlers/mozilla.py:194
+#: ../deskbar/handlers/mozilla.py:191
 msgid "Web Searches (Mozilla)"
 msgstr "Cerques a la web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:253
+#: ../deskbar/handlers/mozilla.py:250
 msgid "You can customize which search engines are offered."
 msgstr "Podeu personalitzar els motors de cerca que s'ofereixen."
 
-#: ../deskbar/handlers/mozilla.py:737
+#: ../deskbar/handlers/mozilla.py:734
 msgid "Web History (Mozilla)"
 msgstr "Historial web (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:76
+#: ../deskbar/handlers/programs.py:77
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Consulta %s al diccionari"
 
-#: ../deskbar/handlers/programs.py:83
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Cerca noms de fitxer semblants a %s"
 
-#: ../deskbar/handlers/programs.py:89
+#: ../deskbar/handlers/programs.py:90
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Cerca %s en el Devhelp"
 
-#: ../deskbar/handlers/programs.py:115
+#: ../deskbar/handlers/programs.py:116
 msgid "Dictionary"
 msgstr "Diccionari"
 
-#: ../deskbar/handlers/programs.py:116
+#: ../deskbar/handlers/programs.py:117
 msgid "Look up word definitions in the dictionary"
 msgstr "Consulta definicions de paraules al diccionari"
 
-#: ../deskbar/handlers/programs.py:132
+#: ../deskbar/handlers/programs.py:133
 msgid "Files and Folders Search"
 msgstr "Cerqueu fitxers i directoris"
 
-#: ../deskbar/handlers/programs.py:133
+#: ../deskbar/handlers/programs.py:134
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Troba fitxers i directoris a partir d'un patró"
 
-#: ../deskbar/handlers/programs.py:149
+#: ../deskbar/handlers/programs.py:150
 msgid "Developer Documentation"
 msgstr "Documentació per a desenvolupadors"
 
-#: ../deskbar/handlers/programs.py:150
+#: ../deskbar/handlers/programs.py:151
 msgid "Search Devhelp for a function name"
 msgstr "Cerca un nom de funció a Devhelp"
 
-#: ../deskbar/handlers/programs.py:198
+#: ../deskbar/handlers/programs.py:202
 #, python-format
 msgid "Execute %s"
 msgstr "Executa %s"
 
-#: ../deskbar/handlers/programs.py:220
+#: ../deskbar/handlers/programs.py:224
 msgid "Programs"
 msgstr "Aplicacions"
 
-#: ../deskbar/handlers/programs.py:221
+#: ../deskbar/handlers/programs.py:225
 msgid "Launch a program by its name and/or description"
 msgstr "Executa una aplicació pel seu nom o la seva descripció"
 
@@ -701,15 +717,15 @@ msgid "Open web pages and send emails by typing a complete address"
 msgstr ""
 "Obriu pàgines web i envieu correus electrònics escrivint-ne l'adreça completa"
 
-#: ../deskbar/handlers/yahoo.py:38
+#: ../deskbar/handlers/yahoo.py:39
 msgid "Yahoo! Search"
 msgstr "Cerca al Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:39
+#: ../deskbar/handlers/yahoo.py:40
 msgid "Search Yahoo! as you type"
 msgstr "Cerqueu amb el Yahoo! mentre escriviu"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:59
+#: ../deskbar/handlers/actions/ActionsFactory.py:60
 #, python-format
 msgid "URL of %s"
 msgstr "URL de %s"
@@ -784,7 +800,7 @@ msgstr "Lloc web de la barra d'escriptori"
 msgid "translator-credits"
 msgstr "Gil Forcada <gilforcada@guifi.net>"
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:18
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
 msgstr "<b>Cerca:</b>"
 
@@ -805,11 +821,11 @@ msgstr "_Historial"
 msgid "Back to Matches"
 msgstr "Cap enrere a les coincidències"
 
-#: ../deskbar/ui/DeskbarApplet.py:86
+#: ../deskbar/ui/DeskbarTray.py:42
 msgid "Show search entry"
 msgstr "Mostra l'entrada de la cerca"
 
-#: ../deskbar/ui/DeskbarApplet.py:115
+#: ../deskbar/ui/DeskbarTray.py:87
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
@@ -840,15 +856,15 @@ msgstr ""
 "<i><small>Arrossegueu i deixeu anar una extensió per a canviar-ne l'ordre.</"
 "small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:318
 msgid "A problem occured"
 msgstr "S'ha produït un error"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:383
 msgid "Handler has been installed successfully"
 msgstr "S'ha instal·lat el gestor amb èxit"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:386
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
 "No s'ha pogut instal·lar el gestor degut a un problema amb el fitxer "
