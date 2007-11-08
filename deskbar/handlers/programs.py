@@ -65,7 +65,7 @@ class GenericProgramMatch(deskbar.interfaces.Match):
             program = self._desktop.get_string("Exec")
             self.add_action( GenericAction(self.get_name(), program, self._args, verb) )
         else:
-            self.add_action( OpenDesktopFileAction(self.get_name(), self._desktop, self.desktop_file) )
+            self.add_action( OpenDesktopFileAction(self.get_name(), self._desktop, self.desktop_file, self._display_prog) )
 
     def get_hash(self, text=None):
         return "generic_"+self._display_prog

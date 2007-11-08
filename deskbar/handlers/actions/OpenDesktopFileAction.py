@@ -10,14 +10,16 @@ class OpenDesktopFileAction(deskbar.interfaces.Action):
     its .desktop file
     """
     
-    def __init__(self, name, desktop, desktop_file):
+    def __init__(self, name, desktop, desktop_file, executable):
         """
         @type desktop: L{deskbar.core.gnomedesktop.GnomeDesktopItem}
         @type desktop_file: path pointing to .desktop file
+        @param executeable: Name of the executeable for display 
         """
         deskbar.interfaces.Action.__init__(self, name)
         self._desktop = desktop
         self._desktop_file = desktop_file
+        self._prog = executable
     
     def __getstate__(self):
         state = self.__dict__.copy()
@@ -34,10 +36,13 @@ class OpenDesktopFileAction(deskbar.interfaces.Action):
     def get_icon(self):
         return "gtk-open"
     
+    def get_name(self, text=None):
+        return {"name": self._name, "prog": self._prog}
+    
     def get_verb(self):
         #translators: First %s is the programs full name, second is the executable name
         #translators: For example: Launch Text Editor (gedit)
-        return _("Launch <b>%(name)s</b>")
+        return _("Launch <b>%(name)s</b> (%(prog)s)")
     
     def activate(self, text=None):
         try:
