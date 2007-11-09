@@ -26,7 +26,7 @@ class WebAddressMatch(deskbar.interfaces.Match):
         else:
             self.add_action( OpenWithNautilusAction(name, self.url) )
     
-    def get_hash(self, text=None):
+    def get_hash(self):
         return self.url
 
 class EmailAddressMatch(deskbar.interfaces.Match):
@@ -35,7 +35,7 @@ class EmailAddressMatch(deskbar.interfaces.Match):
         self.mail = mail
         self.add_action( SendEmailToAction(name, mail) )
     
-    def get_hash(self, text=None):
+    def get_hash(self):
         return self.mail
         
 class WebAddressHandler(deskbar.interfaces.Module):

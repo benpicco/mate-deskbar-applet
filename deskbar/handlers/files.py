@@ -29,7 +29,7 @@ class FileMatch(deskbar.interfaces.Match):
         self.add_action( OpenFileAction(name, absname ) )
         self.add_all_actions( get_actions_for_uri(absname) )
     
-    def get_hash(self, text=None):
+    def get_hash(self):
         return self.absname
 
 class FolderMatch(deskbar.interfaces.Match):
@@ -39,7 +39,7 @@ class FolderMatch(deskbar.interfaces.Match):
         self.add_action( ShowUrlAction(name, absname) )
         self.add_all_actions( get_actions_for_uri(absname) )
     
-    def get_hash(self, text=None):
+    def get_hash(self):
         return self.absname
 
 class GtkBookmarkMatch(deskbar.interfaces.Match):
@@ -49,7 +49,7 @@ class GtkBookmarkMatch(deskbar.interfaces.Match):
         self.add_action( OpenWithNautilusAction(name, path) )
         self.add_all_actions( get_actions_for_uri(path) )
     
-    def get_hash(self, text=None):
+    def get_hash(self):
         return self.path
 
 class VolumeMatch (deskbar.interfaces.Match):
@@ -61,7 +61,7 @@ class VolumeMatch (deskbar.interfaces.Match):
         # _("Location") should be _("Location of %s") % name
         self.add_action( CopyToClipboardAction(_("Location"), drive) )
 
-    def get_hash(self, text=None):
+    def get_hash(self):
         return self.drive
         
 class FileFolderHandler(deskbar.interfaces.Module):

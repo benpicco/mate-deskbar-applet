@@ -38,7 +38,7 @@ class ISwitchWindowMatch(deskbar.interfaces.Match):
         deskbar.interfaces.Match.__init__ (self, category="windows", **args)
         self.add_action( SwitchToWindowAction(self.get_name(), window) )
 
-    def get_hash(self, text=None):
+    def get_hash(self):
         return self.get_name()
     
 class ISwitchWindowHandler(deskbar.interfaces.Module):

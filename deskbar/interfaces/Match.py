@@ -152,7 +152,7 @@ class Match:
         for action in actions:
             self.add_action(action)
     
-    def get_hash(self, text=None):
+    def get_hash(self):
         """
         Returns a hash used to verify if a query has one or more duplicates.
         Matches that have same hash will be selected based on the handler priority.

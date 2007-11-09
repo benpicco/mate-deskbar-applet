@@ -12,7 +12,7 @@ class EvolutionMatch(deskbar.interfaces.Match):
         
         self.add_action( SendEmailToAction(name, email) )
     
-    def get_hash(self, text=None):
+    def get_hash(self):
         return self.get_name()
         
 class EvolutionHandler(deskbar.interfaces.Module):

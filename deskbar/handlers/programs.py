@@ -67,7 +67,7 @@ class GenericProgramMatch(deskbar.interfaces.Match):
         else:
             self.add_action( OpenDesktopFileAction(self.get_name(), self._desktop, self.desktop_file, self._display_prog) )
 
-    def get_hash(self, text=None):
+    def get_hash(self):
         return "generic_"+self._display_prog
         
 class GnomeDictMatch(GenericProgramMatch):

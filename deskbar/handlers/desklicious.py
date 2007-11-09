@@ -36,7 +36,7 @@ class DeliciousMatch(deskbar.interfaces.Match):
         self.author = author
         self.add_action( DeliciousAction(self.get_name(), self.url, tags) )
 
-    def get_hash(self, text=None):
+    def get_hash(self):
         return self.url
         
 class DeliciousHandler(deskbar.interfaces.Module):

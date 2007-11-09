@@ -15,7 +15,7 @@ class HistoryMatch(deskbar.interfaces.Match):
         deskbar.interfaces.Match.__init__(self, name=name, category="history")
         self._action = action
    
-    def get_hash(self, text=None):
+    def get_hash(self):
         return "history_"+str(self._action.get_hash())
     
     def get_icon(self):

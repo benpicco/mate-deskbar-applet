@@ -116,7 +116,7 @@ class BrowserSmartMatch(deskbar.interfaces.Match):
     def get_bookmark(self):
         return self._bookmark
         
-    def get_hash(self, text=None):
+    def get_hash(self):
         return self.url
     
                 

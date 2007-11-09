@@ -30,7 +30,7 @@ class YahooMatch(deskbar.interfaces.Match):
         self.add_action( OpenYahooAction(self.get_name(), self.url) )
         self.add_action( CopyToClipboardAction( _("URL"), self.url) )
     
-    def get_hash(self, text=None):
+    def get_hash(self):
         return self.url
 
 class YahooHandler(deskbar.interfaces.Module):

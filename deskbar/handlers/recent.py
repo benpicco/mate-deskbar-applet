@@ -29,7 +29,7 @@ class RecentMatch(deskbar.interfaces.Match):
     def is_valid(self, text=None):
         return self.recent_infos.exists()
 
-    def get_hash(self, text=None):
+    def get_hash(self):
         return self.recent_infos.get_uri()
     
 class RecentHandler(deskbar.interfaces.Module):

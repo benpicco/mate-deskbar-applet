@@ -1,5 +1,21 @@
 2007-11-09	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/handlers/programs.py
+    * deskbar/handlers/history.py
+    * deskbar/handlers/files.py
+    * deskbar/handlers/desklicious.py
+    * deskbar/handlers/iswitch-window.py
+    * deskbar/handlers/yahoo.py
+    * deskbar/handlers/recent.py
+    * deskbar/handlers/web_address.py
+    * deskbar/handlers/evolution.py
+    * deskbar/interfaces/Match.py
+    * deskbar/core/BrowserMatch.py:
+    Replaced Match's get_hash(self, text=None) with get_hash(self),
+    because second argument is never provided
+    
+2007-11-09	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/handlers/programs.py:
     Remove on_key_press method of ProgramsHandler class and
     add new action "Execute in terminal"
