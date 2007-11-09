@@ -196,27 +196,30 @@ class OpenPathProgramAction(deskbar.interfaces.Action):
                 #No zenity, get out of the if, and launch without GUI
                 pass
         
-        spawn_async(text.split(" "))            
+        spawn_async(text.split(" "))
+        
+    def get_hash(self):
+        if self.use_terminal:
+            return self._name + "_terminal"
+        else:
+            return self._name
 
     def get_verb(self):
-        return _("Execute %s") % "<b>%(text)s</b>"
+        if self.use_terminal:
+            return _("Execute %s in terminal") % "<b>%(text)s</b>"
+        else:
+            return _("Execute %s") % "<b>%(text)s</b>"
 
 class PathProgramMatch(deskbar.interfaces.Match):
     
-    def __init__(self, name, command, use_terminal=False, priority=0, **args):
+    def __init__(self, name, command, priority=0, **args):
         deskbar.interfaces.Match.__init__(self, name=name, icon="gtk-execute", category="actions", **args)
-        self.use_terminal = use_terminal
         self.set_priority(self.get_priority() + EXACT_MATCH_PRIO)
-        self.add_action( OpenPathProgramAction(command, self.use_terminal) )
-        
-    def set_with_terminal(self, terminal):
-        self.use_terminal = terminal
+        self.add_action( OpenPathProgramAction(command, False), True )
+        self.add_action( OpenPathProgramAction(command, True) )
         
     def get_hash(self, text=None):
-        if not self.use_terminal:
-            return text
-        else:
-            return text+"_terminal"
+        return text
         
 class ProgramsHandler(deskbar.interfaces.Module):
     
@@ -251,16 +254,6 @@ class ProgramsHandler(deskbar.interfaces.Module):
             match._priority = get_priority_for_name(query, match._desktop.get_string("Exec"))
             result.append(match)
         return result
-            
-    
-    def on_key_press(self, query, shortcut):
-        if shortcut == gtk.keysyms.t:
-            match = self._check_program(query.split(" ")[0])
-            if match != None:
-                match.set_with_terminal(True)
-                return match
-            
-        return None    
                 
     def _scan_desktop_files(self):
         for dir in get_xdg_data_dirs():
