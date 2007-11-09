@@ -132,6 +132,8 @@ class CuemiacModel (gtk.TreeStore):
         #gtk.gdk.threads_leave()
         
     def __append (self, qstring, match_obj):
+        assert qstring != None and match_obj != None
+        
         if self.__categories.has_key (match_obj.get_category()):
             iter = self.__append_to_category (qstring, match_obj)
         else:

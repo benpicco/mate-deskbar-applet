@@ -163,6 +163,8 @@ class DeskbarHistory (gtk.ListStore) :
         @param text: search term
         @type action: L{deskbar.interfaces.Action.Action}
         """
+        assert text != None and action != None
+        
         if action.__class__ == ChooseFromHistoryAction:
             return
         if action.skip_history():
