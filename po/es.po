@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-17 04:30+0100\n"
-"PO-Revision-Date: 2007-10-17 09:05+0200\n"
+"POT-Creation-Date: 2007-11-09 17:45+0000\n"
+"PO-Revision-Date: 2007-11-11 13:58+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -514,16 +514,16 @@ msgstr ""
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
-#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/files.py:62
 #: ../deskbar/handlers/actions/ActionsFactory.py:33
 msgid "Location"
 msgstr "Ubicación"
 
-#: ../deskbar/handlers/files.py:69
+#: ../deskbar/handlers/files.py:70
 msgid "Files, Folders and Places"
 msgstr "Archivos, carpetas y lugares"
 
-#: ../deskbar/handlers/files.py:70
+#: ../deskbar/handlers/files.py:71
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "Vea sus archivos, carpetas, marcadores, unidades, lugares de red por nombre"
 
@@ -676,16 +676,21 @@ msgstr "Documentación del desarrollador"
 msgid "Search Devhelp for a function name"
 msgstr "Buscar en DevHelp el nombre de una función"
 
-#: ../deskbar/handlers/programs.py:202
+#: ../deskbar/handlers/programs.py:209
+#, python-format
+msgid "Execute %s in terminal"
+msgstr "Ejecutar %s en un terminal"
+
+#: ../deskbar/handlers/programs.py:211
 #, python-format
 msgid "Execute %s"
 msgstr "Ejecutar %s"
 
-#: ../deskbar/handlers/programs.py:224
+#: ../deskbar/handlers/programs.py:227
 msgid "Programs"
 msgstr "Programas"
 
-#: ../deskbar/handlers/programs.py:225
+#: ../deskbar/handlers/programs.py:228
 msgid "Launch a program by its name and/or description"
 msgstr "Lanza un programa por su nombre y/o descripción"
 
@@ -732,10 +737,10 @@ msgstr "Ir a la ubicación de %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:45
 #, python-format
-msgid "Launch <b>%(name)s</b>"
-msgstr "Lanzar <b>%(name)s</b>"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Lanzar <b>%(name)s</b> (%(prog)s)"
 
 #: ../deskbar/handlers/actions/OpenFileAction.py:38
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
@@ -814,11 +819,11 @@ msgstr "_Histórico"
 msgid "Back to Matches"
 msgstr "Volver a las coincidencias"
 
-#: ../deskbar/ui/DeskbarApplet.py:86
+#: ../deskbar/ui/DeskbarTray.py:42
 msgid "Show search entry"
 msgstr "Mostrar la entrada de búsqueda"
 
-#: ../deskbar/ui/DeskbarApplet.py:115
+#: ../deskbar/ui/DeskbarTray.py:87
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
@@ -846,15 +851,15 @@ msgstr ""
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Arrastre y suelte una extensión para cambiar su orden.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:318
 msgid "A problem occured"
 msgstr "Ocurrió un problema"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:383
 msgid "Handler has been installed successfully"
 msgstr "Se ha instalado el manipulador con éxito"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:386
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
 "El manipulador no se pudo instalar debido a un problema con el archivo "
