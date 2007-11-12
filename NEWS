@@ -1,4 +1,41 @@
 =======================
+deskbar-applet 2.21.2
+=======================
+
+This release contains mostly bug fixes and a new action
+that allows you to run a command in the terminal.
+In addition, the search results are always presented as a
+description of a action now.
+
+Changes:
+    * Fixed: Layout is destroyed when changing font size. Used relative values instead of absolutes.
+    * Fixed bug #488047: Propagate the return value on CuemiacEntry::key-press-event back to the entry so that 'handled' is properly detected and ::key-press-event doesn't get emitted twice.
+    * Fixed bug #488066: deskbar applet should use complete vertical panel space
+    * Fixed: Doesn't unbind keybinding when it changes.
+    * Fixed bug #490981: Buttons aren't insensitive when no module is selected
+    * Fixed bug #472568: Deskbar launches file texts as programs
+    * Fixed: Cannot browse history when pressing up/down key. Show blank entry when no newer history items are available. Skip ChooseFromHistoryAction when browsing history. Show deskbar icon if history item has no icon
+    * Fixed bug #489312: action list didn't show binary names
+    * Remove on_key_press method of ProgramsHandler class and add new action "Execute in terminal"
+    * Replaced Match's get_hash(self, text=None) with get_hash(self), because second argument is never provided
+    * Always show description (get_verb() % get_name()) of default action
+    
+Contributors to this release: Sebastian Pölsterl
+
+Updated Translations:
+    * Arabic
+    * Belarusian Latin
+    * Catalan
+    * Estonian
+    * Galician
+    * Hungarian
+    * Norwegian
+    * Spanish
+    * Swedish
+
+Contributors to the translations: Djihed Afifi, Ihar Hrachyshka, Gil Forcada, Ivar Smolin, Ignacio Casal Quinteiro, Gabor Kelemen, Kjartan Maraas, Jorge Gonzalez, Daniel Nylander
+
+=======================
 deskbar-applet 2.20.1
 =======================
 

@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 2.20.1, rslinckx@gnome.org)
+AC_INIT(deskbar-applet, 2.21.2, rslinckx@gnome.org)
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
