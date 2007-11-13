@@ -1,23 +1,22 @@
-# Copyright (C) 2005-2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the program package.
 #
-# Slovenian maintainer: Matej Urbančič <matej.urban@gmail.com>.
+# Slovenian maintainer: Matej Urbančič <mateju@svn.gnome.org>.
 #
 # Translators:
-# Matej Urbančič <matej.urban@gmail.com>, 2005-2007.
+# Matej Urbančič <mateju@svn.gnome.org>, 2005-2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-20 11:22+0000\n"
-"PO-Revision-Date: 2007-10-23 16:36+0100\n"
-"Last-Translator: Matej Urbančič <matej.urban@gmail.com>\n"
+"PO-Revision-Date: 2007-11-12 16:11+0100\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Poedit-Language: Slovenian\n"
 "X-Poedit-Country: SLOVENIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -423,7 +422,7 @@ msgstr "Uporabniško ime:"
 
 #: ../deskbar/handlers/desklicious.py:107
 msgid "You need to configure your del.icio.us account."
-msgstr "Nastaviti morate del.icio.us račun."
+msgstr "Nastaviti je treba del.icio.us račun."
 
 #: ../deskbar/handlers/desklicious.py:112
 msgid "You can modify your del.icio.us account."
@@ -483,16 +482,16 @@ msgstr ""
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
-#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/files.py:62
 #: ../deskbar/handlers/actions/ActionsFactory.py:33
 msgid "Location"
 msgstr "Položaj"
 
-#: ../deskbar/handlers/files.py:69
+#: ../deskbar/handlers/files.py:70
 msgid "Files, Folders and Places"
 msgstr "Datoteke, Mape in Povezave"
 
-#: ../deskbar/handlers/files.py:70
+#: ../deskbar/handlers/files.py:71
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "Imensko pregledovanje datotek, zaznamkov, pogonov in omrežnih mest"
 
@@ -651,16 +650,21 @@ msgstr "Dokumentacija za razvijalce"
 msgid "Search Devhelp for a function name"
 msgstr "Preišči devhelp za ime funkcije"
 
-#: ../deskbar/handlers/programs.py:202
+#: ../deskbar/handlers/programs.py:209
+#, python-format
+msgid "Execute %s in terminal"
+msgstr "Izvedi %s v terminalu"
+
+#: ../deskbar/handlers/programs.py:211
 #, python-format
 msgid "Execute %s"
 msgstr "Izvedi %s"
 
-#: ../deskbar/handlers/programs.py:224
+#: ../deskbar/handlers/programs.py:227
 msgid "Programs"
 msgstr "Programi"
 
-#: ../deskbar/handlers/programs.py:225
+#: ../deskbar/handlers/programs.py:228
 msgid "Launch a program by its name and/or description"
 msgstr "Zaženi program z imenom ali po opisu"
 
@@ -705,10 +709,10 @@ msgstr "Odpri lokacijo %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:45
 #, python-format
-msgid "Launch <b>%(name)s</b>"
-msgstr "Zaženi <b>%(name)s</b>"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Zaženi <b>%(name)s</b> (%(prog)s)"
 
 #: ../deskbar/handlers/actions/OpenFileAction.py:38
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
@@ -761,7 +765,7 @@ msgstr "Spletna stran programa namizne plošče"
 #. translators: These appear in the About dialog, usual format applies.
 #: ../deskbar/ui/About.py:36
 msgid "translator-credits"
-msgstr "Matej Urbančič <matej.urban@gmail.com>"
+msgstr "Matej Urbančič <mateju@svn.gnome.org>"
 
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
@@ -810,15 +814,15 @@ msgstr ""
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Potegni in spusti vnos za zamenjavo vrstnega reda.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:318
 msgid "A problem occured"
 msgstr "Prišlo je do napake"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:383
 msgid "Handler has been installed successfully"
 msgstr "Upravljavec je uspešno nameščen"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:386
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "Upravljavec ni nameščen zaradi napak z datoteko"
 
