@@ -25,7 +25,7 @@ hits_as_python_object (GList *hits)
 	i = 0;
 	for (; hits != NULL; hits = hits->next) {
 		Hit *hit = (Hit *) hits->data;
-		PyObject *t = PyTuple_New (3);
+		PyObject *t = PyTuple_New (4);
 		if (hit->text == NULL) {
 			Py_INCREF (Py_None);
 			PyTuple_SET_ITEM (t, 0, Py_None);
@@ -45,6 +45,13 @@ hits_as_python_object (GList *hits)
 			PyTuple_SET_ITEM (t, 2, Py_None);
 		} else {
 			PyTuple_SET_ITEM (t, 2, pygobject_new ((GObject*) hit->pixbuf));
+		}
+		
+		if (hit->uri == NULL) {
+			Py_INCREF (Py_None);
+			PyTuple_SET_ITEM (t, 3, Py_None);
+		} else {
+			PyTuple_SET_ITEM (t, 3, PyString_FromString(hit->uri));
 		}
 
 		PyList_SET_ITEM (result, i, t);

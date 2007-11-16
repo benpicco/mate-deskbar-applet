@@ -11,6 +11,7 @@ typedef struct _Hit {
 	gchar *text;
 	gchar *email;
 	GdkPixbuf *pixbuf;
+	gchar *uri;
 } Hit;
 
 void free_hit (Hit *hit, gpointer unused);

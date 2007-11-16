@@ -24,6 +24,7 @@ free_hit (Hit *h, gpointer unused)
 {
     g_free (h->text);
     g_free (h->email);
+    g_free (h->uri);
     g_free (h);
 }
 
@@ -324,12 +325,20 @@ search_sync (const char *query,
 		for (; contacts != NULL; contacts = g_list_next (contacts)) {
 			EContact *contact;
 			Hit *hit;
+			const char *uid;
+			ESource *source;
+			const char *source_uid;
 
 			contact = E_CONTACT (contacts->data);
 			hit = g_new (Hit, 1);
 			hit->email = g_strdup ((char*) e_contact_get_const (contact, E_CONTACT_EMAIL_1));
 			hit->text = g_strdup ((char*) e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG));
 			hit->pixbuf = pixbuf_from_contact (contact);
+            
+			uid = e_contact_get_const (contact, E_CONTACT_UID);
+			source = e_book_get_source (book);
+			source_uid = e_source_peek_uid (source);
+			hit->uri = g_strdup_printf ("contacts:///?source-uid=%s&contact-uid=%s", source_uid, uid);
 
 			hits = g_list_append (hits, hit);
 			max_results--;

@@ -2,15 +2,36 @@ from gettext import gettext as _
 import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module, deskbar.handlers.evolution, deskbar.core.Utils, deskbar.interfaces.Match
 from deskbar.defs import VERSION
 from deskbar.handlers.actions.SendEmailToAction import SendEmailToAction
+from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
 
 HANDLERS = ["EvolutionHandler"]
 
+class EditEvolutionContactAction(OpenWithApplicationAction):
+    
+    def __init__(self, name, email, uri):
+        OpenWithApplicationAction.__init__(self, name, "evolution", [uri])
+        self._email = email
+        self._uri = uri
+    
+    def get_icon(self):
+        return "stock_edit"
+    
+    def get_name(self, text=None):
+        return {
+            "name": self._name,
+            "email": self._email,
+        }
+    
+    def get_verb(self):
+        #translators: First %s is the contact full name, second %s is the email address
+        return _("Edit contact <b>%(name)s</b> (%(email)s)")
+
 class EvolutionMatch(deskbar.interfaces.Match):
-    def __init__(self, name=None, email=None, pixbuf=None, **args):
-        deskbar.interfaces.Match.__init__(self, name=name, email=email, pixbuf=pixbuf, category="people")
-        self.email = email
+    def __init__(self, name, email, uri, pixbuf=None, **args):
+        deskbar.interfaces.Match.__init__(self, name=name, pixbuf=pixbuf, category="people")
         
-        self.add_action( SendEmailToAction(name, email) )
+        self.add_action( SendEmailToAction(name, email), True )
+        self.add_action( EditEvolutionContactAction(name, email, uri) )
     
     def get_hash(self):
         return self.get_name()
@@ -32,11 +53,10 @@ class EvolutionHandler(deskbar.interfaces.Module):
     def query(self, query):
         hits = deskbar.handlers.evolution.search_sync(query, deskbar.DEFAULT_RESULTS_PER_HANDLER)
         matches = []
-        for name, email, pixbuf in hits:
+        for name, email, pixbuf, uri in hits:
             if name == None or email == None:
-                continue
-            
-            matches.append(EvolutionMatch(name, email, pixbuf, priority=self.get_priority()))
+                continue            
+            matches.append(EvolutionMatch(name, email, uri, pixbuf, priority=self.get_priority()))
         self._emit_query_ready(query, matches )
         
     @staticmethod
