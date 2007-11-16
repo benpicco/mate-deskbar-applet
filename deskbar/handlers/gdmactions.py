@@ -101,12 +101,12 @@ class HibernateMatch(GpmMatch):
 
 class ShutdownMatch(GpmMatch):
     def __init__(self, **args):
-        GpmMatch.__init__(self, icon = gtk.STOCK_QUIT)
+        GpmMatch.__init__(self, icon = "gnome-shutdown")
         self.add_action( ShutdownAction() )
     
 class LockScreenMatch(deskbar.interfaces.Match):
     def __init__(self, **args):
-        deskbar.interfaces.Match.__init__(self, name=_("Lock"), icon = gtk.STOCK_FULLSCREEN, **args)
+        deskbar.interfaces.Match.__init__(self, name=_("Lock"), icon = "system-lock-screen", **args)
         self.add_action( LockScreenAction() )
 
     def get_category(self):
@@ -150,7 +150,7 @@ class GdmShutdownAction(GdmAction):
             
 class GdmShutdownMatch(GdmMatch):
     def __init__(self, **args):
-        GdmMatch.__init__(self, name=_("Shut Down"), **args)
+        GdmMatch.__init__(self, name=_("Shut Down"), icon = "gnome-shutdown", **args)
         self.add_action( GdmShutdownAction(self.get_name()) )
     
 class GdmLogoutAction(GdmAction):
@@ -166,7 +166,7 @@ class GdmLogoutAction(GdmAction):
         
 class GdmLogoutMatch(GdmMatch):
     def __init__(self, **args):
-        GdmMatch.__init__(self, name=_("Log Out"), **args)
+        GdmMatch.__init__(self, name=_("Log Out"), icon = "system-log-out", **args)
         self.add_action( GdmLogoutAction(self.get_name()) )
     
 class GdmRebootAction(GdmAction):
