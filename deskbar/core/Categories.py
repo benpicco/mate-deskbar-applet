@@ -31,7 +31,7 @@ CATEGORIES = {
     },
     "people"    : {
         "name": _("People"),
-        "icon": load_icon("user-info"),
+        "icon": load_icon("stock_people"),
     },
     "places"    : {    
         "name": _("Places"),
