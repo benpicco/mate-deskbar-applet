@@ -11,7 +11,7 @@ class SendEmailToAction(ShowUrlAction):
         self._email = email
     
     def get_icon(self):
-        return "stock_mail-send"
+        return "stock_mail-compose"
     
     def get_name(self, text=None):
         return {

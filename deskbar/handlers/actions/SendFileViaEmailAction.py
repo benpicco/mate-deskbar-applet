@@ -26,7 +26,7 @@ class SendFileViaEmailAction (deskbar.interfaces.Action):
         return exists(self._file)
     
     def get_icon(self):
-        return "stock_mail-send"
+        return "stock_mail-compose"
     
     def activate(self, text=None):
         exe = GconfStore.get_instance().get_client().get_string("/desktop/gnome/url-handlers/mailto/command")
