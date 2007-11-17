@@ -109,6 +109,14 @@ class SpecialProgramHandler(deskbar.interfaces.Module):
         if self._match != None:
             self._match.set_priority( self.get_priority() + get_priority_for_name(qstring, self._match._desktop.get_string("Exec")) )
             self._emit_query_ready(qstring, [self._match] )
+            
+    @staticmethod
+    def desktop_file_exists(desktop):
+        for dir in get_xdg_data_dirs():
+            f = os.path.join(dir, "applications", desktop)
+            if os.path.exists(f):
+                return True
+        return False
         
 class GnomeDictHandler(SpecialProgramHandler):
     
@@ -126,7 +134,14 @@ class GnomeDictHandler(SpecialProgramHandler):
                     icon=desktop.get_string(deskbar.core.gnomedesktop.KEY_ICON),
                     desktop=desktop,
                     desktop_file=f)
-
+        
+    @staticmethod
+    def has_requirements():
+        if not SpecialProgramHandler.desktop_file_exists("gnome-dictionary.desktop"):
+            DevhelpHandler.INSTRUCTIONS = _("GNOME dictionary is not installed")
+            return False
+        return True
+        
 class GnomeSearchHandler(SpecialProgramHandler):
     
     INFOS = {'icon': deskbar.core.Utils.load_icon('system-search'),
@@ -144,6 +159,13 @@ class GnomeSearchHandler(SpecialProgramHandler):
                     desktop=desktop,
                     desktop_file=f)
         
+    @staticmethod
+    def has_requirements():
+        if not SpecialProgramHandler.desktop_file_exists("gnome-search-tool.desktop"):
+            DevhelpHandler.INSTRUCTIONS = _("GNOME search tool is not installed")
+            return False
+        return True
+        
 class DevhelpHandler(SpecialProgramHandler):
     
     INFOS = {'icon': deskbar.core.Utils.load_icon('devhelp'),
@@ -160,6 +182,13 @@ class DevhelpHandler(SpecialProgramHandler):
                     icon=desktop.get_string(deskbar.core.gnomedesktop.KEY_ICON),
                     desktop=desktop,
                     desktop_file=f)
+        
+    @staticmethod
+    def has_requirements():
+        if not SpecialProgramHandler.desktop_file_exists("devhelp.desktop"):
+            DevhelpHandler.INSTRUCTIONS = _("Devhelp is not installed")
+            return False
+        return True
 
 class OpenPathProgramAction(deskbar.interfaces.Action):
     
