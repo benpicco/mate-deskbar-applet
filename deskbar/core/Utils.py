@@ -87,8 +87,11 @@ def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
                 gnome.ui.ICON_LOOKUP_FLAGS_SHOW_SMALL_IMAGES_AS_THEMSELVES)
         try:
             our_icon = join(deskbar.ART_DATA_DIR, icon)
+            custom_icon = join(deskbar.USER_HANDLERS_DIR[0], icon)
             if exists(our_icon):
                 pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(our_icon, width, height)
+            elif exists( custom_icon ):
+                pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(custom_icon, width, height)
             elif icon.startswith("/"):
                 pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(icon, width, height)
             else:
