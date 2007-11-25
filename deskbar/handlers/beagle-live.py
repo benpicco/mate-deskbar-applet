@@ -11,6 +11,7 @@ import deskbar, deskbar.interfaces.Module
 import deskbar.interfaces.Match
 import gnomevfs
 import logging
+import threading
 
 MAX_RESULTS = 20 # per handler
 HANDLERS = ["BeagleLiveHandler"]
@@ -280,13 +281,16 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         # a new key in inserted and it isn't removed
         # therefore, dict is getting bigger and bigger
         self.counter = {}
+        self.__lock = threading.Lock()
         
     def initialize (self):
         self.beagle = beagle.Client()
    
     def query (self, qstring):
         self.counter[qstring] = {}
+        self.__lock.acquire()
         self.hits = {}
+        self.__lock.release()
         self.beagle_query = beagle.Query()
         self.beagle_query.add_text(qstring)
         self.beagle_query.connect("hits-added", self.hits_added, qstring, MAX_RESULTS)
@@ -308,7 +312,11 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                 snippet_request.connect('response', self._on_snippet_received, query, container, qstring, qmax)
                 snippet_request.connect('closed', self._on_snippet_closed, query, container, qstring, qmax)
                 self.beagle.send_request_async(snippet_request)
-                self.hits[hit] = snippet_request
+                try:
+                    self.__lock.acquire()
+                    self.hits[hit] = snippet_request
+                finally:
+                    self.__lock.release()
                 continue
                             
             match = self._on_hit_added(query, hit, qstring, qmax)
@@ -329,12 +337,16 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         self._on_hit_added(query, container, qstring, qmax)
     
     def _on_snippet_closed(self, request, query, container, qstring, qmax):
-        # If a snippet request returned from an old query, dismiss it
-        if container.hit in self.hits:
-            if container.snippet == None:
-                self._on_hit_added(query, container, qstring, qmax)
-            del self.hits[container.hit]
-        container.hit.unref()
+        try:
+            self.__lock.acquire()
+            # If a snippet request returned from an old query, dismiss it
+            if container.hit in self.hits:
+                if container.snippet == None:
+                    self._on_hit_added(query, container, qstring, qmax)
+                del self.hits[container.hit]
+            container.hit.unref()
+        finally:
+            self.__lock.release()
             
     def _on_hit_added(self, query, hit, qstring, qmax):
         fire_signal = False

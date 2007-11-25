@@ -1,6 +1,12 @@
 2007-11-25	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/handlers/beagle-live.py:
+	Previous fix for bug #479091 didn't work.
+	Now access to self.hits is surrounded with Lock.acquire() and Lock.release() 
+
+2007-11-25	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+	* deskbar/handlers/beagle-live.py:
 	Fixed bug #479091: KeyError in _on_snippet_closed
 
 2007-11-17	Sebastian Pölsterl  <sebp@cvs.gnome.org>
