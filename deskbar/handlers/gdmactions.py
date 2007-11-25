@@ -162,7 +162,7 @@ class GdmLogoutAction(GdmAction):
         self.request_logout()
         
     def get_verb(self):
-        return _("Log out")
+        return _("Log Out")
         
 class GdmLogoutMatch(GdmMatch):
     def __init__(self, **args):
