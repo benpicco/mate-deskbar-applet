@@ -366,7 +366,7 @@ class CuemiacTreeView (gtk.TreeView):
                 cell.set_property ("pixbuf", match.get_icon())
                 cell.set_property ("visible", True)
             else:
-                logging.error("See bug 359251 and report this output: Match object of unexpected type: %r - %r" % (match.__class__, match))
+                logging.error("See bug 359251 or 471672 and report this output: Match object of unexpected type: %r - %r" % (match.__class__, match))
                 cell.set_property ("pixbuf", None)
                 cell.set_property ("visible", False)
         
@@ -386,9 +386,13 @@ class CuemiacTreeView (gtk.TreeView):
         cell.set_property ("height", -1)
         cell.set_property ("cell-background-gdk", self.style.base[gtk.STATE_NORMAL])
         
-        cell.set_property ("has-more-actions", len(match.get_actions()) > 1)
-                
-        cell.set_property ("markup", model[iter][model.ACTIONS])
+        if match == None:
+            logging.error("See bug 359251 or 471672 and report this output: Match object of unexpected type: %r - %r" % (match.__class__, match))
+            cell.set_property ("has-more-actions", False)
+            cell.set_property ("markup", "")
+        else:
+            cell.set_property ("has-more-actions", len(match.get_actions()) > 1)
+            cell.set_property ("markup", model[iter][model.ACTIONS])
         
     def __on_show_actions_activated(self, widget, path):
         col = self.get_model().ACTIONS

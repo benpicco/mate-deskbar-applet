@@ -1,5 +1,12 @@
 2007-11-25	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/ui/cuemiac/CuemiacTreeView.py:
+    Fixed bug #471672: 'NoneType' object has no attribute 'get_actions'
+    I couldn't find the cause. It just ignores None values and prints an
+    error message
+    
+2007-11-25	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
 	* deskbar/handlers/beagle-live.py:
 	Previous fix for bug #479091 didn't work.
 	Now access to self.hits is surrounded with Lock.acquire() and Lock.release() 
