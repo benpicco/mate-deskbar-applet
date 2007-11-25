@@ -329,9 +329,11 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         self._on_hit_added(query, container, qstring, qmax)
     
     def _on_snippet_closed(self, request, query, container, qstring, qmax):
-        if container.snippet == None:
-            self._on_hit_added(query, container, qstring, qmax)
-        del self.hits[container.hit]
+        # If a snippet request returned from an old query, dismiss it
+        if container.hit in self.hits:
+            if container.snippet == None:
+                self._on_hit_added(query, container, qstring, qmax)
+            del self.hits[container.hit]
         container.hit.unref()
             
     def _on_hit_added(self, query, hit, qstring, qmax):
