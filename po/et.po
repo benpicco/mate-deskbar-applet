@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deskbar Applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-17 04:30+0100\n"
-"PO-Revision-Date: 2007-10-21 14:18+0300\n"
+"POT-Creation-Date: 2007-11-17 13:20+0000\n"
+"PO-Revision-Date: 2007-11-25 11:10+0200\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <et-gnome@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -493,15 +493,21 @@ msgstr "Veebiajalugu (Epiphany)"
 msgid "Open your web history by name"
 msgstr "Veebiajaloo avamine nime alusel"
 
-#: ../deskbar/handlers/evolution.py:21
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:27
+#, python-format
+msgid "Edit contact <b>%(name)s</b> (%(email)s)"
+msgstr "Kontakti <b>%(name)s</b> (%(email)s) redigeerimine"
+
+#: ../deskbar/handlers/evolution.py:42
 msgid "Mail (Address Book)"
 msgstr "E-post (aadressiraamat)"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:43
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "E-kirja saatmine kontaktide hulgas olevale aadressile"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:67
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -515,16 +521,16 @@ msgstr ""
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
-#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/files.py:62
 #: ../deskbar/handlers/actions/ActionsFactory.py:33
 msgid "Location"
 msgstr "Asukoht"
 
-#: ../deskbar/handlers/files.py:69
+#: ../deskbar/handlers/files.py:70
 msgid "Files, Folders and Places"
 msgstr "Failid, kataloogid ja asukohad"
 
-#: ../deskbar/handlers/files.py:70
+#: ../deskbar/handlers/files.py:71
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Sinu failide, kataloogide, järjehoidjate, kettaseadmete ja võrgukohtade "
@@ -655,40 +661,57 @@ msgstr "%s-sarnaste failinimede otsimine"
 msgid "Search in Devhelp for %s"
 msgstr "Devhelper'ist %s otsimine"
 
-#: ../deskbar/handlers/programs.py:116
+#: ../deskbar/handlers/programs.py:124
 msgid "Dictionary"
 msgstr "Sõnaraamat"
 
-#: ../deskbar/handlers/programs.py:117
+#: ../deskbar/handlers/programs.py:125
 msgid "Look up word definitions in the dictionary"
 msgstr "Sõnadefinitsioonide otsimine sõnaraamatust"
 
-#: ../deskbar/handlers/programs.py:133
+#: ../deskbar/handlers/programs.py:141
+msgid "GNOME dictionary is not installed"
+msgstr "GNOME sõnastik pole paigaldatud"
+
+#: ../deskbar/handlers/programs.py:148
 msgid "Files and Folders Search"
 msgstr "Failide ja kaustade otsing"
 
-#: ../deskbar/handlers/programs.py:134
+#: ../deskbar/handlers/programs.py:149
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Failide ja kataloogide leidmine nimemustri järgi otsides"
 
-#: ../deskbar/handlers/programs.py:150
+#: ../deskbar/handlers/programs.py:165
+msgid "GNOME search tool is not installed"
+msgstr "GNOME otsinguvahend pole paigaldatud"
+
+#: ../deskbar/handlers/programs.py:172
 msgid "Developer Documentation"
 msgstr "Arendajadokumentatsioon"
 
-#: ../deskbar/handlers/programs.py:151
+#: ../deskbar/handlers/programs.py:173
 msgid "Search Devhelp for a function name"
 msgstr "Devhelp'ist otsimine funktsiooninime alusel"
 
-#: ../deskbar/handlers/programs.py:202
+#: ../deskbar/handlers/programs.py:189
+msgid "Devhelp is not installed"
+msgstr "Devhelp ei ole paigaldatud"
+
+#: ../deskbar/handlers/programs.py:238
+#, python-format
+msgid "Execute %s in terminal"
+msgstr "%s käivitamine terminalis"
+
+#: ../deskbar/handlers/programs.py:240
 #, python-format
 msgid "Execute %s"
 msgstr "%s käivitamine"
 
-#: ../deskbar/handlers/programs.py:224
+#: ../deskbar/handlers/programs.py:256
 msgid "Programs"
 msgstr "Programmid"
 
-#: ../deskbar/handlers/programs.py:225
+#: ../deskbar/handlers/programs.py:257
 msgid "Launch a program by its name and/or description"
 msgstr "Programmi käivitamine selle nime või kirjelduse alusel"
 
@@ -734,10 +757,10 @@ msgstr "Asukoha %s avamine"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:45
 #, python-format
-msgid "Launch <b>%(name)s</b>"
-msgstr "Programmi <b>%(name)s</b> käivitamine"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Programmi <b>%(name)s</b> (%(prog)s) käivitamine"
 
 #: ../deskbar/handlers/actions/OpenFileAction.py:38
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
@@ -816,11 +839,11 @@ msgstr "_Ajalugu"
 msgid "Back to Matches"
 msgstr "Tagasi vastavuste juurde"
 
-#: ../deskbar/ui/DeskbarApplet.py:86
+#: ../deskbar/ui/DeskbarTray.py:42
 msgid "Show search entry"
 msgstr "Otsinguvälja kuvamine"
 
-#: ../deskbar/ui/DeskbarApplet.py:115
+#: ../deskbar/ui/DeskbarTray.py:87
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
@@ -850,15 +873,15 @@ msgstr ""
 "<i><small>Laienduste järjekorda saab vahetada nende uuele asukohale "
 "lohistamise teel.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:318
 msgid "A problem occured"
 msgstr "Tekkis viga"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:383
 msgid "Handler has been installed successfully"
 msgstr "Käsitleja on edukalt paigaldatud"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:386
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "Käsitlejat pole võimalik failis esinevate probleemide tõttu paigaldada"
 
