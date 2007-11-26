@@ -22,7 +22,7 @@ except NameError:
 
 # Whether we will index firefox or mozilla bookmarks
 USING_FIREFOX = False
-if is_preferred_browser("firefox"):
+if is_preferred_browser("firefox") or is_preferred_browser("iceweasel"):
     USING_FIREFOX = True
         
 # File returned here should be checked for existence
@@ -205,7 +205,8 @@ class MozillaSearchHandler(deskbar.interfaces.Module):
                 expanduser("~/.mozilla/searchplugins"),
                 "/usr/local/lib/firefox/searchplugins",
                 "/usr/lib/mozilla-firefox/searchplugins",
-                "/usr/local/lib/mozilla-firefox/searchplugins"] + \
+                "/usr/local/lib/mozilla-firefox/searchplugins",
+                "/usr/lib/iceweasel/searchplugins"] + \
                 glob.glob("/usr/lib*/firefox*/searchplugins")
         else:
             smart_dirs = [
@@ -246,7 +247,7 @@ class MozillaSearchHandler(deskbar.interfaces.Module):
     
     @staticmethod
     def has_requirements():
-        if is_preferred_browser("firefox"):
+        if is_preferred_browser("firefox") or is_preferred_browser("iceweasel"):
             MozillaSearchHandler.INSTRUCTIONS = _("You can customize which search engines are offered.")
             return True
         elif is_preferred_browser("mozilla"):
