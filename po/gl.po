@@ -4,13 +4,14 @@
 #
 # Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.
 # Ignacio Casal Quinteiro <icq@cvs.gnome.org>, 2007.
+# Ignacio Casal Quinteiro <icq@svn.gnome.org>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-18 15:30+0200\n"
-"PO-Revision-Date: 2007-10-18 15:34+0200\n"
-"Last-Translator: Ignacio Casal Quinteiro <icq@cvs.gnome.org>\n"
+"POT-Creation-Date: 2007-11-30 14:06+0100\n"
+"PO-Revision-Date: 2007-11-30 14:07+0100\n"
+"Last-Translator: Ignacio Casal Quinteiro <icq@svn.gnome.org>\n"
 "Language-Team: Galego <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -265,7 +266,7 @@ msgstr "Mostrar todos os motores de busca dispoñibles"
 msgid "Show only the primary search engine"
 msgstr "Mostrar só o motor de busca primario"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:177
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:178
 #, python-format
 msgid "Open History Item %s"
 msgstr "Abrir o elemento de historial %s"
@@ -349,64 +350,64 @@ msgstr "Notas"
 msgid "<i>Choose action</i>"
 msgstr "<i>Escoller acción</i>"
 
-#: ../deskbar/core/Utils.py:124
+#: ../deskbar/core/Utils.py:127
 msgid "Cannot execute program:"
 msgstr "Non se pode executar o programa:"
 
-#: ../deskbar/core/Utils.py:164
+#: ../deskbar/core/Utils.py:167
 msgid "Cannot show URL:"
 msgstr "Non se pode mostrar o URL:"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:100
 #, python-format
 msgid "Edit contact %s"
 msgstr "Editar o contacto %s"
 
-#: ../deskbar/handlers/beagle-live.py:110
+#: ../deskbar/handlers/beagle-live.py:111
 #, python-format
 msgid "From %s"
 msgstr "Desde %s"
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "News from %s"
 msgstr "Noticias de %s"
 
-#: ../deskbar/handlers/beagle-live.py:139
+#: ../deskbar/handlers/beagle-live.py:140
 #, python-format
 msgid "Note: %s"
 msgstr "Nota: %s"
 
-#: ../deskbar/handlers/beagle-live.py:152
+#: ../deskbar/handlers/beagle-live.py:153
 #, python-format
 msgid "With %s"
 msgstr "Con %s"
 
-#: ../deskbar/handlers/beagle-live.py:166
+#: ../deskbar/handlers/beagle-live.py:167
 #, python-format
 msgid "Calendar: %s"
 msgstr "Axenda: %s"
 
-#: ../deskbar/handlers/beagle-live.py:272
+#: ../deskbar/handlers/beagle-live.py:273
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:273
+#: ../deskbar/handlers/beagle-live.py:274
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Busque todos os seus documentos (usando o Beagle), mentres teclea"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:382
-#: ../deskbar/handlers/beagle-live.py:404
+#: ../deskbar/handlers/beagle-live.py:396
+#: ../deskbar/handlers/beagle-live.py:418
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:442
+#: ../deskbar/handlers/beagle-live.py:456
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Non se puido cargar beagle, libbeagle compilouse sen bindings de python."
 
-#: ../deskbar/handlers/beagle-live.py:451
+#: ../deskbar/handlers/beagle-live.py:465
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagled non se puido encontrar no se $PATH."
 
@@ -483,21 +484,27 @@ msgstr "Pode definir atallos para as buscas."
 msgid "Web History (Epiphany)"
 msgstr "Historial de web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:735
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:736
 msgid "Open your web history by name"
 msgstr "Abrir o seu historial de web por nome"
 
-#: ../deskbar/handlers/evolution.py:21
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:27
+#, python-format
+msgid "Edit contact <b>%(name)s</b> (%(email)s)"
+msgstr "Editar contacto <b>%(name)s</b> (%(email)s)"
+
+#: ../deskbar/handlers/evolution.py:42
 msgid "Mail (Address Book)"
 msgstr "Correo (axenda de enderezos)"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:43
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Enviar correos electrónicos aos seus contactos tecleando o seu nome ou "
 "enderezo de correo electrónico"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:67
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -512,16 +519,16 @@ msgstr ""
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
-#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/files.py:62
 #: ../deskbar/handlers/actions/ActionsFactory.py:33
 msgid "Location"
 msgstr "Ubicación"
 
-#: ../deskbar/handlers/files.py:69
+#: ../deskbar/handlers/files.py:70
 msgid "Files, Folders and Places"
 msgstr "Ficheiros, cartafoles e lugares"
 
-#: ../deskbar/handlers/files.py:70
+#: ../deskbar/handlers/files.py:71
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Ver os seus ficheiros, cartafoles, marcadores, dispositivos e lugares de "
@@ -555,11 +562,8 @@ msgstr "Apagar o computador"
 msgid "Shut Down"
 msgstr "Apagar"
 
-#: ../deskbar/handlers/gdmactions.py:165
-msgid "Log out"
-msgstr "Terminar a sesión"
-
-#: ../deskbar/handlers/gdmactions.py:169 ../deskbar/handlers/gdmactions.py:212
+#: ../deskbar/handlers/gdmactions.py:165 ../deskbar/handlers/gdmactions.py:169
+#: ../deskbar/handlers/gdmactions.py:212
 msgid "Log Out"
 msgstr "Terminar a sesión"
 
@@ -621,7 +625,7 @@ msgstr "Ventás"
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Marcadores web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:184 ../deskbar/handlers/mozilla.py:256
+#: ../deskbar/handlers/mozilla.py:184 ../deskbar/handlers/mozilla.py:257
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox non é o seu navegador preferido."
 
@@ -629,11 +633,11 @@ msgstr "Mozilla/Firefox non é o seu navegador preferido."
 msgid "Web Searches (Mozilla)"
 msgstr "Buscas na web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:250
+#: ../deskbar/handlers/mozilla.py:251
 msgid "You can customize which search engines are offered."
 msgstr "Pode personalizar que motores de busca se ofrecen."
 
-#: ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/mozilla.py:735
 msgid "Web History (Mozilla)"
 msgstr "Historial de web (Mozilla)"
 
@@ -652,40 +656,57 @@ msgstr "Buscar nomes de ficheiro como %s"
 msgid "Search in Devhelp for %s"
 msgstr "Buscar %s en Devhelp"
 
-#: ../deskbar/handlers/programs.py:116
+#: ../deskbar/handlers/programs.py:124
 msgid "Dictionary"
 msgstr "Dicionario"
 
-#: ../deskbar/handlers/programs.py:117
+#: ../deskbar/handlers/programs.py:125
 msgid "Look up word definitions in the dictionary"
 msgstr "Buscar definicións de palabras no dicionario"
 
-#: ../deskbar/handlers/programs.py:133
+#: ../deskbar/handlers/programs.py:141
+msgid "GNOME dictionary is not installed"
+msgstr "O dicionario de Gnome non está instalado"
+
+#: ../deskbar/handlers/programs.py:148
 msgid "Files and Folders Search"
 msgstr "Busca de ficheiros e cartafoles"
 
-#: ../deskbar/handlers/programs.py:134
+#: ../deskbar/handlers/programs.py:149
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Localizar os ficheiros e cartafoles buscando por un patrón de nome"
 
-#: ../deskbar/handlers/programs.py:150
+#: ../deskbar/handlers/programs.py:165
+msgid "GNOME search tool is not installed"
+msgstr "A ferramenta de busca de Gnome non está instalada"
+
+#: ../deskbar/handlers/programs.py:172
 msgid "Developer Documentation"
 msgstr "Documentación do desenvolvedor"
 
-#: ../deskbar/handlers/programs.py:151
+#: ../deskbar/handlers/programs.py:173
 msgid "Search Devhelp for a function name"
 msgstr "Buscar un nome dunha función en Devhelp"
 
-#: ../deskbar/handlers/programs.py:202
+#: ../deskbar/handlers/programs.py:189
+msgid "Devhelp is not installed"
+msgstr "O Devhelp non está instalado"
+
+#: ../deskbar/handlers/programs.py:238
+#, python-format
+msgid "Execute %s in terminal"
+msgstr "Executar %s nunha terminal"
+
+#: ../deskbar/handlers/programs.py:240
 #, python-format
 msgid "Execute %s"
 msgstr "Executar %s"
 
-#: ../deskbar/handlers/programs.py:224
+#: ../deskbar/handlers/programs.py:256
 msgid "Programs"
 msgstr "Programas"
 
-#: ../deskbar/handlers/programs.py:225
+#: ../deskbar/handlers/programs.py:257
 msgid "Launch a program by its name and/or description"
 msgstr "Iniciar un programa polo seu nome e/ou descrición"
 
@@ -734,10 +755,10 @@ msgstr "Ir á localización de %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:45
 #, python-format
-msgid "Launch <b>%(name)s</b>"
-msgstr "Iniciar <b>%(name)s</b>"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Lanzar <b>%(name)s</b> (%(prog)s)"
 
 #: ../deskbar/handlers/actions/OpenFileAction.py:38
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
@@ -815,15 +836,18 @@ msgstr "_Historial"
 msgid "Back to Matches"
 msgstr "Volver ás coincidencias"
 
-#: ../deskbar/ui/DeskbarApplet.py:86
+#: ../deskbar/ui/DeskbarTray.py:42
 msgid "Show search entry"
 msgstr "Mostrar a entrada de busca"
 
-#: ../deskbar/ui/DeskbarApplet.py:115
+#: ../deskbar/ui/DeskbarTray.py:87
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
-msgstr "Encontráronse algúns módulos potencialmente antigos que usan a API antiga de Deskbar-applet. Elimine estes ficheiros para que desapareza esta advertencia.\n"
+msgstr ""
+"Encontráronse algúns módulos potencialmente antigos que usan a API antiga de "
+"Deskbar-applet. Elimine estes ficheiros para que desapareza esta "
+"advertencia.\n"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -846,15 +870,15 @@ msgstr ""
 "<i><small>Arrastre e solte unha extensión para cambiar a súa orde.</small></"
 "i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:318
 msgid "A problem occured"
 msgstr "Ocorreu un erro"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:383
 msgid "Handler has been installed successfully"
 msgstr "O manipulador instalouse con éxito"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:386
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
 "Non se puido instalar o manipulador debido a un problema co ficheiro "
