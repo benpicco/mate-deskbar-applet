@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-19 00:38+0300\n"
+"POT-Creation-Date: 2007-12-01 14:40+0200\n"
 "PO-Revision-Date: 2007-10-19 00:38+0300\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: Belarusian Latin <be-latin.open-tran.eu>\n"
@@ -260,7 +260,7 @@ msgstr "Pakažy ŭsie najaŭnyja ruchaviki pošuku"
 msgid "Show only the primary search engine"
 msgstr "Pakazvaj tolki hałoŭny ruchavik pošuku"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:177
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:178
 #, python-format
 msgid "Open History Item %s"
 msgstr "Adčyni zapis %s z historyi"
@@ -344,67 +344,67 @@ msgstr "Natatki"
 msgid "<i>Choose action</i>"
 msgstr "<i>Abiary dziejańnie</i>"
 
-#: ../deskbar/core/Utils.py:124
+#: ../deskbar/core/Utils.py:127
 msgid "Cannot execute program:"
 msgstr "Niemahčyma vykanać prahramu:"
 
-#: ../deskbar/core/Utils.py:164
+#: ../deskbar/core/Utils.py:167
 msgid "Cannot show URL:"
 msgstr "Niemahčyma pakazać adras:"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:100
 #, python-format
 msgid "Edit contact %s"
 msgstr "Redahuj kantakt %s"
 
-#: ../deskbar/handlers/beagle-live.py:110
+#: ../deskbar/handlers/beagle-live.py:111
 #, python-format
 msgid "From %s"
 msgstr "Ad %s"
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "News from %s"
 msgstr "Naviny z %s"
 
-#: ../deskbar/handlers/beagle-live.py:139
+#: ../deskbar/handlers/beagle-live.py:140
 #, python-format
 msgid "Note: %s"
 msgstr "Natatka: %s"
 
-#: ../deskbar/handlers/beagle-live.py:152
+#: ../deskbar/handlers/beagle-live.py:153
 #, python-format
 msgid "With %s"
 msgstr "Z %s"
 
-#: ../deskbar/handlers/beagle-live.py:166
+#: ../deskbar/handlers/beagle-live.py:167
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalandar: %s"
 
-#: ../deskbar/handlers/beagle-live.py:272
+#: ../deskbar/handlers/beagle-live.py:273
 msgid "Beagle Live"
 msgstr "Žyvy Beagle"
 
-#: ../deskbar/handlers/beagle-live.py:273
+#: ../deskbar/handlers/beagle-live.py:274
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Šukaj va ŭsich svaich dakumentach (z dapamohaj Beagle), uvodziačy"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:382
-#: ../deskbar/handlers/beagle-live.py:404
+#: ../deskbar/handlers/beagle-live.py:396
+#: ../deskbar/handlers/beagle-live.py:418
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:442
+#: ../deskbar/handlers/beagle-live.py:456
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "Niemahčyma zahruzić beagle, libbeagle skampilavanaja biaz poviaziaŭ dla "
 "Pythona."
 
-#: ../deskbar/handlers/beagle-live.py:451
+#: ../deskbar/handlers/beagle-live.py:465
 msgid "Beagled could not be found in your $PATH."
 msgstr "Niemahčyma znajści beagled u tvaim $PATH."
 
@@ -481,19 +481,25 @@ msgstr "Ty možaš akreślić skaroty dla pošuku."
 msgid "Web History (Epiphany)"
 msgstr "Historyja Web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:735
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:736
 msgid "Open your web history by name"
 msgstr "Adčyniaj svaju historyju Web pavodle nazvy"
 
-#: ../deskbar/handlers/evolution.py:21
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:27
+#, python-format
+msgid "Edit contact <b>%(name)s</b> (%(email)s)"
+msgstr "Redahuj kantakt <b>%(name)s</b> (%(email)s)"
+
+#: ../deskbar/handlers/evolution.py:42
 msgid "Mail (Address Book)"
 msgstr "Pošta (Adrasnaja kniha)"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:43
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Dašli poštu kantaktu, uvioŭšy jaho nazvu ci adras e-maiłu"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:67
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -508,16 +514,16 @@ msgstr ""
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
-#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/files.py:62
 #: ../deskbar/handlers/actions/ActionsFactory.py:33
 msgid "Location"
 msgstr "Pałažeńnie"
 
-#: ../deskbar/handlers/files.py:69
+#: ../deskbar/handlers/files.py:70
 msgid "Files, Folders and Places"
 msgstr "Fajły, katalohi j miescy"
 
-#: ../deskbar/handlers/files.py:70
+#: ../deskbar/handlers/files.py:71
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Prahladaj svaje fajły, katalohi, zakładki, pryłady, sietku pavodle nazvaŭ"
@@ -550,11 +556,8 @@ msgstr "Vykluč kamputar"
 msgid "Shut Down"
 msgstr "Vykluč"
 
-#: ../deskbar/handlers/gdmactions.py:165
-msgid "Log out"
-msgstr "Vyjdzi"
-
-#: ../deskbar/handlers/gdmactions.py:169 ../deskbar/handlers/gdmactions.py:212
+#: ../deskbar/handlers/gdmactions.py:165 ../deskbar/handlers/gdmactions.py:169
+#: ../deskbar/handlers/gdmactions.py:212
 msgid "Log Out"
 msgstr "Vyjdzi"
 
@@ -616,7 +619,7 @@ msgstr "Vokny"
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Zakładki Web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:184 ../deskbar/handlers/mozilla.py:256
+#: ../deskbar/handlers/mozilla.py:184 ../deskbar/handlers/mozilla.py:257
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox nie źjaŭlajecca tvaim pažadanym hartačom."
 
@@ -624,11 +627,11 @@ msgstr "Mozilla/Firefox nie źjaŭlajecca tvaim pažadanym hartačom."
 msgid "Web Searches (Mozilla)"
 msgstr "Pošuk u Web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:250
+#: ../deskbar/handlers/mozilla.py:251
 msgid "You can customize which search engines are offered."
 msgstr "Ty možaš źmianić śpis prapanavanych ruchavikoŭ pošuku."
 
-#: ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/mozilla.py:735
 msgid "Web History (Mozilla)"
 msgstr "Historyja Web (Mozilla)"
 
@@ -647,40 +650,57 @@ msgstr "Šukaj nazvy fajłaŭ jak %s"
 msgid "Search in Devhelp for %s"
 msgstr "Šukaj %s u Devhelp'ie"
 
-#: ../deskbar/handlers/programs.py:116
+#: ../deskbar/handlers/programs.py:124
 msgid "Dictionary"
 msgstr "Słoŭnik"
 
-#: ../deskbar/handlers/programs.py:117
+#: ../deskbar/handlers/programs.py:125
 msgid "Look up word definitions in the dictionary"
 msgstr "Šukaj aznačeńni słovaŭ u słoŭniku"
 
-#: ../deskbar/handlers/programs.py:133
+#: ../deskbar/handlers/programs.py:141
+msgid "GNOME dictionary is not installed"
+msgstr "Słoŭnik dla GNOME nie zainstalavany"
+
+#: ../deskbar/handlers/programs.py:148
 msgid "Files and Folders Search"
 msgstr "Pošuk fajłaŭ i katalohaŭ"
 
-#: ../deskbar/handlers/programs.py:134
+#: ../deskbar/handlers/programs.py:149
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Šukaj fajły j katalohi pavodle ŭzoru nazvy"
 
-#: ../deskbar/handlers/programs.py:150
+#: ../deskbar/handlers/programs.py:165
+msgid "GNOME search tool is not installed"
+msgstr "Pryłada pošuku ŭ GNOME nie zainstalavanaja"
+
+#: ../deskbar/handlers/programs.py:172
 msgid "Developer Documentation"
 msgstr "Dakumentacyja raspracoŭščyka"
 
-#: ../deskbar/handlers/programs.py:151
+#: ../deskbar/handlers/programs.py:173
 msgid "Search Devhelp for a function name"
 msgstr "Šukaj nazvu funkcyi ŭ Devhelp'ie"
 
-#: ../deskbar/handlers/programs.py:202
+#: ../deskbar/handlers/programs.py:189
+msgid "Devhelp is not installed"
+msgstr "Devhelp nie zainstalavany"
+
+#: ../deskbar/handlers/programs.py:238
+#, python-format
+msgid "Execute %s in terminal"
+msgstr "Vykanaj %s u terminale"
+
+#: ../deskbar/handlers/programs.py:240
 #, python-format
 msgid "Execute %s"
 msgstr "Vykanaj %s"
 
-#: ../deskbar/handlers/programs.py:224
+#: ../deskbar/handlers/programs.py:256
 msgid "Programs"
 msgstr "Prahramy"
 
-#: ../deskbar/handlers/programs.py:225
+#: ../deskbar/handlers/programs.py:257
 msgid "Launch a program by its name and/or description"
 msgstr "Uruchom prahramu pavodle jaje nazvy i/ci apisańnia"
 
@@ -725,10 +745,10 @@ msgstr "Pierajdzi da pałažeńnia %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:45
 #, python-format
-msgid "Launch <b>%(name)s</b>"
-msgstr "Uruchom <b>%(name)s</b>"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Uruchom <b>%(name)s</b> (%(prog)s)"
 
 #: ../deskbar/handlers/actions/OpenFileAction.py:38
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
@@ -804,11 +824,11 @@ msgstr "_Historyja"
 msgid "Back to Matches"
 msgstr "Nazad da adpaviednikaŭ"
 
-#: ../deskbar/ui/DeskbarApplet.py:86
+#: ../deskbar/ui/DeskbarTray.py:42
 msgid "Show search entry"
 msgstr "Pakažy element pošuku"
 
-#: ../deskbar/ui/DeskbarApplet.py:115
+#: ../deskbar/ui/DeskbarTray.py:87
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
@@ -836,15 +856,15 @@ msgstr ""
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Pieraciahvaj pašyreńni, kab źmianić ich paradak.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:318
 msgid "A problem occured"
 msgstr "Uźnikła prablema"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:383
 msgid "Handler has been installed successfully"
 msgstr "Pasłuha paśpiachova zainstalavanaja"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:386
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "Niemahčyma zainstalavać pasłuhu praz prablemu ŭ padadzienym fajle"
 
@@ -867,3 +887,6 @@ msgstr "Versija:"
 #: ../deskbar/ui/preferences/ModuleListView.py:56
 msgid "Update Available"
 msgstr "Dastupnaja aktualizacyja"
+
+#~ msgid "Log out"
+#~ msgstr "Vyjdzi"
