@@ -3,10 +3,69 @@ from gettext import gettext as _
 import deskbar, deskbar.core.Indexer, deskbar.interfaces.Match, deskbar.interfaces.Module, deskbar.core.Utils
 from deskbar.defs import VERSION
 import deskbar.handlers.gdmclient
-import gtk, gnome.ui
+import gobject, gtk, gnome.ui
 import deskbar.interfaces.Action
 
 HANDLERS = ["GdmHandler"]
+
+( PROMPT_SHUTDOWN,
+  PROMPT_LOGOUT,
+  PROMPT_REBOOT,
+  PROMPT_SUSPEND,
+  PROMPT_HIBERNATE
+) = range(5)
+
+TIMEOUT = 60
+
+def logout_prompt(prompt_type):
+    global TIMEOUT
+    if prompt_type == PROMPT_SHUTDOWN:
+        message = _("Shut down of this system now?")
+        secondary = _("This system will be automatically shut down in %s seconds.")
+        button_label = _("Shut Down")
+    elif prompt_type == PROMPT_LOGOUT:
+        message = _("Log out of this system now?")
+        secondary = _("You will be automatically logged out in %s seconds.")
+        button_label = _("Log Out")
+    elif prompt_type == PROMPT_REBOOT:
+        message = _("Restart this system now?")
+        secondary = _("This system will be automatically restarted in %s seconds.")
+        button_label = _("Restart")
+    elif prompt_type == PROMPT_SUSPEND:
+        message = _("Suspend this system now?")
+        secondary = _("This system will be automatically suspended in %s seconds.")
+        button_label = _("Suspend")
+    elif prompt_type == PROMPT_HIBERNATE:
+        message = _("Hibernate this system now?")
+        secondary = _("This system will be automatically hibernated in %s seconds.")
+        button_label = _("Hibernate")
+   
+    TIMEOUT = 60
+    prompt = gtk.MessageDialog(flags=gtk.MESSAGE_QUESTION, message_format=message)
+    prompt.add_button(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL)
+    prompt.add_button(button_label, gtk.RESPONSE_OK)
+    prompt.set_default_response(gtk.RESPONSE_OK)
+
+    def countdown_func():
+        global TIMEOUT
+        if TIMEOUT != 0:
+            prompt.format_secondary_text(secondary % TIMEOUT)
+            TIMEOUT -= 1
+            return True
+        else:
+            prompt.response(gtk.RESPONSE_OK)
+            return False
+        
+    prompt.format_secondary_text(secondary % TIMEOUT)
+    TIMEOUT -= 1
+    countdown_thread = gobject.timeout_add(1000, countdown_func)
+
+    response = prompt.run()
+    if response == gtk.RESPONSE_CANCEL:
+        gobject.source_remove(countdown_thread)
+    prompt.destroy()
+
+    return response == gtk.RESPONSE_OK
 
 class GpmAction(deskbar.interfaces.Action):
     
@@ -23,7 +82,8 @@ class SuspendAction(GpmAction):
     
     def activate(self, text=None):
         try:
-            self._gpm.Suspend()
+            if logout_prompt(PROMPT_SUSPEND):
+                self._gpm.Suspend()
         except dbus.DBusException:
             # this will trigger a method timeout exception.
             # As a workaround we swallow it silently
@@ -39,7 +99,8 @@ class HibernateAction(GpmAction):
 
     def activate(self, text=None):
         try:
-            self._gpm.Hibernate()
+            if logout_prompt(PROMPT_HIBERNATE):
+                self._gpm.Hibernate()
         except dbus.DBusException:
             # this will trigger a method timeout exception.
             # As a workaround we swallow it silently
@@ -55,7 +116,8 @@ class ShutdownAction(GpmAction):
         
     def activate(self, text=None):
         try:
-            self._gpm.Shutdown()
+            if logout_prompt(PROMPT_SHUTDOWN):
+                self._gpm.Shutdown()
         except dbus.DBusException:
             # this will trigger a method timeout exception.
             # As a workaround we swallow it silently
@@ -142,8 +204,9 @@ class GdmShutdownAction(GdmAction):
         GdmAction.__init__(self, name)
         
     def activate(self, text=None):
-        deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_SHUTDOWN)
-        self.request_logout()
+        if logout_prompt(PROMPT_SHUTDOWN):
+            deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_SHUTDOWN)
+            self.request_logout()
         
     def get_verb(self):
         return _("Turn off the computer")
@@ -158,8 +221,9 @@ class GdmLogoutAction(GdmAction):
         GdmAction.__init__(self, name)
         
     def activate(self, text=None):
-        deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_NONE)
-        self.request_logout()
+        if logout_prompt(PROMPT_LOGOUT):
+            deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_NONE)
+            self.request_logout()
         
     def get_verb(self):
         return _("Log Out")
@@ -174,8 +238,9 @@ class GdmRebootAction(GdmAction):
         GdmAction.__init__(self, name)
         
     def activate(self, text=None):
-        deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_REBOOT)
-        self.request_logout()
+        if logout_prompt(PROMPT_REBOOT):
+            deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_REBOOT)
+            self.request_logout()
         
     def get_verb(self):
         return _("Restart the computer")
