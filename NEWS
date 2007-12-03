@@ -1,4 +1,35 @@
 =======================
+deskbar-applet 2.21.3
+=======================
+
+This release adds a new action that allows you to open evolution contacts for editing.
+In addition, user's module dir is searched for icons, too.
+Therefore, 3rd-party modules can put their icons in the user's
+module dir, as well.
+
+Changes:
+    * Added action to edit evolution contacts
+    * Changed icon for category people to stock_people
+    * Added icons for matches of gdmactions module
+    * Added has_requirements method for GnomeDictHandler, GnomeSearchHandler and DevhelpHandler
+    * Load icons from user's modules dir, too
+    * Fixed bug #479091: KeyError in _on_snippet_closed
+    * Fixed bug #471672: 'NoneType' object has no attribute 'get_actions'
+    * Fixed bug #499706: add iceweasel as firefox equivalent
+    * Fixed bug #406100: Deskbar "Computer Actions" could ask for confirmation
+
+Contributors to this release: Sebastian Pölsterl, Sebastien Bacher, Denis Washington
+
+Updated Translations:
+    * Belarusian
+    * Estonian
+    * Galician
+    * Slovenian
+    * Spanish
+
+Contributors to the translations: Ihar Hrachyshka, Ivar Smolin, Ignacio Casal Quinteiro, Matej Urbančič, Jorge Gonzalez
+
+=======================
 deskbar-applet 2.21.2
 =======================
 
