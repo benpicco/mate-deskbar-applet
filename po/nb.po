@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-27 11:24+0200\n"
-"PO-Revision-Date: 2007-10-27 11:26+0200\n"
+"POT-Creation-Date: 2007-12-06 20:03+0100\n"
+"PO-Revision-Date: 2007-12-06 20:06+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -257,7 +257,7 @@ msgstr "Bruk alle tilgjengelige søkemotorer"
 msgid "Show only the primary search engine"
 msgstr "Bare vis primær søkemotor"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:177
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:178
 #, python-format
 msgid "Open History Item %s"
 msgstr "Åpne historikkoppføring %s"
@@ -341,65 +341,65 @@ msgstr "Notater"
 msgid "<i>Choose action</i>"
 msgstr "<i>Velg handling</i>"
 
-#: ../deskbar/core/Utils.py:124
+#: ../deskbar/core/Utils.py:127
 msgid "Cannot execute program:"
 msgstr "Kan ikke kjøre program:"
 
-#: ../deskbar/core/Utils.py:164
+#: ../deskbar/core/Utils.py:167
 msgid "Cannot show URL:"
 msgstr "Kan ikke vise URL:"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:100
 #, python-format
 msgid "Edit contact %s"
 msgstr "Rediger kontakt %s"
 
-#: ../deskbar/handlers/beagle-live.py:110
+#: ../deskbar/handlers/beagle-live.py:111
 #, python-format
 msgid "From %s"
 msgstr "Fra %s"
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "News from %s"
 msgstr "Nyheter fra %s"
 
-#: ../deskbar/handlers/beagle-live.py:139
+#: ../deskbar/handlers/beagle-live.py:140
 #, python-format
 msgid "Note: %s"
 msgstr "Notat: %s"
 
-#: ../deskbar/handlers/beagle-live.py:152
+#: ../deskbar/handlers/beagle-live.py:153
 #, python-format
 msgid "With %s"
 msgstr "Med %s"
 
-#: ../deskbar/handlers/beagle-live.py:166
+#: ../deskbar/handlers/beagle-live.py:167
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalender: %s"
 
-#: ../deskbar/handlers/beagle-live.py:272
+#: ../deskbar/handlers/beagle-live.py:273
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:273
+#: ../deskbar/handlers/beagle-live.py:274
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Søk gjennom alle dine dokumenter med Beagle mens du skriver"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:382
-#: ../deskbar/handlers/beagle-live.py:404
+#: ../deskbar/handlers/beagle-live.py:396
+#: ../deskbar/handlers/beagle-live.py:418
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:442
+#: ../deskbar/handlers/beagle-live.py:456
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Kunne ikke laste beagle, libbeagle er kompilert uten python-bindinger."
 
-#: ../deskbar/handlers/beagle-live.py:451
+#: ../deskbar/handlers/beagle-live.py:465
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagled ble ikke funnet i $PATH."
 
@@ -476,21 +476,27 @@ msgstr "Du kan lage snarveier for dine søk."
 msgid "Web History (Epiphany)"
 msgstr "Historikk for nettleser (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:735
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:736
 msgid "Open your web history by name"
 msgstr "Åpne historikk for nettleser etter navn"
 
-#: ../deskbar/handlers/evolution.py:21
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:27
+#, python-format
+msgid "Edit contact <b>%(name)s</b> (%(email)s)"
+msgstr "Rediger kontakt <b>%(name)s</b> (%(email)s)"
+
+#: ../deskbar/handlers/evolution.py:42
 msgid "Mail (Address Book)"
 msgstr "E-post (adressebok)"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:43
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Send e-post til kontaktene dine ved å skrive inn deres navn eller e-post-"
 "adresse"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:67
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -504,86 +510,130 @@ msgstr ""
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
-#: ../deskbar/handlers/files.py:61
+#: ../deskbar/handlers/files.py:62
 #: ../deskbar/handlers/actions/ActionsFactory.py:33
 msgid "Location"
 msgstr "Lokasjon"
 
-#: ../deskbar/handlers/files.py:69
+#: ../deskbar/handlers/files.py:70
 msgid "Files, Folders and Places"
 msgstr "Filer, mapper og steder"
 
-#: ../deskbar/handlers/files.py:70
+#: ../deskbar/handlers/files.py:71
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Vis dine filer, mapper, bokmerker, stasjoner og nettverkssteder etter navn"
 
-#: ../deskbar/handlers/gdmactions.py:33
-msgid "Suspend the machine"
-msgstr "Sett maskinen i hvilemodus"
+#: ../deskbar/handlers/gdmactions.py:23
+msgid "Shut down of this system now?"
+msgstr "Steng ned systemet nå?"
 
-#: ../deskbar/handlers/gdmactions.py:49
-msgid "Hibernate the machine"
-msgstr "Sett maskinen i dvalemodus"
+#: ../deskbar/handlers/gdmactions.py:24
+#, python-format
+msgid "This system will be automatically shut down in %s seconds."
+msgstr "Dette systemet vil bli stengt ned om %s sekunder."
 
-#: ../deskbar/handlers/gdmactions.py:65
-msgid "Shutdown the machine"
-msgstr "Slå av maskinen"
-
-#: ../deskbar/handlers/gdmactions.py:86
-msgid "Lock the screen"
-msgstr "Lås skjermen"
-
-#: ../deskbar/handlers/gdmactions.py:109 ../deskbar/handlers/gdmactions.py:230
-msgid "Lock"
-msgstr "Lås"
-
-#: ../deskbar/handlers/gdmactions.py:149
-msgid "Turn off the computer"
-msgstr "Slå av datamaskinen"
-
-#: ../deskbar/handlers/gdmactions.py:153 ../deskbar/handlers/gdmactions.py:209
+#: ../deskbar/handlers/gdmactions.py:25 ../deskbar/handlers/gdmactions.py:216
+#: ../deskbar/handlers/gdmactions.py:274
 msgid "Shut Down"
 msgstr "Slå av"
 
-#: ../deskbar/handlers/gdmactions.py:165
-msgid "Log out"
-msgstr "Logg ut"
+#: ../deskbar/handlers/gdmactions.py:27
+msgid "Log out of this system now?"
+msgstr "Logg ut fra systemet nå?"
 
-#: ../deskbar/handlers/gdmactions.py:169 ../deskbar/handlers/gdmactions.py:212
+#: ../deskbar/handlers/gdmactions.py:28
+#, python-format
+msgid "You will be automatically logged out in %s seconds."
+msgstr "Du vil automatisk logges ut om %s sekunder."
+
+#: ../deskbar/handlers/gdmactions.py:29 ../deskbar/handlers/gdmactions.py:229
+#: ../deskbar/handlers/gdmactions.py:233 ../deskbar/handlers/gdmactions.py:277
 msgid "Log Out"
 msgstr "Logg ut"
 
-#: ../deskbar/handlers/gdmactions.py:181
-msgid "Restart the computer"
-msgstr "Start maskinen på nytt"
+#: ../deskbar/handlers/gdmactions.py:31
+msgid "Restart this system now?"
+msgstr "Start systemet på nytt nå?"
 
-#: ../deskbar/handlers/gdmactions.py:185 ../deskbar/handlers/gdmactions.py:211
+#: ../deskbar/handlers/gdmactions.py:32
+#, python-format
+msgid "This system will be automatically restarted in %s seconds."
+msgstr "Dette systemet vil bli startet på nytt automatisk om %s sekunder."
+
+#: ../deskbar/handlers/gdmactions.py:33 ../deskbar/handlers/gdmactions.py:250
+#: ../deskbar/handlers/gdmactions.py:276
 msgid "Restart"
 msgstr "Start på nytt"
 
-#: ../deskbar/handlers/gdmactions.py:196 ../deskbar/handlers/gdmactions.py:200
-#: ../deskbar/handlers/gdmactions.py:210
-msgid "Switch User"
-msgstr "Bytt bruker"
+#: ../deskbar/handlers/gdmactions.py:35
+msgid "Suspend this system now?"
+msgstr "Sett maskinen i hvilemodus nå?"
 
-#: ../deskbar/handlers/gdmactions.py:206
-msgid "Computer Actions"
-msgstr "Handlinger for datamaskinen"
+#: ../deskbar/handlers/gdmactions.py:36
+#, python-format
+msgid "This system will be automatically suspended in %s seconds."
+msgstr "Systemet vil gå i hvilemodus om %s sekunder."
 
-#: ../deskbar/handlers/gdmactions.py:207
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr "Logg ut, slå av, start på nytt, hvilemodus og relaterte handlinger."
-
-#: ../deskbar/handlers/gdmactions.py:241
+#: ../deskbar/handlers/gdmactions.py:37 ../deskbar/handlers/gdmactions.py:306
 msgid "Suspend"
 msgstr "Hvilemodus"
 
-#: ../deskbar/handlers/gdmactions.py:243
+#: ../deskbar/handlers/gdmactions.py:39
+msgid "Hibernate this system now?"
+msgstr "Sett maskinen i dvalemodus nå?"
+
+#: ../deskbar/handlers/gdmactions.py:40
+#, python-format
+msgid "This system will be automatically hibernated in %s seconds."
+msgstr "Dette systemet vil gå i dvalemodus om %s sekunder."
+
+#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:308
 msgid "Hibernate"
 msgstr "Dvalemodus"
 
-#: ../deskbar/handlers/gdmactions.py:245
+#: ../deskbar/handlers/gdmactions.py:93
+msgid "Suspend the machine"
+msgstr "Sett maskinen i hvilemodus"
+
+#: ../deskbar/handlers/gdmactions.py:110
+msgid "Hibernate the machine"
+msgstr "Sett maskinen i dvalemodus"
+
+#: ../deskbar/handlers/gdmactions.py:127
+msgid "Shutdown the machine"
+msgstr "Slå av maskinen"
+
+#: ../deskbar/handlers/gdmactions.py:148
+msgid "Lock the screen"
+msgstr "Lås skjermen"
+
+#: ../deskbar/handlers/gdmactions.py:171 ../deskbar/handlers/gdmactions.py:295
+msgid "Lock"
+msgstr "Lås"
+
+#: ../deskbar/handlers/gdmactions.py:212
+msgid "Turn off the computer"
+msgstr "Slå av datamaskinen"
+
+#: ../deskbar/handlers/gdmactions.py:246
+msgid "Restart the computer"
+msgstr "Start maskinen på nytt"
+
+#: ../deskbar/handlers/gdmactions.py:261 ../deskbar/handlers/gdmactions.py:265
+#: ../deskbar/handlers/gdmactions.py:275
+msgid "Switch User"
+msgstr "Bytt bruker"
+
+#: ../deskbar/handlers/gdmactions.py:271
+msgid "Computer Actions"
+msgstr "Handlinger for datamaskinen"
+
+#: ../deskbar/handlers/gdmactions.py:272
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "Logg ut, slå av, start på nytt, hvilemodus og relaterte handlinger."
+
+#: ../deskbar/handlers/gdmactions.py:310
 msgid "Shutdown"
 msgstr "Slå av"
 
@@ -612,7 +662,7 @@ msgstr "Vinduer"
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Bokmerker på nettet (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:184 ../deskbar/handlers/mozilla.py:256
+#: ../deskbar/handlers/mozilla.py:184 ../deskbar/handlers/mozilla.py:257
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox er ikke din foretrukne nettleser."
 
@@ -620,11 +670,11 @@ msgstr "Mozilla/Firefox er ikke din foretrukne nettleser."
 msgid "Web Searches (Mozilla)"
 msgstr "Søk på nettet (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:250
+#: ../deskbar/handlers/mozilla.py:251
 msgid "You can customize which search engines are offered."
 msgstr "Du kan stille inn hvilke søkemotorer som skal tilbys."
 
-#: ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/mozilla.py:735
 msgid "Web History (Mozilla)"
 msgstr "Historikk for nettleser (Mozilla)"
 
@@ -643,40 +693,57 @@ msgstr "Søk etter filnavn som %s"
 msgid "Search in Devhelp for %s"
 msgstr "Søk etter %s i Devhelp"
 
-#: ../deskbar/handlers/programs.py:116
+#: ../deskbar/handlers/programs.py:124
 msgid "Dictionary"
 msgstr "Ordbok"
 
-#: ../deskbar/handlers/programs.py:117
+#: ../deskbar/handlers/programs.py:125
 msgid "Look up word definitions in the dictionary"
 msgstr "Slå opp definisjoner av ord i ordboken"
 
-#: ../deskbar/handlers/programs.py:133
+#: ../deskbar/handlers/programs.py:141
+msgid "GNOME dictionary is not installed"
+msgstr "GNOME ordbok er ikke installert"
+
+#: ../deskbar/handlers/programs.py:148
 msgid "Files and Folders Search"
 msgstr "Søk etter filer og mapper"
 
-#: ../deskbar/handlers/programs.py:134
+#: ../deskbar/handlers/programs.py:149
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Finn filer og mapper ved å søke etter et navnemønster"
 
-#: ../deskbar/handlers/programs.py:150
+#: ../deskbar/handlers/programs.py:165
+msgid "GNOME search tool is not installed"
+msgstr "Søkeverktøy for GNOME er ikke installert"
+
+#: ../deskbar/handlers/programs.py:172
 msgid "Developer Documentation"
 msgstr "Dokumentasjon for utviklere"
 
-#: ../deskbar/handlers/programs.py:151
+#: ../deskbar/handlers/programs.py:173
 msgid "Search Devhelp for a function name"
 msgstr "Søk etter funksjonsnavn i Devhelp"
 
-#: ../deskbar/handlers/programs.py:202
+#: ../deskbar/handlers/programs.py:189
+msgid "Devhelp is not installed"
+msgstr "Devhelp er ikke installert"
+
+#: ../deskbar/handlers/programs.py:238
+#, python-format
+msgid "Execute %s in terminal"
+msgstr "Kjør %s i en terminal"
+
+#: ../deskbar/handlers/programs.py:240
 #, python-format
 msgid "Execute %s"
 msgstr "Kjør %s"
 
-#: ../deskbar/handlers/programs.py:224
+#: ../deskbar/handlers/programs.py:256
 msgid "Programs"
 msgstr "Programmer"
 
-#: ../deskbar/handlers/programs.py:225
+#: ../deskbar/handlers/programs.py:257
 msgid "Launch a program by its name and/or description"
 msgstr "Start et program etter navn eller beskrivelse"
 
@@ -721,10 +788,10 @@ msgstr "Gå til lokasjon %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:45
 #, python-format
-msgid "Launch <b>%(name)s</b>"
-msgstr "Start <b>%(name)s</b>"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Start <b>%(name)s</b> (%(prog)s"
 
 #: ../deskbar/handlers/actions/OpenFileAction.py:38
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
@@ -832,15 +899,15 @@ msgstr ""
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Dra-og-slipp-utvidelser for å endre rekkefølgen.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:318
 msgid "A problem occured"
 msgstr "Et problem oppsto"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:383
 msgid "Handler has been installed successfully"
 msgstr "Installering av håndterer er fullført"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:386
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "Håndterer kunne ikke installeres pga et problem med oppgitt fil"
 
