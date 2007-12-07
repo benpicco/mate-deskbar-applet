@@ -6,6 +6,7 @@ import gtk, gtk.gdk, gnome.ui, gobject, gnomevfs
 from htmlentitydefs import name2codepoint
 import logging
 from deskbar.core.GconfStore import GconfStore
+import deskbar.core.Categories
 
 ICON_THEME = gtk.icon_theme_get_default()
 factory = gnome.ui.ThumbnailFactory(deskbar.ICON_HEIGHT)
@@ -101,6 +102,7 @@ def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
                 pixbuf = ICON_THEME.load_icon(icon, width, gtk.ICON_LOOKUP_USE_BUILTIN)
             except Exception, msg2:
                 logging.error('load_icon:Icon Load Error:%s (or %s)' % (msg1, msg2))
+                return ICON_THEME.load_icon("stock_unknown", width, gtk.ICON_LOOKUP_USE_BUILTIN)
                 
     # an icon that is too tall will make the EntryCompletion look funny
     if pixbuf != None and pixbuf.get_height() > height:
