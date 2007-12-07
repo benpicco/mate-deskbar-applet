@@ -115,6 +115,8 @@ class ModuleLoader (gobject.GObject):
             logging.warning("The file %s doesn't contain a HANDERLS variable" % (filename))
             return
         
+        valid_modules = []
+        
         for handler in mod.HANDLERS:
             module = getattr(mod, handler)
             if hasattr(module, "initialize") and hasattr( module, "INFOS"):
@@ -122,24 +124,24 @@ class ModuleLoader (gobject.GObject):
                 if not getattr(module, "has_requirements" )():
                     logging.warning("Class %s in file %s has missing requirements. Skipping." % (handler, filename))
                     self.emit("module-not-initialized", module)
-                    return
+                else:
+                    valid_modules.append(module)
             else:
                 logging.error("Class %s in file %s does not have an initialize(self) method or does not define a 'INFOS' attribute. Skipping." % (handler, filename))
-                return
             
-        return mod
+        return valid_modules
             
     def load (self, filename):
         """Loads the given file as a module and emits a 'module-loaded' signal
         passing a corresponding ModuleContext as argument.
         """
-        mod = self.import_module (filename)
-        if mod is None:
+        modules = self.import_module (filename)
+        if modules == None or len(modules) == 0:
             return
         
-        for handler in mod.HANDLERS:
-            logging.info("Loading module '%s' from file %s." % ( getattr(mod, handler).INFOS["name"], filename))
-            mod_instance = getattr (mod, handler) ()
+        for mod in modules:
+            logging.info("Loading module '%s' from file %s." % ( mod.INFOS["name"], filename))
+            mod_instance = mod ()
             mod_instance.set_filename( filename )
             mod_instance.set_id( os.path.basename(filename) )
                     
