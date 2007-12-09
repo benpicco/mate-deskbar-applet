@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-30 14:06+0100\n"
-"PO-Revision-Date: 2007-11-30 14:07+0100\n"
+"POT-Creation-Date: 2007-12-09 11:15+0100\n"
+"PO-Revision-Date: 2007-12-09 11:17+0100\n"
 "Last-Translator: Ignacio Casal Quinteiro <icq@svn.gnome.org>\n"
 "Language-Team: Galego <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -350,11 +350,11 @@ msgstr "Notas"
 msgid "<i>Choose action</i>"
 msgstr "<i>Escoller acción</i>"
 
-#: ../deskbar/core/Utils.py:127
+#: ../deskbar/core/Utils.py:129
 msgid "Cannot execute program:"
 msgstr "Non se pode executar o programa:"
 
-#: ../deskbar/core/Utils.py:167
+#: ../deskbar/core/Utils.py:169
 msgid "Cannot show URL:"
 msgstr "Non se pode mostrar o URL:"
 
@@ -534,69 +534,116 @@ msgstr ""
 "Ver os seus ficheiros, cartafoles, marcadores, dispositivos e lugares de "
 "rede por nome"
 
-#: ../deskbar/handlers/gdmactions.py:33
-msgid "Suspend the machine"
-msgstr "Suspender a máquina"
+#: ../deskbar/handlers/gdmactions.py:23
+msgid "Shut down of this system now?"
+msgstr "Quere apagar este sistema agora?"
 
-#: ../deskbar/handlers/gdmactions.py:49
-msgid "Hibernate the machine"
-msgstr "Hibernar a máquina"
+#: ../deskbar/handlers/gdmactions.py:24
+#, python-format
+msgid "This system will be automatically shut down in %s seconds."
+msgstr "Este sistema apagarase automaticamente en %s segundos."
 
-#: ../deskbar/handlers/gdmactions.py:65
-msgid "Shutdown the machine"
-msgstr "Apagar a máquina"
-
-#: ../deskbar/handlers/gdmactions.py:86
-msgid "Lock the screen"
-msgstr "Bloquear a pantalla"
-
-#: ../deskbar/handlers/gdmactions.py:109 ../deskbar/handlers/gdmactions.py:230
-msgid "Lock"
-msgstr "Bloquear"
-
-#: ../deskbar/handlers/gdmactions.py:149
-msgid "Turn off the computer"
-msgstr "Apagar o computador"
-
-#: ../deskbar/handlers/gdmactions.py:153 ../deskbar/handlers/gdmactions.py:209
+#: ../deskbar/handlers/gdmactions.py:25 ../deskbar/handlers/gdmactions.py:216
+#: ../deskbar/handlers/gdmactions.py:274
 msgid "Shut Down"
 msgstr "Apagar"
 
-#: ../deskbar/handlers/gdmactions.py:165 ../deskbar/handlers/gdmactions.py:169
-#: ../deskbar/handlers/gdmactions.py:212
+#: ../deskbar/handlers/gdmactions.py:27
+msgid "Log out of this system now?"
+msgstr "Quere saír deste sistema agora?"
+
+#: ../deskbar/handlers/gdmactions.py:28
+#, python-format
+msgid "You will be automatically logged out in %s seconds."
+msgstr "Sairá do sistema automaticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:29 ../deskbar/handlers/gdmactions.py:229
+#: ../deskbar/handlers/gdmactions.py:233 ../deskbar/handlers/gdmactions.py:277
 msgid "Log Out"
 msgstr "Terminar a sesión"
 
-#: ../deskbar/handlers/gdmactions.py:181
-msgid "Restart the computer"
-msgstr "Reiniciar o computador"
+#: ../deskbar/handlers/gdmactions.py:31
+msgid "Restart this system now?"
+msgstr "Quere reiniciar este sistema agora?"
 
-#: ../deskbar/handlers/gdmactions.py:185 ../deskbar/handlers/gdmactions.py:211
+#: ../deskbar/handlers/gdmactions.py:32
+#, python-format
+msgid "This system will be automatically restarted in %s seconds."
+msgstr "Este sistema reiniciarase automaticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:33 ../deskbar/handlers/gdmactions.py:250
+#: ../deskbar/handlers/gdmactions.py:276
 msgid "Restart"
 msgstr "Reiniciar"
 
-#: ../deskbar/handlers/gdmactions.py:196 ../deskbar/handlers/gdmactions.py:200
-#: ../deskbar/handlers/gdmactions.py:210
-msgid "Switch User"
-msgstr "Cambiar de usuario"
+#: ../deskbar/handlers/gdmactions.py:35
+msgid "Suspend this system now?"
+msgstr "Quere suspender este sistema agora?"
 
-#: ../deskbar/handlers/gdmactions.py:206
-msgid "Computer Actions"
-msgstr "Accións do computador"
+#: ../deskbar/handlers/gdmactions.py:36
+#, python-format
+msgid "This system will be automatically suspended in %s seconds."
+msgstr "Este sistema suspenderase automaticamente en %s segundos."
 
-#: ../deskbar/handlers/gdmactions.py:207
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr "Terminar a sesión, pechar, reiniciar, suspender e accións relacionadas."
-
-#: ../deskbar/handlers/gdmactions.py:241
+#: ../deskbar/handlers/gdmactions.py:37 ../deskbar/handlers/gdmactions.py:306
 msgid "Suspend"
 msgstr "Suspender"
 
-#: ../deskbar/handlers/gdmactions.py:243
+#: ../deskbar/handlers/gdmactions.py:39
+msgid "Hibernate this system now?"
+msgstr "Quere hibernar este sistema agora?"
+
+#: ../deskbar/handlers/gdmactions.py:40
+#, python-format
+msgid "This system will be automatically hibernated in %s seconds."
+msgstr "Este sistema hibernarase automaticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:308
 msgid "Hibernate"
 msgstr "Hibernar"
 
-#: ../deskbar/handlers/gdmactions.py:245
+#: ../deskbar/handlers/gdmactions.py:93
+msgid "Suspend the machine"
+msgstr "Suspender a máquina"
+
+#: ../deskbar/handlers/gdmactions.py:110
+msgid "Hibernate the machine"
+msgstr "Hibernar a máquina"
+
+#: ../deskbar/handlers/gdmactions.py:127
+msgid "Shutdown the machine"
+msgstr "Apagar a máquina"
+
+#: ../deskbar/handlers/gdmactions.py:148
+msgid "Lock the screen"
+msgstr "Bloquear a pantalla"
+
+#: ../deskbar/handlers/gdmactions.py:171 ../deskbar/handlers/gdmactions.py:295
+msgid "Lock"
+msgstr "Bloquear"
+
+#: ../deskbar/handlers/gdmactions.py:212
+msgid "Turn off the computer"
+msgstr "Apagar o computador"
+
+#: ../deskbar/handlers/gdmactions.py:246
+msgid "Restart the computer"
+msgstr "Reiniciar o computador"
+
+#: ../deskbar/handlers/gdmactions.py:261 ../deskbar/handlers/gdmactions.py:265
+#: ../deskbar/handlers/gdmactions.py:275
+msgid "Switch User"
+msgstr "Cambiar de usuario"
+
+#: ../deskbar/handlers/gdmactions.py:271
+msgid "Computer Actions"
+msgstr "Accións do computador"
+
+#: ../deskbar/handlers/gdmactions.py:272
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "Terminar a sesión, pechar, reiniciar, suspender e accións relacionadas."
+
+#: ../deskbar/handlers/gdmactions.py:310
 msgid "Shutdown"
 msgstr "Pechar"
 
