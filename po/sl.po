@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-20 11:22+0000\n"
-"PO-Revision-Date: 2007-11-12 16:11+0100\n"
+"PO-Revision-Date: 2007-12-10 15:59+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -235,7 +235,7 @@ msgid "Show only the primary search engine"
 msgstr "Prikaži samo primarne iskalnike"
 
 #: ../deskbar/core/BrowserMatch.py:51
-#: ../deskbar/handlers/beagle-live.py:177
+#: ../deskbar/handlers/beagle-live.py:178
 #, python-format
 msgid "Open History Item %s"
 msgstr "Odpri vnos zgodovine %s"
@@ -322,64 +322,64 @@ msgstr "Zapiski"
 msgid "<i>Choose action</i>"
 msgstr "<i>Izberi dejanje</i>"
 
-#: ../deskbar/core/Utils.py:124
+#: ../deskbar/core/Utils.py:129
 msgid "Cannot execute program:"
 msgstr "Ni mogoče izvesti programa:"
 
-#: ../deskbar/core/Utils.py:164
+#: ../deskbar/core/Utils.py:169
 msgid "Cannot show URL:"
 msgstr "Ni mogoče prikazati URL naslova:"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#: ../deskbar/handlers/beagle-live.py:100
 #, python-format
 msgid "Edit contact %s"
 msgstr "Uredi kontaktne podatke %s"
 
-#: ../deskbar/handlers/beagle-live.py:110
+#: ../deskbar/handlers/beagle-live.py:111
 #, python-format
 msgid "From %s"
 msgstr "Od %s"
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:126
 #, python-format
 msgid "News from %s"
 msgstr "Novice od %s"
 
-#: ../deskbar/handlers/beagle-live.py:139
+#: ../deskbar/handlers/beagle-live.py:140
 #, python-format
 msgid "Note: %s"
 msgstr "Opomba: %s"
 
-#: ../deskbar/handlers/beagle-live.py:152
+#: ../deskbar/handlers/beagle-live.py:153
 #, python-format
 msgid "With %s"
 msgstr "Z %s"
 
-#: ../deskbar/handlers/beagle-live.py:166
+#: ../deskbar/handlers/beagle-live.py:167
 #, python-format
 msgid "Calendar: %s"
 msgstr "Koledar: %s"
 
-#: ../deskbar/handlers/beagle-live.py:272
+#: ../deskbar/handlers/beagle-live.py:273
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:273
+#: ../deskbar/handlers/beagle-live.py:274
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Išči po vseh dokumentih (preko Beagla), med tipkanjem"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:382
-#: ../deskbar/handlers/beagle-live.py:404
+#: ../deskbar/handlers/beagle-live.py:396
+#: ../deskbar/handlers/beagle-live.py:418
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:442
+#: ../deskbar/handlers/beagle-live.py:456
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Programa Beagle ni mogoče zagnati; libbeagle je bil pripravljen brez python povezav."
 
-#: ../deskbar/handlers/beagle-live.py:451
+#: ../deskbar/handlers/beagle-live.py:465
 msgid "Beagled could not be found in your $PATH."
 msgstr "Program Beagle ni zapisan v $PATH"
 
@@ -460,19 +460,25 @@ msgid "Web History (Epiphany)"
 msgstr "Zgodovina mreže (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:135
-#: ../deskbar/handlers/mozilla.py:735
+#: ../deskbar/handlers/mozilla.py:736
 msgid "Open your web history by name"
 msgstr "Odpri spletno zgodovino imensko"
 
-#: ../deskbar/handlers/evolution.py:21
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:27
+#, python-format
+msgid "Edit contact <b>%(name)s</b> (%(email)s)"
+msgstr "Urejanje stika <b>%(name)s</b> (%(email)s)"
+
+#: ../deskbar/handlers/evolution.py:42
 msgid "Mail (Address Book)"
 msgstr "e-naslov (imenik)"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:43
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Pošlji e-pošto kontaktom z vpisom imena ali e-naslova"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:67
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion."
@@ -495,77 +501,124 @@ msgstr "Datoteke, Mape in Povezave"
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "Imensko pregledovanje datotek, zaznamkov, pogonov in omrežnih mest"
 
-#: ../deskbar/handlers/gdmactions.py:33
-msgid "Suspend the machine"
-msgstr "Suspendiraj računalnik"
+#: ../deskbar/handlers/gdmactions.py:23
+msgid "Shut down of this system now?"
+msgstr "Ali želite izklopiti računalnik?"
 
-#: ../deskbar/handlers/gdmactions.py:49
-msgid "Hibernate the machine"
-msgstr "Hibernacija računalnika"
+#: ../deskbar/handlers/gdmactions.py:24
+#, python-format
+msgid "This system will be automatically shut down in %s seconds."
+msgstr "Sistem bo samodejno izklopljen v %s sekundah."
 
-#: ../deskbar/handlers/gdmactions.py:65
-msgid "Shutdown the machine"
-msgstr "Izklopi računalnik"
-
-#: ../deskbar/handlers/gdmactions.py:86
-msgid "Lock the screen"
-msgstr "Zakleni ekran"
-
-#: ../deskbar/handlers/gdmactions.py:109
-#: ../deskbar/handlers/gdmactions.py:230
-msgid "Lock"
-msgstr "Zakleni"
-
-#: ../deskbar/handlers/gdmactions.py:149
-msgid "Turn off the computer"
-msgstr "Izklopi računalnik"
-
-#: ../deskbar/handlers/gdmactions.py:153
-#: ../deskbar/handlers/gdmactions.py:209
+#: ../deskbar/handlers/gdmactions.py:25
+#: ../deskbar/handlers/gdmactions.py:216
+#: ../deskbar/handlers/gdmactions.py:274
 msgid "Shut Down"
 msgstr "Izklopi"
 
-#: ../deskbar/handlers/gdmactions.py:165
-msgid "Log out"
-msgstr "Odjava"
+#: ../deskbar/handlers/gdmactions.py:27
+msgid "Log out of this system now?"
+msgstr "Ali se želite odjaviti iz sistema?"
 
-#: ../deskbar/handlers/gdmactions.py:169
-#: ../deskbar/handlers/gdmactions.py:212
+#: ../deskbar/handlers/gdmactions.py:28
+#, python-format
+msgid "You will be automatically logged out in %s seconds."
+msgstr "Samodejno boste odjavljeni v %s sekundah."
+
+#: ../deskbar/handlers/gdmactions.py:29
+#: ../deskbar/handlers/gdmactions.py:229
+#: ../deskbar/handlers/gdmactions.py:233
+#: ../deskbar/handlers/gdmactions.py:277
 msgid "Log Out"
 msgstr "Odjava"
 
-#: ../deskbar/handlers/gdmactions.py:181
-msgid "Restart the computer"
-msgstr "Ponovni zagon računalnika"
+#: ../deskbar/handlers/gdmactions.py:31
+msgid "Restart this system now?"
+msgstr "Ali naj se sistem ponovno zažene?"
 
-#: ../deskbar/handlers/gdmactions.py:185
-#: ../deskbar/handlers/gdmactions.py:211
+#: ../deskbar/handlers/gdmactions.py:32
+#, python-format
+msgid "This system will be automatically restarted in %s seconds."
+msgstr "Sistem bo samodejno ponovno zagnan v %s sekundah."
+
+#: ../deskbar/handlers/gdmactions.py:33
+#: ../deskbar/handlers/gdmactions.py:250
+#: ../deskbar/handlers/gdmactions.py:276
 msgid "Restart"
 msgstr "Ponovni zagon"
 
-#: ../deskbar/handlers/gdmactions.py:196
-#: ../deskbar/handlers/gdmactions.py:200
-#: ../deskbar/handlers/gdmactions.py:210
-msgid "Switch User"
-msgstr "Zamenjaj uporabnika"
+#: ../deskbar/handlers/gdmactions.py:35
+msgid "Suspend this system now?"
+msgstr "Ali naj se računalnik zaustavi?"
 
-#: ../deskbar/handlers/gdmactions.py:206
-msgid "Computer Actions"
-msgstr "Računalniške akcije"
+#: ../deskbar/handlers/gdmactions.py:36
+#, python-format
+msgid "This system will be automatically suspended in %s seconds."
+msgstr "Sistem bo samodejno zaustavljen v %s sekundah."
 
-#: ../deskbar/handlers/gdmactions.py:207
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr "Odjava, izklop, ponovni zagon, suspendiranje in podobne akcije."
-
-#: ../deskbar/handlers/gdmactions.py:241
+#: ../deskbar/handlers/gdmactions.py:37
+#: ../deskbar/handlers/gdmactions.py:306
 msgid "Suspend"
 msgstr "Zaustavi"
 
-#: ../deskbar/handlers/gdmactions.py:243
+#: ../deskbar/handlers/gdmactions.py:39
+msgid "Hibernate this system now?"
+msgstr "Ali naj računalnik hibernira?"
+
+#: ../deskbar/handlers/gdmactions.py:40
+#, python-format
+msgid "This system will be automatically hibernated in %s seconds."
+msgstr "Sistem bo samodejno hiberniral v %s sekundah."
+
+#: ../deskbar/handlers/gdmactions.py:41
+#: ../deskbar/handlers/gdmactions.py:308
 msgid "Hibernate"
 msgstr "Hibernacija"
 
-#: ../deskbar/handlers/gdmactions.py:245
+#: ../deskbar/handlers/gdmactions.py:93
+msgid "Suspend the machine"
+msgstr "Suspendiraj računalnik"
+
+#: ../deskbar/handlers/gdmactions.py:110
+msgid "Hibernate the machine"
+msgstr "Hibernacija računalnika"
+
+#: ../deskbar/handlers/gdmactions.py:127
+msgid "Shutdown the machine"
+msgstr "Izklopi računalnik"
+
+#: ../deskbar/handlers/gdmactions.py:148
+msgid "Lock the screen"
+msgstr "Zakleni ekran"
+
+#: ../deskbar/handlers/gdmactions.py:171
+#: ../deskbar/handlers/gdmactions.py:295
+msgid "Lock"
+msgstr "Zakleni"
+
+#: ../deskbar/handlers/gdmactions.py:212
+msgid "Turn off the computer"
+msgstr "Izklopi računalnik"
+
+#: ../deskbar/handlers/gdmactions.py:246
+msgid "Restart the computer"
+msgstr "Ponovni zagon računalnika"
+
+#: ../deskbar/handlers/gdmactions.py:261
+#: ../deskbar/handlers/gdmactions.py:265
+#: ../deskbar/handlers/gdmactions.py:275
+msgid "Switch User"
+msgstr "Zamenjaj uporabnika"
+
+#: ../deskbar/handlers/gdmactions.py:271
+msgid "Computer Actions"
+msgstr "Računalniške akcije"
+
+#: ../deskbar/handlers/gdmactions.py:272
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "Odjava, izklop, ponovni zagon, suspendiranje in podobne akcije."
+
+#: ../deskbar/handlers/gdmactions.py:310
 msgid "Shutdown"
 msgstr "Izklopi"
 
@@ -595,7 +648,7 @@ msgid "Web Bookmarks (Mozilla)"
 msgstr "Spletni zaznamki (Mozilla)"
 
 #: ../deskbar/handlers/mozilla.py:184
-#: ../deskbar/handlers/mozilla.py:256
+#: ../deskbar/handlers/mozilla.py:257
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox ni privzet brskalnik."
 
@@ -603,11 +656,11 @@ msgstr "Mozilla/Firefox ni privzet brskalnik."
 msgid "Web Searches (Mozilla)"
 msgstr "Spletni iskalniki (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:250
+#: ../deskbar/handlers/mozilla.py:251
 msgid "You can customize which search engines are offered."
 msgstr "Prilagajanje uporabe iskalnih orodij."
 
-#: ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/mozilla.py:735
 msgid "Web History (Mozilla)"
 msgstr "Zgodovina mreže (Mozilla)"
 
@@ -626,45 +679,57 @@ msgstr "Išči imena datotek kot %s"
 msgid "Search in Devhelp for %s"
 msgstr "Išči Devhelp za %s"
 
-#: ../deskbar/handlers/programs.py:116
+#: ../deskbar/handlers/programs.py:124
 msgid "Dictionary"
 msgstr "Slovar"
 
-#: ../deskbar/handlers/programs.py:117
+#: ../deskbar/handlers/programs.py:125
 msgid "Look up word definitions in the dictionary"
 msgstr "Poišči besedo v slovarju"
 
-#: ../deskbar/handlers/programs.py:133
+#: ../deskbar/handlers/programs.py:141
+msgid "GNOME dictionary is not installed"
+msgstr "Slovar okolja GNOME ni nameščen"
+
+#: ../deskbar/handlers/programs.py:148
 msgid "Files and Folders Search"
 msgstr "Iskanje datotek in map"
 
-#: ../deskbar/handlers/programs.py:134
+#: ../deskbar/handlers/programs.py:149
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Išči datoteke in mape po vzorcu imena"
 
-#: ../deskbar/handlers/programs.py:150
+#: ../deskbar/handlers/programs.py:165
+msgid "GNOME search tool is not installed"
+msgstr "Iskalno orodje okolja GNOME ni nameščeno"
+
+#: ../deskbar/handlers/programs.py:172
 msgid "Developer Documentation"
 msgstr "Dokumentacija za razvijalce"
 
-#: ../deskbar/handlers/programs.py:151
+#: ../deskbar/handlers/programs.py:173
 msgid "Search Devhelp for a function name"
 msgstr "Preišči devhelp za ime funkcije"
 
-#: ../deskbar/handlers/programs.py:209
+#: ../deskbar/handlers/programs.py:189
+msgid "Devhelp is not installed"
+msgstr "Devhelp ni nameščen"
+
+#: ../deskbar/handlers/programs.py:238
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "Izvedi %s v terminalu"
 
-#: ../deskbar/handlers/programs.py:211
+#: ../deskbar/handlers/programs.py:240
 #, python-format
 msgid "Execute %s"
 msgstr "Izvedi %s"
 
-#: ../deskbar/handlers/programs.py:227
+#: ../deskbar/handlers/programs.py:256
 msgid "Programs"
 msgstr "Programi"
 
-#: ../deskbar/handlers/programs.py:228
+#: ../deskbar/handlers/programs.py:257
 msgid "Launch a program by its name and/or description"
 msgstr "Zaženi program z imenom ali po opisu"
 
@@ -772,7 +837,6 @@ msgid "<b>Search:</b>"
 msgstr "<b>Iskanje:</b>"
 
 #: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
 msgid "name"
 msgstr "ime"
 
