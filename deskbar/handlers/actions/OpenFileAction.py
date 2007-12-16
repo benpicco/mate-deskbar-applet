@@ -7,9 +7,6 @@ import gnomevfs
 class OpenFileAction(deskbar.interfaces.Action):
     """
     Open file with its preferred application
-    
-    This class does *not* take into account whether
-    a preferred application is registered for the file
     """
     
     def __init__(self, name, url, escape=True):
@@ -29,7 +26,12 @@ class OpenFileAction(deskbar.interfaces.Action):
         url = self._url[7:]
         if not self._escape:
             url = gnomevfs.unescape_string_for_display(url)
-        return exists( url )
+
+        if not exists(url):
+            return False
+        else:
+            mime_type = gnomevfs.get_mime_type(url)
+            return gnomevfs.mime_get_default_application(mime_type) != None
     
     def get_hash(self):
         return self._url

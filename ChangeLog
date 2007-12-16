@@ -1,9 +1,16 @@
 2007-12-16	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/handlers/actions/OpenFileAction.py:
+    Mark action as invalid if no default application is registered
+    to open the file. However, Deskbar-Applet does not respect
+    invalid actions, yet. (patch by Denis Washington)
+
+2007-12-16	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * configure.ac
     * deskbar/handlers/templates.py
     * deskbar/handlers/Makefile.am
-    *  deskbar/core/_userdirs/__userdirsmodule.c
+    * deskbar/core/_userdirs/__userdirsmodule.c
     * deskbar/core/_userdirs/__init__.py
     * deskbar/core/_userdirs/Makefile.am
     * deskbar/core/Utils.py
