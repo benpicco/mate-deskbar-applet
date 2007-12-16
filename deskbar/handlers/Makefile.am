@@ -20,6 +20,7 @@ deskbar_handlers_PYTHON = \
 	mozilla.py \
 	programs.py \
 	recent.py \
+	templates.py \
 	web_address.py \
 	yahoo.py
 

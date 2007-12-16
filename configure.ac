@@ -167,6 +167,7 @@ deskbar/core/Makefile
 deskbar/core/keybinder/Makefile
 deskbar/core/gnomedesktop/Makefile
 deskbar/core/updater/Makefile
+deskbar/core/_userdirs/Makefile
 deskbar/handlers/Makefile
 deskbar/handlers/actions/Makefile
 deskbar/handlers/gdmclient/Makefile

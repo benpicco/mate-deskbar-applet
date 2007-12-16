@@ -6,6 +6,7 @@ import gtk, gtk.gdk, gnome.ui, gobject, gnomevfs
 from htmlentitydefs import name2codepoint
 import logging
 from deskbar.core.GconfStore import GconfStore
+from deskbar.core._userdirs import *
 import deskbar.core.Categories
 
 ICON_THEME = gtk.icon_theme_get_default()
