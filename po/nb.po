@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-06 20:03+0100\n"
-"PO-Revision-Date: 2007-12-06 20:06+0100\n"
+"POT-Creation-Date: 2007-12-17 14:10+0100\n"
+"PO-Revision-Date: 2007-12-17 14:11+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -341,11 +341,11 @@ msgstr "Notater"
 msgid "<i>Choose action</i>"
 msgstr "<i>Velg handling</i>"
 
-#: ../deskbar/core/Utils.py:127
+#: ../deskbar/core/Utils.py:130
 msgid "Cannot execute program:"
 msgstr "Kan ikke kjøre program:"
 
-#: ../deskbar/core/Utils.py:167
+#: ../deskbar/core/Utils.py:170
 msgid "Cannot show URL:"
 msgstr "Kan ikke vise URL:"
 
@@ -759,6 +759,50 @@ msgstr "Se på de siste filene og lokasjonene som er aksessert"
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
 msgstr "Denne håndtereren krever en nyere versjon av Gtk+ (2.9.0 eller nyere)."
 
+#: ../deskbar/handlers/templates.py:37
+#, python-format
+msgid "Create %s"
+msgstr "Opprett %s"
+
+#: ../deskbar/handlers/templates.py:40
+msgid "Create Document"
+msgstr "Opprett dokument"
+
+#: ../deskbar/handlers/templates.py:53
+msgid "Name:"
+msgstr "Navn:"
+
+#: ../deskbar/handlers/templates.py:60
+msgid "Folder:"
+msgstr "Mappe:"
+
+#: ../deskbar/handlers/templates.py:64
+msgid "Choose Folder"
+msgstr "Velg mappe"
+
+#: ../deskbar/handlers/templates.py:119
+#, python-format
+msgid "A file named \"%s\" already exists.  Do you want to replace it?"
+msgstr "En fil med navn «%s» eksisterer allerede. Vil du erstatte den?"
+
+#: ../deskbar/handlers/templates.py:123
+#, python-format
+msgid ""
+"The file already exists in \"%s\".  Replacing it will overwrite its contents."
+msgstr "Filen eksisterer allerede i «%s». Hvis du erstatter den vil du overskrive innholdet."
+
+#: ../deskbar/handlers/templates.py:130
+msgid "Replace"
+msgstr "Erstatt"
+
+#: ../deskbar/handlers/templates.py:166
+msgid "Templates"
+msgstr "Maler"
+
+#: ../deskbar/handlers/templates.py:167
+msgid "Create new files from your templates"
+msgstr "Opprett nye filer fra dine maler"
+
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Åpne nettsider og send e-post ved å skrive inn en fullstendig adresse"
@@ -793,7 +837,7 @@ msgstr "Gå til lokasjon %s"
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Start <b>%(name)s</b> (%(prog)s"
 
-#: ../deskbar/handlers/actions/OpenFileAction.py:38
+#: ../deskbar/handlers/actions/OpenFileAction.py:40
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
@@ -859,11 +903,11 @@ msgid "default"
 msgstr "forvalgt"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:75
+#: ../deskbar/ui/CuemiacWindowView.py:76
 msgid "_History"
 msgstr "_Historikk"
 
-#: ../deskbar/ui/CuemiacWindowView.py:133
+#: ../deskbar/ui/CuemiacWindowView.py:134
 msgid "Back to Matches"
 msgstr "Tilbake til treff"
 
