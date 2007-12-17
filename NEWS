@@ -1,4 +1,32 @@
 =======================
+deskbar-applet 2.21.4
+=======================
+
+In this release a new module is introduced.
+With the Templates module you can create files from
+your templates stored in the Templates directory.
+
+Changes:
+	* Fixed: Doesn't load modules from one file when only one of them has missing requirements
+	* load_icon returns "stock_unknown" icon if given icon is not available
+	* Fixed bug #351817: Adding gnome templates to deskbar applet (patch by Denis Washington)
+	* Mark action as invalid if no default application is registered to open the file. However, Deskbar-Applet does not respect invalid actions, yet. (patch by Denis Washington)
+	* Fixed bug #490297: Window role for search window. Window role set to "deskbar-search-window"
+
+Contributors to this release: Sebastian Pölsterl, Denis Washington
+
+Updated Translations:
+	* Belarusian
+	* Galician
+	* Norwegian bokmål
+	* Norwegian nynorsk
+	* Slovenian
+	* Spanish
+	* Swedish
+
+Contributors to the translations: Ihar Hrachyshka, Ignacio Casal Quinteiro, Kjartan Maraas, Matej Urbančič, Jorge Gonzalez, Daniel Nylander
+
+=======================
 deskbar-applet 2.21.3
 =======================
 
