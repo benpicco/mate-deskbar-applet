@@ -32,6 +32,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.set_title("Deskbar Applet")
         self.set_default_size( self._model.get_window_width(), -1 )
         self.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
+        self.set_role("deskbar-search-window")
         self.set_property("skip-taskbar-hint", True)
 
         self._model.connect("query-ready", lambda s,m: gobject.idle_add(self.append_matches, s, m))
