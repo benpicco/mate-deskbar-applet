@@ -1,6 +1,7 @@
 import deskbar.core.Utils
 import gtk.gdk
 from deskbar.core.Categories import CATEGORIES 
+import logging
 
 """
 Represents a match returned by handlers
@@ -135,13 +136,20 @@ class Match:
         @param is_default: Whether the action should be
         the default action. Will override previously set
         default action.
-        @type is_default: bool  
+        @type is_default: bool
+        @return: Returns False if the action hasn't been added,
+        beacause it's not valid  
         """
+        if not action.is_valid():
+            logging.error("Action %r is not valid, not adding it" % action)
+            return False
+        
         if not action.get_hash() in self.__actions_hashes:
             self.__actions_hashes.add(action.get_hash())
             self._actions.append(action)
         if is_default:
             self._default_action = action
+        return True
     
     def add_all_actions(self, actions):
         """
@@ -151,7 +159,22 @@ class Match:
         """
         for action in actions:
             self.add_action(action)
-    
+
+    def remove_action(self, action):
+        """
+        Remove action from match
+
+        @type action: L{deskbar.interfaces.Action}
+        """
+        if action.get_hash() in self.__actions_hashes:
+            self.__actions_hashes.remove(action.get_hash())
+            self._actions.remove(action)
+        if self._default_action == action:
+            if len(self._actions):
+                self._default_action = self._default_action[0]
+            else:
+                self._default_action = None
+
     def get_hash(self):
         """
         Returns a hash used to verify if a query has one or more duplicates.

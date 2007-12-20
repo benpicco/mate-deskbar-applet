@@ -1,3 +1,12 @@
+2007-12-21	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+    * deskbar/interfaces/Match.py:
+    * deskbar/ui/cuemiac/CuemiacModel.py:
+    Don't add actions to Match class if they're not valid
+    and remove invalid from Match before adding it
+    to CuemiacModel (patch by Denis Washington)
+    Fixes bug #418014: Error when opening files without a default application
+
 2007-12-17	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     * configure.ac:

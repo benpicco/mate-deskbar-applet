@@ -4,6 +4,7 @@ import gobject
 import deskbar
 import deskbar.interfaces.Match
 from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
+import logging
             
 # The sort function ids
 SORT_BY_CATEGORY = 1
@@ -108,6 +109,13 @@ class CuemiacModel (gtk.TreeStore):
         match_obj.add_all_actions(actions)
     
     def __append_match(self, match_obj, query_string):
+        for action in match_obj.get_actions():
+            if not action.is_valid():
+                logging.error("Action %r is not valid, removing it" % action)
+                match_obj.remove_action(action)
+            if len(match_obj.get_actions()) == 0:
+                return
+
         if not self.__match_hashes.has_key(match_obj.get_hash()): 
             iter = self.__append ( query_string, match_obj )
             self.__add_to_hash_iter_map(match_obj.get_hash(), iter)
