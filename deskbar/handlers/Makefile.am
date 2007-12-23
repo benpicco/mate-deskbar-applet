@@ -21,6 +21,7 @@ deskbar_handlers_PYTHON = \
 	programs.py \
 	recent.py \
 	templates.py \
+	tomboy.py \
 	web_address.py \
 	yahoo.py
 
