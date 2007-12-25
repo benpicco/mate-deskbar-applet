@@ -300,7 +300,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         hit_matches = []
         for hit in response.get_hits():
             if hit.get_type() not in TYPES:
-                logging.info("Beagle live seen an unknown type:"+ hit.get_type())
+                logging.info("Beagle live seen an unknown type:"+ str(hit.get_type()))
                 continue
             
             if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
