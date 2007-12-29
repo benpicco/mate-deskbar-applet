@@ -174,7 +174,10 @@ class DevhelpHandler(SpecialProgramHandler):
              'version': VERSION}
     
     def __init__(self):
-        SpecialProgramHandler.__init__(self, "devhelp.desktop")
+        if SpecialProgramHandler.desktop_file_exists("devhelp.desktop"):
+        	SpecialProgramHandler.__init__(self, "devhelp.desktop")
+        else:
+      		SpecialProgramHandler.__init__(self, "gnome-devhelp.desktop")
     
     def create_match(self, desktop, f):
         return DevhelpMatch(
@@ -185,7 +188,7 @@ class DevhelpHandler(SpecialProgramHandler):
         
     @staticmethod
     def has_requirements():
-        if not SpecialProgramHandler.desktop_file_exists("devhelp.desktop"):
+        if not (SpecialProgramHandler.desktop_file_exists("devhelp.desktop") or SpecialProgramHandler.desktop_file_exists("gnome-devhelp.desktop")):
             DevhelpHandler.INSTRUCTIONS = _("Devhelp is not installed")
             return False
         return True
