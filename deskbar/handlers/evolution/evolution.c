@@ -331,7 +331,17 @@ search_sync (const char *query,
 
 			contact = E_CONTACT (contacts->data);
 			hit = g_new (Hit, 1);
-			hit->email = g_strdup ((char*) e_contact_get_const (contact, E_CONTACT_EMAIL_1));
+			if (e_contact_get (contact, E_CONTACT_IS_LIST)){
+				GList *emailList = e_contact_get (contact, E_CONTACT_EMAIL);
+				int i=0;
+				hit->email = (gchar*)g_list_nth(emailList,i)->data;
+				for (i=1; g_list_nth(emailList,i) != NULL; i++)
+					hit->email = g_strjoin(",",hit->email,((gchar*)g_list_nth(emailList,i)->data));
+				g_list_foreach(emailList, (GFunc)g_free, NULL);
+  				g_list_free(emailList);
+			}
+			else
+				hit->email = g_strdup ((char*) e_contact_get_const (contact, E_CONTACT_EMAIL_1));
 			hit->text = g_strdup ((char*) e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG));
 			hit->pixbuf = pixbuf_from_contact (contact);
             
