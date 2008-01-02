@@ -142,6 +142,7 @@ class Match:
         """
         if not action.is_valid():
             logging.error("Action %r is not valid, not adding it" % action)
+            logging.debug(action.get_hash())
             return False
         
         if not action.get_hash() in self.__actions_hashes:
