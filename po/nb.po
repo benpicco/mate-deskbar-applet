@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-17 14:10+0100\n"
-"PO-Revision-Date: 2007-12-17 14:11+0100\n"
+"POT-Creation-Date: 2008-01-03 21:13+0100\n"
+"PO-Revision-Date: 2008-01-03 21:15+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -725,25 +725,25 @@ msgstr "Dokumentasjon for utviklere"
 msgid "Search Devhelp for a function name"
 msgstr "Søk etter funksjonsnavn i Devhelp"
 
-#: ../deskbar/handlers/programs.py:189
+#: ../deskbar/handlers/programs.py:192
 msgid "Devhelp is not installed"
 msgstr "Devhelp er ikke installert"
 
-#: ../deskbar/handlers/programs.py:238
+#: ../deskbar/handlers/programs.py:241
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "Kjør %s i en terminal"
 
-#: ../deskbar/handlers/programs.py:240
+#: ../deskbar/handlers/programs.py:243
 #, python-format
 msgid "Execute %s"
 msgstr "Kjør %s"
 
-#: ../deskbar/handlers/programs.py:256
+#: ../deskbar/handlers/programs.py:259
 msgid "Programs"
 msgstr "Programmer"
 
-#: ../deskbar/handlers/programs.py:257
+#: ../deskbar/handlers/programs.py:260
 msgid "Launch a program by its name and/or description"
 msgstr "Start et program etter navn eller beskrivelse"
 
@@ -789,7 +789,9 @@ msgstr "En fil med navn «%s» eksisterer allerede. Vil du erstatte den?"
 #, python-format
 msgid ""
 "The file already exists in \"%s\".  Replacing it will overwrite its contents."
-msgstr "Filen eksisterer allerede i «%s». Hvis du erstatter den vil du overskrive innholdet."
+msgstr ""
+"Filen eksisterer allerede i «%s». Hvis du erstatter den vil du overskrive "
+"innholdet."
 
 #: ../deskbar/handlers/templates.py:130
 msgid "Replace"
@@ -802,6 +804,58 @@ msgstr "Maler"
 #: ../deskbar/handlers/templates.py:167
 msgid "Create new files from your templates"
 msgstr "Opprett nye filer fra dine maler"
+
+#: ../deskbar/handlers/tomboy.py:34
+#, python-format
+msgid "Open note <b>%(name)s</b>"
+msgstr "Åpne notat <b>%(name)s</b> "
+
+#: ../deskbar/handlers/tomboy.py:47
+msgid "Really delete this note?"
+msgstr "Vil du virkelig slette dette notatet?"
+
+#: ../deskbar/handlers/tomboy.py:48
+msgid "If you delete a note it is permanently lost."
+msgstr "Hvis du sletter et notat blir det borte for godt."
+
+#: ../deskbar/handlers/tomboy.py:60
+#, python-format
+msgid "Delete note <b>%(name)s</b>"
+msgstr "Slett notat <b>%(name)s</b> "
+
+#: ../deskbar/handlers/tomboy.py:85
+#, python-format
+msgid "Create note <b>%(name)s</b>"
+msgstr "Opprett notat <b>%(name)s</b> "
+
+#: ../deskbar/handlers/tomboy.py:107
+msgid "Title"
+msgstr "Tittel"
+
+#: ../deskbar/handlers/tomboy.py:108
+msgid "Contents"
+msgstr "Innhold"
+
+#: ../deskbar/handlers/tomboy.py:127
+msgid "Tomboy Notes"
+msgstr "Tomboy notater"
+
+#: ../deskbar/handlers/tomboy.py:128
+msgid "Search your Tomboy notes"
+msgstr "Søk i dine Tomboy notater"
+
+#: ../deskbar/handlers/tomboy.py:194
+msgid "Tomboy does not seem to be installed."
+msgstr "Tomboy ser ikke ut til å være installert."
+
+#: ../deskbar/handlers/tomboy.py:224
+#, python-format
+msgid ""
+"Tomboy does not seem to be the correct version.\n"
+"Tomboy %s or greater must be installed."
+msgstr ""
+"Du har ikke riktig versjon av Tomboy.\n"
+"Du må ha versjon %s eller nyere."
 
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
