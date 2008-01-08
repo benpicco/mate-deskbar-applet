@@ -78,7 +78,8 @@ class DeskbarTray (gtk.EventBox):
             None, [
             ("About", lambda a,b: self.__controller.on_show_about(a)),
             ("Prefs", lambda a,b: self.__controller.on_show_preferences(a)),
-            ("Clear", lambda a,b: self.__controller.on_clear_history(a),)
+            ("Clear", lambda a,b: self.__controller.on_clear_history(a),),
+            ("Help", lambda a,b: self.__controller.on_show_help(a),)
             ])
         
     def __on_loaded(self, sender):

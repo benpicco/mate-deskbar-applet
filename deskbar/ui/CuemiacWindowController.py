@@ -1,5 +1,6 @@
 import gtk
 import gtk.gdk
+import gnomevfs
 import logging
 import deskbar.interfaces.Controller
 import deskbar.core.Utils
@@ -46,6 +47,9 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
     def on_show_preferences(self, sender):
         prefs = DeskbarPreferences(self._model)
         prefs.show_run_hide(self._view.get_toplevel())
+        
+    def on_show_help(self, sender):
+        gnomevfs.url_show("ghelp:deskbar")
         
     def on_query_entry_changed(self, entry):
         self._view.set_clear()
