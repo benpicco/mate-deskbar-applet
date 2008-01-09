@@ -34,6 +34,8 @@ class ModuleLoader (gobject.GObject):
         "module-not-initialized" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
         # Fired when the passed module module has run the stop() method successfully. The module is not usable anymore
         "module-stopped" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
+        #Fired when reload_all gets called, but before any reloading actually gets done
+        "modules-reloading" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
     }
     
     def __init__ (self, dirs, extension=".py"):

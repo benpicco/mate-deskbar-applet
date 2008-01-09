@@ -237,6 +237,13 @@ class CoreImpl(deskbar.interfaces.Core):
         else:
             self._module_loader.initialize_module(module)
         self._module_list.increase_bottom_enabled_path()
+
+    def reload_all_modules(self):
+        self._module_list.clear()
+        self._disabled_module_list.clear()
+        logging.info("Reloading all modules")
+        self._module_loader.emit("modules-reloading")
+        self._module_loader.load_all()
     
     def stop_queries(self):
         self._stop_queries = True

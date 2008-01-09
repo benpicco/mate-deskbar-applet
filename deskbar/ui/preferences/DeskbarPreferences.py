@@ -74,6 +74,9 @@ class DeskbarPreferences:
         self.more_button.set_sensitive(False)
         self.more_button.connect("clicked", self.on_more_button_clicked)
         self.more_button_callback = None
+        self.reload_button = self.glade.get_widget("reload")
+        self.reload_button.connect("clicked", self.on_reload_button_clicked)
+        self.reload_button.set_tooltip_text(_("Reload all extensions"))
 
         # Info are at the bottom
         self.info_area = self.glade.get_widget("info_area")
@@ -220,6 +223,9 @@ class DeskbarPreferences:
     def on_more_button_clicked(self, button):
         if self.more_button_callback != None:
             self.more_button_callback(self.dialog)
+
+    def on_reload_button_clicked(self, button):
+	self._model.reload_all_modules()
     
     def on_module_selected(self, selection):
         module_context = self.moduleview.get_selected_module()
