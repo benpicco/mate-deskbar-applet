@@ -30,8 +30,12 @@ class OpenFileAction(deskbar.interfaces.Action):
         if not exists(url):
             return False
         else:
-            mime_type = gnomevfs.get_mime_type(url)
-            return gnomevfs.mime_get_default_application(mime_type) != None
+            try:
+                mime_type = gnomevfs.get_mime_type(url)
+                return gnomevfs.mime_get_default_application(mime_type) != None
+            except RuntimeError, e:
+                # get_mime_type throws a RuntimeException when something went wrong
+                return False
     
     def get_hash(self):
         return self._url
