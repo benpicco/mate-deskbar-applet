@@ -11,6 +11,7 @@ from deskbar.ui.cuemiac.CuemiacTreeView import CuemiacTreeView
 from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
 from deskbar.ui.cuemiac.CuemiacHistory import CuemiacHistoryView
 from deskbar.ui.cuemiac.CuemiacActionsTreeView import CuemiacActionsTreeView, CuemiacActionsModel
+from deskbar.ui.cuemiac.LingeringSelectionWindow import LingeringSelectionWindow
 
 class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
     """
@@ -104,6 +105,8 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.cview.connect ("row-collapsed", self._controller.on_category_collapsed, self.treeview_model)
         self.cview.show()
         
+        LingeringSelectionWindow (self.cview)
+        
         self.scrolled_results = gtk.ScrolledWindow ()
         self.scrolled_results.set_policy (gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
         self.scrolled_results.set_shadow_type(gtk.SHADOW_IN)
@@ -118,6 +121,8 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.aview.connect ("action-selected", self._controller.on_action_selected)
         self.aview.connect ("go-back", self.__on_go_back)
         self.aview.show()
+        
+        LingeringSelectionWindow (self.aview)
         
         self.scrolled_actions = gtk.ScrolledWindow()
         self.scrolled_actions.set_policy (gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
@@ -144,6 +149,9 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.results_box.pack_start(self.scrolled_results)
         self.results_box.pack_start(self.actions_box)
         self.vbox_main.pack_start(self.results_box)
+   
+    def __on_row_act(self, view, path, column):
+        print "======================"
     
     def clear_all(self):
         deskbar.interfaces.View.clear_all(self)

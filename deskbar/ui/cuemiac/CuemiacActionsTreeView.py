@@ -36,12 +36,12 @@ class CuemiacActionsTreeView(gtk.TreeView):
         cell_icon.set_property("xpad", 10)
         cell_text = gtk.CellRendererText()
         cell_text.set_property ("ellipsize", pango.ELLIPSIZE_END)
-        col = gtk.TreeViewColumn("Actions")
-        col.pack_start(cell_icon, expand=False)
-        col.add_attribute(cell_icon, "pixbuf", model.ICON_COL)
-        col.pack_start(cell_text)
-        col.add_attribute(cell_text, "markup", model.LABEL_COL)
-        self.append_column(col)
+        self._column = gtk.TreeViewColumn("Actions")
+        self._column.pack_start(cell_icon, expand=False)
+        self._column.add_attribute(cell_icon, "pixbuf", model.ICON_COL)
+        self._column.pack_start(cell_text)
+        self._column.add_attribute(cell_text, "markup", model.LABEL_COL)
+        self.append_column(self._column)
         
     def __on_button_press_event (self, treeview, event):
         path_ctx = self.get_path_at_pos (int(event.x), int(event.y))
@@ -51,6 +51,7 @@ class CuemiacActionsTreeView(gtk.TreeView):
             action = model[model.get_iter(path)][model.ACTION_COL]
             qstring = model[model.get_iter(path)][model.QUERY_COL]
             
+            self.emit("row-activated", path, self._column)
             self.emit ("action-selected", qstring, action, event)
             
     def __on_key_press_event(self, treeview, event):

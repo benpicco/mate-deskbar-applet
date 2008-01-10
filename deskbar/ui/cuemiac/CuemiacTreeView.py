@@ -262,12 +262,12 @@ class CuemiacTreeView (gtk.TreeView):
         hit_title.connect("do-action-activated", self.__on_do_action_activated)
         hit_title.set_property ("ellipsize", pango.ELLIPSIZE_END)
        
-        hits = gtk.TreeViewColumn ("Hits")
-        hits.pack_start (icon, expand=False)
-        hits.pack_start (hit_title)
-        hits.set_cell_data_func(hit_title, self.__get_match_title_for_cell)            
-        hits.set_cell_data_func(icon, self.__get_match_icon_for_cell)
-        self.append_column (hits)
+        self._hits_column = gtk.TreeViewColumn ("Hits")
+        self._hits_column.pack_start (icon, expand=False)
+        self._hits_column.pack_start (hit_title)
+        self._hits_column.set_cell_data_func(hit_title, self.__get_match_title_for_cell)            
+        self._hits_column.set_cell_data_func(icon, self.__get_match_icon_for_cell)
+        self.append_column (self._hits_column)
         
         #self.set_reorderable(True)
         # FIXME: Make it so that categories *only* can be reordered by dragging
@@ -411,6 +411,8 @@ class CuemiacTreeView (gtk.TreeView):
         match = model[iter][model.MATCHES]
         qstring = model[iter][model.QUERY]
         
+        # Used by LingeringSelectionWindow
+        self.emit("row-activated", path, self._hits_column)
         self.emit("do-default-action", qstring, match, event)
 
     def __on_activated (self, treeview, path, col, event=None):
