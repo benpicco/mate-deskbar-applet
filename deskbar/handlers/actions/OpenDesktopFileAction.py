@@ -3,6 +3,9 @@ import deskbar.core.gnomedesktop
 from deskbar.core.Utils import get_xdg_data_dirs
 from os.path import join, exists
 from gettext import gettext as _
+import logging
+
+LOGGER = logging.getLogger(__name__)
 
 class OpenDesktopFileAction(deskbar.interfaces.Action):
     """
@@ -37,7 +40,13 @@ class OpenDesktopFileAction(deskbar.interfaces.Action):
         return "gtk-open"
     
     def get_name(self, text=None):
-        return {"name": self._name, "prog": self._prog}
+        name_dict = {"name": self._name}
+        # Be compatible with previous versions
+        if hasattr(self, "_prog"):
+            name_dict["prog"] = self._prog
+        else:
+            name_dict["prog"] = ""
+        return name_dict
     
     def get_verb(self):
         #translators: First %s is the programs full name, second is the executable name
@@ -49,7 +58,8 @@ class OpenDesktopFileAction(deskbar.interfaces.Action):
             self._desktop.launch([])
         except Exception, e:
             #FIXME: Proper dialog here. Also see end of Utils.py
-            print 'Warning:Could not launch .desktop file:', e
+            LOGGER.warning('Could not launch .desktop file:')
+            LOGGER.exception(e)
             
 def parse_desktop_filename(desktop, only_if_visible=True):
     if desktop[0] == "/" and exists(desktop):
@@ -66,7 +76,8 @@ def parse_desktop_file(desktop, only_if_visible=True):
     try:
         desktop = deskbar.core.gnomedesktop.item_new_from_file(desktop, deskbar.core.gnomedesktop.LOAD_ONLY_IF_EXISTS)
     except Exception, e:
-        print 'Couldn\'t read desktop file:%s:%s' % (desktop, e)
+        LOGGER.warning('Couldn\'t read desktop file %s:' % desktop)
+        LOGGER.exception(e)
         return None
     
     if desktop == None or desktop.get_entry_type() != deskbar.core.gnomedesktop.TYPE_APPLICATION:
