@@ -1,5 +1,12 @@
 2009-01-11	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/core/DeskbarHistory.py:
+    Catch Exception when loading history to prevent
+    that bugzilla pops up when history file is corrupted
+    (fixes bug #504916)
+
+2009-01-11	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/deskbar-applet.py:
     * po/POTFILES.in:
     Fixed bug #508326: The window title is not translatable

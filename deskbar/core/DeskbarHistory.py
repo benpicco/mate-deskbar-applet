@@ -125,8 +125,10 @@ class DeskbarHistory (gtk.ListStore) :
         except ImportError:
             # The module is not available anymore
             pass
-        except EOFError:
+        except Exception, e:
             # The history file is corrupted
+            logging.error("Could not restore history")
+            logging.exception(e)
             pass
 
     def save (self):
