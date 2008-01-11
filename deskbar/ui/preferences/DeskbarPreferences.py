@@ -225,7 +225,7 @@ class DeskbarPreferences:
             self.more_button_callback(self.dialog)
 
     def on_reload_button_clicked(self, button):
-	self._model.reload_all_modules()
+        self._model.reload_all_modules()
     
     def on_module_selected(self, selection):
         module_context = self.moduleview.get_selected_module()
