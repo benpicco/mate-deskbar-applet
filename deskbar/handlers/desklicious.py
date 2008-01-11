@@ -8,6 +8,8 @@ import gtk
 import logging
 import xml.dom.minidom, urllib
 
+LOGGER = logging.getLogger(__name__)
+
 GCONF_DELICIOUS_USER  = GconfStore.GCONF_DIR+"/desklicious/user"
 
 DEFAULT_QUERY_TAG = 'http://del.icio.us/rss/%s/%s'
@@ -62,12 +64,12 @@ class DeliciousHandler(deskbar.interfaces.Module):
         #self.check_query_changed ()
         
         #The queryyyyYyyYy :)
-        logging.info( "Asking del.icio.us tags for %s" % tag )
+        LOGGER.info( "Asking del.icio.us tags for %s" % tag )
         posts = self._delicious.get_posts_by_tag(tag)
 
         # TODO: Missing
         #self.check_query_changed (timeout=QUERY_DELAY)
-        logging.info('Returning del.icio.us result')
+        LOGGER.info('Returning del.icio.us result')
         self.set_priority_for_matches( posts )
         self._emit_query_ready(tag, posts )
         
@@ -133,10 +135,11 @@ class DeliciousTagQueryEngine:
         
         #Get the info from del.icio.us and parse
         url = DEFAULT_QUERY_TAG % (urllib.quote_plus(self._user), urllib.quote_plus(tag))
+        LOGGER.debug("Opening URL "+url)
         try:
             stream = urllib.urlopen(url, proxies=deskbar.core.Utils.get_proxy())
         except IOError, msg:
-            logging.error("Could not open URL %s: %s, %s" % (url, msg[0], msg[1]))
+            LOGGER.error("Could not open URL %s: %s, %s" % (url, msg[0], msg[1]))
             return []
         
         dom = xml.dom.minidom.parse(stream)
@@ -145,12 +148,23 @@ class DeliciousTagQueryEngine:
         #And return the results
         posts=[]
         for item in dom.getElementsByTagName("item"):
+            title_node = item.getElementsByTagName("title")[0]
+            url_node = item.getElementsByTagName("link")[0]
+            subject_node = item.getElementsByTagName("dc:subject")[0]
+            creator_node = item.getElementsByTagName("dc:creator")[0]
+            
+            # There might be no tags
+            if (subject_node.hasChildNodes()):
+                tags = subject_node.firstChild.nodeValue.split(" ")
+            else:
+                tags = []
+            
             posts.append(
                 DeliciousMatch(
-                    name=item.getElementsByTagName("title")[0].firstChild.nodeValue,
-                    url=item.getElementsByTagName("link")[0].firstChild.nodeValue,
-                    tags=item.getElementsByTagName("dc:subject")[0].firstChild.nodeValue.split(" "),
-                    author=item.getElementsByTagName("dc:creator")[0].firstChild.nodeValue,
+                    name=title_node.firstChild.nodeValue,
+                    url=url_node.firstChild.nodeValue,
+                    tags=tags,
+                    author=creator_node.firstChild.nodeValue,
                     category="web"))
         
         return posts
