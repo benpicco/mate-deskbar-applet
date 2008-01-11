@@ -4,13 +4,15 @@ import sys
 from os.path import abspath, join, dirname, exists
 import logging
 import gettext, locale
+from gettext import gettext as _
 import gnomeapplet
 from optparse import OptionParser
 
 # Return a standalone window that holds the applet
 def build_window():
     app = gtk.Window(gtk.WINDOW_TOPLEVEL)
-    app.set_title("Deskbar Applet")
+    # translators: This is the window title.
+    app.set_title(_("Deskbar Applet"))
     app.connect("destroy", gtk.main_quit)
     
     applet = gnomeapplet.Applet()
