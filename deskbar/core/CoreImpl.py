@@ -12,6 +12,8 @@ from deskbar.core.DeskbarHistory import DeskbarHistory
 from deskbar.core.ThreadPool import ThreadPool
 import deskbar.interfaces
 
+LOGGER = logging.getLogger(__name__)
+
 class CoreImpl(deskbar.interfaces.Core):
     
     DEFAULT_KEYBINDING = "<Alt>F3"
@@ -157,9 +159,9 @@ class CoreImpl(deskbar.interfaces.Core):
         """
         self._gconf.set_keybinding(binding)
         if not self._keybinder.bind(binding):
-            logging.error("Keybinding is already in use")
+            LOGGER.error("Keybinding is already in use")
         else:
-            logging.info("Successfully binded Deskbar to %s" % binding)
+            LOGGER.info("Successfully binded Deskbar to %s" % binding)
     
     def set_min_chars(self, number):
         self._gconf.set_min_chars(number)
@@ -241,7 +243,7 @@ class CoreImpl(deskbar.interfaces.Core):
     def reload_all_modules(self):
         self._module_list.clear()
         self._disabled_module_list.clear()
-        logging.info("Reloading all modules")
+        LOGGER.info("Reloading all modules")
         self._module_loader.emit("modules-reloading")
         self._module_loader.load_all()
     

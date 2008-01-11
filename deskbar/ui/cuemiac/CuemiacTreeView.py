@@ -7,6 +7,8 @@ import logging
 from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
 from deskbar.interfaces import Match
 
+LOGGER = logging.getLogger(__name__)
+
 class CellRendererCuemiacCategory (gtk.CellRendererText):
     """
     Special cell renderer for the CuemiacTreeView.
@@ -366,7 +368,7 @@ class CuemiacTreeView (gtk.TreeView):
                 cell.set_property ("pixbuf", match.get_icon())
                 cell.set_property ("visible", True)
             else:
-                logging.error("See bug 359251 or 471672 and report this output: Match object of unexpected type: %r - %r" % (match.__class__, match))
+                LOGGER.error("See bug 359251 or 471672 and report this output: Match object of unexpected type: %r - %r" % (match.__class__, match))
                 cell.set_property ("pixbuf", None)
                 cell.set_property ("visible", False)
         
@@ -387,7 +389,7 @@ class CuemiacTreeView (gtk.TreeView):
         cell.set_property ("cell-background-gdk", self.style.base[gtk.STATE_NORMAL])
         
         if match == None:
-            logging.error("See bug 359251 or 471672 and report this output: Match object of unexpected type: %r - %r" % (match.__class__, match))
+            LOGGER.error("See bug 359251 or 471672 and report this output: Match object of unexpected type: %r - %r" % (match.__class__, match))
             cell.set_property ("has-more-actions", False)
             cell.set_property ("markup", "")
         else:

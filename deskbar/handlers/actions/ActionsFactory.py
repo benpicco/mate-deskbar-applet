@@ -7,6 +7,8 @@ from deskbar.handlers.actions.SendFileViaEmailAction import SendFileViaEmailActi
 from os.path import basename, isdir
 from gettext import gettext as _
 
+LOGGER = logging.getLogger(__name__)
+
 def get_actions_for_uri(uri, display_name=None):
     """
     Return a list of applications suitable for
@@ -35,7 +37,7 @@ def get_actions_for_uri(uri, display_name=None):
     try:
         fileinfo = gnomevfs.get_file_info(uri, gnomevfs.FILE_INFO_GET_MIME_TYPE | gnomevfs.FILE_INFO_FOLLOW_LINKS)
     except Exception, msg:
-        logging.error("Could not retrieve MIME type of %s: %s" % (uri, msg))
+        LOGGER.error("Could not retrieve MIME type of %s: %s" % (uri, msg))
         return []
     mime = fileinfo.mime_type
     actions = []

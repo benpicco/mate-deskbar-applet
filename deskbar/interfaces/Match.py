@@ -3,6 +3,8 @@ import gtk.gdk
 from deskbar.core.Categories import CATEGORIES 
 import logging
 
+LOGGER = logging.getLogger(__name__)
+
 """
 Represents a match returned by handlers
 """
@@ -141,8 +143,7 @@ class Match:
         beacause it's not valid  
         """
         if not action.is_valid():
-            logging.error("Action %r is not valid, not adding it" % action)
-            logging.debug(action.get_hash())
+            LOGGER.error("Action %r is not valid, not adding it" % action)
             return False
         
         if not action.get_hash() in self.__actions_hashes:

@@ -1,6 +1,8 @@
 import gtk, pango, gobject
 import logging
 
+LOGGER = logging.getLogger(__name__)
+
 class CuemiacHistoryView (gtk.ComboBox):
 
     __gsignals__ = {
@@ -53,7 +55,7 @@ class CuemiacHistoryView (gtk.ComboBox):
         if iter != None:
             timestamp, text, action = self.get_model()[iter]
             if not action.is_valid():
-                logging.warning("Action is not valid anymore. Removing it from history.")
+                LOGGER.warning("Action is not valid anymore. Removing it from history.")
                 self.get_model().remove(iter)
                 self.__select_default_item()
                 return False

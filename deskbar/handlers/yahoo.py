@@ -8,6 +8,8 @@ import logging
 import urllib
 import xml.dom.minidom
 
+LOGGER = logging.getLogger(__name__)
+
 YAHOO_API_KEY = 'deskbar-applet'
 YAHOO_URL = 'http://api.search.yahoo.com/WebSearchService/V1/webSearch?%s'
 MAX_QUERIES = 10
@@ -51,7 +53,7 @@ class YahooHandler(deskbar.interfaces.Module):
         # TODO: Missing
         #self.check_query_changed (timeout=QUERY_DELAY)
         
-        logging.info('Query yahoo for: '+qstring)
+        LOGGER.info('Query yahoo for: '+qstring)
         url = YAHOO_URL % urllib.urlencode(
                 {'appid': YAHOO_API_KEY,
                 'query': qstring,
@@ -59,11 +61,11 @@ class YahooHandler(deskbar.interfaces.Module):
         try:
             stream = urllib.urlopen(url, proxies=get_proxy())
         except IOError, msg:
-            logging.error("Could not open URL %s: %s, %s" % (url, msg[0], msg[1]))
+            LOGGER.error("Could not open URL %s: %s, %s" % (url, msg[0], msg[1]))
             return
         
         dom = xml.dom.minidom.parse(stream)
-        logging.info('Got yahoo answer for: '+qstring)
+        LOGGER.info('Got yahoo answer for: '+qstring)
         
         # TODO: Missing
         #self.check_query_changed ()    
@@ -79,5 +81,5 @@ class YahooHandler(deskbar.interfaces.Module):
             for r in dom.getElementsByTagName("Result")]
         # TODO: Missing
         #self.check_query_changed ()
-        logging.info("Returning yahoo answer for: "+qstring)
+        LOGGER.info("Returning yahoo answer for: "+qstring)
         self._emit_query_ready(qstring, matches )

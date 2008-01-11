@@ -2,6 +2,9 @@ import deskbar.interfaces.Action
 from gettext import gettext as _
 from deskbar.core.Utils import spawn_async, is_program_in_path
 from os.path import exists, isabs
+import logging
+
+LOGGER = logging.getLogger(__name__)
 
 class OpenWithApplicationAction(deskbar.interfaces.Action):
     """
@@ -31,9 +34,12 @@ class OpenWithApplicationAction(deskbar.interfaces.Action):
     
     def is_valid(self):
         if isabs(self._program):
-            return exists(self._program)
+            returnval = exists(self._program)
         else:
-            return is_program_in_path(self._program)
+            returnval = is_program_in_path(self._program)
+        if not returnval:
+            LOGGER.debug("%s does not exist" % self._program)
+        return returnval
        
     def get_hash(self):
         return self._program+" ".join(self._arguments)

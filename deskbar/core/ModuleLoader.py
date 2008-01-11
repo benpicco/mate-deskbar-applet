@@ -6,6 +6,8 @@ import logging
 import deskbar, deskbar.core.Categories
 from deskbar.core.Watcher import DirWatcher
 
+LOGGER = logging.getLogger(__name__)
+
 class ModuleLoader (gobject.GObject):
     """
     An auxilary class to L{deskbar.core.ModuleList.ModuleList}.
@@ -83,7 +85,7 @@ class ModuleLoader (gobject.GObject):
                     if basename(i) not in [basename(j) for j in res]:
                         res.append(i)
             except OSError, err:
-                logging.error("Error reading directory %s, skipping." % d)
+                LOGGER.error("Error reading directory %s, skipping." % d)
                 traceback.print_exc()
         
         self.filelist = res
@@ -98,7 +100,7 @@ class ModuleLoader (gobject.GObject):
         try:
             mod = pydoc.importfile (filename)
         except Exception:
-            logging.error("Error loading the file: %s." % filename)
+            LOGGER.error("Error loading the file: %s." % filename)
             error = traceback.format_exc()
             if "No module named deskbar.Handler" in error:
                 self.__old_modules.append(filename)
@@ -109,12 +111,12 @@ class ModuleLoader (gobject.GObject):
         try:
             if (mod.HANDLERS): pass
         except AttributeError:
-            logging.error("The file %s is not a valid module. Skipping. A module must have the variable HANDLERS defined as a list." % filename)
+            LOGGER.error("The file %s is not a valid module. Skipping. A module must have the variable HANDLERS defined as a list." % filename)
             #traceback.print_exc()
             return
         
         if mod.HANDLERS == None:
-            logging.warning("The file %s doesn't contain a HANDERLS variable" % (filename))
+            LOGGER.warning("The file %s doesn't contain a HANDERLS variable" % (filename))
             return
         
         valid_modules = []
@@ -124,12 +126,12 @@ class ModuleLoader (gobject.GObject):
             if hasattr(module, "initialize") and hasattr( module, "INFOS"):
                 # Check that the given requirements for the handler are met
                 if not getattr(module, "has_requirements" )():
-                    logging.warning("Class %s in file %s has missing requirements. Skipping." % (handler, filename))
+                    LOGGER.warning("Class %s in file %s has missing requirements. Skipping." % (handler, filename))
                     self.emit("module-not-initialized", module)
                 else:
                     valid_modules.append(module)
             else:
-                logging.error("Class %s in file %s does not have an initialize(self) method or does not define a 'INFOS' attribute. Skipping." % (handler, filename))
+                LOGGER.error("Class %s in file %s does not have an initialize(self) method or does not define a 'INFOS' attribute. Skipping." % (handler, filename))
             
         return valid_modules
             
@@ -142,7 +144,7 @@ class ModuleLoader (gobject.GObject):
             return
         
         for mod in modules:
-            logging.info("Loading module '%s' from file %s." % ( mod.INFOS["name"], filename))
+            LOGGER.info("Loading module '%s' from file %s." % ( mod.INFOS["name"], filename))
             mod_instance = mod ()
             mod_instance.set_filename( filename )
             mod_instance.set_id( os.path.basename(filename) )
@@ -155,7 +157,7 @@ class ModuleLoader (gobject.GObject):
         passing a corresponding module module.
         """
         if self.dirs is None:
-            logging.error("The ModuleLoader at %s has no filelist! It was probably initialized with dirs=None." % str(id(self)))
+            LOGGER.error("The ModuleLoader at %s has no filelist! It was probably initialized with dirs=None." % str(id(self)))
             return
             
         for f in self.filelist:
@@ -172,7 +174,7 @@ class ModuleLoader (gobject.GObject):
         if module.is_enabled():
             return
             
-        logging.info("Initializing %s" % module.INFOS["name"])
+        LOGGER.info("Initializing %s" % module.INFOS["name"])
         
         try:
             module.initialize ()
@@ -182,7 +184,7 @@ class ModuleLoader (gobject.GObject):
                 for catname, catinfo in module.INFOS["categories"].items():
                     deskbar.core.Categories.CATEGORIES[catname] = catinfo
         except Exception, msg:
-            logging.error( "Error while initializing %s: %s" % (module.INFOS["name"],msg))
+            LOGGER.error( "Error while initializing %s: %s" % (module.INFOS["name"],msg))
             traceback.print_exc()
             module.set_enabled(False)
             self.emit("module-not-initialized", module)
@@ -198,7 +200,7 @@ class ModuleLoader (gobject.GObject):
         the stopped module as argument.
         """
         
-        logging.info("Stopping %s" % module.INFOS["name"])
+        LOGGER.info("Stopping %s" % module.INFOS["name"])
         module.stop ()
                 
         module.set_enabled(False)

@@ -8,6 +8,8 @@ import logging
 import threading
 from os.path import basename
 
+LOGGER = logging.getLogger(__name__)
+
 # We don't want that errors in 3rd-party
 # handlers land in bugzilla
 
@@ -89,7 +91,7 @@ def install_thread_excepthook():
     threading.Thread.run = run
 
 if not sys.stderr.isatty():
-    logging.info('Using GTK exception handler')
+    LOGGER.info('Using GTK exception handler')
     _excepthook_save = sys.excepthook
     sys.excepthook = _info
     install_thread_excepthook()

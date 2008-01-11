@@ -3,6 +3,9 @@ from gettext import gettext as _
 from deskbar.core.Utils import url_show_file
 from os.path import exists
 import gnomevfs
+import logging
+
+LOGGER = logging.getLogger(__name__) 
 
 class OpenFileAction(deskbar.interfaces.Action):
     """
@@ -28,14 +31,18 @@ class OpenFileAction(deskbar.interfaces.Action):
             url = gnomevfs.unescape_string_for_display(url)
 
         if not exists(url):
+            LOGGER.debug("File %s does not exist" % url)
             return False
         else:
             try:
                 mime_type = gnomevfs.get_mime_type(url)
-                return gnomevfs.mime_get_default_application(mime_type) != None
+                returnval = gnomevfs.mime_get_default_application(mime_type) != None
             except RuntimeError, e:
                 # get_mime_type throws a RuntimeException when something went wrong
-                return False
+                returnval = False
+        if not returnval:
+            LOGGER.debug("File %s has no default application" % url)
+        return returnval
     
     def get_hash(self):
         return self._url

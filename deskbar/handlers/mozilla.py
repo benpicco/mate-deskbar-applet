@@ -13,6 +13,8 @@ import logging
 import os, re, HTMLParser, base64, glob
 import urllib
 
+LOGGER = logging.getLogger(__name__)
+
 # Check for presence of set to be compatible with python 2.3
 try:
     set
@@ -278,7 +280,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
                 self.indexed_file = self._index_mozilla()
             self.close()
         except Exception, e:
-            logging.error('Could not index Firefox bookmarks: %s' % e)
+            LOGGER.error('Could not index Firefox bookmarks: %s' % e)
         
     def get_indexer(self):
         """
@@ -296,7 +298,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
                 self.feed(file(bookmarks_file).read())
                 return bookmarks_file
         except Exception, msg:
-            logging.error('Retrieving Mozilla Bookmarks: %s' % msg)
+            LOGGER.error('Retrieving Mozilla Bookmarks: %s' % msg)
         
     def _index_firefox(self):
         try:
@@ -305,7 +307,7 @@ class MozillaBookmarksParser(HTMLParser.HTMLParser):
                 self.feed(file(bookmarks_file).read())
                 return bookmarks_file
         except Exception, msg:
-            logging.error('Retrieving Firefox Bookmarks: %s' % msg)
+            LOGGER.error('Retrieving Firefox Bookmarks: %s' % msg)
     
     def handle_starttag(self, tag, attrs):
         tag = tag.lower()
@@ -385,7 +387,7 @@ class Firefox2SearchEngineParser :
         try:
             self._parse_image (xml)
         except Exception, msg:
-            logging.error("Parsing icon for %s\n%s" % (self.filename,msg))
+            LOGGER.error("Parsing icon for %s\n%s" % (self.filename,msg))
     
     def _detect_namespace (self, xml):
         # Manually added search engines use the "os" namespace
@@ -547,7 +549,7 @@ class MozillaSmartBookmarksParser:
             parent_dir = self.f[:self.f.rindex("/")]
             return [img for img in glob.glob(join(parent_dir, '%s.*' % self.f[:-4])) if not img.endswith(".src")][0]
         except Exception, msg:
-            logging.warning("Error detecting icon for smart bookmark:%s\n%s" % (self.f,msg))
+            LOGGER.warning("Error detecting icon for smart bookmark:%s\n%s" % (self.f,msg))
             return None
     
     def _handle_token(self, state, tokens):
@@ -719,7 +721,7 @@ class MozillaSmartBookmarksDirParser:
                 self._smart_bookmarks.append(bookmark)
                 
             except Exception, msg:
-                logging.error('MozillaSmartBookmarksDirParser:cannot parse smart bookmark: %s\n%s' % (f,msg))
+                LOGGER.error('MozillaSmartBookmarksDirParser:cannot parse smart bookmark: %s\n%s' % (f,msg))
                     
     
     def get_smart_bookmarks(self):

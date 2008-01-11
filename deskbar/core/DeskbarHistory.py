@@ -7,6 +7,8 @@ from deskbar import HISTORY_FILE
 from gettext import gettext as _
 from deskbar.core.Categories import CATEGORIES
 
+LOGGER = logging.getLogger(__name__)
+
 class ChooseFromHistoryAction (deskbar.interfaces.Action):
     """
     This will be displayed always at the top of the history
@@ -127,8 +129,8 @@ class DeskbarHistory (gtk.ListStore) :
             pass
         except Exception, e:
             # The history file is corrupted
-            logging.error("Could not restore history")
-            logging.exception(e)
+            LOGGER.error("Could not restore history")
+            LOGGER.exception(e)
             pass
 
     def save (self):
@@ -143,7 +145,7 @@ class DeskbarHistory (gtk.ListStore) :
         try:
             cPickle.dump(save, file(HISTORY_FILE, 'w'), cPickle.HIGHEST_PROTOCOL)
         except Exception, msg:
-            logging.error('History.save:%s', msg)
+            LOGGER.error('History.save:%s', msg)
         pass
     
     def append (self, timestamp, text, action):

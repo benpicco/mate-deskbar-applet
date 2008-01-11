@@ -2,6 +2,8 @@ import gtk, gobject
 import deskbar, deskbar.core.keybinder
 import logging
 
+LOGGER = logging.getLogger(__name__)
+
 class Keybinder(gobject.GObject):
     __gsignals__ = {
         "activated" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_ULONG]),
@@ -20,7 +22,7 @@ class Keybinder(gobject.GObject):
         if self.bound:
             self.unbind()
 
-        logging.info('Binding Global shortcut %s to focus the deskbar' % keybinding)
+        LOGGER.info('Binding Global shortcut %s to focus the deskbar' % keybinding)
         try:
             self.bound = deskbar.core.keybinder.tomboy_keybinder_bind(keybinding, self.on_keyboard_shortcut)
             self.prevbinding = keybinding
@@ -31,7 +33,7 @@ class Keybinder(gobject.GObject):
         return self.bound
                     
     def unbind(self):
-        logging.info('Unbinding Global shortcut %s to focus the deskbar' % self.prevbinding)
+        LOGGER.info('Unbinding Global shortcut %s to focus the deskbar' % self.prevbinding)
         try:
             deskbar.core.keybinder.tomboy_keybinder_unbind(self.prevbinding)
             self.bound = False

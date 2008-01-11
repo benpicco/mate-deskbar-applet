@@ -7,6 +7,8 @@ import deskbar.core.Utils
 from deskbar.ui.About import show_about
 from deskbar.ui.preferences.DeskbarPreferences import DeskbarPreferences
 
+LOGGER = logging.getLogger(__name__)
+
 class CuemiacWindowController(deskbar.interfaces.Controller):
     """
     This class handels the input received from
@@ -121,7 +123,7 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         
     def on_action_selected(self, treeview, text, action, event):
         if not action.is_valid():
-            logging.warning("Action is not valid anymore")
+            LOGGER.warning("Action is not valid anymore")
             return
         self._model.get_history().add(text, action)
         action.activate(text)

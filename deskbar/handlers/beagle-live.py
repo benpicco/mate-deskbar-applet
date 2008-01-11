@@ -13,6 +13,8 @@ import gnomevfs
 import logging
 import threading
 
+LOGGER = logging.getLogger(__name__)
+
 MAX_RESULTS = 20 # per handler
 HANDLERS = ["BeagleLiveHandler"]
 
@@ -238,7 +240,7 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
                                             )
             self.add_all_actions( actions )
         else:
-            logging.warning("Unknown beagle match type found: "+result["type"] )
+            LOGGER.warning("Unknown beagle match type found: "+result["type"] )
 
         # Load the correct icon
         
@@ -300,7 +302,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         hit_matches = []
         for hit in response.get_hits():
             if hit.get_type() not in TYPES:
-                logging.info("Beagle live seen an unknown type:"+ str(hit.get_type()))
+                LOGGER.info("Beagle live seen an unknown type:"+ str(hit.get_type()))
                 continue
             
             if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
