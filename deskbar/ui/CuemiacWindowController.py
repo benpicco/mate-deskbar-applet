@@ -133,8 +133,10 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
             self.on_quit()
         
     def on_clear_history(self, sender):
-        self._model.get_history().clear()
-        self._model.get_history().save()
+        history = self._model.get_history()
+        history.clear()
+        history.reset()
+        history.save()
         
     def on_history_match_selected(self, history, text, action):
         action.activate(text)
