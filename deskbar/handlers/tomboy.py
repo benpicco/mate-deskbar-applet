@@ -203,10 +203,14 @@ def get_tomboy_version():
 	command.close()
 	
 	line_regexp = re.compile( 'Version \d\.\d\.\d', re.IGNORECASE )
-	version_line = line_regexp.findall( read )[0].strip()
-	number_regexp = re.compile( '\d\.\d\.\d' )
-	version = number_regexp.findall( version_line )[0]
-	return version
+	results_list = line_regexp.findall( read )
+	if len(results_list) == 0:
+		return '0.0.0'
+	else:
+		version_line = results_list[0].strip()
+		number_regexp = re.compile( '\d\.\d\.\d' )
+		version = number_regexp.findall( version_line )[0]
+		return version
 
 # Check if version is correct
 def tomboy_correct_version():
