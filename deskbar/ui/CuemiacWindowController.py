@@ -93,6 +93,15 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         iter = None
         if path != None:
             iter = model.get_iter (path)
+
+        # If we're on a history item right now and the user 
+        # presses Enter, the search results for that history item
+        # should be shown.
+        if self._model.get_history().get_current() != None:
+            # Start new query with the text from the history
+            self.on_query_entry_changed(entry)
+            self._model.get_history().reset()
+            return
         
         if iter == None or model.iter_has_child(iter):
             # No selection, select top element
