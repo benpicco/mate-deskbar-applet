@@ -1,14 +1,14 @@
 # Swedish messages for deskbar-applet.
-# Copyright (C) 2005, 2006, 2007 Free Software Foundation, Inc.
-# Daniel Nylander <po@danielnylander.se,> 2006, 2007.
+# Copyright (C) 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
+# Daniel Nylander <po@danielnylander.se,> 2006, 2007, 2008.
 # Christian Rose <menthos@menthos.com>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-28 19:16+0100\n"
-"PO-Revision-Date: 2007-12-28 19:18+0100\n"
+"POT-Creation-Date: 2008-01-14 18:41+0100\n"
+"PO-Revision-Date: 2008-01-14 18:42+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -129,6 +129,10 @@ msgid "_Clear History"
 msgstr "_Töm historik"
 
 #: ../data/Deskbar_Applet.xml.h:3
+msgid "_Help"
+msgstr "_Hjälp"
+
+#: ../data/Deskbar_Applet.xml.h:4
 msgid "_Preferences"
 msgstr "_Inställningar"
 
@@ -202,6 +206,10 @@ msgid "_More..."
 msgstr "_Mer..."
 
 #: ../data/prefs-dialog.glade.h:16
+msgid "_Reload"
+msgstr "_Uppdatera"
+
+#: ../data/prefs-dialog.glade.h:17
 msgid "_Update"
 msgstr "_Uppdatera"
 
@@ -230,7 +238,7 @@ msgid "Show only the primary search engine"
 msgstr "Visa endast den primära sökmotorn"
 
 #: ../deskbar/core/BrowserMatch.py:51
-#: ../deskbar/handlers/beagle-live.py:178
+#: ../deskbar/handlers/beagle-live.py:180
 #, python-format
 msgid "Open History Item %s"
 msgstr "Öppna historikposten %s"
@@ -247,7 +255,7 @@ msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Sök <b>%(name)s</b> efter <i>%(text)s</i>"
 
 #: ../deskbar/core/BrowserMatch.py:95
-#: ../deskbar/handlers/yahoo.py:31
+#: ../deskbar/handlers/yahoo.py:33
 msgid "URL"
 msgstr "URL"
 
@@ -313,68 +321,73 @@ msgstr "Nyheter"
 msgid "Notes"
 msgstr "Anteckningar"
 
-#: ../deskbar/core/DeskbarHistory.py:20
+#: ../deskbar/core/DeskbarHistory.py:22
 msgid "<i>Choose action</i>"
 msgstr "<i>Välj åtgärd</i>"
 
-#: ../deskbar/core/Utils.py:130
+#: ../deskbar/core/Utils.py:132
 msgid "Cannot execute program:"
 msgstr "Kan inte köra program:"
 
-#: ../deskbar/core/Utils.py:170
+#: ../deskbar/core/Utils.py:172
 msgid "Cannot show URL:"
 msgstr "Kan inte visa url:"
 
-#: ../deskbar/handlers/beagle-live.py:100
+#. translators: This is the window title.
+#: ../deskbar/deskbar-applet.py:15
+msgid "Deskbar Applet"
+msgstr "Skrivbordsrad"
+
+#: ../deskbar/handlers/beagle-live.py:102
 #, python-format
 msgid "Edit contact %s"
 msgstr "Redigera kontakt %s"
 
-#: ../deskbar/handlers/beagle-live.py:111
+#: ../deskbar/handlers/beagle-live.py:113
 #, python-format
 msgid "From %s"
 msgstr "Från %s"
 
-#: ../deskbar/handlers/beagle-live.py:126
+#: ../deskbar/handlers/beagle-live.py:128
 #, python-format
 msgid "News from %s"
 msgstr "Nyheter från %s"
 
-#: ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/handlers/beagle-live.py:142
 #, python-format
 msgid "Note: %s"
 msgstr "Anteckning: %s"
 
-#: ../deskbar/handlers/beagle-live.py:153
+#: ../deskbar/handlers/beagle-live.py:155
 #, python-format
 msgid "With %s"
 msgstr "Med %s"
 
-#: ../deskbar/handlers/beagle-live.py:167
+#: ../deskbar/handlers/beagle-live.py:169
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalender: %s"
 
-#: ../deskbar/handlers/beagle-live.py:273
+#: ../deskbar/handlers/beagle-live.py:275
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:274
+#: ../deskbar/handlers/beagle-live.py:276
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Sök i alla din dokument (med Beagle), när du skriver"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:396
-#: ../deskbar/handlers/beagle-live.py:418
+#: ../deskbar/handlers/beagle-live.py:398
+#: ../deskbar/handlers/beagle-live.py:420
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:456
+#: ../deskbar/handlers/beagle-live.py:458
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Kunde inte läsa in beagle, libbeagle har byggts utan stöd för python-bindingar."
 
-#: ../deskbar/handlers/beagle-live.py:465
+#: ../deskbar/handlers/beagle-live.py:467
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagled hittades inte i din $PATH."
 
@@ -395,31 +408,31 @@ msgstr "Sök i alla din dokument (med Beagle)"
 msgid "Beagle does not seem to be installed."
 msgstr "Beagle verkar inte vara installerat."
 
-#: ../deskbar/handlers/desklicious.py:45
+#: ../deskbar/handlers/desklicious.py:47
 msgid "del.icio.us Bookmarks"
 msgstr "Bokmärken på del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:46
+#: ../deskbar/handlers/desklicious.py:48
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "Sök bland dina del.icio.us-bokmärken med hjälp av taggnamnet"
 
-#: ../deskbar/handlers/desklicious.py:78
+#: ../deskbar/handlers/desklicious.py:80
 msgid "del.icio.us Account"
 msgstr "Konto på del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:85
+#: ../deskbar/handlers/desklicious.py:87
 msgid "Enter your del.icio.us username below"
 msgstr "Ange ditt användarnamn på del.icio.us nedan"
 
-#: ../deskbar/handlers/desklicious.py:91
+#: ../deskbar/handlers/desklicious.py:93
 msgid "Username: "
 msgstr "Användarnamn: "
 
-#: ../deskbar/handlers/desklicious.py:107
+#: ../deskbar/handlers/desklicious.py:109
 msgid "You need to configure your del.icio.us account."
 msgstr "Du behöver konfigurera ditt konto på del.icio.us."
 
-#: ../deskbar/handlers/desklicious.py:112
+#: ../deskbar/handlers/desklicious.py:114
 msgid "You can modify your del.icio.us account."
 msgstr "Du kan ändra ditt konto på del.icio.us."
 
@@ -428,7 +441,7 @@ msgid "Web Bookmarks (Epiphany)"
 msgstr "Webbokmärken (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:49
-#: ../deskbar/handlers/mozilla.py:125
+#: ../deskbar/handlers/mozilla.py:127
 msgid "Open your web bookmarks by name"
 msgstr "Öppna dina webbokmärken med hjälp av namnet"
 
@@ -442,7 +455,7 @@ msgid "Web Searches (Epiphany)"
 msgstr "Webbsökningar (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:89
-#: ../deskbar/handlers/mozilla.py:192
+#: ../deskbar/handlers/mozilla.py:194
 msgid "Search the web via your browser's search settings"
 msgstr "Sök på webben via din webbläsares sökinställningar"
 
@@ -455,7 +468,7 @@ msgid "Web History (Epiphany)"
 msgstr "Webbhistorik (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:135
-#: ../deskbar/handlers/mozilla.py:736
+#: ../deskbar/handlers/mozilla.py:738
 msgid "Open your web history by name"
 msgstr "Öppna din webbhistorik med hjälp av namnet"
 
@@ -484,7 +497,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:62
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:35
 msgid "Location"
 msgstr "Plats"
 
@@ -638,24 +651,24 @@ msgstr "Byt till ett existerande fönster efter namn."
 msgid "Windows"
 msgstr "Fönster"
 
-#: ../deskbar/handlers/mozilla.py:124
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Webbokmärken (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:184
-#: ../deskbar/handlers/mozilla.py:257
+#: ../deskbar/handlers/mozilla.py:186
+#: ../deskbar/handlers/mozilla.py:259
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox är inte din föredragna webbläsare."
 
-#: ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/mozilla.py:193
 msgid "Web Searches (Mozilla)"
 msgstr "Webbsökningar (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:251
+#: ../deskbar/handlers/mozilla.py:253
 msgid "You can customize which search engines are offered."
 msgstr "Du kan anpassa vilka sökmotorer som erbjuds."
 
-#: ../deskbar/handlers/mozilla.py:735
+#: ../deskbar/handlers/mozilla.py:737
 msgid "Web History (Mozilla)"
 msgstr "Webbhistorik (Mozilla)"
 
@@ -706,25 +719,25 @@ msgstr "Utvecklardokumentation"
 msgid "Search Devhelp for a function name"
 msgstr "Sök i Devhelp efter ett funktionsnamn"
 
-#: ../deskbar/handlers/programs.py:189
+#: ../deskbar/handlers/programs.py:192
 msgid "Devhelp is not installed"
 msgstr "Devhelp är inte installerat"
 
-#: ../deskbar/handlers/programs.py:238
+#: ../deskbar/handlers/programs.py:241
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "Kör %s i terminal"
 
-#: ../deskbar/handlers/programs.py:240
+#: ../deskbar/handlers/programs.py:243
 #, python-format
 msgid "Execute %s"
 msgstr "Kör %s"
 
-#: ../deskbar/handlers/programs.py:256
+#: ../deskbar/handlers/programs.py:259
 msgid "Programs"
 msgstr "Program"
 
-#: ../deskbar/handlers/programs.py:257
+#: ../deskbar/handlers/programs.py:260
 msgid "Launch a program by its name and/or description"
 msgstr "Starta ett program efter dess namn och/eller beskrivning"
 
@@ -826,7 +839,7 @@ msgstr "Sök i dina Tomboy-anteckningar"
 msgid "Tomboy does not seem to be installed."
 msgstr "Tomboy verkar inte vara installerat."
 
-#: ../deskbar/handlers/tomboy.py:224
+#: ../deskbar/handlers/tomboy.py:228
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -839,15 +852,15 @@ msgstr ""
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Öppna webbsidor och skicka e-post genom att skriv in en fullständig adress"
 
-#: ../deskbar/handlers/yahoo.py:39
+#: ../deskbar/handlers/yahoo.py:41
 msgid "Yahoo! Search"
 msgstr "Yahoo!-sökning"
 
-#: ../deskbar/handlers/yahoo.py:40
+#: ../deskbar/handlers/yahoo.py:42
 msgid "Search Yahoo! as you type"
 msgstr "Sök på Yahoo! när du skriver"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:62
 #, python-format
 msgid "URL of %s"
 msgstr "Url för %s"
@@ -867,12 +880,12 @@ msgstr "Gå till platsen för %s"
 #
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:45
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Starta <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/actions/OpenFileAction.py:40
+#: ../deskbar/handlers/actions/OpenFileAction.py:51
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
@@ -881,7 +894,7 @@ msgstr "Öppna %s"
 # FIXME:
 # http://bugzilla.gnome.org/show_bug.cgi?id=321396
 #
-#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
 #, python-format
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
 msgstr "Öppna <b>%(name)s</b> med <b>%(program)s</b>"
@@ -946,11 +959,11 @@ msgid "default"
 msgstr "standard"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:76
+#: ../deskbar/ui/CuemiacWindowView.py:77
 msgid "_History"
 msgstr "_Historik"
 
-#: ../deskbar/ui/CuemiacWindowView.py:134
+#: ../deskbar/ui/CuemiacWindowView.py:139
 msgid "Back to Matches"
 msgstr "Tillbaka till sökträffar"
 
@@ -958,7 +971,7 @@ msgstr "Tillbaka till sökträffar"
 msgid "Show search entry"
 msgstr "Visa sökfält"
 
-#: ../deskbar/ui/DeskbarTray.py:87
+#: ../deskbar/ui/DeskbarTray.py:88
 msgid "Some potentially old modules that make use of an old Deskbar-Applet API have been found. Remove these files for this warning to disappear.\n"
 msgstr "Några möjligen gamla moduler som använder det äldre Deskbar-Applet API har hittats. Ta bort dessa filer för att ta bort den här varningen.\n"
 
@@ -975,19 +988,23 @@ msgstr ""
 "Genvägen \"%s\" kan inte användas därför att den kommer att förhindra normal användning\n"
 "av ditt tangentbord. Prova den samtidigt med en tangent som Control, Alt eller Skift.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
+msgid "Reload all extensions"
+msgstr "Uppdatera alla utökningar"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Dra och släpp en utökning för att ändra dess ordning.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:318
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:324
 msgid "A problem occured"
 msgstr "Ett fel inträffade"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:383
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:389
 msgid "Handler has been installed successfully"
 msgstr "Hanteraren har installerats"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:386
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:392
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "Hanteraren kunde inte installeras på grund av ett problem med den tillhandahållna filen"
 
@@ -1089,8 +1106,6 @@ msgstr "Uppdatering tillgänglig"
 #~ msgstr "R_edigera"
 #~ msgid "_View"
 #~ msgstr "_Visa"
-#~ msgid "_Help"
-#~ msgstr "_Hjälp"
 #~ msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
 #~ msgstr ""
 #~ "Väljer det användargränssnitt som ska användas, ett av \"Cuemiac\" eller "
