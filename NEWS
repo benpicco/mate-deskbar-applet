@@ -1,4 +1,47 @@
 =======================
+deskbar-applet 2.21.5
+=======================
+
+Like the last release, a new module is
+introduced in this release. With the Tomboy
+module you can search your notes, add new tasks
+and delete tasks. In addition, you can now reload
+all modules in preferences. That way you don't have
+to restart Deskbar-Applet to re-check if a particular
+module has all the requirements.
+
+Changes:
+    * Added tomboy module (written by archengule at gmail.com)
+    * Fixed bug #504875: cannot concatenate 'str' and 'NoneType' objects in beagle-live.py
+    * Fixed bug #382127: devhelp handler is broken (patch by Michael Lester)
+    * Fixed bug #350597: "Send a mail" to a contact list adds only the first contact to "To:" (patch by Michael Lester)
+    * Added button to preference to reload all modules. Fixes bug #356008: a 'reload all scripts' button on the deskbar applet. (patch by Jc Razo)
+    * Re-added LingeringSelectionWindow for CuemiacTreeView	and CuemiacActionsTreeView
+    * Catching RuntimeException in OpenFileAction.is_valid and return False if it occurs
+    * Fixed bug #508326: The window title is not translatable
+    * Catch Exception when loading history to prevent that bugzilla pops up when history file is corrupted (fixes bug #504916)
+    * Fixed bug #507414: AttributeError in del.ico.us module
+    * Be compatible with older versions of OpenDesktopFileAction.py that had no attribute '_prog' (fixes bug #500846)
+    * Fixed bug #509058: list index out of range in tomboy.py
+    * Fixed bug #509127: Execute previous search (patch by Andreas Kühntopf). When you cycle through previous searches with up/down keys pressing enter will re-run the search.
+
+Contributors to this release: Sebastian Pölsterl, archengule at gmail.com, Michael Lester, Jc Razo, Andreas Kühntopf
+
+Updated Translations:
+    * Basque
+    * Belarusian Latin
+    * Brazilian Portuguese
+    * Estonian
+    * Korean
+    * Norwegian bokmål
+    * Occitan
+    * Spanish
+    * Swedish
+    * Vietnamese
+
+Contributors to the translations: Inaki Larranaga Murgoitio, Ihar Hrachyshka, Leonardo Ferreira Fontenelle, Priit Laes, Changwoo Ryu, Kjartan Maraas, Yannig Marchegay, Jorge Gonzalez, Daniel Nylander, Clytie Siddall
+
+=======================
 deskbar-applet 2.21.4
 =======================
 
