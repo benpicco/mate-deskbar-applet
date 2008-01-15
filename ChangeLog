@@ -1,62 +1,67 @@
+2008-01-15	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+    * configure.ac:
+	Post release bump to 2.21.90
+
 ========== Version 2.21.5 released 2008-01-14 ==========
 
-2009-01-14	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-14	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     * NEWS:
     Added release notes
 
-2009-01-14	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-14	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     * deskbar/ui/CuemiacWindowController.py:
     Fixed bug #509127: Execute previous search (patch by Andreas Kühntopf)
     When you cycle through previous searches with up/down keys pressing
     enter will re-run the search.
 
-2009-01-13	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-13	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     * deskbar/ui/CuemiacWindowController.py:
     Fixed bug #500550: invalid tree path in DeskbarHistory.py
     
-2009-01-13	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-13	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     * deskbar/handlers/tomboy.py:
     Fixed bug #509058: list index out of range in tomboy.py
 
-2009-01-12	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-12	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     * deskbar/handlers/actions/OpenDesktopFileAction.py:
     Be compatible with older versions of this file that
     had no attribute '_prog' (fixes bug #500846)
 
-2009-01-12	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-12	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     Each file uses its own logger now
 
-2009-01-12	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-12	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     * deskbar/handlers/desklicious.py:
     Fixed bug #507414: AttributeError in del.ico.us module
 
-2009-01-11	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-11	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     * deskbar/core/DeskbarHistory.py:
     Catch Exception when loading history to prevent
     that bugzilla pops up when history file is corrupted
     (fixes bug #504916)
 
-2009-01-11	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-11	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     * deskbar/deskbar-applet.py:
     * po/POTFILES.in:
     Fixed bug #508326: The window title is not translatable
 
-2009-01-10	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-10	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/handlers/actions/OpenFileAction.py:
 	Catching RuntimeException in is_valid and return
 	False if it occurs
 
-2009-01-10	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-10	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/ui/cuemiac/CuemiacActionsTreeView.py:
 	* deskbar/ui/cuemiac/CuemiacTreeView.py:
@@ -66,7 +71,7 @@
 	Re-added LingeringSelectionWindow for CuemiacTreeView
 	and CuemiacActionsTreeView
 
-2009-01-09	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-09	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* data/prefs-dialog.glade
 	* deskbar/core/CoreImpl.py
@@ -86,13 +91,13 @@
 	Added documentation written by Phil Bull and Qing Gan
 	Added 'Help' to right-click-menu
 
-2009-01-02	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-02	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/interfaces/Match.py:
 	Print further debug information if a non-valid
 	action is added
 
-2009-01-02	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-01-02	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/handlers/evolution/evolution.c:
 	Fixed bug #350597: "Send a mail" to a contact list adds only the first contact to "To:"
