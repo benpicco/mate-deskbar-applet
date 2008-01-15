@@ -1,16 +1,16 @@
-# translation of eu.po to Basque
+# translation of deskbar-applet.HEAD.po to Basque
 # Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2006, 2007.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2006, 2007, 2008.
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: eu\n"
+"Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-28 17:56+0100\n"
-"PO-Revision-Date: 2007-12-28 17:57+0100\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
+"POT-Creation-Date: 2008-01-15 16:25+0100\n"
+"PO-Revision-Date: 2008-01-15 16:24+0100\n"
+"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +39,8 @@ msgid "Enabled handlers"
 msgstr "Gaitu kudeatzaileak"
 
 #: ../data/deskbar-applet.schemas.in.h:5
-msgid "If enabled it will clear the entry after a search result has been selected"
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
 msgstr "Gaitzen bada sarrera garbituko du bilaketako emaitza hautatu ondoren"
 
 #: ../data/deskbar-applet.schemas.in.h:6
@@ -76,7 +77,8 @@ msgstr "Leihoaren zabalera lehenetsia (pixeletan)"
 
 #: ../data/deskbar-applet.schemas.in.h:14
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
-msgstr "Tekla-sekuentziak deskbar-appletean fokua jarriko du, azkar idaztea eskainiz"
+msgstr ""
+"Tekla-sekuentziak deskbar-appletean fokua jarriko du, azkar idaztea eskainiz"
 
 #: ../data/deskbar-applet.schemas.in.h:15
 msgid ""
@@ -157,6 +159,10 @@ msgid "_Clear History"
 msgstr "_Garbitu historia"
 
 #: ../data/Deskbar_Applet.xml.h:3
+msgid "_Help"
+msgstr "_Laguntza"
+
+#: ../data/Deskbar_Applet.xml.h:4
 msgid "_Preferences"
 msgstr "_Hobespenak"
 
@@ -229,6 +235,10 @@ msgid "_More..."
 msgstr "_Gehiago..."
 
 #: ../data/prefs-dialog.glade.h:16
+msgid "_Reload"
+msgstr "_Birkargatu"
+
+#: ../data/prefs-dialog.glade.h:17
 msgid "_Update"
 msgstr "_Eguneratu"
 
@@ -262,7 +272,7 @@ msgstr "Erakutsi erabilgarri dauden bilaketa-motor guztiak"
 msgid "Show only the primary search engine"
 msgstr "Erakutsi bilaketa-motor nagusia soilik"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:178
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:180
 #, python-format
 msgid "Open History Item %s"
 msgstr "Ireki historiako %s elementua"
@@ -278,7 +288,7 @@ msgstr "Ireki %s laster-marka"
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Bilatu <b>%(name)s</b>-en <i>%(text)s</i> testua"
 
-#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:31
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:33
 msgid "URL"
 msgstr "URLa"
 
@@ -342,70 +352,76 @@ msgstr "Berriak"
 msgid "Notes"
 msgstr "Oharrak"
 
-#: ../deskbar/core/DeskbarHistory.py:20
+#: ../deskbar/core/DeskbarHistory.py:22
 msgid "<i>Choose action</i>"
 msgstr "<i>Aukeratu ekintza</i>"
 
-#: ../deskbar/core/Utils.py:130
+#: ../deskbar/core/Utils.py:132
 msgid "Cannot execute program:"
 msgstr "Ezin da programa exekutatu:"
 
-#: ../deskbar/core/Utils.py:170
+#: ../deskbar/core/Utils.py:172
 msgid "Cannot show URL:"
 msgstr "Ezin da URLa erakutsi:"
 
-#: ../deskbar/handlers/beagle-live.py:100
+#. translators: This is the window title.
+#: ../deskbar/deskbar-applet.py:15
+msgid "Deskbar Applet"
+msgstr "Mahai-barraren applet-a"
+
+#: ../deskbar/handlers/beagle-live.py:102
 #, python-format
 msgid "Edit contact %s"
 msgstr "Editatu %s kontaktua"
 
-#: ../deskbar/handlers/beagle-live.py:111
+#: ../deskbar/handlers/beagle-live.py:113
 #, python-format
 msgid "From %s"
 msgstr "%s(e)tik"
 
-#: ../deskbar/handlers/beagle-live.py:126
+#: ../deskbar/handlers/beagle-live.py:128
 #, python-format
 msgid "News from %s"
 msgstr "%s -eko berriak"
 
-#: ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/handlers/beagle-live.py:142
 #, python-format
 msgid "Note: %s"
 msgstr "Oharra: %s"
 
-#: ../deskbar/handlers/beagle-live.py:153
+#: ../deskbar/handlers/beagle-live.py:155
 #, python-format
 msgid "With %s"
 msgstr "%s(e)kin"
 
-#: ../deskbar/handlers/beagle-live.py:167
+#: ../deskbar/handlers/beagle-live.py:169
 #, python-format
 msgid "Calendar: %s"
 msgstr "Egutegia: %s"
 
-#: ../deskbar/handlers/beagle-live.py:273
+#: ../deskbar/handlers/beagle-live.py:275
 msgid "Beagle Live"
 msgstr "Beagle zuzenean"
 
-#: ../deskbar/handlers/beagle-live.py:274
+#: ../deskbar/handlers/beagle-live.py:276
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Idazterakoan, zure dokumentu guztietan (Beagle erabiliz) bilatu"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:396
-#: ../deskbar/handlers/beagle-live.py:418
+#: ../deskbar/handlers/beagle-live.py:398
+#: ../deskbar/handlers/beagle-live.py:420
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:456
-msgid "Could not load beagle, libbeagle has been compiled without python bindings."
+#: ../deskbar/handlers/beagle-live.py:458
+msgid ""
+"Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "Ezin izan da 'beagle' kargatu, python-en loturarik gabe konpilatu da "
 "libbeagle."
 
-#: ../deskbar/handlers/beagle-live.py:465
+#: ../deskbar/handlers/beagle-live.py:467
 msgid "Beagled could not be found in your $PATH."
 msgstr "Ezin izan da beagled zure inguruneko $PATH aldagaian aurkitu."
 
@@ -426,31 +442,31 @@ msgstr "Bilatu zure dokumentu guztietan (Beagle erabiliz)"
 msgid "Beagle does not seem to be installed."
 msgstr "Badirudi Beagle ez dagoela instalatuta."
 
-#: ../deskbar/handlers/desklicious.py:45
+#: ../deskbar/handlers/desklicious.py:47
 msgid "del.icio.us Bookmarks"
 msgstr "del.icio.us laster-markak"
 
-#: ../deskbar/handlers/desklicious.py:46
+#: ../deskbar/handlers/desklicious.py:48
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "Bilatu zure del.icio.us laster-markak izenaren arabera"
 
-#: ../deskbar/handlers/desklicious.py:78
+#: ../deskbar/handlers/desklicious.py:80
 msgid "del.icio.us Account"
 msgstr "del.icio.us kontua"
 
-#: ../deskbar/handlers/desklicious.py:85
+#: ../deskbar/handlers/desklicious.py:87
 msgid "Enter your del.icio.us username below"
 msgstr "Sartu zure del.icio.us guneko erabiltzaile-izena azpian"
 
-#: ../deskbar/handlers/desklicious.py:91
+#: ../deskbar/handlers/desklicious.py:93
 msgid "Username: "
 msgstr "Erabiltzaile-izena: "
 
-#: ../deskbar/handlers/desklicious.py:107
+#: ../deskbar/handlers/desklicious.py:109
 msgid "You need to configure your del.icio.us account."
 msgstr "Zure del.icio.us kontua konfiguratu egin behar duzu"
 
-#: ../deskbar/handlers/desklicious.py:112
+#: ../deskbar/handlers/desklicious.py:114
 msgid "You can modify your del.icio.us account."
 msgstr "Zure del.icio.us kontua eralda dezakezu."
 
@@ -458,7 +474,7 @@ msgstr "Zure del.icio.us kontua eralda dezakezu."
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Web-eko laster-markak (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:127
 msgid "Open your web bookmarks by name"
 msgstr "Ireki zure web laster-markak izenaren arabera"
 
@@ -470,7 +486,7 @@ msgstr "Epiphany ez da zure arakatzaile hobetsia."
 msgid "Web Searches (Epiphany)"
 msgstr "Web-eko bilaketak (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:192
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:194
 msgid "Search the web via your browser's search settings"
 msgstr "Bilatu internet-en zure arakatzailearen bilaketa-ezarpenaren bidez"
 
@@ -482,7 +498,7 @@ msgstr "Bilaketetarako laster-teklak ezarri dezakezu."
 msgid "Web History (Epiphany)"
 msgstr "Web-eko historia (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:736
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
 msgid "Open your web history by name"
 msgstr "Ireki zure web historia izenaren arabera"
 
@@ -498,7 +514,8 @@ msgstr "Posta (Helbide-liburua)"
 
 #: ../deskbar/handlers/evolution.py:43
 msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr "Bidali posta bat zure kontaktuei haien izena edo helbide elektronikoa idatziz"
+msgstr ""
+"Bidali posta bat zure kontaktuei haien izena edo helbide elektronikoa idatziz"
 
 #: ../deskbar/handlers/evolution.py:67
 msgid ""
@@ -515,7 +532,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:62
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:35
 msgid "Location"
 msgstr "Kokalekua"
 
@@ -663,23 +680,23 @@ msgstr "Aldatu dauden leihoen artean izenaren arabera."
 msgid "Windows"
 msgstr "Leihoak"
 
-#: ../deskbar/handlers/mozilla.py:124
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Web-eko laster-markak (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:184 ../deskbar/handlers/mozilla.py:257
+#: ../deskbar/handlers/mozilla.py:186 ../deskbar/handlers/mozilla.py:259
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox ez da zure arakatzaile hobetsia."
 
-#: ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/mozilla.py:193
 msgid "Web Searches (Mozilla)"
 msgstr "Web-eko bilaketak (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:251
+#: ../deskbar/handlers/mozilla.py:253
 msgid "You can customize which search engines are offered."
 msgstr "Eskeintzen diren bilatzaileak pertsonaliza ditzakezu."
 
-#: ../deskbar/handlers/mozilla.py:735
+#: ../deskbar/handlers/mozilla.py:737
 msgid "Web History (Mozilla)"
 msgstr "Web-eko historia (Mozilla)"
 
@@ -730,25 +747,25 @@ msgstr "Garatzailearen dokumentazioa"
 msgid "Search Devhelp for a function name"
 msgstr "Bilatu funtzioaren izena Devhelp-en"
 
-#: ../deskbar/handlers/programs.py:189
+#: ../deskbar/handlers/programs.py:192
 msgid "Devhelp is not installed"
 msgstr "Devhelp ez dago instalatuta"
 
-#: ../deskbar/handlers/programs.py:238
+#: ../deskbar/handlers/programs.py:241
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "Exekutatu %s terminalean"
 
-#: ../deskbar/handlers/programs.py:240
+#: ../deskbar/handlers/programs.py:243
 #, python-format
 msgid "Execute %s"
 msgstr "Exekutatu %s"
 
-#: ../deskbar/handlers/programs.py:256
+#: ../deskbar/handlers/programs.py:259
 msgid "Programs"
 msgstr "Programak"
 
-#: ../deskbar/handlers/programs.py:257
+#: ../deskbar/handlers/programs.py:260
 msgid "Launch a program by its name and/or description"
 msgstr "Abiarazi programa bat bere izenaren edota deskribapenaren bidez"
 
@@ -762,7 +779,8 @@ msgstr "Eskuratu azken aldian atzitutako fitxategi eta kokalekuak"
 
 #: ../deskbar/handlers/recent.py:58
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
-msgstr "Kudeatzaile honek GTK bertsio berriagoa behar du (2.9.0 edo berriagoa)."
+msgstr ""
+"Kudeatzaile honek GTK bertsio berriagoa behar du (2.9.0 edo berriagoa)."
 
 #: ../deskbar/handlers/templates.py:37
 #, python-format
@@ -792,7 +810,8 @@ msgstr "\"%s\" izeneko fitxategia badago lehendik ere. Ordeztea nahi duzu?"
 
 #: ../deskbar/handlers/templates.py:123
 #, python-format
-msgid "The file already exists in \"%s\".  Replacing it will overwrite its contents."
+msgid ""
+"The file already exists in \"%s\".  Replacing it will overwrite its contents."
 msgstr ""
 "\"%s\" izeneko fitxategia badago lehendik ere. Ordeztean bere edukia "
 "gainidatziko da."
@@ -852,7 +871,7 @@ msgstr "Bilatu zure Tomboy-ren oharrak"
 msgid "Tomboy does not seem to be installed."
 msgstr "Badirudi Tomboy ez dagoela instalatuta."
 
-#: ../deskbar/handlers/tomboy.py:224
+#: ../deskbar/handlers/tomboy.py:228
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -865,15 +884,15 @@ msgstr ""
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Ireki web orriak eta bidali postak helbide osoa idatziz"
 
-#: ../deskbar/handlers/yahoo.py:39
+#: ../deskbar/handlers/yahoo.py:41
 msgid "Yahoo! Search"
 msgstr "Yahoo! bilaketa"
 
-#: ../deskbar/handlers/yahoo.py:40
+#: ../deskbar/handlers/yahoo.py:42
 msgid "Search Yahoo! as you type"
 msgstr "Idazterakoan Yahoo!-n bilatu"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:62
 #, python-format
 msgid "URL of %s"
 msgstr "%s(r)en URLa"
@@ -890,18 +909,18 @@ msgstr "Joan %s(r)en kokalekura"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:45
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Abiarazi <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/actions/OpenFileAction.py:40
+#: ../deskbar/handlers/actions/OpenFileAction.py:51
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
 msgstr "Ireki %s"
 
-#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
 #, python-format
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
 msgstr "Ireki <b>%(name)s</b> honekin: <b>%(program)s</b>"
@@ -963,11 +982,11 @@ msgid "default"
 msgstr "lehenetsia"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:76
+#: ../deskbar/ui/CuemiacWindowView.py:77
 msgid "_History"
 msgstr "_Historia"
 
-#: ../deskbar/ui/CuemiacWindowView.py:134
+#: ../deskbar/ui/CuemiacWindowView.py:139
 msgid "Back to Matches"
 msgstr "Itzuli emaitzetara"
 
@@ -975,7 +994,7 @@ msgstr "Itzuli emaitzetara"
 msgid "Show search entry"
 msgstr "Erakutsi bilaketa-sarrera"
 
-#: ../deskbar/ui/DeskbarTray.py:87
+#: ../deskbar/ui/DeskbarTray.py:88
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
@@ -999,21 +1018,25 @@ msgstr ""
 "zuzena izango.\n"
 "Saiatu Kontrol, Alt edo Maius bezalako teklekin aldi berean.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
+msgid "Reload all extensions"
+msgstr "Birkargatu hedapen guztiak"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr ""
 "<i><small>Arrastatu eta jaregin luzapen bat bere ordena aldatzeko.</small></"
 "i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:318
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:324
 msgid "A problem occured"
 msgstr "Arazoa gertatu da"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:383
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:389
 msgid "Handler has been installed successfully"
 msgstr "Kudeatzailea ongi instalatu da"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:386
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:392
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
 "Ezin izan da kudeatzailea instalatu arazo bat gertatu delako emandako "
@@ -1038,4 +1061,3 @@ msgstr "Bertsioa:"
 #: ../deskbar/ui/preferences/ModuleListView.py:56
 msgid "Update Available"
 msgstr "Eguneraketa erabilgarria"
-
