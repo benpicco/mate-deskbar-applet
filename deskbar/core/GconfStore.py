@@ -40,6 +40,8 @@ class GconfStore(gobject.GObject):
     GCONF_HIDE_AFTER_ACTION = GCONF_DIR + "/hide_after_action"
     
     GCONF_MAX_HISTORY_ITEMS = GCONF_DIR + "/max_history_items"
+    
+    GCONF_DEFAULT_BROWSER = "/desktop/gnome/url-handlers/http/command"
 
     __gsignals__ = {
         "keybinding-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING]),
@@ -54,6 +56,7 @@ class GconfStore(gobject.GObject):
         "collapsed-rows-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
         "hide-after-action-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
         "max-history-items-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_INT]),
+        "default-browser-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING]),
     }
 
     __instance = None
@@ -86,6 +89,7 @@ class GconfStore(gobject.GObject):
         self._client.notify_add(self.GCONF_COLLAPSED_CAT, lambda x, y, z, a: self.emit("collapsed-rows-changed", [i.get_string() for i in z.value.get_list()]))
         self._client.notify_add(self.GCONF_HIDE_AFTER_ACTION, lambda x, y, z, a: self.emit("hide-after-action-changed", z.value.get_bool()))
         self._client.notify_add(self.GCONF_TYPINGDELAY, lambda x, y, z, a: self.emit("max-history-items-changed", z.value.get_int()))
+        self._client.notify_add(self.GCONF_DEFAULT_BROWSER, lambda x, y, z, a: self.emit("default-browser-changed", z.value.get_string()))
     
     def get_client(self):
         return self._client
@@ -153,6 +157,9 @@ class GconfStore(gobject.GObject):
     def get_max_history_items(self):
         return self._client.get_int(self.GCONF_MAX_HISTORY_ITEMS)
            
+    def get_default_browser(self):      
+        return self._client.get_string(self.GCONF_DEFAULT_BROWSER)
+    
     def set_keybinding(self, binding):
         self._client.set_string(self.GCONF_KEYBINDING, binding)
     

@@ -123,10 +123,13 @@ class ModuleLoader (gobject.GObject):
         
         for handler in mod.HANDLERS:
             module = getattr(mod, handler)
+            # Add a reference to the filename so that we can attempt to reload the module later
+            module.filename = filename
             if hasattr(module, "initialize") and hasattr( module, "INFOS"):
                 # Check that the given requirements for the handler are met
                 if not getattr(module, "has_requirements" )():
                     LOGGER.warning("Class %s in file %s has missing requirements. Skipping." % (handler, filename))
+                    module.class_instance = module
                     self.emit("module-not-initialized", module)
                 else:
                     valid_modules.append(module)

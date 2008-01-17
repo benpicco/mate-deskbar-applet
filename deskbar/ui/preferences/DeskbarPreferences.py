@@ -190,7 +190,7 @@ class DeskbarPreferences:
         self.dialog.connect("response", self.on_dialog_response)
     
     def on_dialog_response(self, dialog, response):
-        self.update_gconf()    
+        self._model.update_gconf()
         self.dialog.destroy()
         if self.newstuff != None:
             self.newstuff.close()
@@ -310,7 +310,7 @@ class DeskbarPreferences:
             self._model.stop_module (module, False)
         else:
             self._model.initialize_module (module, False)
-        self.update_gconf()
+        self._model.update_gconf()
        
     def on_newstuff_error(self, newstuff, error):
           """
@@ -421,8 +421,3 @@ class DeskbarPreferences:
         self.moduleview.scroll_to_iter(iter)
         self.set_buttons(self.moduleview.get_selection())
         self.moduleview.grab_focus()
-        
-    def update_gconf(self):
-         # Update the gconf enabled modules settings
-        enabled_modules = [mod.__class__.__name__ for mod in self.module_list if mod.is_enabled()]
-        self._model.set_enabled_modules(enabled_modules)

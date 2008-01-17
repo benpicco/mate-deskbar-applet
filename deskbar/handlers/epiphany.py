@@ -152,7 +152,18 @@ class EpiphanyHistoryHandler(EpiphanyHandler):
         matches = self._history.look_up(query)[:deskbar.DEFAULT_RESULTS_PER_HANDLER]
         self.set_priority_for_matches( matches )
         self._emit_query_ready(query, matches )
+    
+    @staticmethod    
+    def has_requirements():
+        #    if deskbar.UNINSTALLED_DESKBAR:
+        #        return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
         
+        if is_preferred_browser("epiphany"):
+            return True
+        else:
+            EpiphanyHistoryHandler.INSTRUCTIONS = _("Epiphany is not your preferred browser.")
+            return False
+
 class EpiphanyBookmarksParser(xml.sax.ContentHandler):
     def __init__(self, handler, cache):
         xml.sax.ContentHandler.__init__(self)

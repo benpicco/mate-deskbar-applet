@@ -40,6 +40,10 @@ class CoreImpl(deskbar.interfaces.Core):
         
         self._module_installer = ModuleInstaller(self._module_loader)
         
+        self._gconf.connect("default-browser-changed", self._on_default_browser_changed)
+        #prevent double notifications
+        self.browser = None
+        
     def run(self):
         """
         Load modules, set keybinding and create L{deskbar.core.ThreadPool.ThreadPool}
@@ -336,14 +340,66 @@ class CoreImpl(deskbar.interfaces.Core):
                 else:
                     current_modules_set.add(mod.__class__.__name__)
         
-        #new_modules = enabled_modules_set - current_modules_set
-        #for mod in new_modules:
-            # FIXME: mod is a str but we need the class here
-            #self._module_loader.initialize_module_async( mod )
+        new_modules = enabled_modules_set - current_modules_set
+        for mod_name in new_modules:
+            iter, index = self._module_list.get_position_from_context(mod_name)
+            self.initialize_module(self._module_list[index][self._module_list.MODULE_CTX_COL])
         
         self.update_modules_priority(enabled_modules)
             
     def forward_query_ready(self, handler, query, matches):
         if query == self._last_query and matches != None and len(matches) > 0 and not self._stop_queries:
             self._emit_query_ready(matches)
+    
+    def update_gconf(self):
+         # Update the gconf enabled modules settings
+        enabled_modules = [mod.__class__.__name__ for mod in self._module_list if mod.is_enabled()]
+        self.set_enabled_modules(enabled_modules)
+    
+    def _on_default_browser_changed(self, gconfstore, new_browser):
+        new_browser = new_browser.split(" ")[0]
         
+        if new_browser == "firefox":
+            new_browser = "mozilla"
+        
+        if new_browser == "epiphany":
+            old_browser = "mozilla"
+        elif new_browser == "mozilla":
+            old_browser = "epiphany"
+        else:
+            new_browser = "other"
+        
+        #Sometimes we get false notification events when the browser didn't really change. Ignore them.
+        if self.browser == new_browser:
+            return
+        
+        self.browser = new_browser
+                
+        #create a list of the modules that were enabled for the old browser so that we can enable them for the new browser 
+        enabled_browser_modules = []
+        for module in self._module_list:
+            # Check if the module is related to the old browser.
+            if module.__class__.__module__ == "epiphany" or module.__class__.__module__ == "mozilla":
+                if module.is_enabled() and new_browser != "other":
+                    enabled_browser_modules.append(module.__class__.__name__)
+                self.stop_module(module, async=False)
+                self._module_list.remove_module(module)
+                self._module_loader.emit("module-not-initialized", module)
+        
+        filename = None
+        for module in self._disabled_module_list:
+            if module[1].__module__ == new_browser:
+                if filename is None:
+                    filename = module[1].filename
+                self._disabled_module_list.remove_module(module[1])
+                
+        if filename is not None:
+            self._module_loader.load(filename)
+        
+        for module in enabled_browser_modules:
+            new_module_name = module.replace(old_browser.capitalize(), new_browser.capitalize())
+            new_module = self._module_list.get_module_instance_from_name(new_module_name)
+            # If async is True then self.update_gconf() may be run before the modules were initialized
+            self.initialize_module(new_module, async=False)
+        
+        self.update_gconf()

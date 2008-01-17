@@ -116,7 +116,7 @@ class ModuleList (gtk.ListStore):
     def remove_module(self, module):
         iter, index = self.get_position_from_context(module)
         if iter != None:
-            print 'Removing from modulelist:', module.handler
+            print 'Removing from modulelist:', module.INFOS['name']
             self.remove(iter)
         
     def module_changed(self, module):
@@ -188,6 +188,43 @@ class DisabledModuleList (gtk.ListStore):
         self.set_value(iter, self.ICON_COL, module.INFOS['icon'])
         self.set_value(iter, self.MODULE_CTX_COL, module)
         self.set_value(iter, self.ACTIVATABLE_COL, False)
+    
+    def get_position_from_context (self, module):
+        """
+        Returns a tuple C{(iter, index)}
+        
+        iter is a gtk.TreeIter pointing to the row containing the given
+        module module.
+        index is the index of the module in the list.
+        
+        If the module is not found return (None, None).
+        
+        @param module: The module to get the position for
+        @type module: Either a L{deskbar.interfaces.Module.Module} instance or the name of a module
+        
+        Note: This class stores the classes of disabled modules. It doesn't store actual module instances.
+        """
+        i = 0
+        iter = self.get_iter_first ()
+        while (iter is not None):
+            if isinstance(module, str):
+                # Search for module's name
+                if self[iter][self.MODULE_CTX_COL].__name__ == module:
+                    return (iter, i)
+            else:
+                if self[iter][self.MODULE_CTX_COL] == module:
+                    return (iter, i)
+                
+            iter = self.iter_next (iter)
+            i = i+1
+        
+        return (None, 0)
+    
+    def remove_module(self, module):
+        iter, index = self.get_position_from_context(module)
+        if iter != None:
+            print 'Removing from disabledModulelist:', module.__name__
+            self.remove(iter)
 
 gobject.type_register(DisabledModuleList)
 
