@@ -1,4 +1,5 @@
 from deskbar.core.Utils import is_program_in_path, load_icon
+from deskbar.core.Categories import CATEGORIES
 from deskbar.defs import VERSION
 from deskbar.handlers.actions.ActionsFactory import get_actions_for_uri
 from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
@@ -195,8 +196,27 @@ class OpenBeagleFileAction(OpenFileAction):
         
     def get_hash(self):
         return self._complete_uri
+
+class BeagleSearchAction(OpenWithApplicationAction):
+    def __init__(self, name, term, verb):
+    	OpenWithApplicationAction.__init__(self, name, "beagle-search", [term])
+    	self._verb = verb
+
+    def get_verb(self):
+    	return self._verb
     
 ### ===== End: Actions ===== ###
+
+class BeagleSearchMatch(deskbar.interfaces.Match):
+    def __init__(self, term, cat_type, **args):
+    	deskbar.interfaces.Match.__init__(self, name=term, icon= "system-search", category=cat_type, **args)
+    	verb = _("Additional results for category <b>%s</b>") % _(CATEGORIES[cat_type]['name'])
+    	self.term = term
+    	self.add_action( BeagleSearchAction("Beagle Search", term, verb) )
+    	self.set_priority(self.get_priority()-50)
+    
+    def get_hash(self, text=None):
+    	return "beagle-search "+self.term
         
 class BeagleLiveMatch (deskbar.interfaces.Match):
     def __init__(self, result=None, **args):
@@ -283,6 +303,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         # a new key in inserted and it isn't removed
         # therefore, dict is getting bigger and bigger
         self.counter = {}
+        self.beagle_search_match_emited = False
         self.__lock = threading.Lock()
         
     def initialize (self):
@@ -290,6 +311,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
    
     def query (self, qstring):
         self.counter[qstring] = {}
+        self.beagle_search_match_emited = False
         self.__lock.acquire()
         self.hits = {}
         self.__lock.release()
@@ -345,6 +367,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             if container.hit in self.hits:
                 if container.snippet == None:
                     self._on_hit_added(query, container, qstring, qmax)
+                    self.counter[qstring][container.hit.get_type()] -= 1
                 del self.hits[container.hit]
             container.hit.unref()
         finally:
@@ -366,16 +389,28 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
               
         if not hit_type in self.counter[qstring]:
             self.counter[qstring][hit_type] = 0
-
-        if self.counter[qstring][hit_type] >= qmax:
-            return
-            
-        hit_type_data = TYPES[hit_type]
         
+        self.counter[qstring][hit.get_type()] += 1
+            
         result = {
             "uri":  hit.get_uri(),
             "type": hit_type,
         }
+        
+        if TYPES.has_key(result["type"]):
+            cat_type = TYPES[result["type"]]["category"]
+        else:
+            cat_type = "default"
+
+        if self.counter[qstring][hit_type] >= qmax:
+            if(not self.beagle_search_match_emited):
+            	self.beagle_search_match_emited = True
+            	match = BeagleSearchMatch(qstring, cat_type)
+            	self._emit_query_ready(qstring, [match])
+            	return match
+            return
+            
+        hit_type_data = TYPES[hit_type]
           
         name = None
         for prop in hit_type_data["name"]:
@@ -434,13 +469,6 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             result["snippet"] = "\n<span size='small' style='italic'>%s</span>" % cgi.escape(tmp)
         else:
             result["snippet"] = ""
-            
-        self.counter[qstring][hit.get_type()] = self.counter[qstring][hit_type] +1
-
-        if TYPES.has_key(result["type"]):
-            cat_type = TYPES[result["type"]]["category"]
-        else:
-            cat_type = "default"
         
         match = BeagleLiveMatch(result, category=cat_type, priority=self.get_priority())
         
