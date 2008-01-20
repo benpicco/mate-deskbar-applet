@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-11 21:24+0000\n"
-"PO-Revision-Date: 2008-01-12 09:24+0100\n"
+"POT-Creation-Date: 2008-01-19 21:58+0000\n"
+"PO-Revision-Date: 2008-01-20 13:59+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <<gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -275,7 +275,7 @@ msgstr "Mostrar todos los motores de búsqueda disponibles"
 msgid "Show only the primary search engine"
 msgstr "Mostrar sólo el motor de búsqueda primario"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:178
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:181
 #, python-format
 msgid "Open History Item %s"
 msgstr "Abrir el elemento %s del histórico"
@@ -291,7 +291,7 @@ msgstr "Abrir marcador %s"
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Buscar <b>%(text)s</b> en <i>%(name)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:31
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:33
 msgid "URL"
 msgstr "URL"
 
@@ -355,15 +355,15 @@ msgstr "Noticias"
 msgid "Notes"
 msgstr "Notas"
 
-#: ../deskbar/core/DeskbarHistory.py:20
+#: ../deskbar/core/DeskbarHistory.py:22
 msgid "<i>Choose action</i>"
 msgstr "<i>Elija una acción</i>"
 
-#: ../deskbar/core/Utils.py:130
+#: ../deskbar/core/Utils.py:132
 msgid "Cannot execute program:"
 msgstr "No se puede ejecutar el programa:"
 
-#: ../deskbar/core/Utils.py:170
+#: ../deskbar/core/Utils.py:172
 msgid "Cannot show URL:"
 msgstr "No se puede mostrar la URL:"
 
@@ -372,58 +372,68 @@ msgstr "No se puede mostrar la URL:"
 msgid "Deskbar Applet"
 msgstr "Miniaplicación Deskbar"
 
-#: ../deskbar/handlers/beagle-live.py:100
+#: ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "Edit contact %s"
 msgstr "Editar contacto %s"
 
-#: ../deskbar/handlers/beagle-live.py:111
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
 msgid "From %s"
 msgstr "de %s"
 
-#: ../deskbar/handlers/beagle-live.py:126
+#: ../deskbar/handlers/beagle-live.py:129
 #, python-format
 msgid "News from %s"
 msgstr "Noticias de %s"
 
-#: ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Note: %s"
 msgstr "Nota: %s"
 
-#: ../deskbar/handlers/beagle-live.py:153
+#: ../deskbar/handlers/beagle-live.py:156
 #, python-format
 msgid "With %s"
 msgstr "con %s"
 
-#: ../deskbar/handlers/beagle-live.py:167
+#: ../deskbar/handlers/beagle-live.py:170
 #, python-format
 msgid "Calendar: %s"
 msgstr "Calendario: %s"
 
-#: ../deskbar/handlers/beagle-live.py:273
+#: ../deskbar/handlers/beagle-live.py:213
+#, python-format
+msgid "Additional results for category <b>%s</b>"
+msgstr "Resultados adiciones para la categoría <b>%s</b>"
+
+#: ../deskbar/handlers/beagle-live.py:213
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
+msgid "name"
+msgstr "nombre"
+
+#: ../deskbar/handlers/beagle-live.py:295
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:274
+#: ../deskbar/handlers/beagle-live.py:296
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Busque todos sus documentos (usando Beagle), mientras teclea"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:396
-#: ../deskbar/handlers/beagle-live.py:418
+#: ../deskbar/handlers/beagle-live.py:433
+#: ../deskbar/handlers/beagle-live.py:455
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:456
+#: ../deskbar/handlers/beagle-live.py:486
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "No se pudo cargar beagled, libbeagle se ha compilado sin los bindings de "
 "python."
 
-#: ../deskbar/handlers/beagle-live.py:465
+#: ../deskbar/handlers/beagle-live.py:495
 msgid "Beagled could not be found in your $PATH."
 msgstr "No se pudo encontrar bleagled en su $PATH."
 
@@ -444,31 +454,31 @@ msgstr "Buscar todos sus documentos (con Beagle)"
 msgid "Beagle does not seem to be installed."
 msgstr "Parece que Beagle no esta instalado."
 
-#: ../deskbar/handlers/desklicious.py:45
+#: ../deskbar/handlers/desklicious.py:47
 msgid "del.icio.us Bookmarks"
 msgstr "Marcadores del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:46
+#: ../deskbar/handlers/desklicious.py:48
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "Busque sus marcadores del.icio.us por nombre de etiqueta"
 
-#: ../deskbar/handlers/desklicious.py:78
+#: ../deskbar/handlers/desklicious.py:80
 msgid "del.icio.us Account"
 msgstr "Cuenta del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:85
+#: ../deskbar/handlers/desklicious.py:87
 msgid "Enter your del.icio.us username below"
 msgstr "Introduzca su nombre de usuario del.icio.us abajo"
 
-#: ../deskbar/handlers/desklicious.py:91
+#: ../deskbar/handlers/desklicious.py:93
 msgid "Username: "
 msgstr "Usuario: "
 
-#: ../deskbar/handlers/desklicious.py:107
+#: ../deskbar/handlers/desklicious.py:109
 msgid "You need to configure your del.icio.us account."
 msgstr "Necesita configurar su cuenta del.icio.us."
 
-#: ../deskbar/handlers/desklicious.py:112
+#: ../deskbar/handlers/desklicious.py:114
 msgid "You can modify your del.icio.us account."
 msgstr "Puede modificar su cuenta del.icio.us."
 
@@ -476,11 +486,12 @@ msgstr "Puede modificar su cuenta del.icio.us."
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Marcadores web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:127
 msgid "Open your web bookmarks by name"
 msgstr "Abra sus marcadores web por nombre"
 
 #: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
+#: ../deskbar/handlers/epiphany.py:164
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany no es su navegador preferido."
 
@@ -488,7 +499,7 @@ msgstr "Epiphany no es su navegador preferido."
 msgid "Web Searches (Epiphany)"
 msgstr "Búsquedas web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:192
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:194
 msgid "Search the web via your browser's search settings"
 msgstr "Busque por la web mediante de los ajustes de búsqueda de su navegador"
 
@@ -500,7 +511,7 @@ msgstr "Puede establecer combinaciones de teclas para sus búsquedas."
 msgid "Web History (Epiphany)"
 msgstr "Histórico web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:736
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
 msgid "Open your web history by name"
 msgstr "Abra su histórico web por nombre"
 
@@ -534,7 +545,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:62
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:35
 msgid "Location"
 msgstr "Ubicación"
 
@@ -680,23 +691,23 @@ msgstr "Cambie a una ventana existente por nombre."
 msgid "Windows"
 msgstr "Ventanas"
 
-#: ../deskbar/handlers/mozilla.py:124
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Marcadores web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:184 ../deskbar/handlers/mozilla.py:257
+#: ../deskbar/handlers/mozilla.py:186 ../deskbar/handlers/mozilla.py:259
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox no es su navegador preferido."
 
-#: ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/mozilla.py:193
 msgid "Web Searches (Mozilla)"
 msgstr "Búsquedas web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:251
+#: ../deskbar/handlers/mozilla.py:253
 msgid "You can customize which search engines are offered."
 msgstr "Puede personalizar qué motores de búsqueda se ofrecen."
 
-#: ../deskbar/handlers/mozilla.py:735
+#: ../deskbar/handlers/mozilla.py:737
 msgid "Web History (Mozilla)"
 msgstr "Histórico web (Mozilla)"
 
@@ -869,7 +880,7 @@ msgstr "Busque en sus notas de Tomboy"
 msgid "Tomboy does not seem to be installed."
 msgstr "Parece que Tomboy no está instalado."
 
-#: ../deskbar/handlers/tomboy.py:224
+#: ../deskbar/handlers/tomboy.py:228
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -882,15 +893,15 @@ msgstr ""
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Abrir páginas web y enviar correo-e tecleando una dirección completa"
 
-#: ../deskbar/handlers/yahoo.py:39
+#: ../deskbar/handlers/yahoo.py:41
 msgid "Yahoo! Search"
 msgstr "Búsqueda en Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:40
+#: ../deskbar/handlers/yahoo.py:42
 msgid "Search Yahoo! as you type"
 msgstr "Buscar en Yahoo! mientras teclea"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:62
 #, python-format
 msgid "URL of %s"
 msgstr "URL de %s"
@@ -907,18 +918,18 @@ msgstr "Ir a la ubicación de %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:45
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Lanzar <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/actions/OpenFileAction.py:44
+#: ../deskbar/handlers/actions/OpenFileAction.py:51
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
 msgstr "Abrir %s"
 
-#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
 #, python-format
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
 msgstr "Abrir <b>%(name)s</b> con <b>%(program)s</b>"
@@ -970,10 +981,6 @@ msgstr ""
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
 msgstr "<b>Buscar:</b>"
-
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "nombre"
 
 #: ../deskbar/ui/cuemiac/CuemiacItems.py:22
 msgid "default"
