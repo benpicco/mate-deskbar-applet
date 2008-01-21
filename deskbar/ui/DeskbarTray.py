@@ -129,4 +129,4 @@ class DeskbarTray (gtk.EventBox):
         self.set_size_request( size, size )
             
 if gtk.pygtk_version < (2,8,0):            
-    gobject.type_register(DeskbarApplet)
+    gobject.type_register(DeskbarTray)
