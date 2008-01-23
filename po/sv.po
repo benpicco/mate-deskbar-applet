@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 18:41+0100\n"
-"PO-Revision-Date: 2008-01-14 18:42+0100\n"
+"POT-Creation-Date: 2008-01-24 00:21+0100\n"
+"PO-Revision-Date: 2008-01-24 00:21+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -238,7 +238,7 @@ msgid "Show only the primary search engine"
 msgstr "Visa endast den primära sökmotorn"
 
 #: ../deskbar/core/BrowserMatch.py:51
-#: ../deskbar/handlers/beagle-live.py:180
+#: ../deskbar/handlers/beagle-live.py:181
 #, python-format
 msgid "Open History Item %s"
 msgstr "Öppna historikposten %s"
@@ -338,56 +338,66 @@ msgstr "Kan inte visa url:"
 msgid "Deskbar Applet"
 msgstr "Skrivbordsrad"
 
-#: ../deskbar/handlers/beagle-live.py:102
+#: ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "Edit contact %s"
 msgstr "Redigera kontakt %s"
 
-#: ../deskbar/handlers/beagle-live.py:113
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
 msgid "From %s"
 msgstr "Från %s"
 
-#: ../deskbar/handlers/beagle-live.py:128
+#: ../deskbar/handlers/beagle-live.py:129
 #, python-format
 msgid "News from %s"
 msgstr "Nyheter från %s"
 
-#: ../deskbar/handlers/beagle-live.py:142
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Note: %s"
 msgstr "Anteckning: %s"
 
-#: ../deskbar/handlers/beagle-live.py:155
+#: ../deskbar/handlers/beagle-live.py:156
 #, python-format
 msgid "With %s"
 msgstr "Med %s"
 
-#: ../deskbar/handlers/beagle-live.py:169
+#: ../deskbar/handlers/beagle-live.py:170
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalender: %s"
 
-#: ../deskbar/handlers/beagle-live.py:275
+#: ../deskbar/handlers/beagle-live.py:213
+#, python-format
+msgid "Additional results for category <b>%s</b>"
+msgstr "Ytterligare resultat för kategorin <b>%s</b>"
+
+#: ../deskbar/handlers/beagle-live.py:213
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
+msgid "name"
+msgstr "namn"
+
+#: ../deskbar/handlers/beagle-live.py:295
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:276
+#: ../deskbar/handlers/beagle-live.py:296
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Sök i alla din dokument (med Beagle), när du skriver"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:398
-#: ../deskbar/handlers/beagle-live.py:420
+#: ../deskbar/handlers/beagle-live.py:433
+#: ../deskbar/handlers/beagle-live.py:455
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:458
+#: ../deskbar/handlers/beagle-live.py:486
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Kunde inte läsa in beagle, libbeagle har byggts utan stöd för python-bindingar."
 
-#: ../deskbar/handlers/beagle-live.py:467
+#: ../deskbar/handlers/beagle-live.py:495
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagled hittades inte i din $PATH."
 
@@ -447,6 +457,7 @@ msgstr "Öppna dina webbokmärken med hjälp av namnet"
 
 #: ../deskbar/handlers/epiphany.py:82
 #: ../deskbar/handlers/epiphany.py:127
+#: ../deskbar/handlers/epiphany.py:164
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany är inte din föredragna webbläsare."
 
@@ -949,10 +960,6 @@ msgstr ""
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
 msgstr "<b>Sök:</b>"
-
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "namn"
 
 #: ../deskbar/ui/cuemiac/CuemiacItems.py:22
 msgid "default"
