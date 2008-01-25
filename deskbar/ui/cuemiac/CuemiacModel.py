@@ -40,12 +40,19 @@ class CuemiacModel (gtk.TreeStore):
         gtk.TreeStore.__init__ (self, gobject.TYPE_STRING, gobject.TYPE_PYOBJECT, gobject.TYPE_STRING)
         self.__categories = {}
         self.__match_hashes = {}
-        self.append_method = gtk.TreeStore.append # Alternatively gtk.TreeStore.prepend for bottom panel layout
         self.set_sort_func(SORT_BY_CATEGORY, self.__on_sort_categories)
         self.set_sort_order(gtk.SORT_ASCENDING)
     
     def set_sort_order(self, order):
+        """
+        @param order Either C{gtk.SORT_DESCENDING} or C{gtk.SORT_ASCENDING}
+        """
         self.set_sort_column_id(SORT_BY_CATEGORY, order)
+        if order == gtk.SORT_DESCENDING:
+            # Alternatively gtk.TreeStore.prepend for bottom panel layout
+            self.append_method = gtk.TreeStore.prepend
+        else:
+            self.append_method = gtk.TreeStore.append
     
     def __compare_priorities(self, item1, item2):
         """
@@ -199,9 +206,6 @@ class CuemiacModel (gtk.TreeStore):
             return False
             
         return ( self.get_string_from_iter (self.get_iter(path1)) == self.get_string_from_iter (self.get_iter(path2)) )
-
-        
-
 
 if gtk.pygtk_version < (2,8,0):    
     gobject.type_register (CuemiacModel)

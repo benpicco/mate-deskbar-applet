@@ -6,7 +6,9 @@ import deskbar
 from os.path import join
 from deskbar.core.CoreImpl import CoreImpl
 from deskbar.ui.CuemiacWindowView import CuemiacWindowView
+from deskbar.ui.CuemiacAlignedView import CuemiacAlignedView
 from deskbar.ui.CuemiacWindowController import CuemiacWindowController
+from deskbar.core.GconfStore import GconfStore
         
 class DeskbarTray (gtk.EventBox):
     """
@@ -67,10 +69,31 @@ class DeskbarTray (gtk.EventBox):
         self.__core.connect("loaded", self.__on_loaded)
         
         self.__controller = CuemiacWindowController(self.__core)
-        self.__view = CuemiacWindowView(self.__controller, self.__core)
+
+        # Select the view based on user choice. CuemiacWindowView is
+        # the new style UI,
+        # CuemiacAlignedView is the older UI as seen in the
+        # Deskbar gnome-2-18 branch.
+        if self.__core.get_ui_name() == deskbar.WINDOW_UI_NAME:
+            self.__create_window_ui()
+        else:
+            # We need to use an AlignedWindow, which needs a Widget (self.image
+            # in this case) and the applet (self.applet)
+            self.__create_button_ui()
+
         self.__view.set_sensitive(False)
         
+        GconfStore.get_instance().connect("ui-name-changed", self.__on_ui_name_changed)
+        
         self.__core.run()
+        
+    def __create_button_ui(self):
+        self.__view = CuemiacAlignedView(self.__controller, self.__core, self.image, self.applet)
+        self._active_view = deskbar.BUTTON_UI_NAME
+        
+    def __create_window_ui(self):
+        self.__view = CuemiacWindowView(self.__controller, self.__core)
+        self._active_view = deskbar.WINDOW_UI_NAME
         
     def __setup_applet_menu(self):
         self.applet.setup_menu_from_file (
@@ -100,6 +123,15 @@ class DeskbarTray (gtk.EventBox):
           
     def __show_toggle(self, widget, time):
         self.__controller.on_keybinding_activated(widget, time, False)
+        
+    def __on_ui_name_changed(self, gconfstore, name):
+        if name != self._active_view:
+            self.__view.destroy()
+            if name == deskbar.WINDOW_UI_NAME:
+                self.__create_window_ui()
+            else:
+                self.__create_button_ui()
+            self._active_view = name
     
     def set_button_image_from_file (self, filename, size):
         # We use an intermediate pixbuf to scale the image

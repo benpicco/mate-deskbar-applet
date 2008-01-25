@@ -6,4 +6,5 @@ deskbar_ui_PYTHON = \
 	About.py \
 	CuemiacWindowController.py \
 	CuemiacWindowView.py \
+	CuemiacAlignedView.py \
 	DeskbarTray.py

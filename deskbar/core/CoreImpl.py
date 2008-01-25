@@ -123,7 +123,7 @@ class CoreImpl(deskbar.interfaces.Core):
     
     def get_use_selection(self):
         return self._gconf.get_use_selection()
-    
+
     def get_clear_entry(self):
         return self._gconf.get_clear_entry()
     
@@ -157,6 +157,9 @@ class CoreImpl(deskbar.interfaces.Core):
     def get_max_history_items(self):
         return self._gconf.get_max_history_items()
     
+    def get_ui_name(self):
+        return self._gconf.get_ui_name()
+    
     def set_keybinding(self, binding):
         """
         Store keybinding and actually bind it
@@ -175,7 +178,7 @@ class CoreImpl(deskbar.interfaces.Core):
     
     def set_use_selection(self, val):
         self._gconf.set_use_selection(val)
-    
+
     def set_clear_entry(self, val):
         self._gconf.set_clear_entry(val)
     
@@ -208,6 +211,9 @@ class CoreImpl(deskbar.interfaces.Core):
     
     def set_max_history_items(self, amount):
         self._gconf.set_max_history_items(amount)
+        
+    def set_ui_name(self, name):
+        self._gconf.set_ui_name(name)
     
     def get_history(self):
         """

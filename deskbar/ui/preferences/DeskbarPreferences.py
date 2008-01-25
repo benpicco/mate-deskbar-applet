@@ -106,6 +106,9 @@ class DeskbarPreferences:
         self.use_selection_box.connect('toggled', self.on_use_selection_toggled)
         #self.use_selection_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_USE_SELECTION, lambda x, y, z, a: self.on_config_use_selection(z.value))
 
+        self.sticktopanel_checkbox = self.glade.get_widget("sticktopanel_checkbox")
+        self.sticktopanel_checkbox.connect("toggled", self.on_ui_changed)
+       
     def __setup_drag_and_drop(self):
         big_box = self.glade.get_widget("big_box")
         self.TARGET_URI_LIST, self.TARGET_NS_URL = range(2)
@@ -205,6 +208,8 @@ class DeskbarPreferences:
             self.keyboard_shortcut_entry.set_accelerator_name("<Alt>F3")
         
         self.use_selection_box.set_active(self.use_selection)
+         
+        self.sticktopanel_checkbox.set_active( self._model.get_ui_name() == deskbar.BUTTON_UI_NAME)
    
     def on_hide_after_action_toggled(self, toggle):
         self._model.set_hide_after_action(toggle.get_active())
@@ -222,6 +227,9 @@ class DeskbarPreferences:
 
     def on_use_selection_toggled(self, toggle):
         self._model.set_use_selection(toggle.get_active())
+
+    def on_use_newstyleui_toggled(self, toggle):
+        self._model.set_use_newstyleui(toggle.get_active())
         
     def on_more_button_clicked(self, button):
         if self.more_button_callback != None:
@@ -424,3 +432,9 @@ class DeskbarPreferences:
         self.moduleview.scroll_to_iter(iter)
         self.set_buttons(self.moduleview.get_selection())
         self.moduleview.grab_focus()
+        
+    def on_ui_changed(self, check):
+        if self.sticktopanel_checkbox.get_active():
+            self._model.set_ui_name(deskbar.BUTTON_UI_NAME)
+        else:
+            self._model.set_ui_name(deskbar.WINDOW_UI_NAME)

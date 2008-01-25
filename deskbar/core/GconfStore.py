@@ -41,13 +41,16 @@ class GconfStore(gobject.GObject):
     
     GCONF_MAX_HISTORY_ITEMS = GCONF_DIR + "/max_history_items"
     
-    GCONF_DEFAULT_BROWSER = "/desktop/gnome/url-handlers/http/command"
+    GCONF_UI_NAME = GCONF_DIR + "/ui_name" 
 
+    GCONF_DEFAULT_BROWSER = "/desktop/gnome/url-handlers/http/command"
+    
     __gsignals__ = {
         "keybinding-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING]),
         "min-chars-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_INT]),
         "type-delay-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_INT]),
         "use-selection-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
+        "use-newstyleui-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
         "clear-entry-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
         "use-http-proxy-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
         "proxy-host-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING]),
@@ -57,6 +60,7 @@ class GconfStore(gobject.GObject):
         "hide-after-action-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
         "max-history-items-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_INT]),
         "default-browser-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING]),
+        "ui-name-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING]),
     }
 
     __instance = None
@@ -90,6 +94,7 @@ class GconfStore(gobject.GObject):
         self._client.notify_add(self.GCONF_HIDE_AFTER_ACTION, lambda x, y, z, a: self.emit("hide-after-action-changed", z.value.get_bool()))
         self._client.notify_add(self.GCONF_TYPINGDELAY, lambda x, y, z, a: self.emit("max-history-items-changed", z.value.get_int()))
         self._client.notify_add(self.GCONF_DEFAULT_BROWSER, lambda x, y, z, a: self.emit("default-browser-changed", z.value.get_string()))
+        self._client.notify_add(self.GCONF_UI_NAME, lambda x, y, z, a: self.emit("ui-name-changed", z.value.get_string()))
     
     def get_client(self):
         return self._client
@@ -111,6 +116,12 @@ class GconfStore(gobject.GObject):
     
     def get_use_selection(self):
         select = self._client.get_bool(self.GCONF_USE_SELECTION)
+        if select == None:
+            select = True
+        return select
+
+    def get_use_newstyleui(self):
+        select = self._client.get_bool(self.GCONF_USE_NEWSTYLEUI)
         if select == None:
             select = True
         return select
@@ -159,7 +170,10 @@ class GconfStore(gobject.GObject):
            
     def get_default_browser(self):      
         return self._client.get_string(self.GCONF_DEFAULT_BROWSER)
-    
+        
+    def get_ui_name(self):
+        return self._client.get_string(self.GCONF_UI_NAME)
+
     def set_keybinding(self, binding):
         self._client.set_string(self.GCONF_KEYBINDING, binding)
     
@@ -207,3 +221,6 @@ class GconfStore(gobject.GObject):
         
     def set_max_history_items(self, amount):
         self._client.set_int(self.GCONF_MAX_HISTORY_ITEMS, int(amount))
+        
+    def set_ui_name(self, name):
+        self._client.set_string(self.GCONF_UI_NAME, name)

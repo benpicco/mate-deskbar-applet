@@ -1,6 +1,7 @@
 import gtk
 import gtk.gdk
 import gobject
+import gnomeapplet
 from gettext import gettext as _
 import deskbar.interfaces.View
 import deskbar.core.Utils
@@ -12,27 +13,40 @@ from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
 from deskbar.ui.cuemiac.CuemiacHistory import CuemiacHistoryView
 from deskbar.ui.cuemiac.CuemiacActionsTreeView import CuemiacActionsTreeView, CuemiacActionsModel
 from deskbar.ui.cuemiac.LingeringSelectionWindow import LingeringSelectionWindow
+from deskbar.ui.cuemiac.CuemiacAlignedWindow import CuemiacAlignedWindow
 
-class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
+class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
     """
     This class is responsible for setting up the GUI.
+    It displays the older version of deskbar's GUI, where the
+    results window is aligned to the gnome panel.
     """
     
-    def __init__(self, controller, model):
+    def __init__(self, controller, model, widget, applet):
         deskbar.interfaces.View.__init__(self, controller, model)
-        gtk.Window.__init__(self)
+        CuemiacAlignedWindow.__init__(self, widget, applet)
         self._controller.register_view(self)
-        self.__small_window_height = None
         self._do_clear = True
+        self.applet = applet
         
-        self.connect("configure-event", self.__save_window_size)
+        self.set_type_hint (gtk.gdk.WINDOW_TYPE_HINT_MENU)
+        self.set_keep_above(True)
+        self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
+        self.applet.set_flags(gtk.CAN_FOCUS)
+        
+        self._screen_height = self.get_screen().get_height ()
+        self._screen_width = self.get_screen().get_width ()
+        self._max_window_height = int (0.8 * self._screen_height)
+        self._max_window_width = int (0.6 * self._screen_width)
+        
         self.connect("delete-event", self._controller.on_quit)
         self.connect("destroy-event", self._controller.on_quit)
         self.connect("key-press-event", self.__on_window_key_press_event)
        
         self.set_title("Deskbar Applet")
         self.set_default_size( self._model.get_window_width(), -1 )
-        self.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
+        self.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_MENU)
+
         self.set_role("deskbar-search-window")
         self.set_property("skip-taskbar-hint", True)
 
@@ -50,6 +64,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
 #        self.completion.set_popup_completion(False)
 #        self.completion.set_text_column(1)
         
+         # Search entry
         self.default_entry_pixbuf = deskbar.core.Utils.load_icon("deskbar-applet-panel-h.png", width=23, height=14)
         self.entry = CuemiacEntry (self.default_entry_pixbuf)
         self.entry.connect("changed", self._controller.on_query_entry_changed)
@@ -61,34 +76,30 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
 #        self.entry.get_entry().set_completion(self.completion)
         self.entry.show()
         
-        header = CuemiacHeader ( self.entry )
-        header.show()   
-       
-        # Search entry
-        self.vbox_main.pack_start(header, False)
+        self.header = CuemiacHeader ( self.entry )
+        self.header.show()
         
         # History TreeView
-        hhbox = gtk.HBox(spacing=6)
-        hhbox.show()
-        self.vbox_main.pack_start(hhbox, False)
+        self.history_box = gtk.HBox(spacing=6)
+        self.history_box.show()
         
         hlabel = gtk.Label()
         # translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
         hlabel.set_markup_with_mnemonic("<b>%s:</b>" % _("_History"))
         hlabel.show()
-        hhbox.pack_start(hlabel, False)
+        self.history_box.pack_start(hlabel, False)
         
         self.hview = CuemiacHistoryView(self._model.get_history())
         self.hview.connect("match-selected", self._controller.on_history_match_selected)
         self.hview.show()
-        hhbox.pack_start(self.hview)
+        self.history_box.pack_start(self.hview)
         hlabel.set_mnemonic_widget(self.hview)
         
         empty_button = gtk.Button()
         empty_button.set_image( gtk.image_new_from_stock(gtk.STOCK_CLEAR, gtk.ICON_SIZE_MENU) )
         empty_button.connect("clicked", self._controller.on_clear_history)
         empty_button.show()
-        hhbox.pack_start(empty_button, False)
+        self.history_box.pack_start(empty_button, False)
         
         # Results TreeView
         self.treeview_model = CuemiacModel ()
@@ -145,18 +156,17 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
        
         # Results
         self.results_box = gtk.HBox()
-        self.results_box.connect("unmap", self.__save_window_height)
         self.results_box.pack_start(self.scrolled_results)
         self.results_box.pack_start(self.actions_box)
-        self.vbox_main.pack_start(self.results_box)
+        
+        self.__set_layout_by_orientation(self.applet.get_orient())
+        self.resize( *self.size_request() )
    
     def clear_all(self):
         deskbar.interfaces.View.clear_all(self)
-        width, height = self.get_size()
-        
-        if self.__small_window_height != None:
-            self.resize( width, self.__small_window_height )
+        self.applet.set_state(gtk.STATE_NORMAL)
         self.results_box.hide()
+        self.__adjust_popup_size()
     
     def clear_results(self):
         self.treeview_model.clear()
@@ -182,11 +192,10 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self._do_clear = True
     
     def receive_focus(self, time):
+        self.applet.set_state(gtk.STATE_SELECTED)
+        self.update_position()
         self.entry.grab_focus()
-        self.realize()
-        self.window.set_user_time(time)
-        self.present()
-        self.move( self._model.get_window_x(), self._model.get_window_y() )
+        self.present_with_time (time)
     
     def __show_matches(self):
         self.scrolled_results.show()
@@ -197,10 +206,8 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.actions_box.show()
     
     def show_results(self):
-        width, height = self.get_size()
         self.results_box.show()
         self.__show_matches()
-        self.resize( width, self._model.get_window_height() )
     
     def display_actions(self, actions, qstring):
         self.actions_model.clear()
@@ -220,6 +227,7 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
             # Display default icon in entry
             self.update_entry_icon()
         self.treeview_model.append (matches, self.entry.get_text())
+        self.__adjust_popup_size ()
         
     def set_sensitive (self, active):
         """
@@ -268,17 +276,37 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         else:
             return False
         
-    def __save_window_size(self, window, event):
+    def __adjust_popup_size (self):
+        """adjust window size to the size of the children"""
+        # FIXME: Should we handle width intelligently also?
+        w, h = self.cview.size_request ()
+        h = h + self.header.allocation.height + 2 # To ensure we don't always show scrollbars
+        h = min (h, self._max_window_height)
+        w = min (w, self._max_window_width)
+        if w > 0 and h > 0:
+            self.resize (w, h)
+    
+    def __set_layout_by_orientation (self, orient):
         """
-        Save window width and height of the window when
-        results_box is not visible
+        Adjust the various widgets managed to layout with repect to the given
+        orientation.
+        
+        @param orient: The orientation to switch to. 
+                    Must be one of C{gnomeapplet.ORIENT_UP}, C{gnomeapplet.ORIENT_DOWN},
+                    C{gnomeapplet.ORIENT_LEFT}, C{gnomeapplet.ORIENT_RIGHT}.
         """
-        self._model.set_window_width( event.width )
-        if self.__small_window_height == None:
-            self.__small_window_height = event.height
-            
-    def __save_window_height(self, resultsbox):
-        """
-        Save window height before results_box disappears
-        """
-        self._model.set_window_height( self.get_size()[1] )
+        if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
+            self.treeview_model.set_sort_order (gtk.SORT_ASCENDING)
+            self.actions_model.set_sort_order (gtk.SORT_ASCENDING)
+            self._model.get_history().set_sort_order (gtk.SORT_DESCENDING)
+            self.vbox_main.pack_start(self.header, False)
+            self.vbox_main.pack_start(self.history_box, False)
+            self.vbox_main.pack_start(self.results_box)
+        else:
+            # We are at a bottom panel. Put entry on bottom, and prepend matches (instead of append).
+            self.treeview_model.set_sort_order (gtk.SORT_DESCENDING)
+            self.actions_model.set_sort_order (gtk.SORT_DESCENDING)
+            self._model.get_history().set_sort_order (gtk.SORT_ASCENDING)
+            self.vbox_main.pack_start(self.results_box)
+            self.vbox_main.pack_start(self.history_box, False)
+            self.vbox_main.pack_start(self.header, False)

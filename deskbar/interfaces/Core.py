@@ -89,6 +89,9 @@ class Core(gobject.GObject):
     def get_max_history_items(self):
         raise NotImplementedError
     
+    def get_ui_name(self):
+        raise NotImplementedError
+    
     def set_keybinding(self, binding):
         raise NotImplementedError
     
@@ -132,6 +135,9 @@ class Core(gobject.GObject):
         raise NotImplementedError
     
     def set_max_history_items(self, amount):
+        raise NotImplementedError
+    
+    def set_ui_name(self, name):
         raise NotImplementedError
     
     def get_history(self):

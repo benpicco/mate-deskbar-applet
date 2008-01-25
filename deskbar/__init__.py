@@ -72,3 +72,6 @@ DEFAULT_RESULTS_PER_HANDLER = 6
 
 # Global overrides for command line mode
 UI_OVERRIDE = None
+
+WINDOW_UI_NAME = "Window"
+BUTTON_UI_NAME = "Button"

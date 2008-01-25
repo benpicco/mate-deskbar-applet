@@ -53,13 +53,24 @@ class DeskbarHistory (gtk.ListStore) :
         """
         gtk.ListStore.__init__ (self, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_PYOBJECT) # timestamp, query, match
         
-        self.set_sort_column_id (self.COL_TIME, gtk.SORT_DESCENDING)
+        self.set_sort_order (gtk.SORT_DESCENDING)
         self.set_sort_func (self.COL_TIME, self.__sort_actions)
         
         self._index = 0 # We don't want to show ChooseFromHistoryAction
         self.set_max_history_items(max_history_items)
         
         self.append(0, "", ChooseFromHistoryAction())
+    
+    def set_sort_order(self, order):
+        """
+        @param order Either C{gtk.SORT_DESCENDING} or C{gtk.SORT_ASCENDING}
+        """
+        self.set_sort_column_id(self.COL_TIME, order)
+        if order == gtk.SORT_DESCENDING:
+            # Alternatively gtk.TreeStore.prepend for bottom panel layout
+            self.append_method = gtk.ListStore.append
+        else:
+            self.append_method = gtk.ListStore.prepend
     
     @staticmethod
     def get_instance(max_history_items=25):
@@ -152,7 +163,7 @@ class DeskbarHistory (gtk.ListStore) :
         """
         *Do not* use this method. Always use L{add}.
         """
-        gtk.ListStore.append (self, (timestamp, text, action))
+        self.append_method (self, (timestamp, text, action))
     
     def prepend (self, timestamp, text, action):
         """

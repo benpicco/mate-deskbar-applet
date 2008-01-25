@@ -50,7 +50,7 @@ class LingeringSelectionWindow (gtk.Window):
 		ox, oy = view.window.get_origin ()
 		area = view.get_background_area (path, column)
 		x, y = view.tree_to_widget_coords (area.x, area.y)
-		self.move (x + ox, y + oy)
+		self.move (x + ox, area.y + oy)
 		self.resize (area.width, area.height)
 		
 	def _linger (self):

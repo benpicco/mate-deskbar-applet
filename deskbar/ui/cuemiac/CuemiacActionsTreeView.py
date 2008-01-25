@@ -9,11 +9,23 @@ class CuemiacActionsModel(gtk.ListStore):
     
     def __init__(self):
         gtk.ListStore.__init__(self, gtk.gdk.Pixbuf, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_PYOBJECT)
+        self.set_sort_order(gtk.SORT_ASCENDING)
         
     def add_actions(self, actions, qstring):
         for action in actions:
             text = action.get_verb() % action.get_escaped_name(qstring)
-            self.append([action.get_pixbuf(), text, qstring, action])
+            self.append_method(self, [action.get_pixbuf(), text, qstring, action])
+  
+    def set_sort_order(self, order):
+        """
+        @param order Either C{gtk.SORT_DESCENDING} or C{gtk.SORT_ASSCENDING}
+        """
+        if order == gtk.SORT_DESCENDING:
+            # Alternatively gtk.TreeStore.prepend for bottom panel layout
+            self.append_method = gtk.ListStore.prepend
+        else:
+            self.append_method = gtk.ListStore.append
+    
         
 class CuemiacActionsTreeView(gtk.TreeView):
    
