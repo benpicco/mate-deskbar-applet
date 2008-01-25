@@ -137,12 +137,15 @@ class DeskbarPreferences:
                 notebook.prev_page()
 
     def __is_nsm_available(self):
-        bus = dbus.SessionBus()
-        proxy = bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus')
-        _dbus = dbus.Interface(proxy, 'org.freedesktop.DBus')
-        _dbus.ReloadConfig()
-        bus_names = _dbus.ListActivatableNames()
-        return (NewStuffUpdater.NEW_STUFF_SERVICE in bus_names)
+        try:
+            bus = dbus.SessionBus()
+            proxy = bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus')
+            _dbus = dbus.Interface(proxy, 'org.freedesktop.DBus')
+            _dbus.ReloadConfig()
+            bus_names = _dbus.ListActivatableNames()
+            return (NewStuffUpdater.NEW_STUFF_SERVICE in bus_names)
+        except dbus.exceptions.DBusException:
+            return False
 
     def __enable_newstuffmanager(self, status):
         if status:

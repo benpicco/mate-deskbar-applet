@@ -1,10 +1,17 @@
-import dbus, dbus.glib
-from gettext import gettext as _
-import deskbar, deskbar.core.Indexer, deskbar.interfaces.Match, deskbar.interfaces.Module, deskbar.core.Utils
 from deskbar.defs import VERSION
+from gettext import gettext as _
+import dbus
+import dbus.glib
+import deskbar
+import deskbar.core.Indexer
+import deskbar.core.Utils
 import deskbar.handlers.gdmclient
-import gobject, gtk, gnome.ui
 import deskbar.interfaces.Action
+import deskbar.interfaces.Match
+import deskbar.interfaces.Module
+import gnome.ui
+import gobject
+import gtk
 
 HANDLERS = ["GdmHandler"]
 
@@ -84,7 +91,7 @@ class SuspendAction(GpmAction):
         try:
             if logout_prompt(PROMPT_SUSPEND):
                 self._gpm.Suspend()
-        except dbus.DBusException:
+        except dbus.exceptions.DBusException:
             # this will trigger a method timeout exception.
             # As a workaround we swallow it silently
             pass
@@ -101,7 +108,7 @@ class HibernateAction(GpmAction):
         try:
             if logout_prompt(PROMPT_HIBERNATE):
                 self._gpm.Hibernate()
-        except dbus.DBusException:
+        except dbus.exceptions.DBusException:
             # this will trigger a method timeout exception.
             # As a workaround we swallow it silently
             pass
@@ -118,7 +125,7 @@ class ShutdownAction(GpmAction):
         try:
             if logout_prompt(PROMPT_SHUTDOWN):
                 self._gpm.Shutdown()
-        except dbus.DBusException:
+        except dbus.exceptions.DBusException:
             # this will trigger a method timeout exception.
             # As a workaround we swallow it silently
             pass
@@ -139,7 +146,7 @@ class LockScreenAction(deskbar.interfaces.Action):
     def activate(self, text=None):
         try:
             self._scrsvr.Lock()
-        except dbus.DBusException:
+        except dbus.exceptions.DBusException:
             # this will trigger a method timeout exception.
             # As a workaround we swallow it silently
             pass

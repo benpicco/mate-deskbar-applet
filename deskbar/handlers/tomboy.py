@@ -10,6 +10,9 @@ import deskbar.interfaces.Module
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 import gtk
 from gettext import gettext as _
+import logging
+
+LOGGER = logging.getLogger(__name__)
 
 HANDLERS = ["TomboyNotesModule"]
 
@@ -183,15 +186,19 @@ def tomboy():
 
 # Check if Tomboy is on DBus
 def tomboy_installed():
-	bus = dbus.SessionBus()
-	proxy = bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus')
-	_dbus = dbus.Interface(proxy, 'org.freedesktop.DBus')
-	_dbus.ReloadConfig()
-	bus_names = _dbus.ListActivatableNames()
-	if "org.gnome.Tomboy" in bus_names:
-		return True
-	else:
-		TomboyNotesModule.INSTRUCTIONS = _("Tomboy does not seem to be installed.")
+	try:
+		bus = dbus.SessionBus()
+		proxy = bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus')
+		_dbus = dbus.Interface(proxy, 'org.freedesktop.DBus')
+		_dbus.ReloadConfig()
+		bus_names = _dbus.ListActivatableNames()
+		if "org.gnome.Tomboy" in bus_names:
+			return True
+		else:
+			TomboyNotesModule.INSTRUCTIONS = _("Tomboy does not seem to be installed.")
+			return False
+	except dbus.exceptions.DBusException, e:
+		LOGGER.exception(e)
 		return False
 
 # Parse Tomboy command line output to get version
