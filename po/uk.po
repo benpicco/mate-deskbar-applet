@@ -1,12 +1,12 @@
 # Ukrainian translation of deskbar-applet
 # This file is distributed under the same license as the deskbar-applet package.
-# Maxim Dziumanenko <dziumanenko@gmail.com>, 2006-2007.
+# Maxim Dziumanenko <dziumanenko@gmail.com>, 2006-2008
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-07 16:53+0300\n"
-"PO-Revision-Date: 2007-09-07 12:58+0000\n"
+"POT-Creation-Date: 2008-01-27 23:12+0200\n"
+"PO-Revision-Date: 2008-01-27 12:58+0000\n"
 "Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>\n"
 "Language-Team:  <i18n@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -45,8 +45,8 @@ msgstr ""
 #: ../data/deskbar-applet.schemas.in.h:6
 msgid "If enabled the window will be closed after an action has been activated"
 msgstr ""
-"Якщо увімкнено, після вибору дії над одним з результатів пошуку вікно "
-"пошуку буде закрито"
+"Якщо увімкнено, після вибору дії над одним з результатів пошуку вікно пошуку "
+"буде закрито"
 
 #: ../data/deskbar-applet.schemas.in.h:7
 msgid "Keybinding"
@@ -61,43 +61,54 @@ msgid "Minimum number of characters needed to start searching"
 msgstr "Мінімальне число символів, необхідне для початку пошуку"
 
 #: ../data/deskbar-applet.schemas.in.h:10
+msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
+msgstr "Обирає активний інтерфейс, одне з \"Window\" чи \"Button\""
+
+#: ../data/deskbar-applet.schemas.in.h:11
 msgid "The default height of the window in pixels"
 msgstr "Типова висота вікна у точках"
 
-#: ../data/deskbar-applet.schemas.in.h:11
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "Типове розташування вікна на екрані (x-координата)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "Типове розташування вікна на екрані (y-координата)"
+
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The default width of the window in pixels"
 msgstr "Типова ширина вікна у точках"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "Послідовність натиснутих клавіш, що викликає вікно вводу Deskbar-Applet для "
 "пошуку"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
 "actions, web, websearch, news and notes."
 msgstr ""
-"Список згорнутих при відображенні категорій. Коректними є "
-"наступні категорії: default, history, documents, emails, conversations, "
-"files, people, places, actions, web, websearch, news та notes."
+"Список згорнутих при відображенні категорій. Коректними є наступні "
+"категорії: default, history, documents, emails, conversations, files, "
+"people, places, actions, web, websearch, news та notes."
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
 msgstr ""
-"Список назв експортованих класів включених обробників, "
-"відсортованих за пріоритетом. Чим лівіше розташований клас, тим вищий його "
-"пріоритет"
+"Список назв експортованих класів включених обробників, відсортованих за "
+"пріоритетом. Чим лівіше розташований клас, тим вищий його пріоритет"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid "The maximum number of items stored in history"
 msgstr "Максимальна кількість записів, що зберігаються у історії"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
@@ -105,41 +116,47 @@ msgstr ""
 "Мінімальна кількість символів, при досягненні якої виводяться результати "
 "пошуку"
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
 msgstr ""
-"Час у мілісекундах між натисканням клавіші у рядку пошуку та запуском "
-"пошуку"
+"Час у мілісекундах між натисканням клавіші у рядку пошуку та запуском пошуку"
 
-#: ../data/deskbar-applet.schemas.in.h:18
-msgid "Whether to close the window after an actions has been activated"
-msgstr ""
-"Чи закривати вікно після активації дії з одним з результатів пошуку"
+#: ../data/deskbar-applet.schemas.in.h:21
+msgid "Whether to close the window after an action has been activated"
+msgstr "Чи закривати вікно після активації дії"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
 msgstr ""
 "Чи показувати результати від вподобаного пошукового механізму замість "
-"результатів пошуку усіма механізмами. Стосується лише програм перегляду на основі "
-"Mozilla, наприклад Firefox."
+"результатів пошуку усіма механізмами. Стосується лише програм перегляду на "
+"основі Mozilla, наприклад Firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr ""
 "Чи вставляти автоматично поточне виділення у рядок пошуку при активації "
 "Deskbar-Applet"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window height"
 msgstr "Висота вікна"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:25
 msgid "Window width"
 msgstr "Ширина вікна"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "X-coordinate of window"
+msgstr "X-координата вікна"
+
+#: ../data/deskbar-applet.schemas.in.h:27
+msgid "Y-coordinate of window"
+msgstr "Y-координата вікна"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -150,6 +167,10 @@ msgid "_Clear History"
 msgstr "О_чистити історію"
 
 #: ../data/Deskbar_Applet.xml.h:3
+msgid "_Help"
+msgstr "_Довідка"
+
+#: ../data/Deskbar_Applet.xml.h:4
 msgid "_Preferences"
 msgstr "_Параметри"
 
@@ -178,50 +199,62 @@ msgid "<b>Loaded Extensions</b>"
 msgstr "<b>Завантажені розширення</b>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid "<b>Window Behavior</b>"
+msgstr "<b>Поведінка вікна</b>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "Deskbar Preferences"
 msgstr "Параметри Deskbar"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Extensions with Errors"
 msgstr "Розширення з помилками"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "General"
 msgstr "Загальні"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "New Extensions"
 msgstr "Нові розширення"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Search selection when triggering the shortcut"
 msgstr "Шукати виділений текст за комбінацією клавіш"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "Searches"
 msgstr "Пошук"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
+msgid "Stick to panel"
+msgstr "Приліпити до панелі"
+
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Check For Updates"
 msgstr "Пере_віряти наявність оновлень"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Check for new extensions"
 msgstr "Пере_віряти наявність нових розширень"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "_Install"
 msgstr "_Встановити"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Комбінація клавіш:"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:17
 msgid "_More..."
 msgstr "_Більше..."
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Reload"
+msgstr "Перезап_устити"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Update"
 msgstr "_Оновити"
 
@@ -255,7 +288,7 @@ msgstr "Показувати усі доступні пошукові систе
 msgid "Show only the primary search engine"
 msgstr "Показувати лише головні пошукові системи"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:181
 #, python-format
 msgid "Open History Item %s"
 msgstr "Відкрити елемент історії %s"
@@ -271,7 +304,7 @@ msgstr "Відкрити закладку %s"
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Шукати у <b>%(name)s</b> <i>%(text)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:33
 msgid "URL"
 msgstr "URL"
 
@@ -335,70 +368,86 @@ msgstr "Новини"
 msgid "Notes"
 msgstr "Примітки"
 
-#: ../deskbar/core/DeskbarHistory.py:20
+#: ../deskbar/core/DeskbarHistory.py:22
 msgid "<i>Choose action</i>"
 msgstr "<i>Виберіть дію</i>"
 
-#: ../deskbar/core/Utils.py:124
+#: ../deskbar/core/Utils.py:132
 msgid "Cannot execute program:"
 msgstr "Неможливо виконати програму:"
 
-#: ../deskbar/core/Utils.py:164
+#: ../deskbar/core/Utils.py:172
 msgid "Cannot show URL:"
 msgstr "Неможливо показати URL:"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#. translators: This is the window title.
+#: ../deskbar/deskbar-applet.py:15
+msgid "Deskbar Applet"
+msgstr "Аплет Deskbar"
+
+#: ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "Edit contact %s"
 msgstr "Редагувати контакт %s"
 
-#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
 msgid "From %s"
 msgstr "Від %s"
 
-#: ../deskbar/handlers/beagle-live.py:124
+#: ../deskbar/handlers/beagle-live.py:129
 #, python-format
 msgid "News from %s"
 msgstr "Новини від %s"
 
-#: ../deskbar/handlers/beagle-live.py:138
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Note: %s"
 msgstr "Примітка: %s"
 
-#: ../deskbar/handlers/beagle-live.py:151
+#: ../deskbar/handlers/beagle-live.py:156
 #, python-format
 msgid "With %s"
 msgstr "З %s"
 
-#: ../deskbar/handlers/beagle-live.py:165
+#: ../deskbar/handlers/beagle-live.py:170
 #, python-format
 msgid "Calendar: %s"
 msgstr "Календар: %s"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:213
+#, python-format
+msgid "Additional results for category <b>%s</b>"
+msgstr "Додаткові результати для категорії <b>%s</b>"
+
+#: ../deskbar/handlers/beagle-live.py:213
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
+msgid "name"
+msgstr "назва"
+
+#: ../deskbar/handlers/beagle-live.py:295
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:253
+#: ../deskbar/handlers/beagle-live.py:296
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr ""
 "Шукати в усіх ваших документах за допомогою Beagle під час вводу запиту"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:354
-#: ../deskbar/handlers/beagle-live.py:376
+#: ../deskbar/handlers/beagle-live.py:433
+#: ../deskbar/handlers/beagle-live.py:455
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:414
+#: ../deskbar/handlers/beagle-live.py:486
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
-msgstr "Не вдається завантажити beagle: libbeagle зібрано без прив'язок до Python."
+msgstr ""
+"Не вдається завантажити beagle: libbeagle зібрано без прив'язок до Python."
 
-#: ../deskbar/handlers/beagle-live.py:423
+#: ../deskbar/handlers/beagle-live.py:495
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagled не знайдено у $PATH."
 
@@ -419,31 +468,31 @@ msgstr "Пошук в усіх ваших документах (використ
 msgid "Beagle does not seem to be installed."
 msgstr "Схоже, Beagle не встановлено."
 
-#: ../deskbar/handlers/desklicious.py:44
+#: ../deskbar/handlers/desklicious.py:47
 msgid "del.icio.us Bookmarks"
 msgstr "Закладки del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:45
+#: ../deskbar/handlers/desklicious.py:48
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "Знайти ваші закладки del.icio.us за назвою тегу"
 
-#: ../deskbar/handlers/desklicious.py:77
+#: ../deskbar/handlers/desklicious.py:80
 msgid "del.icio.us Account"
 msgstr "Обліковий рахунок del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:84
+#: ../deskbar/handlers/desklicious.py:87
 msgid "Enter your del.icio.us username below"
 msgstr "Введіть нижче ім'я користувача del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:90
+#: ../deskbar/handlers/desklicious.py:93
 msgid "Username: "
 msgstr "Ім'я користувача: "
 
-#: ../deskbar/handlers/desklicious.py:106
+#: ../deskbar/handlers/desklicious.py:109
 msgid "You need to configure your del.icio.us account."
 msgstr "Слід налаштувати обліковий рахунок del.icio.us."
 
-#: ../deskbar/handlers/desklicious.py:111
+#: ../deskbar/handlers/desklicious.py:114
 msgid "You can modify your del.icio.us account."
 msgstr "Можна змінити ваш обліковий рахунок del.icio.us."
 
@@ -451,11 +500,12 @@ msgstr "Можна змінити ваш обліковий рахунок del.i
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Закладки веб-переглядача(Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:127
 msgid "Open your web bookmarks by name"
 msgstr "Відкривати ваші закладки з веб-переглядача за назвою"
 
 #: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
+#: ../deskbar/handlers/epiphany.py:164
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany не є типовою програмою перегляду."
 
@@ -463,7 +513,7 @@ msgstr "Epiphany не є типовою програмою перегляду."
 msgid "Web Searches (Epiphany)"
 msgstr "Пошук в Інтернеті(Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:195
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:194
 msgid "Search the web via your browser's search settings"
 msgstr "Шукати в Інтернеті, використовуючи параметри веб-переглядача"
 
@@ -479,15 +529,21 @@ msgstr "Історія перегляду Інтернету(Epiphany)"
 msgid "Open your web history by name"
 msgstr "Відкривати сайти з історії веб-переглядача за назвою"
 
-#: ../deskbar/handlers/evolution.py:21
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:27
+#, python-format
+msgid "Edit contact <b>%(name)s</b> (%(email)s)"
+msgstr "Редагувати контакт <b>%(name)s</b> (%(email)s)"
+
+#: ../deskbar/handlers/evolution.py:42
 msgid "Mail (Address Book)"
 msgstr "Пошта (адресна книга)"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:43
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Надсилати листи вашим контактам, набрав їх ім'я або адресу эл. пошти"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:67
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -500,86 +556,130 @@ msgstr ""
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
-#: ../deskbar/handlers/files.py:61
-#: ../deskbar/handlers/actions/ActionsFactory.py:32
+#: ../deskbar/handlers/files.py:62
+#: ../deskbar/handlers/actions/ActionsFactory.py:35
 msgid "Location"
 msgstr "Розташування"
 
-#: ../deskbar/handlers/files.py:69
+#: ../deskbar/handlers/files.py:70
 msgid "Files, Folders and Places"
 msgstr "Файли, теки та місця"
 
-#: ../deskbar/handlers/files.py:70
+#: ../deskbar/handlers/files.py:71
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Перегляд ваших файлів, закладок, пристроїв, мережних ресурсів за назвою"
 
-#: ../deskbar/handlers/gdmactions.py:33
-msgid "Suspend the machine"
-msgstr "Призупинити машину"
+#: ../deskbar/handlers/gdmactions.py:30
+msgid "Shut down of this system now?"
+msgstr "Вимкнути систему?"
 
-#: ../deskbar/handlers/gdmactions.py:49
-msgid "Hibernate the machine"
-msgstr "Перевести у режим сну"
+#: ../deskbar/handlers/gdmactions.py:31
+#, python-format
+msgid "This system will be automatically shut down in %s seconds."
+msgstr "Систему буде автоматично вимкнути через %s секунд."
 
-#: ../deskbar/handlers/gdmactions.py:65
-msgid "Shutdown the machine"
-msgstr "Вимкнути машину"
-
-#: ../deskbar/handlers/gdmactions.py:86
-msgid "Lock the screen"
-msgstr "Заблокувати екран"
-
-#: ../deskbar/handlers/gdmactions.py:109 ../deskbar/handlers/gdmactions.py:230
-msgid "Lock"
-msgstr "Заблокувати"
-
-#: ../deskbar/handlers/gdmactions.py:149
-msgid "Turn off the computer"
-msgstr "Вимкнути комп'ютер"
-
-#: ../deskbar/handlers/gdmactions.py:153 ../deskbar/handlers/gdmactions.py:209
+#: ../deskbar/handlers/gdmactions.py:32 ../deskbar/handlers/gdmactions.py:223
+#: ../deskbar/handlers/gdmactions.py:281
 msgid "Shut Down"
 msgstr "Вимкнути"
 
-#: ../deskbar/handlers/gdmactions.py:165
-msgid "Log out"
-msgstr "Завершити сеанс"
+#: ../deskbar/handlers/gdmactions.py:34
+msgid "Log out of this system now?"
+msgstr "Завершити сеанс?"
 
-#: ../deskbar/handlers/gdmactions.py:169 ../deskbar/handlers/gdmactions.py:212
+#: ../deskbar/handlers/gdmactions.py:35
+#, python-format
+msgid "You will be automatically logged out in %s seconds."
+msgstr "Сеанс автоматично завершиться через %s секунд."
+
+#: ../deskbar/handlers/gdmactions.py:36 ../deskbar/handlers/gdmactions.py:236
+#: ../deskbar/handlers/gdmactions.py:240 ../deskbar/handlers/gdmactions.py:284
 msgid "Log Out"
 msgstr "Завершити сеанс"
 
-#: ../deskbar/handlers/gdmactions.py:181
-msgid "Restart the computer"
-msgstr "Перезапустити комп'ютер"
+#: ../deskbar/handlers/gdmactions.py:38
+msgid "Restart this system now?"
+msgstr "Перезапустити систему зараз?"
 
-#: ../deskbar/handlers/gdmactions.py:185 ../deskbar/handlers/gdmactions.py:211
+#: ../deskbar/handlers/gdmactions.py:39
+#, python-format
+msgid "This system will be automatically restarted in %s seconds."
+msgstr "Систему буде автоматично перезавантажено через %s секунд."
+
+#: ../deskbar/handlers/gdmactions.py:40 ../deskbar/handlers/gdmactions.py:257
+#: ../deskbar/handlers/gdmactions.py:283
 msgid "Restart"
 msgstr "Перезапустити"
 
-#: ../deskbar/handlers/gdmactions.py:196 ../deskbar/handlers/gdmactions.py:200
-#: ../deskbar/handlers/gdmactions.py:210
-msgid "Switch User"
-msgstr "Змінити користувача"
+#: ../deskbar/handlers/gdmactions.py:42
+msgid "Suspend this system now?"
+msgstr "Призупинити систему?"
 
-#: ../deskbar/handlers/gdmactions.py:206
-msgid "Computer Actions"
-msgstr "Дії з комп'ютером"
+#: ../deskbar/handlers/gdmactions.py:43
+#, python-format
+msgid "This system will be automatically suspended in %s seconds."
+msgstr "Систему буде автоматично призупинено через %s секунд."
 
-#: ../deskbar/handlers/gdmactions.py:207
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr "Завершення сеансу, перезапуск, призупинення та інші дії."
-
-#: ../deskbar/handlers/gdmactions.py:241
+#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:313
 msgid "Suspend"
 msgstr "Призупинити"
 
-#: ../deskbar/handlers/gdmactions.py:243
+#: ../deskbar/handlers/gdmactions.py:46
+msgid "Hibernate this system now?"
+msgstr "Перевести у режим сну?"
+
+#: ../deskbar/handlers/gdmactions.py:47
+#, python-format
+msgid "This system will be automatically hibernated in %s seconds."
+msgstr "Систему буде автоматично переведено у режим сну через %s секунд."
+
+#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:315
 msgid "Hibernate"
 msgstr "Перевести у режим сну"
 
-#: ../deskbar/handlers/gdmactions.py:245
+#: ../deskbar/handlers/gdmactions.py:100
+msgid "Suspend the machine"
+msgstr "Призупинити машину"
+
+#: ../deskbar/handlers/gdmactions.py:117
+msgid "Hibernate the machine"
+msgstr "Перевести у режим сну"
+
+#: ../deskbar/handlers/gdmactions.py:134
+msgid "Shutdown the machine"
+msgstr "Вимкнути машину"
+
+#: ../deskbar/handlers/gdmactions.py:155
+msgid "Lock the screen"
+msgstr "Заблокувати екран"
+
+#: ../deskbar/handlers/gdmactions.py:178 ../deskbar/handlers/gdmactions.py:302
+msgid "Lock"
+msgstr "Заблокувати"
+
+#: ../deskbar/handlers/gdmactions.py:219
+msgid "Turn off the computer"
+msgstr "Вимкнути комп'ютер"
+
+#: ../deskbar/handlers/gdmactions.py:253
+msgid "Restart the computer"
+msgstr "Перезапустити комп'ютер"
+
+#: ../deskbar/handlers/gdmactions.py:268 ../deskbar/handlers/gdmactions.py:272
+#: ../deskbar/handlers/gdmactions.py:282
+msgid "Switch User"
+msgstr "Змінити користувача"
+
+#: ../deskbar/handlers/gdmactions.py:278
+msgid "Computer Actions"
+msgstr "Дії з комп'ютером"
+
+#: ../deskbar/handlers/gdmactions.py:279
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "Завершення сеансу, перезапуск, призупинення та інші дії."
+
+#: ../deskbar/handlers/gdmactions.py:317
 msgid "Shutdown"
 msgstr "Вимкнути"
 
@@ -604,15 +704,15 @@ msgstr "Перейти на існуюче вікно за його назвою
 msgid "Windows"
 msgstr "Вікна"
 
-#: ../deskbar/handlers/mozilla.py:124
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Закладки веб-переглядача(Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:187 ../deskbar/handlers/mozilla.py:259
+#: ../deskbar/handlers/mozilla.py:186 ../deskbar/handlers/mozilla.py:259
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox не є типовою програмою перегляду."
 
-#: ../deskbar/handlers/mozilla.py:194
+#: ../deskbar/handlers/mozilla.py:193
 msgid "Web Searches (Mozilla)"
 msgstr "Пошук в Інтернеті(Mozilla)"
 
@@ -624,55 +724,72 @@ msgstr "Ви можете налаштувати список пропонова
 msgid "Web History (Mozilla)"
 msgstr "Історія перегляду Інтернету(Mozilla)"
 
-#: ../deskbar/handlers/programs.py:76
+#: ../deskbar/handlers/programs.py:77
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Шукати %s у словнику"
 
-#: ../deskbar/handlers/programs.py:83
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Шукати файли з назвою, що схожа на %s"
 
-#: ../deskbar/handlers/programs.py:89
+#: ../deskbar/handlers/programs.py:90
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Шукати у Devhelp %s"
 
-#: ../deskbar/handlers/programs.py:115
+#: ../deskbar/handlers/programs.py:124
 msgid "Dictionary"
 msgstr "Словник"
 
-#: ../deskbar/handlers/programs.py:116
+#: ../deskbar/handlers/programs.py:125
 msgid "Look up word definitions in the dictionary"
 msgstr "Шукати визначення та переклад слів у словнику"
 
-#: ../deskbar/handlers/programs.py:132
+#: ../deskbar/handlers/programs.py:141
+msgid "GNOME dictionary is not installed"
+msgstr "Каталог GNOME не встановлено"
+
+#: ../deskbar/handlers/programs.py:148
 msgid "Files and Folders Search"
 msgstr "Пошук файлів та тек"
 
-#: ../deskbar/handlers/programs.py:133
+#: ../deskbar/handlers/programs.py:149
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Шукати файли та теки за маскою назви"
 
-#: ../deskbar/handlers/programs.py:149
+#: ../deskbar/handlers/programs.py:165
+msgid "GNOME search tool is not installed"
+msgstr "Засіб пошуку для GNOME не встановлено"
+
+#: ../deskbar/handlers/programs.py:172
 msgid "Developer Documentation"
 msgstr "Документація розробника"
 
-#: ../deskbar/handlers/programs.py:150
+#: ../deskbar/handlers/programs.py:173
 msgid "Search Devhelp for a function name"
 msgstr "Шукати у Devhelp за назвою функції"
 
-#: ../deskbar/handlers/programs.py:198
+#: ../deskbar/handlers/programs.py:192
+msgid "Devhelp is not installed"
+msgstr "Devhelp не встановлено"
+
+#: ../deskbar/handlers/programs.py:241
+#, python-format
+msgid "Execute %s in terminal"
+msgstr "Виконати %s у терміналі"
+
+#: ../deskbar/handlers/programs.py:243
 #, python-format
 msgid "Execute %s"
 msgstr "Виконати %s"
 
-#: ../deskbar/handlers/programs.py:220
+#: ../deskbar/handlers/programs.py:259
 msgid "Programs"
 msgstr "Програми"
 
-#: ../deskbar/handlers/programs.py:221
+#: ../deskbar/handlers/programs.py:260
 msgid "Launch a program by its name and/or description"
 msgstr "Запускати програми за їх назвами та/або описом"
 
@@ -688,19 +805,116 @@ msgstr "Отримати файли та місця, що були недавн�
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
 msgstr "Цьому обробнику потрібна більш нова версія Gtk+ (2.9.0 та вище)."
 
+#: ../deskbar/handlers/templates.py:37
+#, python-format
+msgid "Create %s"
+msgstr "Створити %s"
+
+#: ../deskbar/handlers/templates.py:40
+msgid "Create Document"
+msgstr "Створити документ"
+
+#: ../deskbar/handlers/templates.py:53
+msgid "Name:"
+msgstr "Назва:"
+
+#: ../deskbar/handlers/templates.py:60
+msgid "Folder:"
+msgstr "Тека:"
+
+#: ../deskbar/handlers/templates.py:64
+msgid "Choose Folder"
+msgstr "Оберіть теку"
+
+#: ../deskbar/handlers/templates.py:119
+#, python-format
+msgid "A file named \"%s\" already exists.  Do you want to replace it?"
+msgstr "Файл з назвою \"%s\" вже існує.  Замінити його?"
+
+#: ../deskbar/handlers/templates.py:123
+#, python-format
+msgid ""
+"The file already exists in \"%s\".  Replacing it will overwrite its contents."
+msgstr ""
+"Файл вже існує у \"%s\".  Його заміна призведе до втрати попереднього змісту."
+
+#: ../deskbar/handlers/templates.py:130
+msgid "Replace"
+msgstr "Замінити"
+
+#: ../deskbar/handlers/templates.py:166
+msgid "Templates"
+msgstr "Шаблони"
+
+#: ../deskbar/handlers/templates.py:167
+msgid "Create new files from your templates"
+msgstr "Створити нові файли з шаблонів"
+
+#: ../deskbar/handlers/tomboy.py:37
+#, python-format
+msgid "Open note <b>%(name)s</b>"
+msgstr "Відкрити примітку <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:50
+msgid "Really delete this note?"
+msgstr "Дійсно видалити цю примітку?"
+
+#: ../deskbar/handlers/tomboy.py:51
+msgid "If you delete a note it is permanently lost."
+msgstr "Якщо ви видалите примітку, її буде остаточно втрачено."
+
+#: ../deskbar/handlers/tomboy.py:63
+#, python-format
+msgid "Delete note <b>%(name)s</b>"
+msgstr "Видалити примітку <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:88
+#, python-format
+msgid "Create note <b>%(name)s</b>"
+msgstr "Створити примітку <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:110
+msgid "Title"
+msgstr "Заголовок"
+
+#: ../deskbar/handlers/tomboy.py:111
+msgid "Contents"
+msgstr "Зміст"
+
+#: ../deskbar/handlers/tomboy.py:130
+msgid "Tomboy Notes"
+msgstr "Примітки Tomboy"
+
+#: ../deskbar/handlers/tomboy.py:131
+msgid "Search your Tomboy notes"
+msgstr "Пошук у примітках Tomboy"
+
+#: ../deskbar/handlers/tomboy.py:198
+msgid "Tomboy does not seem to be installed."
+msgstr "Схоже, Tomboy не встановлено."
+
+#: ../deskbar/handlers/tomboy.py:235
+#, python-format
+msgid ""
+"Tomboy does not seem to be the correct version.\n"
+"Tomboy %s or greater must be installed."
+msgstr ""
+"Схоже, Tomboy має некоректну версію.\n"
+"Потрібна версія Tomboy %s або старша."
+
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Відкривати веб-сторінки та надіслати поштові адреси повні адреси"
 
-#: ../deskbar/handlers/yahoo.py:38
+#: ../deskbar/handlers/yahoo.py:41
 msgid "Yahoo! Search"
 msgstr "Пошук у Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:39
+#: ../deskbar/handlers/yahoo.py:42
 msgid "Search Yahoo! as you type"
 msgstr "Пошук у Yahoo! при наборі запиту"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:54
+#: ../deskbar/handlers/actions/ActionsFactory.py:62
 #, python-format
 msgid "URL of %s"
 msgstr "URL %s"
@@ -717,18 +931,18 @@ msgstr "Відкрити адресу %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
 #, python-format
-msgid "Launch <b>%(name)s</b>"
-msgstr "Запустити <b>%(name)s</b>"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Запустити <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/actions/OpenFileAction.py:38
+#: ../deskbar/handlers/actions/OpenFileAction.py:51
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
 msgstr "Відкрити %s"
 
-#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
 #, python-format
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
 msgstr "Запустити <b>%(name)s</b> у <b>%(program)s</b>"
@@ -775,32 +989,30 @@ msgstr "Веб-сайт Deskbar"
 msgid "translator-credits"
 msgstr "Максим Дзюманенко <dziumanenko@gmail.com>"
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:18
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
 msgstr "<b>Зайти:</b>"
-
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "назва"
 
 #: ../deskbar/ui/cuemiac/CuemiacItems.py:22
 msgid "default"
 msgstr "типово"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:75
+#: ../deskbar/ui/CuemiacAlignedView.py:88
+#: ../deskbar/ui/CuemiacWindowView.py:77
 msgid "_History"
 msgstr "_Історія"
 
-#: ../deskbar/ui/CuemiacWindowView.py:133
+#: ../deskbar/ui/CuemiacAlignedView.py:150
+#: ../deskbar/ui/CuemiacWindowView.py:139
 msgid "Back to Matches"
 msgstr "Назад до результатів пошуку"
 
-#: ../deskbar/ui/DeskbarApplet.py:86
+#: ../deskbar/ui/DeskbarTray.py:44
 msgid "Show search entry"
 msgstr "Показати поле пошуку"
 
-#: ../deskbar/ui/DeskbarApplet.py:114
+#: ../deskbar/ui/DeskbarTray.py:111
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
@@ -823,20 +1035,25 @@ msgstr ""
 "нею буде неможливо.\n"
 "Спробуйте використати клавішу з Control, Alt чи Shift.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
+msgid "Reload all extensions"
+msgstr "Перезавантажити всі розширення"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr ""
-"<i><small>Порядок змінюється перетягуванням розширення вниз або вгору.</small></i>"
+"<i><small>Порядок змінюється перетягуванням розширення вниз або вгору.</"
+"small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:335
 msgid "A problem occured"
 msgstr "Виникла помилка"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:400
 msgid "Handler has been installed successfully"
 msgstr "Обробник успішно встановлений"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:403
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
 "Не вдається встановити обробник у зв'язку з проблемою у вказаному файлі"
@@ -861,4 +1078,5 @@ msgstr "Версія:"
 msgid "Update Available"
 msgstr "Доступне оновлення"
 
-
+#~ msgid "Log out"
+#~ msgstr "Завершити сеанс"
