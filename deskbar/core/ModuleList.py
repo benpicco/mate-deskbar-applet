@@ -1,4 +1,8 @@
-import gtk, gobject
+import gtk
+import gobject
+import logging
+
+LOGGER = logging.getLogger(__name__)
 
 class ModuleList (gtk.ListStore):
     """
@@ -116,7 +120,7 @@ class ModuleList (gtk.ListStore):
     def remove_module(self, module):
         iter, index = self.get_position_from_context(module)
         if iter != None:
-            print 'Removing from modulelist:', module.INFOS['name']
+            LOGGER.debug('Removing from modulelist: '+module.INFOS['name'])
             self.remove(iter)
         
     def module_changed(self, module):
@@ -223,7 +227,7 @@ class DisabledModuleList (gtk.ListStore):
     def remove_module(self, module):
         iter, index = self.get_position_from_context(module)
         if iter != None:
-            print 'Removing from disabledModulelist:', module.__name__
+            LOGGER.debug('Removing from disabledModulelist: '+str(module))
             self.remove(iter)
 
 gobject.type_register(DisabledModuleList)
