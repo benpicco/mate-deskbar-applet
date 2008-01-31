@@ -1,14 +1,14 @@
 # Thai translation of deskbar-applet.
-# Copyright (C) 2005-2007 Free Software Foundation, Inc.
+# Copyright (C) 2005-2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the deskbar-applet package.
-# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2007.
-# 
+# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2008.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-02 20:05+0700\n"
-"PO-Revision-Date: 2007-09-02 20:07+0700\n"
+"POT-Creation-Date: 2008-01-31 16:40+0700\n"
+"PO-Revision-Date: 2008-01-31 17:18+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -56,18 +56,30 @@ msgid "Minimum number of characters needed to start searching"
 msgstr "จำนวนอักขระอย่างต่ำก่อนเริ่มค้นหา"
 
 #: ../data/deskbar-applet.schemas.in.h:10
+msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
+msgstr "เลือกรูปแบบการติดต่อผู้ใช้ \"Window\" (หน้าต่าง) หรือ \"Button\" (ปุ่ม)"
+
+#: ../data/deskbar-applet.schemas.in.h:11
 msgid "The default height of the window in pixels"
 msgstr "ความสูงปริยายของหน้าต่างในหน่วยพิกเซล"
 
-#: ../data/deskbar-applet.schemas.in.h:11
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "ตำแหน่งปริยายบนจอของหน้าต่าง (พิกัด X)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "ตำแหน่งปริยายบนจอของหน้าต่าง (พิกัด Y)"
+
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The default width of the window in pixels"
 msgstr "ความกว้างปริยายของหน้าต่างในหน่วยพิกเซล"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr "ปุ่มลัดสำหรับโฟกัสไปที่แอพเพล็ตเดสก์บาร์ เพื่อให้ป้อนคำค้นได้อย่างรวดเร็ว"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -76,33 +88,33 @@ msgstr ""
 "รายการหัวข้อที่จะพับเก็บเมื่อแสดงผล หัวข้อที่ใช้ได้คือ default, history, documents, emails, "
 "conversations, files, people, places, actions, web, websearch, news และ notes"
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
 msgstr "รายชื่อของคลาสตัวจัดการคำค้นที่เปิดใช้ เรียงตามลำดับความสำคัญ รายการซ้ายสุดสำคัญที่สุด"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid "The maximum number of items stored in history"
 msgstr "จำนวนรายการสูงสุดที่จะเก็บในประวัติการค้นหา"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
 msgstr "จำนวนอักขระอย่างต่ำที่ผู้ใช้ต้องป้อน ก่อนที่แอพเพล็ตจะแสดงรายการที่ตรงกัน"
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
 msgstr "ระยะเวลาเป็นมิลลิวินาที นับตั้งแต่แป้นพิมพ์ถูกกดในช่องคำค้น ก่อนที่จะเริ่มค้นหาจริง"
 
-#: ../data/deskbar-applet.schemas.in.h:18
-msgid "Whether to close the window after an actions has been activated"
+#: ../data/deskbar-applet.schemas.in.h:21
+msgid "Whether to close the window after an action has been activated"
 msgstr "จะปิดหน้าต่างหลังจากเรียกปฏิบัติการหรือไม่"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -110,17 +122,25 @@ msgstr ""
 "กำหนดว่าจะแสดงเฉพาะเครื่องมือค้นหาที่เลือกไว้ แทนที่จะแสดงเครื่องมือค้นหาทั้งหมดหรือไม่ "
 "ค่านี้จะมีผลต่อเว็บเบราว์เซอร์ตระกูล Mozilla เช่น Firefox เท่านั้น"
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "กำหนดว่าในการเรียกแอพเพล็ตเดสก์บาร์ จะแปะข้อความที่เลือกอยู่ด้วยเลยหรือไม่"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window height"
 msgstr "ความสูงของหน้าต่าง"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:25
 msgid "Window width"
 msgstr "ความกว้างของหน้าต่าง"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "X-coordinate of window"
+msgstr "พิกัด X ของหน้าต่าง"
+
+#: ../data/deskbar-applet.schemas.in.h:27
+msgid "Y-coordinate of window"
+msgstr "พิกัด Y ของหน้าต่าง"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -131,6 +151,10 @@ msgid "_Clear History"
 msgstr "_ล้างประวัติ"
 
 #: ../data/Deskbar_Applet.xml.h:3
+msgid "_Help"
+msgstr "_วิธีใช้"
+
+#: ../data/Deskbar_Applet.xml.h:4
 msgid "_Preferences"
 msgstr "_ปรับแต่ง"
 
@@ -159,50 +183,62 @@ msgid "<b>Loaded Extensions</b>"
 msgstr "<b>ส่วนขยายที่ใช้</b>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid "<b>Window Behavior</b>"
+msgstr "<b>พฤติกรรมหน้าต่าง</b>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "Deskbar Preferences"
 msgstr "ปรับแต่งเดสก์บาร์"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Extensions with Errors"
 msgstr "ส่วนขยายที่มีปัญหา"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "General"
 msgstr "ทั่วไป"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "New Extensions"
 msgstr "ส่วนขยายใหม่"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Search selection when triggering the shortcut"
 msgstr "ค้นหาข้อความที่เลือกเมื่อกดปุ่มลัด"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "Searches"
 msgstr "การค้นหา"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
+msgid "Stick to panel"
+msgstr "ติดกับพาเนล"
+
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Check For Updates"
 msgstr "_ตรวจสอบรุ่นออกใหม่"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Check for new extensions"
 msgstr "_ตรวจสอบส่วนขยายใหม่"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "_Install"
 msgstr "_ติดตั้ง"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Keyboard shortcut to focus:"
 msgstr "ปุ่ม_ลัดเพื่อโฟกัส:"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:17
 msgid "_More..."
 msgstr "เ_พิ่มเติม..."
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Reload"
+msgstr "เรียกให_ม่"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Update"
 msgstr "_ปรับรุ่น"
 
@@ -235,7 +271,7 @@ msgstr "แสดงเครื่องมือค้นหาที่มี
 msgid "Show only the primary search engine"
 msgstr "แสดงเฉพาะเครื่องมือค้นหาหลักเท่านั้น"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:176
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:181
 #, python-format
 msgid "Open History Item %s"
 msgstr "เปิดรายการ %s จากประวัติการท่องเว็บ"
@@ -251,7 +287,7 @@ msgstr "เปิดที่คั่นหน้า %s"
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "ค้น <b>%(name)s</b> เพื่อหา <i>%(text)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:33
 msgid "URL"
 msgstr "URL"
 
@@ -315,69 +351,84 @@ msgstr "ข่าว"
 msgid "Notes"
 msgstr "บันทึก"
 
-#: ../deskbar/core/DeskbarHistory.py:20
+#: ../deskbar/core/DeskbarHistory.py:22
 msgid "<i>Choose action</i>"
 msgstr "<i>เลือกปฏิบัติการ</i>"
 
-#: ../deskbar/core/Utils.py:124
+#: ../deskbar/core/Utils.py:132
 msgid "Cannot execute program:"
 msgstr "ไม่สามารถเรียกโปรแกรม:"
 
-#: ../deskbar/core/Utils.py:164
+#: ../deskbar/core/Utils.py:172
 msgid "Cannot show URL:"
 msgstr "ไม่สามารถแสดง URL:"
 
-#: ../deskbar/handlers/beagle-live.py:98
+#. translators: This is the window title.
+#: ../deskbar/deskbar-applet.py:15
+msgid "Deskbar Applet"
+msgstr "แอพเพล็ตเดสก์บาร์"
+
+#: ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "Edit contact %s"
 msgstr "แก้ไขที่อยู่ติดต่อ %s"
 
-#: ../deskbar/handlers/beagle-live.py:109
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
 msgid "From %s"
 msgstr "จาก %s"
 
-#: ../deskbar/handlers/beagle-live.py:124
+#: ../deskbar/handlers/beagle-live.py:129
 #, python-format
 msgid "News from %s"
 msgstr "ข่าวจาก %s"
 
-#: ../deskbar/handlers/beagle-live.py:138
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Note: %s"
 msgstr "บันทึก: %s"
 
-#: ../deskbar/handlers/beagle-live.py:151
+#: ../deskbar/handlers/beagle-live.py:156
 #, python-format
 msgid "With %s"
 msgstr "กับ %s"
 
-#: ../deskbar/handlers/beagle-live.py:165
+#: ../deskbar/handlers/beagle-live.py:170
 #, python-format
 msgid "Calendar: %s"
 msgstr "ปฏิทิน: %s"
 
-#: ../deskbar/handlers/beagle-live.py:251
+#: ../deskbar/handlers/beagle-live.py:213
+#, python-format
+msgid "Additional results for category <b>%s</b>"
+msgstr "ผลการค้นหาเพิ่มเติมสำหรับหมวด <b>%s</b>"
+
+#: ../deskbar/handlers/beagle-live.py:213
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
+msgid "name"
+msgstr "name"
+
+#: ../deskbar/handlers/beagle-live.py:295
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:252
+#: ../deskbar/handlers/beagle-live.py:296
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "ค้นเอกสารทั้งหมดของคุณ (โดยใช้ Beagle) ไปพร้อมกับการป้อนคำค้น"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:330
-#: ../deskbar/handlers/beagle-live.py:352
+#: ../deskbar/handlers/beagle-live.py:433
+#: ../deskbar/handlers/beagle-live.py:455
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:415
+#: ../deskbar/handlers/beagle-live.py:486
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "ไม่สามารถโหลด Beagle ได้ libbeagle ถูกคอมไพล์ไว้โดยไม่มีส่วนเชื่อมโยงกับ python"
 
-#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:495
 msgid "Beagled could not be found in your $PATH."
 msgstr "ไม่พบ beagled ใน $PATH ของคุณ"
 
@@ -398,31 +449,31 @@ msgstr "ค้นหาเอกสารทั้งหมดของคุณ
 msgid "Beagle does not seem to be installed."
 msgstr "ดูเหมือนจะไม่ได้ติดตั้ง Beagle ไว้"
 
-#: ../deskbar/handlers/desklicious.py:44
+#: ../deskbar/handlers/desklicious.py:47
 msgid "del.icio.us Bookmarks"
 msgstr "ที่คั่นหน้า del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:45
+#: ../deskbar/handlers/desklicious.py:48
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "ค้นหาที่คั่นหน้า del.icio.us ตามชื่อแท็ก"
 
-#: ../deskbar/handlers/desklicious.py:77
+#: ../deskbar/handlers/desklicious.py:80
 msgid "del.icio.us Account"
 msgstr "บัญชี del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:84
+#: ../deskbar/handlers/desklicious.py:87
 msgid "Enter your del.icio.us username below"
 msgstr "ป้อนชื่อผู้ใช้ del.icio.us ของคุณข้างล่างนี้"
 
-#: ../deskbar/handlers/desklicious.py:90
+#: ../deskbar/handlers/desklicious.py:93
 msgid "Username: "
 msgstr "ชื่อผู้ใช้: "
 
-#: ../deskbar/handlers/desklicious.py:106
+#: ../deskbar/handlers/desklicious.py:109
 msgid "You need to configure your del.icio.us account."
 msgstr "คุณต้องตั้งค่าบัญชี del.icio.us ของคุณ"
 
-#: ../deskbar/handlers/desklicious.py:111
+#: ../deskbar/handlers/desklicious.py:114
 msgid "You can modify your del.icio.us account."
 msgstr "คุณสามารถแก้ไขบัญชี del.icio.us ของคุณได้"
 
@@ -430,11 +481,12 @@ msgstr "คุณสามารถแก้ไขบัญชี del.icio.us �
 msgid "Web Bookmarks (Epiphany)"
 msgstr "ที่คั่นหน้าเว็บ (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:123
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:127
 msgid "Open your web bookmarks by name"
 msgstr "เปิดที่คั่นหน้าเว็บตามชื่อ"
 
 #: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
+#: ../deskbar/handlers/epiphany.py:164
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany ไม่ได้ถูกกำหนดเป็นเบราว์เซอร์หลักของคุณ"
 
@@ -442,7 +494,7 @@ msgstr "Epiphany ไม่ได้ถูกกำหนดเป็นเบร
 msgid "Web Searches (Epiphany)"
 msgstr "การค้นเว็บ (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:193
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:194
 msgid "Search the web via your browser's search settings"
 msgstr "ค้นเว็บตามค่าตั้งในเว็บเบราว์เซอร์ของคุณ"
 
@@ -454,19 +506,25 @@ msgstr "คุณสามารถกำหนดทางลัดสำหร
 msgid "Web History (Epiphany)"
 msgstr "ประวัติการท่องเว็บ (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:735
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
 msgid "Open your web history by name"
 msgstr "เปิดเว็บที่เคยอ่านตามชื่อ"
 
-#: ../deskbar/handlers/evolution.py:22
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:27
+#, python-format
+msgid "Edit contact <b>%(name)s</b> (%(email)s)"
+msgstr "แก้ไขที่อยู่ติดต่อ <b>%(name)s</b> (%(email)s)"
+
+#: ../deskbar/handlers/evolution.py:42
 msgid "Mail (Address Book)"
 msgstr "เมล (สมุดที่อยู่)"
 
-#: ../deskbar/handlers/evolution.py:23
+#: ../deskbar/handlers/evolution.py:43
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "ส่งเมลไปยังผู้ที่ติดต่อกับคุณโดยป้อนชื่อหรือที่อยู่อีเมล"
 
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:67
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -477,85 +535,131 @@ msgstr ""
 "ไม่สามารถหาที่อยู่อีเมลจากสมุดที่อยู่ของคุณได้ ถ้าไม่เปิดใช้การเติมเต็มคำอัตโนมัติ "
 "คุณสามารถเปิดได้โดยเปิดโปรแกรมเมลของคุณ ไปที่ แก้ไข - ปรับแต่ง - การเติมเต็มคำอัตโนมัติ"
 
-#: ../deskbar/handlers/files.py:59
-#: ../deskbar/handlers/actions/ActionsFactory.py:32
+#. FIXME:
+#. _("Location") should be _("Location of %s") % name
+#: ../deskbar/handlers/files.py:62
+#: ../deskbar/handlers/actions/ActionsFactory.py:35
 msgid "Location"
 msgstr "ตำแหน่งเก็บ"
 
-#: ../deskbar/handlers/files.py:67
+#: ../deskbar/handlers/files.py:70
 msgid "Files, Folders and Places"
 msgstr "แฟ้ม, โฟลเดอร์ และที่หลักๆ"
 
-#: ../deskbar/handlers/files.py:68
+#: ../deskbar/handlers/files.py:71
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "เปิดแฟ้ม, โฟลเดอร์, ที่คั่นหน้า, ไดรว์ และแหล่งเครือข่ายตามชื่อ"
 
-#: ../deskbar/handlers/gdmactions.py:33
-msgid "Suspend the machine"
-msgstr "พักเครื่อง"
+#: ../deskbar/handlers/gdmactions.py:30
+msgid "Shut down of this system now?"
+msgstr "จะปิดเครื่องทันทีหรือไม่?"
 
-#: ../deskbar/handlers/gdmactions.py:49
-msgid "Hibernate the machine"
-msgstr "จำศีลเครื่อง"
+#: ../deskbar/handlers/gdmactions.py:31
+#, python-format
+msgid "This system will be automatically shut down in %s seconds."
+msgstr "ระบบจะปิดโดยอัตโนมัติภายใน %s วินาที"
 
-#: ../deskbar/handlers/gdmactions.py:65
-msgid "Shutdown the machine"
-msgstr "ปิดเครื่อง"
-
-#: ../deskbar/handlers/gdmactions.py:86
-msgid "Lock the screen"
-msgstr "ล็อคหน้าจอ"
-
-#: ../deskbar/handlers/gdmactions.py:109 ../deskbar/handlers/gdmactions.py:230
-msgid "Lock"
-msgstr "ล็อค"
-
-#: ../deskbar/handlers/gdmactions.py:149
-msgid "Turn off the computer"
-msgstr "ปิดเครื่องคอมพิวเตอร์"
-
-#: ../deskbar/handlers/gdmactions.py:153 ../deskbar/handlers/gdmactions.py:209
+#: ../deskbar/handlers/gdmactions.py:32 ../deskbar/handlers/gdmactions.py:223
+#: ../deskbar/handlers/gdmactions.py:281
 msgid "Shut Down"
 msgstr "ปิดเครื่อง"
 
-#: ../deskbar/handlers/gdmactions.py:165
-msgid "Log out"
-msgstr "ออกจากระบบ"
+#: ../deskbar/handlers/gdmactions.py:34
+msgid "Log out of this system now?"
+msgstr "จะออกจากระบบทันทีหรือไม่?"
 
-#: ../deskbar/handlers/gdmactions.py:169 ../deskbar/handlers/gdmactions.py:212
+#: ../deskbar/handlers/gdmactions.py:35
+#, python-format
+msgid "You will be automatically logged out in %s seconds."
+msgstr "คุณจะออกจากระบบโดยอัตโนมัติภายใน %s วินาที"
+
+#: ../deskbar/handlers/gdmactions.py:36 ../deskbar/handlers/gdmactions.py:236
+#: ../deskbar/handlers/gdmactions.py:240 ../deskbar/handlers/gdmactions.py:284
 msgid "Log Out"
 msgstr "ออกจากระบบ"
 
-#: ../deskbar/handlers/gdmactions.py:181
-msgid "Restart the computer"
-msgstr "เริ่มเปิดเครื่องคอมพิวเตอร์ใหม่"
+#: ../deskbar/handlers/gdmactions.py:38
+msgid "Restart this system now?"
+msgstr "จะเริ่มเปิดเครื่องใหม่ทันทีหรือไม่?"
 
-#: ../deskbar/handlers/gdmactions.py:185 ../deskbar/handlers/gdmactions.py:211
+#: ../deskbar/handlers/gdmactions.py:39
+#, python-format
+msgid "This system will be automatically restarted in %s seconds."
+msgstr "ระบบจะเปิดเครื่องใหม่โดยอัตโนมัติภายใน %s วินาที"
+
+#: ../deskbar/handlers/gdmactions.py:40 ../deskbar/handlers/gdmactions.py:257
+#: ../deskbar/handlers/gdmactions.py:283
 msgid "Restart"
 msgstr "เริ่มเปิดเครื่องใหม่"
 
-#: ../deskbar/handlers/gdmactions.py:196 ../deskbar/handlers/gdmactions.py:200
-#: ../deskbar/handlers/gdmactions.py:210
-msgid "Switch User"
-msgstr "สลับผู้ใช้"
+#: ../deskbar/handlers/gdmactions.py:42
+msgid "Suspend this system now?"
+msgstr "จะพักเครื่องทันทีหรือไม่?"
 
-#: ../deskbar/handlers/gdmactions.py:206
-msgid "Computer Actions"
-msgstr "ปฏิบัติการของเครื่องคอมพิวเตอร์"
+#: ../deskbar/handlers/gdmactions.py:43
+#, python-format
+msgid "This system will be automatically suspended in %s seconds."
+msgstr "ระบบจะพักเครื่องโดยอัตโนมัติภายใน %s วินาที"
 
-#: ../deskbar/handlers/gdmactions.py:207
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr "ออกจากระบบ, ปิดเครื่อง, เริ่มเปิดเครื่องใหม่, พักเครื่อง และปฏิบัติการที่เกี่ยวข้อง"
-
-#: ../deskbar/handlers/gdmactions.py:241
+#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:313
 msgid "Suspend"
 msgstr "พักเครื่อง"
 
-#: ../deskbar/handlers/gdmactions.py:243
+#: ../deskbar/handlers/gdmactions.py:46
+msgid "Hibernate this system now?"
+msgstr "จะจำศีลเครื่องทันทีหรือไม่?"
+
+#: ../deskbar/handlers/gdmactions.py:47
+#, python-format
+msgid "This system will be automatically hibernated in %s seconds."
+msgstr "ระบบจะจำศีลเครื่องโดยอัตโนมัติภายใน %s วินาที"
+
+#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:315
 msgid "Hibernate"
 msgstr "จำศีลเครื่อง"
 
-#: ../deskbar/handlers/gdmactions.py:245
+#: ../deskbar/handlers/gdmactions.py:100
+msgid "Suspend the machine"
+msgstr "พักเครื่อง"
+
+#: ../deskbar/handlers/gdmactions.py:117
+msgid "Hibernate the machine"
+msgstr "จำศีลเครื่อง"
+
+#: ../deskbar/handlers/gdmactions.py:134
+msgid "Shutdown the machine"
+msgstr "ปิดเครื่อง"
+
+#: ../deskbar/handlers/gdmactions.py:155
+msgid "Lock the screen"
+msgstr "ล็อคหน้าจอ"
+
+#: ../deskbar/handlers/gdmactions.py:178 ../deskbar/handlers/gdmactions.py:302
+msgid "Lock"
+msgstr "ล็อค"
+
+#: ../deskbar/handlers/gdmactions.py:219
+msgid "Turn off the computer"
+msgstr "ปิดเครื่องคอมพิวเตอร์"
+
+#: ../deskbar/handlers/gdmactions.py:253
+msgid "Restart the computer"
+msgstr "เริ่มเปิดเครื่องคอมพิวเตอร์ใหม่"
+
+#: ../deskbar/handlers/gdmactions.py:268 ../deskbar/handlers/gdmactions.py:272
+#: ../deskbar/handlers/gdmactions.py:282
+msgid "Switch User"
+msgstr "สลับผู้ใช้"
+
+#: ../deskbar/handlers/gdmactions.py:278
+msgid "Computer Actions"
+msgstr "ปฏิบัติการของเครื่องคอมพิวเตอร์"
+
+#: ../deskbar/handlers/gdmactions.py:279
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "ออกจากระบบ, ปิดเครื่อง, เริ่มเปิดเครื่องใหม่, พักเครื่อง และปฏิบัติการที่เกี่ยวข้อง"
+
+#: ../deskbar/handlers/gdmactions.py:317
 msgid "Shutdown"
 msgstr "ปิดเครื่อง"
 
@@ -580,75 +684,92 @@ msgstr "สลับไปยังหน้าต่างที่เปิด
 msgid "Windows"
 msgstr "หน้าต่าง"
 
-#: ../deskbar/handlers/mozilla.py:122
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Web Bookmarks (Mozilla)"
 msgstr "ที่คั่นหน้าเว็บ (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:185 ../deskbar/handlers/mozilla.py:256
+#: ../deskbar/handlers/mozilla.py:186 ../deskbar/handlers/mozilla.py:259
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox ไม่ได้ถูกกำหนดเป็นเบราว์เซอร์หลักของคุณ"
 
-#: ../deskbar/handlers/mozilla.py:192
+#: ../deskbar/handlers/mozilla.py:193
 msgid "Web Searches (Mozilla)"
 msgstr "การค้นเว็บ (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:250
+#: ../deskbar/handlers/mozilla.py:253
 msgid "You can customize which search engines are offered."
 msgstr "คุณสามารถกำหนดได้ว่าจะใช้เครื่องมือค้นหาตัวไหน"
 
-#: ../deskbar/handlers/mozilla.py:734
+#: ../deskbar/handlers/mozilla.py:737
 msgid "Web History (Mozilla)"
 msgstr "ประวัติการท่องเว็บ (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:74
+#: ../deskbar/handlers/programs.py:77
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "เปิดหา %s ในพจนานุกรม"
 
-#: ../deskbar/handlers/programs.py:81
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Search for file names like %s"
 msgstr "ค้นหาแฟ้มที่มีชื่อในรูปแบบคล้าย %s"
 
-#: ../deskbar/handlers/programs.py:87
+#: ../deskbar/handlers/programs.py:90
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "ค้น Devhelp เพื่อหา %s"
 
-#: ../deskbar/handlers/programs.py:113
+#: ../deskbar/handlers/programs.py:124
 msgid "Dictionary"
 msgstr "พจนานุกรม"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:125
 msgid "Look up word definitions in the dictionary"
 msgstr "เปิดหาความหมายของคำในพจนานุกรม"
 
-#: ../deskbar/handlers/programs.py:130
+#: ../deskbar/handlers/programs.py:141
+msgid "GNOME dictionary is not installed"
+msgstr "ไม่ได้ติดตั้งพจนานุกรมของ GNOME ไว้"
+
+#: ../deskbar/handlers/programs.py:148
 msgid "Files and Folders Search"
 msgstr "การค้นหาแฟ้มและโฟลเดอร์"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:149
 msgid "Find files and folders by searching for a name pattern"
 msgstr "ค้นหาแฟ้มและโฟลเดอร์ด้วยแพทเทิร์นของชื่อ"
 
-#: ../deskbar/handlers/programs.py:147
+#: ../deskbar/handlers/programs.py:165
+msgid "GNOME search tool is not installed"
+msgstr "ไม่ได้ติดตั้งเครื่องมือค้นหาของ GNOME ไว้"
+
+#: ../deskbar/handlers/programs.py:172
 msgid "Developer Documentation"
 msgstr "เอกสารสำหรับนักพัฒนา"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:173
 msgid "Search Devhelp for a function name"
 msgstr "ค้น Devhelp เพื่อหาชื่อฟังก์ชัน"
 
-#: ../deskbar/handlers/programs.py:196
+#: ../deskbar/handlers/programs.py:192
+msgid "Devhelp is not installed"
+msgstr "ไม่ได้ติดตั้ง Devhelp ไว้"
+
+#: ../deskbar/handlers/programs.py:241
+#, python-format
+msgid "Execute %s in terminal"
+msgstr "เรียกใช้ %s ในเทอร์มินัล"
+
+#: ../deskbar/handlers/programs.py:243
 #, python-format
 msgid "Execute %s"
 msgstr "เรียกใช้ %s"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:259
 msgid "Programs"
 msgstr "โปรแกรม"
 
-#: ../deskbar/handlers/programs.py:219
+#: ../deskbar/handlers/programs.py:260
 msgid "Launch a program by its name and/or description"
 msgstr "เรียกโปรแกรมโดยป้อนชื่อ และ/หรือ คำบรรยาย"
 
@@ -664,19 +785,115 @@ msgstr "ดึงแฟ้มและตำแหน่งล่าสุดท
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
 msgstr "เครื่องมือจัดการนี้ต้องใช้ gtk รุ่นใหม่กว่านี้ (2.9.0 ขึ้นไป)"
 
+#: ../deskbar/handlers/templates.py:37
+#, python-format
+msgid "Create %s"
+msgstr "สร้าง %s"
+
+#: ../deskbar/handlers/templates.py:40
+msgid "Create Document"
+msgstr "สร้างเอกสาร"
+
+#: ../deskbar/handlers/templates.py:53
+msgid "Name:"
+msgstr "ชื่อ:"
+
+#: ../deskbar/handlers/templates.py:60
+msgid "Folder:"
+msgstr "โฟลเดอร์:"
+
+#: ../deskbar/handlers/templates.py:64
+msgid "Choose Folder"
+msgstr "เลือกโฟลเดอร์"
+
+#: ../deskbar/handlers/templates.py:119
+#, python-format
+msgid "A file named \"%s\" already exists.  Do you want to replace it?"
+msgstr "มีแฟ้มชื่อ \"%s\" อยู่ก่อนแล้ว จะเขียนทับเลยหรือไม่?"
+
+#: ../deskbar/handlers/templates.py:123
+#, python-format
+msgid ""
+"The file already exists in \"%s\".  Replacing it will overwrite its contents."
+msgstr "มีแฟ้มนี้อยู่แล้วใน \"%s\" ถ้าเขียนทับก็จะทับเนื้อหาเดิมทั้งหมด"
+
+#: ../deskbar/handlers/templates.py:130
+msgid "Replace"
+msgstr "เขียนทับ"
+
+#: ../deskbar/handlers/templates.py:166
+msgid "Templates"
+msgstr "ต้นแบบ"
+
+#: ../deskbar/handlers/templates.py:167
+msgid "Create new files from your templates"
+msgstr "สร้างแฟ้มใหม่จากต้นแบบ"
+
+#: ../deskbar/handlers/tomboy.py:37
+#, python-format
+msgid "Open note <b>%(name)s</b>"
+msgstr "เปิดบันทึก <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:50
+msgid "Really delete this note?"
+msgstr "จะลบบันทึกนี้จริงหรือไม่?"
+
+#: ../deskbar/handlers/tomboy.py:51
+msgid "If you delete a note it is permanently lost."
+msgstr "ถ้าลบ บันทึกก็จะสูญหายอย่างถาวร"
+
+#: ../deskbar/handlers/tomboy.py:63
+#, python-format
+msgid "Delete note <b>%(name)s</b>"
+msgstr "ลบบันทึก <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:88
+#, python-format
+msgid "Create note <b>%(name)s</b>"
+msgstr "สร้างบันทึก <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:110
+msgid "Title"
+msgstr "ชื่อเรื่อง"
+
+#: ../deskbar/handlers/tomboy.py:111
+msgid "Contents"
+msgstr "เนื้อหา"
+
+#: ../deskbar/handlers/tomboy.py:130
+msgid "Tomboy Notes"
+msgstr "บันทึก Tomboy"
+
+#: ../deskbar/handlers/tomboy.py:131
+msgid "Search your Tomboy notes"
+msgstr "ค้นบันทึก Tomboy ของคุณ"
+
+#: ../deskbar/handlers/tomboy.py:198
+msgid "Tomboy does not seem to be installed."
+msgstr "ดูเหมือนจะไม่ได้ติดตั้ง Tomboy ไว้"
+
+#: ../deskbar/handlers/tomboy.py:235
+#, python-format
+msgid ""
+"Tomboy does not seem to be the correct version.\n"
+"Tomboy %s or greater must be installed."
+msgstr ""
+"ดูเหมือน Tomboy จะไม่ใช่รุ่นที่ถูกต้อง\n"
+"กรุณาติดตั้ง Tomboy รุ่น %s ขึ้นไป"
+
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "เปิดหน้าเว็บและส่งอีเมลโดยป้อนที่อยู่เต็ม"
 
-#: ../deskbar/handlers/yahoo.py:38
+#: ../deskbar/handlers/yahoo.py:41
 msgid "Yahoo! Search"
 msgstr "การค้น Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:39
+#: ../deskbar/handlers/yahoo.py:42
 msgid "Search Yahoo! as you type"
 msgstr "ค้น Yahoo! ไปพร้อมกับการป้อนคำค้น"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:54
+#: ../deskbar/handlers/actions/ActionsFactory.py:62
 #, python-format
 msgid "URL of %s"
 msgstr "URL ของ %s"
@@ -693,18 +910,18 @@ msgstr "ไปยังตำแหน่งเก็บของ %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
 #, python-format
-msgid "Launch <b>%(name)s</b>"
-msgstr "เรียกใช้ <b>%(name)s</b>"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "เรียกใช้ <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/actions/OpenFileAction.py:38
+#: ../deskbar/handlers/actions/OpenFileAction.py:51
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
 msgstr "เปิด %s"
 
-#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
 #, python-format
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
 msgstr "เปิด <b>%(name)s</b> ด้วย <b>%(program)s</b>"
@@ -751,32 +968,30 @@ msgstr "เว็บไซต์ของเดสก์บาร์"
 msgid "translator-credits"
 msgstr "เทพพิทักษ์ การุญบุญญานันท์ <thep@linux.thai.net>"
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:18
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
 msgstr "<b>ค้นหา:</b>"
-
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "name"
 
 #: ../deskbar/ui/cuemiac/CuemiacItems.py:22
 msgid "default"
 msgstr "default"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:75
+#: ../deskbar/ui/CuemiacAlignedView.py:88
+#: ../deskbar/ui/CuemiacWindowView.py:77
 msgid "_History"
 msgstr "_ประวัติการค้นหา"
 
-#: ../deskbar/ui/CuemiacWindowView.py:133
+#: ../deskbar/ui/CuemiacAlignedView.py:150
+#: ../deskbar/ui/CuemiacWindowView.py:139
 msgid "Back to Matches"
 msgstr "กลับไปที่ผลการสืบค้น"
 
-#: ../deskbar/ui/DeskbarApplet.py:86
+#: ../deskbar/ui/DeskbarTray.py:44
 msgid "Show search entry"
 msgstr "แสดงช่องป้อนคำค้น"
 
-#: ../deskbar/ui/DeskbarApplet.py:114
+#: ../deskbar/ui/DeskbarTray.py:111
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
@@ -798,19 +1013,23 @@ msgstr ""
 "ไม่สามารถใช้ปุ่มลัด \"%s\" ได้ เพราะจะทำให้ไม่สามารถป้อนอักขระนี้ได้\n"
 "กรุณาลองใช้ปุ่มอย่าง Control, Alt หรือ Shift ประกอบด้วย\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
+msgid "Reload all extensions"
+msgstr "เรียกส่วนขยายทั้งหมดใหม่"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>ลากวางส่วนขยายเพื่อเปลี่ยนลำดับ</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:335
 msgid "A problem occured"
 msgstr "เกิดปัญหาบางประการ"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:400
 msgid "Handler has been installed successfully"
 msgstr "ติดตั้งเครื่องมือจัดการสำเร็จแล้ว"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:403
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "ไม่สามารถติดตั้งเครื่องมือจัดการได้ เนื่องจากปัญหาในแฟ้มที่ให้มา"
 
@@ -834,6 +1053,9 @@ msgstr "รุ่น:"
 msgid "Update Available"
 msgstr "มีรุ่นใหม่"
 
+#~ msgid "Log out"
+#~ msgstr "ออกจากระบบ"
+
 #~ msgid ""
 #~ "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</"
 #~ "b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</"
@@ -855,23 +1077,11 @@ msgstr "มีรุ่นใหม่"
 #~ msgid "Bug Detected"
 #~ msgstr "ตรวจพบข้อบกพร่องของโปรแกรม"
 
-#~ msgid "The default position of the window on the screen (x-coordinate)"
-#~ msgstr "ตำแหน่งปริยายบนจอของหน้าต่าง (พิกัด X)"
-
-#~ msgid "The default position of the window on the screen (y-coordinate)"
-#~ msgstr "ตำแหน่งปริยายบนจอของหน้าต่าง (พิกัด Y)"
-
 #~ msgid "The default width of the list of results"
 #~ msgstr "ความกว้างปริยายของรายการผลลัพธ์"
 
 #~ msgid "Width of the list of results"
 #~ msgstr "ความกว้างของรายการผลลัพธ์"
-
-#~ msgid "X-coordinate of window"
-#~ msgstr "พิกัด X ของหน้าต่าง"
-
-#~ msgid "Y-coordinate of window"
-#~ msgstr "พิกัด Y ของหน้าต่าง"
 
 #~ msgid "Start Beagle Daemon?"
 #~ msgstr "จะเรียกดีมอน Beagle หรือไม่?"
@@ -919,9 +1129,6 @@ msgstr "มีรุ่นใหม่"
 #~ msgid "The default width of the sidebar"
 #~ msgstr "ความกว้างปริยายของแถบข้าง"
 
-#~ msgid "<b>Behavior</b>"
-#~ msgstr "<b>พฤติกรรม</b>"
-
 #~ msgid "Close window _after an action has been executed"
 #~ msgstr "ปิดหน้าต่างห_ลังจากเรียกปฏิบัติการ"
 
@@ -949,12 +1156,6 @@ msgstr "มีรุ่นใหม่"
 #~ msgid "_View"
 #~ msgstr "_มุมมอง"
 
-#~ msgid "_Help"
-#~ msgstr "_วิธีใช้"
-
-#~ msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
-#~ msgstr "เลือกรูปแบบการติดต่อผู้ใช้ \"Cuemiac\" (ไอคอน) หรือ \"Entriac\" (ช่องป้อน)"
-
 #~ msgid "The applet's entry width in number of characters"
 #~ msgstr "ความกว้างของช่องคำค้นของแอพเพล็ต เป็นจำนวนอักขระ"
 
@@ -977,9 +1178,6 @@ msgstr "มีรุ่นใหม่"
 
 #~ msgid "<b>Width</b>"
 #~ msgstr "<b>ความกว้าง</b>"
-
-#~ msgid "Button in panel"
-#~ msgstr "ปุ่มในพาเนล"
 
 #~ msgid "Entry in panel"
 #~ msgstr "ช่องป้อนข้อความในพาเนล"
@@ -1096,9 +1294,6 @@ msgstr "มีรุ่นใหม่"
 
 #~ msgid "Search Google as you type"
 #~ msgstr "ค้น Google ไปพร้อมกับการป้อนคำค้น"
-
-#~ msgid "Deskbar Applet"
-#~ msgstr "แอพเพล็ตเดสก์บาร์"
 
 #~ msgid "Desktop search"
 #~ msgstr "ค้นเดสก์ท็อป"
