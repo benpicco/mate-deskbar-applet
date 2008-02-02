@@ -20,7 +20,7 @@ def show_about(parent):
         "logo-icon-name" : "deskbar-applet",
         "version" : VERSION,
         "comments" : _("An all-in-one action bar."),
-        "copyright" : "Copyright © 2004-2006\nNigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen, Sebastian Pölsterl.",
+        "copyright" : "Copyright © 2004-2008\nNigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen, Sebastian Pölsterl.",
         "website" : "http://raphael.slinckx.net/deskbar",
         "website-label" : _("Deskbar Website"),
     }
