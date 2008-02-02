@@ -194,8 +194,9 @@ class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
     def receive_focus(self, time):
         self.applet.set_state(gtk.STATE_SELECTED)
         self.update_position()
-        self.entry.grab_focus()
-        self.present_with_time (time)
+        self.realize()
+        self.window.set_user_time(time)
+        self.present()
     
     def __show_matches(self):
         self.scrolled_results.show()
