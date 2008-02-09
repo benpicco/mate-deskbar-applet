@@ -1,11 +1,14 @@
-import xml.sax
-from os.path import join, expanduser, exists
-from gettext import gettext as _
-import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module
-from deskbar.core.Watcher import FileWatcher
-from deskbar.core.BrowserMatch import get_url_host, is_preferred_browser, on_customize_search_shortcuts, on_entry_key_press, load_shortcuts
 from deskbar.core.BrowserMatch import BrowserSmartMatch, BrowserMatch
+from deskbar.core.BrowserMatch import get_url_host, is_preferred_browser, on_customize_search_shortcuts, on_entry_key_press, load_shortcuts
+from deskbar.core.Watcher import FileWatcher
 from deskbar.defs import VERSION
+from gettext import gettext as _
+from os.path import join, expanduser, exists
+import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module
+import xml.sax
+import logging
+
+LOGGER = logging.getLogger(__name__)
 
 EPHY_BOOKMARKS_FILE = expanduser("~/.gnome2/epiphany/bookmarks.rdf")
 EPHY_HISTORY_FILE   = expanduser("~/.gnome2/epiphany/ephy-history.xml")
@@ -73,9 +76,6 @@ class EpiphanyBookmarksHandler(EpiphanyHandler):
         
     @staticmethod
     def has_requirements():
-        #    if deskbar.UNINSTALLED_DESKBAR:
-        #        return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-            
         if is_preferred_browser("epiphany"):
             return True
         else:
@@ -155,9 +155,6 @@ class EpiphanyHistoryHandler(EpiphanyHandler):
     
     @staticmethod    
     def has_requirements():
-        #    if deskbar.UNINSTALLED_DESKBAR:
-        #        return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-        
         if is_preferred_browser("epiphany"):
             return True
         else:
@@ -197,7 +194,11 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
         if exists(EPHY_BOOKMARKS_FILE):
             parser = xml.sax.make_parser()
             parser.setContentHandler(self)
-            parser.parse(EPHY_BOOKMARKS_FILE)
+            try:
+                parser.parse(EPHY_BOOKMARKS_FILE)
+            except xml.sax.SAXParseException, e:
+                LOGGER.error("Could not parse epiphany bookmarks file")
+                LOGGER.exception(e)
     
     def characters(self, chars):
         self.chars = self.chars + chars
