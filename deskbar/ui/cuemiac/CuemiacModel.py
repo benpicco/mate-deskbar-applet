@@ -118,12 +118,14 @@ class CuemiacModel (gtk.TreeStore):
         match_obj.add_all_actions(actions)
     
     def __append_match(self, match_obj, query_string):
+        if len(match_obj.get_actions()) == 0:
+            LOGGER.error("Match %r has no actions" % match_obj)
+            return
+        
         for action in match_obj.get_actions():
             if not action.is_valid():
                 LOGGER.error("Action %r is not valid, removing it" % action)
                 match_obj.remove_action(action)
-            if len(match_obj.get_actions()) == 0:
-                return
 
         if not self.__match_hashes.has_key(match_obj.get_hash()): 
             iter = self.__append ( query_string, match_obj )
