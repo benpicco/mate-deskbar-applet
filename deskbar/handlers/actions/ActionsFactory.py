@@ -53,7 +53,7 @@ def get_actions_for_uri(uri, display_name=None):
         # 3: can open multiple files (bool)
         # 4: expects_uri (int)
         # 5: supported uri schemes (list)
-        if mime_default_cmd == None or app[2] != mime_default_cmd:
+        if (mime_default_cmd == None or app[2] != mime_default_cmd) and app[2] != None:
             actions.append( OpenWithApplicationAction(display_name, app[2], [path],
                     display_program_name=app[1]) )
     
