@@ -27,7 +27,7 @@ TIMEOUT = 60
 def logout_prompt(prompt_type):
     global TIMEOUT
     if prompt_type == PROMPT_SHUTDOWN:
-        message = _("Shut down of this system now?")
+        message = _("Shut down this system now?")
         secondary = _("This system will be automatically shut down in %s seconds.")
         button_label = _("Shut Down")
     elif prompt_type == PROMPT_LOGOUT:
