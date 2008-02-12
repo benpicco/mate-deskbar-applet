@@ -12,18 +12,20 @@
 # Wojciech Kapusta <wojciech@aviary.pl>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet.gnome-2-16\n"
+"Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-07 22:26+0100\n"
-"PO-Revision-Date: 2008-02-06 13:47+0100\n"
+"POT-Creation-Date: 2008-02-12 22:52+0100\n"
+"PO-Revision-Date: 2008-02-10 10:37+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
-"Language-Team:  <pl@li.org>\n"
+"Language-Team: Tomasz Dominikowski (Aviary.pl) <dominikowski@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.9.1\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: Poland\n"
 
 #: ../data/deskbar-applet.schemas.in.h:1
 msgid ""
@@ -151,8 +153,8 @@ msgstr ""
 #: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr ""
-"Czy wywołanie skrótu klawiszowego wkleja także bieżące zaznaczenie do pola "
-"wyszukiwania."
+"Określa, czy wywołanie skrótu klawiszowego wkleja także bieżące zaznaczenie "
+"do pola wyszukiwania."
 
 #: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window height"
@@ -277,7 +279,7 @@ msgid ""
 "i>."
 msgstr ""
 "<i><small><b>Uwaga:</b> Aby użyć skrótu (np. <b>wp</b>) do wyszukiwania "
-"<b>coś</b>, wpisz w deskbar \"<b>wp coś</b>\"</small></i>."
+"<b>coś</b>, należy wpisać w deskbar \"<b>wp coś</b>\"</small></i>."
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
@@ -293,11 +295,11 @@ msgstr "Preferencje Deskbar - wyszukiwarki sieciowe"
 
 #: ../data/mozilla-search.glade.h:3
 msgid "Show all available search engines"
-msgstr "Pokaż wszystkie dostępne wyszukiwarki"
+msgstr "Wyświetl wszystkie dostępne wyszukiwarki"
 
 #: ../data/mozilla-search.glade.h:4
 msgid "Show only the primary search engine"
-msgstr "Pokaż wyszukiwarkę główną"
+msgstr "Wyświetl tylko wyszukiwarkę główną"
 
 #: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:181
 #, python-format
@@ -507,16 +509,16 @@ msgstr "Należy skonfigurować konto del.icio.us."
 msgid "You can modify your del.icio.us account."
 msgstr "Można zmodyfikować konto del.icio.us."
 
-#: ../deskbar/handlers/epiphany.py:48
+#: ../deskbar/handlers/epiphany.py:51
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Zakładki sieciowe (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:127
+#: ../deskbar/handlers/epiphany.py:52 ../deskbar/handlers/mozilla.py:127
 msgid "Open your web bookmarks by name"
 msgstr "Otwieranie zakładek sieciowych wg nazw"
 
 #: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
-#: ../deskbar/handlers/epiphany.py:164
+#: ../deskbar/handlers/epiphany.py:161
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany nie jest domyślną przeglądarką."
 
@@ -565,7 +567,7 @@ msgstr ""
 "Należy włączyć automatyczne uzupełnianie\n"
 "Nie można dostarczyć adresów e-mail z książki adresowej do czasu, aż nie "
 "zostanie włączone automatyczne uzupełnianie. Aby to uczynić, z menu programu "
-"pocztowego wybierz Edycja - Preferencje, a następnie Autouzupełnianie."
+"pocztowego proszę wybrać Edycja - Preferencje, a następnie Autouzupełnianie."
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
@@ -584,7 +586,7 @@ msgstr ""
 "Wyświetlanie wg nazw plików, folderów, zakładek, napędów, miejsc sieciowych"
 
 #: ../deskbar/handlers/gdmactions.py:30
-msgid "Shut down of this system now?"
+msgid "Shut down this system now?"
 msgstr "Wyłączyć komputer?"
 
 #: ../deskbar/handlers/gdmactions.py:31
@@ -595,7 +597,7 @@ msgstr "Komputer zostanie automatycznie wyłączony za %s sekund."
 #: ../deskbar/handlers/gdmactions.py:32 ../deskbar/handlers/gdmactions.py:223
 #: ../deskbar/handlers/gdmactions.py:281
 msgid "Shut Down"
-msgstr "Zamknij system"
+msgstr "Wyłącz komputer"
 
 #: ../deskbar/handlers/gdmactions.py:34
 msgid "Log out of this system now?"
@@ -609,7 +611,7 @@ msgstr "Użytkownik zostanie automatycznie wylogowany za %s sekund."
 #: ../deskbar/handlers/gdmactions.py:36 ../deskbar/handlers/gdmactions.py:236
 #: ../deskbar/handlers/gdmactions.py:240 ../deskbar/handlers/gdmactions.py:284
 msgid "Log Out"
-msgstr "Wylogowanie"
+msgstr "Wyloguj"
 
 #: ../deskbar/handlers/gdmactions.py:38
 msgid "Restart this system now?"
@@ -636,7 +638,7 @@ msgstr "Komputer zostanie automatycznie wstrzymany za %s sekund."
 
 #: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:313
 msgid "Suspend"
-msgstr "Uśpij"
+msgstr "Wstrzymaj"
 
 #: ../deskbar/handlers/gdmactions.py:46
 msgid "Hibernate this system now?"
@@ -649,15 +651,15 @@ msgstr "Komputer zostanie automatycznie zahibernowany za %s sekund."
 
 #: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:315
 msgid "Hibernate"
-msgstr "Wstrzymaj"
+msgstr "Hibernacja"
 
 #: ../deskbar/handlers/gdmactions.py:100
 msgid "Suspend the machine"
-msgstr "Uśpienie komputera"
+msgstr "Wstrzymanie komputera"
 
 #: ../deskbar/handlers/gdmactions.py:117
 msgid "Hibernate the machine"
-msgstr "Wstrzymanie komputera"
+msgstr "Hibernacja komputera"
 
 #: ../deskbar/handlers/gdmactions.py:134
 msgid "Shutdown the machine"
@@ -691,7 +693,8 @@ msgstr "Działania komputera"
 #: ../deskbar/handlers/gdmactions.py:279
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr ""
-"Wylogowanie, wyłączenie, ponowne uruchomienie, uśpienie i podobne działania."
+"Wylogowanie, wyłączenie, ponowne uruchomienie, wstrzymanie i podobne "
+"działania."
 
 #: ../deskbar/handlers/gdmactions.py:317
 msgid "Shutdown"
@@ -996,9 +999,7 @@ msgstr "Strona WWW Deskbar"
 #. translators: These appear in the About dialog, usual format applies.
 #: ../deskbar/ui/About.py:34
 msgid "translator-credits"
-msgstr ""
-"GNOME PL Team <translators@gnomepl.org>\n"
-"Tomasz Dominikowski <dominikowski@gmail.com>"
+msgstr "Tomasz Dominikowski (Aviary.pl) <dominikowski@gmail.com>"
 
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
