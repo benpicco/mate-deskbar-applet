@@ -74,6 +74,7 @@ class CuemiacActionsTreeView(gtk.TreeView):
 
         if event.keyval in self.activation_keys:
             qstring = model[iter][model.QUERY_COL]
+            self.emit ("row-activated", model.get_path(iter), self._column)
             self.emit ("action-selected", qstring, action, event)
         elif event.keyval in self.back_keys:
             self.emit ("go-back")
