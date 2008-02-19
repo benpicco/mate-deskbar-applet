@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-20 11:22+0000\n"
-"PO-Revision-Date: 2007-12-20 15:12+0100\n"
+"PO-Revision-Date: 2008-02-19 14:02+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -58,70 +58,74 @@ msgid "Minimum number of characters needed to start searching"
 msgstr "Najmanjše število znakov za začetek iskanja."
 
 #: ../data/deskbar-applet.schemas.in.h:10
+msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
+msgstr "Izberite uporabniški vmesnik; \"Okno\" ali \"gumb\""
+
+#: ../data/deskbar-applet.schemas.in.h:11
 msgid "The default height of the window in pixels"
 msgstr "Privzeta višina okna v točkah"
 
-#: ../data/deskbar-applet.schemas.in.h:11
+#: ../data/deskbar-applet.schemas.in.h:12
 msgid "The default position of the window on the screen (x-coordinate)"
 msgstr "Privzeta lega okna na zasloni (x koordinata)"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default position of the window on the screen (y-coordinate)"
 msgstr "Privzeta lega okna na zaslonu (y koordinata)"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The default width of the window in pixels"
 msgstr "Privzeta širina okna v točkah"
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr "Zaporedje tipk bo označilo Deskbar aplet, kar omogoča hitro tipkanje"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid "The list of categories to be collapsed when displayed. Valid categories are: default, history, documents, emails, conversations, files, people, places, actions, web, websearch, news and notes."
 msgstr "Seznam kategorij, ki bodo skrčene ob izpisu. Veljavne kategorije so: privzeto, zgodovina, dokumenti, elektronska pošta, pogovori, datoteke, ljudje, kraji, dejanja, splet, spletno iskanje, novice in zaznamki."
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid "The list of exported class names of the enabled handlers sorted by priority. Leftmost has highest priority"
 msgstr "Seznam izvoženih imen razredov upravljavcev razvrščenih po prednosti. Zapisi na levi imajo večjo prednost."
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid "The maximum number of items stored in history"
 msgstr "Največje število predmetov shranjenih v zgodovini"
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid "The minimum number of characters that need to be typed before the applet starts showing matches"
 msgstr "Najmanjše število znakov, ki jih je potrebno vtipkati, preden aplet prikaže zadetke"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid "The time in milliseconds between a keystroke in the search entry and the actual search being performed"
 msgstr "Čas v milisekundah med vnosom s tipkovnico in dejanskim zagonom iskalnika."
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid "Whether to close the window after an action has been activated"
 msgstr "Ali naj se zapre okno po tem, ko je dejanje zagnano"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Whether to show only the preferred search engine, rather than all available engines. This only affects Mozilla-based web browsers such as Firefox."
 msgstr "Ali naj bodo prikazani le najbolj priljubljeni iskalniki. Nastavitev je namenjena brskalnikom iz družine Mozilla, kot je Firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "Ali zagon Deskbar apleta prilepi trenutno izbiro"
 
-#: ../data/deskbar-applet.schemas.in.h:23
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window height"
 msgstr "Višina okna"
 
-#: ../data/deskbar-applet.schemas.in.h:24
+#: ../data/deskbar-applet.schemas.in.h:25
 msgid "Window width"
 msgstr "Širina okna"
 
-#: ../data/deskbar-applet.schemas.in.h:25
+#: ../data/deskbar-applet.schemas.in.h:26
 msgid "X-coordinate of window"
 msgstr "X koordinata okna"
 
-#: ../data/deskbar-applet.schemas.in.h:26
+#: ../data/deskbar-applet.schemas.in.h:27
 msgid "Y-coordinate of window"
 msgstr "Y koordinata okna"
 
@@ -134,6 +138,10 @@ msgid "_Clear History"
 msgstr "_Počisti zgodovino"
 
 #: ../data/Deskbar_Applet.xml.h:3
+msgid "_Help"
+msgstr "_Pomoč"
+
+#: ../data/Deskbar_Applet.xml.h:4
 msgid "_Preferences"
 msgstr "_Nastavitve"
 
@@ -142,7 +150,7 @@ msgid "An all-in-one action bar"
 msgstr "Vse v enem orodna vrstica"
 
 #: ../data/Deskbar_Applet.server.in.in.h:2
-#: ../deskbar/ui/About.py:19
+#: ../deskbar/ui/About.py:27
 msgid "Deskbar"
 msgstr "Namizna plošča"
 
@@ -163,50 +171,62 @@ msgid "<b>Loaded Extensions</b>"
 msgstr "<b>Naložene razširitve</b>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid "<b>Window Behavior</b>"
+msgstr "<b>Obnašanje oken</b>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "Deskbar Preferences"
 msgstr "Nastavitve namizne plošče"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Extensions with Errors"
 msgstr "Razširitve z napakami"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "General"
 msgstr "Splošno"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "New Extensions"
 msgstr "Nove razširitve"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Search selection when triggering the shortcut"
 msgstr "Izbor iskanja povezan z bližnjico"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "Searches"
 msgstr "Iskalniki"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
+msgid "Stick to panel"
+msgstr "Prilepi na pladenj"
+
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Check For Updates"
 msgstr "_Preveri za posodobitve"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Check for new extensions"
 msgstr "_Preveri za nove razširitve"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "_Install"
 msgstr "_Naloži"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Keyboard shortcut to focus:"
 msgstr "Fo_kus bližnjice povezave:"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:17
 msgid "_More..."
 msgstr "_Več ..."
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Reload"
+msgstr "_Ponovno naloži"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Update"
 msgstr "_Posodobi"
 
@@ -235,7 +255,7 @@ msgid "Show only the primary search engine"
 msgstr "Prikaži samo primarne iskalnike"
 
 #: ../deskbar/core/BrowserMatch.py:51
-#: ../deskbar/handlers/beagle-live.py:178
+#: ../deskbar/handlers/beagle-live.py:181
 #, python-format
 msgid "Open History Item %s"
 msgstr "Odpri vnos zgodovine %s"
@@ -252,7 +272,7 @@ msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Preišči <b>%(name)s</b> za <i>%(text)s</i>"
 
 #: ../deskbar/core/BrowserMatch.py:95
-#: ../deskbar/handlers/yahoo.py:31
+#: ../deskbar/handlers/yahoo.py:33
 msgid "URL"
 msgstr "URL"
 
@@ -318,68 +338,83 @@ msgstr "Novice"
 msgid "Notes"
 msgstr "Zapiski"
 
-#: ../deskbar/core/DeskbarHistory.py:20
+#: ../deskbar/core/DeskbarHistory.py:22
 msgid "<i>Choose action</i>"
 msgstr "<i>Izberi dejanje</i>"
 
-#: ../deskbar/core/Utils.py:130
+#: ../deskbar/core/Utils.py:132
 msgid "Cannot execute program:"
 msgstr "Ni mogoče izvesti programa:"
 
-#: ../deskbar/core/Utils.py:170
+#: ../deskbar/core/Utils.py:172
 msgid "Cannot show URL:"
 msgstr "Ni mogoče prikazati URL naslova:"
 
-#: ../deskbar/handlers/beagle-live.py:100
+#. translators: This is the window title.
+#: ../deskbar/deskbar-applet.py:15
+msgid "Deskbar Applet"
+msgstr "Deskbar Aplet"
+
+#: ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "Edit contact %s"
 msgstr "Uredi kontaktne podatke %s"
 
-#: ../deskbar/handlers/beagle-live.py:111
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
 msgid "From %s"
 msgstr "Od %s"
 
-#: ../deskbar/handlers/beagle-live.py:126
+#: ../deskbar/handlers/beagle-live.py:129
 #, python-format
 msgid "News from %s"
 msgstr "Novice od %s"
 
-#: ../deskbar/handlers/beagle-live.py:140
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Note: %s"
 msgstr "Opomba: %s"
 
-#: ../deskbar/handlers/beagle-live.py:153
+#: ../deskbar/handlers/beagle-live.py:156
 #, python-format
 msgid "With %s"
 msgstr "Z %s"
 
-#: ../deskbar/handlers/beagle-live.py:167
+#: ../deskbar/handlers/beagle-live.py:170
 #, python-format
 msgid "Calendar: %s"
 msgstr "Koledar: %s"
 
-#: ../deskbar/handlers/beagle-live.py:273
+#: ../deskbar/handlers/beagle-live.py:213
+#, python-format
+msgid "Additional results for category <b>%s</b>"
+msgstr "Dodatni zadetki za kategorijo <b>%s</b>"
+
+#: ../deskbar/handlers/beagle-live.py:213
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
+msgid "name"
+msgstr "ime"
+
+#: ../deskbar/handlers/beagle-live.py:295
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:274
+#: ../deskbar/handlers/beagle-live.py:296
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Išči po vseh dokumentih (preko Beagla), med tipkanjem"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:396
-#: ../deskbar/handlers/beagle-live.py:418
+#: ../deskbar/handlers/beagle-live.py:433
+#: ../deskbar/handlers/beagle-live.py:455
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:456
+#: ../deskbar/handlers/beagle-live.py:486
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Programa Beagle ni mogoče zagnati; libbeagle je bil pripravljen brez python povezav."
 
-#: ../deskbar/handlers/beagle-live.py:465
+#: ../deskbar/handlers/beagle-live.py:495
 msgid "Beagled could not be found in your $PATH."
 msgstr "Program Beagle ni zapisan v $PATH"
 
@@ -400,45 +435,46 @@ msgstr "Išči po vseh dokumentih (preko Beagla)"
 msgid "Beagle does not seem to be installed."
 msgstr "Videti je, da program Beagle ni naložen."
 
-#: ../deskbar/handlers/desklicious.py:45
+#: ../deskbar/handlers/desklicious.py:47
 msgid "del.icio.us Bookmarks"
 msgstr "del.icio.us zaznamki"
 
-#: ../deskbar/handlers/desklicious.py:46
+#: ../deskbar/handlers/desklicious.py:48
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "Išči med  del.icio.us zaznamki po imenu oznake"
 
-#: ../deskbar/handlers/desklicious.py:78
+#: ../deskbar/handlers/desklicious.py:80
 msgid "del.icio.us Account"
 msgstr "del.icio.us račun"
 
-#: ../deskbar/handlers/desklicious.py:85
+#: ../deskbar/handlers/desklicious.py:87
 msgid "Enter your del.icio.us username below"
 msgstr "Vnesite uporabniško ime za del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:91
+#: ../deskbar/handlers/desklicious.py:93
 msgid "Username: "
 msgstr "Uporabniško ime:"
 
-#: ../deskbar/handlers/desklicious.py:107
+#: ../deskbar/handlers/desklicious.py:109
 msgid "You need to configure your del.icio.us account."
 msgstr "Nastaviti je treba del.icio.us račun."
 
-#: ../deskbar/handlers/desklicious.py:112
+#: ../deskbar/handlers/desklicious.py:114
 msgid "You can modify your del.icio.us account."
 msgstr "Prilagajanje del.icio.us računa."
 
-#: ../deskbar/handlers/epiphany.py:48
+#: ../deskbar/handlers/epiphany.py:51
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Spletni zaznamki  (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49
-#: ../deskbar/handlers/mozilla.py:125
+#: ../deskbar/handlers/epiphany.py:52
+#: ../deskbar/handlers/mozilla.py:127
 msgid "Open your web bookmarks by name"
 msgstr "Odpri spletne zaznamke imensko"
 
 #: ../deskbar/handlers/epiphany.py:82
 #: ../deskbar/handlers/epiphany.py:127
+#: ../deskbar/handlers/epiphany.py:161
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany ni privzet brskalnik."
 
@@ -447,7 +483,7 @@ msgid "Web Searches (Epiphany)"
 msgstr "Spletni iskalniki (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:89
-#: ../deskbar/handlers/mozilla.py:192
+#: ../deskbar/handlers/mozilla.py:194
 msgid "Search the web via your browser's search settings"
 msgstr "Preišči splet preko brskalnikovih nastavitev iskanja"
 
@@ -460,7 +496,7 @@ msgid "Web History (Epiphany)"
 msgstr "Zgodovina mreže (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:135
-#: ../deskbar/handlers/mozilla.py:736
+#: ../deskbar/handlers/mozilla.py:738
 msgid "Open your web history by name"
 msgstr "Odpri spletno zgodovino imensko"
 
@@ -489,7 +525,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:62
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:35
 msgid "Location"
 msgstr "Položaj"
 
@@ -501,124 +537,124 @@ msgstr "Datoteke, Mape in Povezave"
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "Imensko pregledovanje datotek, zaznamkov, pogonov in omrežnih mest"
 
-#: ../deskbar/handlers/gdmactions.py:23
-msgid "Shut down of this system now?"
+#: ../deskbar/handlers/gdmactions.py:30
+msgid "Shut down this system now?"
 msgstr "Ali želite izklopiti računalnik?"
 
-#: ../deskbar/handlers/gdmactions.py:24
+#: ../deskbar/handlers/gdmactions.py:31
 #, python-format
 msgid "This system will be automatically shut down in %s seconds."
 msgstr "Sistem bo samodejno izklopljen v %s sekundah."
 
-#: ../deskbar/handlers/gdmactions.py:25
-#: ../deskbar/handlers/gdmactions.py:216
-#: ../deskbar/handlers/gdmactions.py:274
+#: ../deskbar/handlers/gdmactions.py:32
+#: ../deskbar/handlers/gdmactions.py:223
+#: ../deskbar/handlers/gdmactions.py:281
 msgid "Shut Down"
 msgstr "Izklopi"
 
-#: ../deskbar/handlers/gdmactions.py:27
+#: ../deskbar/handlers/gdmactions.py:34
 msgid "Log out of this system now?"
 msgstr "Ali se želite odjaviti iz sistema?"
 
-#: ../deskbar/handlers/gdmactions.py:28
+#: ../deskbar/handlers/gdmactions.py:35
 #, python-format
 msgid "You will be automatically logged out in %s seconds."
 msgstr "Samodejno boste odjavljeni v %s sekundah."
 
-#: ../deskbar/handlers/gdmactions.py:29
-#: ../deskbar/handlers/gdmactions.py:229
-#: ../deskbar/handlers/gdmactions.py:233
-#: ../deskbar/handlers/gdmactions.py:277
+#: ../deskbar/handlers/gdmactions.py:36
+#: ../deskbar/handlers/gdmactions.py:236
+#: ../deskbar/handlers/gdmactions.py:240
+#: ../deskbar/handlers/gdmactions.py:284
 msgid "Log Out"
 msgstr "Odjava"
 
-#: ../deskbar/handlers/gdmactions.py:31
+#: ../deskbar/handlers/gdmactions.py:38
 msgid "Restart this system now?"
 msgstr "Ali naj se sistem ponovno zažene?"
 
-#: ../deskbar/handlers/gdmactions.py:32
+#: ../deskbar/handlers/gdmactions.py:39
 #, python-format
 msgid "This system will be automatically restarted in %s seconds."
 msgstr "Sistem bo samodejno ponovno zagnan v %s sekundah."
 
-#: ../deskbar/handlers/gdmactions.py:33
-#: ../deskbar/handlers/gdmactions.py:250
-#: ../deskbar/handlers/gdmactions.py:276
+#: ../deskbar/handlers/gdmactions.py:40
+#: ../deskbar/handlers/gdmactions.py:257
+#: ../deskbar/handlers/gdmactions.py:283
 msgid "Restart"
 msgstr "Ponovni zagon"
 
-#: ../deskbar/handlers/gdmactions.py:35
+#: ../deskbar/handlers/gdmactions.py:42
 msgid "Suspend this system now?"
 msgstr "Ali naj se računalnik zaustavi?"
 
-#: ../deskbar/handlers/gdmactions.py:36
+#: ../deskbar/handlers/gdmactions.py:43
 #, python-format
 msgid "This system will be automatically suspended in %s seconds."
 msgstr "Sistem bo samodejno zaustavljen v %s sekundah."
 
-#: ../deskbar/handlers/gdmactions.py:37
-#: ../deskbar/handlers/gdmactions.py:306
+#: ../deskbar/handlers/gdmactions.py:44
+#: ../deskbar/handlers/gdmactions.py:313
 msgid "Suspend"
 msgstr "Zaustavi"
 
-#: ../deskbar/handlers/gdmactions.py:39
+#: ../deskbar/handlers/gdmactions.py:46
 msgid "Hibernate this system now?"
 msgstr "Ali naj računalnik hibernira?"
 
-#: ../deskbar/handlers/gdmactions.py:40
+#: ../deskbar/handlers/gdmactions.py:47
 #, python-format
 msgid "This system will be automatically hibernated in %s seconds."
 msgstr "Sistem bo samodejno hiberniral v %s sekundah."
 
-#: ../deskbar/handlers/gdmactions.py:41
-#: ../deskbar/handlers/gdmactions.py:308
+#: ../deskbar/handlers/gdmactions.py:48
+#: ../deskbar/handlers/gdmactions.py:315
 msgid "Hibernate"
 msgstr "Hibernacija"
 
-#: ../deskbar/handlers/gdmactions.py:93
+#: ../deskbar/handlers/gdmactions.py:100
 msgid "Suspend the machine"
 msgstr "Suspendiraj računalnik"
 
-#: ../deskbar/handlers/gdmactions.py:110
+#: ../deskbar/handlers/gdmactions.py:117
 msgid "Hibernate the machine"
 msgstr "Hibernacija računalnika"
 
-#: ../deskbar/handlers/gdmactions.py:127
+#: ../deskbar/handlers/gdmactions.py:134
 msgid "Shutdown the machine"
 msgstr "Izklopi računalnik"
 
-#: ../deskbar/handlers/gdmactions.py:148
+#: ../deskbar/handlers/gdmactions.py:155
 msgid "Lock the screen"
 msgstr "Zakleni ekran"
 
-#: ../deskbar/handlers/gdmactions.py:171
-#: ../deskbar/handlers/gdmactions.py:295
+#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:302
 msgid "Lock"
 msgstr "Zakleni"
 
-#: ../deskbar/handlers/gdmactions.py:212
+#: ../deskbar/handlers/gdmactions.py:219
 msgid "Turn off the computer"
 msgstr "Izklopi računalnik"
 
-#: ../deskbar/handlers/gdmactions.py:246
+#: ../deskbar/handlers/gdmactions.py:253
 msgid "Restart the computer"
 msgstr "Ponovni zagon računalnika"
 
-#: ../deskbar/handlers/gdmactions.py:261
-#: ../deskbar/handlers/gdmactions.py:265
-#: ../deskbar/handlers/gdmactions.py:275
+#: ../deskbar/handlers/gdmactions.py:268
+#: ../deskbar/handlers/gdmactions.py:272
+#: ../deskbar/handlers/gdmactions.py:282
 msgid "Switch User"
 msgstr "Zamenjaj uporabnika"
 
-#: ../deskbar/handlers/gdmactions.py:271
+#: ../deskbar/handlers/gdmactions.py:278
 msgid "Computer Actions"
 msgstr "Računalniške akcije"
 
-#: ../deskbar/handlers/gdmactions.py:272
+#: ../deskbar/handlers/gdmactions.py:279
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Odjava, izklop, ponovni zagon, suspendiranje in podobne akcije."
 
-#: ../deskbar/handlers/gdmactions.py:310
+#: ../deskbar/handlers/gdmactions.py:317
 msgid "Shutdown"
 msgstr "Izklopi"
 
@@ -643,24 +679,24 @@ msgstr "Preklopi na obstoječe okno po imenu."
 msgid "Windows"
 msgstr "Okna"
 
-#: ../deskbar/handlers/mozilla.py:124
+#: ../deskbar/handlers/mozilla.py:126
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Spletni zaznamki (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:184
-#: ../deskbar/handlers/mozilla.py:257
+#: ../deskbar/handlers/mozilla.py:186
+#: ../deskbar/handlers/mozilla.py:259
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox ni privzet brskalnik."
 
-#: ../deskbar/handlers/mozilla.py:191
+#: ../deskbar/handlers/mozilla.py:193
 msgid "Web Searches (Mozilla)"
 msgstr "Spletni iskalniki (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:251
+#: ../deskbar/handlers/mozilla.py:253
 msgid "You can customize which search engines are offered."
 msgstr "Prilagajanje uporabe iskalnih orodij."
 
-#: ../deskbar/handlers/mozilla.py:735
+#: ../deskbar/handlers/mozilla.py:737
 msgid "Web History (Mozilla)"
 msgstr "Zgodovina mreže (Mozilla)"
 
@@ -711,25 +747,25 @@ msgstr "Dokumentacija za razvijalce"
 msgid "Search Devhelp for a function name"
 msgstr "Preišči devhelp za ime funkcije"
 
-#: ../deskbar/handlers/programs.py:189
+#: ../deskbar/handlers/programs.py:192
 msgid "Devhelp is not installed"
 msgstr "Devhelp ni nameščen"
 
-#: ../deskbar/handlers/programs.py:238
+#: ../deskbar/handlers/programs.py:241
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "Izvedi %s v terminalu"
 
-#: ../deskbar/handlers/programs.py:240
+#: ../deskbar/handlers/programs.py:243
 #, python-format
 msgid "Execute %s"
 msgstr "Izvedi %s"
 
-#: ../deskbar/handlers/programs.py:256
+#: ../deskbar/handlers/programs.py:259
 msgid "Programs"
 msgstr "Programi"
 
-#: ../deskbar/handlers/programs.py:257
+#: ../deskbar/handlers/programs.py:260
 msgid "Launch a program by its name and/or description"
 msgstr "Zaženi program z imenom ali po opisu"
 
@@ -788,19 +824,71 @@ msgstr "Predloge"
 msgid "Create new files from your templates"
 msgstr "Ustvarite nove datoteke iz vaših predlog"
 
+#: ../deskbar/handlers/tomboy.py:37
+#, python-format
+msgid "Open note <b>%(name)s</b>"
+msgstr "Odpri sporočilce <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:50
+msgid "Really delete this note?"
+msgstr "Ali želite izbrisati to sporočilce?"
+
+#: ../deskbar/handlers/tomboy.py:51
+msgid "If you delete a note it is permanently lost."
+msgstr "Če zbrišete sporočilce, bo trajno izgubljeno."
+
+#: ../deskbar/handlers/tomboy.py:63
+#, python-format
+msgid "Delete note <b>%(name)s</b>"
+msgstr "Izbriši sporočilce <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:88
+#, python-format
+msgid "Create note <b>%(name)s</b>"
+msgstr "Ustvari sporočilce <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:110
+msgid "Title"
+msgstr "Naslov"
+
+#: ../deskbar/handlers/tomboy.py:111
+msgid "Contents"
+msgstr "Vsebina"
+
+#: ../deskbar/handlers/tomboy.py:130
+msgid "Tomboy Notes"
+msgstr "Sporočilca Tomboy"
+
+#: ../deskbar/handlers/tomboy.py:131
+msgid "Search your Tomboy notes"
+msgstr "Preišči Tomboy sporočilca"
+
+#: ../deskbar/handlers/tomboy.py:198
+msgid "Tomboy does not seem to be installed."
+msgstr "Videti je, da program Tomboy ni nameščen."
+
+#: ../deskbar/handlers/tomboy.py:235
+#, python-format
+msgid ""
+"Tomboy does not seem to be the correct version.\n"
+"Tomboy %s or greater must be installed."
+msgstr ""
+"Program Tomboy ni prave različice.\n"
+"Nameščena mora biti različica Tomboy %s ali višja."
+
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Odpri spletne strani in pošiljaj e-pošto s tipkanjem celotnih naslovov."
 
-#: ../deskbar/handlers/yahoo.py:39
+#: ../deskbar/handlers/yahoo.py:41
 msgid "Yahoo! Search"
 msgstr "Yahoo! Iskanje"
 
-#: ../deskbar/handlers/yahoo.py:40
+#: ../deskbar/handlers/yahoo.py:42
 msgid "Search Yahoo! as you type"
 msgstr "Iskanje Yahoo! med tipkanjem"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:62
 #, python-format
 msgid "URL of %s"
 msgstr "URL %s"
@@ -817,18 +905,18 @@ msgstr "Odpri lokacijo %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:45
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Zaženi <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/actions/OpenFileAction.py:40
+#: ../deskbar/handlers/actions/OpenFileAction.py:51
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
 msgstr "Odpri %s"
 
-#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
 #, python-format
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
 msgstr "Odpri <b>%(name)s</b> z <b>%(program)s</b>"
@@ -860,18 +948,16 @@ msgstr "Pošlji e-pošto <b>%(name)s</b> (%(email)s)"
 msgid "Send %s via e-mail"
 msgstr "Pošlji %s preko pošte"
 
-#: ../deskbar/ui/About.py:22
+#: ../deskbar/ui/About.py:23
 msgid "An all-in-one action bar."
 msgstr "Vse v enem orodna vrstica."
 
-#: ../deskbar/ui/About.py:25
+#: ../deskbar/ui/About.py:30
 msgid "Deskbar Website"
 msgstr "Spletna stran programa namizne plošče"
 
-#. about.set_artists([])
-#. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
+#: ../deskbar/ui/About.py:34
 msgid "translator-credits"
 msgstr "Matej Urbančič <mateju@svn.gnome.org>"
 
@@ -879,28 +965,26 @@ msgstr "Matej Urbančič <mateju@svn.gnome.org>"
 msgid "<b>Search:</b>"
 msgstr "<b>Iskanje:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "ime"
-
 #: ../deskbar/ui/cuemiac/CuemiacItems.py:22
 msgid "default"
 msgstr "privzeto"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:76
+#: ../deskbar/ui/CuemiacAlignedView.py:88
+#: ../deskbar/ui/CuemiacWindowView.py:77
 msgid "_History"
 msgstr "_Zgodovina"
 
-#: ../deskbar/ui/CuemiacWindowView.py:134
+#: ../deskbar/ui/CuemiacAlignedView.py:150
+#: ../deskbar/ui/CuemiacWindowView.py:139
 msgid "Back to Matches"
 msgstr "Nazaj na zadetke"
 
-#: ../deskbar/ui/DeskbarTray.py:42
+#: ../deskbar/ui/DeskbarTray.py:44
 msgid "Show search entry"
 msgstr "Pokaži iskalni vnos"
 
-#: ../deskbar/ui/DeskbarTray.py:87
+#: ../deskbar/ui/DeskbarTray.py:111
 msgid "Some potentially old modules that make use of an old Deskbar-Applet API have been found. Remove these files for this warning to disappear.\n"
 msgstr "Zaznane so nekatere starejše enote, ki uporabljajo Deskbar aplet API. Ko boste odstranili te datoteke, bo izginilo tudi to opozorilno sposočilo.\n"
 
@@ -917,19 +1001,23 @@ msgstr ""
 "Bližnjica \"%s\" ni na voljo, saj tipkovnica ne bi delovala pravilno.\n"
 "Poskusite izbrati  bližnjico s pomočjo tipk Control, Alt ali Shift in želeno črko.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
+msgid "Reload all extensions"
+msgstr "Ponovno naloži vse razširitve"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Potegni in spusti vnos za zamenjavo vrstnega reda.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:318
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:335
 msgid "A problem occured"
 msgstr "Prišlo je do napake"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:383
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:400
 msgid "Handler has been installed successfully"
 msgstr "Upravljavec je uspešno nameščen"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:386
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:403
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "Upravljavec ni nameščen zaradi napak z datoteko"
 
