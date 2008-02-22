@@ -1,3 +1,12 @@
+2008-02-22	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+    * deskbar/core/BrowserMatch.py:
+    * deskbar/handlers/mozilla.py:
+    Added check that the firefox version
+    is between 2.0.0.0 and 3.0.0.0.
+    The modules don't work with FF 3.0 or later
+    because data is stored in a SQLite DB since 3.0.
+
 2008-02-13	Mikkel Kamstrup Erlandsen <kamstrup@cvs.gnome.org>
 
     * deskbar/ui/cuemiac/CuemiacActionsTreeView.py:

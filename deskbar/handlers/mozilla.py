@@ -1,18 +1,23 @@
 from ConfigParser import RawConfigParser
-from deskbar.core.BrowserMatch import BrowserSmartMatch, BrowserMatch
-from deskbar.core.BrowserMatch import is_preferred_browser
+from deskbar.core.BrowserMatch import BrowserSmartMatch, BrowserMatch, is_preferred_browser, get_preferred_browser
 from deskbar.core.GconfStore import GconfStore
 from deskbar.core.Watcher import FileWatcher, DirWatcher
 from deskbar.defs import VERSION
 from gettext import gettext as _
 from os.path import join, expanduser, exists, basename
 from xml.dom import minidom
-import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module
+import HTMLParser
+import base64
+import deskbar
+import deskbar.core.Indexer
+import deskbar.interfaces.Module
+import glob
 import gtk
 import logging
-import os, re, HTMLParser, base64, glob
+import os
+import re
+import subprocess
 import urllib
-
 LOGGER = logging.getLogger(__name__)
 
 # Check for presence of set to be compatible with python 2.3
@@ -21,11 +26,14 @@ try:
 except NameError:
     from sets import Set as set
 
-
 # Whether we will index firefox or mozilla bookmarks
 USING_FIREFOX = False
 if is_preferred_browser("firefox") or is_preferred_browser("iceweasel"):
     USING_FIREFOX = True
+    
+# Minimum and maximum version of Firefox
+MIN_FF_VERSION = [2, 0, 0, 0]
+MAX_FF_VERSION = [3, 0, 0, 0] # exclusively
         
 # File returned here should be checked for existence
 def get_mozilla_home_file(needed_file):    
@@ -56,6 +64,25 @@ def get_firefox_home_file(needed_file):
         return join(path, needed_file)
 
     return join(firefox_dir, path, needed_file)
+
+def get_firefox_version():
+    browser = get_preferred_browser ()
+    process = subprocess.Popen(browser + " -version", stdout=subprocess.PIPE, shell=True)
+    info = process.stdout.readline()
+    pattern = re.compile("([0-9]+?)\.([0-9]+?)(\.([0-9]+?))*")
+    version = None
+    if (pattern.match(info)):
+        match = pattern.match(info)
+        version = info[match.start():match.end()]
+    if version != None:
+        # Convert to integers
+        version = [int(i) for i in version.split(".")]
+        # List must have 4 elements
+        if len(version) < 4:
+            while (len(version) < 4):
+                version.append(0)
+    else:
+        return None
 
 # Whether we offer all of the browser's search engines, or only the primary
 # one (since by default Firefox seems to come with at least half a dozen)            
@@ -177,14 +204,24 @@ class MozillaBookmarksHandler(deskbar.interfaces.Module):
     
     @staticmethod
     def has_requirements():
-        #    if deskbar.UNINSTALLED_DESKBAR:
-        #        return (deskbar.Handler.HANDLER_IS_HAPPY, None, None)
-            
-        if is_preferred_browser("firefox") or is_preferred_browser("mozilla"):
+        if is_preferred_browser("mozilla"):
             return True
+        elif is_preferred_browser("firefox"):
+            if MozillaBookmarksHandler.has_firefox_version():
+                return True
+            # TODO: mark as i18n
+            MozillaBookmarksHandler.INSTRUCTIONS = "Firefox version must be between 2.0.0.0 and 3.0.0.0"
+            return False
         else:
             MozillaBookmarksHandler.INSTRUCTIONS = _("Mozilla/Firefox is not your preferred browser.")
             return False
+        
+    @staticmethod
+    def has_firefox_version():
+        version = get_firefox_version()
+        if version != None:
+            return (version >= MIN_FF_VERSION and version < MAX_FF_VERSION)
+        return False
         
 
 class MozillaSearchHandler(deskbar.interfaces.Module):

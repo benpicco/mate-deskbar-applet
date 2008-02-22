@@ -7,8 +7,7 @@ from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.core.GconfStore import GconfStore
 
-def is_preferred_browser(test):
-    # We will import only if the user's preferred browser is mozilla
+def get_preferred_browser():
     http_handler = GconfStore.get_instance().get_client().get_string("/desktop/gnome/url-handlers/http/command")
     if http_handler == None:
         return False
@@ -17,10 +16,14 @@ def is_preferred_browser(test):
     if not GconfStore.get_instance().get_client().get_bool("/desktop/gnome/url-handlers/http/enabled"):
         return False
     
+    return http_handler.split(" ")[0]
+
+def is_preferred_browser(test):
+    # We will import only if the user's preferred browser is mozilla
+    http_handler = get_preferred_browser()
+      
     if http_handler.find(test) != -1:
         return True
-    
-    http_handler = http_handler.split(" ")[0]
 
     paths = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip() != "" and os.path.exists(path) and os.path.isdir(path)]
     for directory in paths:
