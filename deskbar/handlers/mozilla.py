@@ -68,12 +68,14 @@ def get_firefox_home_file(needed_file):
 def get_firefox_version():
     browser = get_preferred_browser ()
     process = subprocess.Popen(browser + " -version", stdout=subprocess.PIPE, shell=True)
-    info = process.stdout.readline()
-    pattern = re.compile("([0-9]+?)\.([0-9]+?)(\.([0-9]+?))*")
+    info = process.stdout.readline().split(" ")
+    pattern = re.compile("([0-9]+?)\.([0-9]+?)(\.([0-9]+))*")
     version = None
-    if (pattern.match(info)):
-        match = pattern.match(info)
-        version = info[match.start():match.end()]
+    for word in info:
+        if pattern.match(word):
+            match = pattern.match(word)
+            version = word[match.start():match.end()]
+    
     if version != None:
         # Convert to integers
         version = [int(i) for i in version.split(".")]
@@ -81,6 +83,7 @@ def get_firefox_version():
         if len(version) < 4:
             while (len(version) < 4):
                 version.append(0)
+        return version
     else:
         return None
 
@@ -219,6 +222,7 @@ class MozillaBookmarksHandler(deskbar.interfaces.Module):
     @staticmethod
     def has_firefox_version():
         version = get_firefox_version()
+        print "==============", version
         if version != None:
             return (version >= MIN_FF_VERSION and version < MAX_FF_VERSION)
         return False
