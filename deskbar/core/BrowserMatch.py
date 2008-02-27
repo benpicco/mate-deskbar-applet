@@ -10,18 +10,21 @@ from deskbar.core.GconfStore import GconfStore
 def get_preferred_browser():
     http_handler = GconfStore.get_instance().get_client().get_string("/desktop/gnome/url-handlers/http/command")
     if http_handler == None:
-        return False
+        return None
         
     http_handler = http_handler.strip().lower()
     if not GconfStore.get_instance().get_client().get_bool("/desktop/gnome/url-handlers/http/enabled"):
-        return False
+        return None
     
     return http_handler.split(" ")[0]
 
 def is_preferred_browser(test):
     # We will import only if the user's preferred browser is mozilla
     http_handler = get_preferred_browser()
-      
+    
+    if http_handler == None:
+        return False
+    
     if http_handler.find(test) != -1:
         return True
 
