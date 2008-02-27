@@ -1,5 +1,11 @@
 2008-02-27	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/core/CoreImpl.py:
+    When the default browser changes only stop those modules
+    that have been enabled before. (fixes bug #513402)
+
+2008-02-27	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/core/BrowserMatch.py:
     Fixed bug #518941: 'bool' object has no attribute 'find'
 

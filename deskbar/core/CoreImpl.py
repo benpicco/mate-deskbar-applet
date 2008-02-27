@@ -386,9 +386,11 @@ class CoreImpl(deskbar.interfaces.Core):
         for module in self._module_list:
             # Check if the module is related to the old browser.
             if module.__class__.__module__ == "epiphany" or module.__class__.__module__ == "mozilla":
-                if module.is_enabled() and new_browser != "other":
-                    enabled_browser_modules.append(module.__class__.__name__)
-                self.stop_module(module, async=False)
+                if module.is_enabled(): 
+                    self.stop_module(module, async=False)
+                    if new_browser != "other":
+                        enabled_browser_modules.append(module.__class__.__name__)
+                    
                 self._module_list.remove_module(module)
                 self._module_loader.emit("module-not-initialized", module)
         
