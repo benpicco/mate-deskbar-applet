@@ -222,7 +222,6 @@ class MozillaBookmarksHandler(deskbar.interfaces.Module):
     @staticmethod
     def has_firefox_version():
         version = get_firefox_version()
-        print "==============", version
         if version != None:
             return (version >= MIN_FF_VERSION and version < MAX_FF_VERSION)
         return False
