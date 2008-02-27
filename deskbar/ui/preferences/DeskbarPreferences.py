@@ -32,6 +32,7 @@ class DeskbarPreferences:
     
     def __init__(self, model):
         self._model = model
+        self._model.connect("initialized", self.on_modules_initialized)
         
         self.module_list = self._model.get_module_list()
     
@@ -236,6 +237,7 @@ class DeskbarPreferences:
             self.more_button_callback(self.dialog)
 
     def on_reload_button_clicked(self, button):
+        self.reload_button.set_sensitive(False)
         self._model.reload_all_modules()
     
     def on_module_selected(self, selection):
@@ -438,3 +440,6 @@ class DeskbarPreferences:
             self._model.set_ui_name(deskbar.BUTTON_UI_NAME)
         else:
             self._model.set_ui_name(deskbar.WINDOW_UI_NAME)
+            
+    def on_modules_initialized(self, model):
+        self.reload_button.set_sensitive(True)

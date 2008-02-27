@@ -254,7 +254,6 @@ class CoreImpl(deskbar.interfaces.Core):
         self._module_list.clear()
         self._disabled_module_list.clear()
         LOGGER.info("Reloading all modules")
-        self._module_loader.emit("modules-reloading")
         self._module_loader.load_all()
     
     def stop_queries(self):

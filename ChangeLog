@@ -1,6 +1,16 @@
 2008-02-27	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     * deskbar/core/CoreImpl.py:
+    * deskbar/core/ModuleLoader.py:
+    * deskbar/ui/DeskbarPreferences.py:
+    Removed useless signal "modules-reloading" from ModuleLoader
+    class.
+    Fixed bug #518984: Pressing reload button more than once causes
+    an exception. The button is now marked insensitive while re-loading.
+
+2008-02-27	Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+    * deskbar/core/CoreImpl.py:
     When the default browser changes only stop those modules
     that have been enabled before. (fixes bug #513402)
 
