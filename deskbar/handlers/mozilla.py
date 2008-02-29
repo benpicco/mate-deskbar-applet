@@ -290,6 +290,12 @@ class MozillaSearchHandler(deskbar.interfaces.Module):
     @staticmethod
     def has_requirements():
         if is_preferred_browser("firefox") or is_preferred_browser("iceweasel"):
+            if is_preferred_browser("firefox") and not MozillaBookmarksHandler.has_firefox_version():
+                # TODO: mark as i18n
+                MozillaSearchHandler.INSTRUCTIONS = "Firefox version must be between 2.0.0.0 and 3.0.0.0"
+                return False
+            
+            # Correct firefox version or iceweasel
             MozillaSearchHandler.INSTRUCTIONS = _("You can customize which search engines are offered.")
             return True
         elif is_preferred_browser("mozilla"):
@@ -813,5 +819,15 @@ class MozillaHistoryHandler(deskbar.interfaces.Module):
         
     @staticmethod
     def has_requirements():
-        return MozillaBookmarksHandler.has_requirements()
+        if is_preferred_browser("mozilla"):
+            return True
+        elif is_preferred_browser("firefox"):
+            if MozillaBookmarksHandler.has_firefox_version():
+                return True
+            # TODO: mark as i18n
+            MozillaHistoryHandler.INSTRUCTIONS = "Firefox version must be between 2.0.0.0 and 3.0.0.0"
+            return False
+        else:
+            MozillaHistoryHandler.INSTRUCTIONS = _("Mozilla/Firefox is not your preferred browser.")
+            return False
 
