@@ -391,14 +391,18 @@ class CoreImpl(deskbar.interfaces.Core):
                         enabled_browser_modules.append(module.__class__.__name__)
                     
                 self._module_list.remove_module(module)
+                # Refresh instructions
+                module.__class__.has_requirements ()
+                # Add module to self._disabled_module_list
                 self._module_loader.emit("module-not-initialized", module)
         
+        # Remove modules of new browser from self._disabled_module_list
         filename = None
-        for module in self._disabled_module_list:
-            if module[1].__module__ == new_browser:
+        for (icon, module, activatable) in self._disabled_module_list:
+            if module.__module__ == new_browser:
                 if filename is None:
-                    filename = module[1].filename
-                self._disabled_module_list.remove_module(module[1])
+                    filename = module.filename
+                self._disabled_module_list.remove_module(module)
                 
         if filename is not None:
             self._module_loader.load(filename)

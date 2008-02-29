@@ -127,7 +127,6 @@ class ModuleLoader (gobject.GObject):
                 # Check that the given requirements for the handler are met
                 if not getattr(module, "has_requirements" )():
                     LOGGER.warning("Class %s in file %s has missing requirements. Skipping." % (handler, filename))
-                    module.class_instance = module
                     self.emit("module-not-initialized", module)
                 else:
                     valid_modules.append(module)
