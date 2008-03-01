@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-09 22:05+0100\n"
-"PO-Revision-Date: 2008-02-09 22:05+0100\n"
+"POT-Creation-Date: 2008-03-01 09:19+0100\n"
+"PO-Revision-Date: 2008-03-01 09:21+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -130,7 +130,7 @@ msgstr "_Om"
 
 #: ../data/Deskbar_Applet.xml.h:2
 msgid "_Clear History"
-msgstr "_Töm historik"
+msgstr "Töm _historik"
 
 #: ../data/Deskbar_Applet.xml.h:3
 msgid "_Help"
@@ -219,11 +219,11 @@ msgstr "_Mer..."
 
 #: ../data/prefs-dialog.glade.h:18
 msgid "_Reload"
-msgstr "_Uppdatera"
+msgstr "Upp_datera"
 
 #: ../data/prefs-dialog.glade.h:19
 msgid "_Update"
-msgstr "_Uppdatera"
+msgstr "Upp_datera"
 
 #: ../data/smart-bookmarks.glade.h:1
 msgid "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></i>."
@@ -249,33 +249,33 @@ msgstr "Visa alla tillgängliga sökmotorer"
 msgid "Show only the primary search engine"
 msgstr "Visa endast den primära sökmotorn"
 
-#: ../deskbar/core/BrowserMatch.py:51
+#: ../deskbar/core/BrowserMatch.py:57
 #: ../deskbar/handlers/beagle-live.py:181
 #, python-format
 msgid "Open History Item %s"
 msgstr "Öppna historikposten %s"
 
-#: ../deskbar/core/BrowserMatch.py:53
+#: ../deskbar/core/BrowserMatch.py:59
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Öppna bokmärket %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:69
+#: ../deskbar/core/BrowserMatch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Sök <b>%(name)s</b> efter <i>%(text)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:95
+#: ../deskbar/core/BrowserMatch.py:101
 #: ../deskbar/handlers/yahoo.py:33
 msgid "URL"
 msgstr "URL"
 
-#: ../deskbar/core/BrowserMatch.py:230
+#: ../deskbar/core/BrowserMatch.py:236
 msgid "Shortcut"
 msgstr "Genväg"
 
-#: ../deskbar/core/BrowserMatch.py:238
+#: ../deskbar/core/BrowserMatch.py:244
 msgid "Bookmark Name"
 msgstr "Bokmärkesnamn"
 
@@ -463,7 +463,7 @@ msgid "Web Bookmarks (Epiphany)"
 msgstr "Webbokmärken (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:52
-#: ../deskbar/handlers/mozilla.py:127
+#: ../deskbar/handlers/mozilla.py:157
 msgid "Open your web bookmarks by name"
 msgstr "Öppna dina webbokmärken med hjälp av namnet"
 
@@ -478,7 +478,7 @@ msgid "Web Searches (Epiphany)"
 msgstr "Webbsökningar (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:89
-#: ../deskbar/handlers/mozilla.py:194
+#: ../deskbar/handlers/mozilla.py:234
 msgid "Search the web via your browser's search settings"
 msgstr "Sök på webben via din webbläsares sökinställningar"
 
@@ -491,7 +491,7 @@ msgid "Web History (Epiphany)"
 msgstr "Webbhistorik (Epiphany)"
 
 #: ../deskbar/handlers/epiphany.py:135
-#: ../deskbar/handlers/mozilla.py:738
+#: ../deskbar/handlers/mozilla.py:784
 msgid "Open your web history by name"
 msgstr "Öppna din webbhistorik med hjälp av namnet"
 
@@ -674,24 +674,26 @@ msgstr "Byt till ett existerande fönster efter namn."
 msgid "Windows"
 msgstr "Fönster"
 
-#: ../deskbar/handlers/mozilla.py:126
+#: ../deskbar/handlers/mozilla.py:156
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Webbokmärken (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:186
-#: ../deskbar/handlers/mozilla.py:259
+#: ../deskbar/handlers/mozilla.py:219
+#: ../deskbar/handlers/mozilla.py:305
+#: ../deskbar/handlers/mozilla.py:831
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox är inte din föredragna webbläsare."
 
-#: ../deskbar/handlers/mozilla.py:193
+#: ../deskbar/handlers/mozilla.py:233
 msgid "Web Searches (Mozilla)"
 msgstr "Webbsökningar (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:253
+#. Correct firefox version or iceweasel
+#: ../deskbar/handlers/mozilla.py:299
 msgid "You can customize which search engines are offered."
 msgstr "Du kan anpassa vilka sökmotorer som erbjuds."
 
-#: ../deskbar/handlers/mozilla.py:737
+#: ../deskbar/handlers/mozilla.py:783
 msgid "Web History (Mozilla)"
 msgstr "Webbhistorik (Mozilla)"
 
@@ -1007,23 +1009,23 @@ msgstr ""
 "Genvägen \"%s\" kan inte användas därför att den kommer att förhindra normal användning\n"
 "av ditt tangentbord. Prova den samtidigt med en tangent som Control, Alt eller Skift.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:80
 msgid "Reload all extensions"
 msgstr "Uppdatera alla utökningar"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:85
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Dra och släpp en utökning för att ändra dess ordning.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:335
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:337
 msgid "A problem occured"
 msgstr "Ett fel inträffade"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:400
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:402
 msgid "Handler has been installed successfully"
 msgstr "Hanteraren har installerats"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:403
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:405
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "Hanteraren kunde inte installeras på grund av ett problem med den tillhandahållna filen"
 
