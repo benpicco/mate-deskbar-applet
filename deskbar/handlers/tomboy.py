@@ -28,7 +28,7 @@ class TomboyOpenNoteAction (deskbar.interfaces.Action):
 		tomboy().DisplayNote(self._note)
 
 	def get_icon(self):
-		return "tomboy-note"
+		return "note.png"
 		
 	def get_hash(self):
 		return "DESKBAROPEN: %s" % self._title
@@ -82,7 +82,7 @@ class TomboyCreateNoteAction (deskbar.interfaces.Action):
 		tomboy().DisplayNote(self._note)
 		
 	def get_icon(self):
-		return "tomboy"
+		return "note-new.png"
 		
 	def get_verb(self):
 		return _("Create note <b>%(name)s</b>")
@@ -103,7 +103,7 @@ class TomboyExistingNoteMatch (deskbar.interfaces.Match):
 		self.title = tomboy().GetNoteTitle(note)
 		deskbar.interfaces.Match.__init__(self,
 			name= self.title,
-			icon="tomboy-note", category="notes", **kwargs)
+			icon="note.png", category="notes", **kwargs)
 		self.note = note
 		self.add_action( TomboyOpenNoteAction(self.note, self.title) )
 		self.add_action( TomboyDeleteNoteAction(self.note, self.title) )
@@ -120,7 +120,7 @@ class TomboyCreateNoteMatch (deskbar.interfaces.Match):
 		self.title = title
 		deskbar.interfaces.Match.__init__(self,
 			name= self.title,
-			icon="tomboy", category="actions", **kwargs)
+			icon="note-new.png", category="actions", **kwargs)
 		self.add_action( TomboyCreateNoteAction(self.title) )
 
 # Overall module
