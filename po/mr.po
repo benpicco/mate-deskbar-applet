@@ -1,683 +1,256 @@
-# translation of mr.po to Marathi
+# translation of deskbar-applet.HEAD.mr.po to marathi
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Rahul Bhalerao <b.rahul.pm@gmail.com>, 2006.
 #
+# Rahul Bhalerao <b.rahul.pm@gmail.com>, 2006.
+# Sandeep Shedmake <sandeep.shedmake@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: mr\n"
+"Project-Id-Version: deskbar-applet.HEAD.mr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-11 07:45+0200\n"
-"PO-Revision-Date: 2006-08-12 20:34+0530\n"
-"Last-Translator: Rahul Bhalerao <b.rahul.pm@gmail.com>\n"
-"Language-Team: Marathi\n"
+"POT-Creation-Date: 2008-02-09 11:58+0000\n"
+"PO-Revision-Date: 2008-03-04 17:51+0530\n"
+"Last-Translator: Sandeep Shedmake <sandeep.shedmake@gmail.com>\n"
+"Language-Team: marathi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: ../data/Deskbar_Applet.server.in.in.h:1
-msgid "An all-in-one action bar"
-msgstr ""
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
+msgstr "कळफलक शार्टकट कार्यान्वीत केल्यास शोध बॉक्स मध्ये कळफलक शार्टकट सुध्दा सद्याचे निवड चिकटवते."
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
-msgid "Deskbar"
-msgstr "डेस्कबार"
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid "Clear entry after match has been selected"
+msgstr "जुळवणी निवडल्यास नोंदणी पुसून टाका"
 
-#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Collapsed categories"
+msgstr "विभाग नष्ट झाले"
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "Enabled handlers"
+msgstr "हँडलर कार्यान्वीत झाले"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid "If enabled it will clear the entry after a search result has been selected"
+msgstr "कार्यान्वीत असल्यास  निवडलेले शोध परिणाम पुसून टाकले जाईल"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid "If enabled the window will be closed after an action has been activated"
+msgstr "कार्यान्वीत असल्यास कृती सक्रीय केल्यावर चौकट बंद केले जाईल"
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid "Keybinding"
+msgstr "कीबाइंडींग"
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid "Milliseconds to wait before starting to search"
+msgstr "शोध सुरू करण्यापूर्वी थांबण्याकरीताचे मिलीसेकंद"
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid "Minimum number of characters needed to start searching"
+msgstr "शोध सुरू करण्यापूर्वी आवश्यक किमान अक्षरं"
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
+msgstr "\"चौकट\" किंवा \"बटण\" पैकी, वापरण्याजोगी वापरकर्ता संवाद निवडतो"
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default height of the window in pixels"
+msgstr "चौकटचे पीक्सेल मधील मुलभूत ऊंची"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "पडद्यावरील चौकटची मुलभूत ऊंची (x-निबंधक)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "पडद्यावरील चौकटची मुलभूत ऊंची (y-निबंधक)"
+
+#: ../data/deskbar-applet.schemas.in.h:14
+msgid "The default width of the window in pixels"
+msgstr "पीक्सेल मधील चौकटची मुलभूत रूंदी"
+
+#: ../data/deskbar-applet.schemas.in.h:15
+msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
+msgstr "कळ श्रृंखला डेस्कबार-ऍपलेट वर लक्षकेंद्रीत करते, ज्यामुळे पटकण टाईप करता येईल"
+
+#: ../data/deskbar-applet.schemas.in.h:16
+msgid ""
+"The list of categories to be collapsed when displayed. Valid categories are: "
+"default, history, documents, emails, conversations, files, people, places, "
+"actions, web, websearch, news and notes."
+msgstr "दर्शविल्यानंतर विभागांची यादी नष्ट करा. वैध विभाग या प्रकारे आहे: मुलभूत, इतिहास, दस्तऐवज, इमेल, संवाद, फाइलं, व्यक्ति, ठिकाण, कृती, वेब, वेबशोध, समाचार व टिपा."
+
+#: ../data/deskbar-applet.schemas.in.h:17
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr "प्राधान्यनुरूप क्रमातील कार्यन्वीत हँडलरचे पाठविण्याजोगी वर्ग नावाची यादी. डावीकडील घटकास जास्त प्राधान्यता आहे"
+
+#: ../data/deskbar-applet.schemas.in.h:18
+msgid "The maximum number of items stored in history"
+msgstr "इतिहास मध्ये संचयीत कमाल घटकांची संख्या"
+
+#: ../data/deskbar-applet.schemas.in.h:19
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
+msgstr "ऍपलेट जुळवणी दर्शविण्यापूर्वी टाईपकरण्याजोगीचे किमाण एकूण अक्षरांची संख्या"
+
+#: ../data/deskbar-applet.schemas.in.h:20
+msgid ""
+"The time in milliseconds between a keystroke in the search entry and the "
+"actual search being performed"
+msgstr "शोध नोंदणी व वास्तविक शोध मधील कीस्ट्रोक अतंर्गत मिलीसेकंद मधील वेळ"
+
+#: ../data/deskbar-applet.schemas.in.h:21
+msgid "Whether to close the window after an action has been activated"
+msgstr "कृती सक्रीय केल्यावर चौकट बंद करायचे का"
+
+#: ../data/deskbar-applet.schemas.in.h:22
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr "सर्व उपलब्ध इंजीन ऐवजी ,फक्त शोध इंजीन दर्शवायचे का. याचा फक्त Mozilla-आधारीत वेब ब्राउजर जसे की Firefox वर प्रभाव पडतो."
+
+#: ../data/deskbar-applet.schemas.in.h:23
+msgid "Whether triggering Deskbar-Applet pastes the current selection"
+msgstr "डेस्कबार-ऍपलेटला कार्यान्वीत केल्यास सद्याचे निवड चिकटवले जाते का"
+
+#: ../data/deskbar-applet.schemas.in.h:24
+msgid "Window height"
+msgstr "चौकटची ऊंची"
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "Window width"
+msgstr "चौकट रुंदी"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "X-coordinate of window"
+msgstr "चौकटचे X-निबंधक"
+
+#: ../data/deskbar-applet.schemas.in.h:27
+msgid "Y-coordinate of window"
+msgstr "चौकटचे Y-निबंधक"
+
+#: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
 msgstr "च्या विषयी(_A)"
 
-#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
+#: ../data/Deskbar_Applet.xml.h:2
 msgid "_Clear History"
 msgstr "इतिहास साफ करा(_C)"
 
-#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
+#: ../data/Deskbar_Applet.xml.h:3
+msgid "_Help"
+msgstr "मदत(_H)"
+
+#: ../data/Deskbar_Applet.xml.h:4
 msgid "_Preferences"
 msgstr "आवडीनिवडी(_P)"
 
+#: ../data/Deskbar_Applet.server.in.in.h:1
+msgid "An all-in-one action bar"
+msgstr "सर्व-काही-एकात कृती पट्टी"
+
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:27
+msgid "Deskbar"
+msgstr "डेस्कबार"
+
 #: ../data/prefs-dialog.glade.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>उपलब्ध विस्तार</b>"
+
+#: ../data/prefs-dialog.glade.h:2
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>त्रुटीरहीत विस्तार</b>"
+
+#: ../data/prefs-dialog.glade.h:3
 msgid "<b>Focus</b>"
 msgstr "<b>प्रकाशझोत</b>"
 
-#: ../data/prefs-dialog.glade.h:2
-msgid "<b>Layout</b>"
-msgstr "<b>लेआउट</b>"
-
-#: ../data/prefs-dialog.glade.h:3
-msgid "<b>Width</b>"
-msgstr "<b> रुंदी</b>"
-
 #: ../data/prefs-dialog.glade.h:4
-#, fuzzy
-msgid ""
-"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
-"small></i>"
-msgstr "<i><small><b> नोंद</b></small></i>"
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>दाखलनीय विस्तार</b>"
 
 #: ../data/prefs-dialog.glade.h:5
-msgid "Button in panel"
-msgstr "पॅनेलमध्ये बटन"
+msgid "<b>Window Behavior</b>"
+msgstr "<b>चौकट रुंदी</b>"
 
 #: ../data/prefs-dialog.glade.h:6
 msgid "Deskbar Preferences"
 msgstr "डेस्कबार आवडीनिवडी"
 
 #: ../data/prefs-dialog.glade.h:7
-msgid "Entry in panel"
-msgstr "पॅनेलमधील प्रविष्ट"
+msgid "Extensions with Errors"
+msgstr "त्रुटीरहीत विस्तार"
 
 #: ../data/prefs-dialog.glade.h:8
-msgid "Extensions"
-msgstr "विस्तार"
+msgid "General"
+msgstr "सामान्य"
 
 #: ../data/prefs-dialog.glade.h:9
-msgid "Fixed _width:"
-msgstr "निश्चित रुंदी(_w):"
+msgid "New Extensions"
+msgstr "नविन विस्तार"
 
 #: ../data/prefs-dialog.glade.h:10
 msgid "Search selection when triggering the shortcut"
-msgstr ""
+msgstr "शार्टकट कार्यान्वीत करतेवेळी निवड शोधा"
 
 #: ../data/prefs-dialog.glade.h:11
-msgid "Use _all available space"
-msgstr ""
+msgid "Searches"
+msgstr "शोध"
 
 #: ../data/prefs-dialog.glade.h:12
-msgid "View"
-msgstr "दृश्य"
+msgid "Stick to panel"
+msgstr "पटलकरीता बंधनकारक रहा"
 
 #: ../data/prefs-dialog.glade.h:13
-msgid "_Keyboard shortcut to focus:"
-msgstr ""
+msgid "_Check For Updates"
+msgstr "अद्ययावत करीता शोधा (_C)"
 
 #: ../data/prefs-dialog.glade.h:14
+msgid "_Check for new extensions"
+msgstr "नविन विस्तार करीता तपासा (_C)"
+
+#: ../data/prefs-dialog.glade.h:15
+msgid "_Install"
+msgstr "प्रतिष्ठापीत करा (_I)"
+
+#: ../data/prefs-dialog.glade.h:16
+msgid "_Keyboard shortcut to focus:"
+msgstr "केंद्रीत करण्याकरीताचे कळफलक (_K):"
+
+#: ../data/prefs-dialog.glade.h:17
 msgid "_More..."
 msgstr "अधिक(_M)..."
 
-#: ../data/prefs-dialog.glade.h:15
-msgid "characters"
-msgstr "अक्षरे"
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Reload"
+msgstr "पुनःभारित करा(_R)"
+
+#: ../data/prefs-dialog.glade.h:19
+msgid "_Update"
+msgstr "अद्ययावत(_U)"
 
 #: ../data/smart-bookmarks.glade.h:1
-#, fuzzy
-msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
-msgstr "<i><small><b> नोंद</b> a<b></b><b></b><b></b></small></i>"
-
-#: ../data/smart-bookmarks.glade.h:2
-#, fuzzy
 msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
-msgstr "<i><small><b> नोंद</b> a च्यासाठी<b></b> च्यासाठी<b></b><b></b></small></i>."
+msgstr ""
+"<i><small><b>टिप:</b> <b>विषय</b> शोधण्याकरीताचे शार्टकट (उदाहरणार्थ <b>wp</b>) "
+"करीता , डेस्कबार मध्ये \"<b>wp विषय</b>\" टाइप करा</small></i>."
 
-#: ../data/smart-bookmarks.glade.h:3
+#: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
-msgstr ""
-
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:140
-#, python-format
-msgid "Open History Item %s"
-msgstr "इतिहास बाब %s उघडा"
-
-#: ../deskbar/BrowserMatch.py:48
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "खूणगाठ %s उघडा"
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:97
-#, python-format
-#, fuzzy
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "<b></b> च्यासाठी<i></i>"
-
-#: ../deskbar/BrowserMatch.py:206
-msgid "Shortcut"
-msgstr "शॉर्टकट"
-
-#: ../deskbar/BrowserMatch.py:214
-msgid "Bookmark Name"
-msgstr "खूणगाठ नाव"
-
-#: ../deskbar/Categories.py:7
-msgid "Uncategorized"
-msgstr "अवर्गीकृत"
-
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
-msgid "History"
-msgstr "इतिहास"
-
-#: ../deskbar/Categories.py:15
-msgid "Documents"
-msgstr "दस्तऐवज"
-
-#: ../deskbar/Categories.py:18
-msgid "Emails"
-msgstr "ईमेल्स"
-
-#: ../deskbar/Categories.py:21
-msgid "Conversations"
-msgstr "संवाद"
-
-#: ../deskbar/Categories.py:24
-msgid "Files"
-msgstr "फाइली"
-
-#: ../deskbar/Categories.py:27
-msgid "People"
-msgstr "लोक"
-
-#: ../deskbar/Categories.py:30
-msgid "Places"
-msgstr "ठिकाणे"
-
-#: ../deskbar/Categories.py:33
-msgid "Actions"
-msgstr "क्रिया"
-
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
-msgid "Web"
-msgstr "वेब"
-
-#: ../deskbar/Categories.py:39
-msgid "Web Search"
-msgstr "वेब शोध"
-
-#: ../deskbar/Categories.py:42
-msgid "News"
-msgstr "बातम्या"
-
-#: ../deskbar/Categories.py:45
-msgid "Notes"
-msgstr "टिपा"
-
-#: ../deskbar/DeskbarHistory.py:37
-msgid "No History"
-msgstr "इतिहास नाही"
-
-#: ../deskbar/gtkexcepthook.py:21
-msgid "A programming error has been detected"
-msgstr ""
-
-#: ../deskbar/gtkexcepthook.py:22
-msgid ""
-"It probably isn't fatal, but should be reported to the developers "
-"nonetheless. The program may behave erratically from now on."
-msgstr ""
-
-#: ../deskbar/gtkexcepthook.py:24
-msgid "Bug Detected"
-msgstr "त्रुटी सापडली"
-
-#: ../deskbar/handlers/beagle-live.py:18
-msgid "Start Beagle Daemon?"
-msgstr "बीगल डीमॉन सुरू करावा?"
-
-#: ../deskbar/handlers/beagle-live.py:22
-msgid "Start Beagle Daemon"
-msgstr "बीगल डीमॉन सुरू करावा"
-
-#: ../deskbar/handlers/beagle-live.py:24
-msgid ""
-"The Beagle daemon does not appear to be running.\n"
-" You need to start it to use the Beagle Live handler."
-msgstr ""
-
-#: ../deskbar/handlers/beagle-live.py:53
-msgid "Beagle Live"
-msgstr "बीगल लाइव"
-
-#: ../deskbar/handlers/beagle-live.py:54
-#, fuzzy
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "चाा"
-
-#: ../deskbar/handlers/beagle-live.py:82
-#, python-format
-msgid "Edit contact %s"
-msgstr "संपर्क %s संपादन करा"
-
-#: ../deskbar/handlers/beagle-live.py:91
-#, python-format
-msgid "From %s"
-msgstr "%s कडून"
-
-#. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:99 ../deskbar/handlers/files.py:46
-#, python-format
-msgid "Open %s"
-msgstr "%s उघडा"
-
-#: ../deskbar/handlers/beagle-live.py:107
-#, python-format
-msgid "News from %s"
-msgstr "%s कडून बातम्या"
-
-#: ../deskbar/handlers/beagle-live.py:116
-#, python-format
-msgid "Note: %s"
-msgstr "नोंद: %s"
-
-#: ../deskbar/handlers/beagle-live.py:125
-#, python-format
-msgid "With %s"
-msgstr "%s सह"
-
-#: ../deskbar/handlers/beagle-live.py:133
-#, python-format
-msgid "Calendar: %s"
-msgstr "दिनदर्शिका: %s"
-
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:310
-#: ../deskbar/handlers/beagle-live.py:336
-msgid "?"
-msgstr "?"
-
-#: ../deskbar/handlers/beagle-static.py:20
-msgid "Beagle"
-msgstr "बीगल"
-
-#: ../deskbar/handlers/beagle-static.py:21
-msgid "Search all of your documents (using Beagle)"
-msgstr ""
-
-#: ../deskbar/handlers/beagle-static.py:38
-#, python-format
-msgid "Search for %s using Beagle"
-msgstr "%s साठी बीगल वापरून शोधा"
-
-#: ../deskbar/handlers/desklicious.py:16
-msgid "You need to configure your del.icio.us account."
-msgstr ""
-
-#: ../deskbar/handlers/desklicious.py:18
-msgid "You can modify your del.icio.us account."
-msgstr ""
-
-#: ../deskbar/handlers/desklicious.py:22
-msgid "del.icio.us Bookmarks"
-msgstr "del.icio.us खूणगाठी"
-
-#: ../deskbar/handlers/desklicious.py:23
-msgid "Search your del.icio.us bookmarks by tag name"
-msgstr ""
-
-#: ../deskbar/handlers/desklicious.py:30
-msgid "del.icio.us Account"
-msgstr "del.icio.us खाते"
-
-#: ../deskbar/handlers/desklicious.py:37
-msgid "Enter your del.icio.us username below"
-msgstr ""
-
-#: ../deskbar/handlers/desklicious.py:43
-msgid "Username: "
-msgstr "वापरकर्त्याचे नाव: "
-
-#: ../deskbar/handlers/epiphany.py:27
-#, fuzzy
-msgid "You can set shortcuts for your searches."
-msgstr "च्यासाठी."
-
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:129
-msgid "Web Bookmarks"
-msgstr "वेब खूणगाठी"
-
-#: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:130
-#, fuzzy
-msgid "Open your web bookmarks by name"
-msgstr "उघडा"
-
-#: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:141
-msgid "Web History"
-msgstr "वेब इतिहास"
-
-#: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:142
-#, fuzzy
-msgid "Open your web history by name"
-msgstr "उघडा"
-
-#: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:135
-msgid "Web Searches"
-msgstr "वेब शोध"
-
-#: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:136
-msgid "Search the web via your browser's search settings"
-msgstr ""
-
-#: ../deskbar/handlers/evolution.py:12
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr ""
-
-#: ../deskbar/handlers/evolution.py:15
-#, fuzzy
-msgid "Autocompletion Needs to be Enabled"
-msgstr "स्वयंपूर्णता कार्यान्वित"
-
-#: ../deskbar/handlers/evolution.py:16
-#, fuzzy
-msgid ""
-"We cannot provide e-mail addresses from your address book unless "
-"autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit - Preferences, and then Autocompletion."
-msgstr "ही संपादन करा स्वयंपूर्णता."
-
-#: ../deskbar/handlers/evolution.py:21
-msgid "Mail (Address Book)"
-msgstr "मेल (पत्ता पुस्तक)"
-
-#: ../deskbar/handlers/evolution.py:22
-msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-
-#. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:48
-#, python-format
-#, fuzzy
-msgid "Send Email to <b>%(name)s</b> (%(email)s)"
-msgstr "ईमेल<b></b>"
-
-#: ../deskbar/handlers/files.py:17
-msgid "Files, Folders and Places"
-msgstr ""
-
-#: ../deskbar/handlers/files.py:18
-#, fuzzy
-msgid "View your files, folders, bookmarks, drives, network places by name"
-msgstr "दृश्य"
-
-#: ../deskbar/handlers/files.py:68
-#, python-format
-msgid "Open folder %s"
-msgstr "फोल्डर %s उघडा"
-
-#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
-#, python-format
-msgid "Open location %s"
-msgstr "%s स्थळ उघडा"
-
-#: ../deskbar/handlers/files.py:114
-#, python-format
-msgid "Open network place %s"
-msgstr "संजाळ स्थळ %s उघडा"
-
-#: ../deskbar/handlers/files.py:116
-#, python-format
-msgid "Open audio disc %s"
-msgstr "ऑडिओ डिस्क  %s उघडा"
-
-#: ../deskbar/handlers/gdmactions.py:10
-msgid "Computer Actions"
-msgstr "संगणक क्रिया"
-
-#: ../deskbar/handlers/gdmactions.py:11
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr "लॉगआउट, शटडाउन, पुनःआरंभ, निलंबन आणि संबंधित क्रिया."
-
-#: ../deskbar/handlers/gdmactions.py:39
-msgid "Suspend the machine"
-msgstr "मशीन निलंबित करा"
-
-#: ../deskbar/handlers/gdmactions.py:50
-msgid "Hibernate the machine"
-msgstr "मशीन हायबरनेट करा"
-
-#: ../deskbar/handlers/gdmactions.py:61
-msgid "Shutdown the machine"
-msgstr "मशीन शटडाउन करा"
-
-#: ../deskbar/handlers/gdmactions.py:80
-msgid "Lock the screen"
-msgstr "स्क्रीन ताळेबंद करा"
-
-#: ../deskbar/handlers/gdmactions.py:106
-msgid "Shut Down"
-msgstr "शट डाउन"
-
-#: ../deskbar/handlers/gdmactions.py:113
-msgid "Turn off the computer"
-msgstr "संगणक बंद करा"
-
-#: ../deskbar/handlers/gdmactions.py:117
-msgid "Log Out"
-msgstr "लॉग आउट"
-
-#: ../deskbar/handlers/gdmactions.py:124
-msgid "Log out"
-msgstr "लॉग आउट"
-
-#: ../deskbar/handlers/gdmactions.py:128
-msgid "Restart"
-msgstr "पुनःआरंभ"
-
-#: ../deskbar/handlers/gdmactions.py:135
-msgid "Restart the computer"
-msgstr "संगणक पुनःआरंभ करा"
-
-#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
-msgid "Switch User"
-msgstr "उपयोक्ता बदला"
-
-#: ../deskbar/handlers/gdmactions.py:165
-msgid "Lock"
-msgstr "ताळा"
-
-#: ../deskbar/handlers/gdmactions.py:176
-msgid "Suspend"
-msgstr "निलंबित"
-
-#: ../deskbar/handlers/gdmactions.py:178
-msgid "Hibernate"
-msgstr "हायबरनेट"
-
-#: ../deskbar/handlers/gdmactions.py:180
-msgid "Shutdown"
-msgstr "शटडाउन"
-
-#: ../deskbar/handlers/google-live.py:20
-#, fuzzy
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should recieve a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr "ahttp://api.google.com/ a ही फाइल क्लिक् फाइल प्रतिलिपी ही फाइल"
-
-#: ../deskbar/handlers/google-live.py:33
-msgid "Setting Up Google Live"
-msgstr "Google Live ची रचना करणे"
-
-#: ../deskbar/handlers/google-live.py:39
-msgid "You need to install the SOAPpy python module."
-msgstr ""
-
-#: ../deskbar/handlers/google-live.py:41
-#, fuzzy
-msgid "You need the Google WSDL file."
-msgstr "फाइल."
-
-#: ../deskbar/handlers/google-live.py:43
-#, fuzzy
-msgid "You need a Google API key."
-msgstr "a."
-
-#: ../deskbar/handlers/google-live.py:49
-msgid "Google Search"
-msgstr "गूगल शोध"
-
-#: ../deskbar/handlers/google-live.py:50
-msgid "Search Google as you type"
-msgstr ""
-
-#: ../deskbar/handlers/history.py:10
-msgid "Recognize previously used searches"
-msgstr ""
-
-#: ../deskbar/handlers/iswitch-window.py:11
-msgid "Window Switcher"
-msgstr ""
-
-#: ../deskbar/handlers/iswitch-window.py:12
-msgid "Switch to an existing window by name."
-msgstr ""
-
-#: ../deskbar/handlers/iswitch-window.py:16
-msgid "Windows"
-msgstr "विंडोज"
-
-#: ../deskbar/handlers/iswitch-window.py:32
-#, python-format
-msgid "Switch to <b>%(name)s</b>"
-msgstr "<b>%(name)s</b> मध्ये बदला"
-
-#: ../deskbar/handlers/mozilla.py:120
-msgid "You can customize which search engines are offered."
-msgstr ""
-
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "कार्यक्रम"
-
-#: ../deskbar/handlers/programs.py:15
-msgid "Launch a program by its name and/or description"
-msgstr ""
-
-#: ../deskbar/handlers/programs.py:19
-msgid "Dictionary"
-msgstr "शब्दकोश"
-
-#: ../deskbar/handlers/programs.py:20
-msgid "Look up word definitions in the dictionary"
-msgstr ""
-
-#: ../deskbar/handlers/programs.py:24
-msgid "Files and Folders Search"
-msgstr "फाइल आणि फोल्डर शोध"
-
-#: ../deskbar/handlers/programs.py:25
-msgid "Find files and folders by searching for a name pattern"
-msgstr ""
-
-#: ../deskbar/handlers/programs.py:29
-msgid "Developer Documentation"
-msgstr "विकासकर्ता दस्तऐवजीकरण"
-
-#: ../deskbar/handlers/programs.py:30
-msgid "Search Devhelp for a function name"
-msgstr ""
-
-#. translators: First %s is the programs full name, second is the executable name
-#. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:84
-#, python-format
-msgid "Launch <b>%(name)s</b> (%(prog)s)"
-msgstr "<b>%(name)s</b> (%(prog)s) प्रक्षेपित करा"
-
-#: ../deskbar/handlers/programs.py:98
-#, python-format
-msgid "Lookup %s in dictionary"
-msgstr "%s शब्दकोशात शोधा"
-
-#: ../deskbar/handlers/programs.py:106
-#, python-format
-msgid "Search for file names like %s"
-msgstr "%s सारख्या फाइल नावांसाठी शोधा"
-
-#: ../deskbar/handlers/programs.py:114
-#, python-format
-msgid "Search in Devhelp for %s"
-msgstr "डेवहेल्प %s साठी शोधा"
-
-#: ../deskbar/handlers/programs.py:218
-#, python-format
-msgid "Execute %s"
-msgstr "%s चालवा"
-
-#: ../deskbar/handlers/web_address.py:12
-msgid "Open web pages and send emails by typing a complete address"
-msgstr ""
-
-#: ../deskbar/handlers/web_address.py:40
-#, python-format
-msgid "Open the web page %s"
-msgstr "वेब पेज %s उघडा"
-
-#: ../deskbar/handlers/web_address.py:42
-#, python-format
-msgid "Open the location %s"
-msgstr "ठिकाण %s उघडा"
-
-#: ../deskbar/handlers/web_address.py:58
-#, python-format
-msgid "Send Email to %s"
-msgstr "%s ला ईमेल पाठवा"
-
-#: ../deskbar/handlers/yahoo.py:16
-msgid "Yahoo! Search"
-msgstr "याहू! शोध"
-
-#: ../deskbar/handlers/yahoo.py:17
-msgid "Search Yahoo! as you type"
-msgstr ""
-
-#: ../deskbar/ui/About.py:25
-msgid "An all-in-one action bar."
-msgstr ""
-
-#: ../deskbar/ui/About.py:28
-msgid "Deskbar Website"
-msgstr "डेस्कबार संकेतस्थळ"
-
-#. about.set_artists([])
-#. about.set_documenters([])
-#. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
-msgid "translator-credits"
-msgstr "राहुल भालेराव <b.rahul.pm@gmail.com>"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:18
-#, fuzzy
-msgid "New accelerator..."
-msgstr "नविन."
-
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
-msgid "Show search entry"
-msgstr "शोध प्रविष्ट दाखवा"
-
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
-#, fuzzy
-msgid "Show previously used actions"
-msgstr "दाखवा"
+msgstr "ओळखचिन्ह शोध करीताचे शार्टकट"
 
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
@@ -695,48 +268,780 @@ msgstr "सर्व उपलब्ध शोध अभियंत्रे �
 msgid "Show only the primary search engine"
 msgstr "फक्त प्राथमिक शोध अभियंत्रे दाखवा"
 
-#: ../data/deskbar-applet.desktop.in.in.h:1
+#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:181
+#, python-format
+msgid "Open History Item %s"
+msgstr "इतिहास बाब %s उघडा"
+
+#: ../deskbar/core/BrowserMatch.py:53
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "खूणगाठ %s उघडा"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/core/BrowserMatch.py:69
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "<i>%(text)s</i> करीता <b>%(name)s</b> शोधा"
+
+#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:33
+msgid "URL"
+msgstr "URL"
+
+#: ../deskbar/core/BrowserMatch.py:230
+msgid "Shortcut"
+msgstr "शॉर्टकट"
+
+#: ../deskbar/core/BrowserMatch.py:238
+msgid "Bookmark Name"
+msgstr "खूणगाठ नाव"
+
+#: ../deskbar/core/Categories.py:7
+msgid "Uncategorized"
+msgstr "अवर्गीकृत"
+
+#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
+msgid "History"
+msgstr "इतिहास"
+
+#: ../deskbar/core/Categories.py:17
+msgid "Documents"
+msgstr "दस्तऐवज"
+
+#: ../deskbar/core/Categories.py:21
+msgid "Emails"
+msgstr "ईमेल्स"
+
+#: ../deskbar/core/Categories.py:25
+msgid "Conversations"
+msgstr "संवाद"
+
+#: ../deskbar/core/Categories.py:29
+msgid "Files"
+msgstr "फाइली"
+
+#: ../deskbar/core/Categories.py:33
+msgid "People"
+msgstr "लोक"
+
+#: ../deskbar/core/Categories.py:37
+msgid "Places"
+msgstr "ठिकाणे"
+
+#: ../deskbar/core/Categories.py:41
+msgid "Actions"
+msgstr "क्रिया"
+
+#: ../deskbar/core/Categories.py:45 ../deskbar/handlers/web_address.py:44
+msgid "Web"
+msgstr "वेब"
+
+#: ../deskbar/core/Categories.py:49
+msgid "Web Search"
+msgstr "वेब शोध"
+
+#: ../deskbar/core/Categories.py:53
+msgid "News"
+msgstr "बातम्या"
+
+#: ../deskbar/core/Categories.py:57
+msgid "Notes"
+msgstr "टिपा"
+
+#: ../deskbar/core/DeskbarHistory.py:22
+msgid "<i>Choose action</i>"
+msgstr "<i>कृती निवडा</i>"
+
+#: ../deskbar/core/Utils.py:132
+msgid "Cannot execute program:"
+msgstr "कार्यक्रम कार्यान्वीत करू शकत नाही:"
+
+#: ../deskbar/core/Utils.py:172
+msgid "Cannot show URL:"
+msgstr "URL दर्शवू शकत नाही:"
+
+#. translators: This is the window title.
+#: ../deskbar/deskbar-applet.py:15
 msgid "Deskbar Applet"
 msgstr "डेस्कबार एप्लेट"
 
-#: ../data/deskbar-applet.desktop.in.in.h:2
-msgid "Desktop search"
-msgstr "कार्यस्थळ शोध"
+#: ../deskbar/handlers/beagle-live.py:103
+#, python-format
+msgid "Edit contact %s"
+msgstr "संपर्क %s संपादन करा"
 
-#: ../data/deskbar-applet.desktop.in.in.h:3
-msgid "Search your computer and the internet quickly"
+#: ../deskbar/handlers/beagle-live.py:114
+#, python-format
+msgid "From %s"
+msgstr "%s कडून"
+
+#: ../deskbar/handlers/beagle-live.py:129
+#, python-format
+msgid "News from %s"
+msgstr "%s कडून बातम्या"
+
+#: ../deskbar/handlers/beagle-live.py:143
+#, python-format
+msgid "Note: %s"
+msgstr "नोंद: %s"
+
+#: ../deskbar/handlers/beagle-live.py:156
+#, python-format
+msgid "With %s"
+msgstr "%s सह"
+
+#: ../deskbar/handlers/beagle-live.py:170
+#, python-format
+msgid "Calendar: %s"
+msgstr "दिनदर्शिका: %s"
+
+#: ../deskbar/handlers/beagle-live.py:213
+#, python-format
+msgid "Additional results for category <b>%s</b>"
+msgstr "विभाग <b>%s</b> करीता वाढीव प्ररिणाम"
+
+#: ../deskbar/handlers/beagle-live.py:213
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
+msgid "name"
+msgstr "नाव"
+
+#: ../deskbar/handlers/beagle-live.py:295
+msgid "Beagle Live"
+msgstr "बीगल लाइव"
+
+#: ../deskbar/handlers/beagle-live.py:296
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "तुम्ही टाईप केल्याप्रमाणे, सर्व दस्तऐवज करीता (Beagle वापरल्यास) शोध घ्या"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:433
+#: ../deskbar/handlers/beagle-live.py:455
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle-live.py:486
+msgid "Could not load beagle, libbeagle has been compiled without python bindings."
+msgstr "beagle दाखल करू शकत नाही, कारण python बाईंडींग विना libbeagle कंपाईल केले गेले."
+
+#: ../deskbar/handlers/beagle-live.py:495
+msgid "Beagled could not be found in your $PATH."
+msgstr "$PATH मध्ये Beagled आढळले गेले नाही."
+
+#: ../deskbar/handlers/beagle-static.py:21
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "%s साठी बीगल वापरून शोधा"
+
+#: ../deskbar/handlers/beagle-static.py:37
+msgid "Beagle"
+msgstr "बीगल"
+
+#: ../deskbar/handlers/beagle-static.py:38
+msgid "Search all of your documents (using Beagle)"
+msgstr "सर्व दस्तऐवज शोधा (Beagle चा वापर करा)"
+
+#: ../deskbar/handlers/beagle-static.py:54
+msgid "Beagle does not seem to be installed."
+msgstr "Beagle प्रतिष्ठापीत आहे असे दिसून येत नाही."
+
+#: ../deskbar/handlers/desklicious.py:47
+msgid "del.icio.us Bookmarks"
+msgstr "del.icio.us खूणगाठी"
+
+#: ../deskbar/handlers/desklicious.py:48
+msgid "Search your del.icio.us bookmarks by tag name"
+msgstr "del.icio.us ओळखचिन्ह टॅग नाव द्वारे शोधा"
+
+#: ../deskbar/handlers/desklicious.py:80
+msgid "del.icio.us Account"
+msgstr "del.icio.us खाते"
+
+#: ../deskbar/handlers/desklicious.py:87
+msgid "Enter your del.icio.us username below"
+msgstr "del.icio.us वापरकर्तानाव खाली प्रविष्ट करा"
+
+#: ../deskbar/handlers/desklicious.py:93
+msgid "Username: "
+msgstr "वापरकर्त्याचे नाव: "
+
+#: ../deskbar/handlers/desklicious.py:109
+msgid "You need to configure your del.icio.us account."
+msgstr "del.icio.us खाते संयोजीत करा."
+
+#: ../deskbar/handlers/desklicious.py:114
+msgid "You can modify your del.icio.us account."
+msgstr "del.icio.us खाते संपादीत करा."
+
+#: ../deskbar/handlers/epiphany.py:48
+msgid "Web Bookmarks (Epiphany)"
+msgstr "वेब ओळखचिन्ह (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:127
+msgid "Open your web bookmarks by name"
+msgstr "नावानुरूप वेब ओळखचिन्ह उघडा"
+
+#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
+#: ../deskbar/handlers/epiphany.py:164
+msgid "Epiphany is not your preferred browser."
+msgstr "Epiphany तुमची प्राधान्यकृत ब्राऊजर नाही."
+
+#: ../deskbar/handlers/epiphany.py:88
+msgid "Web Searches (Epiphany)"
+msgstr "वेब शोध (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:194
+msgid "Search the web via your browser's search settings"
+msgstr "ब्राऊजरच्या शोध संयोजना द्वारे वेब शोध घ्या"
+
+#: ../deskbar/handlers/epiphany.py:124
+msgid "You can set shortcuts for your searches."
+msgstr "तुमच्या शोध करीता शार्टकट निश्चित करा."
+
+#: ../deskbar/handlers/epiphany.py:134
+msgid "Web History (Epiphany)"
+msgstr "वेब इतिहास (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
+msgid "Open your web history by name"
+msgstr "नावानुरूप वेब इतिहास उघडा"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:27
+#, python-format
+msgid "Edit contact <b>%(name)s</b> (%(email)s)"
+msgstr "संपर्क <b>%(name)s</b> (%(email)s) संपादीत करा"
+
+#: ../deskbar/handlers/evolution.py:42
+msgid "Mail (Address Book)"
+msgstr "मेल (पत्ता पुस्तक)"
+
+#: ../deskbar/handlers/evolution.py:43
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr "नाव व ई-मेल पत्ता टाईप करून संपर्ककरीता मेल पाठवा"
+
+#: ../deskbar/handlers/evolution.py:67
+msgid ""
+"Autocompletion Needs to be Enabled\n"
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
 msgstr ""
+"स्वपूर्णत्व कार्यान्वीत करा\n"
+"स्वपूर्णत्व कार्यान्वीत केल्याशिवाय ई-मेल पत्ता तुमच्या पत्ता वही पासून पुरवू शकत नाही.  हे करण्याकरीता, संपादन - प्राधान्यता, व त्यानंतर स्वपूर्णत्व तुमच्या मेल कार्याक्रम मेन्यु मधून निवडा."
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
+#. FIXME:
+#. _("Location") should be _("Location of %s") % name
+#: ../deskbar/handlers/files.py:62
+#: ../deskbar/handlers/actions/ActionsFactory.py:35
+msgid "Location"
+msgstr "स्थान"
+
+#: ../deskbar/handlers/files.py:70
+msgid "Files, Folders and Places"
+msgstr "फाइलं, संचयीका व ठिकाण"
+
+#: ../deskbar/handlers/files.py:71
+msgid "View your files, folders, bookmarks, drives, network places by name"
+msgstr "फाइलं, संचयीका, ओळखचिन्ह, ड्राईव्ह, संजाळ ठिकाण नावानुरूप पहा"
+
+#: ../deskbar/handlers/gdmactions.py:30
+msgid "Shut down this system now?"
+msgstr "ही प्रणाली आता बंद करा?"
+
+#: ../deskbar/handlers/gdmactions.py:31
+#, python-format
+msgid "This system will be automatically shut down in %s seconds."
+msgstr "ही प्रणाली आपोआप %s सेकंद मध्ये बंद होईल."
+
+#: ../deskbar/handlers/gdmactions.py:32 ../deskbar/handlers/gdmactions.py:223
+#: ../deskbar/handlers/gdmactions.py:281
+msgid "Shut Down"
+msgstr "शट डाउन"
+
+#: ../deskbar/handlers/gdmactions.py:34
+msgid "Log out of this system now?"
+msgstr "या प्रणालीतून आता लॉग आउट व्हावे?"
+
+#: ../deskbar/handlers/gdmactions.py:35
+#, python-format
+msgid "You will be automatically logged out in %s seconds."
+msgstr "तुम्ही आपोआप %s सेकंद मध्ये लॉगआउट केले जाल."
+
+#: ../deskbar/handlers/gdmactions.py:36 ../deskbar/handlers/gdmactions.py:236
+#: ../deskbar/handlers/gdmactions.py:240 ../deskbar/handlers/gdmactions.py:284
+msgid "Log Out"
+msgstr "लॉग आउट"
+
+#: ../deskbar/handlers/gdmactions.py:38
+msgid "Restart this system now?"
+msgstr "ही प्रणाली आता पुन्हा सुरू करायची?"
+
+#: ../deskbar/handlers/gdmactions.py:39
+#, python-format
+msgid "This system will be automatically restarted in %s seconds."
+msgstr "ही प्रणाली आपोआप %s सेकंद मध्ये पुन्ह सुरू केले जाईल."
+
+#: ../deskbar/handlers/gdmactions.py:40 ../deskbar/handlers/gdmactions.py:257
+#: ../deskbar/handlers/gdmactions.py:283
+msgid "Restart"
+msgstr "पुनःआरंभ"
+
+#: ../deskbar/handlers/gdmactions.py:42
+msgid "Suspend this system now?"
+msgstr "ही प्रणाली आता सस्पेंड करायची?"
+
+#: ../deskbar/handlers/gdmactions.py:43
+#, python-format
+msgid "This system will be automatically suspended in %s seconds."
+msgstr "ही प्रणाली आपोआप %s सेकंद मध्ये निषक्रीय केली जाईल."
+
+#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:313
+msgid "Suspend"
+msgstr "निलंबित"
+
+#: ../deskbar/handlers/gdmactions.py:46
+msgid "Hibernate this system now?"
+msgstr "प्रणाली हायबरनेट करायची?"
+
+#: ../deskbar/handlers/gdmactions.py:47
+#, python-format
+msgid "This system will be automatically hibernated in %s seconds."
+msgstr "ही प्रणाली आपोआप %s सेकंद मध्ये हायबरनेट केली जाईल."
+
+#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:315
+msgid "Hibernate"
+msgstr "हायबरनेट"
+
+#: ../deskbar/handlers/gdmactions.py:100
+msgid "Suspend the machine"
+msgstr "मशीन निलंबित करा"
+
+#: ../deskbar/handlers/gdmactions.py:117
+msgid "Hibernate the machine"
+msgstr "मशीन हायबरनेट करा"
+
+#: ../deskbar/handlers/gdmactions.py:134
+msgid "Shutdown the machine"
+msgstr "मशीन शटडाउन करा"
+
+#: ../deskbar/handlers/gdmactions.py:155
+msgid "Lock the screen"
+msgstr "स्क्रीन ताळेबंद करा"
+
+#: ../deskbar/handlers/gdmactions.py:178 ../deskbar/handlers/gdmactions.py:302
+msgid "Lock"
+msgstr "ताळा"
+
+#: ../deskbar/handlers/gdmactions.py:219
+msgid "Turn off the computer"
+msgstr "संगणक बंद करा"
+
+#: ../deskbar/handlers/gdmactions.py:253
+msgid "Restart the computer"
+msgstr "संगणक पुनःआरंभ करा"
+
+#: ../deskbar/handlers/gdmactions.py:268 ../deskbar/handlers/gdmactions.py:272
+#: ../deskbar/handlers/gdmactions.py:282
+msgid "Switch User"
+msgstr "उपयोक्ता बदला"
+
+#: ../deskbar/handlers/gdmactions.py:278
+msgid "Computer Actions"
+msgstr "संगणक क्रिया"
+
+#: ../deskbar/handlers/gdmactions.py:279
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "लॉगआउट, शटडाउन, पुनःआरंभ, निलंबन आणि संबंधित क्रिया."
+
+#: ../deskbar/handlers/gdmactions.py:317
+msgid "Shutdown"
+msgstr "शटडाउन"
+
+#: ../deskbar/handlers/history.py:28
+msgid "Recognize previously used searches"
+msgstr "पूर्वी वापरलेले शोध ओळखा"
+
+#: ../deskbar/handlers/iswitch-window.py:15
+#, python-format
+msgid "Switch to <b>%(name)s</b>"
+msgstr "<b>%(name)s</b> मध्ये बदला"
+
+#: ../deskbar/handlers/iswitch-window.py:47
+msgid "Window Switcher"
+msgstr "चौकट बदलकर्ता"
+
+#: ../deskbar/handlers/iswitch-window.py:48
+msgid "Switch to an existing window by name."
+msgstr "अस्तित्वातील चौकट नावानुरूप बदलवा."
+
+#: ../deskbar/handlers/iswitch-window.py:51
+msgid "Windows"
+msgstr "विंडोज"
+
+#: ../deskbar/handlers/mozilla.py:126
+msgid "Web Bookmarks (Mozilla)"
+msgstr "वेब ओळखचिन्ह (Mozilla)"
+
+#: ../deskbar/handlers/mozilla.py:186 ../deskbar/handlers/mozilla.py:259
+msgid "Mozilla/Firefox is not your preferred browser."
+msgstr "Mozilla/Firefox तुमचे प्राधान्यकृत ब्राऊजर नाही."
+
+#: ../deskbar/handlers/mozilla.py:193
+msgid "Web Searches (Mozilla)"
+msgstr "वेब शोध (Mozilla)"
+
+#: ../deskbar/handlers/mozilla.py:253
+msgid "You can customize which search engines are offered."
+msgstr "तुम्ही शोध इंजीन करीता इच्छिक बदल करू शकता."
+
+#: ../deskbar/handlers/mozilla.py:737
+msgid "Web History (Mozilla)"
+msgstr "वेब इतिहास (Mozilla)"
+
+#: ../deskbar/handlers/programs.py:77
+#, python-format
+msgid "Lookup %s in dictionary"
+msgstr "%s शब्दकोशात शोधा"
+
+#: ../deskbar/handlers/programs.py:84
+#, python-format
+msgid "Search for file names like %s"
+msgstr "%s सारख्या फाइल नावांसाठी शोधा"
+
+#: ../deskbar/handlers/programs.py:90
+#, python-format
+msgid "Search in Devhelp for %s"
+msgstr "डेवहेल्प %s साठी शोधा"
+
+#: ../deskbar/handlers/programs.py:124
+msgid "Dictionary"
+msgstr "शब्दकोश"
+
+#: ../deskbar/handlers/programs.py:125
+msgid "Look up word definitions in the dictionary"
+msgstr "शब्दकोष मधील लुकअप शब्दचे वर्णन"
+
+#: ../deskbar/handlers/programs.py:141
+msgid "GNOME dictionary is not installed"
+msgstr "GNOME शब्दकोष प्रतिष्ठापीत नाही"
+
+#: ../deskbar/handlers/programs.py:148
+msgid "Files and Folders Search"
+msgstr "फाइल आणि फोल्डर शोध"
+
+#: ../deskbar/handlers/programs.py:149
+msgid "Find files and folders by searching for a name pattern"
+msgstr "नाव रचनानुरूप फाइल व संचयीका शोधा"
+
+#: ../deskbar/handlers/programs.py:165
+msgid "GNOME search tool is not installed"
+msgstr "GNOME शोध साधन प्रतिष्ठापीत नाही"
+
+#: ../deskbar/handlers/programs.py:172
+msgid "Developer Documentation"
+msgstr "विकासकर्ता दस्तऐवजीकरण"
+
+#: ../deskbar/handlers/programs.py:173
+msgid "Search Devhelp for a function name"
+msgstr "कार्यपध्दती नाव करीता Devhelp शोधा"
+
+#: ../deskbar/handlers/programs.py:192
+msgid "Devhelp is not installed"
+msgstr "Devhelp प्रतिष्ठापीत नाही"
+
+#: ../deskbar/handlers/programs.py:241
+#, python-format
+msgid "Execute %s in terminal"
+msgstr "टर्मिनल मध्ये %s चालवा"
+
+#: ../deskbar/handlers/programs.py:243
+#, python-format
+msgid "Execute %s"
+msgstr "%s चालवा"
+
+#: ../deskbar/handlers/programs.py:259
+msgid "Programs"
+msgstr "कार्यक्रम"
+
+#: ../deskbar/handlers/programs.py:260
+msgid "Launch a program by its name and/or description"
+msgstr "कार्यक्रम नाव व/किंवा वर्णननुरूप दाखल करा"
+
+#: ../deskbar/handlers/recent.py:38
+msgid "Recent Documents"
+msgstr "अलिकडील दस्तऐवज"
+
+#: ../deskbar/handlers/recent.py:39
+msgid "Retrieve your recently accessed files and locations"
+msgstr "अलिकडील प्रवेशकीय फाइलं व स्थान प्राप्त करा"
+
+#: ../deskbar/handlers/recent.py:58
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr "या हँडलरला अलिकडील gtk आवृत्ती ची आवश्यकता आहे (2.9.0 किंवा नविन)."
+
+#: ../deskbar/handlers/templates.py:37
+#, python-format
+msgid "Create %s"
+msgstr "%s बनवा"
+
+#: ../deskbar/handlers/templates.py:40
+msgid "Create Document"
+msgstr "दस्तऐवज बनवा"
+
+#: ../deskbar/handlers/templates.py:53
+msgid "Name:"
+msgstr "नाव:"
+
+#: ../deskbar/handlers/templates.py:60
+msgid "Folder:"
+msgstr "संचयीका:"
+
+#: ../deskbar/handlers/templates.py:64
+msgid "Choose Folder"
+msgstr "संचयीका निवडा"
+
+#: ../deskbar/handlers/templates.py:119
+#, python-format
+msgid "A file named \"%s\" already exists.  Do you want to replace it?"
+msgstr "\"%s\" नावाची फाइल आधीच अस्तित्वात आहे. तुम्ही तिला बदली करू इच्छिता काय?"
+
+#: ../deskbar/handlers/templates.py:123
+#, python-format
+msgid "The file already exists in \"%s\".  Replacing it will overwrite its contents."
+msgstr ""
+"\"%s\" नावाची फाइल आधीच अस्तित्वात आहे. तिला बदली केल्याने तिच्यातील मजकूर गिरवला "
+"जाईल."
+
+#: ../deskbar/handlers/templates.py:130
+msgid "Replace"
+msgstr "बदलवा"
+
+#: ../deskbar/handlers/templates.py:166
+msgid "Templates"
+msgstr "नमुना"
+
+#: ../deskbar/handlers/templates.py:167
+msgid "Create new files from your templates"
+msgstr "तुमच्या प्रारूप पासून नविन फाइलं बनवा"
+
+#: ../deskbar/handlers/tomboy.py:37
+#, python-format
+msgid "Open note <b>%(name)s</b>"
+msgstr "<b>%(name)s</b> टिपण्णी उघडा"
+
+#: ../deskbar/handlers/tomboy.py:50
+msgid "Really delete this note?"
+msgstr "खरच ही टिपण्णी काढूण टाकायचे?"
+
+#: ../deskbar/handlers/tomboy.py:51
+msgid "If you delete a note it is permanently lost."
+msgstr "ही टिपण्णी काढूण टाकल्यास नेहमीकरीता काढूण टाकली जाईल."
+
+#: ../deskbar/handlers/tomboy.py:63
+#, python-format
+msgid "Delete note <b>%(name)s</b>"
+msgstr "<b>%(name)s</b> टिपण्णी रद्द करा"
+
+#: ../deskbar/handlers/tomboy.py:88
+#, python-format
+msgid "Create note <b>%(name)s</b>"
+msgstr "<b>%(name)s</b> टिपण्णी बदलवा"
+
+#: ../deskbar/handlers/tomboy.py:110
+msgid "Title"
+msgstr "शिर्षक"
+
+#: ../deskbar/handlers/tomboy.py:111
+msgid "Contents"
+msgstr "अनुक्रम"
+
+#: ../deskbar/handlers/tomboy.py:130
+msgid "Tomboy Notes"
+msgstr "Tomboy टिप"
+
+#: ../deskbar/handlers/tomboy.py:131
+msgid "Search your Tomboy notes"
+msgstr "तुमचे Tomboy टिप शोधा"
+
+#: ../deskbar/handlers/tomboy.py:198
+msgid "Tomboy does not seem to be installed."
+msgstr "Tomboy प्रतिष्ठापीत आहे असे दिसून येत नाही."
+
+#: ../deskbar/handlers/tomboy.py:235
+#, python-format
+msgid ""
+"Tomboy does not seem to be the correct version.\n"
+"Tomboy %s or greater must be installed."
+msgstr ""
+"Tomboy ची योग्य आवृत्ती दिसून येत नाही.\n"
+"Tomboy %s किंवा त्यापुढचे प्रतिष्ठापीत असायला हवे."
+
+#: ../deskbar/handlers/web_address.py:45
+msgid "Open web pages and send emails by typing a complete address"
+msgstr "वेब पान उघडा व पूर्ण पत्ता टाईप केल्यास मेल पाठवा"
+
+#: ../deskbar/handlers/yahoo.py:41
+msgid "Yahoo! Search"
+msgstr "याहू! शोध"
+
+#: ../deskbar/handlers/yahoo.py:42
+msgid "Search Yahoo! as you type"
+msgstr "टाइप करत असतेवेळीच Yahoo! वर शोधा"
+
+#: ../deskbar/handlers/actions/ActionsFactory.py:62
+#, python-format
+msgid "URL of %s"
+msgstr "%s चे URL"
+
+#: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
+#, python-format
+msgid "Copy <b>%(name)s</b> to clipboard"
+msgstr "<b>%(name)s</b> क्लीपबोर्डवर प्रतिकृत करा"
+
+#: ../deskbar/handlers/actions/GoToLocationAction.py:23
+#, python-format
+msgid "Go to location of %s"
+msgstr "%s या स्थानावर जा"
+
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#, python-format
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "<b>%(name)s</b> (%(prog)s) प्रक्षेपित करा"
+
+#: ../deskbar/handlers/actions/OpenFileAction.py:51
+#: ../deskbar/handlers/actions/ShowUrlAction.py:24
+#, python-format
+msgid "Open %s"
+msgstr "%s उघडा"
+
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
+#, python-format
+msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
+msgstr "<b>%(program)s</b> सह <b>%(name)s</b> उघडा"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
+#, python-format
+msgid "Open network place %s"
+msgstr "संजाळ स्थळ %s उघडा"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
+#, python-format
+msgid "Open audio disc %s"
+msgstr "ऑडिओ डिस्क  %s उघडा"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:32
+#, python-format
+msgid "Open location %s"
+msgstr "%s स्थळ उघडा"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/actions/SendEmailToAction.py:24
+#, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "<b>%(name)s</b> (%(email)s) करीता ईमेल पाठवा"
+
+#. translators: %s is a filename
+#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:44
+#, python-format
+msgid "Send %s via e-mail"
+msgstr "ई-मेल द्वारे %s पाठवा"
+
+#: ../deskbar/ui/About.py:23
+msgid "An all-in-one action bar."
+msgstr "सर्व काही एकात कृती पट्टी."
+
+#: ../deskbar/ui/About.py:30
+msgid "Deskbar Website"
+msgstr "डेस्कबार संकेतस्थळ"
+
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:34
+msgid "translator-credits"
+msgstr "Rahul Bhalerao <b.rahul.pm@gmail.com>, 2006 ; Sandeep Shedmake <sandeep.shedmake@gmail.com>, 2008."
+
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
 msgstr "<b>शोध:</b>"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:49
-msgid "_File"
-msgstr "फाइल(_F)"
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
+msgid "default"
+msgstr "मुलभूत"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:50
-msgid "_Quit"
-msgstr "सोडून द्या(_Q)"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:51
-msgid "_Edit"
-msgstr "संपादा(_E)"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:54
-msgid "_View"
-msgstr "दृश्य(_V)"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:55
-msgid "_Help"
-msgstr "मदत(_H)"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:58
+#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
+#: ../deskbar/ui/CuemiacAlignedView.py:88
+#: ../deskbar/ui/CuemiacWindowView.py:77
 msgid "_History"
 msgstr "इतिहास(_H)"
 
-#. History TreeView
-#: ../deskbar/ui/window/CuemiacWindowUI.py:84
-msgid "<b>History</b>"
-msgstr "<b> इतिहास</b>"
+#: ../deskbar/ui/CuemiacAlignedView.py:150
+#: ../deskbar/ui/CuemiacWindowView.py:139
+msgid "Back to Matches"
+msgstr "जुळवणी करीता जा"
+
+#: ../deskbar/ui/DeskbarTray.py:44
+msgid "Show search entry"
+msgstr "शोध प्रविष्ट दाखवा"
+
+#: ../deskbar/ui/DeskbarTray.py:111
+msgid ""
+"Some potentially old modules that make use of an old Deskbar-Applet API have "
+"been found. Remove these files for this warning to disappear.\n"
+msgstr "जुने डेस्कबार-ऍपलेट API चा वापर करणारी काहीक जुने विभाग आढळले. ही सावधानतेची सूचना न दिसण्याकरीता या फाइलं काढूण टाका.\n"
+
+#: ../deskbar/ui/preferences/AccelEntry.py:102
+msgid "New accelerator..."
+msgstr "नविन प्रवेगक..."
+
+#: ../deskbar/ui/preferences/AccelEntry.py:154
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will prevent correct operation "
+"of your keyboard.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"शार्टकट \"%s\" चा वापर केला जाऊ शकत नाही कारण त्यामुळे कळफलकचा योग्य वापर होणार नाही.\n"
+"कृपया Control, Alt किंवा Shift एकाचवेळी वापरून पहा.\n"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
+msgid "Reload all extensions"
+msgstr "सर्व विस्तार पुन्हदाखल करा"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
+msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
+msgstr "<i><small>क्रमावारी बदलविण्याकरीता विस्तार ओढा व टाका.</small></i>"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:335
+msgid "A problem occured"
+msgstr "अडचण आढळली"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:400
+msgid "Handler has been installed successfully"
+msgstr "हँडलर यशस्वीरित्या प्रतिष्ठापीत करण्यात आली"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:403
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr "पूरविलेल्या फाइल मध्ये अडचण आढळल्याने हँडलर यशस्वीरित्या प्रतिष्ठापीत करता आले नाही"
+
+#: ../deskbar/ui/preferences/ErrorDialog.py:8
+msgid "Error"
+msgstr "त्रुटी"
+
+#: ../deskbar/ui/preferences/ErrorDialog.py:26
+msgid "Check the description beneath for further details."
+msgstr "पुढील तपशील करीता खालील वर्णन तपासा."
+
+#: ../deskbar/ui/preferences/ErrorDialog.py:32
+msgid "Details"
+msgstr "तपशील"
+
+#: ../deskbar/ui/preferences/ModuleListView.py:53
+msgid "Version:"
+msgstr "आवृत्ती:"
+
+#: ../deskbar/ui/preferences/ModuleListView.py:56
+msgid "Update Available"
+msgstr "उपलब्ध अद्ययावत"
 
