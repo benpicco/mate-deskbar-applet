@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-27 23:12+0200\n"
-"PO-Revision-Date: 2008-01-27 12:58+0000\n"
+"POT-Creation-Date: 2008-03-07 13:53+0200\n"
+"PO-Revision-Date: 2008-03-07 12:58+0000\n"
 "Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>\n"
 "Language-Team:  <i18n@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -178,7 +178,7 @@ msgstr "_Параметри"
 msgid "An all-in-one action bar"
 msgstr "Панель дій все-в-одному"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:19
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:27
 msgid "Deskbar"
 msgstr "Deskbar"
 
@@ -288,31 +288,31 @@ msgstr "Показувати усі доступні пошукові систе
 msgid "Show only the primary search engine"
 msgstr "Показувати лише головні пошукові системи"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:181
+#: ../deskbar/core/BrowserMatch.py:57 ../deskbar/handlers/beagle-live.py:181
 #, python-format
 msgid "Open History Item %s"
 msgstr "Відкрити елемент історії %s"
 
-#: ../deskbar/core/BrowserMatch.py:53
+#: ../deskbar/core/BrowserMatch.py:59
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Відкрити закладку %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:69
+#: ../deskbar/core/BrowserMatch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Шукати у <b>%(name)s</b> <i>%(text)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:33
+#: ../deskbar/core/BrowserMatch.py:101 ../deskbar/handlers/yahoo.py:33
 msgid "URL"
 msgstr "URL"
 
-#: ../deskbar/core/BrowserMatch.py:230
+#: ../deskbar/core/BrowserMatch.py:236
 msgid "Shortcut"
 msgstr "Комбінація клавіш"
 
-#: ../deskbar/core/BrowserMatch.py:238
+#: ../deskbar/core/BrowserMatch.py:244
 msgid "Bookmark Name"
 msgstr "Назва закладки"
 
@@ -496,16 +496,16 @@ msgstr "Слід налаштувати обліковий рахунок del.ic
 msgid "You can modify your del.icio.us account."
 msgstr "Можна змінити ваш обліковий рахунок del.icio.us."
 
-#: ../deskbar/handlers/epiphany.py:48
+#: ../deskbar/handlers/epiphany.py:51
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Закладки веб-переглядача(Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:127
+#: ../deskbar/handlers/epiphany.py:52 ../deskbar/handlers/mozilla.py:157
 msgid "Open your web bookmarks by name"
 msgstr "Відкривати ваші закладки з веб-переглядача за назвою"
 
 #: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
-#: ../deskbar/handlers/epiphany.py:164
+#: ../deskbar/handlers/epiphany.py:161
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany не є типовою програмою перегляду."
 
@@ -513,7 +513,7 @@ msgstr "Epiphany не є типовою програмою перегляду."
 msgid "Web Searches (Epiphany)"
 msgstr "Пошук в Інтернеті(Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:194
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:234
 msgid "Search the web via your browser's search settings"
 msgstr "Шукати в Інтернеті, використовуючи параметри веб-переглядача"
 
@@ -525,7 +525,7 @@ msgstr "Ви можете вказати комбінації клавіш дл�
 msgid "Web History (Epiphany)"
 msgstr "Історія перегляду Інтернету(Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:784
 msgid "Open your web history by name"
 msgstr "Відкривати сайти з історії веб-переглядача за назвою"
 
@@ -571,7 +571,7 @@ msgstr ""
 "Перегляд ваших файлів, закладок, пристроїв, мережних ресурсів за назвою"
 
 #: ../deskbar/handlers/gdmactions.py:30
-msgid "Shut down of this system now?"
+msgid "Shut down this system now?"
 msgstr "Вимкнути систему?"
 
 #: ../deskbar/handlers/gdmactions.py:31
@@ -704,23 +704,25 @@ msgstr "Перейти на існуюче вікно за його назвою
 msgid "Windows"
 msgstr "Вікна"
 
-#: ../deskbar/handlers/mozilla.py:126
+#: ../deskbar/handlers/mozilla.py:156
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Закладки веб-переглядача(Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:186 ../deskbar/handlers/mozilla.py:259
+#: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:305
+#: ../deskbar/handlers/mozilla.py:831
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox не є типовою програмою перегляду."
 
-#: ../deskbar/handlers/mozilla.py:193
+#: ../deskbar/handlers/mozilla.py:233
 msgid "Web Searches (Mozilla)"
 msgstr "Пошук в Інтернеті(Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:253
+#. Correct firefox version or iceweasel
+#: ../deskbar/handlers/mozilla.py:299
 msgid "You can customize which search engines are offered."
 msgstr "Ви можете налаштувати список пропонованих пошукових систем."
 
-#: ../deskbar/handlers/mozilla.py:737
+#: ../deskbar/handlers/mozilla.py:783
 msgid "Web History (Mozilla)"
 msgstr "Історія перегляду Інтернету(Mozilla)"
 
@@ -974,18 +976,16 @@ msgstr "Надіслати лист <b>%(name)s</b> (%(email)s)"
 msgid "Send %s via e-mail"
 msgstr "Надіслати %s електронною поштою"
 
-#: ../deskbar/ui/About.py:22
+#: ../deskbar/ui/About.py:23
 msgid "An all-in-one action bar."
 msgstr "Панель дій все-в-одному"
 
-#: ../deskbar/ui/About.py:25
+#: ../deskbar/ui/About.py:30
 msgid "Deskbar Website"
 msgstr "Веб-сайт Deskbar"
 
-#. about.set_artists([])
-#. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
+#: ../deskbar/ui/About.py:34
 msgid "translator-credits"
 msgstr "Максим Дзюманенко <dziumanenko@gmail.com>"
 
@@ -1035,25 +1035,25 @@ msgstr ""
 "нею буде неможливо.\n"
 "Спробуйте використати клавішу з Control, Alt чи Shift.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:80
 msgid "Reload all extensions"
 msgstr "Перезавантажити всі розширення"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:85
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr ""
 "<i><small>Порядок змінюється перетягуванням розширення вниз або вгору.</"
 "small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:335
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:337
 msgid "A problem occured"
 msgstr "Виникла помилка"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:400
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:402
 msgid "Handler has been installed successfully"
 msgstr "Обробник успішно встановлений"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:403
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:405
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
 "Не вдається встановити обробник у зв'язку з проблемою у вказаному файлі"
