@@ -1,14 +1,14 @@
 # Përkthimi i mesazheve të deskbar-applet në shqip
-# Copyright (C) 2006, 2007 Free Software Foundation, Inc.
+# Copyright (C) 2006, 2007, 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the Deskbar-applet package.
 #
-# Laurent Dhima <laurenti@alblinux.net>, 2006, 2007.
+# Laurent Dhima <laurenti@alblinux.net>, 2006, 2007, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-12 19:53+0200\n"
-"PO-Revision-Date: 2007-09-12 19:52+0200\n"
+"POT-Creation-Date: 2008-03-07 21:16+0100\n"
+"PO-Revision-Date: 2008-03-08 10:48+0100\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -17,11 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/deskbar-applet.schemas.in.h:1
-#, fuzzy
 msgid ""
 "Choose whether triggering the keyboard shortcut also pastes the current "
 "selection in the search box."
-msgstr "tastiera shtegu në."
+msgstr ""
+"Tregon se aktivimi i shtegut nga tastiera ngjit edhe zgjedhjen aktuale "
+"në kutinë e kërkimit."
 
 #: ../data/deskbar-applet.schemas.in.h:2
 msgid "Clear entry after match has been selected"
@@ -36,8 +37,7 @@ msgid "Enabled handlers"
 msgstr "Trajtues aktivë"
 
 #: ../data/deskbar-applet.schemas.in.h:5
-msgid ""
-"If enabled it will clear the entry after a search result has been selected"
+msgid "If enabled it will clear the entry after a search result has been selected"
 msgstr ""
 "Nëse aktivuar do të pastrojë fushën mbasi të jetë zgjedhur njëri nga "
 "rezultatet e kërkimit"
@@ -59,20 +59,34 @@ msgid "Minimum number of characters needed to start searching"
 msgstr "Numri minimum i nevojshëm i simboleve për të filluar kërkimin"
 
 #: ../data/deskbar-applet.schemas.in.h:10
+msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
+msgstr ""
+"Zgjedh interfaqen e përdorimit për përdorim, njërën prej \"Window\" ose "
+"\"Button\""
+
+#: ../data/deskbar-applet.schemas.in.h:11
 msgid "The default height of the window in pixels"
 msgstr "Lartësia e prezgjedhur e dritares në pixel"
 
-#: ../data/deskbar-applet.schemas.in.h:11
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "Pozicioni i paracaktuar i dritares në ekran (koordinata x)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "Pozicioni i paracaktuar i dritares në ekran (koordinata y)"
+
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The default width of the window in pixels"
 msgstr "Gjerësia e prezgjedhur e dritares në pixel"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "Sekuenca e pulsantëve do të fokusojë Deskbar-Applet, duke mundësuar shkrimin "
 "me lehtësi"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -82,7 +96,7 @@ msgstr ""
 "e prezgjedhur, historiku, dokumente, email, biseda, files, persona, vënde, "
 "veprime, web, kërkime web, lajme dhe shënime."
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -90,11 +104,11 @@ msgstr ""
 "Lista e klasës së eksportuar të emrave të trajtuesve të aktivuar renditur "
 "sipas prioritetit. Sa më majtas, aq më i lartë prioriteti"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid "The maximum number of items stored in history"
 msgstr "Numri maksimum i elementëve të konservuar në historik"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
@@ -102,7 +116,7 @@ msgstr ""
 "Numri minimum i simboleve që duhen shkruar para se applet të fillojë të "
 "shfaq rezultatet"
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -110,11 +124,11 @@ msgstr ""
 "Koha në milisekonda midis shkrimit tek fusha e kërkimit dhe fillimit të "
 "kryerjes së kërkimit aktual"
 
-#: ../data/deskbar-applet.schemas.in.h:18
-msgid "Whether to close the window after an actions has been activated"
-msgstr "Nëse mbyll dritaren mbas aktivimit të një veprimi"
+#: ../data/deskbar-applet.schemas.in.h:21
+msgid "Whether to close the window after an action has been activated"
+msgstr "Tregon nëse duhet mbyllur dritarja mbas aktivimit të një veprimi"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -123,18 +137,25 @@ msgstr ""
 "gjithë motorrëve në dispozicion. Ka efekt vetëm tek shfletuesit web të "
 "bazuar në Mozilla, si p.sh. Firefox."
 
-#: ../data/deskbar-applet.schemas.in.h:20
-#, fuzzy
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
-msgstr "Deskbar"
+msgstr "Tregon nëse me aktivimin e Deskbar-Applet ngjitet zgjedhja aktuale"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid "Window height"
 msgstr "Lartësia e dritares"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:25
 msgid "Window width"
 msgstr "Gjerësia e dritares"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "X-coordinate of window"
+msgstr "Koordinata X e dritares"
+
+#: ../data/deskbar-applet.schemas.in.h:27
+msgid "Y-coordinate of window"
+msgstr "Koordinata Y e dritares"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -145,6 +166,10 @@ msgid "_Clear History"
 msgstr "_Pastro kronollogjinë"
 
 #: ../data/Deskbar_Applet.xml.h:3
+msgid "_Help"
+msgstr "_Ndihmë"
+
+#: ../data/Deskbar_Applet.xml.h:4
 msgid "_Preferences"
 msgstr "_Preferimet"
 
@@ -152,7 +177,7 @@ msgstr "_Preferimet"
 msgid "An all-in-one action bar"
 msgstr "Shtyllë veprimi \"gjithçka-në-një\""
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:19
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:27
 msgid "Deskbar"
 msgstr "Deskbar"
 
@@ -173,50 +198,62 @@ msgid "<b>Loaded Extensions</b>"
 msgstr "<b>Shtesat e ngarkuara</b>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid "<b>Window Behavior</b>"
+msgstr "<b>Sjellja e dritares</b>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "Deskbar Preferences"
 msgstr "Preferimet e deskbar"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Extensions with Errors"
 msgstr "Shtesa me gabime"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "General"
 msgstr "Të përgjithshme"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "New Extensions"
 msgstr "Shtesa të reja"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "Search selection when triggering the shortcut"
 msgstr "Kërko zgjedhjen kur përdoret përshpejtuesi"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "Searches"
 msgstr "Kërkime"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
+msgid "Stick to panel"
+msgstr "Ngjit në panel"
+
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Check For Updates"
 msgstr "_Kontrollo për përditësime"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Check for new extensions"
 msgstr "_Kontrollo për shtojca të reja"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "_Install"
 msgstr "_Instalo"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Kombinacioni i tasteve për fokusin:"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:17
 msgid "_More..."
 msgstr "_Akoma..."
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Reload"
+msgstr "_Ringarko"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Update"
 msgstr "_Përditëso"
 
@@ -250,31 +287,31 @@ msgstr "Shfaq të gjithë motorrët e kërkimit në dispozicion"
 msgid "Show only the primary search engine"
 msgstr "Shfaq vetëm motorrët e kërkimit kryesorë"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:177
+#: ../deskbar/core/BrowserMatch.py:57 ../deskbar/handlers/beagle-live.py:181
 #, python-format
 msgid "Open History Item %s"
 msgstr "Hap zërin e kronollogjisë %s"
 
-#: ../deskbar/core/BrowserMatch.py:53
+#: ../deskbar/core/BrowserMatch.py:59
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Hap libërshënuesin %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:69
+#: ../deskbar/core/BrowserMatch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Kërko <b>%(name)s</b> tek <i>%(text)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:30
+#: ../deskbar/core/BrowserMatch.py:101 ../deskbar/handlers/yahoo.py:33
 msgid "URL"
 msgstr "URL"
 
-#: ../deskbar/core/BrowserMatch.py:230
+#: ../deskbar/core/BrowserMatch.py:236
 msgid "Shortcut"
 msgstr "Kombinim përshpejtues"
 
-#: ../deskbar/core/BrowserMatch.py:238
+#: ../deskbar/core/BrowserMatch.py:244
 msgid "Bookmark Name"
 msgstr "Emri i libërshënuesit"
 
@@ -330,70 +367,83 @@ msgstr "Lajme"
 msgid "Notes"
 msgstr "Shënime"
 
-#: ../deskbar/core/DeskbarHistory.py:20
+#: ../deskbar/core/DeskbarHistory.py:22
 msgid "<i>Choose action</i>"
 msgstr "<i>Zgjidh veprimin</i>"
 
-#: ../deskbar/core/Utils.py:124
+#: ../deskbar/core/Utils.py:132
 msgid "Cannot execute program:"
 msgstr "I pamundur ekzekutimi i programit:"
 
-#: ../deskbar/core/Utils.py:164
+#: ../deskbar/core/Utils.py:172
 msgid "Cannot show URL:"
 msgstr "E pamundur shfaqja e URL:"
 
-#: ../deskbar/handlers/beagle-live.py:99
+#. translators: This is the window title.
+#: ../deskbar/deskbar-applet.py:15
+msgid "Deskbar Applet"
+msgstr "Applet Deskbar"
+
+#: ../deskbar/handlers/beagle-live.py:103
 #, python-format
 msgid "Edit contact %s"
 msgstr "Ndrysho kontaktin %s"
 
-#: ../deskbar/handlers/beagle-live.py:110
+#: ../deskbar/handlers/beagle-live.py:114
 #, python-format
 msgid "From %s"
 msgstr "Nga %s"
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:129
 #, python-format
 msgid "News from %s"
 msgstr "Lajme nga %s"
 
-#: ../deskbar/handlers/beagle-live.py:139
+#: ../deskbar/handlers/beagle-live.py:143
 #, python-format
 msgid "Note: %s"
 msgstr "Shënim: %s"
 
-#: ../deskbar/handlers/beagle-live.py:152
+#: ../deskbar/handlers/beagle-live.py:156
 #, python-format
 msgid "With %s"
 msgstr "Me %s"
 
-#: ../deskbar/handlers/beagle-live.py:166
+#: ../deskbar/handlers/beagle-live.py:170
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalendari: %s"
 
-#: ../deskbar/handlers/beagle-live.py:272
+#: ../deskbar/handlers/beagle-live.py:213
+#, python-format
+msgid "Additional results for category <b>%s</b>"
+msgstr "Rezultate të mëtejshme për kategorinë <b>%s</b>"
+
+#: ../deskbar/handlers/beagle-live.py:213
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
+msgid "name"
+msgstr "emri"
+
+#: ../deskbar/handlers/beagle-live.py:295
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:273
+#: ../deskbar/handlers/beagle-live.py:296
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Kërko të gjithë dokumentët (duke përdorur Beagle), kur shkruani"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:377
-#: ../deskbar/handlers/beagle-live.py:399
+#: ../deskbar/handlers/beagle-live.py:433
+#: ../deskbar/handlers/beagle-live.py:455
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:437
-msgid ""
-"Could not load beagle, libbeagle has been compiled without python bindings."
-msgstr ""
-"I pamundur ngarkimi i beagle, libbeagle është kompiluar pa python bindings."
+#: ../deskbar/handlers/beagle-live.py:486
+msgid "Could not load beagle, libbeagle has been compiled without python bindings."
+msgstr "I pamundur ngarkimi i beagle, libbeagle është kompiluar pa python bindings."
 
-#: ../deskbar/handlers/beagle-live.py:446
+#: ../deskbar/handlers/beagle-live.py:495
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagled nuk u gjet në $PATH tuaj."
 
@@ -414,43 +464,44 @@ msgstr "Kërko të gjithë dokumentët (duke përdorur Beagle)"
 msgid "Beagle does not seem to be installed."
 msgstr "Mesa duket Beagle nuk është i instaluar."
 
-#: ../deskbar/handlers/desklicious.py:44
+#: ../deskbar/handlers/desklicious.py:47
 msgid "del.icio.us Bookmarks"
 msgstr "Libërshënues del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:45
+#: ../deskbar/handlers/desklicious.py:48
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "Kërko tek libërshënuesit tuaj del.icio.us sipas emrit"
 
-#: ../deskbar/handlers/desklicious.py:77
+#: ../deskbar/handlers/desklicious.py:80
 msgid "del.icio.us Account"
 msgstr "Profili del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:84
+#: ../deskbar/handlers/desklicious.py:87
 msgid "Enter your del.icio.us username below"
 msgstr "Shkruaj emrin tuaj të përdoruesit del.icio.us më poshtë"
 
-#: ../deskbar/handlers/desklicious.py:90
+#: ../deskbar/handlers/desklicious.py:93
 msgid "Username: "
 msgstr "Përdoruesi: "
 
-#: ../deskbar/handlers/desklicious.py:106
+#: ../deskbar/handlers/desklicious.py:109
 msgid "You need to configure your del.icio.us account."
 msgstr "Duhet të konfiguroni profilin tuaj del.icio.us."
 
-#: ../deskbar/handlers/desklicious.py:111
+#: ../deskbar/handlers/desklicious.py:114
 msgid "You can modify your del.icio.us account."
 msgstr "Mund të ndryshoni profilin tuaj del.icio.us."
 
-#: ../deskbar/handlers/epiphany.py:48
+#: ../deskbar/handlers/epiphany.py:51
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Libërshënues web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:125
+#: ../deskbar/handlers/epiphany.py:52 ../deskbar/handlers/mozilla.py:157
 msgid "Open your web bookmarks by name"
 msgstr "Hap libërshënuesit web sipas emrit"
 
 #: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
+#: ../deskbar/handlers/epiphany.py:161
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany nuk është shfletuesi juaj i preferuar."
 
@@ -458,7 +509,7 @@ msgstr "Epiphany nuk është shfletuesi juaj i preferuar."
 msgid "Web Searches (Epiphany)"
 msgstr "Kërkime në web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:195
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:234
 msgid "Search the web via your browser's search settings"
 msgstr "Kërko në web sipas rregullimeve të kërkimit të shfletuesit tuaj"
 
@@ -470,20 +521,25 @@ msgstr "Mund të përcaktosh kombinime pulsantësh për kërkimet tuaj."
 msgid "Web History (Epiphany)"
 msgstr "Kronollogjia web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:784
 msgid "Open your web history by name"
 msgstr "Hap kronollogjinë web sipas emrit"
 
-#: ../deskbar/handlers/evolution.py:21
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:27
+#, python-format
+msgid "Edit contact <b>%(name)s</b> (%(email)s)"
+msgstr "Ndrysho kontaktin <b>%(name)s</b> (%(email)s)"
+
+#: ../deskbar/handlers/evolution.py:42
 msgid "Mail (Address Book)"
-msgstr "Mail (Rubrika)"
+msgstr "Posta (Rubrika)"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:43
 msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-"Dërgo mail tek kontektet tuaj duke shkruar emrin apo adresën e tyre e-mail"
+msgstr "Dërgo mail tek kontektet tuaj duke shkruar emrin apo adresën e tyre e-mail"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:67
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -497,87 +553,131 @@ msgstr ""
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
-#: ../deskbar/handlers/files.py:61
-#: ../deskbar/handlers/actions/ActionsFactory.py:37
+#: ../deskbar/handlers/files.py:62
+#: ../deskbar/handlers/actions/ActionsFactory.py:35
 msgid "Location"
 msgstr "Vendndodhja"
 
-#: ../deskbar/handlers/files.py:69
+#: ../deskbar/handlers/files.py:70
 msgid "Files, Folders and Places"
 msgstr "Files, kartela dhe rezerva"
 
-#: ../deskbar/handlers/files.py:70
+#: ../deskbar/handlers/files.py:71
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Shaq files, kartelat, libërshënues, dispozitivë, rezervat e rrjetit sipas "
 "emrit"
 
-#: ../deskbar/handlers/gdmactions.py:33
-msgid "Suspend the machine"
-msgstr "Pezullo makinën"
+#: ../deskbar/handlers/gdmactions.py:30
+msgid "Shut down this system now?"
+msgstr "Shuan këtë sistem tani?"
 
-#: ../deskbar/handlers/gdmactions.py:49
-msgid "Hibernate the machine"
-msgstr "Vër në gjumë makinën"
+#: ../deskbar/handlers/gdmactions.py:31
+#, python-format
+msgid "This system will be automatically shut down in %s seconds."
+msgstr "Ky sistem do të fiket automatikisht në %s sekonda."
 
-#: ../deskbar/handlers/gdmactions.py:65
-msgid "Shutdown the machine"
-msgstr "Fik makinën"
-
-#: ../deskbar/handlers/gdmactions.py:86
-msgid "Lock the screen"
-msgstr "Blloko ekranin"
-
-#: ../deskbar/handlers/gdmactions.py:109 ../deskbar/handlers/gdmactions.py:230
-msgid "Lock"
-msgstr "Blloko"
-
-#: ../deskbar/handlers/gdmactions.py:149
-msgid "Turn off the computer"
-msgstr "Shuaj kompjuterin"
-
-#: ../deskbar/handlers/gdmactions.py:153 ../deskbar/handlers/gdmactions.py:209
+#: ../deskbar/handlers/gdmactions.py:32 ../deskbar/handlers/gdmactions.py:223
+#: ../deskbar/handlers/gdmactions.py:281
 msgid "Shut Down"
 msgstr "Fike"
 
-#: ../deskbar/handlers/gdmactions.py:165
-msgid "Log out"
-msgstr "Përfundo seancën"
+#: ../deskbar/handlers/gdmactions.py:34
+msgid "Log out of this system now?"
+msgstr "Del jashtë këtij sistemi tani?"
 
-#: ../deskbar/handlers/gdmactions.py:169 ../deskbar/handlers/gdmactions.py:212
+#: ../deskbar/handlers/gdmactions.py:35
+#, python-format
+msgid "You will be automatically logged out in %s seconds."
+msgstr "Do të shkëputeni automatikisht në %s sekonda."
+
+#: ../deskbar/handlers/gdmactions.py:36 ../deskbar/handlers/gdmactions.py:236
+#: ../deskbar/handlers/gdmactions.py:240 ../deskbar/handlers/gdmactions.py:284
 msgid "Log Out"
 msgstr "Shkëputu"
 
-#: ../deskbar/handlers/gdmactions.py:181
-msgid "Restart the computer"
-msgstr "Rinis kompjuterin"
+#: ../deskbar/handlers/gdmactions.py:38
+msgid "Restart this system now?"
+msgstr "Rinis këtë sistem tani?"
 
-#: ../deskbar/handlers/gdmactions.py:185 ../deskbar/handlers/gdmactions.py:211
+#: ../deskbar/handlers/gdmactions.py:39
+#, python-format
+msgid "This system will be automatically restarted in %s seconds."
+msgstr "Ky sistem do të riniset automatikisht në %s sekonda."
+
+#: ../deskbar/handlers/gdmactions.py:40 ../deskbar/handlers/gdmactions.py:257
+#: ../deskbar/handlers/gdmactions.py:283
 msgid "Restart"
 msgstr "Rinis"
 
-#: ../deskbar/handlers/gdmactions.py:196 ../deskbar/handlers/gdmactions.py:200
-#: ../deskbar/handlers/gdmactions.py:210
-msgid "Switch User"
-msgstr "Ndrysho përdorues"
+#: ../deskbar/handlers/gdmactions.py:42
+msgid "Suspend this system now?"
+msgstr "Pezullon këtë sistem tani?"
 
-#: ../deskbar/handlers/gdmactions.py:206
-msgid "Computer Actions"
-msgstr "Veprime kompjuteri"
+#: ../deskbar/handlers/gdmactions.py:43
+#, python-format
+msgid "This system will be automatically suspended in %s seconds."
+msgstr "Ky sistem do të pezullohet automatikisht në %s sekonda."
 
-#: ../deskbar/handlers/gdmactions.py:207
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr "Dalja, fikja, rinisja, pezullimi dhe veprime të lidhura."
-
-#: ../deskbar/handlers/gdmactions.py:241
+#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:313
 msgid "Suspend"
 msgstr "Pezullo"
 
-#: ../deskbar/handlers/gdmactions.py:243
-msgid "Hibernate"
-msgstr "Vër në gjumë"
+#: ../deskbar/handlers/gdmactions.py:46
+msgid "Hibernate this system now?"
+msgstr "Vë në gjumë këtë sistem tani?"
 
-#: ../deskbar/handlers/gdmactions.py:245
+#: ../deskbar/handlers/gdmactions.py:47
+#, python-format
+msgid "This system will be automatically hibernated in %s seconds."
+msgstr "Ky sistem do të vihet në gjumë automatikisht në %s sekonda."
+
+#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:315
+msgid "Hibernate"
+msgstr "Në gjumë"
+
+#: ../deskbar/handlers/gdmactions.py:100
+msgid "Suspend the machine"
+msgstr "Pezullo makinën"
+
+#: ../deskbar/handlers/gdmactions.py:117
+msgid "Hibernate the machine"
+msgstr "Vër në gjumë makinën"
+
+#: ../deskbar/handlers/gdmactions.py:134
+msgid "Shutdown the machine"
+msgstr "Fik makinën"
+
+#: ../deskbar/handlers/gdmactions.py:155
+msgid "Lock the screen"
+msgstr "Blloko ekranin"
+
+#: ../deskbar/handlers/gdmactions.py:178 ../deskbar/handlers/gdmactions.py:302
+msgid "Lock"
+msgstr "Blloko"
+
+#: ../deskbar/handlers/gdmactions.py:219
+msgid "Turn off the computer"
+msgstr "Shuaj kompjuterin"
+
+#: ../deskbar/handlers/gdmactions.py:253
+msgid "Restart the computer"
+msgstr "Rinis kompjuterin"
+
+#: ../deskbar/handlers/gdmactions.py:268 ../deskbar/handlers/gdmactions.py:272
+#: ../deskbar/handlers/gdmactions.py:282
+msgid "Switch User"
+msgstr "Ndrysho përdorues"
+
+#: ../deskbar/handlers/gdmactions.py:278
+msgid "Computer Actions"
+msgstr "Veprime kompjuteri"
+
+#: ../deskbar/handlers/gdmactions.py:279
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "Dalja, fikja, rinisja, pezullimi dhe veprime të lidhura."
+
+#: ../deskbar/handlers/gdmactions.py:317
 msgid "Shutdown"
 msgstr "Fik"
 
@@ -602,75 +702,94 @@ msgstr "Kalo tek një dritare ekzistuese sipas emrit."
 msgid "Windows"
 msgstr "Dritaret"
 
-#: ../deskbar/handlers/mozilla.py:124
+#: ../deskbar/handlers/mozilla.py:156
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Libërshënues web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:187 ../deskbar/handlers/mozilla.py:259
+#: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:305
+#: ../deskbar/handlers/mozilla.py:831
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox nuk është shfletuesi juaj i preferuar."
 
-#: ../deskbar/handlers/mozilla.py:194
+#: ../deskbar/handlers/mozilla.py:233
 msgid "Web Searches (Mozilla)"
 msgstr "Kërkime në web (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:253
+#. Correct firefox version or iceweasel
+#: ../deskbar/handlers/mozilla.py:299
 msgid "You can customize which search engines are offered."
 msgstr "Mund të personalizosh motorrët e kërkimit në dispozicion."
 
-#: ../deskbar/handlers/mozilla.py:737
+#: ../deskbar/handlers/mozilla.py:783
 msgid "Web History (Mozilla)"
 msgstr "Kronollogjia web (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:76
+#: ../deskbar/handlers/programs.py:77
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Kërko %s në fjalor"
 
-#: ../deskbar/handlers/programs.py:83
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Kërko për emra files të ngjashëm me %s"
 
-#: ../deskbar/handlers/programs.py:89
+#: ../deskbar/handlers/programs.py:90
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Kërko në Devhelp për %s"
 
-#: ../deskbar/handlers/programs.py:115
+#: ../deskbar/handlers/programs.py:124
 msgid "Dictionary"
 msgstr "Fjalori"
 
-#: ../deskbar/handlers/programs.py:116
+#: ../deskbar/handlers/programs.py:125
 msgid "Look up word definitions in the dictionary"
 msgstr "Kërko përcaktime fjalësh në fjalor"
 
-#: ../deskbar/handlers/programs.py:132
+#: ../deskbar/handlers/programs.py:141
+msgid "GNOME dictionary is not installed"
+msgstr "Fjalori i GNOME nuk është i instaluar"
+
+#: ../deskbar/handlers/programs.py:148
 msgid "Files and Folders Search"
 msgstr "Kërkim për files dhe kartela"
 
-#: ../deskbar/handlers/programs.py:133
+#: ../deskbar/handlers/programs.py:149
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Gjej file dhe kartela duke kërkuar sipas një emri"
 
-#: ../deskbar/handlers/programs.py:149
+#: ../deskbar/handlers/programs.py:165
+msgid "GNOME search tool is not installed"
+msgstr "Instrumenti i kërkimeve GNOME nuk është i instaluar"
+
+#: ../deskbar/handlers/programs.py:172
 msgid "Developer Documentation"
 msgstr "Manuali i zhvilluesit"
 
-#: ../deskbar/handlers/programs.py:150
+#: ../deskbar/handlers/programs.py:173
 msgid "Search Devhelp for a function name"
 msgstr "Kërko Devhelp për emrin e një funksioni"
 
-#: ../deskbar/handlers/programs.py:198
+#: ../deskbar/handlers/programs.py:192
+msgid "Devhelp is not installed"
+msgstr "Devhelp nuk është instaluar"
+
+#: ../deskbar/handlers/programs.py:241
+#, python-format
+msgid "Execute %s in terminal"
+msgstr "Ekzekuto %s në terminal"
+
+#: ../deskbar/handlers/programs.py:243
 #, python-format
 msgid "Execute %s"
 msgstr "Ekzekuto %s"
 
-#: ../deskbar/handlers/programs.py:220
+#: ../deskbar/handlers/programs.py:259
 msgid "Programs"
 msgstr "Programe"
 
-#: ../deskbar/handlers/programs.py:221
+#: ../deskbar/handlers/programs.py:260
 msgid "Launch a program by its name and/or description"
 msgstr "Nis një program sipas emrit dhe/apo përshkrimit të tij"
 
@@ -684,22 +803,118 @@ msgstr "Merr files dhe pozicionet e vizituar së fundmi"
 
 #: ../deskbar/handlers/recent.py:58
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr "Ky trajtues ka nevojë për gtk në një version më të ri (2.9.0 ose më të ri)."
+
+#: ../deskbar/handlers/templates.py:37
+#, python-format
+msgid "Create %s"
+msgstr "Krijo %s"
+
+#: ../deskbar/handlers/templates.py:40
+msgid "Create Document"
+msgstr "Krijo dokument"
+
+#: ../deskbar/handlers/templates.py:53
+msgid "Name:"
+msgstr "Emri:"
+
+#: ../deskbar/handlers/templates.py:60
+msgid "Folder:"
+msgstr "Kartela:"
+
+#: ../deskbar/handlers/templates.py:64
+msgid "Choose Folder"
+msgstr "Zgjidh kartelën"
+
+#: ../deskbar/handlers/templates.py:119
+#, python-format
+msgid "A file named \"%s\" already exists.  Do you want to replace it?"
+msgstr "Një file me emrin \"%s\" ekziston rregullisht.  Dëshiron ta zëvendësosh?"
+
+#: ../deskbar/handlers/templates.py:123
+#, python-format
+msgid "The file already exists in \"%s\".  Replacing it will overwrite its contents."
 msgstr ""
-"Ky trajtues ka nevojë për gtk në një version më të ri (2.9.0 ose më të ri)."
+"File ekziston rregullisht në \"%s\".  Zëvendësimi do të mbishkruajë "
+"përmbajtjen e tij."
+
+#: ../deskbar/handlers/templates.py:130
+msgid "Replace"
+msgstr "Zëvendëso"
+
+#: ../deskbar/handlers/templates.py:166
+msgid "Templates"
+msgstr "Modele"
+
+#: ../deskbar/handlers/templates.py:167
+msgid "Create new files from your templates"
+msgstr "Krijo file të rinj nga modelet tuaj"
+
+#: ../deskbar/handlers/tomboy.py:37
+#, python-format
+msgid "Open note <b>%(name)s</b>"
+msgstr "Hap shënimin <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:50
+msgid "Really delete this note?"
+msgstr "Me të vërtetë fshin këtë shënim?"
+
+#: ../deskbar/handlers/tomboy.py:51
+msgid "If you delete a note it is permanently lost."
+msgstr "Një shënimi i fshirë do të humbet përgjithmonë."
+
+#: ../deskbar/handlers/tomboy.py:63
+#, python-format
+msgid "Delete note <b>%(name)s</b>"
+msgstr "Fshi shënimin <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:88
+#, python-format
+msgid "Create note <b>%(name)s</b>"
+msgstr "Krijo shënimim <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:110
+msgid "Title"
+msgstr "Titulli"
+
+#: ../deskbar/handlers/tomboy.py:111
+msgid "Contents"
+msgstr "Përmbajtja"
+
+#: ../deskbar/handlers/tomboy.py:130
+msgid "Tomboy Notes"
+msgstr "Shënime Tomboy"
+
+#: ../deskbar/handlers/tomboy.py:131
+msgid "Search your Tomboy notes"
+msgstr "Kërko tek shënimet Tomboy"
+
+#: ../deskbar/handlers/tomboy.py:198
+msgid "Tomboy does not seem to be installed."
+msgstr "Mesa duket Tomboy nuk është i instaluar."
+
+#: ../deskbar/handlers/tomboy.py:235
+#, python-format
+msgid ""
+"Tomboy does not seem to be the correct version.\n"
+"Tomboy %s or greater must be installed."
+msgstr ""
+"Versioni i Tomboy nuk është korrekt.\n"
+"Duhet të instalohet Tomboy %s ose pasardhës."
 
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Hap faqet web dhe dërgo mesazhe mail duke shkruar një adresë të plotë"
 
-#: ../deskbar/handlers/yahoo.py:38
+#: ../deskbar/handlers/yahoo.py:41
 msgid "Yahoo! Search"
 msgstr "Kërkim me Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:39
+#: ../deskbar/handlers/yahoo.py:42
 msgid "Search Yahoo! as you type"
 msgstr "Kërko atë që shkruani me Yahoo!"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:59
+#: ../deskbar/handlers/actions/ActionsFactory.py:62
 #, python-format
 msgid "URL of %s"
 msgstr "URL e %s"
@@ -716,18 +931,18 @@ msgstr "Shko tek pozicioni i %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:40
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
 #, python-format
-msgid "Launch <b>%(name)s</b>"
-msgstr "Nis <b>%(name)s</b>"
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Nis <b>%(name)s</b> (%(prog)s)"
 
-#: ../deskbar/handlers/actions/OpenFileAction.py:38
+#: ../deskbar/handlers/actions/OpenFileAction.py:51
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
 msgstr "Hap %s"
 
-#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:42
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
 #, python-format
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
 msgstr "Hap <b>%(name)s</b> me <b>%(program)s</b>"
@@ -759,47 +974,43 @@ msgstr "Dërgo Email tek <b>%(name)s</b> (%(email)s)"
 msgid "Send %s via e-mail"
 msgstr "Dërgo %s via e-mail"
 
-#: ../deskbar/ui/About.py:22
+#: ../deskbar/ui/About.py:23
 msgid "An all-in-one action bar."
 msgstr "Shtyllë veprimi \"gjithçka-në-një\"."
 
-#: ../deskbar/ui/About.py:25
+#: ../deskbar/ui/About.py:30
 msgid "Deskbar Website"
 msgstr "Sit web i Deskbar"
 
-#. about.set_artists([])
-#. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
+#: ../deskbar/ui/About.py:34
 msgid "translator-credits"
 msgstr "Laurent Dhima <laurenti@alblinux.net>"
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:18
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
 msgstr "<b>Kërko:</b>"
-
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "emri"
 
 #: ../deskbar/ui/cuemiac/CuemiacItems.py:22
 msgid "default"
 msgstr "e prezgjedhur"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacWindowView.py:75
+#: ../deskbar/ui/CuemiacAlignedView.py:88
+#: ../deskbar/ui/CuemiacWindowView.py:77
 msgid "_History"
 msgstr "_Kronollogjia"
 
-#: ../deskbar/ui/CuemiacWindowView.py:133
+#: ../deskbar/ui/CuemiacAlignedView.py:150
+#: ../deskbar/ui/CuemiacWindowView.py:139
 msgid "Back to Matches"
 msgstr "Mbrapa tek rezultatet"
 
-#: ../deskbar/ui/DeskbarApplet.py:86
+#: ../deskbar/ui/DeskbarTray.py:44
 msgid "Show search entry"
 msgstr "Shfaq fushën e kërkimit"
 
-#: ../deskbar/ui/DeskbarApplet.py:114
+#: ../deskbar/ui/DeskbarTray.py:111
 msgid ""
 "Some potentially old modules that make use of an old Deskbar-Applet API have "
 "been found. Remove these files for this warning to disappear.\n"
@@ -823,24 +1034,27 @@ msgstr ""
 "Të lutem provo me një vlerë si p.sh. Control, Alt apo Shift në të njëjtën "
 "kohë.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:81
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:80
+msgid "Reload all extensions"
+msgstr "Ringarko të gjitha shtesat"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:85
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr ""
 "<i><small>Zgjidh dhe lëviz një shtesë për t'i ndryshuar renditjen.</small></"
 "i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:312
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:337
 msgid "A problem occured"
 msgstr "U ndesh një problem"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:377
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:402
 msgid "Handler has been installed successfully"
 msgstr "Trajtuesi u instalua me sukses"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:380
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:405
 msgid "Handler could not be installed due a problem with the provided file"
-msgstr ""
-"Trajtuesi nuk mund të instalohet për shkak të një problemi me file e dhënë"
+msgstr "Trajtuesi nuk mund të instalohet për shkak të një problemi me file e dhënë"
 
 #: ../deskbar/ui/preferences/ErrorDialog.py:8
 msgid "Error"
@@ -861,3 +1075,4 @@ msgstr "Versioni:"
 #: ../deskbar/ui/preferences/ModuleListView.py:56
 msgid "Update Available"
 msgstr "Përditësime në dispozicion"
+
