@@ -7,13 +7,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 2.21.91\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-27 20:07+0800\n"
-"PO-Revision-Date: 2008-01-31 20:39+0800\n"
+"POT-Creation-Date: 2008-03-08 22:25+0800\n"
+"PO-Revision-Date: 2008-03-08 22:25+0800\n"
 "Last-Translator: Woodman Tuen <wmtuen@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bit"
 
 #: ../data/deskbar-applet.schemas.in.h:1
 msgid ""
@@ -157,7 +157,7 @@ msgstr "偏好設定(_P)"
 msgid "An all-in-one action bar"
 msgstr "一個全功能的動作工具列"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:19
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:27
 msgid "Deskbar"
 msgstr "桌面工具列"
 
@@ -264,31 +264,31 @@ msgstr "顯示所有搜尋引擎"
 msgid "Show only the primary search engine"
 msgstr "只顯示主要的搜尋引擎"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:181
+#: ../deskbar/core/BrowserMatch.py:57 ../deskbar/handlers/beagle-live.py:181
 #, python-format
 msgid "Open History Item %s"
 msgstr "開啟的歷史記錄項目 %s"
 
-#: ../deskbar/core/BrowserMatch.py:53
+#: ../deskbar/core/BrowserMatch.py:59
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "開啟書籤 %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:69
+#: ../deskbar/core/BrowserMatch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "在 <b>%(name)s</b> 搜尋 <i>%(text)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:33
+#: ../deskbar/core/BrowserMatch.py:101 ../deskbar/handlers/yahoo.py:33
 msgid "URL"
 msgstr "網址"
 
-#: ../deskbar/core/BrowserMatch.py:230
+#: ../deskbar/core/BrowserMatch.py:236
 msgid "Shortcut"
 msgstr "捷徑鍵"
 
-#: ../deskbar/core/BrowserMatch.py:238
+#: ../deskbar/core/BrowserMatch.py:244
 msgid "Bookmark Name"
 msgstr "書籤名稱"
 
@@ -470,16 +470,16 @@ msgstr "需要設定你的 del.icio.us 帳戶。"
 msgid "You can modify your del.icio.us account."
 msgstr "可以修改你的 del.icio.us 帳戶。"
 
-#: ../deskbar/handlers/epiphany.py:48
+#: ../deskbar/handlers/epiphany.py:51
 msgid "Web Bookmarks (Epiphany)"
 msgstr "網頁書籤 (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:127
+#: ../deskbar/handlers/epiphany.py:52 ../deskbar/handlers/mozilla.py:157
 msgid "Open your web bookmarks by name"
 msgstr "根據名稱開啟網頁書籤"
 
 #: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
-#: ../deskbar/handlers/epiphany.py:164
+#: ../deskbar/handlers/epiphany.py:161
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany 不是你偏好的瀏覽器。"
 
@@ -487,7 +487,7 @@ msgstr "Epiphany 不是你偏好的瀏覽器。"
 msgid "Web Searches (Epiphany)"
 msgstr "網頁搜尋 (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:194
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:234
 msgid "Search the web via your browser's search settings"
 msgstr "以瀏覽器的搜尋設定來搜尋網頁"
 
@@ -499,7 +499,7 @@ msgstr "可以替搜尋設定捷徑鍵"
 msgid "Web History (Epiphany)"
 msgstr "網頁紀錄 (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:784
 msgid "Open your web history by name"
 msgstr "根據名稱開啟網頁記錄"
 
@@ -543,7 +543,7 @@ msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "以名稱檢視檔案、資料夾、書籤、磁碟機及網絡位置"
 
 #: ../deskbar/handlers/gdmactions.py:30
-msgid "Shut down of this system now?"
+msgid "Shut down this system now?"
 msgstr "是否立刻關閉這個系統？"
 
 #: ../deskbar/handlers/gdmactions.py:31
@@ -676,23 +676,25 @@ msgstr "以名稱切換現有的視窗"
 msgid "Windows"
 msgstr "視窗"
 
-#: ../deskbar/handlers/mozilla.py:126
+#: ../deskbar/handlers/mozilla.py:156
 msgid "Web Bookmarks (Mozilla)"
 msgstr "網頁書籤 (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:186 ../deskbar/handlers/mozilla.py:259
+#: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:305
+#: ../deskbar/handlers/mozilla.py:831
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox 不是你偏好的瀏覽器。"
 
-#: ../deskbar/handlers/mozilla.py:193
+#: ../deskbar/handlers/mozilla.py:233
 msgid "Web Searches (Mozilla)"
 msgstr "網頁搜尋 (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:253
+#. Correct firefox version or iceweasel
+#: ../deskbar/handlers/mozilla.py:299
 msgid "You can customize which search engines are offered."
 msgstr "可以自定使用那一個我們提供的搜尋引擎。"
 
-#: ../deskbar/handlers/mozilla.py:737
+#: ../deskbar/handlers/mozilla.py:783
 msgid "Web History (Mozilla)"
 msgstr "網頁紀錄 (Mozilla)"
 
@@ -945,18 +947,16 @@ msgstr "傳送郵件給 <b>%(name)s</b> (%(email)s)"
 msgid "Send %s via e-mail"
 msgstr "透過 e-mail 傳送 %s"
 
-#: ../deskbar/ui/About.py:22
+#: ../deskbar/ui/About.py:23
 msgid "An all-in-one action bar."
 msgstr "一個全功能的動作工具列。"
 
-#: ../deskbar/ui/About.py:25
+#: ../deskbar/ui/About.py:30
 msgid "Deskbar Website"
 msgstr "桌面工具列網站"
 
-#. about.set_artists([])
-#. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
+#: ../deskbar/ui/About.py:34
 msgid "translator-credits"
 msgstr ""
 "如對翻譯有任何意見，請送一封電子郵件給\n"
@@ -1008,23 +1008,23 @@ msgstr ""
 "捷徑鍵「%s」無法使用，原因是會無法按下此按鍵。\n"
 "請試用其它的按鍵：如同時使用 Control，Alt  或 Shift。\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:80
 msgid "Reload all extensions"
 msgstr "重新載入所有的擴充套件"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:85
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>拖放延伸檔名會改變它的順序。</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:335
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:337
 msgid "A problem occured"
 msgstr "發生問題"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:400
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:402
 msgid "Handler has been installed successfully"
 msgstr "處理程式已成功安裝"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:403
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:405
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr "由於所提供的檔案發生問題，處理程式無法安裝"
 
@@ -1048,124 +1048,3 @@ msgstr "版本:"
 msgid "Update Available"
 msgstr "有更新存在"
 
-#~ msgid "<b>Layout</b>"
-#~ msgstr "<b>配置</b>"
-
-#~ msgid "Entry in panel"
-#~ msgstr "面板輸入欄"
-
-#~ msgid "Fixed _width:"
-#~ msgstr "固定寬度(_W)："
-
-#~ msgid "Use _all available space"
-#~ msgstr "使用所有可用空間(_A)"
-
-#~ msgid "View"
-#~ msgstr "顯示"
-
-#~ msgid "characters"
-#~ msgstr "字元"
-
-#~ msgid ""
-#~ "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</"
-#~ "b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</"
-#~ "b> in the deskbar.</small></i>"
-#~ msgstr ""
-#~ "<i><small><b>注意：</b>如果捷徑鍵是單一字母（像 <b>t</b>）您可以只在桌面工"
-#~ "具列中輸入“<b>something</b>”並且按下 <b>Alt-t</b> 。</small></i>"
-
-#~ msgid "No History"
-#~ msgstr "沒有紀錄"
-
-#~ msgid "A programming error has been detected"
-#~ msgstr "已偵測到程式的錯誤"
-
-#~ msgid ""
-#~ "It probably isn't fatal, but should be reported to the developers "
-#~ "nonetheless. The program may behave erratically from now on."
-#~ msgstr ""
-#~ "這大概不是嚴重的錯誤，但仍然應該回報給開發者。此程式從現在起可能會有異常的"
-#~ "情形。"
-
-#~ msgid "Bug Detected"
-#~ msgstr "偵測到錯誤"
-
-#~ msgid "Start Beagle Daemon?"
-#~ msgstr "啟動 Beagle 服務程式？"
-
-#~ msgid "Start Beagle Daemon"
-#~ msgstr "啟動 Beagle 服務程式"
-
-#~ msgid ""
-#~ "The Beagle daemon does not appear to be running.\n"
-#~ " You need to start it to use the Beagle Live handler."
-#~ msgstr ""
-#~ "Beagle 服務程式看來沒有執行。\n"
-#~ "您需要執行它來使用 Beagle Live 處理程式。"
-
-#~ msgid "Failed to start Beagle"
-#~ msgstr "無法執行 Beagle"
-
-#~ msgid "Perhaps the beagle daemon isn't installed?"
-#~ msgstr "可能 beagle 服務程式沒有安裝？"
-
-#~ msgid "You need to enable autocomplete in your mail preferences"
-#~ msgstr "您需要在郵件偏好設定中啟用自動完成"
-
-#~ msgid "Autocompletion Needs to be Enabled"
-#~ msgstr "需要啟用自動完成"
-
-#~ msgid "Open folder %s"
-#~ msgstr "開啟資料夾 %s"
-
-#~ msgid "Log out"
-#~ msgstr "登出"
-
-#~ msgid "Open the web page %s"
-#~ msgstr "開啟網頁 %s"
-
-#~ msgid "Send Email to %s"
-#~ msgstr "傳送郵件給 %s"
-
-#~ msgid "Connection to repository failed"
-#~ msgstr "連接套件庫失敗"
-
-#~ msgid "Please check your internet connection"
-#~ msgstr "請檢查您的網路連線"
-
-#~ msgid "Show previously used actions"
-#~ msgstr "顯示前一次已使用的動作"
-
-#~ msgid "_File"
-#~ msgstr "檔案(_F)"
-
-#~ msgid "_Quit"
-#~ msgstr "離開(_Q)"
-
-#~ msgid "_Edit"
-#~ msgstr "編輯(_E)"
-
-#~ msgid "_View"
-#~ msgstr "顯示(_V)"
-
-#~ msgid "<b>History</b>"
-#~ msgstr "<b>歷史紀錄</b>"
-
-#~ msgid "Updating %s"
-#~ msgstr "正在更新 %s"
-
-#~ msgid ""
-#~ "The update is being downloaded from the internet. Please wait until the "
-#~ "update is complete"
-#~ msgstr "更新已經從網際網路上下載。請等候至更新完成"
-
-#~ msgid "Installing %s"
-#~ msgstr "正在安裝 %s"
-
-#~ msgid ""
-#~ "The handler is being downloaded from the internet. Please wait until the "
-#~ "installation is complete"
-#~ msgstr "處理程式正由網際網路上下載。請等候至安裝完成"
-
-#~ msgid "Downloading"
-#~ msgstr "下載中"
