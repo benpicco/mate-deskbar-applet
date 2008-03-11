@@ -209,22 +209,18 @@ def get_tomboy_version():
 	read = command.read()
 	command.close()
 	
-	line_regexp = re.compile( 'Version \d\.\d\.\d', re.IGNORECASE )
+	line_regexp = re.compile( 'Version (\d+?)\.(\d+?)\.(\d+?)', re.IGNORECASE )
 	results_list = line_regexp.findall( read )
 	if len(results_list) == 0:
 		return '0.0.0'
 	else:
-		version_line = results_list[0].strip()
-		number_regexp = re.compile( '\d\.\d\.\d' )
-		version = number_regexp.findall( version_line )[0]
-		return version
+		return [int(i) for i in results_list[0]]
 
 # Check if version is correct
 def tomboy_correct_version():
 	wanted = "0.9.2"
-	actual =  get_tomboy_version()
-	_wanted = wanted.split(".")
-	_actual = actual.split(".")
+	_actual =  get_tomboy_version()
+	_wanted = [int(i) for i in wanted.split(".")]
 	if _actual[0] > _wanted[0]:
 		return True
 	elif _actual[0] == _wanted[0]:
