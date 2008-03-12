@@ -10,14 +10,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-04 11:06+0200\n"
+"POT-Creation-Date: 2008-03-12 20:24+0000\n"
 "PO-Revision-Date: 2008-02-04 11:16+0200\n"
 "Last-Translator: Γιάννης Κατσαμπίρης <giannis1_86@hotmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../data/deskbar-applet.schemas.in.h:1
 msgid ""
@@ -299,31 +299,31 @@ msgstr "Εμφάνιση όλων των διαθέσιμων μηχανών α�
 msgid "Show only the primary search engine"
 msgstr "Εμφάνιση μόνο της κύριας μηχανής αναζήτησης"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:181
+#: ../deskbar/core/BrowserMatch.py:57 ../deskbar/handlers/beagle-live.py:181
 #, python-format
 msgid "Open History Item %s"
 msgstr "Άνοιγμα αντικείμενου ιστορικού %s"
 
-#: ../deskbar/core/BrowserMatch.py:53
+#: ../deskbar/core/BrowserMatch.py:59
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Άνοιγμα σελιδοδείκτη %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:69
+#: ../deskbar/core/BrowserMatch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Αναζήτηση <b>%(name)s</b> για <i>%(text)s</i>"
 
-#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:33
+#: ../deskbar/core/BrowserMatch.py:101 ../deskbar/handlers/yahoo.py:33
 msgid "URL"
 msgstr "URL"
 
-#: ../deskbar/core/BrowserMatch.py:230
+#: ../deskbar/core/BrowserMatch.py:236
 msgid "Shortcut"
 msgstr "Συντόμευση"
 
-#: ../deskbar/core/BrowserMatch.py:238
+#: ../deskbar/core/BrowserMatch.py:244
 msgid "Bookmark Name"
 msgstr "Όνομα σελιδοδείκτη"
 
@@ -508,16 +508,16 @@ msgstr "Θα χρειαστεί να ρυθμίσετε τον λογαριασ�
 msgid "You can modify your del.icio.us account."
 msgstr "Μπορείτε να τροποποιήσετε το λογαριασμό σας στο del.icio.us."
 
-#: ../deskbar/handlers/epiphany.py:48
+#: ../deskbar/handlers/epiphany.py:51
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Σελιδοδείκτες διαδικτύου (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:127
+#: ../deskbar/handlers/epiphany.py:52 ../deskbar/handlers/mozilla.py:157
 msgid "Open your web bookmarks by name"
 msgstr "Άνοιγμα των σελιδοδεικτών διαδικτύου κατά όνομα"
 
 #: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
-#: ../deskbar/handlers/epiphany.py:164
+#: ../deskbar/handlers/epiphany.py:161
 msgid "Epiphany is not your preferred browser."
 msgstr "Το Epiphany δεν είναι ο προεπιλεγμένος σας περιηγητής"
 
@@ -525,7 +525,7 @@ msgstr "Το Epiphany δεν είναι ο προεπιλεγμένος σας �
 msgid "Web Searches (Epiphany)"
 msgstr "Αναζητήσεις στο διαδίκτυο (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:194
+#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:234
 msgid "Search the web via your browser's search settings"
 msgstr ""
 "Αναζήτηση στο διαδίκτυο μέσω των ρυθμίσεων αναζήτησης του περιηγητή σας"
@@ -538,7 +538,7 @@ msgstr "Μπορείτε να ορίσετε συντομεύσεις για τ�
 msgid "Web History (Epiphany)"
 msgstr "Ιστορικό διαδικτύου (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
+#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:784
 msgid "Open your web history by name"
 msgstr "Άνοιγμα του ιστορικού διαδικτύου κατά όνομα"
 
@@ -589,7 +589,7 @@ msgstr ""
 "τοποθεσιών δικτύου σας κατά όνομα"
 
 #: ../deskbar/handlers/gdmactions.py:30
-msgid "Shut down of this system now?"
+msgid "Shut down this system now?"
 msgstr "Να γίνει ο τερματισμός του συστήματος τώρα?"
 
 #: ../deskbar/handlers/gdmactions.py:31
@@ -723,23 +723,25 @@ msgstr "Αλλαγή σε ένα υπάρχον παράθυρο κατά όνο
 msgid "Windows"
 msgstr "Παράθυρα"
 
-#: ../deskbar/handlers/mozilla.py:126
+#: ../deskbar/handlers/mozilla.py:156
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Σελιδοδείκτες διαδικτύου (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:186 ../deskbar/handlers/mozilla.py:259
+#: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:305
+#: ../deskbar/handlers/mozilla.py:831
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Ο Mozilla/Firefox δεν είναι ο προεπιλεγμένος σας περιηγητής."
 
-#: ../deskbar/handlers/mozilla.py:193
+#: ../deskbar/handlers/mozilla.py:233
 msgid "Web Searches (Mozilla)"
 msgstr "Αναζητήσεις στο διαδίκτυο (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:253
+#. Correct firefox version or iceweasel
+#: ../deskbar/handlers/mozilla.py:299
 msgid "You can customize which search engines are offered."
 msgstr "Μπορείτε να τροποποιήσετε ποιες μηχανές αναζήτησης θα προσφέρονται."
 
-#: ../deskbar/handlers/mozilla.py:737
+#: ../deskbar/handlers/mozilla.py:783
 msgid "Web History (Mozilla)"
 msgstr "Ιστορικό διαδικτύου (Mozilla)"
 
@@ -915,7 +917,7 @@ msgstr "Αναζήτηση στις σημειώσεις σας στο Tomboy"
 msgid "Tomboy does not seem to be installed."
 msgstr "Δεν φαίνεται να έχει εγκατασταθεί το Tomboy."
 
-#: ../deskbar/handlers/tomboy.py:235
+#: ../deskbar/handlers/tomboy.py:231
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -1004,14 +1006,18 @@ msgstr "Μπάρα πολλαπλών ενεργειών."
 
 #: ../deskbar/ui/About.py:30
 msgid "Deskbar Website"
-msgstr "Ιστοσελίδα Deskbar "
+msgstr "Ιστοσελίδα Deskbar"
 
 #. translators: These appear in the About dialog, usual format applies.
 #: ../deskbar/ui/About.py:34
 msgid "translator-credits"
-msgstr "Kostas Papadimas <pkst@gnome.org>, 2006, 2007\n"
-"Athanasios Lefteris <alefteris@gmail.com>, 2007.\n"
-"Giannis Katsampirhs <giannis1_86@hotmail.com>, 2008."
+msgstr ""
+"Ελληνική μεταφραστική ομάδα GNOME\n"
+" Kostas Papadimas <pkst@gnome.org>, 2006, 2007\n"
+" Athanasios Lefteris <alefteris@gmail.com>, 2007\n"
+" Giannis Katsampirhs <giannis1_86@hotmail.com>, 2008\n"
+"\n"
+"Για περισσότερα δείτε http://www.gnome.gr/"
 
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
@@ -1060,25 +1066,25 @@ msgstr ""
 "διαχείριση του πληκτρολογίου σας.\n"
 "Χρησιμοποιήστε την σε συνδυασμό με πλήκτρα όπως το Control, Alt ή Shift.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:80
 msgid "Reload all extensions"
 msgstr "Επαναφόρτωση όλων των επεκτάσεων"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:85
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr ""
 "<i><small> Σύρετε και αφήστε μια επέκταση για να αλλάξετε τη σειρά της.</"
 "small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:335
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:337
 msgid "A problem occured"
 msgstr "Υπήρξε ένα σφάλμα"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:400
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:402
 msgid "Handler has been installed successfully"
 msgstr "Ο διαχειριστής εγκαταστάθηκε με επιτυχία"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:403
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:405
 msgid "Handler could not be installed due a problem with the provided file"
 msgstr ""
 "Ο διαχειριστής δεν μπόρεσε να εγκατασταθεί λόγω προβλήματος σχετικά με το "
