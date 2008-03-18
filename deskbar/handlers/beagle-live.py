@@ -137,7 +137,7 @@ class OpenNoteAction(OpenWithApplicationAction):
         self._snippet = snippet
         
     def get_icon(self):
-        return "stock_notes"
+        return "note.png"
     
     def get_verb(self):
         return (_("Note: %s") % "<b>%(name)s</b>") + self._snippet

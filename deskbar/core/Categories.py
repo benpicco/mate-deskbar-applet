@@ -55,7 +55,7 @@ CATEGORIES = {
     },
     "notes"    : {    
         "name": _("Notes"),
-        "icon": load_icon("stock_notes"),
+        "icon": load_icon("note.png"),
     },
     
 }
