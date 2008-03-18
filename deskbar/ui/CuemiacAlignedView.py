@@ -30,7 +30,6 @@ class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
         self.applet = applet
         
         self.set_type_hint (gtk.gdk.WINDOW_TYPE_HINT_MENU)
-        self.set_keep_above(True)
         self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
         self.applet.set_flags(gtk.CAN_FOCUS)
         
@@ -45,10 +44,8 @@ class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
        
         self.set_title("Deskbar Applet")
         self.set_default_size( self._model.get_window_width(), -1 )
-        self.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_MENU)
 
         self.set_role("deskbar-search-window")
-        self.set_property("skip-taskbar-hint", True)
 
         self._model.connect("query-ready", lambda s,m: gobject.idle_add(self.append_matches, s, m))
         
