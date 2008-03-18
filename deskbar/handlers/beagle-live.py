@@ -51,7 +51,7 @@ TYPES = {
         },
     "File"         : {
         "name"    : ("beagle:ExactFilename",),
-        "extra" : {"inside_archive": ("fixme:inside_archive",) },
+        "extra" : {"inside_archive": ("fixme:inside_archive",), "parent_file": ("parent:beagle:ExactFilename",) },
         "category": "files",
         "snippet": True,
         },
@@ -183,16 +183,32 @@ class OpenWebHistoryAction(ShowUrlAction):
         return verb
     
 class OpenBeagleFileAction(OpenFileAction):
-    def __init__(self, name, uri, inside_archive):
+    def __init__(self, name, uri, inside_archive, parent_file):
         self._complete_uri = uri
+        self._parent_file = parent_file
         if inside_archive == "true":
             uri = self.__get_archive_uri(uri)
+            
         OpenFileAction.__init__(self, name, uri, False)
         
     def __get_archive_uri(self, uri):
         match = re.search("(.+?)#(.+)", uri)
         if match != None:
             return match.groups()[0]
+        
+    def get_verb(self):
+        if self._parent_file != None:
+            # translators: in this case the file (2nd) is part of an archive (1st)
+            # e.g. README is part of deskbar-applet.tar.gz
+            return _("Open %s containing %s") % ("<b>%(parent)s</b>", "<b>%(name)s</b>")
+        else:
+            return _("Open %s") % "<b>%(name)s</b>"
+        
+    def get_name(self, text=None):
+        names = OpenFileAction.get_name (self)
+        if self._parent_file != None:
+            names["parent"] = self._parent_file
+        return names 
         
     def get_hash(self):
         return self._complete_uri
@@ -248,13 +264,25 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
         elif (result["type"] == "WebHistory"):
             self.add_action( OpenWebHistoryAction(result["name"], result["uri"], result["escaped_uri"]) )
         elif (result["type"] == "File" or result["type"] == "Directory"):
-            # Unescape URI again
             # For files inside archives only work with the archive itsself
             result["escaped_uri"] = result["escaped_uri"].split('#')[0]
+            # Unescape URI again
             unescaped_uri = gnomevfs.unescape_string_for_display(result["escaped_uri"])
             if not result.has_key("inside_archive"):
                 result["inside_archive"] = "false"
-            actions = [OpenBeagleFileAction(result["name"], result["uri"], result["inside_archive"])] \
+            
+            if result["inside_archive"] == "true":
+                file_open_action = OpenBeagleFileAction(result["name"],
+                                                        result["uri"],
+                                                        result["inside_archive"],
+                                                        result["parent_file"])
+            else:
+                file_open_action = OpenBeagleFileAction(result["name"],
+                                                        result["uri"],
+                                                        result["inside_archive"],
+                                                        None)
+                
+            actions = [file_open_action] \
                        + get_actions_for_uri( unescaped_uri,
                                               display_name=basename(unescaped_uri)
                                             )
