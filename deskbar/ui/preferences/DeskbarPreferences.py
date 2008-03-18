@@ -77,7 +77,8 @@ class DeskbarPreferences:
         self.more_button_callback = None
         self.reload_button = self.glade.get_widget("reload")
         self.reload_button.connect("clicked", self.on_reload_button_clicked)
-        self.reload_button.set_tooltip_text(_("Reload all extensions"))
+        self.reload_button_tooltip = gtk.Tooltips ()
+        self.reload_button_tooltip.set_tip(self.reload_button, _("Reload all extensions"))
 
         # Info are at the bottom
         self.info_area = self.glade.get_widget("info_area")
