@@ -141,8 +141,9 @@ class WebModuleListView (gtk.TreeView):
         self.append_column(column_description)
     
     def get_description_data(self, column, cell, model, iter, data=None):
-        mod = model[iter][model.MODULE_CTX_COL]
-        description = "<b>%s</b>\n%s" % (mod[1], mod[2])
+        mod_name = model[iter][model.MODULE_NAME]
+        mod_desc = model[iter][model.MODULE_DESCRIPTION]
+        description = "<b>%s</b>\n%s" % (mod_name, mod_desc)
             
         cell.set_property ("markup", description)
         
@@ -150,7 +151,7 @@ class WebModuleListView (gtk.TreeView):
         model, iter = self.get_selection().get_selected()
         if iter is None:
             return None
-        return model[iter][model.MODULE_CTX_COL][0]
+        return model[iter][model.MODULE_ID]
         
 if gtk.pygtk_version < (2,8,0):
     gobject.type_register(WebModuleListView)

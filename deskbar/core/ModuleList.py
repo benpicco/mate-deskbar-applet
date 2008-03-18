@@ -161,7 +161,7 @@ class ModuleList (gtk.ListStore):
     def move_module_to_bottom(self, iter):
         self.move_after(iter, self.get_iter(self._bottom_enabled_path))
         
-    def _get_iter_from_module_id(self, modid):
+    def get_iter_from_module_id(self, modid):
         iter = self.get_iter_first ()
         while (iter is not None):
             if self[iter][self.MODULE_CTX_COL].get_id() == modid:
@@ -169,10 +169,9 @@ class ModuleList (gtk.ListStore):
             iter = self.iter_next(iter)
         return None
             
-    def set_module_update_available(self, modid):
-        iter = self._get_iter_from_module_id(modid)
+    def set_module_update_available(self, iter, val):
         if iter != None:
-            self.set_value(iter, self.UPDATEABLE_COL, True)
+            self.set_value(iter, self.UPDATEABLE_COL, val)
 
 gobject.type_register(ModuleList)
 
@@ -233,31 +232,38 @@ class DisabledModuleList (gtk.ListStore):
 gobject.type_register(DisabledModuleList)
 
 class WebModuleList (gtk.ListStore):
-    MODULE_CTX_COL = 0
+    
+    (MODULE_ID,
+     MODULE_NAME,
+     MODULE_DESCRIPTION) = range (3)
     
     def __init__ (self):
         # First element is a tuple containing module id, name and description
-        gtk.ListStore.__init__ (self, gobject.TYPE_PYOBJECT, bool)
+        gtk.ListStore.__init__ (self, str, str, str)
         
-    def __iter__ (self):
-        return ModuleListIter (self)
+    def __contains__ (self, mod_id):
+        for mod in self:
+            if mod_id == mod[0]:
+                return True
+        return False
     
-    def get_position_from_context (self, module, value=None):
-        """Returns a tuple (iter, index)
+    def get_position_from_context (self, module_id, value=None):
+        """
+        @param module_id: A module id
+        @type module_id: str
+        @return: a tuple (iter, index) or (None, 0) if the module is not found
         
-        iter is a gtk.TreeIter pointing to the row containing the given module module.
+        iter is a C{gtk.TreeIter} pointing to the row containing the given module module.
         index is the index of the module in the list.
-        
-        If the module module is not found return (None, None).
         """
         i = 0
         iter = self.get_iter_first ()
         while (iter is not None):
             if value == None:
-                if self[iter][self.MODULE_CTX_COL] == module:
+                if self[iter][self.MODULE_ID] == module_id:
                     return (iter, i)
             else:
-                if getattr(self[iter][self.MODULE_CTX_COL], module) == value:
+                if getattr(self[iter][self.MODULE_ID], module_id) == value:
                     return (iter, i)
             
             iter = self.iter_next (iter)
@@ -265,39 +271,31 @@ class WebModuleList (gtk.ListStore):
         
         return (None, 0)
                 
-    def add (self, module, iter=None):
-        """If iter is set this method updates the row pointed to by iter with the 
+    def add (self, mod_id, mod_name, mod_desc, iter=None):
+        """
+        If iter is set this method updates the row pointed to by iter with the 
         values of module. 
         
         If iter is not set it will try to obtain an iter pointing
         to the row containg the module. If there's no such row, it will append it.
         """
-        (mod_id, mod_name, mod_desc) = module
         for mod in self:
             if mod_id == mod[0]:
                 # We don't want a duplicate module
                 return
-                
+    
         if iter is None:
-            res = self.get_position_from_context(module)
-        if res is None or res[0] is None:
             iter = self.append ()
         
-        self.set_value(iter, self.MODULE_CTX_COL, module)
+        self.set_value(iter, self.MODULE_ID, mod_id)
+        self.set_value(iter, self.MODULE_NAME, mod_name)
+        self.set_value(iter, self.MODULE_DESCRIPTION, mod_desc)
     
     def module_changed(self, module):
         iter, index = self.get_position_from_context(module)
         if iter != None:
             self.emit('row-changed', self.get_path(iter), iter)
-        
-    def update_row_cb (self, sender, module, iter=None):
-        """
-        Callback for updating the row containing module.
-        If iter is set the row to which it points to will be
-        updated with the module.
-        """
-        self.add(module, iter)
-
+   
 gobject.type_register(WebModuleList)
 
 class ModuleListIter : 

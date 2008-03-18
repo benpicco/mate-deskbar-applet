@@ -5,14 +5,17 @@ import traceback
 from gettext import gettext as _
 from os.path import join
 import deskbar
-from deskbar.core.updater.NewStuffUpdater import NewStuffUpdater
+from deskbar.core.updater.Capuchin import *
 from deskbar.core.ModuleList import WebModuleList
 from deskbar.ui.preferences.AccelEntry import AccelEntry
 from deskbar.ui.preferences.ErrorDialog import ErrorDialog
 from deskbar.ui.preferences.ModuleListView import ModuleListView, DisabledModuleListView, WebModuleListView
+from deskbar.ui.preferences.ProgressbarDialog import ProgressbarDialog
 import dbus
-if getattr(dbus, 'version', (0,0,0)) >= (0,41,0):
-    import dbus.glib
+import time
+import dbus.glib
+    
+DESKBAR_CAPUCHIN_REPO = "http://www.gnome.org/~sebp/deskbar/deskbar-applet.xml"
 
 class InfoBox(gtk.HBox):
     
@@ -40,8 +43,12 @@ class DeskbarPreferences:
         
         self.dialog = self.glade.get_widget("preferences")
         
-        # Since newstuff is optional we have to check if self.newstuff is None each time we use it
-        self.newstuff = None
+        # Since capuchin is optional we have to check if self.capuchin is None each time we use it
+        self.__capuchin = None
+        self.has_capuchin = False
+        self.__capuchin_updated = False
+        self.progessdialog = None
+        self.__capuchin_installing = False
         
         self.keybinding = self._model.get_keybinding()
         
@@ -54,8 +61,8 @@ class DeskbarPreferences:
         
         self.__setup_disabled_modules_tab()
         
-        # Setup new-stuff-manager
-        self.__enable_newstuffmanager( self.__is_nsm_available() )
+        # Setup capuchin
+        self.__setup_updater()
           
         self.__select_first_tab()
         
@@ -101,12 +108,10 @@ class DeskbarPreferences:
         self.keyboard_shortcut_entry = AccelEntry()
         self.keyboard_shortcut_entry.connect('accel-edited', self.on_keyboard_shortcut_entry_changed)
         self.glade.get_widget("keybinding_entry_container").pack_start(self.keyboard_shortcut_entry.get_widget(), False)
-        #self.keybinding_notify_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_KEYBINDING, lambda x, y, z, a: self.on_config_keybinding(z.value))
         
         self.use_selection = self._model.get_use_selection()
         self.use_selection_box = self.glade.get_widget("use_selection")
         self.use_selection_box.connect('toggled', self.on_use_selection_toggled)
-        #self.use_selection_id = deskbar.GCONF_CLIENT.notify_add(applet.prefs.GCONF_USE_SELECTION, lambda x, y, z, a: self.on_config_use_selection(z.value))
 
         self.sticktopanel_checkbox = self.glade.get_widget("sticktopanel_checkbox")
         self.sticktopanel_checkbox.connect("toggled", self.on_ui_changed)
@@ -134,26 +139,17 @@ class DeskbarPreferences:
         self.disabledhandlers_box = self.glade.get_widget("disabledhandlers_box")
 
     def __select_first_tab(self):
-         # Select first tab
+        """ Select first tab """
         notebook = self.glade.get_widget("notebook1")
         current = notebook.get_current_page()
         if (current != 0):
             for i in range(current):
                 notebook.prev_page()
 
-    def __is_nsm_available(self):
-        try:
-            bus = dbus.SessionBus()
-            proxy = bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus')
-            _dbus = dbus.Interface(proxy, 'org.freedesktop.DBus')
-            _dbus.ReloadConfig()
-            bus_names = _dbus.ListActivatableNames()
-            return (NewStuffUpdater.NEW_STUFF_SERVICE in bus_names)
-        except dbus.exceptions.DBusException:
-            return False
-
-    def __enable_newstuffmanager(self, status):
-        if status:
+    def __setup_updater(self):
+        if is_capuchin_available():
+            self.has_capuchin = True
+            
             self.web_module_list = WebModuleList()
             
             container = self.glade.get_widget("newhandlers")
@@ -181,16 +177,37 @@ class DeskbarPreferences:
             self.glade.get_widget("check").destroy()
             self.glade.get_widget("update").destroy()
     
-    def _call_on_newstuffmanager(self, method, *args):
-        if self.newstuff == None:
-            self.newstuff = NewStuffUpdater()
-            self.newstuff.connect('ready', lambda s: getattr(self.newstuff, method)(*args) )
-            self.newstuff.connect('error', self.on_newstuff_error)
-            self.newstuff.connect('new-modules-available', self.on_new_modules_available)
-            self.newstuff.connect('updates-available', self.on_updates_available)
+    def _get_capuchin_instance(self):
+        if self.__capuchin == None:
+            manager = AppObjectManager ()
+            self.__capuchin = manager.get_app_object (DESKBAR_CAPUCHIN_REPO)
+            self.__capuchin.connect ('update-finished', self._on_update_finished)
+            self.__capuchin.connect ('install-finished', self._on_install_finished)
+            self.__capuchin.connect ('status', self._on_status)
+            self.__capuchin.update (False)
+
+            # FIXME
+            time.sleep(2)
+
+            return self.__capuchin
         else:
-            getattr(self.newstuff, method)(*args)
-   
+            return self.__capuchin
+       
+    def _show_error_dialog(self, error):
+          """
+          An error message will be displayed in a MessageDialog
+          """
+          dialog = ErrorDialog(self.dialog, _("A problem occured"), error)
+          dialog.run()
+    
+    def _show_module_installed_dialog(self):
+        dialog = gtk.MessageDialog(parent=self.dialog,
+                       flags=gtk.DIALOG_DESTROY_WITH_PARENT,
+                       type=gtk.MESSAGE_INFO,
+                       buttons=gtk.BUTTONS_OK,
+                       message_format=_("Extension has been installed successfully"))
+        dialog.connect('response', lambda w, id: dialog.destroy())
+          
     def show_run_hide(self, parent):
         self.dialog.set_screen(parent.get_screen())
         self.dialog.show_all()
@@ -200,8 +217,9 @@ class DeskbarPreferences:
     def on_dialog_response(self, dialog, response):
         self._model.update_gconf()
         self.dialog.destroy()
-        if self.newstuff != None:
-            self.newstuff.close()
+        # Check if capuchin service is available and if actually used it
+        if self.has_capuchin and self.__capuchin != None:
+            self.__capuchin.close()
         
     def sync_ui(self):
         if self.keybinding != None:
@@ -242,17 +260,21 @@ class DeskbarPreferences:
         self._model.reload_all_modules()
     
     def on_module_selected(self, selection):
-        module_context = self.moduleview.get_selected_module()
-        
-        if module_context != None:
-            self.check_requirements(module_context)
+        """
+        Check if update for module is available
+        and set button (in)sensitive
+        """
+        module = self.moduleview.get_selected_module()
             
         # Check if we can update
-        if self.newstuff != None:
-            #TODO: Save information whether update is available
-            self.update.set_sensitive(module_context != None)                
+        if self.has_capuchin:
+            self.update.set_sensitive(module.is_updateable())                
     
     def set_buttons(self, selection):
+        """
+        Set top/up/down/bottom sensitive according
+        to the selected module
+        """
         model, iter = selection.get_selected()
         if iter == None:
             self.__set_top_buttons_sensitive(False)
@@ -325,62 +347,130 @@ class DeskbarPreferences:
         else:
             self._model.initialize_module (module, False)
         self._model.update_gconf()
-       
-    def on_newstuff_error(self, newstuff, error):
-          """
-          Called if a connection to the repository failed
-          
-          An error message will be displayed in a MessageDialog
-          and C{self.newstuff} is reset
-          
-          @type error: dbus_bindings.DBusException instance
-          """
-          dialog = ErrorDialog(self.dialog, _("A problem occured"), error)
-          dialog.run()
-          self.newstuff.close()
-          self.newstuff = None
-          
+    
     def on_check_handlers(self, button):
-        #Update all handlers
-        current_modules = []
+        """
+        Check if updates for the installed modules are available
+        """
+        installed_modules = set()
         for mod in self.module_list:
-            current_modules.append((mod.get_id(), mod.INFOS["version"]))
-        self._call_on_newstuffmanager("fetch_updates", current_modules)
+            installed_modules.add( mod.get_id() )
+        
+        try:
+            repo_plugins = set (self._get_capuchin_instance().get_available_plugins())
+            
+            # Get modules that are installed locally and are in the repository
+            updateable_modules = repo_plugins & installed_modules 
+                
+            current_modules = []
+            for mod in self.module_list:
+                if mod.get_id() in updateable_modules:
+                    current_modules.append( PluginInfo(mod.get_id(), mod.INFOS["version"]) )
+            
+            updates = self._get_capuchin_instance().get_available_updates (current_modules)
+           
+            for modid in updates:
+                iter = self.module_list.get_iter_from_module_id (modid)
+                self.module_list[iter][self.module_list.MODULE_CTX_COL].set_updateable (True)
+                self.module_list.set_module_update_available(iter, True)
+        except dbus.exceptions.DBusException, e:
+            self._show_error_dialog(e)
+            self.__capuchin.close()
+            self.__capuchin = None
             
     def on_check_new_extensions(self, button):
-        current_modules = []
+        """
+        Display a list of modules that aren't installed, yet
+        """
+        local_modules = set()
         for mod in self.module_list:
-            current_modules.append(mod.get_id())
-        self._call_on_newstuffmanager("fetch_new_modules", current_modules)
+            local_modules.add(mod.get_id())
         
-    def on_new_modules_available(self, newstuff, modules):
-        for mod in modules:
-            self.web_module_list.add(mod)
-        
-    def on_updates_available(self, newstuff, modules):
-        for modid, desc in modules:
-            self.module_list.set_module_update_available(modid)
+        try:
+            repo_modules = set (self._get_capuchin_instance().get_available_plugins())
+            
+            new_modules = repo_modules - local_modules
+            
+            for mod_id in new_modules:
+                mod_name = self._get_capuchin_instance().get_plugin_name (mod_id)
+                mod_desc = self._get_capuchin_instance().get_plugin_description (mod_id)
+                self.web_module_list.add(mod_id, mod_name, mod_desc)
+        except dbus.exceptions.DBusException, e:
+            self._show_error_dialog(e)
+            self.__capuchin.close()
+            self.__capuchin = None
         
     def on_update_handler(self, button):
+        """ Update the selected module """
         module = self.moduleview.get_selected_module()
         if module != None:
-            # Trigger module update
-            if self.newstuff != None:
-                self.newstuff.install_module(module.get_id())
+            self.__capuchin_installing = False
+            self._capuchin_install(module.get_id())
             button.set_sensitive(False)
         
     def on_install_handler(self, button):
-        # Install the selected new handler
+        """ Install the selected new handler """
         mod_id = self.webmoduleview.get_selected_module_id()
+        self.__capuchin_installing = True
+        self._capuchin_install(mod_id)
+        button.set_sensitive(False)
+        
+    def _capuchin_install(self, mod_id):
         if mod_id != None:
-            if self.newstuff != None:
-                self.newstuff.install_module(mod_id)
-            button.set_sensitive(False)
+            if self.has_capuchin:
+                try:
+                    self._get_capuchin_instance().install(mod_id)
+                except dbus.exceptions.DBusException, e:
+                    self._show_error_dialog(e)
+                    self.__capuchin.close()
+                    self.__capuchin = None
      
     def on_webmodule_selected(self, selection):
         mod_id = self.webmoduleview.get_selected_module_id()
         self.install.set_sensitive(mod_id != None)
-              
+          
+    def _on_update_finished(self, appobject):
+        self.__capuchin_updated = True
+        if self.progessdialog != None:
+            self.progessdialog.destroy()
+            self.progessdialog = None
+    
+    def _on_status(self, appobject, action, plugin_id, progress, speed):
+        if action == ACTION_UPDATING_REPO:
+            action_text = _("Retrieving the extension index")
+        elif action == ACTION_DOWNLOADING_PLUGIN:
+            action_text = _("Downloading extension")
+        elif action == ACTION_EXTRACTING_PLUGIN:
+            action_text = _("Extracting archive")
+        else:
+            return
+        
+        if self.progessdialog == None:
+            # Create new dialog
+            self.progessdialog = ProgressbarDialog (self.dialog)
+            self.progessdialog.set_text ( _("Installing extension"),
+                                      _("The extension will be downloaded and installed.") )
+            self.progessdialog.run_nonblocked ()
+        
+        self.progessdialog.set_current_operation (action_text)
+        self.progessdialog.set_fraction (progress)
+    
+    def _on_install_finished(self, appobject, plugin_id):
+        self.progessdialog.destroy ()
+        self.progessdialog = None
+        
+        # Remove from webmodulelist
+        if self.__capuchin_installing:
+            model, iter = self.webmoduleview.get_selection().get_selected()
+            self.web_module_list.remove (iter)
+            self.__capuchin_installing = False
+        else:
+            model, iter = self.moduleview.get_selection().get_selected()
+            self.module_list[iter][self.module_list.MODULE_CTX_COL].set_updateable (False)
+            self.module_list.set_module_update_available(iter, False)
+        
+        self._show_module_installed_dialog()
+           
     def on_drag_motion(self, widget, drag_context, x, y, timestamp):
         return False
     
@@ -396,14 +486,11 @@ class DeskbarPreferences:
             data = selection.data.strip()
         try:
             self._model.install_module(data)
-            dialog = gtk.MessageDialog(parent=self.dialog,
-                       flags=gtk.DIALOG_DESTROY_WITH_PARENT,
-                       type=gtk.MESSAGE_INFO,
-                       buttons=gtk.BUTTONS_OK,
-                       message_format=_("Handler has been installed successfully"))
-            dialog.connect('response', lambda w, id: dialog.destroy())
+            self._show_module_installed_dialog()
         except Exception, e:
-            dialog = ErrorDialog(self.dialog, _("Handler could not be installed due a problem with the provided file"), traceback.format_exc() )
+            dialog = ErrorDialog(self.dialog,
+                                 _("Extension could not be installed due a problem with the provided file"),
+                                 traceback.format_exc() )
         
         dialog.run()
         return

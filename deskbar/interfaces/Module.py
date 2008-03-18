@@ -15,6 +15,7 @@ class Module(gobject.GObject):
         super(Module, self).__init__()
         self._priority = 0
         self._enabled = False
+        self._updateable = False
         self._filename = None
         self._id = ""
     
@@ -34,6 +35,15 @@ class Module(gobject.GObject):
         Set handler's enabled state
         """
         self._enabled = val
+        
+    def is_updateable(self):
+        """
+        Whether a update for the plugin is available
+        """
+        return self._updateable
+    
+    def set_updateable(self, val):
+        self._updateable = val
     
     def get_priority(self):
         """
