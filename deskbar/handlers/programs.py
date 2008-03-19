@@ -1,14 +1,14 @@
 import re
 import glob
 import os
-from os.path import join, expanduser
+from os.path import join, expanduser, isdir
 from gettext import gettext as _
 from deskbar.defs import VERSION
 import gobject
 import gtk
 import deskbar, deskbar.core.Indexer, deskbar.core.Utils
 import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar.core.gnomedesktop
-from deskbar.core.Utils import get_xdg_data_dirs, is_program_in_path, spawn_async
+from deskbar.core.Utils import get_xdg_data_dirs, is_program_in_path, spawn_async, is_executable, PATH
 from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
 from deskbar.handlers.actions.OpenDesktopFileAction import OpenDesktopFileAction, parse_desktop_file, parse_desktop_filename
 import deskbar.interfaces.Action
@@ -208,12 +208,12 @@ class OpenPathProgramAction(deskbar.interfaces.Action):
                 import subprocess
 
                 prog = subprocess.Popen(
-                    text.split(" "),
+                    self._name.split(" "),
                     stdout=subprocess.PIPE,
                     stderr=subprocess.STDOUT)
                 
                 zenity = subprocess.Popen(
-                    ["zenity", "--title="+text,
+                    ["zenity", "--title="+self._name,
                         "--window-icon="+join(deskbar.ART_DATA_DIR, "generic.png"),
                         "--width=700",
                         "--height=500",
@@ -228,7 +228,7 @@ class OpenPathProgramAction(deskbar.interfaces.Action):
                 #No zenity, get out of the if, and launch without GUI
                 pass
         
-        spawn_async(text.split(" "))
+        spawn_async(self._name.split(" "))
         
     def get_hash(self):
         if self.use_terminal:
@@ -238,9 +238,9 @@ class OpenPathProgramAction(deskbar.interfaces.Action):
 
     def get_verb(self):
         if self.use_terminal:
-            return _("Execute %s in terminal") % "<b>%(text)s</b>"
+            return _("Execute %s in terminal") % "<b>%(name)s</b>"
         else:
-            return _("Execute %s") % "<b>%(text)s</b>"
+            return _("Execute %s") % "<b>%(name)s</b>"
 
 class PathProgramMatch(deskbar.interfaces.Match):
     
@@ -250,8 +250,19 @@ class PathProgramMatch(deskbar.interfaces.Match):
         self.add_action( OpenPathProgramAction(command, False), True )
         self.add_action( OpenPathProgramAction(command, True) )
         
-    def get_hash(self, text=None):
-        return text
+    def get_hash(self):
+        return self._name
+   
+class StartsWithPathProgramMatch(deskbar.interfaces.Match):
+    
+    def __init__(self, command, priority=0, **args):
+        deskbar.interfaces.Match.__init__(self, name=command, icon="gtk-execute", category="actions", **args)
+        self._command = command
+        self.add_action( OpenPathProgramAction(command, False), True )
+        self.add_action( OpenPathProgramAction(command, True) )
+        
+    def get_hash(self):
+        return self._command
         
 class ProgramsHandler(deskbar.interfaces.Module):
     
@@ -274,11 +285,23 @@ class ProgramsHandler(deskbar.interfaces.Module):
         self._emit_query_ready(query, result )
         
     def query_path_programs(self, query):
-        program = query.split(" ")[0]
-        if is_program_in_path(program):
-            return [PathProgramMatch(program, query)]
+        args = query.split(" ")     
+        program = args[0]
+        
+        if len(args) == 1:
+            results = []
+            for pathdir in PATH:
+                for f in os.listdir(pathdir):
+                    pathprog = join(pathdir, f)
+                    if not isdir(pathprog) and f.lower().startswith(program) and is_executable(pathprog):
+                        results.append( StartsWithPathProgramMatch(f) )
+            return results
         else:
-            return []
+            # We have arguments, execute the command as typed in by the user
+            if is_program_in_path(program):
+                return [PathProgramMatch(program, query)]
+            else:
+                return []
     
     def query_desktop_programs(self, query):
         result = []

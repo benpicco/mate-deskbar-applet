@@ -115,6 +115,7 @@ class CuemiacModel (gtk.TreeStore):
         """
         match_iter = self.__match_hashes[hash]
         match_obj = self[match_iter][self.MATCHES]
+        logger.debug ("Adding %i actions to match %r" % (len(actions), match_obj))
         match_obj.add_all_actions(actions)
     
     def __append_match(self, match_obj, query_string):
@@ -131,6 +132,7 @@ class CuemiacModel (gtk.TreeStore):
             iter = self.__append ( query_string, match_obj )
             self.__add_to_hash_iter_map(match_obj.get_hash(), iter)
         else:
+            LOGGER.debug("Match %r has the same hash (%s) as a match that has already been added" % (match_obj, match_obj.get_hash()))
             self.__add_actions_to_match(match_obj.get_actions(), match_obj.get_hash())
     
     def append (self, match_obj, query_string):

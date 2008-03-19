@@ -11,6 +11,9 @@ import deskbar.core.Categories
 
 LOGGER = logging.getLogger(__name__)
 
+PATH = [path for path in os.getenv("PATH").split(os.path.pathsep)
+        if path.strip() != "" and exists(path) and isdir(path)]
+
 ICON_THEME = gtk.icon_theme_get_default()
 factory = gnome.ui.ThumbnailFactory(deskbar.ICON_HEIGHT)
 
@@ -112,15 +115,17 @@ def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
         pixbuf = pixbuf.scale_simple(width, height, gtk.gdk.INTERP_BILINEAR)
     return pixbuf
 
-PATH = [path for path in os.getenv("PATH").split(os.path.pathsep) if path.strip() != "" and exists(path) and isdir(path)]
 def is_program_in_path(program):
     """
     Whether C{program} is in PATH
     """
     for path in PATH:
         prog_path = join(path, program)
-        if exists(prog_path) and isfile(prog_path) and os.access(prog_path, os.F_OK | os.R_OK | os.X_OK):
+        if exists(prog_path) and isfile(prog_path) and is_executable(prog_path):
             return True
+        
+def is_executable(prog_path):
+    return os.access(prog_path, os.F_OK | os.R_OK | os.X_OK)
 
 def spawn_async(args):
     try:
