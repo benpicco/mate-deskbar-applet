@@ -187,7 +187,13 @@ class CuemiacWindowView(deskbar.interfaces.View, gtk.Window):
         self.window.set_user_time(time)
         self.present()
         self.move( self._model.get_window_x(), self._model.get_window_y() )
-    
+        
+    def mark_history_empty(self, val):
+        if val:
+            self.hview.set_sensitive (False)
+        else:
+            self.hview.set_sensitive (True)
+        
     def __show_matches(self):
         self.scrolled_results.show()
         self.actions_box.hide()

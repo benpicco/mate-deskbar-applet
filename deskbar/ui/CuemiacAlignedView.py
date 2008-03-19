@@ -195,6 +195,12 @@ class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
         self.present_with_time(time)
         self.entry.grab_focus()
         
+    def mark_history_empty(self, val):
+        if val:
+            self.hview.set_sensitive (False)
+        else:
+            self.hview.set_sensitive (True)
+        
     def __show_matches(self):
         self.scrolled_results.show()
         self.actions_box.hide()

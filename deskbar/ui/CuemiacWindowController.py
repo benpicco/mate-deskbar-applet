@@ -18,6 +18,7 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
     def __init__(self, model):
         super(CuemiacWindowController, self).__init__(model)
         self._model.connect("keybinding-activated", self.on_keybinding_activated)
+        self._model.connect("initialized", self.on_core_initialized)
         self._clipboard = gtk.clipboard_get (selection="PRIMARY")
         
     def on_keybinding_activated(self, core, time, paste=True):
@@ -134,6 +135,11 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         if not action.is_valid():
             LOGGER.warning("Action is not valid anymore")
             return
+        
+        # Check if only the "Choose action" item is in history
+        if len(self._model.get_history()) == 1:
+            self._view.mark_history_empty(False)
+            
         self._model.get_history().add(text, action)
         action.activate(text)
         if self._model.get_clear_entry():
@@ -146,6 +152,7 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         history.clear()
         history.reset()
         history.save()
+        self._view.mark_history_empty(True)
         
     def on_history_match_selected(self, history, text, action):
         action.activate(text)
@@ -168,3 +175,6 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
     def on_category_added (self, widget, cat, path):
         if cat.get_id() not in self._model.get_collapsed_cat():
             self._view.cview.expand_row (path, False)
+            
+    def on_core_initialized (self, core):
+        self._view.mark_history_empty ( (len(core.get_history()) == 1) )

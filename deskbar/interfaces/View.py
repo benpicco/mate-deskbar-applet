@@ -41,3 +41,6 @@ class View(object):
        
     def display_actions(self, actions, qstring):
         raise NotImplementedError
+    
+    def mark_history_empty(self, val):
+        raise NotImplementedError
