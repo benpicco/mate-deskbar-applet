@@ -272,6 +272,7 @@ class MozillaSearchHandler(deskbar.interfaces.Module):
         self.watcher.remove_all()
         
     def query(self, query):
+        self.set_priority_for_matches (self._smart_bookmarks)
         if SHOW_ONLY_PRIMARY and PRIMARY_SEARCH_ENGINE != None:
             for s in self._smart_bookmarks:
                 if s.get_name() == PRIMARY_SEARCH_ENGINE:

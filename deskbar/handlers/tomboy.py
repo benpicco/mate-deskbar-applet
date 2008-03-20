@@ -152,7 +152,9 @@ class TomboyNotesModule (deskbar.interfaces.Module):
 	def handle_searchnotes( self, text, notes ):
 		for note in notes:
 			if tomboy().NoteExists(note):
-				self._emit_query_ready( text, [TomboyExistingNoteMatch(note)] )
+				match = TomboyExistingNoteMatch(note)
+				match.set_priority (self.get_priority())
+				self._emit_query_ready( text, [match] )
 	
 	def handle_dbus_error(self, e): print e
 	
@@ -160,7 +162,9 @@ class TomboyNotesModule (deskbar.interfaces.Module):
 		if len(text) >= 3:
 			case = text[0].capitalize() + text[1:]
 			if tomboy().FindNote(case) == '':
-				self._emit_query_ready( text, [TomboyCreateNoteMatch(case)] )
+				match = TomboyCreateNoteMatch(case)
+				match.set_priority (self.get_priority())
+				self._emit_query_ready( text, [match] )
 			# Search for the note (not case-sensitive)
 			# The query text needs to be lowercase, for reasons I do not fathom
 			tomboy().SearchNotes( text.lower(), dbus.Boolean(False), 
