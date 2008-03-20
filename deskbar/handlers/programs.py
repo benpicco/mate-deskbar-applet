@@ -69,6 +69,9 @@ class GenericProgramMatch(deskbar.interfaces.Match):
 
     def get_hash(self):
         return "generic_"+self._display_prog
+    
+    def get_program(self):
+        return self._display_prog
         
 class GnomeDictMatch(GenericProgramMatch):
     def __init__(self, **args):
@@ -279,12 +282,22 @@ class ProgramsHandler(deskbar.interfaces.Module):
         self._scan_desktop_files()
         
     def query(self, query):
-        result = self.query_path_programs(query)
-        result += self.query_desktop_programs(query)
+        result = self.query_desktop_programs(query)
+        
+        desktop_progs = set()
+        for match in result:
+            desktop_progs.add( match.get_program () )
+        
+        result += self.query_path_programs(query, desktop_progs)
+        
         self.set_priority_for_matches(result)
         self._emit_query_ready(query, result )
         
-    def query_path_programs(self, query):
+    def query_path_programs(self, query, desktop_progs):
+        """
+        @param query: Query string
+        @param desktop_progs: Names of binaries from .desktop files
+        """
         args = query.split(" ")     
         program = args[0]
         
@@ -293,12 +306,13 @@ class ProgramsHandler(deskbar.interfaces.Module):
             for pathdir in PATH:
                 for f in os.listdir(pathdir):
                     pathprog = join(pathdir, f)
-                    if not isdir(pathprog) and f.lower().startswith(program) and is_executable(pathprog):
+                    if (not (f in desktop_progs)) and not isdir(pathprog) \
+                    and f.lower().startswith(program) and is_executable(pathprog):
                         results.append( StartsWithPathProgramMatch(f) )
             return results
         else:
             # We have arguments, execute the command as typed in by the user
-            if is_program_in_path(program):
+            if not (program in desktop_progs) and is_program_in_path(program):
                 return [PathProgramMatch(program, query)]
             else:
                 return []

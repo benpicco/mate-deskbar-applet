@@ -1,5 +1,13 @@
 2008-03-20  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/handlers/programs.py:
+    When a program in path that startswith
+    the query term and it's also the binary
+    of a .desktop file, only show the match
+    of the .desktop file
+
+2008-03-20  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/ui/preferences/DeskbarPreferences.py:
     Fixed NoneType error in preferences when the
     module is moved with DnD
