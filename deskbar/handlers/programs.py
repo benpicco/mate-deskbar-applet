@@ -21,6 +21,7 @@ HANDLERS = [
 
 EXACT_MATCH_PRIO = 50
 EXACT_WORD_PRIO = 5
+DESKTOP_FILE_PRIO = 25
 
 class GenericAction(OpenWithApplicationAction):
     
@@ -287,10 +288,11 @@ class ProgramsHandler(deskbar.interfaces.Module):
         desktop_progs = set()
         for match in result:
             desktop_progs.add( match.get_program () )
+            match.set_priority (self.get_priority() + DESKTOP_FILE_PRIO + match.get_priority())
         
-        result += self.query_path_programs(query, desktop_progs)
+        path_result = self.query_path_programs(query, desktop_progs)
+        result += path_result
         
-        self.set_priority_for_matches(result)
         self._emit_query_ready(query, result )
         
     def query_path_programs(self, query, desktop_progs):
@@ -308,19 +310,23 @@ class ProgramsHandler(deskbar.interfaces.Module):
                     pathprog = join(pathdir, f)
                     if (not (f in desktop_progs)) and not isdir(pathprog) \
                     and f.lower().startswith(program) and is_executable(pathprog):
-                        results.append( StartsWithPathProgramMatch(f) )
+                        match = StartsWithPathProgramMatch(f)
+                        match.set_priority (self.get_priority() + get_priority_for_name(query, f))
+                        results.append( match )
             return results
         else:
             # We have arguments, execute the command as typed in by the user
             if not (program in desktop_progs) and is_program_in_path(program):
-                return [PathProgramMatch(program, query)]
+                match = PathProgramMatch(program, query)
+                match.set_priority (self.get_priority() + EXACT_MATCH_PRIO)
+                return [match]
             else:
                 return []
     
     def query_desktop_programs(self, query):
         result = []
         for match in self._indexer.look_up(query):
-            match._priority = get_priority_for_name(query, match._desktop.get_string("Exec"))
+            match.set_priority (get_priority_for_name(query, match._desktop.get_string("Exec")))
             result.append(match)
         return result
                 
@@ -344,7 +350,8 @@ class ProgramsHandler(deskbar.interfaces.Module):
                                 ), match)
 
 def get_priority_for_name(query, name):
-    if name.split(" ")[0].endswith(query):
+    bin = name.split(" ")[0]
+    if bin == query:
         return EXACT_MATCH_PRIO
     else:
         return EXACT_WORD_PRIO
