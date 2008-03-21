@@ -2,9 +2,12 @@
 Helper classes to monitor directories/files for changes using gnomevfs
 """
 
-import traceback
 import gnomevfs
-import gobject, gtk
+import gobject
+import gtk
+import logging
+
+LOGGER = logging.getLogger(__name__)
 
 class Watcher(gobject.GObject):
     __gsignals__ = {
@@ -27,7 +30,7 @@ class Watcher(gobject.GObject):
                 try:
                     self.watched[name] = gnomevfs.monitor_add(name, self.monitor_type, self._on_change)
                 except Exception, msg:
-                    traceback.print_exc()
+                    LOGGER.exception(msg)
                     self.watched[name] = 0
     
     def remove(self, args):

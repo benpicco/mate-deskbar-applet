@@ -1,8 +1,8 @@
-import deskbar.interfaces.Action
-import deskbar.core.gnomedesktop
 from deskbar.core.Utils import get_xdg_data_dirs
-from os.path import join, exists
 from gettext import gettext as _
+from os.path import join, exists
+import deskbar.core.gnomedesktop
+import deskbar.interfaces.Action
 import logging
 
 LOGGER = logging.getLogger(__name__)
@@ -76,7 +76,7 @@ def parse_desktop_file(desktop, only_if_visible=True):
     try:
         desktop = deskbar.core.gnomedesktop.item_new_from_file(desktop, deskbar.core.gnomedesktop.LOAD_ONLY_IF_EXISTS)
     except Exception, e:
-        LOGGER.warning('Couldn\'t read desktop file %s:' % desktop)
+        LOGGER.warning('Couldn\'t read desktop file %s:', desktop)
         LOGGER.exception(e)
         return None
     

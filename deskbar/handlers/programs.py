@@ -1,17 +1,17 @@
-import re
-import glob
-import os
-from os.path import join, expanduser, isdir
-from gettext import gettext as _
+from deskbar.core.Utils import get_xdg_data_dirs, is_program_in_path, spawn_async, is_executable, PATH
 from deskbar.defs import VERSION
+from deskbar.handlers.actions.OpenDesktopFileAction import OpenDesktopFileAction, parse_desktop_file, parse_desktop_filename
+from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
+from gettext import gettext as _
+from os.path import join, expanduser, isdir
+import deskbar, deskbar.core.Indexer, deskbar.core.Utils
+import deskbar.interfaces.Action
+import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar.core.gnomedesktop
+import glob
 import gobject
 import gtk
-import deskbar, deskbar.core.Indexer, deskbar.core.Utils
-import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar.core.gnomedesktop
-from deskbar.core.Utils import get_xdg_data_dirs, is_program_in_path, spawn_async, is_executable, PATH
-from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
-from deskbar.handlers.actions.OpenDesktopFileAction import OpenDesktopFileAction, parse_desktop_file, parse_desktop_filename
-import deskbar.interfaces.Action
+import os
+import re
 
 HANDLERS = [
     "ProgramsHandler",

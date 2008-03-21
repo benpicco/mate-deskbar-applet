@@ -168,7 +168,7 @@ class CoreImpl(deskbar.interfaces.Core):
         if not self._keybinder.bind(binding):
             LOGGER.error("Keybinding is already in use")
         else:
-            LOGGER.info("Successfully binded Deskbar to %s" % binding)
+            LOGGER.info("Successfully binded Deskbar to %s", binding)
     
     def set_min_chars(self, number):
         self._gconf.set_min_chars(number)

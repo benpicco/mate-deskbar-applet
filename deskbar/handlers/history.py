@@ -1,11 +1,11 @@
-from gettext import gettext as _
-
-import gtk
-
-import deskbar.interfaces.Module
-import deskbar.interfaces.Match
 from deskbar.core.DeskbarHistory import DeskbarHistory
 from deskbar.defs import VERSION
+from gettext import gettext as _
+import deskbar.interfaces.Match
+import deskbar.interfaces.Module
+import gtk
+
+
 
 HANDLERS = ["HistoryHandler"]
 

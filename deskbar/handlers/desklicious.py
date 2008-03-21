@@ -64,7 +64,7 @@ class DeliciousHandler(deskbar.interfaces.Module):
         #self.check_query_changed ()
         
         #The queryyyyYyyYy :)
-        LOGGER.info( "Asking del.icio.us tags for %s" % tag )
+        LOGGER.info( "Asking del.icio.us tags for %s", tag )
         posts = self._delicious.get_posts_by_tag(tag)
 
         # TODO: Missing
@@ -135,11 +135,11 @@ class DeliciousTagQueryEngine:
         
         #Get the info from del.icio.us and parse
         url = DEFAULT_QUERY_TAG % (urllib.quote_plus(self._user), urllib.quote_plus(tag))
-        LOGGER.debug("Opening URL "+url)
+        LOGGER.debug("Opening URL %s", url)
         try:
             stream = urllib.urlopen(url, proxies=deskbar.core.Utils.get_proxy())
         except IOError, msg:
-            LOGGER.error("Could not open URL %s: %s, %s" % (url, msg[0], msg[1]))
+            LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
             return []
         
         dom = xml.dom.minidom.parse(stream)

@@ -1,16 +1,16 @@
-import os
-import re
-import dbus
 from dbus.mainloop.glib import DBusGMainLoop
-from deskbar.defs import VERSION
 from deskbar.core.Utils import load_icon
+from deskbar.defs import VERSION
+from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
+from gettext import gettext as _
+import dbus
 import deskbar.interfaces.Action
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
-from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 import gtk
-from gettext import gettext as _
 import logging
+import os
+import re
 
 LOGGER = logging.getLogger(__name__)
 

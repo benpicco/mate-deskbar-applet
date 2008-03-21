@@ -288,7 +288,7 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
                                             )
             self.add_all_actions( actions )
         else:
-            LOGGER.warning("Unknown beagle match type found: "+result["type"] )
+            LOGGER.warning("Unknown beagle match type found: %s", result["type"] )
 
         # Load the correct icon
         
@@ -352,7 +352,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         hit_matches = []
         for hit in response.get_hits():
             if hit.get_type() not in TYPES:
-                LOGGER.info("Beagle live seen an unknown type:"+ str(hit.get_type()))
+                LOGGER.info("Beagle live seen an unknown type: %s", str(hit.get_type()))
                 continue
             
             if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:

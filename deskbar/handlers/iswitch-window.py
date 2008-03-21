@@ -1,7 +1,8 @@
-from gettext import gettext as _
 from deskbar.defs import VERSION
-import wnck, gtk
+from gettext import gettext as _
 import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar.interfaces.Action, deskbar
+import gtk
+import wnck
 
 HANDLERS = ["ISwitchWindowHandler"]
 

@@ -1,4 +1,5 @@
-import gtk, gobject
+import gtk
+import gobject
 
 class LingeringSelectionWindow (gtk.Window):
 	"""

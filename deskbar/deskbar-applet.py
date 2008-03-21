@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-import gtk, gtk.gdk
+import gtk
+import gtk.gdk
 import sys
 from os.path import abspath, join, dirname, exists
 import logging

@@ -53,7 +53,7 @@ class YahooHandler(deskbar.interfaces.Module):
         # TODO: Missing
         #self.check_query_changed (timeout=QUERY_DELAY)
         
-        LOGGER.info('Query yahoo for: '+qstring)
+        LOGGER.info('Query yahoo for: %s', qstring)
         url = YAHOO_URL % urllib.urlencode(
                 {'appid': YAHOO_API_KEY,
                 'query': qstring,
@@ -61,11 +61,11 @@ class YahooHandler(deskbar.interfaces.Module):
         try:
             stream = urllib.urlopen(url, proxies=get_proxy())
         except IOError, msg:
-            LOGGER.error("Could not open URL %s: %s, %s" % (url, msg[0], msg[1]))
+            LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
             return
         
         dom = xml.dom.minidom.parse(stream)
-        LOGGER.info('Got yahoo answer for: '+qstring)
+        LOGGER.info('Got yahoo answer for: %s', qstring)
         
         # TODO: Missing
         #self.check_query_changed ()    
@@ -81,5 +81,5 @@ class YahooHandler(deskbar.interfaces.Module):
             for r in dom.getElementsByTagName("Result")]
         # TODO: Missing
         #self.check_query_changed ()
-        LOGGER.info("Returning yahoo answer for: "+qstring)
+        LOGGER.info("Returning yahoo answer for: %s", qstring)
         self._emit_query_ready(qstring, matches )

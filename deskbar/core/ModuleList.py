@@ -120,7 +120,7 @@ class ModuleList (gtk.ListStore):
     def remove_module(self, module):
         iter, index = self.get_position_from_context(module)
         if iter != None:
-            LOGGER.debug('Removing from modulelist: '+module.INFOS['name'])
+            LOGGER.debug('Removing from modulelist: %s', module.INFOS['name'])
             self.remove(iter)
         
     def module_changed(self, module):
@@ -226,7 +226,7 @@ class DisabledModuleList (gtk.ListStore):
     def remove_module(self, module):
         iter, index = self.get_position_from_context(module)
         if iter != None:
-            LOGGER.debug('Removing from disabledModulelist: '+str(module))
+            LOGGER.debug('Removing from disabledModulelist: %s', str(module))
             self.remove(iter)
 
 gobject.type_register(DisabledModuleList)

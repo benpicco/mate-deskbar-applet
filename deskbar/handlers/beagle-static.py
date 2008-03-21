@@ -1,10 +1,10 @@
-from os.path import join
-from glob import glob
-from gettext import gettext as _
-from deskbar.defs import VERSION
-import deskbar.interfaces.Module, deskbar.interfaces.Match
 from deskbar.core.Utils import get_xdg_data_dirs, spawn_async, load_icon
+from deskbar.defs import VERSION
+from gettext import gettext as _
+from glob import glob
+from os.path import join
 import deskbar.interfaces.Action
+import deskbar.interfaces.Module, deskbar.interfaces.Match
 
 HANDLERS = ["BeagleHandler"]
 

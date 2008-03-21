@@ -1,13 +1,13 @@
+from deskbar.defs import VERSION
+from deskbar.handlers.actions.ActionsFactory import get_actions_for_uri
+from deskbar.handlers.actions.OpenFileAction import OpenFileAction
 from gettext import gettext as _
+import deskbar
+import deskbar.interfaces.Match
+import deskbar.interfaces.Module
 import gtk
 
-import deskbar
-import deskbar.interfaces.Module
-import deskbar.interfaces.Match
 
-from deskbar.handlers.actions.OpenFileAction import OpenFileAction
-from deskbar.handlers.actions.ActionsFactory import get_actions_for_uri
-from deskbar.defs import VERSION
 
 HANDLERS = ["RecentHandler"]
 

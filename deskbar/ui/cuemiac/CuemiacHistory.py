@@ -1,4 +1,6 @@
-import gtk, pango, gobject
+import gtk
+import pango
+import gobject
 import logging
 
 LOGGER = logging.getLogger(__name__)

@@ -37,7 +37,7 @@ def get_actions_for_uri(uri, display_name=None):
     try:
         fileinfo = gnomevfs.get_file_info(uri, gnomevfs.FILE_INFO_GET_MIME_TYPE | gnomevfs.FILE_INFO_FOLLOW_LINKS)
     except Exception, msg:
-        LOGGER.error("Could not retrieve MIME type of %s: %s" % (uri, msg))
+        LOGGER.error("Could not retrieve MIME type of %s: %s", uri, msg)
         return []
     mime = fileinfo.mime_type
     actions = []

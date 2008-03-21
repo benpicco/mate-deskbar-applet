@@ -1,20 +1,21 @@
-import os, urllib
+from deskbar.core.Watcher import FileWatcher
+from deskbar.defs import VERSION
+from deskbar.handlers.actions.ActionsFactory import get_actions_for_uri
+from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
+from deskbar.handlers.actions.OpenFileAction import OpenFileAction
+from deskbar.handlers.actions.OpenWithNautilusAction import OpenWithNautilusAction
+from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
+from gettext import gettext as _
 from os.path import join, basename, normpath, abspath, dirname
 from os.path import split, expanduser, exists, isfile
-from gettext import gettext as _
-import gtk, gnomevfs
-
 import deskbar, deskbar.core.Indexer
-import deskbar.interfaces.Module
 import deskbar.interfaces.Match
+import deskbar.interfaces.Module
+import gnomevfs
+import gtk
+import os, urllib
 
-from deskbar.defs import VERSION
-from deskbar.core.Watcher import FileWatcher
-from deskbar.handlers.actions.OpenWithNautilusAction import OpenWithNautilusAction
-from deskbar.handlers.actions.OpenFileAction import OpenFileAction
-from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
-from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
-from deskbar.handlers.actions.ActionsFactory import get_actions_for_uri
+
 
 MONITOR = gnomevfs.VolumeMonitor()
 

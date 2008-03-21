@@ -1,11 +1,21 @@
-import re,cgi, urllib, os, logging
-from gettext import gettext as _
-import gtk, gobject, os.path
-import deskbar, deskbar.interfaces.Match, deskbar.core.Utils
-import deskbar.interfaces.Action
-from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
-from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.core.GconfStore import GconfStore
+from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
+from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
+from gettext import gettext as _
+import cgi
+import deskbar
+import deskbar.core.Utils
+import deskbar.interfaces.Action
+import deskbar.interfaces.Match
+import gobject
+import gtk
+import logging
+import os
+import os.path
+import re
+import urllib
+
+LOGGER = logging.getLogger(__name__)
 
 def get_preferred_browser():
     http_handler = GconfStore.get_instance().get_client().get_string("/desktop/gnome/url-handlers/http/command")
@@ -137,7 +147,7 @@ def get_url_host(url):
             
         return urllib.splithost(clean)[0]
     except Exception, msg:
-        logging.error('get_url_host(%s):%s' % (url, msg))
+        LOGGER.error('get_url_host(%s):%s', url, msg)
         return url
 
 

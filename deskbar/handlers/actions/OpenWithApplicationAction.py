@@ -1,7 +1,7 @@
-import deskbar.interfaces.Action
-from gettext import gettext as _
 from deskbar.core.Utils import spawn_async, is_program_in_path
+from gettext import gettext as _
 from os.path import exists, isabs
+import deskbar.interfaces.Action
 import logging
 
 LOGGER = logging.getLogger(__name__)
@@ -38,7 +38,7 @@ class OpenWithApplicationAction(deskbar.interfaces.Action):
         else:
             returnval = is_program_in_path(self._program)
         if not returnval:
-            LOGGER.debug("%s does not exist" % self._program)
+            LOGGER.debug("%s does not exist", self._program)
         return returnval
        
     def get_hash(self):

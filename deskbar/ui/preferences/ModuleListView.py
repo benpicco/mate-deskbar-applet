@@ -1,4 +1,5 @@
-import gtk, gobject
+import gtk
+import gobject
 from gettext import gettext as _
 
 class ModuleListView (gtk.TreeView):

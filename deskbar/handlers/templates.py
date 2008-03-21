@@ -1,11 +1,17 @@
-import os, os.path, shutil, subprocess
-from gettext import gettext as _
-
 from deskbar.defs import VERSION
-import deskbar.interfaces.Module, deskbar.interfaces.Action, deskbar.interfaces.Match
-import deskbar.core.Indexer, deskbar.core.Utils
-import gtk
+from gettext import gettext as _
+import deskbar.core.Indexer
+import deskbar.core.Utils
+import deskbar.interfaces.Action
+import deskbar.interfaces.Match
+import deskbar.interfaces.Module 
 import gnomevfs
+import gtk
+import os
+import os.path
+import shutil
+import subprocess
+
 
 HANDLERS = ["TemplateHandler"]
 

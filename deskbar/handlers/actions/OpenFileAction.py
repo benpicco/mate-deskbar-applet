@@ -1,7 +1,7 @@
-import deskbar.interfaces.Action
-from gettext import gettext as _
 from deskbar.core.Utils import url_show_file
+from gettext import gettext as _
 from os.path import exists
+import deskbar.interfaces.Action
 import gnomevfs
 import logging
 
@@ -31,7 +31,7 @@ class OpenFileAction(deskbar.interfaces.Action):
             url = gnomevfs.unescape_string_for_display(url)
 
         if not exists(url):
-            LOGGER.debug("File %s does not exist" % url)
+            LOGGER.debug("File %s does not exist", url)
             return False
         else:
             try:
@@ -41,7 +41,7 @@ class OpenFileAction(deskbar.interfaces.Action):
                 # get_mime_type throws a RuntimeException when something went wrong
                 returnval = False
         if not returnval:
-            LOGGER.debug("File %s has no default application" % url)
+            LOGGER.debug("File %s has no default application", url)
         return returnval
     
     def get_hash(self):

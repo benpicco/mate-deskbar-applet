@@ -1,8 +1,13 @@
-from gettext import gettext as _
-import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module, deskbar.handlers.evolution, deskbar.core.Utils, deskbar.interfaces.Match
 from deskbar.defs import VERSION
-from deskbar.handlers.actions.SendEmailToAction import SendEmailToAction
 from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
+from deskbar.handlers.actions.SendEmailToAction import SendEmailToAction
+from gettext import gettext as _
+import deskbar
+import deskbar.core.Indexer
+import deskbar.core.Utils
+import deskbar.handlers.evolution
+import deskbar.interfaces.Match
+import deskbar.interfaces.Module
 
 HANDLERS = ["EvolutionHandler"]
 

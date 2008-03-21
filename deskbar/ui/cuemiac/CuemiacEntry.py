@@ -1,5 +1,5 @@
-import gobject, gtk
-
+import gobject
+import gtk
 import deskbar.ui.iconentry
 
 # Make epydoc document signal

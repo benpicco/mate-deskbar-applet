@@ -28,7 +28,7 @@ if UNINSTALLED_DESKBAR:
     SHARED_DATA_DIR = abspath(join(dirname(__file__), '..', 'data'))
 else:
     SHARED_DATA_DIR = join(DATA_DIR, "deskbar-applet")
-LOGGER.debug("Data Dir: %s" % SHARED_DATA_DIR)
+LOGGER.debug("Data Dir: %s", SHARED_DATA_DIR)
 
 HANDLERS_DIR = []
 if UNINSTALLED_DESKBAR:
@@ -41,18 +41,18 @@ if not exists(USER_DESKBAR_DIR):
     try:
         os.makedirs(USER_DESKBAR_DIR, 0744)
     except Exception , msg:
-        LOGGER.error('Could not create user handlers dir (%s): %s' % (USER_DESKBAR_DIR, msg))
+        LOGGER.error('Could not create user handlers dir (%s): %s', USER_DESKBAR_DIR, msg)
         
 USER_HANDLERS_DIR = expanduser("~/.gnome2/deskbar-applet/modules-2.20-compatible")
 if not exists(USER_HANDLERS_DIR):
     try:
         os.makedirs(USER_HANDLERS_DIR, 0744)
     except Exception , msg:
-        LOGGER.error('Could not create user handlers dir (%s): %s' % (USER_HANDLERS_DIR, msg))
+        LOGGER.error('Could not create user handlers dir (%s): %s', USER_HANDLERS_DIR, msg)
 USER_HANDLERS_DIR = [USER_HANDLERS_DIR]
 
 MODULES_DIRS = USER_HANDLERS_DIR+HANDLERS_DIR
-LOGGER.debug("Handlers Dir: %s" % MODULES_DIRS)
+LOGGER.debug("Handlers Dir: %s", MODULES_DIRS)
 # ------------------------------------------------------------------------------
 
 # Set the cwd to the home directory so spawned processes behave correctly

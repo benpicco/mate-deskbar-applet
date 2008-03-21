@@ -1,11 +1,12 @@
-import cPickle
-import gtk, gobject
-import time
-import logging
-import deskbar.interfaces.Action
 from deskbar import HISTORY_FILE
-from gettext import gettext as _
 from deskbar.core.Categories import CATEGORIES
+from gettext import gettext as _
+import cPickle
+import deskbar.interfaces.Action
+import gobject
+import gtk
+import logging
+import time
 
 LOGGER = logging.getLogger(__name__)
 

@@ -1,13 +1,18 @@
-import os, cgi, re
-from os.path import *
-from gettext import gettext as _
-import deskbar, deskbar.core.gnomedesktop
-import gtk, gtk.gdk, gnome.ui, gobject, gnomevfs
-from htmlentitydefs import name2codepoint
-import logging
 from deskbar.core.GconfStore import GconfStore
 from deskbar.core._userdirs import *
+from gettext import gettext as _
+from htmlentitydefs import name2codepoint
+from os.path import *
+import deskbar
 import deskbar.core.Categories
+import deskbar.core.gnomedesktop
+import gnome.ui
+import gnomevfs
+import gobject
+import gtk
+import gtk.gdk
+import logging
+import os, cgi, re
 
 LOGGER = logging.getLogger(__name__)
 

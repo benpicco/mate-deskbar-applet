@@ -23,7 +23,8 @@ def is_capuchin_available():
         bus_names = _dbus.ListActivatableNames()
         return (CAPUCHIN_DBUS_SERVICE in bus_names)
     except (dbus.DBusException, dbus.exceptions.DBusException), e:
-        LOGGER.exception("D-Bus Error: %s" % e)
+        LOGGER.error("D-Bus Error")
+        LOGGER.exception(e)
         return False
 
 class AppObjectManager:
