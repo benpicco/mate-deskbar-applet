@@ -92,11 +92,11 @@ class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
         self.history_box.pack_start(self.hview)
         hlabel.set_mnemonic_widget(self.hview)
         
-        empty_button = gtk.Button()
-        empty_button.set_image( gtk.image_new_from_stock(gtk.STOCK_CLEAR, gtk.ICON_SIZE_MENU) )
-        empty_button.connect("clicked", self._controller.on_clear_history)
-        empty_button.show()
-        self.history_box.pack_start(empty_button, False)
+        self.empty_button = gtk.Button()
+        self.empty_button.set_image( gtk.image_new_from_stock(gtk.STOCK_CLEAR, gtk.ICON_SIZE_MENU) )
+        self.empty_button.connect("clicked", self._controller.on_clear_history)
+        self.empty_button.show()
+        self.history_box.pack_start(self.empty_button, False)
         
         # Results TreeView
         self.treeview_model = CuemiacModel ()
@@ -196,10 +196,8 @@ class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
         self.entry.grab_focus()
         
     def mark_history_empty(self, val):
-        if val:
-            self.hview.set_sensitive (False)
-        else:
-            self.hview.set_sensitive (True)
+        self.hview.set_sensitive (not val)
+        self.empty_button.set_sensitive (not val)
         
     def __show_matches(self):
         self.scrolled_results.show()
