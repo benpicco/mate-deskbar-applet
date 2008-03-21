@@ -34,6 +34,8 @@ if is_preferred_browser("firefox") or is_preferred_browser("iceweasel"):
 # Minimum and maximum version of Firefox
 MIN_FF_VERSION = [2, 0, 0, 0]
 MAX_FF_VERSION = [3, 0, 0, 0] # exclusively
+MIN_FF_VERSION_STRING = "2.0.0.0"
+MAX_FF_VERSION_STRING = "3.0.0.0"
         
 # File returned here should be checked for existence
 def get_mozilla_home_file(needed_file):    
@@ -212,8 +214,9 @@ class MozillaBookmarksHandler(deskbar.interfaces.Module):
         elif is_preferred_browser("firefox"):
             if MozillaBookmarksHandler.has_firefox_version():
                 return True
-            # TODO: mark as i18n
-            MozillaBookmarksHandler.INSTRUCTIONS = "Firefox version must be between 2.0.0.0 and 3.0.0.0"
+            
+            MozillaBookmarksHandler.INSTRUCTIONS = \
+                _("Firefox version must be between %s and %s") % (MIN_FF_VERSION_STRING, MAX_FF_VERSION_STRING)
             return False
         else:
             MozillaBookmarksHandler.INSTRUCTIONS = _("Mozilla/Firefox is not your preferred browser.")
@@ -292,8 +295,9 @@ class MozillaSearchHandler(deskbar.interfaces.Module):
     def has_requirements():
         if is_preferred_browser("firefox") or is_preferred_browser("iceweasel"):
             if is_preferred_browser("firefox") and not MozillaBookmarksHandler.has_firefox_version():
-                # TODO: mark as i18n
-                MozillaSearchHandler.INSTRUCTIONS = "Firefox version must be between 2.0.0.0 and 3.0.0.0"
+                
+                MozillaSearchHandler.INSTRUCTIONS = \
+                    _("Firefox version must be between %s and %s") % (MIN_FF_VERSION_STRING, MAX_FF_VERSION_STRING)
                 return False
             
             # Correct firefox version or iceweasel
@@ -825,8 +829,9 @@ class MozillaHistoryHandler(deskbar.interfaces.Module):
         elif is_preferred_browser("firefox"):
             if MozillaBookmarksHandler.has_firefox_version():
                 return True
-            # TODO: mark as i18n
-            MozillaHistoryHandler.INSTRUCTIONS = "Firefox version must be between 2.0.0.0 and 3.0.0.0"
+            
+            MozillaHistoryHandler.INSTRUCTIONS = \
+                _("Firefox version must be between %s and %s") % (MIN_FF_VERSION_STRING, MAX_FF_VERSION_STRING)
             return False
         else:
             MozillaHistoryHandler.INSTRUCTIONS = _("Mozilla/Firefox is not your preferred browser.")
