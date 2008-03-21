@@ -106,18 +106,6 @@ class DeskbarTray (gtk.EventBox):
             ])
         
     def __on_loaded(self, sender):
-        old_modules = self.__core.get_old_modules()
-        if len(old_modules) > 0:
-                msg = _("Some potentially old modules that make use of an old Deskbar-Applet API have been found. Remove these files for this warning to disappear.\n")
-                for mod in old_modules:
-                    msg += "\n"+mod
-                dialog = gtk.MessageDialog(parent=None,
-                                  flags=0,
-                                  type=gtk.MESSAGE_WARNING,
-                                  buttons=gtk.BUTTONS_OK,
-                                  message_format=msg)
-                dialog.connect('response', lambda w, id: dialog.destroy())
-                dialog.show_all()
         self.set_sensitive(True)
         self.__view.set_sensitive(True)
           

@@ -7,7 +7,6 @@ import gtk
 import logging
 import os
 import pydoc
-import traceback
 
 LOGGER = logging.getLogger(__name__)
 
@@ -52,7 +51,6 @@ class ModuleLoader (gobject.GObject):
         self.ext = extension
         self.watcher = DirWatcher()
         self.watch_id = self.watcher.connect('changed', self._on_handler_file_changed)
-        self.__old_modules = []
         
         if (dirs):
             self.dirs = [abspath(expanduser(s)) for s in dirs]
@@ -61,9 +59,6 @@ class ModuleLoader (gobject.GObject):
         else:
             self.dirs = None
             self.filelist = []
-
-    def get_old_modules(self):
-        return self.__old_modules
 
     def _on_handler_file_changed(self, watcher, f):
         if f in self.filelist or not self.is_module(f):
@@ -100,14 +95,9 @@ class ModuleLoader (gobject.GObject):
         Primarily for internal use."""
         try:
             mod = pydoc.importfile (filename)
-        except Exception:
+        except Exception, e:
             LOGGER.error("Error loading the file: %s.", filename)
-            error = traceback.format_exc()
-            if "No module named deskbar.Handler" in error:
-                self.__old_modules.append(filename)
-            else:
-                print error
-            return
+            LOGGER.exception(e)
         
         try:
             if (mod.HANDLERS): pass
