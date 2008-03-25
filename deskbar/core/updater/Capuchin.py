@@ -142,6 +142,11 @@ class AppObject (gobject.GObject):
     
     def close (self):
         self.appobject.Close ()
+        
+    def get_plugin_infos (self, plugin_id):
+        mod_name = self.get_plugin_name (plugin_id)
+        mod_desc = self.get_plugin_description (plugin_id)
+        return (mod_name, mod_desc)
     
 class PluginInfo:
     

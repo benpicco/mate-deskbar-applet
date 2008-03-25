@@ -152,7 +152,28 @@ class DeskbarPreferences:
             
             self.web_module_list = WebModuleList()
             
+            ROW_SEPERATOR_STRING = "<-->"
+            self.ALL_EXTENSIONS_TEXT = _("All Extensions")
+            
+            self.combobox_tags = self.glade.get_widget("combobox_tags")
+            self.combobox_tags.set_row_separator_func( lambda model, iter: model[iter][0] == ROW_SEPERATOR_STRING )  
+            
+            tag_cell = gtk.CellRendererText ()
+            self.combobox_tags.pack_start (tag_cell)
+            self.combobox_tags.add_attribute (tag_cell, 'text', 0)
+            
+            self.tags_list = gtk.ListStore (str)
+            self.tags_list.set_sort_column_id (0, gtk.SORT_ASCENDING)
+            self.tags_list.set_sort_func (0, self._tags_sort_func)
+            
+            self.tags_list.append ([self.ALL_EXTENSIONS_TEXT])
+            self.tags_list.append ([ROW_SEPERATOR_STRING])
+            self.combobox_tags.set_model (self.tags_list)
+            self.combobox_tags.set_active (0) # Set to all
+            self.combobox_tags.connect ("changed", self.on_combobox_tags_changed)
+            
             container = self.glade.get_widget("newhandlers")
+            
             self.webmoduleview = WebModuleListView(self.web_module_list)
             self.webmoduleview.get_selection().connect("changed", self.on_webmodule_selected)
             self.web_module_list.connect('row-changed', lambda list, path, iter: self.on_webmodule_selected    (self.webmoduleview.get_selection()))
@@ -208,6 +229,24 @@ class DeskbarPreferences:
                        message_format=_("Extension has been installed successfully"))
         dialog.connect('response', lambda w, id: dialog.destroy())
         dialog.run ()
+        
+    def _tags_sort_func(self, model, iter1, iter2):
+        val1 = model[iter1][0]
+        val2 = model[iter2][0]
+        if val1 == self.ALL_EXTENSIONS_TEXT:
+            # Always at top
+            return -1
+        elif val2 == self.ALL_EXTENSIONS_TEXT:
+            # Always at top
+            return 1
+        else:
+            # Sort alphabetically
+            if val1 < val2:
+                return -1
+            elif val1 > val2:
+                return 1
+            else:
+                return 0
           
     def show_run_hide(self, parent):
         self.dialog.set_screen(parent.get_screen())
@@ -382,26 +421,8 @@ class DeskbarPreferences:
             self.__capuchin = None
             
     def on_check_new_extensions(self, button):
-        """
-        Display a list of modules that aren't installed, yet
-        """
-        local_modules = set()
-        for mod in self.module_list:
-            local_modules.add(mod.get_id())
-        
-        try:
-            repo_modules = set (self._get_capuchin_instance().get_available_plugins())
-            
-            new_modules = repo_modules - local_modules
-            
-            for mod_id in new_modules:
-                mod_name = self._get_capuchin_instance().get_plugin_name (mod_id)
-                mod_desc = self._get_capuchin_instance().get_plugin_description (mod_id)
-                self.web_module_list.add(mod_id, mod_name, mod_desc)
-        except dbus.exceptions.DBusException, e:
-            self._show_error_dialog(e)
-            self.__capuchin.close()
-            self.__capuchin = None
+        self._get_tags()
+        self._get_new_modules()
         
     def on_update_handler(self, button):
         """ Update the selected module """
@@ -418,6 +439,27 @@ class DeskbarPreferences:
         self._capuchin_install(mod_id)
         button.set_sensitive(False)
         
+    def on_combobox_tags_changed (self, combobox):
+        iter = combobox.get_active_iter()
+        if iter == None:
+            return
+        
+        selected_tag = self.tags_list[iter][0]
+        
+        if selected_tag == self.ALL_EXTENSIONS_TEXT:
+            self.web_module_list.clear ()
+            self._get_new_modules()
+        else:
+            try:
+                plugins = self._get_capuchin_instance().get_plugins_with_tag (selected_tag)
+                self.web_module_list.clear ()
+                for mod_id in plugins:
+                    self._add_module_infos_to_web_modules (mod_id)
+            except dbus.exceptions.DBusException, e:
+                self._show_error_dialog(e)
+                self.__capuchin.close()
+                self.__capuchin = None
+            
     def _capuchin_install(self, mod_id):
         if mod_id != None:
             if self.has_capuchin:
@@ -428,6 +470,39 @@ class DeskbarPreferences:
                     self.__capuchin.close()
                     self.__capuchin = None
      
+    def _get_tags (self):
+        try:
+            for tag in self._get_capuchin_instance().get_tags ():
+                self.tags_list.append ( [tag] )
+        except dbus.exceptions.DBusException, e:
+            self._show_error_dialog(e)
+            self.__capuchin.close()
+            self.__capuchin = None
+    
+    def _get_new_modules (self):
+        """
+        Display a list of modules that aren't installed, yet
+        """
+        local_modules = set()
+        for mod in self.module_list:
+            local_modules.add(mod.get_id())
+        
+        try:
+            repo_modules = set (self._get_capuchin_instance().get_available_plugins())
+            
+            new_modules = repo_modules - local_modules
+            
+            for mod_id in new_modules:
+                self._add_module_infos_to_web_modules (mod_id)
+        except dbus.exceptions.DBusException, e:
+            self._show_error_dialog(e)
+            self.__capuchin.close()
+            self.__capuchin = None
+            
+    def _add_module_infos_to_web_modules (self, mod_id):
+        mod_name, mod_desc = self._get_capuchin_instance().get_plugin_infos (mod_id)
+        self.web_module_list.add(mod_id, mod_name, mod_desc)
+   
     def on_webmodule_selected(self, selection):
         mod_id = self.webmoduleview.get_selected_module_id()
         self.install.set_sensitive(mod_id != None)
