@@ -207,6 +207,7 @@ class DeskbarPreferences:
                        buttons=gtk.BUTTONS_OK,
                        message_format=_("Extension has been installed successfully"))
         dialog.connect('response', lambda w, id: dialog.destroy())
+        dialog.run ()
           
     def show_run_hide(self, parent):
         self.dialog.set_screen(parent.get_screen())
@@ -494,7 +495,7 @@ class DeskbarPreferences:
                                  _("Extension could not be installed due a problem with the provided file"),
                                  traceback.format_exc() )
         
-        dialog.run()
+            dialog.run()
         return
     
     def on_button_top_clicked(self, button):
