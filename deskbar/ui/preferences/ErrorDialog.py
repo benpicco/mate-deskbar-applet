@@ -14,6 +14,7 @@ class ErrorDialog( gtk.Dialog ):
         self.set_decorated(True)
         self.set_has_separator(False)
         self.set_border_width(6)
+        self.set_resizable(False)
         self.vbox.set_spacing(12)
         self.action_area.set_layout(gtk.BUTTONBOX_SPREAD)
         

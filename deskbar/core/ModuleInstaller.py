@@ -110,9 +110,6 @@ class ModuleInstaller:
     
     def __init__(self, module_loader):        
         self.module_loader = module_loader
-        self.delete_original = True
-        self.local_path = None
-        self.error = None
         
     def cleanup(self):
         """
@@ -139,6 +136,7 @@ class ModuleInstaller:
         @type uri_string: str
         """
         do_cleanup = False
+        self._reset()
         
         uri = gnomevfs.URI(uri_string)
         if (uri.is_local == 1):
@@ -166,3 +164,9 @@ class ModuleInstaller:
         
         if do_cleanup:
             self.cleanup()
+            
+    def _reset(self):
+        self.error = None
+        self.delete_original = True
+        self.local_path = None
+        
