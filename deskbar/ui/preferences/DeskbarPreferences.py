@@ -152,11 +152,11 @@ class DeskbarPreferences:
             
             self.web_module_list = WebModuleList()
             
-            ROW_SEPERATOR_STRING = "<-->"
+            self.ROW_SEPERATOR_STRING = "<-->"
             self.ALL_EXTENSIONS_TEXT = _("All Extensions")
             
             self.combobox_tags = self.glade.get_widget("combobox_tags")
-            self.combobox_tags.set_row_separator_func( lambda model, iter: model[iter][0] == ROW_SEPERATOR_STRING )  
+            self.combobox_tags.set_row_separator_func( lambda model, iter: model[iter][0] == self.ROW_SEPERATOR_STRING )  
             
             tag_cell = gtk.CellRendererText ()
             self.combobox_tags.pack_start (tag_cell)
@@ -166,10 +166,7 @@ class DeskbarPreferences:
             self.tags_list.set_sort_column_id (0, gtk.SORT_ASCENDING)
             self.tags_list.set_sort_func (0, self._tags_sort_func)
             
-            self.tags_list.append ([self.ALL_EXTENSIONS_TEXT])
-            self.tags_list.append ([ROW_SEPERATOR_STRING])
             self.combobox_tags.set_model (self.tags_list)
-            self.combobox_tags.set_active (0) # Set to all
             self.combobox_tags.connect ("changed", self.on_combobox_tags_changed)
             
             container = self.glade.get_widget("newhandlers")
@@ -471,6 +468,10 @@ class DeskbarPreferences:
                     self.__capuchin = None
      
     def _get_tags (self):
+        self.tags_list.clear()
+        self.tags_list.append ([self.ALL_EXTENSIONS_TEXT])
+        self.tags_list.append ([self.ROW_SEPERATOR_STRING])
+            
         try:
             for tag in self._get_capuchin_instance().get_tags ():
                 self.tags_list.append ( [tag] )
@@ -478,6 +479,8 @@ class DeskbarPreferences:
             self._show_error_dialog(e)
             self.__capuchin.close()
             self.__capuchin = None
+            
+        self.combobox_tags.set_active (0) # Set to all
     
     def _get_new_modules (self):
         """

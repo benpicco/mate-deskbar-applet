@@ -238,8 +238,8 @@ class WebModuleList (gtk.ListStore):
      MODULE_DESCRIPTION) = range (3)
     
     def __init__ (self):
-        # First element is a tuple containing module id, name and description
         gtk.ListStore.__init__ (self, str, str, str)
+        self.set_sort_column_id (self.MODULE_NAME, gtk.SORT_ASCENDING)
         
     def __contains__ (self, mod_id):
         for mod in self:
