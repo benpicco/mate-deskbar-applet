@@ -22,7 +22,6 @@ class ProgressbarDialog( gtk.Dialog ):
         self.text = gtk.Label()
         self.text.set_alignment(0.0, 0.0)
         self.text.set_line_wrap(True)
-        self.text.set_selectable(True)        
         self.vbox2.pack_start(self.text, False, True, 0)
         
         # VBox containing ProgressBar and status

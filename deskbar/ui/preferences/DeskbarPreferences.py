@@ -224,8 +224,9 @@ class DeskbarPreferences:
                        type=gtk.MESSAGE_INFO,
                        buttons=gtk.BUTTONS_OK,
                        message_format=_("Extension has been installed successfully"))
-        dialog.connect('response', lambda w, id: dialog.destroy())
-        dialog.run ()
+        dialog.set_modal(True)
+        dialog.connect ('response', lambda w, r: w.destroy())
+        dialog.show_all ()
         
     def _tags_sort_func(self, model, iter1, iter2):
         val1 = model[iter1][0]
@@ -542,10 +543,12 @@ class DeskbarPreferences:
         
         # Remove from webmodulelist
         if self.__capuchin_installing:
+            # We where installing a new module
             model, iter = self.webmoduleview.get_selection().get_selected()
             self.web_module_list.remove (iter)
             self.__capuchin_installing = False
         else:
+            # We updated a already installed module
             model, iter = self.moduleview.get_selection().get_selected()
             self.module_list[iter][self.module_list.MODULE_CTX_COL].set_updateable (False)
             self.module_list.set_module_update_available(iter, False)
@@ -572,8 +575,8 @@ class DeskbarPreferences:
             dialog = ErrorDialog(self.dialog,
                                  _("Extension could not be installed due a problem with the provided file"),
                                  traceback.format_exc() )
-        
             dialog.run()
+        
         return
     
     def on_button_top_clicked(self, button):
