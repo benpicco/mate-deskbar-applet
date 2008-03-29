@@ -307,8 +307,11 @@ class DeskbarPreferences:
         # Check if module is not None, because the signal
         # is emitted when the user moves a module, too  
         # Check if we can update
-        if module != None and self.has_capuchin:
-            self.update.set_sensitive(module.is_updateable())                
+        if self.has_capuchin:
+            if module != None:
+                self.update.set_sensitive(module.is_updateable())
+            else:
+                self.update.set_sensitive(False)
     
     def set_buttons(self, selection):
         """
