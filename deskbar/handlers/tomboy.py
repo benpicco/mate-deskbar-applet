@@ -27,7 +27,7 @@ class TomboyOpenNoteAction (deskbar.interfaces.Action):
     def activate(self, text=None):
         try:
             tomboy().DisplayNote(self._note)
-        except dbus.exceptions.DBusException, e:
+        except (dbus.DBusException, dbus.exceptions.DBusException), e:
             LOGGER.exception(e)
             return
 
@@ -43,7 +43,7 @@ class TomboyOpenNoteAction (deskbar.interfaces.Action):
     def is_valid(self, text=None):
         try:
             return (not tomboy() == None) and tomboy().NoteExists(self._note)
-        except dbus.exceptions.DBusException, e:
+        except (dbus.DBusException, dbus.exceptions.DBusException), e:
             LOGGER.exception(e)
             return False
         
@@ -53,7 +53,7 @@ class TomboyDeleteNoteAction (TomboyOpenNoteAction):
     def activate(self, text=None):
         try:
             if self.really_delete(): tomboy().DeleteNote(self._note)
-        except dbus.exceptions.DBusException, e:
+        except (dbus.DBusException, dbus.exceptions.DBusException), e:
             LOGGER.exception(e)
             return
 
@@ -93,7 +93,7 @@ class TomboyCreateNoteAction (deskbar.interfaces.Action):
             if self.is_valid(): 
                 self._note = tomboy().CreateNamedNote( self._title )
             tomboy().DisplayNote(self._note)
-        except dbus.exceptions.DBusException, e:
+        except (dbus.DBusException, dbus.exceptions.DBusException), e:
             LOGGER.exception(e)
             return    
         
@@ -112,7 +112,7 @@ class TomboyCreateNoteAction (deskbar.interfaces.Action):
     def is_valid(self, text=None):
         try:
             return tomboy().FindNote(self._title) == ''
-        except dbus.exceptions.DBusException, e:
+        except (dbus.DBusException, dbus.exceptions.DBusException), e:
             LOGGER.exception(e)
             return False
 
@@ -176,7 +176,7 @@ class TomboyNotesModule (deskbar.interfaces.Module):
                     match = TomboyExistingNoteMatch(note)
                     match.set_priority (self.get_priority())
                     self._emit_query_ready( text, [match] )
-            except dbus.exceptions.DBusException, e:
+            except (dbus.DBusException, dbus.exceptions.DBusException), e:
                 LOGGER.exception(e)
                 return
     
@@ -190,7 +190,7 @@ class TomboyNotesModule (deskbar.interfaces.Module):
                     match = TomboyCreateNoteMatch(case)
                     match.set_priority (self.get_priority())
                     self._emit_query_ready( text, [match] )
-            except dbus.exceptions.DBusException, e:
+            except (dbus.DBusException, dbus.exceptions.DBusException), e:
                 LOGGER.exception(e)
                 return
                
@@ -201,7 +201,7 @@ class TomboyNotesModule (deskbar.interfaces.Module):
                     # A lambda, because otherwise the handler won't get the query text
                     reply_handler=lambda notes: self.handle_searchnotes( text, notes ),
                     error_handler=self.handle_dbus_error )
-            except dbus.exceptions.DBusException, e:
+            except (dbus.DBusException, dbus.exceptions.DBusException), e:
                 LOGGER.exception(e)
                 return
     
@@ -234,7 +234,7 @@ def tomboy_installed():
         else:
             TomboyNotesModule.INSTRUCTIONS = _("Tomboy does not seem to be installed.")
             return False
-    except dbus.exceptions.DBusException, e:
+    except (dbus.DBusException, dbus.exceptions.DBusException), e:
         LOGGER.exception(e)
         return False
 
