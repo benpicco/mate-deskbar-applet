@@ -54,7 +54,15 @@ def get_actions_for_uri(uri, display_name=None):
         # 4: expects_uri (int)
         # 5: supported uri schemes (list)
         if (mime_default_cmd == None or app[2] != mime_default_cmd) and app[2] != None:
-            actions.append( OpenWithApplicationAction(display_name, app[2], [path],
+            cmd = app[2]
+            args = [path]
+            
+            cmd_args = cmd.split(" ")
+            if len(cmd_args) > 0:
+                cmd = cmd_args[0]
+                args = cmd_args[1:] + args
+            
+            actions.append( OpenWithApplicationAction(display_name, cmd, args,
                     display_program_name=app[1]) )
     
     actions.append( GoToLocationAction(display_name, uri) )

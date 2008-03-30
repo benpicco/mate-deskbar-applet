@@ -495,7 +495,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                     tmp = re.sub(r"</.*?>", "", tmp)
                     result["snippet"] = cgi.escape(tmp)
                     
-                    result["snippet"] = re.sub(qstring, "<span weight='bold'>"+qstring+"</span>", result["snippet"], re.IGNORECASE)
+                    result["snippet"] = re.sub(re.escape(qstring), "<span weight='bold'>"+qstring+"</span>", result["snippet"], re.IGNORECASE)
                 else:
                     result["snippet"] = ""
             else:
