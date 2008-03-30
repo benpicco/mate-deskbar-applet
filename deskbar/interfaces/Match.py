@@ -164,7 +164,7 @@ class Match:
         beacause it's not valid  
         """
         if not action.is_valid():
-            LOGGER.error("Action %r is not valid, not adding it" % action)
+            LOGGER.warning("Action %r is not valid, not adding it" % action)
             return False
         
         if not action.get_hash() in self.__actions_hashes:
