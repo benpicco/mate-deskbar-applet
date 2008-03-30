@@ -3,6 +3,7 @@ import logging
 import gobject
 import gtk
 import deskbar
+import deskbar.interfaces.Match
 from deskbar.core.GconfStore import GconfStore
 from deskbar.core.ModuleInstaller import ModuleInstaller
 from deskbar.core.ModuleLoader import ModuleLoader
@@ -354,6 +355,9 @@ class CoreImpl(deskbar.interfaces.Core):
             
     def forward_query_ready(self, handler, query, matches):
         if query == self._last_query and matches != None and len(matches) > 0 and not self._stop_queries:
+            for match in matches:
+                if not isinstance(match, deskbar.interfaces.Match):
+                    raise TypeError("Handler %r returned an invalid match: %r", handler,  match)
             self._emit_query_ready(matches)
     
     def update_gconf(self):

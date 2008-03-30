@@ -2,6 +2,7 @@ from deskbar.core.Watcher import DirWatcher
 from os.path import abspath, expanduser, join, basename
 import deskbar
 import deskbar.core.Categories
+import deskbar.interfaces.Module
 import gobject
 import gtk
 import logging
@@ -138,6 +139,8 @@ class ModuleLoader (gobject.GObject):
         for mod in modules:
             LOGGER.info("Loading module '%s' from file %s.", mod.INFOS["name"], filename)
             mod_instance = mod ()
+            if not isinstance(mod_instance, deskbar.interfaces.Module):
+                raise TypeError("Module %s in %s is not a sub-class of deskbar.interfaces.Module" % (mod, filename))
             mod_instance.set_filename( filename )
             mod_instance.set_id( os.path.basename(filename) )
                     

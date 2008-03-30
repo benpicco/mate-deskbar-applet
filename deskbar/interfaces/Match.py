@@ -1,6 +1,7 @@
-import deskbar.core.Utils
-import gtk.gdk
 from deskbar.core.Categories import CATEGORIES 
+import deskbar.core.Utils
+import deskbar.interfaces.Action
+import gtk.gdk
 import logging
 
 LOGGER = logging.getLogger(__name__)
@@ -163,6 +164,9 @@ class Match:
         @return: Returns False if the action hasn't been added,
         beacause it's not valid  
         """
+        if not isinstance(action, deskbar.interfaces.Action):
+            raise TypeError("Expected deskbar.interfaces.Action but got %r" % action)
+        
         if not action.is_valid():
             LOGGER.warning("Action %r is not valid, not adding it" % action)
             return False
