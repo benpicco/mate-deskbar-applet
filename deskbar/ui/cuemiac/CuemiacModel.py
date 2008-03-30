@@ -195,6 +195,8 @@ class CuemiacModel (gtk.TreeStore):
     def __append_match_to_iter (self, iter, qstring, match_obj):
         action = match_obj.get_actions()[0]
         label = action.get_verb() % action.get_escaped_name(qstring)
+        if match_obj.get_snippet() != None:
+            label += "\n<span size='small' style='italic'>%s</span>" % match_obj.get_snippet()
         iter = self.append_method (self, iter, [qstring, match_obj, label])
         return iter
     

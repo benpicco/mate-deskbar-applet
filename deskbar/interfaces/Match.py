@@ -27,6 +27,10 @@ class Match:
             - priority: Match's priority. It's recommended that you use your
             module's L{set_priority_for_matches<deskbar.interfaces.Module.Module.set_priority_for_matches>}
             method to assign your matches the priority of your module.
+            - snippet: A snippet where the search term appears.
+            The snippet will be displayed under the return value of L{deskbar.interfaces.Match.get_verb}
+            using the Pango markup size='small' and style='italic'. The snippet can contain Pango markup
+            itsself.
         """
         self._name = ""
         self._icon = None
@@ -35,6 +39,7 @@ class Match:
         self._priority = 0
         self._actions = []
         self._default_action = None
+        self._snippet = None
         self.__actions_hashes = set()
         if "name" in args:
             self._name = args["name"]
@@ -48,7 +53,9 @@ class Match:
             self._category = args["category"]
         if "priority" in args:
             self._priority = args["priority"]
-    
+        if "snippet" in args:
+            self._snippet = args["snippet"]
+                
     def _get_default_icon(self):
         """
         Retrieve pixbuf depending on category
@@ -98,6 +105,20 @@ class Match:
         if not isinstance(iconname, str):
             raise TypeError, "icon must be a string"
         self._icon = iconname
+        
+    def get_snippet(self):
+        """
+        Get the snippet where the search term appears
+        """
+        return self._snippet
+        
+    def set_snippet(self, snippet):
+        """
+        Set the snippet where the search term appears
+        
+        @type snippet: string
+        """
+        self._snippet = snippet
     
     def get_category(self):
         """
