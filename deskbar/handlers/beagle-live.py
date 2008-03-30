@@ -7,6 +7,7 @@ from deskbar.handlers.actions.OpenFileAction import OpenFileAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from gettext import gettext as _
 from os.path import basename
+from gobject import GError
 import cgi, re
 import deskbar, deskbar.interfaces.Module
 import deskbar.interfaces.Match
@@ -117,33 +118,31 @@ class OpenMailMessageAction(OpenWithEvolutionAction):
         return {"name": self._name, "sender": self._sender}
         
 class OpenFeedAction(ShowUrlAction):
-    def __init__(self, name, identifier, publisher, snippet):
+    def __init__(self, name, identifier, publisher, snippet=None):
         ShowUrlAction.__init__(self, name, identifier)
         self._publisher = publisher
-        self._snippet = snippet
         
     def get_icon(self):
         return "stock_news"
     
     def get_verb(self):
-        return (_("News from %s") % "<i>%(publisher)s</i>" ) + "\n<b>%(name)s</b>" + self._snippet
+        return (_("News from %s") % "<i>%(publisher)s</i>" ) + "\n<b>%(name)s</b>"
     
     def get_name(self, text=None):
         return {"name": self._name, "publisher": self._publisher}
 
 class OpenNoteAction(OpenWithApplicationAction):
-    def __init__(self, name, uri, snippet):
+    def __init__(self, name, uri, snippet=None):
         OpenWithApplicationAction.__init__(self, name, "tomboy", ["--open-note", uri])
-        self._snippet = snippet
         
     def get_icon(self):
         return "note.png"
     
     def get_verb(self):
-        return (_("Note: %s") % "<b>%(name)s</b>") + self._snippet
+        return (_("Note: %s") % "<b>%(name)s</b>")
    
 class OpenIMLogAction(OpenWithApplicationAction):
-    def __init__(self, name, uri, client, snippet):
+    def __init__(self, name, uri, client, snippet=None):
         OpenWithApplicationAction.__init__(self, name, "beagle-imlogviewer", [])
         self._snippet = snippet
         self._uri = gnomevfs.get_local_path_from_uri(uri)
@@ -153,7 +152,7 @@ class OpenIMLogAction(OpenWithApplicationAction):
         return "im"
 
     def get_verb(self):
-        return (_("With %s") % "<b>%(name)s</b>") + self._snippet
+        return (_("With %s") % "<b>%(name)s</b>")
     
     def activate(self, text=None):
         self._arguments = ["--client", self._client, "--highlight-search", text, self._uri]
@@ -302,20 +301,16 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
                 self.set_icon( result["uri"] )
             except Exception:
                 pass
+            
+        if "snippet" in result and result["snippet"]:
+            self.set_snippet (result["snippet"])
     
-    def get_hash(self, text=None):
+    def get_hash(self):
         if self.result["type"] == "Contact":
             return self.result["name"]
         if "uri" in self.result:
             return self.result["uri"]
-        
-    def get_name(self, text=None):
-        return self._name + self.result["snippet"]
-        
-class SnippetContainer:
-    def __init__(self, hit):
-        self.hit = hit
-        self.snippet = None
+        return deskbar.interfaces.Match.get_hash(self)
     
 class BeagleLiveHandler(deskbar.interfaces.Module):
     
@@ -327,129 +322,136 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
     
     def __init__(self):
         deskbar.interfaces.Module.__init__(self)
-        # FIXME: each time we enter a search entry
-        # a new key in inserted and it isn't removed
-        # therefore, dict is getting bigger and bigger
-        self.counter = {}
-        self.beagle_search_match_emited = False
-        self.__lock = threading.Lock()
+        self._counter = {}
+        self.__counter_lock = threading.Lock()
+        self.__beagle_lock = threading.Lock()
+        self._beagle_query = None
+        self._query_part_human = None
         
     def initialize (self):
         self.beagle = beagle.Client()
    
     def query (self, qstring):
-        self.counter[qstring] = {}
-        self.beagle_search_match_emited = False
-        self.__lock.acquire()
-        self.hits = {}
-        self.__lock.release()
-        self.beagle_query = beagle.Query()
-        self.beagle_query.add_text(qstring)
-        self.beagle_query.connect("hits-added", self.hits_added, qstring, MAX_RESULTS)
-        self.beagle.send_request_async(self.beagle_query)
+        self._counter[qstring] = {}
+        try:
+            self.__beagle_lock.acquire()
+            
+            self._beagle_query = beagle.Query()
+            self._beagle_query.connect ("hits-added", self._on_hits_added, qstring)
+            self._beagle_query.connect ("finished", self._on_finished, qstring)
+            self._query_part_human = beagle.QueryPartHuman()
+            self._query_part_human.set_string(qstring)
+            self._beagle_query.add_part(self._query_part_human)
        
-    def hits_added(self, query, response, qstring, qmax):
+            try:
+                self.beagle.send_request_async (self._beagle_query)
+            except GError, e:
+                LOGGER.exception(e)
+                return
+        finally:
+            self.__beagle_lock.release()
+               
+    def _on_hits_added (self, query, response, qstring):
         hit_matches = []
         for hit in response.get_hits():
             if hit.get_type() not in TYPES:
                 LOGGER.info("Beagle live seen an unknown type: %s", str(hit.get_type()))
                 continue
             
+            snippet = None
             if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
-                snippet_request = beagle.SnippetRequest()
-                snippet_request.set_query(query)
-                snippet_request.set_hit(hit)
-                container = SnippetContainer(hit)
-                hit.ref()
-                snippet_request.connect('response', self._on_snippet_received, query, container, qstring, qmax)
-                snippet_request.connect('closed', self._on_snippet_closed, query, container, qstring, qmax)
-                self.beagle.send_request_async(snippet_request)
-                try:
-                    self.__lock.acquire()
-                    self.hits[hit] = snippet_request
-                finally:
-                    self.__lock.release()
-                continue
-                            
-            match = self._on_hit_added(query, hit, qstring, qmax)
-            
+                snippet = self._get_snippet(query, hit)
+                
+            match = self._create_match(query, hit, qstring, snippet)
             if match != None:
                 hit_matches.append(match)
+        
+        self._emit_query_ready (qstring, hit_matches)
             
-        self._emit_query_ready(qstring, hit_matches)
-    
-    def _on_snippet_received(self, request, response, query, container, qstring, qmax):
+    def _on_finished (self, query, response, qstring):
+        # FIXME: We have to cleanup the mess when we're really
+        # sure that no more results for the query term are coming
+        
+        # Remove counter for query
+#        self.__beagle_lock.acquire()
+#        self._beagle_query = None
+#        self._query_part_human = None
+#        self.__beagle_lock.release()
+#        
+#        self.__counter_lock.acquire()
+#        if qstring in self._counter:
+#            del self._counter[qstring]
+#        self.__counter_lock.release()
+        pass
+        
+    def _get_snippet (self, query, hit):
+        snippet_request = beagle.SnippetRequest()
+        snippet_request.set_query(query)
+        snippet_request.set_hit(hit)
+        
+        try:
+            self.__beagle_lock.acquire()
+            try:
+                response = self.beagle.send_request (snippet_request)
+            except GError, e:
+                LOGGER.exception(e)
+                return None
+        finally:
+            self.__beagle_lock.release()
+        
         snippet = response.get_snippet()
         # Older versions of beagle return None
         # if an error occured during snippet retrival 
         if snippet != None:
             # Remove trailing whitespaces and escape '%'
-            container.snippet = snippet.strip().replace("%", "%%")
+            snippet = snippet.strip().replace("%", "%%")
          
-        self._on_hit_added(query, container, qstring, qmax)
-    
-    def _on_snippet_closed(self, request, query, container, qstring, qmax):
-        try:
-            self.__lock.acquire()
-            # If a snippet request returned from an old query, dismiss it
-            if container.hit in self.hits:
-                if container.snippet == None:
-                    self._on_hit_added(query, container, qstring, qmax)
-                    self.counter[qstring][container.hit.get_type()] -= 1
-                del self.hits[container.hit]
-            container.hit.unref()
-        finally:
-            self.__lock.release()
+        return snippet
             
-    def _on_hit_added(self, query, hit, qstring, qmax):
-        fire_signal = False
-        snippet = None
-        
-        if hit.__class__ == SnippetContainer:
-            hit, snippet = hit.hit, hit.snippet
-            fire_signal = True
-        
+    def _create_match(self, query, hit, qstring, snippet=None):
         hit_type = hit.get_type()
+        
+        # Directories are Files in beagle context
         if hit_type == "File":
             filetype = hit.get_properties("beagle:FileType")
             if filetype != None and filetype[0] == 'directory':
                 hit_type = "Directory"
-              
-        if not hit_type in self.counter[qstring]:
-            self.counter[qstring][hit_type] = 0
         
-        self.counter[qstring][hit.get_type()] += 1
-            
+        self.__counter_lock.acquire()
+        # Create new counter for query and type 
+        if not hit_type in self._counter[qstring]:
+            self._counter[qstring][hit_type] = 0
+        # Increase counter
+        self._counter[qstring][hit.get_type()] += 1
+
+        if self._counter[qstring][hit_type] > MAX_RESULTS:
+            self.__counter_lock.release()
+            return None
+        self.__counter_lock.release()
+                 
         result = {
             "uri":  hit.get_uri(),
             "type": hit_type,
+            "snippet": snippet,
         }
         
+        # Get category
         if TYPES.has_key(result["type"]):
             cat_type = TYPES[result["type"]]["category"]
         else:
             cat_type = "default"
-
-        if self.counter[qstring][hit_type] >= qmax:
-            if(not self.beagle_search_match_emited):
-            	self.beagle_search_match_emited = True
-            	match = BeagleSearchMatch(qstring, cat_type)
-            	self._emit_query_ready(qstring, [match])
-            	return match
-            return
             
-        hit_type_data = TYPES[hit_type]
+        self._get_properties(hit, result)
+        self._escape_pango_markup(result, qstring)
+        
+        return BeagleLiveMatch(result, category=cat_type, priority=self.get_priority())
+        
+    def _get_properties(self, hit, result):
+        hit_type_data = TYPES[hit.get_type()]
           
         name = None
         for prop in hit_type_data["name"]:
-            try:
-                name = hit.get_properties(prop)[0] # get_property_one() would be cleaner, but this works around bug #330053
-            except:
-                try:
-                    # Beagle < 0.2
-                    name = hit.get_property(prop)
-                except:
-                    pass
+            name = hit.get_properties(prop)[0] # get_property_one() would be cleaner, but this works around bug #330053
                     
             if name != None:
                 result["name"] = name
@@ -467,11 +469,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                     try:
                         val = hit.get_properties(key)[0] # get_property_one() would be cleaner, but this works around bug #330053
                     except:
-                        try:
-                            # Beagle < 0.2
-                            val = hit.get_property(key)
-                        except:
-                            pass
+                        pass
                             
                     if val != None:
                         result[prop] = val
@@ -481,30 +479,28 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                     #translators: This is used for unknown values returned by beagle
                     #translators: for example unknown email sender, or unknown note title
                     result[prop] = _("?")
-        
-        # Escape everything for display through pango markup, except filenames. Filenames are escaped in escaped_uri or 
-        # escaped_identifier
+    
+    def _escape_pango_markup(self, result, qstring):
+        """
+        Escape everything for display through pango markup, except filenames.
+        Filenames are escaped in escaped_uri or escaped_identifier
+        """
         for key, val in result.items():
             if key == "uri" or key == "identifier":
                 result["escaped_"+key] = cgi.escape(val)
+            elif key == "snippet":
+                # Add the snippet, in escaped form if available
+                if result["snippet"] != None and result["snippet"] != "":
+                    tmp = re.sub(r"<.*?>", "", result["snippet"])
+                    tmp = re.sub(r"</.*?>", "", tmp)
+                    result["snippet"] = cgi.escape(tmp)
+                    
+                    result["snippet"] = re.sub(qstring, "<span weight='bold'>"+qstring+"</span>", result["snippet"], re.IGNORECASE)
+                else:
+                    result["snippet"] = ""
             else:
                 result[key] = cgi.escape(val)
         
-        # Add the snippet, in escaped form if available
-        if snippet != None and snippet != "":
-            tmp = re.sub(r"<.*?>", "", snippet)
-            tmp = re.sub(r"</.*?>", "", tmp)
-            result["snippet"] = "\n<span size='small' style='italic'>%s</span>" % cgi.escape(tmp)
-        else:
-            result["snippet"] = ""
-        
-        match = BeagleLiveMatch(result, category=cat_type, priority=self.get_priority())
-        
-        if fire_signal:
-            self._emit_query_ready(qstring, [match])
-        else:    
-            return match
-    
     @staticmethod
     def has_requirements():
         # Check if we have python bindings for beagle
@@ -517,7 +513,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         # Check if beagled is running        
         if not beagle.beagle_util_daemon_is_running ():
             if is_program_in_path("beagled"):
-                BeagleLiveHandler.INSTRUCTIONS = "Beagle daemon is not running."
+                BeagleLiveHandler.INSTRUCTIONS = _("Beagle daemon is not running.")
                 return False
             else:
                 BeagleLiveHandler.INSTRUCTIONS = _("Beagled could not be found in your $PATH.")
