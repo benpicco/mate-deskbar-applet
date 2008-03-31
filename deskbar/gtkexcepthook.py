@@ -16,7 +16,9 @@ LOGGER = logging.getLogger(__name__)
 # List of modules that will be reported
 # by bug buddy if an exception occurs
 BUG_BUDDY_MODULES_WHITELIST = set(
-    ["desklicious.py",
+    ["beagle-live.py",
+     "beagle-static.py",
+     "desklicious.py",
      "epiphany.py",
      "evolution.py",
      "files.py",
@@ -26,6 +28,8 @@ BUG_BUDDY_MODULES_WHITELIST = set(
      "mozilla.py",
      "programs.py",
      "recent.py",
+     "templates.py",
+     "tomboy.py",
      "web_address.py",
      "yahoo.py",]
 )
