@@ -100,7 +100,7 @@ class Action:
     
     def is_valid(self):
         """
-        Tests wether the match is still valid, by default it's True.
+        Tests whether the match is still valid, by default it's True.
         
         For example if a file has moved, the file match is invalid
         """
@@ -108,7 +108,7 @@ class Action:
     
     def skip_history(self):
         """
-        Wether the match should appear or not in the history dropdown
+        Whether the match should appear or not in the history dropdown
         (and thus be saved as history is saved)
         """
         return False

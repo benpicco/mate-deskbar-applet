@@ -146,12 +146,12 @@ class FileFolderHandler(deskbar.interfaces.Module):
                 
 def filesystem_possible_completions(prefix, is_file=False):
     """
-    Given an path prefix, retreive the file/folders in it.
+    Given an path prefix, retrieve the file/folders in it.
     If files is False return only the folder, else return only the files.
     Return a tuple (list, prefix, relative)
       list is a list of files whose name starts with prefix
       prefix is the prefix effectively used, and is always a directory
-      relative is a flag indicating wether the given prefix was given without ~ or /
+      relative is a flag indicating whether the given prefix was given without ~ or /
     """
     relative = False
     # Path with no leading ~ or / are considered relative to ~
