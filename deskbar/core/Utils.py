@@ -3,6 +3,7 @@ from deskbar.core._userdirs import *
 from gettext import gettext as _
 from htmlentitydefs import name2codepoint
 from os.path import *
+import cgi
 import deskbar
 import deskbar.core.Categories
 import deskbar.core.gnomedesktop
@@ -12,7 +13,8 @@ import gobject
 import gtk
 import gtk.gdk
 import logging
-import os, cgi, re
+import os
+import re
 
 LOGGER = logging.getLogger(__name__)
 

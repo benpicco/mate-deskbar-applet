@@ -77,11 +77,11 @@ class DeskbarStatusIcon (gtk.StatusIcon, AbstractCuemiacDeskbarIcon):
     
     def set_button_image_from_file (self, filename, size):
         # We use an intermediate pixbuf to scale the image
-        if gtk.StatusIcon.get_property(self, "orientation") == gtk.ORIENTATION_HORIZONTAL:
+        if self.get_property("orientation") == gtk.ORIENTATION_HORIZONTAL:
             pixbuf = gtk.gdk.pixbuf_new_from_file_at_size (filename, -1, size)
         else:
             pixbuf = gtk.gdk.pixbuf_new_from_file_at_size (filename, size, -1)
-        gtk.StatusIcon.set_from_pixbuf (self, pixbuf)
+        self.set_from_pixbuf (pixbuf)
         
     def _on_size_changed (self, status_icon, size):
         image_name = "deskbar-applet-panel"
@@ -104,7 +104,13 @@ class DeskbarStatusIcon (gtk.StatusIcon, AbstractCuemiacDeskbarIcon):
         
     def _on_popup_menu (self, status_icon, button, activate_time):
         self._menu.show_all()
-        self._menu.popup(None, None, None, button, activate_time)
+        self._menu.popup(None, None, self._get_menu_position, button, activate_time)
+        
+    def _get_menu_position (self, menu):
+        (screen, rectangle, orient) = self.get_geometry ()
+        x = rectangle.x
+        y = rectangle.y + rectangle.height
+        return (x, y, True)
         
     def create_button_ui(self):
         raise NotImplementedError
