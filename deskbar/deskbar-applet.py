@@ -4,7 +4,8 @@ import gtk.gdk
 import sys
 from os.path import abspath, join, dirname, exists
 import logging
-import gettext, locale
+import gettext
+import locale
 from gettext import gettext as _
 import gnomeapplet
 from optparse import OptionParser
@@ -50,7 +51,6 @@ check_deskbar_path()
 import deskbar
 import deskbar.defs
 import deskbar.gtkexcepthook
-from deskbar.ui.DeskbarTray import DeskbarTray
 
 # Setup i18n
 gettext.bindtextdomain('deskbar-applet', abspath(join(deskbar.defs.DATA_DIR, "locale")))
@@ -77,6 +77,7 @@ gtk.gdk.threads_init()
 usage = "deskbar-applet [OPTIONS]"
 parser = OptionParser(usage=usage)
 parser.add_option("-w", "--window", dest="window", action="store_true", help="Launch the applet in a standalone window for test purposes (default=no)")
+parser.add_option("-t", "--tray", dest="tray", action="store_true", help="Run Deskbar as a tray icon instead of an applet")
 parser.add_option("-v", "--version", dest="version", action="store_true", help="Print version")
 parser.add_option("--oaf-activate-iid")
 parser.add_option("--oaf-ior-fd")
@@ -86,14 +87,25 @@ if options.version:
     print deskbar.defs.VERSION
     sys.exit()
 
-if options.window:
+if options.tray:
+    from deskbar.ui.DeskbarStatusIcon import DeskbarStatusIcon
+    
+    deskbar_status_icon = DeskbarStatusIcon ()
+    gtk.gdk.threads_enter()
+    gtk.main()
+    gtk.gdk.threads_leave()
+elif options.window:
     import gnome
+    from deskbar.ui.DeskbarTray import DeskbarTray
+    
     gnome.init(deskbar.defs.PACKAGE, deskbar.defs.VERSION)
     build_window()
     gtk.gdk.threads_enter()
     gtk.main()
     gtk.gdk.threads_leave()
 else:
+    from deskbar.ui.DeskbarTray import DeskbarTray
+
     gnomeapplet.bonobo_factory(
             "OAFIID:Deskbar_Applet_Factory",
             gnomeapplet.Applet.__gtype__,
