@@ -1,8 +1,11 @@
-import deskbar
-import gtk
 from deskbar.ui.AbstractCuemiacDeskbarIcon import AbstractCuemiacDeskbarIcon
 from gettext import gettext as _
 from os.path import join
+import deskbar
+import gtk
+import logging
+
+LOGGER = logging.getLogger(__name__)
 
 class DeskbarPopupMenu (gtk.Menu):
     
@@ -105,7 +108,19 @@ class DeskbarStatusIcon (gtk.StatusIcon, AbstractCuemiacDeskbarIcon):
     def _on_popup_menu (self, status_icon, button, activate_time):
         self._menu.show_all()
         self._menu.popup(None, None, self._get_menu_position, button, activate_time)
+    
+    def _on_ui_name_changed(self, gconfstore, name):
+        if name != deskbar.WINDOW_UI_NAME:
+            LOGGER.info ("Only window UI is supported in tray mode")
+            
+    def _setup_mvc(self):
+        self._setup_core()
+        self._setup_controller(self._core)
+        # Force window UI, because button UI requires applet
+        self._setup_view(self._core, deskbar.WINDOW_UI_NAME)
         
+        self._core.run()
+             
     def _get_menu_position (self, menu):
         (screen, rectangle, orient) = self.get_geometry ()
         x = rectangle.x

@@ -30,17 +30,19 @@ class AbstractCuemiacDeskbarIcon (object):
         self._view = CuemiacWindowView(self._controller, self._core)
         self._active_view = deskbar.WINDOW_UI_NAME
             
-    def _setup_mvc(self):
+    def _setup_core (self):
         self._core = CoreImpl(deskbar.MODULES_DIRS)
         self._core.connect("loaded", self.on_loaded)
         
-        self._controller = CuemiacWindowController(self._core)
-
+    def _setup_controller (self, core):
+        self._controller = CuemiacWindowController(core)
+        
+    def _setup_view (self, core, window_type):
         # Select the view based on user choice. CuemiacWindowView is
         # the new style UI,
         # CuemiacAlignedView is the older UI as seen in the
         # Deskbar gnome-2-18 branch.
-        if self._core.get_ui_name() == deskbar.WINDOW_UI_NAME:
+        if window_type == deskbar.WINDOW_UI_NAME:
             self.create_window_ui()
         else:
             # We need to use an AlignedWindow, which needs a Widget (self.image
@@ -50,9 +52,14 @@ class AbstractCuemiacDeskbarIcon (object):
         self._view.set_sensitive(False)
         
         GconfStore.get_instance().connect("ui-name-changed", self._on_ui_name_changed)
+            
+    def _setup_mvc(self):
+        self._setup_core()
+        self._setup_controller(self._core)
+        self._setup_view(self._core, self._core.get_ui_name())
         
         self._core.run()
-    
+        
     def _show_toggle(self, widget, time):
         self._controller.on_keybinding_activated(widget, time, False)
         
