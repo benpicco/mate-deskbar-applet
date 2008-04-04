@@ -46,7 +46,6 @@ class AppObjectManager:
 class AppObject (gobject.GObject):
     
     __gsignals__ = {
-        "update-finished": (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
         "install-finished": (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [str]),
         "status": (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [int, str, float, int]),
                     }
@@ -60,7 +59,6 @@ class AppObject (gobject.GObject):
         
         self.appobject.connect_to_signal('InstallFinished', self.__on_install_finished)
         self.appobject.connect_to_signal('Status', self.__on_status)
-        self.appobject.connect_to_signal('UpdateFinished', self.__on_update_finished)
         
     def __on_install_finished(self, plugin_id):
         self.emit ("install-finished", plugin_id)

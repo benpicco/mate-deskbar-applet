@@ -199,17 +199,15 @@ class DeskbarPreferences:
         if self.__capuchin == None:
             manager = AppObjectManager ()
             self.__capuchin = manager.get_app_object (DESKBAR_CAPUCHIN_REPO)
-            self.__capuchin.connect ('update-finished', self._on_update_finished)
             self.__capuchin.connect ('install-finished', self._on_install_finished)
             self.__capuchin.connect ('status', self._on_status)
             self.__capuchin.update (False)
+            
+            if self.progessdialog != None:
+                self.progessdialog.destroy()
+                self.progessdialog = None
 
-            # FIXME
-            time.sleep(2)
-
-            return self.__capuchin
-        else:
-            return self.__capuchin
+        return self.__capuchin
        
     def _show_error_dialog(self, error):
           """
@@ -513,12 +511,6 @@ class DeskbarPreferences:
     def on_webmodule_selected(self, selection):
         mod_id = self.webmoduleview.get_selected_module_id()
         self.install.set_sensitive(mod_id != None)
-          
-    def _on_update_finished(self, appobject):
-        self.__capuchin_updated = True
-        if self.progessdialog != None:
-            self.progessdialog.destroy()
-            self.progessdialog = None
     
     def _on_status(self, appobject, action, plugin_id, progress, speed):
         if action == ACTION_UPDATING_REPO:
