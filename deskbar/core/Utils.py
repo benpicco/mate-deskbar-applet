@@ -88,7 +88,7 @@ def load_icon_for_desktop_icon(icon):
 # else try to load a stock or named icon name
 def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
     """
-    If C{icon} starts with C{file://} a icon for the specific file is returnted.
+    If C{icon} starts with C{file://} a icon for the specific file is returned.
     Otherwise, C{icon} should be the filename of an icon and it's returned as pixbuf.
     
     @return: gtk.gdk.Pixbuf
@@ -114,13 +114,23 @@ def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
             try:
                 pixbuf = ICON_THEME.load_icon(icon, width, gtk.ICON_LOOKUP_USE_BUILTIN)
             except Exception, msg2:
-                LOGGER.error('load_icon:Icon Load Error:%s (or %s)' % (msg1, msg2))
-                return ICON_THEME.load_icon("stock_unknown", width, gtk.ICON_LOOKUP_USE_BUILTIN)
+                LOGGER.warning ("Icon %s Load Error: %s (or %s)", icon, msg1, msg2)
+                pixbuf = _get_fall_back_icon()
                 
     # an icon that is too tall will make the EntryCompletion look funny
     if pixbuf != None and pixbuf.get_height() > height:
         pixbuf = pixbuf.scale_simple(width, height, gtk.gdk.INTERP_BILINEAR)
     return pixbuf
+
+def _get_fall_back_icon():
+    """
+    @return: stock_unknown icon or C{None}
+    """
+    try:
+        return ICON_THEME.load_icon("stock_unknown", width, gtk.ICON_LOOKUP_USE_BUILTIN)
+    except Exception, msg:
+        LOGGER.warning ("Icon `stock_unknown' is not present in theme")
+        return None
 
 def is_program_in_path(program):
     """

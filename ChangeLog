@@ -1,5 +1,12 @@
 2008-04-06  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/core/Utils.py:
+    load_icon returns None if fall back icon
+    'stock_unknown' is not present in the theme
+    (fixes bug #506379)
+
+2008-04-06  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/core/ModuleList.py:
     Fixed exception when changing default browser
     while preferences window is open
