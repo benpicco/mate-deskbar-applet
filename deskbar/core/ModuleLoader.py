@@ -166,6 +166,9 @@ class ModuleLoader (gobject.GObject):
         when done, passing the (now enabled) contextas argument.
         If module is already initialized, do nothing.
         """
+        if not isinstance(module, deskbar.interfaces.Module):
+            raise TypeError("Module is not a sub-class of deskbar.interfaces.Module")
+        
         if module.is_enabled():
             return
             
@@ -194,6 +197,8 @@ class ModuleLoader (gobject.GObject):
         instance is also set to None. Emits a 'module-stopped' signal when done passing
         the stopped module as argument.
         """
+        if not isinstance(module, deskbar.interfaces.Module):
+            raise TypeError("Module is not a sub-class of deskbar.interfaces.Module")
         
         LOGGER.info("Stopping %s", module.INFOS["name"])
         module.stop ()
