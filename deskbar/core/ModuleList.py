@@ -139,8 +139,11 @@ class ModuleList (gtk.ListStore):
     def module_toggled_cb (self, sender, module):
         """
         Callback to toggle the enabled state of the module.
-        """
-        self[self.get_position_from_context(module)[0]][self.ENABLED_COL] = module.is_enabled()
+        """ 
+        iter, index = self.get_position_from_context(module)
+        if iter != None:
+            # Only if the module is in the list
+            self[iter][self.ENABLED_COL] = module.is_enabled()
         
     def is_module_enabled(self, iter):
         return self[iter][self.ENABLED_COL]
