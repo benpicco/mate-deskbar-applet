@@ -62,16 +62,22 @@ class DeskbarTray (gtk.EventBox, AbstractCuemiacDeskbarIcon):
         else:
             image_name += "-v"
         
-        if size <= 36:
-            image_name += ".png"
-            s = -1
-        else:
+        if size > 36 and self.__has_svg_support():
             image_name += ".svg"
             s = size-12
+        else:
+            image_name += ".png"
+            s = -1
         
         self.set_button_image_from_file (join(deskbar.ART_DATA_DIR, image_name), s)
         
         self.set_size_request (size, size)
+        
+    def __has_svg_support (self):
+        for format in gtk.gdk.pixbuf_get_formats():
+            if format["name"] == "svg":
+                return True
+        return False
       
     def setup_menu(self):
         self.applet.setup_menu_from_file (
