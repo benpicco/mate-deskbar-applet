@@ -75,7 +75,7 @@ class AbstractCuemiacDeskbarIcon (object):
     def on_loaded(self, sender):
         """
         Called when all modules have been loaded and
-        initialized. You should mark you UI
+        initialized. You should mark the UI
         sensitive here
         """
         self._view.set_sensitive(True)
