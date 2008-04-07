@@ -71,7 +71,13 @@ class AbstractCuemiacDeskbarIcon (object):
             else:
                 self.create_button_ui()
             self._active_view = name
-       
+        
+    def _has_svg_support (self):
+        for format in gtk.gdk.pixbuf_get_formats():
+            if format["name"] == "svg":
+                return True
+        return False
+   
     def on_loaded(self, sender):
         """
         Called when all modules have been loaded and

@@ -21,6 +21,7 @@ class DeskbarTray (gtk.EventBox, AbstractCuemiacDeskbarIcon):
         
         self.applet = applet
         self.applet.set_background_widget(applet)
+        self.applet.set_applet_flags (gnomeapplet.EXPAND_MINOR)
         self.applet.connect ("change-size", self.on_change_size)
         # popup_dir = gnomeapplet.ORIENT_UP,gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}
         self.popup_dir = applet.get_orient()
@@ -62,7 +63,7 @@ class DeskbarTray (gtk.EventBox, AbstractCuemiacDeskbarIcon):
         else:
             image_name += "-v"
         
-        if size > 36 and self.__has_svg_support():
+        if size > 36 and self._has_svg_support():
             image_name += ".svg"
             s = size-12
         else:
@@ -72,13 +73,7 @@ class DeskbarTray (gtk.EventBox, AbstractCuemiacDeskbarIcon):
         self.set_button_image_from_file (join(deskbar.ART_DATA_DIR, image_name), s)
         
         self.set_size_request (size, size)
-        
-    def __has_svg_support (self):
-        for format in gtk.gdk.pixbuf_get_formats():
-            if format["name"] == "svg":
-                return True
-        return False
-      
+    
     def setup_menu(self):
         self.applet.setup_menu_from_file (
             deskbar.SHARED_DATA_DIR, "Deskbar_Applet.xml",
