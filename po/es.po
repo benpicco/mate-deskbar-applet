@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-25 18:58+0000\n"
-"PO-Revision-Date: 2008-03-30 10:50+0200\n"
+"POT-Creation-Date: 2008-04-04 13:56+0100\n"
+"PO-Revision-Date: 2008-04-07 19:36+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -291,7 +291,7 @@ msgstr "Mostrar todos los motores de búsqueda disponibles"
 msgid "Show only the primary search engine"
 msgstr "Mostrar sólo el motor de búsqueda primario"
 
-#: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:181
+#: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:180
 #, python-format
 msgid "Open History Item %s"
 msgstr "Abrir el elemento %s del histórico"
@@ -375,25 +375,25 @@ msgstr "Notas"
 msgid "<i>Choose action</i>"
 msgstr "<i>Elija una acción</i>"
 
-#: ../deskbar/core/Utils.py:142
+#: ../deskbar/core/Utils.py:144
 msgid "Cannot execute program:"
 msgstr "No se puede ejecutar el programa:"
 
-#: ../deskbar/core/Utils.py:182
+#: ../deskbar/core/Utils.py:184
 msgid "Cannot show URL:"
 msgstr "No se puede mostrar la URL:"
 
 #. translators: This is the window title.
-#: ../deskbar/deskbar-applet.py:16
+#: ../deskbar/deskbar-applet.py:17
 msgid "Deskbar Applet"
 msgstr "Miniaplicación Deskbar"
 
-#: ../deskbar/handlers/beagle-live.py:103
+#: ../deskbar/handlers/beagle-live.py:104
 #, python-format
 msgid "Edit contact %s"
 msgstr "Editar contacto %s"
 
-#: ../deskbar/handlers/beagle-live.py:114
+#: ../deskbar/handlers/beagle-live.py:115
 #, python-format
 msgid "From %s"
 msgstr "de %s"
@@ -403,67 +403,71 @@ msgstr "de %s"
 msgid "News from %s"
 msgstr "Noticias de %s"
 
-#: ../deskbar/handlers/beagle-live.py:143
+#: ../deskbar/handlers/beagle-live.py:142
 #, python-format
 msgid "Note: %s"
 msgstr "Nota: %s"
 
-#: ../deskbar/handlers/beagle-live.py:156
+#: ../deskbar/handlers/beagle-live.py:155
 #, python-format
 msgid "With %s"
 msgstr "con %s"
 
-#: ../deskbar/handlers/beagle-live.py:170
+#: ../deskbar/handlers/beagle-live.py:169
 #, python-format
 msgid "Calendar: %s"
 msgstr "Calendario: %s"
 
 #. translators: in this case the file (2nd) is part of an archive (1st)
 #. e.g. README is part of deskbar-applet.tar.gz
-#: ../deskbar/handlers/beagle-live.py:203
+#: ../deskbar/handlers/beagle-live.py:202
 #, python-format
 msgid "Open %s containing %s"
 msgstr "Abrir %s que contiene %s"
 
-#: ../deskbar/handlers/beagle-live.py:205
+#: ../deskbar/handlers/beagle-live.py:204
 #: ../deskbar/handlers/actions/OpenFileAction.py:51
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
 msgstr "Abrir %s"
 
-#: ../deskbar/handlers/beagle-live.py:229
+#: ../deskbar/handlers/beagle-live.py:228
 #, python-format
 msgid "Additional results for category <b>%s</b>"
 msgstr "Resultados adiciones para la categoría <b>%s</b>"
 
-#: ../deskbar/handlers/beagle-live.py:229
+#: ../deskbar/handlers/beagle-live.py:228
 #: ../deskbar/ui/cuemiac/CuemiacItems.py:19
 msgid "name"
 msgstr "nombre"
 
-#: ../deskbar/handlers/beagle-live.py:323
+#: ../deskbar/handlers/beagle-live.py:318
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:324
+#: ../deskbar/handlers/beagle-live.py:319
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Busque todos sus documentos (usando Beagle), mientras teclea"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:461
-#: ../deskbar/handlers/beagle-live.py:483
+#: ../deskbar/handlers/beagle-live.py:463
+#: ../deskbar/handlers/beagle-live.py:481
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:514
+#: ../deskbar/handlers/beagle-live.py:510
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "No se pudo cargar beagled, libbeagle se ha compilado sin los bindings de "
 "python."
 
-#: ../deskbar/handlers/beagle-live.py:523
+#: ../deskbar/handlers/beagle-live.py:516
+msgid "Beagle daemon is not running."
+msgstr "El demonio de Beagle no se está ejecutando."
+
+#: ../deskbar/handlers/beagle-live.py:519
 msgid "Beagled could not be found in your $PATH."
 msgstr "No se pudo encontrar bleagled en su $PATH."
 
@@ -939,7 +943,7 @@ msgstr "Búsqueda en Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "Buscar en Yahoo! mientras teclea"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:62
+#: ../deskbar/handlers/actions/ActionsFactory.py:70
 #, python-format
 msgid "URL of %s"
 msgstr "URL de %s"
@@ -1027,7 +1031,27 @@ msgstr "_Histórico"
 msgid "Back to Matches"
 msgstr "Volver a las coincidencias"
 
-#: ../deskbar/ui/DeskbarTray.py:44
+#: ../deskbar/ui/DeskbarStatusIcon.py:37
+msgid "Clear History"
+msgstr "Limpiar histórico"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:41
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:45
+msgid "Help"
+msgstr "Ayuda"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:49
+msgid "About"
+msgstr "Acerca de"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:55
+msgid "Quit"
+msgstr "Salir"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:66 ../deskbar/ui/DeskbarTray.py:33
 msgid "Show search entry"
 msgstr "Mostrar la entrada de búsqueda"
 
@@ -1058,35 +1082,35 @@ msgstr "<i><small>Arrastre y suelte una extensión para cambiar su orden.</small
 msgid "All Extensions"
 msgstr "Todas las extensiones"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:221
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:218
 msgid "A problem occured"
 msgstr "Ocurrió un problema"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:229
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:226
 msgid "Extension has been installed successfully"
 msgstr "Se ha instalado la extensión con éxito"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:518
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:525
 msgid "Retrieving the extension index"
 msgstr "Obteniendo el índice de la extensión"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:520
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:527
 msgid "Downloading extension"
 msgstr "Descargando extensión"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:522
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:529
 msgid "Extracting archive"
 msgstr "Extrayendo archivo"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:529
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:536
 msgid "Installing extension"
 msgstr "Instalando extensión"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:530
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:537
 msgid "The extension will be downloaded and installed."
 msgstr "Se descargará e instalará la extensión."
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:570
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:579
 msgid "Extension could not be installed due a problem with the provided file"
 msgstr ""
 "La extensión no se pudo instalar debido a un problema con el archivo "
@@ -1096,11 +1120,11 @@ msgstr ""
 msgid "Error"
 msgstr "Error"
 
-#: ../deskbar/ui/preferences/ErrorDialog.py:26
+#: ../deskbar/ui/preferences/ErrorDialog.py:27
 msgid "Check the description beneath for further details."
 msgstr "Compruebe la descripción para más detalles."
 
-#: ../deskbar/ui/preferences/ErrorDialog.py:32
+#: ../deskbar/ui/preferences/ErrorDialog.py:33
 msgid "Details"
 msgstr "Detalles"
 
