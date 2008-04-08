@@ -322,11 +322,14 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
     
     def __init__(self):
         deskbar.interfaces.Module.__init__(self)
-        self._counter = {}
         self.__counter_lock = threading.Lock()
         self.__beagle_lock = threading.Lock()
-        self._beagle_query = None
-        self._query_part_human = None
+        # We have to store instances for each query term
+        self._counter = {}
+        self._beagle_query = {}
+        self._query_part_human = {}
+        self.__hits_added_id = {}
+        self.__hits_finished_id = {}
         
     def initialize (self):
         self.beagle = beagle.Client()
@@ -336,18 +339,22 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         try:
             self.__beagle_lock.acquire()
             
-            self._beagle_query = beagle.Query()
-            self._beagle_query.connect ("hits-added", self._on_hits_added, qstring)
-            self._beagle_query.connect ("finished", self._on_finished, qstring)
-            self._query_part_human = beagle.QueryPartHuman()
-            self._query_part_human.set_string(qstring)
-            self._beagle_query.add_part(self._query_part_human)
+            beagle_query = beagle.Query()
+            self.__hits_added_id[qstring]= beagle_query.connect ("hits-added", self._on_hits_added, qstring)
+            self.__hits_finished_id[qstring] = beagle_query.connect ("finished", self._on_finished, qstring)
+            query_part_human = beagle.QueryPartHuman()
+            query_part_human.set_string(qstring)
+            beagle_query.add_part(query_part_human)
+            
+            self._beagle_query[qstring] = beagle_query
+            self._query_part_human[qstring] = query_part_human
        
-            LOGGER.debug ("Sending beagle query (%r) for '%s'", self._beagle_query, qstring)
+            LOGGER.debug ("Sending beagle query (%r) for '%s'", self._beagle_query[qstring], qstring)
             try:
-                self.beagle.send_request_async (self._beagle_query)
+                self.beagle.send_request_async (self._beagle_query[qstring])
             except GError, e:
                 LOGGER.exception(e)
+                self._cleanup_query(qstring)
         finally:
             self.__beagle_lock.release()
                
@@ -359,8 +366,8 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                 continue
             
             snippet = None
-            #if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
-            #    snippet = self._get_snippet(query, hit)
+            if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
+                snippet = self._get_snippet(query, hit)
                 
             match = self._create_match(query, hit, qstring, snippet)
             if match != None:
@@ -369,21 +376,28 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         self._emit_query_ready (qstring, hit_matches)
             
     def _on_finished (self, query, response, qstring):
-        LOGGER.debug ("Beagle query (%r) for '%s' finished", query, qstring)
-        # FIXME: We have to cleanup the mess when we're really
-        # sure that no more results for the query term are coming
+        LOGGER.debug ("Beagle query (%r) for '%s' finished with response %r", query, qstring, response)
         
+        self._cleanup_query(qstring)
+        
+        self.__counter_lock.acquire()
+        if qstring in self._counter:
+            del self._counter[qstring]
+        self.__counter_lock.release()
+        
+    def _cleanup_query(self, qstring):
         # Remove counter for query
-#        self.__beagle_lock.acquire()
-#        self._beagle_query = None
-#        self._query_part_human = None
-#        self.__beagle_lock.release()
-#        
-#        self.__counter_lock.acquire()
-#        if qstring in self._counter:
-#            del self._counter[qstring]
-#        self.__counter_lock.release()
-        pass
+        self.__beagle_lock.acquire()
+        # Disconnect signals, otherwise we receive late matches
+        # when beagle found the query term in a newly indexed file
+        beagle_query = self._beagle_query[qstring]
+        beagle_query.disconnect (self.__hits_added_id[qstring])
+        beagle_query.disconnect (self.__hits_finished_id[qstring])
+        del self._beagle_query[qstring]
+        del self._query_part_human[qstring]
+        del self.__hits_added_id[qstring]
+        del self.__hits_finished_id[qstring]
+        self.__beagle_lock.release()
         
     def _get_snippet (self, query, hit):
         snippet_request = beagle.SnippetRequest()
