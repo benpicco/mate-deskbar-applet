@@ -34,7 +34,7 @@ class DeskbarPopupMenu (gtk.Menu):
     def __init__(self, controller):
         gtk.Menu.__init__ (self)
         
-        menuItem = DeskbarPopupMenu.Item (_("Clear History"), gtk.STOCK_DELETE)
+        menuItem = DeskbarPopupMenu.Item (_("Clear History"), gtk.STOCK_CLEAR)
         menuItem.connect ("activate", controller.on_clear_history)
         self.append(menuItem)
         
