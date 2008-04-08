@@ -109,14 +109,13 @@ PRIMARY_SEARCH_ENGINE = "Google"
 try:
     if USING_FIREFOX:
         prefs_file = file(get_firefox_home_file("prefs.js"))
-    else:
-        # TODO - similar functionality for old-school mozilla (not firefox)
-        prefs_file = None
-    for line in prefs_file:
-        if line.startswith('user_pref("browser.search.selectedEngine", "'):
-            line = line.strip()
-            PRIMARY_SEARCH_ENGINE = line[len('user_pref("browser.search.selectedEngine", "'):-len('");')]
-            break
+        for line in prefs_file:
+            if line.startswith('user_pref("browser.search.selectedEngine", "'):
+                line = line.strip()
+                PRIMARY_SEARCH_ENGINE = line[len('user_pref("browser.search.selectedEngine", "'):-len('");')]
+                break
+        prefs_file.close()
+    # TODO - similar functionality for old-school mozilla (not firefox)
 except:
     pass
 
