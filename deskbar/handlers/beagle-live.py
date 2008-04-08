@@ -343,6 +343,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             self._query_part_human.set_string(qstring)
             self._beagle_query.add_part(self._query_part_human)
        
+            LOGGER.debug ("Sending beagle query (%r) for '%s'", self._beagle_query, qstring)
             try:
                 self.beagle.send_request_async (self._beagle_query)
             except GError, e:
@@ -369,6 +370,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         self._emit_query_ready (qstring, hit_matches)
             
     def _on_finished (self, query, response, qstring):
+        LOGGER.debug ("Beagle query (%r) for '%s' finished", query, qstring)
         # FIXME: We have to cleanup the mess when we're really
         # sure that no more results for the query term are coming
         

@@ -42,7 +42,7 @@ def check_deskbar_path ():
     	logging.info ("Running uninstalled, adding %s to system path" % abspath(root_dir))
 
 # Setup logging
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s', datefmt='%m-%d %H:%M')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s', datefmt='%m-%d %H:%M:%S')
 
 # Delay loading of deskbar modules until we have the path set up,
 # to allow running in uninstalled mode
