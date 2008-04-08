@@ -23,7 +23,8 @@ class AbstractCuemiacDeskbarIcon (object):
             self._show_toggle(self, time)
       
     def create_button_ui(self):
-        self._view = CuemiacAlignedView(self._controller, self._core, self.image, self.applet)
+        self._view = CuemiacAlignedView(self._controller, self._core,
+                                        self.get_reference_widget(), self.get_applet())
         self._active_view = deskbar.BUTTON_UI_NAME
         
     def create_window_ui(self):
@@ -89,5 +90,17 @@ class AbstractCuemiacDeskbarIcon (object):
     def setup_menu(self):
         """
         Setup popup menu
+        """
+        raise NotImplementedError
+    
+    def get_reference_widget(self):
+        """
+        Required by CuemiacAlignedView
+        """
+        raise NotImplementedError
+    
+    def get_applet(self):
+        """
+        Required by CuemiacAlignedView
         """
         raise NotImplementedError

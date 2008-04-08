@@ -8,5 +8,5 @@ deskbar_ui_PYTHON = \
 	CuemiacWindowController.py \
 	CuemiacWindowView.py \
 	CuemiacAlignedView.py \
-	DeskbarStatusIcon.py \
-	DeskbarTray.py
+    DeskbarApplet.py \
+	DeskbarStatusIcon.py

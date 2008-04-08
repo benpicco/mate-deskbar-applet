@@ -1,3 +1,17 @@
+2008-04-08  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+	* deskbar/deskbar-applet.py
+	* deskbar/ui/DeskbarTray.py
+	* deskbar/ui/AbstractCuemiacDeskbarIcon.py
+	* deskbar/ui/DeskbarApplet.py
+	* deskbar/ui/Makefile.am
+	* po/POTFILES.in:
+	Removed DeskbarTray.py and added DeskbarApplet.py
+	that represents the Deskbar icon when used as applet.
+	The size of the icon is no longer based on applet's
+	size hint, but the allocation width and height.
+	(fixes bug #526536 partly)
+
 2008-04-07  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/ui/AbstractCuemiacDeskbarIcon.py:
