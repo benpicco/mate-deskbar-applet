@@ -348,7 +348,6 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                 self.beagle.send_request_async (self._beagle_query)
             except GError, e:
                 LOGGER.exception(e)
-                return
         finally:
             self.__beagle_lock.release()
                
@@ -360,8 +359,8 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                 continue
             
             snippet = None
-            if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
-                snippet = self._get_snippet(query, hit)
+            #if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
+            #    snippet = self._get_snippet(query, hit)
                 
             match = self._create_match(query, hit, qstring, snippet)
             if match != None:
@@ -397,9 +396,12 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                 response = self.beagle.send_request (snippet_request)
             except GError, e:
                 LOGGER.exception(e)
-                return None
+                response = None
         finally:
             self.__beagle_lock.release()
+        
+        if response == None:
+            return None
         
         snippet = response.get_snippet()
         # Older versions of beagle return None
