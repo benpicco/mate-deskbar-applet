@@ -332,6 +332,9 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         
     def initialize (self):
         self.beagle = beagle.Client()
+        
+    def stop(self):
+        self.beagle = None
    
     def query (self, qstring):
         self._counter[qstring] = {}
