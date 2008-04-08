@@ -70,6 +70,7 @@ def get_firefox_home_file(needed_file):
 def get_firefox_version():
     browser = get_preferred_browser ()
     process = subprocess.Popen(browser + " -version", stdout=subprocess.PIPE, shell=True)
+    process.wait()
     info = process.stdout.readline().split(" ")
     pattern = re.compile("([0-9]+?)\.([0-9]+?)(\.([0-9]+))*")
     version = None
