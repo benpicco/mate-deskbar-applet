@@ -13,10 +13,11 @@ import deskbar.interfaces.Match
 import deskbar.interfaces.Module
 import gnomevfs
 import gtk
-import os, urllib
+import logging
+import os
+import urllib
 
-
-
+LOGGER = logging.getLogger(__name__)
 MONITOR = gnomevfs.VolumeMonitor()
 
 HANDLERS = ["FileFolderHandler"]
@@ -142,7 +143,7 @@ class FileFolderHandler(deskbar.interfaces.Module):
                          tail = head[i+1:]
                     self._locations[tail.lower()] = (tail, line)
             except Exception, msg:
-                print 'Error:_scan_bookmarks_files:', msg
+                LOGGER.exception(msg)
                 
 def filesystem_possible_completions(prefix, is_file=False):
     """
@@ -185,7 +186,7 @@ def filesystem_possible_completions(prefix, is_file=False):
     # First if we have an exact file match, and we requested file matches we return it alone,
     # else, we return the empty file set
     if my_isfile(path):
-        print 'Myisfile:', is_file
+        LOGGER.debug("Myisfile: %s", is_file)
         if is_file:
             return ([path], dirname(prefix), relative)
         else:

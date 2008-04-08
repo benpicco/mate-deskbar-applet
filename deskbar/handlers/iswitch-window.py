@@ -2,8 +2,10 @@ from deskbar.defs import VERSION
 from gettext import gettext as _
 import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar.interfaces.Action, deskbar
 import gtk
+import logging
 import wnck
 
+LOGGER = logging.getLogger(__name__)
 HANDLERS = ["ISwitchWindowHandler"]
 
 class SwitchToWindowAction(deskbar.interfaces.Action):
@@ -22,9 +24,8 @@ class SwitchToWindowAction(deskbar.interfaces.Action):
         try:
             time = gtk.get_current_event().time
         except:
-            print "WARNING, iSwitchWindow : Using bogus timestamp."
+            LOGGER.warning("Using bogus timestamp.")
             time = gtk.get_current_event_time()
-        
         
         if hasattr(self._window.get_workspace(), 'activate') and self._window.get_workspace() != self._window.get_screen().get_active_workspace():
             self._window.get_workspace().activate(time)

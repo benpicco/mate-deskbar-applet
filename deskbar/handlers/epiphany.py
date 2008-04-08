@@ -314,8 +314,8 @@ class EpiphanyHistoryParser(xml.sax.ContentHandler):
             try:
                 parser.parse(EPHY_HISTORY_FILE)
             except Exception, e:
-                print "Couldn't parse epiphany history file:", e
-
+                LOGGER.error("Couldn't parse epiphany history file")
+                LOGGER.exception(e)
     
     def characters(self, chars):
         self.chars = self.chars + chars

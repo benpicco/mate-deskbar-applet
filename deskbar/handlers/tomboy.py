@@ -180,7 +180,7 @@ class TomboyNotesModule (deskbar.interfaces.Module):
                 LOGGER.exception(e)
                 return
     
-    def handle_dbus_error(self, e): print e
+    def handle_dbus_error(self, e): LOGGER.error(e)
     
     def query(self, text):
         if len(text) >= 3:
