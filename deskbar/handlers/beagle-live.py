@@ -327,7 +327,6 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         # We have to store instances for each query term
         self._counter = {}
         self._beagle_query = {}
-        self._query_part_human = {}
         self.__hits_added_id = {}
         self.__hits_finished_id = {}
         
@@ -342,12 +341,9 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             beagle_query = beagle.Query()
             self.__hits_added_id[qstring]= beagle_query.connect ("hits-added", self._on_hits_added, qstring)
             self.__hits_finished_id[qstring] = beagle_query.connect ("finished", self._on_finished, qstring)
-            query_part_human = beagle.QueryPartHuman()
-            query_part_human.set_string(qstring)
-            beagle_query.add_part(query_part_human)
+            beagle_query.add_text (qstring)
             
             self._beagle_query[qstring] = beagle_query
-            self._query_part_human[qstring] = query_part_human
        
             LOGGER.debug ("Sending beagle query (%r) for '%s'", self._beagle_query[qstring], qstring)
             try:
@@ -394,7 +390,6 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         beagle_query.disconnect (self.__hits_added_id[qstring])
         beagle_query.disconnect (self.__hits_finished_id[qstring])
         del self._beagle_query[qstring]
-        del self._query_part_human[qstring]
         del self.__hits_added_id[qstring]
         del self.__hits_finished_id[qstring]
         self.__beagle_lock.release()
