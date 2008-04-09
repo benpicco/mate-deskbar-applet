@@ -87,7 +87,7 @@ class DeskbarStatusIcon (gtk.StatusIcon, AbstractCuemiacDeskbarIcon):
         
     def _on_popup_menu (self, status_icon, button, activate_time):
         self._menu.show_all()
-        self._menu.popup(None, None, self._get_menu_position, button, activate_time)
+        self._menu.popup(None, None, gtk.status_icon_position_menu, button, activate_time, self)
     
     def _on_ui_name_changed(self, gconfstore, name):
         if name != deskbar.WINDOW_UI_NAME:
@@ -100,13 +100,7 @@ class DeskbarStatusIcon (gtk.StatusIcon, AbstractCuemiacDeskbarIcon):
         self._setup_view(self._core, deskbar.WINDOW_UI_NAME)
         
         self._core.run()
-             
-    def _get_menu_position (self, menu):
-        (screen, rectangle, orient) = self.get_geometry ()
-        x = rectangle.x
-        y = rectangle.y + rectangle.height
-        return (x, y, True)
-        
+    
     def create_button_ui(self):
         raise NotImplementedError
     
