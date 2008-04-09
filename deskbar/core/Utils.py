@@ -109,10 +109,10 @@ def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
             elif icon.startswith("/"):
                 pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(icon, width, height)
             else:
-                pixbuf = ICON_THEME.load_icon(splitext(icon)[0], width, gtk.ICON_LOOKUP_USE_BUILTIN)
+                pixbuf = load_icon_from_icon_theme(splitext(icon)[0], width)
         except Exception, msg1:
             try:
-                pixbuf = ICON_THEME.load_icon(icon, width, gtk.ICON_LOOKUP_USE_BUILTIN)
+                pixbuf = load_icon_from_icon_theme(icon, width)
             except Exception, msg2:
                 LOGGER.warning ("Icon %s Load Error: %s (or %s)", icon, msg1, msg2)
                 pixbuf = _get_fall_back_icon()
@@ -122,12 +122,15 @@ def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
         pixbuf = pixbuf.scale_simple(width, height, gtk.gdk.INTERP_BILINEAR)
     return pixbuf
 
+def load_icon_from_icon_theme(iconname, size):
+    return ICON_THEME.load_icon(iconname, size, gtk.ICON_LOOKUP_USE_BUILTIN)
+
 def _get_fall_back_icon():
     """
     @return: stock_unknown icon or C{None}
     """
     try:
-        return ICON_THEME.load_icon("stock_unknown", width, gtk.ICON_LOOKUP_USE_BUILTIN)
+        return load_icon_from_icon_theme("stock_unknown", width)
     except Exception, msg:
         LOGGER.warning ("Icon `stock_unknown' is not present in theme")
         return None

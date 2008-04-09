@@ -1,11 +1,14 @@
 from deskbar.core.CoreImpl import CoreImpl
 from deskbar.core.GconfStore import GconfStore
+from deskbar.core.Utils import load_icon_from_icon_theme
 from deskbar.ui.CuemiacAlignedView import CuemiacAlignedView
 from deskbar.ui.CuemiacWindowController import CuemiacWindowController
 from deskbar.ui.CuemiacWindowView import CuemiacWindowView
 import deskbar
 import gtk
 import gobject
+
+ICON_NAME = "deskbar-applet"
 
 class AbstractCuemiacDeskbarIcon (object):
     
@@ -79,6 +82,19 @@ class AbstractCuemiacDeskbarIcon (object):
                 return True
         return False
    
+    def get_deskbar_icon(self, size):
+        if size < 24:
+            size = 16
+        elif size < 32:
+            size = 22
+        elif size < 48:
+            size = 32
+        elif size >= 48:
+            if not self._has_svg_support():
+                size = 48
+        
+        return load_icon_from_icon_theme (ICON_NAME, size)
+        
     def on_loaded(self, sender):
         """
         Called when all modules have been loaded and

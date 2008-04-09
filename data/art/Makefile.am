@@ -26,8 +26,8 @@ art_DATA = \
 32icondir = $(datadir)/icons/hicolor/32x32/apps
 32icon_DATA = 32x32/deskbar-applet.png
 
-icondir = $(datadir)/icons/hicolor/48x48/apps
-icon_DATA = scalable/deskbar-applet.png
+48icondir = $(datadir)/icons/hicolor/48x48/apps
+48icon_DATA = 48x48/deskbar-applet.png
 
 svgicondir = $(datadir)/icons/hicolor/scalable/apps
 svgicon_DATA = scalable/deskbar-applet.svg
@@ -50,7 +50,7 @@ EXTRA_DIST = \
 	$(16icon_DATA) \
 	$(22icon_DATA) \
 	$(32icon_DATA) \
-	$(icon_DATA) \
+	$(48icon_DATA) \
 	$(svgicon_DATA) \
 	16x16/deskbar-applet.svg \
 	22x22/deskbar-applet.svg \

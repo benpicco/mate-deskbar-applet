@@ -78,29 +78,9 @@ class DeskbarStatusIcon (gtk.StatusIcon, AbstractCuemiacDeskbarIcon):
         AbstractCuemiacDeskbarIcon.on_loaded (self, sender)
         self.set_visible (True)
     
-    def set_button_image_from_file (self, filename, size):
-        # We use an intermediate pixbuf to scale the image
-        if self.get_property("orientation") == gtk.ORIENTATION_HORIZONTAL:
-            pixbuf = gtk.gdk.pixbuf_new_from_file_at_size (filename, -1, size)
-        else:
-            pixbuf = gtk.gdk.pixbuf_new_from_file_at_size (filename, size, -1)
-        self.set_from_pixbuf (pixbuf)
-        
     def _on_size_changed (self, status_icon, size):
-        image_name = "deskbar-applet-panel"
-        if self.get_property("orientation") == gtk.ORIENTATION_HORIZONTAL:
-            image_name += "-h"
-        else:
-            image_name += "-v"
-        
-        if size > 36 and self._has_svg_support():
-            image_name += ".svg"
-            s = size-12
-        else:
-            image_name += ".png"
-            s = -1
-        
-        self.set_button_image_from_file (join(deskbar.ART_DATA_DIR, image_name), s)
+        pixbuf = self.get_deskbar_icon (size)
+        self.set_from_pixbuf (pixbuf)
         
     def _on_activate (self, status_icon):
         AbstractCuemiacDeskbarIcon.set_active (self, not self.active, gtk.get_current_event_time())

@@ -1,5 +1,19 @@
 2008-04-08  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * data/art/48x48
+    * data/art/48x48/deskbar-applet.png
+    * data/art/scalable/deskbar-applet.png
+    * data/art/Makefile.am
+    * deskbar/core/Utils.py
+	* deskbar/ui/AbstractCuemiacDeskbarIcon.py
+    * deskbar/ui/DeskbarApplet.py
+    * deskbar/ui/DeskbarStatusIcon.py:
+    Both horizontal and vertical panel show the same icon now.
+    Use PNG images for the icon when the panel is smaller 48 and
+    SVG image above. (fixes #526536 completely)
+
+2008-04-08  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * data/Deskbar_Applet.xml:
     * deskbar/ui/DeskbarStatusIcon.py:
     Use gtk-clear icon instead of gtk-empty for

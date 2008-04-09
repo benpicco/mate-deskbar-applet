@@ -39,25 +39,6 @@ class DeskbarApplet (gnomeapplet.Applet, AbstractCuemiacDeskbarIcon):
         
         self.applet.show_all()
 
-    def get_image_filename_and_size(self, size):
-        """
-        Choose correct icon and calculate its size
-        """
-        image_name = "deskbar-applet-panel"
-        if self.applet.get_orient() in [gnomeapplet.ORIENT_UP, gnomeapplet.ORIENT_DOWN]:
-            image_name += "-h"
-        else:
-            image_name += "-v"
-        
-        if size > 31 and self._has_svg_support():
-            image_name += ".svg"
-            s = size - 12
-        else:
-            image_name += ".png"
-            s = -1 # Don't resize image
-            
-        return os.path.join(deskbar.ART_DATA_DIR, image_name), s
-        
     def on_allocate(self, applet, alloc):
         if self.applet.get_orient () in [gnomeapplet.ORIENT_UP, gnomeapplet.ORIENT_DOWN]:
             size_alloc = alloc.height
@@ -70,12 +51,7 @@ class DeskbarApplet (gnomeapplet.Applet, AbstractCuemiacDeskbarIcon):
         """
         @param size_alloc: The space that's available in pixels
         """
-        filename, size = self.get_image_filename_and_size(size_alloc)
-        
-        if self.applet.get_orient() in [gnomeapplet.ORIENT_DOWN, gnomeapplet.ORIENT_UP]:
-            pixbuf = gtk.gdk.pixbuf_new_from_file_at_size (filename, -1, size)
-        else:
-            pixbuf = gtk.gdk.pixbuf_new_from_file_at_size (filename, size, -1)
+        pixbuf = self.get_deskbar_icon(size_alloc)
         
         self.applet.handler_block(self.handler_size_allocate_id)
         self.image.set_from_pixbuf (pixbuf)
