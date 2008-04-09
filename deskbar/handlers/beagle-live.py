@@ -213,8 +213,15 @@ class OpenBeagleFileAction(OpenFileAction):
         return self._complete_uri
 
 class BeagleSearchAction(OpenWithApplicationAction):
-    def __init__(self, name, term, verb):
-    	OpenWithApplicationAction.__init__(self, name, "beagle-search", [term])
+    def __init__(self, name, term, verb, hit_type=None):
+        """
+        @param hit_type: Beagle hit type to search for 
+        """
+        beagle_args = [term]
+        if hit_type != None:
+            beagle_args.append("type:"+hit_type)
+        
+    	OpenWithApplicationAction.__init__(self, name, "beagle-search", beagle_args)
     	self._verb = verb
 
     def get_verb(self):
@@ -224,10 +231,10 @@ class BeagleSearchAction(OpenWithApplicationAction):
 
 class BeagleSearchMatch(deskbar.interfaces.Match):
     def __init__(self, term, cat_type, **args):
-    	deskbar.interfaces.Match.__init__(self, name=term, icon= "system-search", category=cat_type, **args)
+    	deskbar.interfaces.Match.__init__(self, name=term, icon="system-search", category=cat_type, **args)
     	verb = _("Additional results for category <b>%s</b>") % _(CATEGORIES[cat_type]['name'])
     	self.term = term
-    	self.add_action( BeagleSearchAction("Beagle Search", term, verb) )
+    	self.add_action( BeagleSearchAction("Beagle Search", term, verb, cat_type) )
     	self.set_priority(self.get_priority()-50)
     
     def get_hash(self, text=None):
@@ -325,7 +332,8 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         self.__counter_lock = threading.Lock()
         self.__beagle_lock = threading.Lock()
         # We have to store instances for each query term
-        self._counter = {}
+        self._counter = {} # Count hits for each hit type
+        self._at_max = {} # Whether we have reached the maximum for a particular hit type before
         self._beagle_query = {}
         self.__hits_added_id = {}
         self.__hits_finished_id = {}
@@ -337,7 +345,11 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         self.beagle = None
    
     def query (self, qstring):
+        self.__counter_lock.acquire()
         self._counter[qstring] = {}
+        self._at_max[qstring] = {}
+        self.__counter_lock.release()
+        
         try:
             self.__beagle_lock.acquire()
             
@@ -382,6 +394,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         self.__counter_lock.acquire()
         if qstring in self._counter:
             del self._counter[qstring]
+            del self._at_max[qstring]
         self.__counter_lock.release()
         
     def _cleanup_query(self, qstring):
@@ -432,19 +445,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             filetype = hit.get_properties("beagle:FileType")
             if filetype != None and filetype[0] == 'directory':
                 hit_type = "Directory"
-        
-        self.__counter_lock.acquire()
-        # Create new counter for query and type 
-        if not hit_type in self._counter[qstring]:
-            self._counter[qstring][hit_type] = 0
-        # Increase counter
-        self._counter[qstring][hit.get_type()] += 1
-
-        if self._counter[qstring][hit_type] > MAX_RESULTS:
-            self.__counter_lock.release()
-            return None
-        self.__counter_lock.release()
-                 
+                         
         result = {
             "uri":  hit.get_uri(),
             "type": hit_type,
@@ -456,7 +457,26 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             cat_type = TYPES[result["type"]]["category"]
         else:
             cat_type = "default"
-            
+        
+        self.__counter_lock.acquire()
+        # Create new counter for query and type 
+        if not hit_type in self._counter[qstring]:
+            self._counter[qstring][hit_type] = 0
+        # Increase counter
+        self._counter[qstring][hit.get_type()] += 1
+
+        if self._counter[qstring][hit_type] > MAX_RESULTS:
+            if hit_type in self._at_max[qstring]:
+                # We already reached the maximum before
+                match = None
+            else:
+                # We reach the maximum for the first time
+                self._at_max[qstring][hit_type] = True
+                match = BeagleSearchMatch(qstring, cat_type) 
+            self.__counter_lock.release()
+            return match
+        self.__counter_lock.release()
+    
         self._get_properties(hit, result)
         self._escape_pango_markup(result, qstring)
         
