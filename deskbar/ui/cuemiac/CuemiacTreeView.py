@@ -5,7 +5,8 @@ import pango
 import logging
 
 from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
-from deskbar.ui.cuemiac.CuemiacCellRendererCategory import CuemiacCellRendererCategory
+from deskbar.ui.cuemiac.CuemiacCellRendererMatch import CuemiacCellRendererMatch
+from deskbar.ui.cuemiac.CuemiacCellRendererAction import CuemiacCellRendererAction
 from deskbar.interfaces import Match
 
 LOGGER = logging.getLogger(__name__)
@@ -34,17 +35,22 @@ class CuemiacTreeView (gtk.TreeView):
         self.connect ("key-press-event", self.__on_key_press)
                 
         icon = gtk.CellRendererPixbuf ()
-        icon.set_property("xpad", 10)
-        hit_title = CuemiacCellRendererCategory ()
-        hit_title.connect("show-actions-activated", self.__on_show_actions_activated)
-        hit_title.connect("do-action-activated", self.__on_do_action_activated)
+        #icon.set_property("xpad", 10)
+        
+        hit_title = CuemiacCellRendererMatch ()
+        hit_title.connect("activated", self.__on_do_action_activated)
         hit_title.set_property ("ellipsize", pango.ELLIPSIZE_END)
-       
+        
+        action = CuemiacCellRendererAction ()
+        action.connect("activated", self.__on_show_actions_activated)
+        
         self._hits_column = gtk.TreeViewColumn ("Hits")
         self._hits_column.pack_start (icon, expand=False)
         self._hits_column.pack_start (hit_title)
+        self._hits_column.pack_end (action, expand=False)
         self._hits_column.set_cell_data_func(hit_title, self.__get_match_title_for_cell)            
         self._hits_column.set_cell_data_func(icon, self.__get_match_icon_for_cell)
+        self._hits_column.set_cell_data_func(action, self.__get_match_action_for_cell)
         self.append_column (self._hits_column)
         
         #self.set_reorderable(True)
@@ -157,7 +163,6 @@ class CuemiacTreeView (gtk.TreeView):
             cell.set_property ("cell-background-gdk", self.style.bg[gtk.STATE_NORMAL])
             cell.set_property ("height", 20)
             cell.set_property ("category-header", match.get_name())
-            cell.set_property ("match-count", match.get_count ())
             return
         
         cell.set_property ("category-header", None)
@@ -166,11 +171,20 @@ class CuemiacTreeView (gtk.TreeView):
         
         if match == None:
             LOGGER.error("See bug 359251 or 471672 and report this output: Match object of unexpected type: %r - %r" % (match.__class__, match))
-            cell.set_property ("has-more-actions", False)
             cell.set_property ("markup", "")
         else:
-            cell.set_property ("has-more-actions", len(match.get_actions()) > 1)
             cell.set_property ("markup", model[iter][model.ACTIONS])
+            
+    def __get_match_action_for_cell (self, column, cell, model, iter, data=None):
+        match = model[iter][model.MATCHES]
+        if isinstance(match, CuemiacCategory):
+            cell.set_property ("is-header", True)
+            cell.set_property ("match-count", match.get_count ())
+            cell.set_property ("cell-background-gdk", self.style.bg[gtk.STATE_NORMAL])
+        else:
+            cell.set_property ("is-header", False)
+            cell.set_property ("has-more-actions", len(match.get_actions()) > 1)
+            cell.set_property ("cell-background-gdk", self.style.base[gtk.STATE_NORMAL])
         
     def __on_show_actions_activated(self, widget, path):
         col = self.get_model().ACTIONS

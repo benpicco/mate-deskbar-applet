@@ -1,5 +1,21 @@
 2008-04-11  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+	* deskbar/ui/cuemiac/CuemiacCellRendererCategory.py
+	* deskbar/ui/cuemiac/CuemiacCellRendererAction.py
+	* deskbar/ui/cuemiac/CuemiacCellRenderer.py
+	* deskbar/ui/cuemiac/CuemiacCellRendererMatch.py
+	* deskbar/ui/cuemiac/CuemiacTreeView.py
+	* deskbar/ui/cuemiac/Makefile.am:
+	Added CuemiacCellRendererAction class that renders either
+	a categories match count or an arrow for a match that has
+	more than one action.
+	Replaced CuemiacCellRendererCategory with CuemiacCellRendererMatch
+	that either renders category's title or the description of a match.
+	Added CuemiacCellRenderer: base class for CuemiacCellRendererAction
+	and CuemiacCellRendererCategory.
+	
+2008-04-11  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
 	* deskbar/ui/cuemiac/CuemiacCellRendererCategory.py:
 	* deskbar/ui/cuemiac/TreeView.py:
 	* deskbar/ui/cuemiac/Makefile.am:
