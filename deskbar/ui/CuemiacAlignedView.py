@@ -22,6 +22,9 @@ class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
     results window is aligned to the gnome panel.
     """
     
+    VBOX_MAIN_SPACING = 12
+    VBOX_MAIN_BORDER_WIDTH = 6
+    
     def __init__(self, controller, model, widget, applet):
         deskbar.interfaces.View.__init__(self, controller, model)
         CuemiacAlignedWindow.__init__(self, widget, applet)
@@ -50,8 +53,8 @@ class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
         self._model.connect("query-ready", lambda s,m: gobject.idle_add(self.append_matches, s, m))
         
         # VBox 
-        self.vbox_main = gtk.VBox(spacing=12)
-        self.vbox_main.set_border_width(6)
+        self.vbox_main = gtk.VBox(spacing=self.VBOX_MAIN_SPACING)
+        self.vbox_main.set_border_width(self.VBOX_MAIN_BORDER_WIDTH)
         self.add(self.vbox_main)
         self.vbox_main.show()
         
@@ -229,7 +232,8 @@ class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
             # Display default icon in entry
             self.update_entry_icon()
         self.treeview_model.append (matches, self.entry.get_text())
-        self.__adjust_popup_size ()
+        # Wait a little bit to resize, otherwise we get a size that's too small
+        gobject.timeout_add(200, self.__adjust_popup_size)
         
     def set_sensitive (self, active):
         """
@@ -282,11 +286,19 @@ class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
         """adjust window size to the size of the children"""
         # FIXME: Should we handle width intelligently also?
         w, h = self.cview.size_request ()
-        h = h + self.header.allocation.height + 2 # To ensure we don't always show scrollbars
+        # To ensure we don't always show scrollbars
+        h += self.header.allocation.height + self.history_box.allocation.height
+        # Spacing between header and history_box and between history_box and results_box
+        h += 2*self.VBOX_MAIN_SPACING
+        # Border at the top and the bottom
+        h += 2*self.VBOX_MAIN_BORDER_WIDTH
+        # Some additional space
+        h += 5 
         h = min (h, self._max_window_height)
         w = min (w, self._max_window_width)
         if w > 0 and h > 0:
             self.resize (w, h)
+        return False
     
     def __set_layout_by_orientation (self, orient):
         """
