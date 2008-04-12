@@ -301,7 +301,10 @@ class DeskbarPreferences:
         and set button (in)sensitive
         """
         module = self.moduleview.get_selected_module()
-          
+         
+        if module != None:
+            self.check_requirements(module)
+           
         # Check if module is not None, because the signal
         # is emitted when the user moves a module, too  
         # Check if we can update
