@@ -25,25 +25,23 @@ HANDLERS = ["DeliciousHandler"]
 
 class DeliciousAction(ShowUrlAction):
     
-    def __init__(self, name, url, tags):
+    def __init__(self, name, url, tags=None):
+        """
+        @param tags: Is ignored since 2.23.1,
+        just there for backwards compatibility 
+        """
         ShowUrlAction.__init__(self, name, url)
-        self.tags = tags
         
     def get_verb(self):
-        return "<b>%(name)s</b>\n<span size='small' foreground='grey'>%(tags)s</span>"
-    
-    def get_name(self, text=None):
-        return {
-            "name": self._name,
-            "tags": ' '.join(self.tags),
-        }
+        return "<b>%(name)s</b>"
         
 class DeliciousMatch(deskbar.interfaces.Match):
     def __init__(self, url=None, tags=None, author=None, **args):
         deskbar.interfaces.Match.__init__ (self, icon="delicious.png", **args)
         self.url = url
         self.author = author
-        self.add_action( DeliciousAction(self.get_name(), self.url, tags) )
+        self.set_snippet(' '.join(tags))
+        self.add_action( DeliciousAction(self.get_name(), self.url) )
 
     def get_hash(self):
         return self.url
