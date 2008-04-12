@@ -3,7 +3,11 @@ from deskbar.defs import VERSION
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from gettext import gettext as _
-import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar
+from xml.dom import DOMException
+from xml.parsers.expat import ExpatError
+import deskbar
+import deskbar.interfaces.Match
+import deskbar.interfaces.Module
 import logging
 import urllib
 import xml.dom.minidom
@@ -47,39 +51,40 @@ class YahooHandler(deskbar.interfaces.Module):
         self.server = None
 
     def query(self, qstring):
-        # Delay before we query so we *don't* make four queries
-        # "s", "sp", "spa", "spam".
-        
-        # TODO: Missing
-        #self.check_query_changed (timeout=QUERY_DELAY)
-        
         LOGGER.info('Query yahoo for: %s', qstring)
+        
         url = YAHOO_URL % urllib.urlencode(
                 {'appid': YAHOO_API_KEY,
                 'query': qstring,
                 'results': 15})
+        
+        matches = []
         try:
-            stream = urllib.urlopen(url, proxies=get_proxy())
-        except IOError, msg:
-            LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
-            return
+            try:
+                stream = urllib.urlopen(url, proxies=get_proxy())
+                dom = xml.dom.minidom.parse(stream)
+            except IOError, msg:
+                LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
+            except ExpatError, e:
+                LOGGER.exception(e)
+        finally:
+            stream.close()
         
-        dom = xml.dom.minidom.parse(stream)
         LOGGER.info('Got yahoo answer for: %s', qstring)
-        
-        # TODO: Missing
-        #self.check_query_changed ()    
-        
-        # The Yahoo! search might have taken a long time
-        # better check if we're still valid
-        matches = [
-            YahooMatch (
-                    name=strip_html(r.getElementsByTagName("Title")[0].firstChild.data.encode('utf8')),
-                    url=r.getElementsByTagName("ClickUrl")[0].firstChild.data.encode('utf8'),
-                    priority=self.get_priority()
-            )
-            for r in dom.getElementsByTagName("Result")]
-        # TODO: Missing
-        #self.check_query_changed ()
+            
+        try:
+            try:
+                for r in dom.getElementsByTagName("Result"):
+                    result_title = strip_html(r.getElementsByTagName("Title")[0].firstChild.data.encode('utf8'))
+                    result_url = r.getElementsByTagName("ClickUrl")[0].firstChild.data.encode('utf8')
+                    matches.append(
+                                   YahooMatch (name=result_title, url=result_url, priority=self.get_priority())
+                    )
+            except DOMExecption, e:
+                LOGGER.exception(e)
+        finally:
+            # Cleanup
+            dom.unlink()
+            
         LOGGER.info("Returning yahoo answer for: %s", qstring)
-        self._emit_query_ready(qstring, matches )
+        self._emit_query_ready(qstring, matches)
