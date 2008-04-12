@@ -1,6 +1,9 @@
 from deskbar.defs import VERSION
 from gettext import gettext as _
-import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar.interfaces.Action, deskbar
+import deskbar.interfaces.Module
+import deskbar.interfaces.Match
+import deskbar.interfaces.Action
+import deskbar
 import gtk
 import logging
 import wnck

@@ -4,7 +4,8 @@ from gettext import gettext as _
 from glob import glob
 from os.path import join
 import deskbar.interfaces.Action
-import deskbar.interfaces.Module, deskbar.interfaces.Match
+import deskbar.interfaces.Module
+import deskbar.interfaces.Match
 
 HANDLERS = ["BeagleHandler"]
 

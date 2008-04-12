@@ -4,9 +4,12 @@ from deskbar.handlers.actions.OpenDesktopFileAction import OpenDesktopFileAction
 from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
 from gettext import gettext as _
 from os.path import join, expanduser, isdir
-import deskbar, deskbar.core.Indexer, deskbar.core.Utils
+import deskbar, deskbar.core.Indexer
+import deskbar.core.Utils
+import deskbar.core.gnomedesktop
 import deskbar.interfaces.Action
-import deskbar.interfaces.Module, deskbar.interfaces.Match, deskbar.core.gnomedesktop
+import deskbar.interfaces.Match
+import deskbar.interfaces.Module
 import glob
 import gobject
 import gtk

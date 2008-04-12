@@ -4,9 +4,11 @@ from deskbar.core.Watcher import FileWatcher
 from deskbar.defs import VERSION
 from gettext import gettext as _
 from os.path import join, expanduser, exists
-import deskbar, deskbar.core.Indexer, deskbar.interfaces.Module
-import xml.sax
+import deskbar
+import deskbar.core.Indexer
+import deskbar.interfaces.Module
 import logging
+import xml.sax
 
 LOGGER = logging.getLogger(__name__)
 
