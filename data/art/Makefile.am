@@ -9,6 +9,7 @@ art_DATA = \
 	deskbar-applet-panel-h.png \
 	delicious.png \
 	generic.png \
+	google.png \
 	yahoo.png \
 	epiphany-history.png \
 	gpm-suspend-to-disk.png \
