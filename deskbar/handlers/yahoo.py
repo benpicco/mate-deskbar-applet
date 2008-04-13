@@ -115,7 +115,9 @@ class YahooHandler(deskbar.interfaces.Module):
             
         for result in handler.get_results():
             result_title = strip_html(result["title"])
-            result_summary = strip_html(result["summary"])
+            result_summary = result["summary"]
+            if result_summary != None:
+                result_summary = strip_html(result_summary)
             matches.append(YahooMatch(name=result_title, url=result["clickurl"],
                                       summary=result_summary,
                                       priority=self.get_priority()))
