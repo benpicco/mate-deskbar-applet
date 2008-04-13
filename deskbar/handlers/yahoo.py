@@ -112,15 +112,17 @@ class YahooHandler(deskbar.interfaces.Module):
             stream.close()
         
         LOGGER.debug('Got yahoo answer for: %s', qstring)
-            
-        for result in handler.get_results():
+         
+        num_results = len(handler.get_results())
+        for i, result in enumerate(handler.get_results()):
+            result_prio = self.get_priority() + num_results - i
             result_title = strip_html(result["title"])
             result_summary = result["summary"]
             if result_summary != None:
                 result_summary = strip_html(result_summary)
             matches.append(YahooMatch(name=result_title, url=result["clickurl"],
                                       summary=result_summary,
-                                      priority=self.get_priority()))
+                                      priority=result_prio))
             
         LOGGER.debug("Returning yahoo answer for: %s", qstring)
         self._emit_query_ready(qstring, matches)
@@ -273,8 +275,10 @@ class YahooSuggestHandler(deskbar.interfaces.Module):
         finally:
             stream.close()
             
-        for suggestion in handler.get_suggestions():
-            matches.append( YahooSearchForMatch(term=suggestion, priority=self.get_priority()) )
+        num_results = len(handler.get_suggestions())
+        for i, suggestion in enumerate(handler.get_suggestions()):
+            prio = self.get_priority() + num_results - i
+            matches.append( YahooSearchForMatch(term=suggestion, priority=prio) )
             
         self._emit_query_ready(qstring, matches)
         
