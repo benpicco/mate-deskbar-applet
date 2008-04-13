@@ -1,5 +1,13 @@
 2008-04-13  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+	* deskbar/ui/cuemiac/CuemiacCellRendererAction.py:
+	Use theme's dark color instead of bg when in prelight
+	state. The arrow has always the height of the font size.
+	That way we don't end up with huge arrows when matches
+	take more than one line.
+
+2008-04-13  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
 	* deskbar/handlers/yahoo.py:
 	Replaced expat parser with custom SAX2 parser.
 	Added support to change the language the search results

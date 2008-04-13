@@ -115,17 +115,7 @@ class CuemiacCellRendererAction (CuemiacCellRenderer):
         cr.close_path()
         
         cr.fill()
-   
-    def _shift_color (self, color, amount):
-        """
-        @type color: gtk.gdk.Color
-        """
-        r = color.red + amount
-        g = color.green + amount
-        b = color.blue + amount
-        
-        return gtk.gdk.Color (r, g, b, color.pixel)
-   
+    
     def render_match (self, window, widget, background_area, cell_area, expose_area, flags):
         """
         Renders an arrow
@@ -133,12 +123,13 @@ class CuemiacCellRendererAction (CuemiacCellRenderer):
         state = self.renderer_state_to_widget_state(flags)
         
         if state & gtk.STATE_PRELIGHT:
-            color = color = widget.style.bg[state]
+            color = color = widget.style.dark[state]
         else:
             color = color = widget.style.fg[state]
         
         arrow_width = cell_area.width / 2
-        arrow_height = cell_area.height / 2
+        # Set the arrow height to the current font size in pixels
+        arrow_height = widget.get_pango_context().get_font_description().get_size() / pango.SCALE
         
         self._draw_arrow_right(window, color, state, cell_area,
                                cell_area.x + cell_area.width / 2,
