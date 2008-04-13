@@ -1,3 +1,16 @@
+2008-04-13  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+	* deskbar/handlers/yahoo.py:
+	Replaced expat parser with custom SAX2 parser.
+	Added support to change the language the search results
+	should be in (configurable in preferences).
+	Added possibility to search for specific formats only.
+	If the query contains format:<format> only those files
+	are searched (where <format> is one	of html, msword,
+	pdf, ppt, rss, txt, xls).
+	Added new YahooSuggestHandler module. It suggests
+	alternative queries based on the given query.
+
 2008-04-12  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/ui/preferences/DeskbarPreferences.py:
