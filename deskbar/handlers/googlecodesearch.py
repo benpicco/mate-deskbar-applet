@@ -51,6 +51,7 @@ class GoogleCodeSearchModule(deskbar.interfaces.Module):
                  'max-results': MAX_RESULTS})
         
         matches = []
+        stream = None
         try:
             try:
                 stream = urllib.urlopen(url, proxies=get_proxy())
@@ -61,7 +62,8 @@ class GoogleCodeSearchModule(deskbar.interfaces.Module):
             except xml.sax.SAXParseException, e:
                 LOGGER.exception(e)
         finally:
-            stream.close()
+            if stream != None:
+                stream.close()
             
         results = handler.get_results()
         for result in results:

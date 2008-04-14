@@ -99,6 +99,7 @@ class YahooHandler(deskbar.interfaces.Module):
         LOGGER.debug("Retrieving %s", url)
         
         matches = []
+        stream = 0
         try:
             try:
                 stream = urllib.urlopen(url, proxies=get_proxy())
@@ -109,7 +110,8 @@ class YahooHandler(deskbar.interfaces.Module):
             except xml.sax.SAXParseException, e:
                 LOGGER.exception(e)
         finally:
-            stream.close()
+            if stream != None:
+                stream.close()
         
         LOGGER.debug('Got yahoo answer for: %s', qstring)
          
@@ -263,6 +265,7 @@ class YahooSuggestHandler(deskbar.interfaces.Module):
         LOGGER.debug("Retrieving %s", url)
     
         matches = []
+        stream = None
         try:
             try:
                 stream = urllib.urlopen(url, proxies=get_proxy())
@@ -273,7 +276,8 @@ class YahooSuggestHandler(deskbar.interfaces.Module):
             except xml.sax.SAXParseException, e:
                 LOGGER.exception(e)
         finally:
-            stream.close()
+            if stream != None:
+                stream.close()
             
         num_results = len(handler.get_suggestions())
         for i, suggestion in enumerate(handler.get_suggestions()):
