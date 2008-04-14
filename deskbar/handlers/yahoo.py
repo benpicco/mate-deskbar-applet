@@ -100,21 +100,23 @@ class YahooHandler(deskbar.interfaces.Module):
         LOGGER.debug("Retrieving %s", url)
         
         matches = []
+        
+        try:
+            stream = urllib.urlopen(url, proxies=get_proxy())
+        except IOError, msg:
+            LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
+            return
+    
         try:
             try:
-                stream = urllib.urlopen(url, proxies=get_proxy())
                 handler = WebSearchResultsParser()
                 xml.sax.parse(stream, handler)
-            except IOError, msg:
-                LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
-                stream = None
             except xml.sax.SAXParseException, e:
                 LOGGER.exception(e)
                 handler = None
         finally:
-            if stream != None:
-                stream.close()
-        
+            stream.close()
+    
         if handler == None:
             return
         
@@ -263,20 +265,22 @@ class YahooSuggestHandler(deskbar.interfaces.Module):
         LOGGER.debug("Retrieving %s", url)
     
         matches = []
+        
+        try:
+            stream = urllib.urlopen(url, proxies=get_proxy())
+        except IOError, msg:
+            LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
+            return
+        
         try:
             try:
-                stream = urllib.urlopen(url, proxies=get_proxy())
                 handler = RelatedSuggestionResultsParser()
                 xml.sax.parse(stream, handler)
-            except IOError, msg:
-                LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
-                stream = None
             except xml.sax.SAXParseException, e:
                 LOGGER.exception(e)
                 handler = None
         finally:
-            if stream != None:
-                stream.close()
+            stream.close()
             
         if handler == None:
             return

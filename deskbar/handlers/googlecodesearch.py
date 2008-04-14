@@ -52,20 +52,22 @@ class GoogleCodeSearchModule(deskbar.interfaces.Module):
                  'max-results': MAX_RESULTS})
         
         matches = []
+        
+        try:
+            stream = urllib.urlopen(url, proxies=get_proxy())
+        except IOError, msg:
+            LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
+            return
+        
         try:
             try:
-                stream = urllib.urlopen(url, proxies=get_proxy())
                 handler = GoogleCodeSearchFeedParser()
                 xml.sax.parse(stream, handler)
-            except IOError, msg:
-                LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
-                stream = None
             except xml.sax.SAXParseException, e:
                 LOGGER.exception(e)
                 handler = None
         finally:
-            if stream != None:
-                stream.close()
+            stream.close()
                 
         if handler == None:
             return
