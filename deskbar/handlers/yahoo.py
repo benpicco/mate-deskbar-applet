@@ -151,6 +151,12 @@ class WebSearchResultsParser (xml.sax.handler.ContentHandler):
      
     def __init__(self):
         xml.sax.handler.ContentHandler.__init__(self)
+        # Elements we want to store the contents of
+        self._elements = set([self.TITLE_ELMENT,
+                              self.SUMMARY_ELEMENT,
+                              self.URL_ELEMENT,
+                              self.CLICK_URL_ELEMENT,
+                              self.MIME_TYPE_ELEMENT])
         
     def get_results(self):
         """
@@ -163,11 +169,7 @@ class WebSearchResultsParser (xml.sax.handler.ContentHandler):
         self._reset_result()
         
     def _reset_result(self):
-        self.__result_started = False
-        self.__title_started = False
-        self.__summary_started = False
-        self.__click_url_started = False
-        self.__mime_type_started = False
+        self.__not_interested = False
         self.__result = {}
         self._reset_contents()
         
@@ -175,45 +177,36 @@ class WebSearchResultsParser (xml.sax.handler.ContentHandler):
         self.__contents = ""
         
     def _add_to_result(self, key):
-        if len(self.__contents) == 0:
-            self.__contents = None
-        self.__result[key] = self.__contents
+        value = self.__contents.strip()
+        if len(value) == 0:
+            self.value = None
+        self.__result[key] = value
         self._reset_contents()
         
     def startElement(self, name, attrs):
-        if name == self.RESULT_ELEMENT:
-            self.__result_started = True
-        elif name == self.TITLE_ELMENT:
-            self.__title_started = True
-        elif name == self.SUMMARY_ELEMENT:
-            self.__summary_started = True
-        elif name == self.CLICK_URL_ELEMENT:
-            self.__click_url_started = True
-        elif name == self.MIME_TYPE_ELEMENT:
-            self.__mime_type_started = True
+        if name in self._elements:
+            self.__not_interested = False
+        else:
+            self.__not_interested = True
             
     def endElement(self, name):
         if name == self.RESULT_ELEMENT:
             self._results.append(self.__result)
             self._reset_result()
         elif name == self.TITLE_ELMENT:
-            self.__title_started = False
             self._add_to_result("title")
         elif name == self.SUMMARY_ELEMENT:
-            self.__summary_started = False
             self._add_to_result("summary")
         elif name == self.CLICK_URL_ELEMENT:
-            self.__click_url_started = False
             self._add_to_result("clickurl")
         elif name == self.MIME_TYPE_ELEMENT:
-            self.__mime_type_started = False
             self._add_to_result("mimetype")
+        
+        self.__mime_type_started = False
             
     def characters(self, content):
         # Only save content for the elements we're interested in
-        if self.__result_started \
-            and (self.__title_started or  self.__summary_started \
-                 or self.__click_url_started or self.__mime_type_started):
+        if not self.__not_interested:
             self.__contents += content
 
 class SearchWithYahooAction(ShowUrlAction):
