@@ -4,6 +4,7 @@ from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from gettext import gettext as _
 from os.path import basename
+from xml.sax.saxutils import unescape
 import deskbar
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
@@ -145,7 +146,7 @@ class GoogleCodeSearchFeedParser(xml.sax.handler.ContentHandler):
         value = self.__contents.strip()
         if len(value) == 0:
             value = None
-        self.__entry[key] = value
+        self.__entry[key] = unescape(value)
         self._reset_contents()
     
     def get_results(self):

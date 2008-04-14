@@ -4,15 +4,16 @@ from deskbar.defs import VERSION
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from gettext import gettext as _
+from xml.sax.saxutils import unescape
 import deskbar
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
+import gtk
 import logging
+import re
 import urllib
 import xml.sax
 import xml.sax.handler
-import gtk
-import re
 
 LOGGER = logging.getLogger(__name__)
 
@@ -180,7 +181,7 @@ class WebSearchResultsParser (xml.sax.handler.ContentHandler):
         value = self.__contents.strip()
         if len(value) == 0:
             self.value = None
-        self.__result[key] = value
+        self.__result[key] = unescape(value)
         self._reset_contents()
         
     def startElement(self, name, attrs):
