@@ -85,8 +85,8 @@ class GoogleCodeSearchModule(deskbar.interfaces.Module):
     
 class GoogleCodeSearchMatch(deskbar.interfaces.Match):
     
-    def __init__(self, id, title, content, pkg_name, pkg_uri, *args):
-        deskbar.interfaces.Match.__init__(self, category="web", icon="google.png", *args)
+    def __init__(self, id, title, content, pkg_name, pkg_uri, **args):
+        deskbar.interfaces.Match.__init__(self, name=title, category="web", icon="google.png", **args)
         self._id = id
         
         self.set_snippet(content)
