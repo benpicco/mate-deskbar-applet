@@ -35,6 +35,7 @@ class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
         self.set_type_hint (gtk.gdk.WINDOW_TYPE_HINT_MENU)
         self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
         self.applet.set_flags(gtk.CAN_FOCUS)
+        self.applet.connect("change-orient", self._on_change_orient)
         
         self._screen_height = self.get_screen().get_height ()
         self._screen_width = self.get_screen().get_width ()
@@ -310,17 +311,31 @@ class CuemiacAlignedView(deskbar.interfaces.View, CuemiacAlignedWindow):
                     C{gnomeapplet.ORIENT_LEFT}, C{gnomeapplet.ORIENT_RIGHT}.
         """
         if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
-            self.treeview_model.set_sort_order (gtk.SORT_ASCENDING)
-            self.actions_model.set_sort_order (gtk.SORT_ASCENDING)
-            self._model.get_history().set_sort_order (gtk.SORT_DESCENDING)
             self.vbox_main.pack_start(self.header, False)
             self.vbox_main.pack_start(self.history_box, False)
             self.vbox_main.pack_start(self.results_box)
         else:
             # We are at a bottom panel. Put entry on bottom, and prepend matches (instead of append).
-            self.treeview_model.set_sort_order (gtk.SORT_DESCENDING)
-            self.actions_model.set_sort_order (gtk.SORT_DESCENDING)
-            self._model.get_history().set_sort_order (gtk.SORT_ASCENDING)
             self.vbox_main.pack_start(self.results_box)
             self.vbox_main.pack_start(self.history_box, False)
             self.vbox_main.pack_start(self.header, False)
+        
+    def __set_sort_order_by_orientation(self, orient):
+        if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
+            self.treeview_model.set_sort_order (gtk.SORT_ASCENDING)
+            self.actions_model.set_sort_order (gtk.SORT_ASCENDING)
+            self._model.get_history().set_sort_order (gtk.SORT_DESCENDING)
+        else:
+            self.treeview_model.set_sort_order (gtk.SORT_DESCENDING)
+            self.actions_model.set_sort_order (gtk.SORT_DESCENDING)
+            self._model.get_history().set_sort_order (gtk.SORT_ASCENDING)
+
+    def _on_change_orient(self, applet, orient):
+        self.__set_sort_order_by_orientation(orient)
+        if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
+            self.vbox_main.reorder_child(self.header, 0)
+            self.vbox_main.reorder_child(self.results_box, 2)
+        else:
+            self.vbox_main.reorder_child(self.results_box, 0)
+            self.vbox_main.reorder_child(self.header, 2)
+    
