@@ -99,6 +99,7 @@ class ModuleLoader (gobject.GObject):
         except Exception, e:
             LOGGER.error("Error loading the file: %s.", filename)
             LOGGER.exception(e)
+            return
         
         try:
             if (mod.HANDLERS): pass
