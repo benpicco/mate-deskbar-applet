@@ -1,6 +1,7 @@
 import gtk
 import gobject
 import logging
+import deskbar.interfaces.Module
 
 LOGGER = logging.getLogger(__name__)
 
@@ -31,6 +32,10 @@ class ModuleList (gtk.ListStore):
     def __iter__ (self):
         return ModuleListIter (self)
     
+    def _is_module(self, module):
+        if not isinstance(module, deskbar.interfaces.Module):
+            raise TypeError("Expected deskbar.interfaces.Module but got %r" % module)
+        
     def increase_bottom_enabled_path(self):
         self._bottom_enabled_path = (self._bottom_enabled_path[0]+1,)
         
@@ -63,9 +68,11 @@ class ModuleList (gtk.ListStore):
                 # Search for module's name
                 if self[iter][self.MODULE_CTX_COL].__class__.__name__ == module:
                     return (iter, i)
-            else:
+            elif isinstance(module, deskbar.interfaces.Module):
                 if self[iter][self.MODULE_CTX_COL] == module:
                     return (iter, i)
+            else:
+                raise TypeError("Expected string or deskbar.interfaces.Module but got %r" % module)
                 
             iter = self.iter_next (iter)
             i = i+1
@@ -99,9 +106,12 @@ class ModuleList (gtk.ListStore):
         If iter is not set it will try to obtain an iter pointing
         to the row containg the module. If there's no such row, it will append it.
         """
+        self._is_module(module)
+        
         for mod in self:
-            if mod == module:
+            if mod.__class__.__name__ == module.__class__.__name__:
                 # We don't want a duplicate module
+                LOGGER.warning("You tried to add a module twice. Not adding %r from %s", mod, mod.get_filename())
                 return
                 
         if iter is None:
@@ -118,12 +128,16 @@ class ModuleList (gtk.ListStore):
         self._mod_to_name[module.__class__.__name__] = module
     
     def remove_module(self, module):
+        self._is_module(module)
+        
         iter, index = self.get_position_from_context(module)
         if iter != None:
             LOGGER.debug('Removing from modulelist: %s', module.INFOS['name'])
             self.remove(iter)
         
     def module_changed(self, module):
+        self._is_module(module)
+        
         iter, index = self.get_position_from_context(module)
         if iter != None:
             self.emit('row-changed', self.get_path(iter), iter)
