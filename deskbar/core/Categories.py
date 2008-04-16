@@ -57,5 +57,16 @@ CATEGORIES = {
         "name": _("Notes"),
         "icon": load_icon("note.png"),
     },
-    
+    "audio"    : {    
+        "name": _("Audio"),
+        "icon": load_icon("audio-x-generic"),
+    },
+    "video"    : {    
+        "name": _("Video"),
+        "icon": load_icon("video-x-generic"),
+    },
+    "images"    : {    
+        "name": _("Images"),
+        "icon": load_icon("image-x-generic"),
+    },
 }

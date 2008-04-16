@@ -27,64 +27,190 @@ except:
     # so do nothing now
     pass
 
-# The TYPES dict contains Beagle HitTypes as keys with
-# templates for the valid fields.
-#
-# A Hit Type consists of:
-#    "name"        : Template used to find a user-displayable name
-#
-# Optionally:
-#    "extra"    : A dict containing key:template pairs to search for. You can use %(key)s in "description".
-#
-# Note:
-#  The templates are a tuple of strings which should be tested in order to retreive the beagle property
-
-TYPES = {
-    "Contact"    : {
-        "name"    : ("fixme:FileAs",),
-        "category": "people",
-        },
+class BeagleType:
+    """
+    You should at least set name_properties
+    and category
+    """
     
-    "MailMessage"     : {
-        "name"    :("dc:title", "parent:dc:title"),
-        "extra": {"sender":("fixme:from_name", "parent:fixme:from_name")},
-        "category": "emails",
-        },
-    "File"         : {
-        "name"    : ("beagle:ExactFilename",),
-        "extra" : {"inside_archive": ("fixme:inside_archive",), "parent_file": ("parent:beagle:ExactFilename",) },
-        "category": "files",
-        "snippet": True,
-        },
-    "Directory"    : {
-        "name"    : ("beagle:ExactFilename",),
-        "category": "places",
-        },
-    "FeedItem"    : {
-        "name"    : ("dc:title",),
-        "category": "news",
-        "snippet": True,
-        "extra": {"publisher":("dc:publisher",), "identifier": ("dc:identifier",)},
-        },
-    "Note"        : {
-        "name"    : ("dc:title",),
-        "snippet": True,
-        "category": "notes",
-        },
-    "IMLog"        : {
-        "name"    : ("fixme:speakingto",),
-        "extra" : {"client": ("fixme:client",)},
-        "snippet": True,
-        "category": "conversations",
-        },
-    "Calendar"    : {
-        "name"    : ("fixme:summary",),
-        "category": "documents",
-        },
-    "WebHistory": {
-        "name"    : ("dc:title",), # FIX-BEAGLE bug #330053, dc:title returns as None even though it _is_ set
-        "category": "web",
-        },
+    def __init__(self):
+        self.__name_properties = []
+        self.__extra_properties = {}
+        self.__category = "default"
+        self.__snippet = False
+    
+    def set_name_properties(self, val):
+        """
+        Properties that should contain the name
+        of the item
+        
+        When the beagle match doesn't contain the
+        first property the second one is retrieved
+        and so on
+        
+        @type val: tuple or list
+        """
+        self.__name_properties = val
+        
+    def get_name_properties(self):
+        return self.__name_properties
+ 
+    def set_extra_properties(self, val):
+        self.__extra_properties = val
+        
+    def get_extra_properties(self):
+        """
+        @return: A dict containing key:template pairs to search for
+        """
+        return self.__extra_properties
+    
+    def set_category(self, val):
+        """
+        Set the deskbar category
+        """
+        self.__category = val
+        
+    def get_category(self):
+        return self.__category
+    
+    def set_has_snippet(self, val):
+        self.__snippet = val
+    
+    def get_has_snippet(self):
+        return self.__snippet
+    
+class ContactType(BeagleType):
+    
+    def __init__(self):
+        BeagleType.__init__(self)
+        self.set_name_properties(("fixme:FileAs",))
+        self.set_category("people")
+        
+class MailMessageType(BeagleType):
+    
+    def __init__(self):
+        BeagleType.__init__(self)
+        self.set_name_properties(("dc:title",
+                                  "parent:dc:title",))
+        self.set_extra_properties({"sender": ("fixme:from_name",
+                                              "parent:fixme:from_name",)
+        })
+        self.set_category("emails")
+        
+class FileType(BeagleType):
+    
+    def __init__(self):
+        BeagleType.__init__(self)
+        self.set_name_properties(("beagle:ExactFilename",))
+        self.set_extra_properties({"inside_archive": ("fixme:inside_archive",),
+                                   "parent_file": ("parent:beagle:ExactFilename",)
+                                  })
+        self.set_category("files")
+        self.set_has_snippet(True)
+ 
+class DirectoryType(FileType):
+    
+    def __init__(self):
+        FileType.__init__(self)
+        self.set_category("places")
+        self.set_has_snippet(False)
+
+class DocumentType(FileType):
+    
+    def __init__(self):
+        FileType.__init__(self)
+        self.set_category("documents")
+        
+class AudioType(FileType):
+    
+    def __init__(self):
+        FileType.__init__(self)
+        self.set_category("audio")
+        self.set_has_snippet(False)
+        
+class VideoType(FileType):
+    
+    def __init__(self):
+        FileType.__init__(self)
+        self.set_category("video")
+        self.set_has_snippet(False)
+        
+class ImageType(FileType):
+    
+    def __init__(self):
+        FileType.__init__(self)
+        self.set_category("images")
+        self.set_has_snippet(False)
+    
+class FeedItemType(BeagleType):
+    
+    def __init__(self):
+        BeagleType.__init__(self)
+        self.set_name_properties(("dc:title",))
+        self.set_extra_properties({"publisher": ("dc:publisher",),
+                                   "identifier": ("dc:identifier",)
+                                   })
+        self.set_category("news")
+        self.set_has_snippet(True)
+        
+class NoteType(BeagleType):
+    
+    def __init__(self):
+        BeagleType.__init__(self)
+        self.set_name_properties(("dc:title",))
+        self.set_category("notes")
+        self.set_has_snippet(True)
+        
+class IMLogType(BeagleType):
+    
+    def __init__(self):
+        BeagleType.__init__(self)
+        self.set_name_properties(("fixme:speakingto",))
+        self.set_extra_properties({"client": ("fixme:client",)})
+        self.set_category("conversations")
+        self.set_has_snippet(True)
+    
+class CalendarType(BeagleType):
+    
+    def __init__(self):
+        BeagleType.__init__(self)
+        self.set_name_properties(("fixme:summary",))
+        self.set_category("documents")
+        
+class WebHistoryType(BeagleType):
+    
+    def __init__(self):
+        BeagleType.__init__(self)
+        # FIX-BEAGLE bug #330053, dc:title returns as None even though it _is_ set
+        self.set_name_properties(("dc:title",))
+        self.set_category("web")
+        
+TYPES = {
+    "Contact": ContactType(),
+    "MailMessage": MailMessageType(),
+    "File": FileType(),
+    "Directory": DirectoryType(),
+    "Document": DocumentType(),
+    "Audio": AudioType(),
+    "Video": VideoType(),
+    "Image": ImageType(), 
+    "FeedItem": FeedItemType(),
+    "Note": NoteType(),
+    "IMLog": IMLogType(),
+    "Calendar": CalendarType(),
+    "WebHistory": WebHistoryType(),
+}
+
+# See section FileType at http://beagle-project.org/Writing_clients
+BEAGLE_FILE_TYPE_TO_TYPES_MAP = {
+    "document": "Document",
+    "archive": "File",
+    "audio": "Audio",
+    "video": "Video",
+    "image": "Image",
+    "source": "File",
+    "documentation": "Document",
+    "directory": "Directory",
 }
 
 ### ===== END: TYPES ===== ###
@@ -107,12 +233,13 @@ class OpenMailMessageAction(OpenWithEvolutionAction):
     def __init__(self, name, uri, sender):
         OpenWithEvolutionAction.__init__(self, name, uri)
         self._sender = sender
+        self.set_snippet(name)
         
     def get_icon(self):
         return "stock_mail"
     
     def get_verb(self):
-        return (_("From %s") % "<i>%(sender)s</i>" ) + "\n<b>%(name)s</b>"
+        return (_("From %s") % "<i>%(sender)s</i>" )
     
     def get_name(self, text=None):
         return {"name": self._name, "sender": self._sender}
@@ -121,12 +248,13 @@ class OpenFeedAction(ShowUrlAction):
     def __init__(self, name, identifier, publisher, snippet=None):
         ShowUrlAction.__init__(self, name, identifier)
         self._publisher = publisher
+        self.set_snippet(name)
         
     def get_icon(self):
         return "stock_news"
     
     def get_verb(self):
-        return (_("News from %s") % "<i>%(publisher)s</i>" ) + "\n<b>%(name)s</b>"
+        return (_("News from %s") % "<i>%(publisher)s</i>" )
     
     def get_name(self, text=None):
         return {"name": self._name, "publisher": self._publisher}
@@ -171,15 +299,13 @@ class OpenCalendarAction(OpenWithEvolutionAction):
 class OpenWebHistoryAction(ShowUrlAction):
     def __init__(self, name, uri, escaped_uri):
         ShowUrlAction.__init__(self, name, uri)
-        self._escaped_uri = gnomevfs.unescape_string_for_display(escaped_uri)
+        self.set_snippet(gnomevfs.unescape_string_for_display(escaped_uri))
         
     def get_icon(self):
         return "system-search"
     
     def get_verb(self):
-        verb = _("Open History Item %s") % "<b>%(name)s</b>" 
-        verb += "\n<span size='small'>%s</span>" % self._escaped_uri
-        return verb
+        return _("Open History Item %s") % "<b>%(name)s</b>"
     
 class OpenBeagleFileAction(OpenFileAction):
     def __init__(self, name, uri, inside_archive, parent_file):
@@ -234,42 +360,45 @@ class BeagleSearchMatch(deskbar.interfaces.Match):
     	deskbar.interfaces.Match.__init__(self, name=term, icon="system-search", category=cat_type, **args)
     	verb = _("Additional results for category <b>%s</b>") % _(CATEGORIES[cat_type]['name'])
     	self.term = term
+        self.cat_type = cat_type
     	self.add_action( BeagleSearchAction("Beagle Search", term, verb, cat_type) )
     	self.set_priority(self.get_priority()-50)
     
     def get_hash(self, text=None):
-    	return "beagle-search "+self.term
+    	return "beagle-search %s %s" % (self.term, self.cat_type)
         
 class BeagleLiveMatch (deskbar.interfaces.Match):
+    
     def __init__(self, result=None, **args):
         """
         result: a dict containing:
             "name" : a name sensible to display for this match
             "uri": the uri of the match as provided by the beagled 'Uri: '-field
-            "type": One of the types listed in the TYPES dict
-            "source": Which beagle indexer found that result
+            "type": A L{BeagleType} sub-class
 
-        -- and optionally extra fields as provided by the corresponding entry in TYPES.
-        Fx. "MailMessage". has an extra "sender" entry.
+        -- and optionally extra fields as provided by the corresponding entry in L{BeagleType.get_extra_properties}.
         """
         deskbar.interfaces.Match.__init__ (self, name=result["name"], **args)
         self.result = result
         
-        if (result["type"] == "Contact"):
+        if not isinstance(result["type"], BeagleType):
+            raise TypeError("Expected BeagleType but got %r" % result["type"])
+        
+        if isinstance(result["type"], ContactType):
             self.add_action( OpenContactAction(result["name"], result["uri"]) )
-        elif (result["type"] == "MailMessage"):
+        elif isinstance(result["type"], MailMessageType):
             self.add_action( OpenMailMessageAction(result["name"], result["uri"], result["sender"]) )
-        elif (result["type"] == "FeedItem"):
+        elif isinstance(result["type"], FeedItemType):
             self.add_action( OpenFeedAction(result["name"], result["identifier"], result["publisher"], result["snippet"]) )
-        elif (result["type"] == "Note"):
+        elif isinstance(result["type"], NoteType):
             self.add_action( OpenNoteAction(result["name"], result["uri"], result["snippet"]) )
-        elif (result["type"] == "IMLog"):
+        elif isinstance(result["type"], IMLogType):
             self.add_action( OpenIMLogAction(result["name"], result["uri"], result["client"], result["snippet"]) )
-        elif (result["type"] == "Calendar"):
+        elif isinstance(result["type"], CalendarType):
             self.add_action( OpenCalendarAction(result["name"], result["uri"]) )
-        elif (result["type"] == "WebHistory"):
+        elif isinstance(result["type"], WebHistoryType):
             self.add_action( OpenWebHistoryAction(result["name"], result["uri"], result["escaped_uri"]) )
-        elif (result["type"] == "File" or result["type"] == "Directory"):
+        elif isinstance(result["type"], FileType):
             # For files inside archives only work with the archive itsself
             result["escaped_uri"] = result["escaped_uri"].split('#')[0]
             # Unescape URI again
@@ -287,14 +416,11 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
                                                         result["uri"],
                                                         result["inside_archive"],
                                                         None)
-                
-            actions = [file_open_action] \
-                       + get_actions_for_uri( unescaped_uri,
-                                              display_name=basename(unescaped_uri)
-                                            )
-            self.add_all_actions( actions )
-        else:
-            LOGGER.warning("Unknown beagle match type found: %s", result["type"] )
+            
+            self.add_action(file_open_action, True)
+            actions = get_actions_for_uri(unescaped_uri,
+                                          display_name=basename(unescaped_uri))
+            self.add_all_actions(actions)
 
         # Load the correct icon
         
@@ -375,12 +501,8 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             if hit.get_type() not in TYPES:
                 LOGGER.info("Beagle live seen an unknown type: %s", str(hit.get_type()))
                 continue
-            
-            snippet = None
-            if "snippet" in TYPES[hit.get_type()] and TYPES[hit.get_type()]["snippet"]:
-                snippet = self._get_snippet(query, hit)
                 
-            match = self._create_match(query, hit, qstring, snippet)
+            match = self._create_match(query, hit, qstring)
             if match != None:
                 hit_matches.append(match)
         
@@ -436,42 +558,55 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             snippet = snippet.strip().replace("%", "%%")
          
         return snippet
+    
+    def _get_beagle_type(self, hit_type):
+        if hit_type in TYPES:
+            return TYPES[hit_type]
+        else:
+            LOGGER.warning("Unknown beagle match type found: %s", result["type"] )
+            return None
             
-    def _create_match(self, query, hit, qstring, snippet=None):
+    def _create_match(self, query, hit, qstring):
         hit_type = hit.get_type()
+        snippet = None
+        
+        beagle_type = self._get_beagle_type(hit_type)
+        if beagle_type == None:
+            return None
         
         # Directories are Files in beagle context
         if hit_type == "File":
             filetype = hit.get_properties("beagle:FileType")
-            if filetype != None and filetype[0] == 'directory':
-                hit_type = "Directory"
-                         
+            if filetype != None \
+                and filetype[0] in BEAGLE_FILE_TYPE_TO_TYPES_MAP:
+                beagle_type = TYPES[BEAGLE_FILE_TYPE_TO_TYPES_MAP[filetype[0]]]
+        
+        if beagle_type.get_has_snippet():
+            snippet = self._get_snippet(query, hit)
+        
         result = {
             "uri":  hit.get_uri(),
-            "type": hit_type,
+            "type": beagle_type,
             "snippet": snippet,
         }
         
         # Get category
-        if TYPES.has_key(result["type"]):
-            cat_type = TYPES[result["type"]]["category"]
-        else:
-            cat_type = "default"
+        cat_type = beagle_type.get_category()
         
         self.__counter_lock.acquire()
         # Create new counter for query and type 
-        if not hit_type in self._counter[qstring]:
-            self._counter[qstring][hit_type] = 0
+        if not cat_type in self._counter[qstring]:
+            self._counter[qstring][cat_type] = 0
         # Increase counter
-        self._counter[qstring][hit.get_type()] += 1
+        self._counter[qstring][cat_type] += 1
 
-        if self._counter[qstring][hit_type] > MAX_RESULTS:
-            if hit_type in self._at_max[qstring]:
+        if self._counter[qstring][cat_type] > MAX_RESULTS:
+            if cat_type in self._at_max[qstring]:
                 # We already reached the maximum before
                 match = None
             else:
                 # We reach the maximum for the first time
-                self._at_max[qstring][hit_type] = True
+                self._at_max[qstring][cat_type] = True
                 match = BeagleSearchMatch(qstring, cat_type) 
             self.__counter_lock.release()
             return match
@@ -483,11 +618,14 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         return BeagleLiveMatch(result, category=cat_type, priority=self.get_priority())
         
     def _get_properties(self, hit, result):
-        hit_type_data = TYPES[hit.get_type()]
+        beagle_type = result["type"]
           
         name = None
-        for prop in hit_type_data["name"]:
-            name = hit.get_properties(prop)[0] # get_property_one() would be cleaner, but this works around bug #330053
+        for prop in beagle_type.get_name_properties():
+            try:
+                name = hit.get_properties(prop)[0] # get_property_one() would be cleaner, but this works around bug #330053
+            except:
+                pass
                     
             if name != None:
                 result["name"] = name
@@ -497,24 +635,23 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             #translators: This is used for unknown values returned by beagle
             #translators: for example unknown email sender, or unknown note title
             result["name"] = _("?")
-            
-        if "extra" in hit_type_data:
-            for prop, keys in hit_type_data["extra"].items():
-                val = None
-                for key in keys:
-                    try:
-                        val = hit.get_properties(key)[0] # get_property_one() would be cleaner, but this works around bug #330053
-                    except:
-                        pass
-                            
-                    if val != None:
-                        result[prop] = val
-                        break
-                    
-                if val == None:
-                    #translators: This is used for unknown values returned by beagle
-                    #translators: for example unknown email sender, or unknown note title
-                    result[prop] = _("?")
+        
+        for prop, keys in beagle_type.get_extra_properties().items():
+            val = None
+            for key in keys:
+                try:
+                    val = hit.get_properties(key)[0] # get_property_one() would be cleaner, but this works around bug #330053
+                except:
+                    pass
+                        
+                if val != None:
+                    result[prop] = val
+                    break
+                
+            if val == None:
+                #translators: This is used for unknown values returned by beagle
+                #translators: for example unknown email sender, or unknown note title
+                result[prop] = _("?")
     
     def _escape_pango_markup(self, result, qstring):
         """
@@ -534,7 +671,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                     result["snippet"] = re.sub(re.escape(qstring), "<span weight='bold'>"+qstring+"</span>", result["snippet"], re.IGNORECASE)
                 else:
                     result["snippet"] = ""
-            else:
+            elif isinstance(result[key], str):
                 result[key] = cgi.escape(val)
         
     @staticmethod
