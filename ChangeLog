@@ -1,11 +1,19 @@
-2008-04-15  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-04-16  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+	* deskbar/handlers/beagle-live.py:
+	Set type for beagle-search correclty. This only
+	works properly for English locales, because
+	beagle-search expects that those types are
+	translated. 
+	
+2008-04-16  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/core/ModuleList.py:
 	Added sanity checks.
 	Fixed crash when two modules with same name should be loaded.
 	Warn instead.
 
-2008-04-15  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-04-16  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/handlers/beagle-live.py:
 	Refactored module again.
@@ -13,7 +21,7 @@
 	in categories documents, files, audio, video
 	images and places
 	
-2008-04-15  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2008-04-16  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/core/Categories.py:
 	Added new categories files, audio, video and

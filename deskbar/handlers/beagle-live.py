@@ -33,11 +33,18 @@ class BeagleType:
     and category
     """
     
-    def __init__(self):
+    def __init__(self, hit_type):
+        """
+        @param hit_type: The hit type from beagle.
+        This is used by L{BeagleSearchMatch}.
+        @see: http://svn.gnome.org/svn/beagle/trunk/beagle/search/Beagle.Search/TypeFilter.cs
+        """
+        # FIXME: beagle-search expects a translated type, but we provide only English types
         self.__name_properties = []
         self.__extra_properties = {}
         self.__category = "default"
         self.__snippet = False
+        self.__hit_type = hit_type
     
     def set_name_properties(self, val):
         """
@@ -79,17 +86,20 @@ class BeagleType:
     def get_has_snippet(self):
         return self.__snippet
     
+    def get_hit_type(self):
+        return self.__hit_type
+    
 class ContactType(BeagleType):
     
-    def __init__(self):
-        BeagleType.__init__(self)
+    def __init__(self, hit_type):
+        BeagleType.__init__(self, hit_type)
         self.set_name_properties(("fixme:FileAs",))
         self.set_category("people")
         
 class MailMessageType(BeagleType):
     
-    def __init__(self):
-        BeagleType.__init__(self)
+    def __init__(self, hit_type):
+        BeagleType.__init__(self, hit_type)
         self.set_name_properties(("dc:title",
                                   "parent:dc:title",))
         self.set_extra_properties({"sender": ("fixme:from_name",
@@ -99,8 +109,8 @@ class MailMessageType(BeagleType):
         
 class FileType(BeagleType):
     
-    def __init__(self):
-        BeagleType.__init__(self)
+    def __init__(self, hit_type):
+        BeagleType.__init__(self, hit_type)
         self.set_name_properties(("beagle:ExactFilename",))
         self.set_extra_properties({"inside_archive": ("fixme:inside_archive",),
                                    "parent_file": ("parent:beagle:ExactFilename",)
@@ -110,42 +120,42 @@ class FileType(BeagleType):
  
 class DirectoryType(FileType):
     
-    def __init__(self):
-        FileType.__init__(self)
+    def __init__(self, hit_type):
+        FileType.__init__(self, hit_type)
         self.set_category("places")
         self.set_has_snippet(False)
 
 class DocumentType(FileType):
     
-    def __init__(self):
-        FileType.__init__(self)
+    def __init__(self, hit_type):
+        FileType.__init__(self, hit_type)
         self.set_category("documents")
         
 class AudioType(FileType):
     
-    def __init__(self):
-        FileType.__init__(self)
+    def __init__(self, hit_type):
+        FileType.__init__(self, hit_type)
         self.set_category("audio")
         self.set_has_snippet(False)
         
 class VideoType(FileType):
     
-    def __init__(self):
-        FileType.__init__(self)
+    def __init__(self, hit_type):
+        FileType.__init__(self, hit_type)
         self.set_category("video")
         self.set_has_snippet(False)
         
 class ImageType(FileType):
     
-    def __init__(self):
-        FileType.__init__(self)
+    def __init__(self, hit_type):
+        FileType.__init__(self, hit_type)
         self.set_category("images")
         self.set_has_snippet(False)
     
 class FeedItemType(BeagleType):
     
-    def __init__(self):
-        BeagleType.__init__(self)
+    def __init__(self, hit_type):
+        BeagleType.__init__(self, hit_type)
         self.set_name_properties(("dc:title",))
         self.set_extra_properties({"publisher": ("dc:publisher",),
                                    "identifier": ("dc:identifier",)
@@ -155,16 +165,16 @@ class FeedItemType(BeagleType):
         
 class NoteType(BeagleType):
     
-    def __init__(self):
-        BeagleType.__init__(self)
+    def __init__(self, hit_type):
+        BeagleType.__init__(self, hit_type)
         self.set_name_properties(("dc:title",))
         self.set_category("notes")
         self.set_has_snippet(True)
         
 class IMLogType(BeagleType):
     
-    def __init__(self):
-        BeagleType.__init__(self)
+    def __init__(self, hit_type):
+        BeagleType.__init__(self, hit_type)
         self.set_name_properties(("fixme:speakingto",))
         self.set_extra_properties({"client": ("fixme:client",)})
         self.set_category("conversations")
@@ -172,33 +182,33 @@ class IMLogType(BeagleType):
     
 class CalendarType(BeagleType):
     
-    def __init__(self):
-        BeagleType.__init__(self)
+    def __init__(self, hit_type):
+        BeagleType.__init__(self, hit_type)
         self.set_name_properties(("fixme:summary",))
         self.set_category("documents")
         
 class WebHistoryType(BeagleType):
     
-    def __init__(self):
-        BeagleType.__init__(self)
+    def __init__(self, hit_type):
+        BeagleType.__init__(self, hit_type)
         # FIX-BEAGLE bug #330053, dc:title returns as None even though it _is_ set
         self.set_name_properties(("dc:title",))
         self.set_category("web")
         
 TYPES = {
-    "Contact": ContactType(),
-    "MailMessage": MailMessageType(),
-    "File": FileType(),
-    "Directory": DirectoryType(),
-    "Document": DocumentType(),
-    "Audio": AudioType(),
-    "Video": VideoType(),
-    "Image": ImageType(), 
-    "FeedItem": FeedItemType(),
-    "Note": NoteType(),
-    "IMLog": IMLogType(),
-    "Calendar": CalendarType(),
-    "WebHistory": WebHistoryType(),
+    "Contact": ContactType("contact"),
+    "MailMessage": MailMessageType("mail"),
+    "File": FileType("file"),
+    "Directory": DirectoryType("folder"),
+    "Document": DocumentType("document"),
+    "Audio": AudioType("audio"),
+    "Video": VideoType("video"),
+    "Image": ImageType("image"), 
+    "FeedItem": FeedItemType("feed"),
+    "Note": NoteType(""), # beagle-search can't filter notes
+    "IMLog": IMLogType("im"),
+    "Calendar": CalendarType(""), # beagle-search can't filter calendars
+    "WebHistory": WebHistoryType("web"),
 }
 
 # See section FileType at http://beagle-project.org/Writing_clients
@@ -356,12 +366,12 @@ class BeagleSearchAction(OpenWithApplicationAction):
 ### ===== End: Actions ===== ###
 
 class BeagleSearchMatch(deskbar.interfaces.Match):
-    def __init__(self, term, cat_type, **args):
+    def __init__(self, term, cat_type, hit_type, **args):
     	deskbar.interfaces.Match.__init__(self, name=term, icon="system-search", category=cat_type, **args)
     	verb = _("Additional results for category <b>%s</b>") % _(CATEGORIES[cat_type]['name'])
     	self.term = term
         self.cat_type = cat_type
-    	self.add_action( BeagleSearchAction("Beagle Search", term, verb, cat_type) )
+    	self.add_action( BeagleSearchAction("Beagle Search", term, verb, hit_type) )
     	self.set_priority(self.get_priority()-50)
     
     def get_hash(self, text=None):
@@ -607,7 +617,7 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             else:
                 # We reach the maximum for the first time
                 self._at_max[qstring][cat_type] = True
-                match = BeagleSearchMatch(qstring, cat_type) 
+                match = BeagleSearchMatch(qstring, cat_type, beagle_type.get_hit_type()) 
             self.__counter_lock.release()
             return match
         self.__counter_lock.release()
@@ -668,7 +678,12 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
                     tmp = re.sub(r"</.*?>", "", tmp)
                     result["snippet"] = cgi.escape(tmp)
                     
-                    result["snippet"] = re.sub(re.escape(qstring), "<span weight='bold'>"+qstring+"</span>", result["snippet"], re.IGNORECASE)
+                    # FIXME: re.escape too much, we only want to escape special regex chars
+                    # we should provide a convenient method for _all_ modules
+                    result["snippet"] = re.sub(re.escape(qstring),
+                                               "<span weight='bold'>"+qstring+"</span>",
+                                               result["snippet"],
+                                               re.IGNORECASE)
                 else:
                     result["snippet"] = ""
             elif isinstance(result[key], str):
