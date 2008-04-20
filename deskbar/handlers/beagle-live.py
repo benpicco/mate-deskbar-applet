@@ -471,12 +471,18 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         deskbar.interfaces.Module.__init__(self)
         self.__counter_lock = threading.Lock()
         self.__beagle_lock = threading.Lock()
+        self.__snippet_lock = threading.Lock()
+        self.__finished_lock = threading.Lock()
+        
+        self.__snippet_request = {} # Maps beagle.Hit to beagle.SnippetRequest
+        
         # We have to store instances for each query term
         self._counter = {} # Count hits for each hit type
         self._at_max = {} # Whether we have reached the maximum for a particular hit type before
         self._beagle_query = {}
         self.__hits_added_id = {}
         self.__hits_finished_id = {}
+        self.__finished = {} # Whether we got all matches from beagle for query
         
     def initialize (self):
         self.beagle = beagle.Client()
@@ -489,6 +495,10 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         self._counter[qstring] = {}
         self._at_max[qstring] = {}
         self.__counter_lock.release()
+        
+        self.__finished_lock.acquire()
+        self.__finished[qstring] = False
+        self.__finished_lock.release()
         
         try:
             self.__beagle_lock.acquire()
@@ -510,30 +520,70 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             self.__beagle_lock.release()
                
     def _on_hits_added (self, query, response, qstring):
-        hit_matches = []
         for hit in response.get_hits():
             if hit.get_type() not in TYPES:
                 LOGGER.info("Beagle live seen an unknown type: %s", str(hit.get_type()))
                 continue
-                
-            match = self._create_match(query, hit, qstring)
-            if match != None:
-                hit_matches.append(match)
-        
-        self._emit_query_ready (qstring, hit_matches)
+            
+            beagle_type = self._get_beagle_type(hit)
+            if beagle_type == None:
+                continue
+            
+            if beagle_type.get_has_snippet():
+                self._get_snippet(query, hit, qstring, beagle_type)
+            else:
+                self._create_match(hit, beagle_type, qstring)
             
     def _on_finished (self, query, response, qstring):
         LOGGER.debug ("Beagle query (%r) for '%s' finished with response %r", query, qstring, response)
+        self.__finished_lock.acquire()
+        self.__finished[qstring] = True
+        self.__finished_lock.release()
         
-        self._cleanup_query(qstring)
+    def _on_snippet_received(self, request, response, hit, qstring, beagle_type):
+        snippet = response.get_snippet()
+        if snippet == None:
+            snippet_text = None
+        else:
+            # Remove trailing whitespaces and escape '%'
+            snippet_text = snippet.strip().replace("%", "%%")
+            
+        self._create_match(hit, beagle_type, qstring, snippet_text)
+    
+    def _on_snippet_closed(self, request, hit, qstring):
+        self._cleanup_snippet(hit)
         
+        self.__snippet_lock.acquire()
+        n_snippets = len(self.__snippet_request)
+        self.__snippet_lock.release()
+        
+        self.__finished_lock.acquire()
+        finished = self.__finished[qstring]
+        self.__finished_lock.release()
+        
+        # FIXME: This only works when at least one
+        # result has a snippet, otherwise we
+        # miss cleaning up
+        if finished and n_snippets == 0:
+            self._cleanup_query(qstring)
+            self._cleanup_counter(qstring)
+            
+    def _cleanup_counter(self, qstring):
         self.__counter_lock.acquire()
         if qstring in self._counter:
             del self._counter[qstring]
             del self._at_max[qstring]
         self.__counter_lock.release()
         
+    def _cleanup_snippet(self, hit):
+        LOGGER.debug("Cleaning up hit %r", hit)
+        self.__snippet_lock.acquire()
+        del self.__snippet_request[hit]
+        self.__snippet_lock.release()
+        hit.unref()
+               
     def _cleanup_query(self, qstring):
+        LOGGER.debug("Cleaning up query for '%s'", qstring)
         # Remove counter for query
         self.__beagle_lock.acquire()
         # Disconnect signals, otherwise we receive late matches
@@ -546,46 +596,49 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         del self.__hits_finished_id[qstring]
         self.__beagle_lock.release()
         
-    def _get_snippet (self, query, hit):
+        self.__finished_lock.acquire()
+        del self.__finished[qstring]
+        self.__finished_lock.release()
+        
+    def _get_snippet (self, query, hit, qstring, beagle_type):
+        LOGGER.debug("Retrieving snippet for hit %r", hit)
+        
         snippet_request = beagle.SnippetRequest()
         snippet_request.set_query(query)
         snippet_request.set_hit(hit)
+        hit.ref()
+        snippet_request.connect('response', self._on_snippet_received, hit, qstring, beagle_type)
+        snippet_request.connect('closed', self._on_snippet_closed, hit, qstring)
+        
+        self.__snippet_lock.acquire()
+        self.__snippet_request[hit] = snippet_request
+        self.__snippet_lock.release()
         
         try:
             self.__beagle_lock.acquire()
             try:
-                response = self.beagle.send_request (snippet_request)
+                self.beagle.send_request_async (snippet_request)
             except GError, e:
                 LOGGER.exception(e)
-                response = None
+                self._cleanup_snippet(hit)
         finally:
             self.__beagle_lock.release()
-        
-        if response == None:
-            return None
-        
-        snippet = response.get_snippet()
-        # Older versions of beagle return None
-        # if an error occured during snippet retrival 
-        if snippet != None:
-            # Remove trailing whitespaces and escape '%'
-            snippet = snippet.strip().replace("%", "%%")
-         
-        return snippet
     
-    def _get_beagle_type(self, hit_type):
-        if hit_type in TYPES:
-            return TYPES[hit_type]
-        else:
-            LOGGER.warning("Unknown beagle match type found: %s", result["type"] )
-            return None
-            
-    def _create_match(self, query, hit, qstring):
+    def _get_beagle_type(self, hit):
+        """
+        Returns the appropriate L{BeagleType}
+        for the given hit
+        
+        @type hit: beagle.Hit
+        @return: L{BeagleType} instance
+        """
         hit_type = hit.get_type()
         snippet = None
         
-        beagle_type = self._get_beagle_type(hit_type)
-        if beagle_type == None:
+        if hit_type in TYPES:
+            beagle_type = TYPES[hit_type]
+        else:
+            LOGGER.warning("Unknown beagle match type found: %s", result["type"] )
             return None
         
         # Directories are Files in beagle context
@@ -594,18 +647,18 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
             if filetype != None \
                 and filetype[0] in BEAGLE_FILE_TYPE_TO_TYPES_MAP:
                 beagle_type = TYPES[BEAGLE_FILE_TYPE_TO_TYPES_MAP[filetype[0]]]
-        
-        if beagle_type.get_has_snippet():
-            snippet = self._get_snippet(query, hit)
+                
+        return beagle_type
+           
+    def _create_match(self, hit, beagle_type, qstring, snippet=None):
+        # Get category
+        cat_type = beagle_type.get_category()
         
         result = {
             "uri":  hit.get_uri(),
             "type": beagle_type,
             "snippet": snippet,
         }
-        
-        # Get category
-        cat_type = beagle_type.get_category()
         
         self.__counter_lock.acquire()
         # Create new counter for query and type 
@@ -617,19 +670,26 @@ class BeagleLiveHandler(deskbar.interfaces.Module):
         if self._counter[qstring][cat_type] > MAX_RESULTS:
             if cat_type in self._at_max[qstring]:
                 # We already reached the maximum before
-                match = None
+                self.__counter_lock.release()
+                return
             else:
                 # We reach the maximum for the first time
                 self._at_max[qstring][cat_type] = True
-                match = BeagleSearchMatch(qstring, cat_type, beagle_type.get_hit_type()) 
+                self._emit_query_ready(qstring,
+                                       [BeagleSearchMatch(qstring,
+                                                          cat_type,
+                                                          beagle_type.get_hit_type())]) 
             self.__counter_lock.release()
-            return match
+            return
         self.__counter_lock.release()
     
         self._get_properties(hit, result)
         self._escape_pango_markup(result, qstring)
         
-        return BeagleLiveMatch(result, category=cat_type, priority=self.get_priority())
+        self._emit_query_ready(qstring,
+                               [BeagleLiveMatch(result,
+                                                category=cat_type,
+                                                priority=self.get_priority())])
         
     def _get_properties(self, hit, result):
         beagle_type = result["type"]
