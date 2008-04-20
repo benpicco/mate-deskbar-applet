@@ -37,9 +37,9 @@ class BeagleType:
         """
         @param hit_type: The hit type from beagle.
         This is used by L{BeagleSearchMatch}.
-        @see: http://svn.gnome.org/svn/beagle/trunk/beagle/search/Beagle.Search/TypeFilter.cs
+        It's appended to the beagle-search call to search
+        for this particular type only
         """
-        # FIXME: beagle-search expects a translated type, but we provide only English types
         self.__name_properties = []
         self.__extra_properties = {}
         self.__category = "default"
@@ -195,20 +195,24 @@ class WebHistoryType(BeagleType):
         self.set_name_properties(("dc:title",))
         self.set_category("web")
         
+# We use keyword:beagle:xxx instead of type:xxx here,
+# because beagle-search expects that the value of type
+# in the user's locale language. Using this hack we
+# can always use English
 TYPES = {
-    "Contact": ContactType("contact"),
-    "MailMessage": MailMessageType("mail"),
-    "File": FileType("file"),
-    "Directory": DirectoryType("folder"),
-    "Document": DocumentType("document"),
-    "Audio": AudioType("audio"),
-    "Video": VideoType("video"),
-    "Image": ImageType("image"), 
-    "FeedItem": FeedItemType("feed"),
-    "Note": NoteType(""), # beagle-search can't filter notes
-    "IMLog": IMLogType("im"),
-    "Calendar": CalendarType(""), # beagle-search can't filter calendars
-    "WebHistory": WebHistoryType("web"),
+    "Contact": ContactType("keyword:beagle:HitType=Contact"),
+    "MailMessage": MailMessageType("keyword:beagle:HitType=MailMessage"),
+    "File": FileType("keyword:beagle:HitType=File"),
+    "Directory": DirectoryType("keyword:beagle:FileType=folder"),
+    "Document": DocumentType("keyword:beagle:FileType=document"),
+    "Audio": AudioType("keyword:beagle:FileType=audio"),
+    "Video": VideoType("keyword:beagle:FileType=video"),
+    "Image": ImageType("keyword:beagle:FileType=image"), 
+    "FeedItem": FeedItemType("keyword:beagle:HitType=FeedItem"),
+    "Note": NoteType("keyword:beagle:HitType=Note"),
+    "IMLog": IMLogType("keyword:beagle:HitType=IMLog"),
+    "Calendar": CalendarType("keyword:beagle:HitType=Calendar"),
+    "WebHistory": WebHistoryType("keyword:beagle:HitType=WebHistory"),
 }
 
 # See section FileType at http://beagle-project.org/Writing_clients
@@ -355,7 +359,7 @@ class BeagleSearchAction(OpenWithApplicationAction):
         """
         beagle_args = [term]
         if hit_type != None:
-            beagle_args.append("type:"+hit_type)
+            beagle_args.append(hit_type)
         
     	OpenWithApplicationAction.__init__(self, name, "beagle-search", beagle_args)
     	self._verb = verb
