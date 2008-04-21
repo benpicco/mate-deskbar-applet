@@ -15,6 +15,7 @@ deskbar_handlers_PYTHON = \
 	epiphany.py \
 	files.py \
 	gdmactions.py \
+	googlecodesearch.py \
 	history.py \
 	iswitch-window.py \
 	mozilla.py \
