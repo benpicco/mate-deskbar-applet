@@ -1,4 +1,50 @@
 =======================
+deskbar-applet 2.23.1
+=======================
+
+This is the first release of the unstable series
+that will lead to 2.24. It features two new modules
+Yahoo! Suggestions and Google Code Search, experimental
+Capuchin support, the possibility to run Deskbar-Applet
+in the system tray and much much more.
+
+Changes:
+    * Fixed bug #474496: Files that are in archives will appear as "Open <archive> containing <file>"
+    * Mark history ComboBox and Clear History button insensitive when no items are in history (fixes bug #486072)
+    * Only store window position when window UI is used
+    * Find programs in $PATH that start with the search term
+    * Added Capuchin support
+    * Fixed: Error dialog appears when installing a valid module after an invalid one has been installed.
+    * Added (set|get)_snippet methods to Match interface. If a snippet is set it will displayed in a new line under the matche's get_verb value
+    * Added the possibility to run Deskbar as a tray icon instead of an applet with the -t option from the commandline. It only works with Window UI.
+    * Fixed exception when changing default browser while preferences window is open
+    * load_icon returns None if fall back icon 'stock_unknown' is not present in the theme (fixes bug #506379)
+    * The size of the icon in the panel is no longer based on applet's size hint, but the allocation width and height. (fixes bug #526536)
+    * When checking firefox version. Wait until the process terminated to avoid zombie processes.
+    * Use gtk-clear icon instead of gtk-empty for "Clear history" item in popup menu
+    * Show match that opens beagle-search when more than the maximum results have been found. It will only be searched for this particular category.
+    * Fixed bug #520278: Window in sticky mode too small
+    * Added support to change the language the search results should be in to Yahoo module (configurable in preferences).
+    * Added possibility to search for specific formats only. If the query contains format:<format> only those files are searched (where <format> is one of html, msword, pdf, ppt, rss, txt, xls).
+    * Added new YahooSuggestHandler module. It suggests alternative queries based on the given query.
+    * Added new Google Code Search module
+    * Adjust layout when applet is moved from one panel to another
+    
+Contributors to this release: Sebastian Pölsterl
+
+Updated Translations:
+    * Bulgarian
+    * Estonian
+    * Greek
+    * Hebrew
+    * Russian
+    * Spanish
+    * Swedish
+    * Telugu
+
+Contributors to the translations: Yavor Doganov, Ivar Smolin, Simos Xenitellis, Yair Hershkovitz, Yuri Kozlov, Jorge Gonzalez, Daniel Nylander, Krishna Babu K
+
+=======================
 deskbar-applet 2.22.0
 =======================
 
