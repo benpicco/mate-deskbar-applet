@@ -161,7 +161,6 @@ class FeedItemType(BeagleType):
                                    "identifier": ("dc:identifier",)
                                    })
         self.set_category("news")
-        self.set_has_snippet(True)
         
 class NoteType(BeagleType):
     
@@ -194,6 +193,7 @@ class WebHistoryType(BeagleType):
         # FIX-BEAGLE bug #330053, dc:title returns as None even though it _is_ set
         self.set_name_properties(("dc:title",))
         self.set_category("web")
+        self.set_has_snippet(True)
         
 # We use keyword:beagle:xxx instead of type:xxx here,
 # because beagle-search expects that the value of type
@@ -244,35 +244,25 @@ class OpenContactAction(OpenWithEvolutionAction):
         return _("Edit contact %s") % "<b>%(name)s</b>"
     
 class OpenMailMessageAction(OpenWithEvolutionAction):
-    def __init__(self, name, uri, sender):
+    def __init__(self, name, uri, sender=None):
         OpenWithEvolutionAction.__init__(self, name, uri)
-        self._sender = sender
-        self.set_snippet(name)
         
     def get_icon(self):
         return "stock_mail"
     
     def get_verb(self):
-        return (_("From %s") % "<i>%(sender)s</i>" )
-    
-    def get_name(self, text=None):
-        return {"name": self._name, "sender": self._sender}
+        return "<b>%(name)s</b>"
         
 class OpenFeedAction(ShowUrlAction):
-    def __init__(self, name, identifier, publisher, snippet=None):
+    def __init__(self, name, identifier, publisher=None, snippet=None):
         ShowUrlAction.__init__(self, name, identifier)
-        self._publisher = publisher
-        self.set_snippet(name)
         
     def get_icon(self):
         return "stock_news"
     
     def get_verb(self):
-        return (_("News from %s") % "<i>%(publisher)s</i>" )
+        return "<b>%(name)s</b>"
     
-    def get_name(self, text=None):
-        return {"name": self._name, "publisher": self._publisher}
-
 class OpenNoteAction(OpenWithApplicationAction):
     def __init__(self, name, uri, snippet=None):
         OpenWithApplicationAction.__init__(self, name, "tomboy", ["--open-note", uri])
@@ -286,7 +276,6 @@ class OpenNoteAction(OpenWithApplicationAction):
 class OpenIMLogAction(OpenWithApplicationAction):
     def __init__(self, name, uri, client, snippet=None):
         OpenWithApplicationAction.__init__(self, name, "beagle-imlogviewer", [])
-        self._snippet = snippet
         self._uri = gnomevfs.get_local_path_from_uri(uri)
         self._client = client
         
@@ -313,13 +302,24 @@ class OpenCalendarAction(OpenWithEvolutionAction):
 class OpenWebHistoryAction(ShowUrlAction):
     def __init__(self, name, uri, escaped_uri):
         ShowUrlAction.__init__(self, name, uri)
-        self.set_snippet(gnomevfs.unescape_string_for_display(escaped_uri))
+        self._display_uri = gnomevfs.unescape_string_for_display(escaped_uri)
         
     def get_icon(self):
         return "system-search"
     
     def get_verb(self):
-        return _("Open History Item %s") % "<b>%(name)s</b>"
+        # stay backward compatible
+        if hasattr(self, "_display_uri"):
+            return _("Open History Item %s (%s)") % ("<b>%(name)s</b>", "<i>%(uri)s</i>")
+        else:
+            return _("Open History Item %s") % "<b>%(name)s</b>"
+    
+    def get_name(self, text=None):
+        # stay backward compatible
+        if hasattr(self, "_display_uri"):
+            return {'name': self._name, 'uri': self._display_uri}
+        else:
+            return ShowUrlAction.get_name(self, text=None)
     
 class OpenBeagleFileAction(OpenFileAction):
     def __init__(self, name, uri, inside_archive, parent_file):
@@ -401,13 +401,15 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
         if isinstance(result["type"], ContactType):
             self.add_action( OpenContactAction(result["name"], result["uri"]) )
         elif isinstance(result["type"], MailMessageType):
-            self.add_action( OpenMailMessageAction(result["name"], result["uri"], result["sender"]) )
+            self.add_action( OpenMailMessageAction(result["name"], result["uri"]) )
+            self.set_snippet( _("From <i>%s</i>") % result["sender"] )
         elif isinstance(result["type"], FeedItemType):
-            self.add_action( OpenFeedAction(result["name"], result["identifier"], result["publisher"], result["snippet"]) )
+            self.add_action( OpenFeedAction(result["name"], result["identifier"]) )
+            self.set_snippet( _("From <i>%s</i>") % result["publisher"] )
         elif isinstance(result["type"], NoteType):
-            self.add_action( OpenNoteAction(result["name"], result["uri"], result["snippet"]) )
+            self.add_action( OpenNoteAction(result["name"], result["uri"]) )
         elif isinstance(result["type"], IMLogType):
-            self.add_action( OpenIMLogAction(result["name"], result["uri"], result["client"], result["snippet"]) )
+            self.add_action( OpenIMLogAction(result["name"], result["uri"], result["client"]) )
         elif isinstance(result["type"], CalendarType):
             self.add_action( OpenCalendarAction(result["name"], result["uri"]) )
         elif isinstance(result["type"], WebHistoryType):
