@@ -5,6 +5,7 @@ deskbar_ui_PYTHON = \
 	__init__.py \
 	About.py \
 	AbstractCuemiacDeskbarIcon.py \
+	AbstractCuemiacView.py \
 	CuemiacWindowController.py \
 	CuemiacWindowView.py \
 	CuemiacAlignedView.py \

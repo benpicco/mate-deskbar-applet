@@ -30,12 +30,6 @@ class View(object):
     def get_entry(self):
         raise NotImplementedError
     
-    def show_history(self, value):
-        raise NotImplementedError
-    
-    def is_history_visible(self):
-        raise NotImplementedError
-    
     def receive_focus(self, time):
         raise NotImplementedError
        
