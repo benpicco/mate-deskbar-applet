@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-16 19:10+0100\n"
-"PO-Revision-Date: 2008-04-17 20:41+0200\n"
+"POT-Creation-Date: 2008-04-24 20:22+0000\n"
+"PO-Revision-Date: 2008-04-26 12:50+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -291,7 +291,7 @@ msgstr "Mostrar todos los motores de búsqueda disponibles"
 msgid "Show only the primary search engine"
 msgstr "Mostrar sólo el motor de búsqueda primario"
 
-#: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:308
+#: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:315
 #, python-format
 msgid "Open History Item %s"
 msgstr "Abrir el elemento %s del histórico"
@@ -401,86 +401,87 @@ msgstr "No se puede mostrar la URL:"
 msgid "Deskbar Applet"
 msgstr "Miniaplicación Deskbar"
 
-#: ../deskbar/handlers/beagle-live.py:230
+#: ../deskbar/handlers/beagle-live.py:244
 #, python-format
 msgid "Edit contact %s"
 msgstr "Editar contacto %s"
 
-#: ../deskbar/handlers/beagle-live.py:242
-#, python-format
-msgid "From %s"
-msgstr "de %s"
-
-#: ../deskbar/handlers/beagle-live.py:257
-#, python-format
-msgid "News from %s"
-msgstr "Noticias de %s"
-
-#: ../deskbar/handlers/beagle-live.py:270
+#: ../deskbar/handlers/beagle-live.py:274
 #, python-format
 msgid "Note: %s"
 msgstr "Nota: %s"
 
-#: ../deskbar/handlers/beagle-live.py:283
+#: ../deskbar/handlers/beagle-live.py:286
 #, python-format
 msgid "With %s"
 msgstr "con %s"
 
-#: ../deskbar/handlers/beagle-live.py:297
+#: ../deskbar/handlers/beagle-live.py:300
 #, python-format
 msgid "Calendar: %s"
 msgstr "Calendario: %s"
 
+#: ../deskbar/handlers/beagle-live.py:313
+#, python-format
+msgid "Open History Item %s (%s)"
+msgstr "Abrir el elemento %s del histórico (%s)"
+
 #. translators: in this case the file (2nd) is part of an archive (1st)
 #. e.g. README is part of deskbar-applet.tar.gz
-#: ../deskbar/handlers/beagle-live.py:328
+#: ../deskbar/handlers/beagle-live.py:342
 #, python-format
 msgid "Open %s containing %s"
 msgstr "Abrir %s que contiene %s"
 
-#: ../deskbar/handlers/beagle-live.py:330
+#: ../deskbar/handlers/beagle-live.py:344
 #: ../deskbar/handlers/actions/OpenFileAction.py:51
 #: ../deskbar/handlers/actions/ShowUrlAction.py:24
 #, python-format
 msgid "Open %s"
 msgstr "Abrir %s"
 
-#: ../deskbar/handlers/beagle-live.py:361
+#: ../deskbar/handlers/beagle-live.py:375
 #, python-format
 msgid "Additional results for category <b>%s</b>"
 msgstr "Resultados adiciones para la categoría <b>%s</b>"
 
-#: ../deskbar/handlers/beagle-live.py:361
+#: ../deskbar/handlers/beagle-live.py:375
 #: ../deskbar/ui/cuemiac/CuemiacItems.py:19
 msgid "name"
 msgstr "nombre"
 
-#: ../deskbar/handlers/beagle-live.py:451
+#: ../deskbar/handlers/beagle-live.py:405
+#: ../deskbar/handlers/beagle-live.py:408
+#, python-format
+msgid "From <i>%s</i>"
+msgstr "De <i>%s</i>"
+
+#: ../deskbar/handlers/beagle-live.py:467
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:452
+#: ../deskbar/handlers/beagle-live.py:468
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Busque todos sus documentos (usando Beagle), mientras teclea"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:637
-#: ../deskbar/handlers/beagle-live.py:654
+#: ../deskbar/handlers/beagle-live.py:713
+#: ../deskbar/handlers/beagle-live.py:730
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:683
+#: ../deskbar/handlers/beagle-live.py:764
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "No se pudo cargar beagled, libbeagle se ha compilado sin los bindings de "
 "python."
 
-#: ../deskbar/handlers/beagle-live.py:689
+#: ../deskbar/handlers/beagle-live.py:770
 msgid "Beagle daemon is not running."
 msgstr "El demonio de Beagle no se está ejecutando."
 
-#: ../deskbar/handlers/beagle-live.py:692
+#: ../deskbar/handlers/beagle-live.py:773
 msgid "Beagled could not be found in your $PATH."
 msgstr "No se pudo encontrar bleagled en su $PATH."
 
@@ -719,16 +720,16 @@ msgstr "Apagar"
 
 #: ../deskbar/handlers/googlecodesearch.py:28
 msgid "Google Code Search"
-msgstr ""
+msgstr "Búsqueda en Google Code"
 
 #: ../deskbar/handlers/googlecodesearch.py:29
 msgid "Search public source code for function definitions and sample code"
-msgstr ""
+msgstr "Buscar en el código público definiciones de funciones y código de ejemplo"
 
 #: ../deskbar/handlers/googlecodesearch.py:108
 #, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
-msgstr ""
+msgstr "Ver <i>%(name)s</i> en la búsqueda de  <b>Google Code</b>"
 
 #: ../deskbar/handlers/googlecodesearch.py:116
 #, python-format
@@ -1225,13 +1226,11 @@ msgid "default"
 msgstr "predeterminado"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacAlignedView.py:89
-#: ../deskbar/ui/CuemiacWindowView.py:77
+#: ../deskbar/ui/AbstractCuemiacView.py:107
 msgid "_History"
 msgstr "_Histórico"
 
-#: ../deskbar/ui/CuemiacAlignedView.py:151
-#: ../deskbar/ui/CuemiacWindowView.py:139
+#: ../deskbar/ui/AbstractCuemiacView.py:178
 msgid "Back to Matches"
 msgstr "Volver a las coincidencias"
 
