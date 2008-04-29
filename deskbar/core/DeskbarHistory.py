@@ -151,7 +151,7 @@ class DeskbarHistory (gtk.ListStore) :
         """
         save = []
         for timestamp, text, action in self:
-            if action.__class__ != ChooseFromHistoryAction:
+            if isinstance(action, ChooseFromHistoryAction):
                 save.append((timestamp, text, action))
         
         try:
@@ -181,7 +181,7 @@ class DeskbarHistory (gtk.ListStore) :
         """
         assert text != None and action != None
         
-        if action.__class__ == ChooseFromHistoryAction:
+        if isinstance(action, ChooseFromHistoryAction):
             return
         if action.skip_history():
             self.reset()
