@@ -1,5 +1,17 @@
 2008-05-01  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+	* deskbar/interfaces/Action.py:
+	* deskbar/ui/cuemiac/CuemiacActionsTreeView.py:
+	* deskbar/ui/cuemiac/CuemiacTreeView.py:
+	Added get_tooltip method to Action interface.
+	Override this method to display a tooltip
+	when the user hovers over the match (the
+	default action's tooltip is displayed) or
+	over an action in the list of additional
+	actions.
+
+2008-05-01  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
 	* configure.ac:
 	* deskbar/ui/cuemiac/CuemiacTreeView.py:
 	* po/POTFILES.in:

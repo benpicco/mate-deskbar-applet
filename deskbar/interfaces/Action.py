@@ -83,6 +83,19 @@ class Action:
             - Execute %(prog)s
         """
         raise NotImplementedError
+
+    def get_tooltip(self, text=None):
+        """
+        Returns the tooltip markup string associated to this action.
+
+        The passed string is the complete query string.
+        
+        Examples:
+            - URI: http://...
+            
+        @since: 2.24
+        """
+        return None
         
     def get_name(self, text=None):
         """

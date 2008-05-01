@@ -39,18 +39,18 @@ class CuemiacTreeView (gtk.TreeView):
         icon = gtk.CellRendererPixbuf ()
         #icon.set_property("xpad", 10)
         
-        hit_title = CuemiacCellRendererMatch ()
-        hit_title.connect("activated", self.__on_do_action_activated)
-        hit_title.set_property ("ellipsize", pango.ELLIPSIZE_END)
+        self._match_renderer = CuemiacCellRendererMatch ()
+        self._match_renderer.connect("activated", self.__on_do_action_activated)
+        self._match_renderer.set_property ("ellipsize", pango.ELLIPSIZE_END)
         
         self._action_renderer = CuemiacCellRendererAction ()
         self._action_renderer.connect("activated", self.__on_show_actions_activated)
         
         self._hits_column = gtk.TreeViewColumn ("Hits")
         self._hits_column.pack_start (icon, expand=False)
-        self._hits_column.pack_start (hit_title)
+        self._hits_column.pack_start (self._match_renderer)
         self._hits_column.pack_end (self._action_renderer, expand=False)
-        self._hits_column.set_cell_data_func(hit_title, self.__get_match_title_for_cell)            
+        self._hits_column.set_cell_data_func(self._match_renderer, self.__get_match_title_for_cell)            
         self._hits_column.set_cell_data_func(icon, self.__get_match_icon_for_cell)
         self._hits_column.set_cell_data_func(self._action_renderer, self.__get_match_action_for_cell)
         self.append_column (self._hits_column)
@@ -230,19 +230,39 @@ class CuemiacTreeView (gtk.TreeView):
         
         tree_path, col, cell_x = path[:3]
         
+        model = self.get_model()
+        iter = model.get_iter(tree_path)
+        match = model[iter][model.MATCHES]
+        
+        if not isinstance(match, Match):
+            return False
+        
         # x coordinate gives us the blank area left of the icon
         cell_area = self.get_cell_area(tree_path, col)
         # x coordinate of the action renderer
         # WITHOUT the blank area on the left
         action_renderer_x = col.cell_get_position(self._action_renderer)[0]
+        match_renderer_x = col.cell_get_position(self._match_renderer)[0]
         
+        # Check if we're in the cell containing the arrow
         if cell_x > action_renderer_x + cell_area.x:
-            model = self.get_model()
-            iter = model.get_iter(tree_path)
-            match = model[iter][model.MATCHES]
-            if isinstance(match, Match) \
-                and len(match.get_actions()) > 1:
+             if len(match.get_actions()) > 1:
                 tooltip.set_markup(_("Display additional actions"))
+                self.set_tooltip_cell (tooltip, tree_path,
+                                       col, self._action_renderer)
+                return True
+        elif cell_x > match_renderer_x + cell_area.x:
+            qstring = model[iter][model.QUERY]
+            action = match.get_default_action ()
+            if action == None:
+                action = match.get_actions()[0]
+    
+            markup = action.get_tooltip (qstring)
+            # Return False to not show a blank tooltip
+            if markup != None and len(markup) != 0:
+                tooltip.set_markup (markup)
+                self.set_tooltip_cell (tooltip, tree_path,
+                                       col, self._match_renderer)
                 return True
             
         return False

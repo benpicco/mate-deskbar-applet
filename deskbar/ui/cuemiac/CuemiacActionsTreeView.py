@@ -40,9 +40,11 @@ class CuemiacActionsTreeView(gtk.TreeView):
     def __init__(self, model=None):
         gtk.TreeView.__init__(self, model)
         self.set_property ("headers-visible", False)
+        self.set_property ("has-tooltip", True)
         self.set_enable_search (False)
         self.connect("button-press-event", self.__on_button_press_event)
         self.connect("key-press-event", self.__on_key_press_event)
+        self.connect("query-tooltip", self.__on_query_tooltip)
         
         cell_icon = gtk.CellRendererPixbuf()
         cell_icon.set_property("xpad", 10)
@@ -94,4 +96,24 @@ class CuemiacActionsTreeView(gtk.TreeView):
         gobject.idle_add(self.scroll_to_cell, path )
         self.set_cursor_on_cell( path )
        
+    def __on_query_tooltip(self, widget, x, y, keyboard_mode, tooltip):
+        path = self.get_path_at_pos(x, y)
+        if path == None:
+            return False
+        
+        tree_path = path[0]
+        
+        model = self.get_model()
+        iter = model.get_iter(tree_path)
+        action = model[iter][model.ACTION_COL]
+        
+        qstring = model[iter][model.QUERY_COL]
+        markup = action.get_tooltip (qstring)
+        # Return False to not show a blank tooltip
+        if markup != None and len(markup) != 0:
+            tooltip.set_markup (markup)
+            self.set_tooltip_row (tooltip, tree_path)
+            return True
+        
+        return False
          
