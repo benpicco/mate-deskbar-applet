@@ -66,9 +66,9 @@ dnl ****************************************************************************
 dnl * PyGTK & co for Gnome Streamer
 dnl ****************************************************************************
 PKG_CHECK_MODULES(DESKBAR,
-	gtk+-2.0				>= 2.10
-	pygtk-2.0				>= 2.10
-	pygobject-2.0			>= 2.10
+	gtk+-2.0				>= 2.12
+	pygtk-2.0				>= 2.12
+	pygobject-2.0			>= 2.12
 	gnome-python-2.0		>= 2.10
 	gnome-desktop-2.0		>= 2.10
 	dbus-python				>= 0.80.2

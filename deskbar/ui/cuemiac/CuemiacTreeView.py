@@ -3,7 +3,7 @@ import gtk.gdk
 import gobject
 import pango
 import logging
-
+from gettext import gettext as _
 from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
 from deskbar.ui.cuemiac.CuemiacCellRendererMatch import CuemiacCellRendererMatch
 from deskbar.ui.cuemiac.CuemiacCellRendererAction import CuemiacCellRendererAction
@@ -31,8 +31,10 @@ class CuemiacTreeView (gtk.TreeView):
         gtk.TreeView.__init__ (self, model)
         self.set_enable_search (False)
         self.set_property ("headers-visible", False)
+        self.set_property ("has-tooltip", True)
         
         self.connect ("key-press-event", self.__on_key_press)
+        self.connect ("query-tooltip", self.__on_query_tooltip)
                 
         icon = gtk.CellRendererPixbuf ()
         #icon.set_property("xpad", 10)
@@ -41,16 +43,16 @@ class CuemiacTreeView (gtk.TreeView):
         hit_title.connect("activated", self.__on_do_action_activated)
         hit_title.set_property ("ellipsize", pango.ELLIPSIZE_END)
         
-        action = CuemiacCellRendererAction ()
-        action.connect("activated", self.__on_show_actions_activated)
+        self._action_renderer = CuemiacCellRendererAction ()
+        self._action_renderer.connect("activated", self.__on_show_actions_activated)
         
         self._hits_column = gtk.TreeViewColumn ("Hits")
         self._hits_column.pack_start (icon, expand=False)
         self._hits_column.pack_start (hit_title)
-        self._hits_column.pack_end (action, expand=False)
+        self._hits_column.pack_end (self._action_renderer, expand=False)
         self._hits_column.set_cell_data_func(hit_title, self.__get_match_title_for_cell)            
         self._hits_column.set_cell_data_func(icon, self.__get_match_icon_for_cell)
-        self._hits_column.set_cell_data_func(action, self.__get_match_action_for_cell)
+        self._hits_column.set_cell_data_func(self._action_renderer, self.__get_match_action_for_cell)
         self.append_column (self._hits_column)
         
         #self.set_reorderable(True)
@@ -220,6 +222,31 @@ class CuemiacTreeView (gtk.TreeView):
         else:
             # So we have a Match, tell the world
             self.emit ("match-selected", qstring, match, event)
+            
+    def __on_query_tooltip(self, widget, x, y, keyboard_mode, tooltip):
+        path = self.get_path_at_pos(x, y)
+        if path == None:
+            return False
+        
+        tree_path, col, cell_x = path[:3]
+        
+        # x coordinate gives us the blank area left of the icon
+        cell_area = self.get_cell_area(tree_path, col)
+        # x coordinate of the action renderer
+        # WITHOUT the blank area on the left
+        action_renderer_x = col.cell_get_position(self._action_renderer)[0]
+        
+        if cell_x > action_renderer_x + cell_area.x:
+            model = self.get_model()
+            iter = model.get_iter(tree_path)
+            match = model[iter][model.MATCHES]
+            if isinstance(match, Match) \
+                and len(match.get_actions()) > 1:
+                tooltip.set_markup(_("Display additional actions"))
+                return True
+            
+        return False
+        
         
     def __on_key_press (self, widget, event):
         # FIXME: In the future we should check for ctrl being pressed to create shortcuts
