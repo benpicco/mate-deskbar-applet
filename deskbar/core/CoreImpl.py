@@ -414,7 +414,10 @@ class CoreImpl(deskbar.interfaces.Core):
         for module in enabled_browser_modules:
             new_module_name = module.replace(old_browser.capitalize(), new_browser.capitalize())
             new_module = self._module_list.get_module_instance_from_name(new_module_name)
-            # If async is True then self.update_gconf() may be run before the modules were initialized
-            self.initialize_module(new_module, async=False)
+            
+            # If new_module is None the module has missing requirements
+            if new_module != None:
+                # If async is True then self.update_gconf() may be run before the modules were initialized
+                self.initialize_module(new_module, async=False)
         
         self.update_gconf()
