@@ -368,10 +368,11 @@ class CoreImpl(deskbar.interfaces.Core):
     def _on_default_browser_changed(self, gconfstore, new_browser):
         new_browser = new_browser.split(" ")[0]
         
-        if new_browser == "firefox":
+        if new_browser.find("firefox") != -1 or new_browser.find("iceweasel") != -1 \
+            or new_browser.find("iceweasel") != -1:
             new_browser = "mozilla"
         
-        if new_browser == "epiphany":
+        if new_browser.find("epiphany") != -1:
             old_browser = "mozilla"
         elif new_browser == "mozilla":
             old_browser = "epiphany"

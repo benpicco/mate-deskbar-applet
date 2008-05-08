@@ -211,7 +211,7 @@ class MozillaBookmarksHandler(deskbar.interfaces.Module):
     def has_requirements():
         if is_preferred_browser("mozilla"):
             return True
-        elif is_preferred_browser("firefox"):
+        elif is_preferred_browser("firefox") or is_preferred_browser("iceweasel"):
             if MozillaBookmarksHandler.has_firefox_version():
                 return True
             
@@ -829,7 +829,7 @@ class MozillaHistoryHandler(deskbar.interfaces.Module):
     def has_requirements():
         if is_preferred_browser("mozilla"):
             return True
-        elif is_preferred_browser("firefox"):
+        elif is_preferred_browser("firefox") or is_preferred_browser("iceweasel"):
             if MozillaBookmarksHandler.has_firefox_version():
                 return True
             

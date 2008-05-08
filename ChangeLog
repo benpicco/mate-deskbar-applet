@@ -1,6 +1,17 @@
 2008-05-08  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/core/CoreImpl.py:
+	* deskbar/handlers/mozilla.py:
+	Added support for iceweasel browser.
+	When the default browser is changed
+	mozilla and iceweasel are supported, too.
+	When Firefox is usded and the command must
+	contain firefox	instead of being exactly
+	firefox 
+
+2008-05-08  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+	* deskbar/core/CoreImpl.py:
 	Fixed bug #522585: Crash when changing default browser
 
 2008-05-01  Sebastian Pölsterl  <sebp@cvs.gnome.org>
