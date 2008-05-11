@@ -25,8 +25,7 @@ class DeskbarApplet (gnomeapplet.Applet, AbstractCuemiacDeskbarIcon):
         self.applet.add(self.tray)
         self.tray.show()
         
-        self.tooltips = gtk.Tooltips()
-        self.tooltips.set_tip(self.tray, _("Show search entry"))
+        self.tray.set_tooltip_markup(_("Show search entry"))
         
         self.image = gtk.Image ()
         self.tray.add(self.image)

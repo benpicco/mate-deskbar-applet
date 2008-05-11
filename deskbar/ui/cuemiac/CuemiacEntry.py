@@ -62,9 +62,6 @@ class CuemiacEntry (deskbar.ui.iconentry.IconEntry):
         self.entry.connect ("key-press-event", self.__on_key_press_event )
         self.entry.connect ("button-press-event", lambda entry, event: self.emit("button-press-event", event))
         self.entry.connect ("focus-out-event", lambda entry, event: self.emit("focus-out-event", event))
-        
-        # Set up tooltips
-        self.tooltips = gtk.Tooltips()
 
     def __on_key_press_event(self, entry, event):
         if event.keyval == gtk.keysyms.Down:
@@ -109,13 +106,13 @@ class CuemiacEntry (deskbar.ui.iconentry.IconEntry):
         """
         @param tooltip: A string describing the action associated to clicking the entry icon.
         """
-        self.tooltips.set_tip (self.icon_event_box, tooltip)
+        self.icon_event_box.set_tooltip_markup(tooltip)
         
     def set_entry_tooltip (self, tooltip):
         """
         @param tooltip: A string describing basic usage of the entry.
         """
-        self.tooltips.set_tip(self.entry, tooltip)
+        self.entry.set_tooltip_markup(tooltip)
 
     def show (self):
         """
