@@ -25,10 +25,14 @@ class OpenFileAction(deskbar.interfaces.Action):
     def get_icon(self):
         return "gtk-open"
     
-    def is_valid(self):
+    def _get_unesacped_url_without_protocol(self):
         url = self._url[7:]
         if not self._escape:
             url = gnomevfs.unescape_string_for_display(url)
+        return url
+    
+    def is_valid(self):
+        url = self._get_unesacped_url_without_protocol()
 
         if not exists(url):
             LOGGER.debug("File %s does not exist", url)
@@ -52,3 +56,6 @@ class OpenFileAction(deskbar.interfaces.Action):
     
     def activate(self, text=None):
         url_show_file(self._url, escape=self._escape)
+        
+    def get_tooltip(self, text=None):
+        return self._get_unesacped_url_without_protocol()

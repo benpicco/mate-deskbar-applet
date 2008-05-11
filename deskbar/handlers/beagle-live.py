@@ -8,7 +8,8 @@ from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from gettext import gettext as _
 from os.path import basename
 from gobject import GError
-import cgi, re
+import cgi
+import re
 import deskbar, deskbar.interfaces.Module
 import deskbar.interfaces.Match
 import gnomevfs
@@ -308,18 +309,13 @@ class OpenWebHistoryAction(ShowUrlAction):
         return "system-search"
     
     def get_verb(self):
-        # stay backward compatible
-        if hasattr(self, "_display_uri"):
-            return _("Open History Item %s (%s)") % ("<b>%(name)s</b>", "<i>%(uri)s</i>")
-        else:
-            return _("Open History Item %s") % "<b>%(name)s</b>"
+        return _("Open History Item %s") % "<b>%(name)s</b>"
     
     def get_name(self, text=None):
-        # stay backward compatible
-        if hasattr(self, "_display_uri"):
-            return {'name': self._name, 'uri': self._display_uri}
-        else:
-            return ShowUrlAction.get_name(self, text=None)
+        return ShowUrlAction.get_name(self, text=None)
+        
+    def get_tooltip(self, text=None):
+        return self._display_uri
     
 class OpenBeagleFileAction(OpenFileAction):
     def __init__(self, name, uri, inside_archive, parent_file):

@@ -25,3 +25,6 @@ class ShowUrlAction(deskbar.interfaces.Action):
     
     def activate(self, text=None):
         url_show(self._url)
+        
+    def get_tooltip(self, text=None):
+        return self._url

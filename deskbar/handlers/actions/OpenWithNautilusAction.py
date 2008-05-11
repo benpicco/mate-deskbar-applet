@@ -30,3 +30,6 @@ class OpenWithNautilusAction(OpenWithApplicationAction):
             return _("Open audio disc %s") % "<b>%(name)s</b>"
         else:
             return _("Open location %s") % "<b>%(name)s</b>"
+        
+    def get_tooltip(self, text=None):
+        return self._url
