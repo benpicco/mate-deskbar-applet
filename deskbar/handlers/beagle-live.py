@@ -104,7 +104,10 @@ class MailMessageType(BeagleType):
         self.set_name_properties(("dc:title",
                                   "parent:dc:title",))
         self.set_extra_properties({"sender": ("fixme:from_name",
-                                              "parent:fixme:from_name",)
+                                              "parent:fixme:from_name",
+                                              "fixme:from",),
+                                   "client": ("fixme:client",),
+                                   "thunderbird-uri": ("fixme:uri",) 
         })
         self.set_category("emails")
         
@@ -248,6 +251,17 @@ class OpenMailMessageAction(OpenWithEvolutionAction):
     def __init__(self, name, uri, sender=None):
         OpenWithEvolutionAction.__init__(self, name, uri)
         
+    def get_icon(self):
+        return "stock_mail"
+    
+    def get_verb(self):
+        return "<b>%(name)s</b>"
+    
+class OpenThunderbirdMailMessageAction(OpenWithApplicationAction):
+    def __init__(self, name, uri):
+        OpenWithApplicationAction.__init__(self, name, "thunderbird",
+                                               ["-viewbeagle", uri])
+    
     def get_icon(self):
         return "stock_mail"
     
@@ -397,7 +411,14 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
         if isinstance(result["type"], ContactType):
             self.add_action( OpenContactAction(result["name"], result["uri"]) )
         elif isinstance(result["type"], MailMessageType):
-            self.add_action( OpenMailMessageAction(result["name"], result["uri"]) )
+            if result["client"] == "thunderbird":
+                action = OpenThunderbirdMailMessageAction(result["name"], result["thunderbird-uri"])
+            elif result["client"] == "evolution":
+                 action = OpenMailMessageAction(result["name"], result["uri"])
+            else:
+                LOGGER.warning("Unknown/Unsupported e-mail client %s", result["client"])
+                return
+            self.add_action( action )
             self.set_snippet( _("From <i>%s</i>") % result["sender"] )
         elif isinstance(result["type"], FeedItemType):
             self.add_action( OpenFeedAction(result["name"], result["identifier"]) )
