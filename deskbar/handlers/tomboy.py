@@ -9,7 +9,7 @@ import deskbar.interfaces.Match
 import deskbar.interfaces.Module
 import gtk
 import logging
-import os
+import subprocess
 import re
 
 LOGGER = logging.getLogger(__name__)
@@ -242,9 +242,14 @@ def tomboy_installed():
 # If we use DBus, it will wake up Tomboy even if 
 # this module isn't enabled.
 def get_tomboy_version():
-    command = os.popen("tomboy --version")
-    read = command.read()
-    command.close()
+    try:
+        command = subprocess.Popen("tomboy --version", shell=True,
+                                   stdout=subprocess.PIPE).stdout
+        read = command.read()
+        command.close()
+    except OSError, e:
+        LOGGER.exception(e)
+        return '0.0.0'
     
     line_regexp = re.compile( 'Version (\d+?)\.(\d+?)\.(\d+?)', re.IGNORECASE )
     results_list = line_regexp.findall( read )
