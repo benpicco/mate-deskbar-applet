@@ -1,6 +1,7 @@
 import deskbar.interfaces.Action
 from gettext import gettext as _
 from deskbar.core.Utils import url_show
+import cgi
 
 class ShowUrlAction(deskbar.interfaces.Action):
     """
@@ -27,4 +28,4 @@ class ShowUrlAction(deskbar.interfaces.Action):
         url_show(self._url)
         
     def get_tooltip(self, text=None):
-        return self._url
+        return cgi.escape(self._url)
