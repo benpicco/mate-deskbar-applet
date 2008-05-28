@@ -15,6 +15,7 @@ art_DATA = \
 	gpm-suspend-to-disk.png \
 	gpm-suspend-to-ram.png \
 	web-search.png \
+	wikipedia.png \
 	note-new.png \
 	note.png
 

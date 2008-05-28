@@ -24,6 +24,7 @@ deskbar_handlers_PYTHON = \
 	templates.py \
 	tomboy.py \
 	web_address.py \
+	wikipedia-suggest.py \
 	yahoo.py
 
 if ENABLE_EVOLUTION
