@@ -1,3 +1,33 @@
+=====================
+deskbar-applet 2.23.3
+=====================
+
+Besides bug fixes this release comes with
+a new module. The Wikipedia Suggest module
+suggest Wikipedia articles as you type.
+You can configure which Wikipedia you want
+to use (English, German, French, ...), but it
+should detect it from your locale automatically.
+If not you can change it in preferences.
+
+Changes:
+	* Use subprocess module instead of os.popen. Catch OSError when retrieving version (fixes bug #533842)
+	* Escape url for tooltip in ShowUrlAction.py
+	* Added Wikipedia Suggest module (fixes bug #530002)
+	
+Contributors to this release: Sebastian Pölsterl
+
+Updated Translations:
+    * Arabic
+    * Simplified Chinese
+    * Dutch
+    * Galician
+    * Hebrew
+    * Spanish
+    * Vietnamese
+
+Contributors to the translations: Djihed Afifi, Lu Gan, Tino Meinen, Ignacio Casal Quinteiro, Yair Hershkovitz, Jorge Gonzalez, Clytie Siddall
+
 =======================
 deskbar-applet 2.23.2
 =======================
