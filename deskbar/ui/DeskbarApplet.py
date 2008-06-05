@@ -16,7 +16,7 @@ class DeskbarApplet (gnomeapplet.Applet, AbstractCuemiacDeskbarIcon):
         
         self.handler_size_allocate_id = self.applet.connect ("size-allocate", self.on_allocate)
         self.applet.set_applet_flags (gnomeapplet.EXPAND_MINOR)
-        self.applet.set_background_widget(self)
+        self.applet.set_background_widget(self.applet)
         
         self.tray = gtk.EventBox()
         self.tray.set_visible_window(False)
