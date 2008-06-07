@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-06 17:57+0200\n"
-"PO-Revision-Date: 2008-05-06 17:58+0200\n"
+"POT-Creation-Date: 2008-06-07 18:53+0200\n"
+"PO-Revision-Date: 2008-06-07 18:54+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -281,7 +281,7 @@ msgstr "Bruk alle tilgjengelige søkemotorer"
 msgid "Show only the primary search engine"
 msgstr "Bare vis primær søkemotor"
 
-#: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:315
+#: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:326
 #, python-format
 msgid "Open History Item %s"
 msgstr "Åpne historikkoppføring %s"
@@ -391,86 +391,81 @@ msgstr "Kan ikke vise URL:"
 msgid "Deskbar Applet"
 msgstr "Deskbar panelprogram"
 
-#: ../deskbar/handlers/beagle-live.py:244
+#: ../deskbar/handlers/beagle-live.py:248
 #, python-format
 msgid "Edit contact %s"
 msgstr "Rediger kontakt %s"
 
-#: ../deskbar/handlers/beagle-live.py:274
+#: ../deskbar/handlers/beagle-live.py:289
 #, python-format
 msgid "Note: %s"
 msgstr "Notat: %s"
 
-#: ../deskbar/handlers/beagle-live.py:286
+#: ../deskbar/handlers/beagle-live.py:301
 #, python-format
 msgid "With %s"
 msgstr "Med %s"
 
-#: ../deskbar/handlers/beagle-live.py:300
+#: ../deskbar/handlers/beagle-live.py:315
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalender: %s"
 
-#: ../deskbar/handlers/beagle-live.py:313
-#, python-format
-msgid "Open History Item %s (%s)"
-msgstr "Åpne historikkoppføring %s (%s)"
-
 #. translators: in this case the file (2nd) is part of an archive (1st)
 #. e.g. README is part of deskbar-applet.tar.gz
-#: ../deskbar/handlers/beagle-live.py:342
+#: ../deskbar/handlers/beagle-live.py:352
 #, python-format
 msgid "Open %s containing %s"
 msgstr "Åpne %s som inneholder %s"
 
-#: ../deskbar/handlers/beagle-live.py:344
-#: ../deskbar/handlers/actions/OpenFileAction.py:51
-#: ../deskbar/handlers/actions/ShowUrlAction.py:24
+#: ../deskbar/handlers/beagle-live.py:354
+#: ../deskbar/handlers/actions/OpenFileAction.py:55
+#: ../deskbar/handlers/actions/ShowUrlAction.py:25
 #, python-format
 msgid "Open %s"
 msgstr "Åpne %s"
 
-#: ../deskbar/handlers/beagle-live.py:375
+#: ../deskbar/handlers/beagle-live.py:385
 #, python-format
 msgid "Additional results for category <b>%s</b>"
 msgstr "Flere resultater for kategori <b>%s</b>"
 
-#: ../deskbar/handlers/beagle-live.py:375
+#: ../deskbar/handlers/beagle-live.py:385
 #: ../deskbar/ui/cuemiac/CuemiacItems.py:19
 msgid "name"
 msgstr "navn"
 
-#: ../deskbar/handlers/beagle-live.py:405
-#: ../deskbar/handlers/beagle-live.py:408
+#: ../deskbar/handlers/beagle-live.py:422
+#: ../deskbar/handlers/beagle-live.py:425
 #, python-format
 msgid "From <i>%s</i>"
 msgstr "Fra <i>%s</i>"
 
-#: ../deskbar/handlers/beagle-live.py:467
+#: ../deskbar/handlers/beagle-live.py:484
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:468
+#: ../deskbar/handlers/beagle-live.py:485
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Søk gjennom alle dine dokumenter med Beagle mens du skriver"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:713
 #: ../deskbar/handlers/beagle-live.py:730
+#: ../deskbar/handlers/beagle-live.py:747
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:764
+#: ../deskbar/handlers/beagle-live.py:781
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Kunne ikke laste beagle, libbeagle er kompilert uten python-bindinger."
 
-#: ../deskbar/handlers/beagle-live.py:770
+#: ../deskbar/handlers/beagle-live.py:787
 msgid "Beagle daemon is not running."
 msgstr "Beagle-tjenesten kjører ikke."
 
-#: ../deskbar/handlers/beagle-live.py:773
+#: ../deskbar/handlers/beagle-live.py:790
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagled ble ikke funnet i $PATH."
 
@@ -715,7 +710,9 @@ msgstr "Google kodesøk"
 
 #: ../deskbar/handlers/googlecodesearch.py:29
 msgid "Search public source code for function definitions and sample code"
-msgstr "Søk etter funksjonsdefinisjoner og eksempelkode i fritt tilgjengelig kildekode"
+msgstr ""
+"Søk etter funksjonsdefinisjoner og eksempelkode i fritt tilgjengelig "
+"kildekode"
 
 #: ../deskbar/handlers/googlecodesearch.py:108
 #, python-format
@@ -946,7 +943,7 @@ msgstr "Søk i dine Tomboy notater"
 msgid "Tomboy does not seem to be installed."
 msgstr "Tomboy ser ikke ut til å være installert."
 
-#: ../deskbar/handlers/tomboy.py:268
+#: ../deskbar/handlers/tomboy.py:273
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -958,6 +955,117 @@ msgstr ""
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Åpne nettsider og send e-post ved å skrive inn en fullstendig adresse"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:23
+#: ../deskbar/handlers/yahoo.py:343
+msgid "English"
+msgstr "Engelsk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:24
+#: ../deskbar/handlers/yahoo.py:347
+msgid "German"
+msgstr "Tysk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:25
+#: ../deskbar/handlers/yahoo.py:346
+msgid "French"
+msgstr "Fransk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:26
+#: ../deskbar/handlers/yahoo.py:360
+msgid "Polish"
+msgstr "Polsk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:27
+#: ../deskbar/handlers/yahoo.py:354
+msgid "Japanese"
+msgstr "Japansk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:28
+#: ../deskbar/handlers/yahoo.py:353
+msgid "Italian"
+msgstr "Italiensk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:29
+#: ../deskbar/handlers/yahoo.py:342
+msgid "Dutch"
+msgstr "Nederlandsk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:30
+#: ../deskbar/handlers/yahoo.py:361
+msgid "Portuguese"
+msgstr "Portugisisk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:31
+#: ../deskbar/handlers/yahoo.py:367
+msgid "Spanish"
+msgstr "Spansk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:32
+#: ../deskbar/handlers/yahoo.py:363
+msgid "Russian"
+msgstr "Russisk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:33
+#: ../deskbar/handlers/yahoo.py:368
+msgid "Swedish"
+msgstr "Svensk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:34
+msgid "Chinese"
+msgstr "Kinesisk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:35
+#: ../deskbar/handlers/yahoo.py:358
+msgid "Norwegian"
+msgstr "Norsk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:36
+#: ../deskbar/handlers/yahoo.py:345
+msgid "Finnish"
+msgstr "Finsk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:37
+#: ../deskbar/handlers/yahoo.py:336
+msgid "Catalan"
+msgstr "Katalansk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:38
+msgid "Ukrainian"
+msgstr "Ukrainsk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:39
+#: ../deskbar/handlers/yahoo.py:362
+msgid "Romanian"
+msgstr "Rumensk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:40
+#: ../deskbar/handlers/yahoo.py:370
+msgid "Turkish"
+msgstr "Tyrkisk"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:49
+#, python-format
+msgid "Open article <i>%(name)s</i> in <b>Wikipedia</b>"
+msgstr "Åpne artikkel <i>%(name)s</i> i <b>Wikipedia</b>"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:64
+msgid "Wikipedia Suggest"
+msgstr "Wikipedia-forslag"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:65
+msgid "As you type, Wikipedia will offer suggestions."
+msgstr "Wikipedia vil foreslå artikler etter hvert som du skriver."
+
+#: ../deskbar/handlers/wikipedia-suggest.py:118
+msgid "Wikipedia Suggest settings"
+msgstr "Innstillinger for Wikipedia-forslag"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:125
+msgid ""
+"Choose the language you want to use or enter the code of your language "
+"manually"
+msgstr "Velg språket du ønsker å bruke eller oppgi språkkode for ditt språk manuelt."
 
 #: ../deskbar/handlers/yahoo.py:51
 msgid "Yahoo! Search"
@@ -992,10 +1100,6 @@ msgstr "Arabisk"
 msgid "Bulgarian"
 msgstr "Bulgarsk"
 
-#: ../deskbar/handlers/yahoo.py:336
-msgid "Catalan"
-msgstr "Katalansk"
-
 #: ../deskbar/handlers/yahoo.py:337
 msgid "Chinese simplified"
 msgstr "Forenklet Kinesisk"
@@ -1016,29 +1120,9 @@ msgstr "Tsjekkisk"
 msgid "Danish"
 msgstr "Dansk"
 
-#: ../deskbar/handlers/yahoo.py:342
-msgid "Dutch"
-msgstr "Nederlandsk"
-
-#: ../deskbar/handlers/yahoo.py:343
-msgid "English"
-msgstr "Engelsk"
-
 #: ../deskbar/handlers/yahoo.py:344
 msgid "Estonian"
 msgstr "Estisk"
-
-#: ../deskbar/handlers/yahoo.py:345
-msgid "Finnish"
-msgstr "Finsk"
-
-#: ../deskbar/handlers/yahoo.py:346
-msgid "French"
-msgstr "Fransk"
-
-#: ../deskbar/handlers/yahoo.py:347
-msgid "German"
-msgstr "Tysk"
 
 #: ../deskbar/handlers/yahoo.py:348
 msgid "Greek"
@@ -1060,14 +1144,6 @@ msgstr "Islandsk"
 msgid "Indonesian"
 msgstr "Indonesisk"
 
-#: ../deskbar/handlers/yahoo.py:353
-msgid "Italian"
-msgstr "Italiensk"
-
-#: ../deskbar/handlers/yahoo.py:354
-msgid "Japanese"
-msgstr "Japansk"
-
 #: ../deskbar/handlers/yahoo.py:355
 msgid "Korean"
 msgstr "Koreansk"
@@ -1080,29 +1156,9 @@ msgstr "Latvisk"
 msgid "Lithuanian"
 msgstr "Litauisk"
 
-#: ../deskbar/handlers/yahoo.py:358
-msgid "Norwegian"
-msgstr "Norsk"
-
 #: ../deskbar/handlers/yahoo.py:359
 msgid "Persian"
 msgstr "Persisk"
-
-#: ../deskbar/handlers/yahoo.py:360
-msgid "Polish"
-msgstr "Polsk"
-
-#: ../deskbar/handlers/yahoo.py:361
-msgid "Portuguese"
-msgstr "Portugisisk"
-
-#: ../deskbar/handlers/yahoo.py:362
-msgid "Romanian"
-msgstr "Rumensk"
-
-#: ../deskbar/handlers/yahoo.py:363
-msgid "Russian"
-msgstr "Russisk"
 
 #: ../deskbar/handlers/yahoo.py:364
 msgid "Slovak"
@@ -1116,21 +1172,9 @@ msgstr "Serbisk"
 msgid "Slovenian"
 msgstr "Slovensk"
 
-#: ../deskbar/handlers/yahoo.py:367
-msgid "Spanish"
-msgstr "Spansk"
-
-#: ../deskbar/handlers/yahoo.py:368
-msgid "Swedish"
-msgstr "Svensk"
-
 #: ../deskbar/handlers/yahoo.py:369
 msgid "Thai"
 msgstr "Thai"
-
-#: ../deskbar/handlers/yahoo.py:370
-msgid "Turkish"
-msgstr "Tyrkisk"
 
 #: ../deskbar/handlers/yahoo.py:374
 msgid "Configure Yahoo!"
@@ -1228,7 +1272,7 @@ msgstr "_Historikk"
 msgid "Back to Matches"
 msgstr "Tilbake til treff"
 
-#: ../deskbar/ui/DeskbarApplet.py:29 ../deskbar/ui/DeskbarStatusIcon.py:66
+#: ../deskbar/ui/DeskbarApplet.py:28 ../deskbar/ui/DeskbarStatusIcon.py:66
 msgid "Show search entry"
 msgstr "Vis søkeoppføring"
 
@@ -1267,47 +1311,43 @@ msgstr ""
 "\n"
 "Vennligst prøv med f.eks. Control, Alt eller Shift i tillegg.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:88
-msgid "Reload all extensions"
-msgstr "Last alle utvidelser på nytt"
-
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:93
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:92
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Dra-og-slipp-utvidelser for å endre rekkefølgen.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:156
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:155
 msgid "All Extensions"
 msgstr "Alle utvidelser"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:216
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:215
 msgid "A problem occured"
 msgstr "Et problem oppsto"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:224
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:223
 msgid "Extension has been installed successfully"
 msgstr "Installering av utvidelse er fullført"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:520
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:519
 msgid "Retrieving the extension index"
 msgstr "Henter indeks for utvidelse"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:522
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:521
 msgid "Downloading extension"
 msgstr "Laster ned utvidelse"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:524
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:523
 msgid "Extracting archive"
 msgstr "Henter ut arkiv"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:531
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:530
 msgid "Installing extension"
 msgstr "Installerer utvidelse"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:532
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:531
 msgid "The extension will be downloaded and installed."
 msgstr "Utvidelsen vil bli lastet ned og installert."
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:574
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:573
 msgid "Extension could not be installed due a problem with the provided file"
 msgstr "Utvidelse kunne ikke installeres pga et problem med oppgitt fil"
 
