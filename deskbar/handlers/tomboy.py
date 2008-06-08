@@ -159,6 +159,9 @@ class TomboyNotesModule (deskbar.interfaces.Module):
     
     def initialize(self):
         TomboyNotesModule.tomboy = get_tomboy_connection()
+         
+    def stop(self):
+        TomboyNotesModule.tomboy = None
     
     # This is so when Tomboy is disabled, history items won't try to connect
     # Otherwise, we get big DBus errors
