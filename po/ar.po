@@ -1,4 +1,4 @@
-# translation of deskbar-applet.HEAD.ar.po to Arabic
+# translation of deskbar-applet.HEAD.po to Arabic
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -6,11 +6,11 @@
 # Khaled Hosny <khaledhosny@eglug.org>, 2006, 2007, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet.HEAD.ar\n"
+"Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-19 01:48+0100\n"
-"PO-Revision-Date: 2008-02-17 11:50+0100\n"
-"Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
+"POT-Creation-Date: 2008-06-11 22:23+0100\n"
+"PO-Revision-Date: 2008-05-26 15:20+0300\n"
+"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,7 +160,7 @@ msgstr "_عنْ"
 
 #: ../data/Deskbar_Applet.xml.h:2
 msgid "_Clear History"
-msgstr "ام_سح التاريخ"
+msgstr "ام_سح التأريخ"
 
 #: ../data/Deskbar_Applet.xml.h:3
 msgid "_Help"
@@ -176,7 +176,7 @@ msgstr "شريط إجراءات الكل في واحد"
 
 #: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:27
 msgid "Deskbar"
-msgstr "شريط مكتب"
+msgstr "شريط المكتب"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Available Extensions</b>"
@@ -203,9 +203,8 @@ msgid "Deskbar Preferences"
 msgstr "تفضيلات شريط المكتب"
 
 #: ../data/prefs-dialog.glade.h:7
-#, fuzzy
 msgid "Display extensions with tag:"
-msgstr "الامتدادات ذات الأخطاء"
+msgstr "الامتدادات ذات الوسم:"
 
 #: ../data/prefs-dialog.glade.h:8
 msgid "Extensions with Errors"
@@ -221,7 +220,7 @@ msgstr "امتدادات جديدة"
 
 #: ../data/prefs-dialog.glade.h:11
 msgid "Search selection when triggering the shortcut"
-msgstr "ابحث عن المحدد عند استخدام الاختصار"
+msgstr "ابحث عن التحديد عند استخدام الاختصار"
 
 #: ../data/prefs-dialog.glade.h:12
 msgid "Searches"
@@ -291,7 +290,7 @@ msgstr "أظهر محرك البحث الأولي فقط"
 #: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:326
 #, python-format
 msgid "Open History Item %s"
-msgstr "افتح عنصر التاريخ %s"
+msgstr "افتح عنصر التأريخ %s"
 
 #: ../deskbar/core/BrowserMatch.py:69
 #, python-format
@@ -307,11 +306,11 @@ msgstr "ابحث في<b>%(name)s</b> عن <i>%(text)s</i>"
 #: ../deskbar/core/BrowserMatch.py:111
 #: ../deskbar/handlers/googlecodesearch.py:97 ../deskbar/handlers/yahoo.py:43
 msgid "URL"
-msgstr "مسار"
+msgstr "المسار"
 
 #: ../deskbar/core/BrowserMatch.py:246
 msgid "Shortcut"
-msgstr "اختصار"
+msgstr "الاختصار"
 
 #: ../deskbar/core/BrowserMatch.py:254
 msgid "Bookmark Name"
@@ -323,7 +322,7 @@ msgstr "غير مصنف"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
 msgid "History"
-msgstr "تاريخ"
+msgstr "تأريخ"
 
 #: ../deskbar/core/Categories.py:17
 msgid "Documents"
@@ -331,7 +330,7 @@ msgstr "مستندات"
 
 #: ../deskbar/core/Categories.py:21
 msgid "Emails"
-msgstr "بريد إلكتروني"
+msgstr "بريد"
 
 #: ../deskbar/core/Categories.py:25
 msgid "Conversations"
@@ -371,15 +370,15 @@ msgstr "ملاحظات"
 
 #: ../deskbar/core/Categories.py:61
 msgid "Audio"
-msgstr ""
+msgstr "صوت"
 
 #: ../deskbar/core/Categories.py:65
 msgid "Video"
-msgstr ""
+msgstr "فيديو"
 
 #: ../deskbar/core/Categories.py:69
 msgid "Images"
-msgstr ""
+msgstr "صور"
 
 #: ../deskbar/core/DeskbarHistory.py:23
 msgid "<i>Choose action</i>"
@@ -416,18 +415,18 @@ msgstr "مع %s"
 #: ../deskbar/handlers/beagle-live.py:315
 #, python-format
 msgid "Calendar: %s"
-msgstr "تقويم: %s"
+msgstr "التقويم: %s"
 
 #. translators: in this case the file (2nd) is part of an archive (1st)
 #. e.g. README is part of deskbar-applet.tar.gz
 #: ../deskbar/handlers/beagle-live.py:352
-#, fuzzy, python-format
+#, python-format
 msgid "Open %s containing %s"
-msgstr "افتح مكان %s"
+msgstr "افتح %s المحتوي %s"
 
 #: ../deskbar/handlers/beagle-live.py:354
 #: ../deskbar/handlers/actions/OpenFileAction.py:55
-#: ../deskbar/handlers/actions/ShowUrlAction.py:24
+#: ../deskbar/handlers/actions/ShowUrlAction.py:25
 #, python-format
 msgid "Open %s"
 msgstr "افتح %s"
@@ -444,17 +443,17 @@ msgstr "الاسم"
 
 #: ../deskbar/handlers/beagle-live.py:422
 #: ../deskbar/handlers/beagle-live.py:425
-#, fuzzy, python-format
+#, python-format
 msgid "From <i>%s</i>"
-msgstr "مِن %s"
+msgstr "مِن <i>%s</i>"
 
 #: ../deskbar/handlers/beagle-live.py:484
 msgid "Beagle Live"
-msgstr "بيغل لايف"
+msgstr "بيجل لايف"
 
 #: ../deskbar/handlers/beagle-live.py:485
 msgid "Search all of your documents (using Beagle), as you type"
-msgstr "ابحث في كل مستنداتك (باستعمال بيغل)، وأنت تكتب"
+msgstr "ابحث في كل مستنداتك (باستعمال بيجل)، وأنت تكتب"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
@@ -466,32 +465,32 @@ msgstr "؟"
 #: ../deskbar/handlers/beagle-live.py:781
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
-msgstr "تعذر تحميل بيغل، صُرِّفت المكتبة libbeagle دون ارتباطات بيثون."
+msgstr "تعذر تحميل بيجل، صُرِّفت المكتبة libbeagle دون ارتباطات بيثون."
 
 #: ../deskbar/handlers/beagle-live.py:787
 msgid "Beagle daemon is not running."
-msgstr ""
+msgstr "جني بيجل لا يعمل."
 
 #: ../deskbar/handlers/beagle-live.py:790
 msgid "Beagled could not be found in your $PATH."
-msgstr "تعذر العثور على الرقيب beagled في مسارك ‪$PATH‬."
+msgstr "تعذر العثور على الجني beagled في مسارك ‪$PATH‬."
 
 #: ../deskbar/handlers/beagle-static.py:22
 #, python-format
 msgid "Search for %s using Beagle"
-msgstr "ابحث عن %s في بيغل"
+msgstr "ابحث عن %s في بيجل"
 
 #: ../deskbar/handlers/beagle-static.py:38
 msgid "Beagle"
-msgstr "بيغل"
+msgstr "بيجل"
 
 #: ../deskbar/handlers/beagle-static.py:39
 msgid "Search all of your documents (using Beagle)"
-msgstr "ابحث في كل مستنداتك (باستعمال بيغل)"
+msgstr "ابحث في كل مستنداتك (باستعمال بيجل)"
 
 #: ../deskbar/handlers/beagle-static.py:55
 msgid "Beagle does not seem to be installed."
-msgstr "لا يبدو أن بيغل مثبَّت."
+msgstr "لا يبدو أن بيجل مثبَّت."
 
 #: ../deskbar/handlers/desklicious.py:52
 msgid "del.icio.us Bookmarks"
@@ -548,17 +547,17 @@ msgstr "يمكنك إعداد اختصارات لبحوثك."
 
 #: ../deskbar/handlers/epiphany.py:136
 msgid "Web History (Epiphany)"
-msgstr "تاريخ الوب (إبفني)"
+msgstr "تأريخ الوب (إبفني)"
 
 #: ../deskbar/handlers/epiphany.py:137 ../deskbar/handlers/mozilla.py:792
 msgid "Open your web history by name"
-msgstr "افتح تاريخ الوب حسب الاسم"
+msgstr "افتح تأريخ الوب حسب الاسم"
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/evolution.py:32
 #, python-format
 msgid "Edit contact <b>%(name)s</b> (%(email)s)"
-msgstr "حرّر المُراسَل <b>%(name)s</b> (%(email)s)"
+msgstr "حرّر المُراسَل <b>%(name)s</b> ‏(%(email)s)"
 
 #: ../deskbar/handlers/evolution.py:47
 msgid "Mail (Address Book)"
@@ -585,7 +584,7 @@ msgstr ""
 #: ../deskbar/handlers/files.py:64
 #: ../deskbar/handlers/actions/ActionsFactory.py:35
 msgid "Location"
-msgstr "المكان"
+msgstr "مكان"
 
 #: ../deskbar/handlers/files.py:72
 msgid "Files, Folders and Places"
@@ -593,11 +592,11 @@ msgstr "ملفات ومجلدات وأماكن"
 
 #: ../deskbar/handlers/files.py:73
 msgid "View your files, folders, bookmarks, drives, network places by name"
-msgstr "اعرض ملفاتك ومجلداتك وعلامات مواقعك وأماكن الشبكة حسب الاسم"
+msgstr "اعرض ملفاتك ومجلداتك وعلاماتك وأماكن الشبكة حسب الاسم"
 
 #: ../deskbar/handlers/gdmactions.py:30
 msgid "Shut down this system now?"
-msgstr "غلق النظام الآن؟"
+msgstr "أأطفئ النظام الآن؟"
 
 #: ../deskbar/handlers/gdmactions.py:31
 #, python-format
@@ -625,7 +624,7 @@ msgstr "اخرج"
 
 #: ../deskbar/handlers/gdmactions.py:38
 msgid "Restart this system now?"
-msgstr "أأعيد النشغيل الآن؟"
+msgstr "أأعيد التشغيل الآن؟"
 
 #: ../deskbar/handlers/gdmactions.py:39
 #, python-format
@@ -709,23 +708,22 @@ msgid "Shutdown"
 msgstr "أطفئ"
 
 #: ../deskbar/handlers/googlecodesearch.py:28
-#, fuzzy
 msgid "Google Code Search"
-msgstr "بحث عن الملفات والمجلدات"
+msgstr "بحث كود جوجل"
 
 #: ../deskbar/handlers/googlecodesearch.py:29
 msgid "Search public source code for function definitions and sample code"
-msgstr ""
+msgstr "ابحث في الأكواد المصدرية العمومية بحثا عن تعريفات الدوال ونماذج الكود"
 
 #: ../deskbar/handlers/googlecodesearch.py:108
-#, fuzzy, python-format
+#, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
-msgstr "افتح <b>%(name)s</b> باستعمال <b>%(program)s</b>"
+msgstr "طالع <b>%(name)s</b> في <b>بحث كود جوجل</b>"
 
 #: ../deskbar/handlers/googlecodesearch.py:116
-#, fuzzy, python-format
+#, python-format
 msgid "Open package <i>%(name)s</i>"
-msgstr "افتح الملحوظة <b>%(name)s</b>"
+msgstr "افتح الحزمة <b>%(name)s</b>"
 
 #: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
@@ -734,7 +732,7 @@ msgstr "تعرّف على البحوث المستعملة سابقا"
 #: ../deskbar/handlers/iswitch-window.py:21
 #, python-format
 msgid "Switch to <b>%(name)s</b>"
-msgstr "بدّل إلى <b>%(name)s</b>"
+msgstr "انتقل إلى <b>%(name)s</b>"
 
 #: ../deskbar/handlers/iswitch-window.py:52
 msgid "Window Switcher"
@@ -742,7 +740,7 @@ msgstr "مبدل النافذة"
 
 #: ../deskbar/handlers/iswitch-window.py:53
 msgid "Switch to an existing window by name."
-msgstr "تحوّل إلى نافذة موجودة مسبقة باستخدام الاسم."
+msgstr "تحوّل إلى نافذة موجودة مسبقا باستخدام الاسم."
 
 #: ../deskbar/handlers/iswitch-window.py:56
 msgid "Windows"
@@ -756,12 +754,12 @@ msgstr "علامات الوب (موزيلا)"
 #: ../deskbar/handlers/mozilla.py:837
 #, python-format
 msgid "Firefox version must be between %s and %s"
-msgstr ""
+msgstr "يجب أن تكون إصدارة فيرفكس بين %s و %s"
 
 #: ../deskbar/handlers/mozilla.py:222 ../deskbar/handlers/mozilla.py:310
 #: ../deskbar/handlers/mozilla.py:840
 msgid "Mozilla/Firefox is not your preferred browser."
-msgstr "موزيلا/فايرفوكس ليس متصفحك المفضل."
+msgstr "موزيلا/فيرفكس ليس متصفحك المفضل."
 
 #: ../deskbar/handlers/mozilla.py:236
 msgid "Web Searches (Mozilla)"
@@ -774,7 +772,7 @@ msgstr "يمكنك تخصيص محركات البحث المتوفرة."
 
 #: ../deskbar/handlers/mozilla.py:791
 msgid "Web History (Mozilla)"
-msgstr "تاريخ الوب (موزيلا)"
+msgstr "تأريخ الوب (موزيلا)"
 
 #: ../deskbar/handlers/programs.py:84
 #, python-format
@@ -926,11 +924,11 @@ msgstr "أنشئ الملحوظة <b>%(name)s</b>"
 
 #: ../deskbar/handlers/tomboy.py:130
 msgid "Title"
-msgstr "عنوان"
+msgstr "العنوان"
 
 #: ../deskbar/handlers/tomboy.py:131
 msgid "Contents"
-msgstr "محتوى"
+msgstr "المحتوى"
 
 #: ../deskbar/handlers/tomboy.py:150
 msgid "Tomboy Notes"
@@ -938,13 +936,13 @@ msgstr "ملاحظات توم بوي"
 
 #: ../deskbar/handlers/tomboy.py:151
 msgid "Search your Tomboy notes"
-msgstr "ابحث في ملاحظات تو بوي"
+msgstr "ابحث في ملاحظات توم بوي"
 
-#: ../deskbar/handlers/tomboy.py:235
+#: ../deskbar/handlers/tomboy.py:238
 msgid "Tomboy does not seem to be installed."
 msgstr "لا يبدو أن توم بوي مثبَّت."
 
-#: ../deskbar/handlers/tomboy.py:268
+#: ../deskbar/handlers/tomboy.py:276
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -957,6 +955,117 @@ msgstr ""
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "افتح صفحات وب وأرسل بريد إلكتروني بكتابة العنوان كاملا"
 
+#: ../deskbar/handlers/wikipedia-suggest.py:23
+#: ../deskbar/handlers/yahoo.py:343
+msgid "English"
+msgstr "إنجليزي"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:24
+#: ../deskbar/handlers/yahoo.py:347
+msgid "German"
+msgstr "ألماني"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:25
+#: ../deskbar/handlers/yahoo.py:346
+msgid "French"
+msgstr "فرنسي"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:26
+#: ../deskbar/handlers/yahoo.py:360
+msgid "Polish"
+msgstr "بولندي"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:27
+#: ../deskbar/handlers/yahoo.py:354
+msgid "Japanese"
+msgstr "ياباني"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:28
+#: ../deskbar/handlers/yahoo.py:353
+msgid "Italian"
+msgstr "إيطالي"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:29
+#: ../deskbar/handlers/yahoo.py:342
+msgid "Dutch"
+msgstr "هولندي"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:30
+#: ../deskbar/handlers/yahoo.py:361
+msgid "Portuguese"
+msgstr "برتغالي"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:31
+#: ../deskbar/handlers/yahoo.py:367
+msgid "Spanish"
+msgstr "أسباني"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:32
+#: ../deskbar/handlers/yahoo.py:363
+msgid "Russian"
+msgstr "روسي"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:33
+#: ../deskbar/handlers/yahoo.py:368
+msgid "Swedish"
+msgstr "سويدي"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:34
+msgid "Chinese"
+msgstr ""
+
+#: ../deskbar/handlers/wikipedia-suggest.py:35
+#: ../deskbar/handlers/yahoo.py:358
+msgid "Norwegian"
+msgstr "نوريجي"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:36
+#: ../deskbar/handlers/yahoo.py:345
+msgid "Finnish"
+msgstr "فنلندي"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:37
+#: ../deskbar/handlers/yahoo.py:336
+msgid "Catalan"
+msgstr "كاتالان"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:38
+msgid "Ukrainian"
+msgstr ""
+
+#: ../deskbar/handlers/wikipedia-suggest.py:39
+#: ../deskbar/handlers/yahoo.py:362
+msgid "Romanian"
+msgstr "روماني"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:40
+#: ../deskbar/handlers/yahoo.py:370
+msgid "Turkish"
+msgstr "تركي"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:49
+#, fuzzy, python-format
+msgid "Open article <i>%(name)s</i> in <b>Wikipedia</b>"
+msgstr "افتح <b>%(name)s</b> باستعمال <b>%(program)s</b>"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:64
+msgid "Wikipedia Suggest"
+msgstr ""
+
+#: ../deskbar/handlers/wikipedia-suggest.py:65
+msgid "As you type, Wikipedia will offer suggestions."
+msgstr ""
+
+#: ../deskbar/handlers/wikipedia-suggest.py:118
+msgid "Wikipedia Suggest settings"
+msgstr ""
+
+#: ../deskbar/handlers/wikipedia-suggest.py:125
+msgid ""
+"Choose the language you want to use or enter the code of your language "
+"manually"
+msgstr ""
+
 #: ../deskbar/handlers/yahoo.py:51
 msgid "Yahoo! Search"
 msgstr "بحث ياهو!"
@@ -967,181 +1076,112 @@ msgstr "ابحث في ياهو! وأنت تكتب"
 
 #: ../deskbar/handlers/yahoo.py:54
 msgid "You can configure in which language the results should be."
-msgstr ""
+msgstr "يمكنك تحديد لغة نتائج البحث."
 
 #: ../deskbar/handlers/yahoo.py:232
-#, fuzzy, python-format
+#, python-format
 msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
-msgstr "ابحث في<b>%(name)s</b> عن <i>%(text)s</i>"
+msgstr "ابحث في<b>ياهو!</b> عن <i>%(name)s</i>"
 
 #: ../deskbar/handlers/yahoo.py:250
 msgid "Yahoo! Suggestions"
-msgstr ""
+msgstr "اقتراحات ياهو!"
 
 #: ../deskbar/handlers/yahoo.py:251
 msgid "Provides suggestions for queries related to the submitted query"
-msgstr ""
+msgstr "يوفر اقتراحات للاستعلامات المتعلقة بالاستعلام المُرسل"
 
 #: ../deskbar/handlers/yahoo.py:334
 msgid "Arabic"
-msgstr ""
+msgstr "عربي"
 
 #: ../deskbar/handlers/yahoo.py:335
 msgid "Bulgarian"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:336
-msgid "Catalan"
-msgstr ""
+msgstr "بلغاري"
 
 #: ../deskbar/handlers/yahoo.py:337
 msgid "Chinese simplified"
-msgstr ""
+msgstr "صيني مبسط"
 
 #: ../deskbar/handlers/yahoo.py:338
 msgid "Chinese traditional"
-msgstr ""
+msgstr "صيني تقليدي"
 
 #: ../deskbar/handlers/yahoo.py:339
-#, fuzzy
 msgid "Croatian"
-msgstr "المكان"
+msgstr "كرواتي"
 
 #: ../deskbar/handlers/yahoo.py:340
 msgid "Czech"
-msgstr ""
+msgstr "تشيكي"
 
 #: ../deskbar/handlers/yahoo.py:341
-#, fuzzy
 msgid "Danish"
-msgstr "تفاصيل"
-
-#: ../deskbar/handlers/yahoo.py:342
-msgid "Dutch"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:343
-msgid "English"
-msgstr ""
+msgstr "دانماركي"
 
 #: ../deskbar/handlers/yahoo.py:344
 msgid "Estonian"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:345
-msgid "Finnish"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:346
-msgid "French"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:347
-#, fuzzy
-msgid "German"
-msgstr "عام"
+msgstr "إستوني"
 
 #: ../deskbar/handlers/yahoo.py:348
 msgid "Greek"
-msgstr ""
+msgstr "يوناني"
 
 #: ../deskbar/handlers/yahoo.py:349
 msgid "Hebrew"
-msgstr ""
+msgstr "عبري"
 
 #: ../deskbar/handlers/yahoo.py:350
 msgid "Hungarian"
-msgstr ""
+msgstr "مجري"
 
 #: ../deskbar/handlers/yahoo.py:351
 msgid "Icelandic"
-msgstr ""
+msgstr "أيسلاندي"
 
 #: ../deskbar/handlers/yahoo.py:352
 msgid "Indonesian"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:353
-msgid "Italian"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:354
-msgid "Japanese"
-msgstr ""
+msgstr "إندونيسي"
 
 #: ../deskbar/handlers/yahoo.py:355
 msgid "Korean"
-msgstr ""
+msgstr "كوري"
 
 #: ../deskbar/handlers/yahoo.py:356
-#, fuzzy
 msgid "Latvian"
-msgstr "المكان"
+msgstr "لاتڤي"
 
 #: ../deskbar/handlers/yahoo.py:357
 msgid "Lithuanian"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:358
-msgid "Norwegian"
-msgstr ""
+msgstr "لتواني"
 
 #: ../deskbar/handlers/yahoo.py:359
-#, fuzzy
 msgid "Persian"
-msgstr "الإصدارة:"
-
-#: ../deskbar/handlers/yahoo.py:360
-msgid "Polish"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:361
-msgid "Portuguese"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:362
-msgid "Romanian"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:363
-msgid "Russian"
-msgstr ""
+msgstr "فارسي"
 
 #: ../deskbar/handlers/yahoo.py:364
 msgid "Slovak"
-msgstr ""
+msgstr "سلوڤاكي"
 
 #: ../deskbar/handlers/yahoo.py:365
 msgid "Serbian"
-msgstr ""
+msgstr "صربي"
 
 #: ../deskbar/handlers/yahoo.py:366
 msgid "Slovenian"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:367
-msgid "Spanish"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:368
-msgid "Swedish"
-msgstr ""
+msgstr "سلوڤيني"
 
 #: ../deskbar/handlers/yahoo.py:369
 msgid "Thai"
-msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:370
-msgid "Turkish"
-msgstr ""
+msgstr "تايلندي"
 
 #: ../deskbar/handlers/yahoo.py:374
 msgid "Configure Yahoo!"
-msgstr ""
+msgstr "اضبط ياهو!"
 
 #: ../deskbar/handlers/yahoo.py:384
 msgid "<b>Choose the language the results should be in:</b>"
-msgstr ""
+msgstr "<b>اختر لغة النتائج:</b>"
 
 #: ../deskbar/handlers/actions/ActionsFactory.py:70
 #, python-format
@@ -1173,17 +1213,17 @@ msgstr "افتح <b>%(name)s</b> باستعمال <b>%(program)s</b>"
 #: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
 #, python-format
 msgid "Open network place %s"
-msgstr "افتح مكان شبكة %s"
+msgstr "افتح مكان الشبكة %s"
 
 #: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
 #, python-format
 msgid "Open audio disc %s"
-msgstr "افتح قرص صوتي %s"
+msgstr "افتح القرص الصوتي %s"
 
 #: ../deskbar/handlers/actions/OpenWithNautilusAction.py:32
 #, python-format
 msgid "Open location %s"
-msgstr "افتح مكان %s"
+msgstr "افتح المكان %s"
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/actions/SendEmailToAction.py:24
@@ -1199,7 +1239,7 @@ msgstr "أرسل %s عبر البريد"
 
 #: ../deskbar/ui/About.py:23
 msgid "An all-in-one action bar."
-msgstr "شريط إجراءات كل في واحد."
+msgstr "شريط إجراءات الكل في واحد."
 
 #: ../deskbar/ui/About.py:30
 msgid "Deskbar Website"
@@ -1224,12 +1264,12 @@ msgstr "مبدئي"
 
 #: ../deskbar/ui/cuemiac/CuemiacTreeView.py:250
 msgid "Display additional actions"
-msgstr ""
+msgstr "اعرض الإجراءات الإضافية"
 
 #. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
 #: ../deskbar/ui/AbstractCuemiacView.py:107
 msgid "_History"
-msgstr "ال_تاريخ"
+msgstr "ال_تأريخ"
 
 #: ../deskbar/ui/AbstractCuemiacView.py:178
 msgid "Back to Matches"
@@ -1240,32 +1280,28 @@ msgid "Show search entry"
 msgstr "أظهر مُدْخلة البحث"
 
 #: ../deskbar/ui/DeskbarStatusIcon.py:37
-#, fuzzy
 msgid "Clear History"
-msgstr "ام_سح التاريخ"
+msgstr "امسح التأريخ"
 
 #: ../deskbar/ui/DeskbarStatusIcon.py:41
-#, fuzzy
 msgid "Preferences"
-msgstr "ال_تفضيلات"
+msgstr "التفضيلات"
 
 #: ../deskbar/ui/DeskbarStatusIcon.py:45
-#, fuzzy
 msgid "Help"
-msgstr "_مساعدة"
+msgstr "مساعدة"
 
 #: ../deskbar/ui/DeskbarStatusIcon.py:49
-#, fuzzy
 msgid "About"
-msgstr "_عنْ"
+msgstr "عنْ"
 
 #: ../deskbar/ui/DeskbarStatusIcon.py:55
 msgid "Quit"
-msgstr ""
+msgstr "أغلق"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
-msgstr "مسرّع جديد..."
+msgstr "اختصار جديد..."
 
 #: ../deskbar/ui/preferences/AccelEntry.py:154
 #, python-format
@@ -1282,45 +1318,40 @@ msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>اسحب وأفلت امتدادا لتغيير ترتيبه.</small></i>"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:155
-#, fuzzy
 msgid "All Extensions"
-msgstr "امتدادات جديدة"
+msgstr "كل الامتدادات"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:215
 msgid "A problem occured"
 msgstr "حدثت مشكلة"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:223
-#, fuzzy
 msgid "Extension has been installed successfully"
-msgstr "ثُبِّت المعالج بنجاح"
+msgstr "ثُبِّت الامتداد بنجاح"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:519
 msgid "Retrieving the extension index"
-msgstr ""
+msgstr "يستقبل فهرس الامتداد"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:521
-#, fuzzy
 msgid "Downloading extension"
-msgstr "أعِد تحميل كل الامتدادات"
+msgstr "يُنزّل الامتداد"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:523
 msgid "Extracting archive"
-msgstr ""
+msgstr "يستخرج الأرشيف"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:530
-#, fuzzy
 msgid "Installing extension"
-msgstr "أعِد تحميل كل الامتدادات"
+msgstr "يثبّت الامتداد"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:531
 msgid "The extension will be downloaded and installed."
-msgstr ""
+msgstr "سيُنزّل الامتداد ويثبّت"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:573
-#, fuzzy
 msgid "Extension could not be installed due a problem with the provided file"
-msgstr "لا يمكن تثبيت المعالج بسبب مشكلة في الملف المُزَوّد"
+msgstr "لا يمكن تثبيت الامتداد بسبب مشكلة في الملف المُزَوّد"
 
 #: ../deskbar/ui/preferences/ErrorDialog.py:8
 msgid "Error"
@@ -1332,7 +1363,7 @@ msgstr "طالع الوصف فيما يلي لمزيد من التفاصيل."
 
 #: ../deskbar/ui/preferences/ErrorDialog.py:33
 msgid "Details"
-msgstr "تفاصيل"
+msgstr "التفاصيل"
 
 #: ../deskbar/ui/preferences/ModuleListView.py:54
 msgid "Version:"
@@ -1341,13 +1372,3 @@ msgstr "الإصدارة:"
 #: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "يوجد تحديث"
-
-#~ msgid "News from %s"
-#~ msgstr "أخبار مِن %s"
-
-#~ msgid ""
-#~ "Some potentially old modules that make use of an old Deskbar-Applet API "
-#~ "have been found. Remove these files for this warning to disappear.\n"
-#~ msgstr ""
-#~ "وجدت بعض الوحدات، ربما قديمة، تستعمل واجهة برمجية قديمة لبريمج شريط "
-#~ "المكتب.  أزل هذه الملفات ليختفي هذا الإنذار.\n"
