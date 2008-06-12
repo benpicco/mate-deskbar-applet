@@ -151,7 +151,7 @@ class DeskbarHistory (gtk.ListStore) :
         """
         save = []
         for timestamp, text, action in self:
-            if isinstance(action, ChooseFromHistoryAction):
+            if not isinstance(action, ChooseFromHistoryAction):
                 save.append((timestamp, text, action))
         
         try:
