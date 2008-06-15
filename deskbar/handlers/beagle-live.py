@@ -346,7 +346,7 @@ class OpenBeagleFileAction(OpenFileAction):
             return match.groups()[0]
         
     def get_verb(self):
-        if self._parent_file != None:
+        if hasattr(self, "_parent_file") and self._parent_file != None:
             # translators: in this case the file (2nd) is part of an archive (1st)
             # e.g. README is part of deskbar-applet.tar.gz
             return _("Open %s containing %s") % ("<b>%(parent)s</b>", "<b>%(name)s</b>")
@@ -355,7 +355,7 @@ class OpenBeagleFileAction(OpenFileAction):
         
     def get_name(self, text=None):
         names = OpenFileAction.get_name (self)
-        if self._parent_file != None:
+        if hasattr(self, "_parent_file") and self._parent_file != None:
             names["parent"] = self._parent_file
         return names 
         
