@@ -11,6 +11,7 @@ deskbar_handlersdir = $(libdir)/deskbar-applet/modules-2.20-compatible
 deskbar_handlers_PYTHON = \
 	beagle-static.py \
 	beagle-live.py \
+	calculator.py \
 	desklicious.py \
 	epiphany.py \
 	files.py \
