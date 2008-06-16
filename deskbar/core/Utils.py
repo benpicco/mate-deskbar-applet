@@ -5,7 +5,6 @@ from htmlentitydefs import name2codepoint
 from os.path import *
 import cgi
 import deskbar
-import deskbar.core.Categories
 import deskbar.core.gnomedesktop
 import gnome.ui
 import gnomevfs

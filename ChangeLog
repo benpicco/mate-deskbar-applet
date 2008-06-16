@@ -1,5 +1,11 @@
 2008-06-16  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+	* deskbar/core/Utils.py:
+	Don't import deskbar.core.Categories to solve
+	cyclic dependency
+
+2008-06-16  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
 	* deskbar/handlers/wikipedia-suggest.py:
 	Only add match when the result contains the expected
 	number of columns
