@@ -99,8 +99,10 @@ class WikipediaSuggestHandler(deskbar.interfaces.Module):
 
         matches = []
         for line in result:
-            title, lang = line.strip().split("\t")
-            matches.append( WikipediaSuggestMatch(title, lang) )
+            cols = line.strip().split("\t", 2)
+            if len(cols) == 2:
+                title, lang = cols
+                matches.append( WikipediaSuggestMatch(title, lang) )
         self._emit_query_ready( qstring, matches )
         
     def has_config(self):
