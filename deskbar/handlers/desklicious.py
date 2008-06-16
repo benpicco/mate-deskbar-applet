@@ -138,6 +138,7 @@ class DeliciousTagQueryEngine:
         url = DEFAULT_QUERY_TAG % (urllib.quote_plus(self._user), urllib.quote_plus(tag))
         
         LOGGER.debug("Opening URL %s", url)
+        stream = None
         try:
             try:
                 stream = urllib.urlopen(url, proxies=deskbar.core.Utils.get_proxy())
@@ -147,7 +148,8 @@ class DeliciousTagQueryEngine:
             except ExpatError, e:
                 LOGGER.exception(e)
         finally:
-            stream.close()
+            if stream != None:
+                stream.close()
         
         #And return the results
         try:
