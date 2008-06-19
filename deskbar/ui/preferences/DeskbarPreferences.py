@@ -570,7 +570,7 @@ class DeskbarPreferences:
             self._show_module_installed_dialog()
         except Exception, e:
             dialog = ErrorDialog(self.dialog,
-                                 _("Extension could not be installed due a problem with the provided file"),
+                                 _("Extension could not be installed due to a problem with the provided file"),
                                  traceback.format_exc() )
             dialog.run()
         
