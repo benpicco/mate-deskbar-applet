@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deskbar Applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-28 16:55+0000\n"
-"PO-Revision-Date: 2008-06-10 17:20+0300\n"
+"POT-Creation-Date: 2008-06-19 11:34+0000\n"
+"PO-Revision-Date: 2008-06-19 18:57+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <et-gnome@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -391,11 +391,11 @@ msgstr "Pildid"
 msgid "<i>Choose action</i>"
 msgstr "<i>Vali toiming</i>"
 
-#: ../deskbar/core/Utils.py:157
+#: ../deskbar/core/Utils.py:156
 msgid "Cannot execute program:"
 msgstr "Programmi pole võimalik käivitada:"
 
-#: ../deskbar/core/Utils.py:197
+#: ../deskbar/core/Utils.py:196
 msgid "Cannot show URL:"
 msgstr "URL-i pole võimalik näidata:"
 
@@ -500,6 +500,19 @@ msgstr "Kõigist sinu dokumentidest otsimine (Beagle'i abil)"
 #: ../deskbar/handlers/beagle-static.py:55
 msgid "Beagle does not seem to be installed."
 msgstr "Paistab, et Beagle pole paigaldatud."
+
+#: ../deskbar/handlers/calculator.py:94
+#, python-format
+msgid "Copy <b>%(origtext)s = %(name)s</b> to clipboard"
+msgstr "<b>%(origtext)s = %(name)s</b> kopeerimine lõikelauale"
+
+#: ../deskbar/handlers/calculator.py:121 ../deskbar/handlers/calculator.py:124
+msgid "Calculator"
+msgstr "Kalkulaator"
+
+#: ../deskbar/handlers/calculator.py:122
+msgid "Calculate simple equations"
+msgstr "Lihtsate tehete rehkendamine"
 
 #: ../deskbar/handlers/desklicious.py:52
 msgid "del.icio.us Bookmarks"
@@ -949,11 +962,11 @@ msgstr "Tomboy märkmed"
 msgid "Search your Tomboy notes"
 msgstr "Otsimine sinu Tomboy märkmetest"
 
-#: ../deskbar/handlers/tomboy.py:235
+#: ../deskbar/handlers/tomboy.py:238
 msgid "Tomboy does not seem to be installed."
 msgstr "Paistab, et Tomboy pole paigaldatud."
 
-#: ../deskbar/handlers/tomboy.py:273
+#: ../deskbar/handlers/tomboy.py:276
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -1068,11 +1081,11 @@ msgstr "Wikipeedia soovitus"
 msgid "As you type, Wikipedia will offer suggestions."
 msgstr "Wikipeedia annab soovitusi vastavalt sinu poolt sisestatud päringule."
 
-#: ../deskbar/handlers/wikipedia-suggest.py:118
+#: ../deskbar/handlers/wikipedia-suggest.py:120
 msgid "Wikipedia Suggest settings"
 msgstr "Wikipeedia soovituste sätted"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:125
+#: ../deskbar/handlers/wikipedia-suggest.py:127
 msgid ""
 "Choose the language you want to use or enter the code of your language "
 "manually"
@@ -1363,7 +1376,8 @@ msgid "The extension will be downloaded and installed."
 msgstr "Laiendus laaditakse alla ja paigaldatakse."
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:573
-msgid "Extension could not be installed due a problem with the provided file"
+msgid ""
+"Extension could not be installed due to a problem with the provided file"
 msgstr "Laiendust pole võimalik failis esinevate probleemide tõttu paigaldada"
 
 #: ../deskbar/ui/preferences/ErrorDialog.py:8
