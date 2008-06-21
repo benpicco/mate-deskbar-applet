@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-28 16:55+0000\n"
-"PO-Revision-Date: 2008-05-28 19:13+0200\n"
+"POT-Creation-Date: 2008-06-19 11:34+0000\n"
+"PO-Revision-Date: 2008-06-21 12:13+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -388,11 +388,11 @@ msgstr "Imágenes"
 msgid "<i>Choose action</i>"
 msgstr "<i>Elija una acción</i>"
 
-#: ../deskbar/core/Utils.py:157
+#: ../deskbar/core/Utils.py:156
 msgid "Cannot execute program:"
 msgstr "No se puede ejecutar el programa:"
 
-#: ../deskbar/core/Utils.py:197
+#: ../deskbar/core/Utils.py:196
 msgid "Cannot show URL:"
 msgstr "No se puede mostrar la URL:"
 
@@ -496,6 +496,19 @@ msgstr "Buscar todos sus documentos (con Beagle)"
 #: ../deskbar/handlers/beagle-static.py:55
 msgid "Beagle does not seem to be installed."
 msgstr "Parece que Beagle no esta instalado."
+
+#: ../deskbar/handlers/calculator.py:94
+#, python-format
+msgid "Copy <b>%(origtext)s = %(name)s</b> to clipboard"
+msgstr "Copiar <b>%(origtext)s = %(name)s</b> al portapapeles"
+
+#: ../deskbar/handlers/calculator.py:121 ../deskbar/handlers/calculator.py:124
+msgid "Calculator"
+msgstr "Calculadora"
+
+#: ../deskbar/handlers/calculator.py:122
+msgid "Calculate simple equations"
+msgstr "Calcular ecuaciones simples"
 
 #: ../deskbar/handlers/desklicious.py:52
 msgid "del.icio.us Bookmarks"
@@ -945,11 +958,11 @@ msgstr "Notas Tomboy"
 msgid "Search your Tomboy notes"
 msgstr "Busque en sus notas de Tomboy"
 
-#: ../deskbar/handlers/tomboy.py:235
+#: ../deskbar/handlers/tomboy.py:238
 msgid "Tomboy does not seem to be installed."
 msgstr "Parece que Tomboy no está instalado."
 
-#: ../deskbar/handlers/tomboy.py:273
+#: ../deskbar/handlers/tomboy.py:276
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -1063,15 +1076,17 @@ msgstr "Wikipedia sugieire"
 msgid "As you type, Wikipedia will offer suggestions."
 msgstr "Wikipedia ofrecerá sugerencias según escribe."
 
-#: ../deskbar/handlers/wikipedia-suggest.py:118
+#: ../deskbar/handlers/wikipedia-suggest.py:120
 msgid "Wikipedia Suggest settings"
 msgstr "Ajustes de las sugerencias de la Wikipedia"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:125
+#: ../deskbar/handlers/wikipedia-suggest.py:127
 msgid ""
 "Choose the language you want to use or enter the code of your language "
 "manually"
-msgstr "Elija el idioma que quiere usar o introduzca manualmente el código de su idioma"
+msgstr ""
+"Elija el idioma que quiere usar o introduzca manualmente el código de su "
+"idioma"
 
 #: ../deskbar/handlers/yahoo.py:51
 msgid "Yahoo! Search"
@@ -1356,7 +1371,7 @@ msgid "The extension will be downloaded and installed."
 msgstr "Se descargará e instalará la extensión."
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:573
-msgid "Extension could not be installed due a problem with the provided file"
+msgid "Extension could not be installed due to a problem with the provided file"
 msgstr ""
 "La extensión no se pudo instalar debido a un problema con el archivo "
 "proporcionado"
