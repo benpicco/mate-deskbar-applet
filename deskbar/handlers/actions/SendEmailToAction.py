@@ -7,7 +7,7 @@ class SendEmailToAction(ShowUrlAction):
     """
     
     def __init__(self, name, email):
-        ShowUrlAction.__init__(self, name, "mailto: %s <%s>" % (name, email))
+        ShowUrlAction.__init__(self, name, "mailto: \"%s\" <%s>" % (name, email))
         self._email = email
     
     def get_icon(self):
