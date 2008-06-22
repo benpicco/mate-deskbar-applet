@@ -242,4 +242,5 @@ class CalculatorModuleTest (unittest.TestCase):
         self.assertEqual (h.query ("int(2.3)"), 2)
         self.assertEqual (h.query ("int(-2.3)"), -2)
 
-unittest.main ()
+if __name__ == '__main__':
+    unittest.main ()
