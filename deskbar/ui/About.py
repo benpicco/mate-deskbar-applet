@@ -26,7 +26,7 @@ def show_about(parent):
         "logo-icon-name" : "deskbar-applet",
         "name" : _("Deskbar"),
         "version" : VERSION,
-        "website" : "http://raphael.slinckx.net/deskbar",
+        "website" : "http://www.gnome.org/projects/deskbar-applet/",
         "website-label" : _("Deskbar Website"),   
     }
     
