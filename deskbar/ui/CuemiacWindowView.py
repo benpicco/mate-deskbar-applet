@@ -52,11 +52,11 @@ class CuemiacWindowView(AbstractCuemiacView, gtk.Window):
         return self
     
     def receive_focus(self, time):
+        self.move( self._model.get_window_x(), self._model.get_window_y() )
         self.entry.grab_focus()
         self.realize()
         self.window.set_user_time(time)
         self.present()
-        self.move( self._model.get_window_x(), self._model.get_window_y() )
     
     def show_results(self):
         AbstractCuemiacView.show_results(self)
