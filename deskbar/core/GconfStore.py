@@ -50,7 +50,6 @@ class GconfStore(gobject.GObject):
         "min-chars-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_INT]),
         "type-delay-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_INT]),
         "use-selection-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
-        "use-newstyleui-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
         "clear-entry-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
         "use-http-proxy-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_BOOLEAN]),
         "proxy-host-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING]),
@@ -116,12 +115,6 @@ class GconfStore(gobject.GObject):
     
     def get_use_selection(self):
         select = self._client.get_bool(self.GCONF_USE_SELECTION)
-        if select == None:
-            select = True
-        return select
-
-    def get_use_newstyleui(self):
-        select = self._client.get_bool(self.GCONF_USE_NEWSTYLEUI)
         if select == None:
             select = True
         return select

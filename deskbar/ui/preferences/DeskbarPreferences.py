@@ -282,9 +282,6 @@ class DeskbarPreferences:
 
     def on_use_selection_toggled(self, toggle):
         self._model.set_use_selection(toggle.get_active())
-
-    def on_use_newstyleui_toggled(self, toggle):
-        self._model.set_use_newstyleui(toggle.get_active())
         
     def on_more_button_clicked(self, button):
         if self.more_button_callback != None:
