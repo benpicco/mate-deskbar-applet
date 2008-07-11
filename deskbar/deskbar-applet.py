@@ -42,7 +42,7 @@ def check_deskbar_path ():
     	logging.info ("Running uninstalled, adding %s to system path" % abspath(root_dir))
 
 # Setup logging
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s', datefmt='%m-%d %H:%M:%S')
+logging.basicConfig(level=logging.WARNING, format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s', datefmt='%m-%d %H:%M:%S')
 
 # Delay loading of deskbar modules until we have the path set up,
 # to allow running in uninstalled mode
@@ -78,6 +78,7 @@ parser = OptionParser(usage=usage)
 parser.add_option("-w", "--window", dest="window", action="store_true", help="Launch the applet in a standalone window for test purposes (default=no)")
 parser.add_option("-t", "--tray", dest="tray", action="store_true", help="Run Deskbar as a tray icon instead of an applet")
 parser.add_option("-v", "--version", dest="version", action="store_true", help="Print version")
+parser.add_option("-d", "--debug", dest="debug", action="store_true", help="Turn debug messages on")
 parser.add_option("--oaf-activate-iid")
 parser.add_option("--oaf-ior-fd")
 (options, args) = parser.parse_args()
@@ -85,6 +86,9 @@ parser.add_option("--oaf-ior-fd")
 if options.version:
     print deskbar.defs.VERSION
     sys.exit()
+
+if options.debug:
+    logging.getLogger().setLevel(logging.DEBUG)
 
 if options.tray:
     from deskbar.ui.DeskbarStatusIcon import DeskbarStatusIcon
