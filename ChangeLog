@@ -1,5 +1,19 @@
 2008-07-11  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/core/BrowserMatch.py:
+    * deskbar/__init__.py:
+    Place user's modules in
+    $XDG_DATA_HOME/deskbar-applet/modules-2.20-compatible
+    and history file together with modules' configuration
+    data into $XDG_CONFIG_HOME/deskbar-applet
+    
+    When on of the directories doesn't exist and the old
+    location ~/.gnome2/deskbar-applet still does the files
+    are copied to the new locations.
+    Fixes bug #522813
+
+2008-07-11  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/deskbar-applet.py:
     Set default log level to WARNING.
     Added -d/--debug options to display debug messages

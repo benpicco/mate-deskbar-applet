@@ -1,4 +1,5 @@
 import os
+import shutil
 from os.path import join, exists, isdir, isfile, dirname, abspath, expanduser
 import logging
 
@@ -22,6 +23,13 @@ name = join(dirname(__file__), '..')
 if _check(name):
     UNINSTALLED_DESKBAR = True
     
+# From pyxdg
+_home = os.environ.get('HOME', '/')
+XDG_DATA_HOME = os.environ.get('XDG_DATA_HOME',
+            os.path.join(_home, '.local', 'share'))
+XDG_CONFIG_HOME = os.environ.get('XDG_CONFIG_HOME',
+            os.path.join(_home, '.config'))
+    
 # Sets SHARED_DATA_DIR to local copy, or the tem location
 # Shared data dir is most the time /usr/share/deskbar-applet
 if UNINSTALLED_DESKBAR:
@@ -36,19 +44,42 @@ if UNINSTALLED_DESKBAR:
 
 HANDLERS_DIR += [join(LIB_DIR, "deskbar-applet", "modules-2.20-compatible")]
 
-USER_DESKBAR_DIR = expanduser("~/.gnome2/deskbar-applet")
-if not exists(USER_DESKBAR_DIR):
-    try:
-        os.makedirs(USER_DESKBAR_DIR, 0744)
-    except Exception , msg:
-        LOGGER.error('Could not create user handlers dir (%s): %s', USER_DESKBAR_DIR, msg)
+OLD_USER_DESKBAR_DIR = expanduser("~/.gnome2/deskbar-applet")
+USER_CONFIG_DIR = join(XDG_CONFIG_HOME, "deskbar-applet")
         
-USER_HANDLERS_DIR = expanduser("~/.gnome2/deskbar-applet/modules-2.20-compatible")
-if not exists(USER_HANDLERS_DIR):
-    try:
-        os.makedirs(USER_HANDLERS_DIR, 0744)
-    except Exception , msg:
-        LOGGER.error('Could not create user handlers dir (%s): %s', USER_HANDLERS_DIR, msg)
+USER_DATA_DIR = join(XDG_DATA_HOME, "deskbar-applet")
+USER_HANDLERS_DIR = join(USER_DATA_DIR, "modules-2.20-compatible")
+
+if not (exists(USER_DATA_DIR) and exists(USER_CONFIG_DIR)):
+    error = False
+    
+    if not exists(USER_CONFIG_DIR):
+        try:
+            os.makedirs(USER_CONFIG_DIR, 0744)
+        except Exception , msg:
+            LOGGER.error('Could not create user handlers dir (%s): %s', USER_CONFIG_DIR, msg)
+            error = True
+    
+    if not exists(USER_HANDLERS_DIR):
+        try:
+            os.makedirs(USER_HANDLERS_DIR, 0744)
+        except Exception , msg:
+            LOGGER.error('Could not create user handlers dir (%s): %s', USER_HANDLERS_DIR, msg)
+            error = True
+            
+    if not error and exists(OLD_USER_DESKBAR_DIR):
+        # Move files from old ~/.gnome2 directory to fd.o compliant dirs
+        for root, dirs, files in os.walk(OLD_USER_DESKBAR_DIR):
+            if "modules-2.20-compatible" in root:
+                destdir = USER_HANDLERS_DIR
+            else:
+                destdir = USER_CONFIG_DIR
+            
+            for name in files:
+                filepath = join(root, name)
+                LOGGER.debug("Copying %s to %s", filepath, destdir)
+                shutil.copy (filepath, destdir)
+            
 USER_HANDLERS_DIR = [USER_HANDLERS_DIR]
 
 MODULES_DIRS = USER_HANDLERS_DIR+HANDLERS_DIR
@@ -65,7 +96,7 @@ ART_DATA_DIR = join(SHARED_DATA_DIR, "art")
 ICON_WIDTH = 28
 ICON_HEIGHT = 16
 
-HISTORY_FILE = join(USER_DESKBAR_DIR, "history-2.20-compatible.pickle")
+HISTORY_FILE = join(USER_DATA_DIR, "history-2.20-compatible.pickle")
 
 # FIXME: this , here ?
 DEFAULT_RESULTS_PER_HANDLER = 6

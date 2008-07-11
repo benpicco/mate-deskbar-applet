@@ -198,7 +198,7 @@ def load_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map):
     shortcuts_to_smart_bookmarks_map.clear()
     url_to_shortcuts = {}
     try:
-        for line in file(os.path.join(deskbar.USER_DESKBAR_DIR, "search-bookmarks-shortcuts.txt")):
+        for line in file(os.path.join(deskbar.USER_CONFIG_DIR, "search-bookmarks-shortcuts.txt")):
             line = line.strip()
             if len(line) > 0:
                 url, shortcut = line.split()
@@ -214,7 +214,7 @@ def load_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_map):
             pass
 
 def _save_shortcuts(shortcuts_to_smart_bookmarks_map):
-    f = open(os.path.join(deskbar.USER_DESKBAR_DIR, "search-bookmarks-shortcuts.txt"), "w")
+    f = open(os.path.join(deskbar.USER_CONFIG_DIR, "search-bookmarks-shortcuts.txt"), "w")
     for shortcut in shortcuts_to_smart_bookmarks_map.keys():
         bookmark = shortcuts_to_smart_bookmarks_map[shortcut]
         f.write(bookmark.url)
