@@ -382,7 +382,9 @@ class BeagleSearchAction(OpenWithApplicationAction):
 class BeagleSearchMatch(deskbar.interfaces.Match):
     def __init__(self, term, cat_type, hit_type, **args):
     	deskbar.interfaces.Match.__init__(self, name=term, icon="system-search", category=cat_type, **args)
-    	verb = _("Additional results for category <b>%s</b>") % _(CATEGORIES[cat_type]['name'])
+    	# Prevent xgettext from extracting "name" key
+    	cat_name = CATEGORIES[cat_type]['name']
+     	verb = _("Additional results for category <b>%s</b>") % _(cat_name)
     	self.term = term
         self.cat_type = cat_type
     	self.add_action( BeagleSearchAction("Beagle Search", term, verb, hit_type) )

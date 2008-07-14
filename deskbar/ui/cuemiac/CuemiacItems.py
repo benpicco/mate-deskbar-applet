@@ -16,10 +16,13 @@ class CuemiacCategory :
         self.__parent = parent
         
         try:
-            self.__name = gettext.gettext(CATEGORIES[id]["name"])
+            # Prevent xgettext from extracting "name" key
+            id_cat_name = CATEGORIES[id]["name"]
+            self.__name = gettext.gettext(id_cat_nam)
             self.__id = id
         except:
-            self.__name = gettext.gettext(CATEGORIES["default"]["name"])
+            default_cat_name = CATEGORIES["default"]["name"]
+            self.__name = gettext.gettext(default_cat_name)
             self.__id = "default"
 
             
