@@ -26,7 +26,7 @@ class CuemiacHistoryView (gtk.TreeView):
         
         title = gtk.CellRendererText ()
         title.set_property ("ellipsize", pango.ELLIPSIZE_END)
-        title.set_property ("width-chars", 25) #FIXME: Pick width according to screen size
+        title.set_property ("width-chars", 50) #FIXME: Pick width according to screen size
         
         hits = gtk.TreeViewColumn ("Hits")
         hits.pack_start (icon)
