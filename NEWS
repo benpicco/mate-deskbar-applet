@@ -1,4 +1,37 @@
 =====================
+deskbar-applet 2.23.5
+=====================
+
+Changes:
+    * Fixed bug #378755: Use contact's name, not their email address, when writing new mails (patch by Oleg Andreev)
+    * Fixed bug #535236: the dialog location change every time it's displayed
+    * Set top/up/down/bottom buttons insensitive by default (patch by Goran Rakic)
+    * Added check if iter != None when one of the above buttons is pressed (fixes bug #490981)
+    * Set default log level to WARNING. Added -d/--debug options to display debug messages
+    * Place user's modules in $XDG_DATA_HOME/deskbar-applet/modules-2.20-compatible and history file together with modules' configuration data into $XDG_CONFIG_HOME/deskbar-applet
+    * Fixed bug #542638: Don't put dict keys in gettext call parameter (patch by Claude Paroz)
+    * Check if display name is not None (fixes bug #500087)
+    * Fixed bug #516142: Should use plural for strings
+    * Access history like in 2.18. Added arrow beside the Deskbar icon. Clicking on it will show the a list of previously activated actions.
+    * Display history in tray mode as a sub-menu.
+    * Catch OSError when calling os.listdir. (Fixes bug #494922)
+    
+Contributors to this release: Sebastian Pölsterl, Oleg Andreev, Goran Rakic, Claude Paroz
+
+Updated Translations:
+    * Updated es: Jorge González
+    * Updated et: Ivar Smolin
+    * Updated fr: Pierre Lemaire and Bruno Brouard, Claude Paroz
+    * Updated gl: Ignacio Casal Quinteiro
+    * Updated nb: Kjartan Maraas
+    * Updated oc: Yannig Marchegay
+    * Updated ps: Zabeeh Khan
+    * Updated sv: Daniel Nylander
+    * Updated th: Theppitak Karoonboonyanan
+    * Updated zh_HK: Chao-Hsiung Liao
+    * Updated zh_TW: Chao-Hsiung Liao
+
+=====================
 deskbar-applet 2.23.4
 =====================
 
