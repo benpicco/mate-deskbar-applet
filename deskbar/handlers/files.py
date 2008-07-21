@@ -111,11 +111,12 @@ class FileFolderHandler(deskbar.interfaces.Module):
         for drive in MONITOR.get_mounted_volumes() + MONITOR.get_connected_drives():
             if not drive.is_user_visible() : continue
             if not drive.is_mounted () : continue
-            if not drive.get_display_name().lower().startswith(query): continue
+            display_name = drive.get_display_name()
+            if display_name == None or not display_name.lower().startswith(query): continue
             
             uri = drive.get_activation_uri()
             if uri != None:
-                vol_match = VolumeMatch (drive.get_display_name(), uri, drive.get_icon(), priority=self.get_priority())
+                vol_match = VolumeMatch (display_name, uri, drive.get_icon(), priority=self.get_priority())
                 result.append (vol_match)
         
         self._emit_query_ready(query, result )
