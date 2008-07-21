@@ -18,7 +18,7 @@ class CuemiacCategory :
         try:
             # Prevent xgettext from extracting "name" key
             id_cat_name = CATEGORIES[id]["name"]
-            self.__name = gettext.gettext(id_cat_nam)
+            self.__name = gettext.gettext(id_cat_name)
             self.__id = id
         except:
             default_cat_name = CATEGORIES["default"]["name"]
