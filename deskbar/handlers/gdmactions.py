@@ -1,5 +1,6 @@
 from deskbar.defs import VERSION
 from gettext import gettext as _
+from gettext import ngettext
 import dbus
 import dbus.glib
 import deskbar
@@ -24,55 +25,77 @@ HANDLERS = ["GdmHandler"]
 
 TIMEOUT = 60
 
-def logout_prompt(prompt_type):
-    global TIMEOUT
-    if prompt_type == PROMPT_SHUTDOWN:
-        message = _("Shut down this system now?")
-        secondary = _("This system will be automatically shut down in %s seconds.")
-        button_label = _("Shut Down")
-    elif prompt_type == PROMPT_LOGOUT:
-        message = _("Log out of this system now?")
-        secondary = _("You will be automatically logged out in %s seconds.")
-        button_label = _("Log Out")
-    elif prompt_type == PROMPT_REBOOT:
-        message = _("Restart this system now?")
-        secondary = _("This system will be automatically restarted in %s seconds.")
-        button_label = _("Restart")
-    elif prompt_type == PROMPT_SUSPEND:
-        message = _("Suspend this system now?")
-        secondary = _("This system will be automatically suspended in %s seconds.")
-        button_label = _("Suspend")
-    elif prompt_type == PROMPT_HIBERNATE:
-        message = _("Hibernate this system now?")
-        secondary = _("This system will be automatically hibernated in %s seconds.")
-        button_label = _("Hibernate")
-   
-    TIMEOUT = 60
-    prompt = gtk.MessageDialog(flags=gtk.MESSAGE_QUESTION, message_format=message)
-    prompt.add_button(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL)
-    prompt.add_button(button_label, gtk.RESPONSE_OK)
-    prompt.set_default_response(gtk.RESPONSE_OK)
-
-    def countdown_func():
-        global TIMEOUT
-        if TIMEOUT != 0:
-            prompt.format_secondary_text(secondary % TIMEOUT)
-            TIMEOUT -= 1
+class LogoutPrompt(gtk.MessageDialog):
+    
+    def __init__(self, prompt_type, starttime):
+        gtk.MessageDialog.__init__(self, flags=gtk.MESSAGE_QUESTION)
+        self.connect('response', self.on_response)
+        self.add_button(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL)
+        self.set_default_response(gtk.RESPONSE_OK)   
+        self.prompt_type = prompt_type
+        self.timeleft = starttime
+        self.countdown_thread = None
+        
+        if prompt_type == PROMPT_SHUTDOWN:
+            message = _("Shut down this system now?")
+            button_label = _("Shut Down")
+        elif prompt_type == PROMPT_LOGOUT:
+            message = _("Log out of this system now?")
+            button_label = _("Log Out")
+        elif prompt_type == PROMPT_REBOOT:
+            message = _("Restart this system now?")
+            button_label = _("Restart")
+        elif prompt_type == PROMPT_SUSPEND:
+            message = _("Suspend this system now?")
+            button_label = _("Suspend")
+        elif prompt_type == PROMPT_HIBERNATE:
+            message = _("Hibernate this system now?")
+            button_label = _("Hibernate")
+    
+        self.add_button(button_label, gtk.RESPONSE_OK)
+        self.set_markup(message)
+        self.format_secondary_text(self.get_secondary(self.timeleft) % self.timeleft)
+ 
+    def get_secondary(self, timeleft):
+        if self.prompt_type == PROMPT_SHUTDOWN:
+            secondary = ngettext("This system will be automatically shut down in %s second.",
+                           "This system will be automatically shut down in %s seconds.",
+                           timeleft)
+        elif self.prompt_type == PROMPT_LOGOUT:
+            secondary = ngettext("You will be automatically logged out in %s second.",
+                           "You will be automatically logged out in %s seconds.",
+                           timeleft)
+        elif self.prompt_type == PROMPT_REBOOT:
+            secondary = ngettext("This system will be automatically restarted in %s second.",
+                           "This system will be automatically restarted in %s seconds.",
+                           timeleft)
+        elif self.prompt_type == PROMPT_SUSPEND:
+            secondary = ngettext("This system will be automatically suspended in %s second.",
+                           "This system will be automatically suspended in %s seconds.",
+                           timeleft)
+        elif self.prompt_type == PROMPT_HIBERNATE:
+            secondary = ngettext("This system will be automatically hibernated in %s second.",
+                           "This system will be automatically hibernated in %s seconds.",
+                           timeleft)
+        return secondary
+    
+    def countdown_func(self):
+        self.timeleft -= 1
+        if self.timeleft != 0:
+            secondary = self.get_secondary(self.timeleft)
+            self.format_secondary_text(secondary % self.timeleft)
             return True
         else:
-            prompt.response(gtk.RESPONSE_OK)
+            self.response(gtk.RESPONSE_OK)
             return False
         
-    prompt.format_secondary_text(secondary % TIMEOUT)
-    TIMEOUT -= 1
-    countdown_thread = gobject.timeout_add(1000, countdown_func)
-
-    response = prompt.run()
-    if response == gtk.RESPONSE_CANCEL:
-        gobject.source_remove(countdown_thread)
-    prompt.destroy()
-
-    return response == gtk.RESPONSE_OK
+    def run(self):
+        self.countdown_thread = gobject.timeout_add(1000, self.countdown_func)
+        return gtk.MessageDialog.run(self)
+    
+    def on_response(self, dialog, response):
+        if response == gtk.RESPONSE_CANCEL and self.countdown_thread != None:
+            gobject.source_remove(self.countdown_thread)
 
 class GpmAction(deskbar.interfaces.Action):
     
@@ -88,8 +111,12 @@ class SuspendAction(GpmAction):
         GpmAction.__init__(self)
     
     def activate(self, text=None):
+        prompt = LogoutPrompt(PROMPT_SUSPEND, TIMEOUT)
+        response = prompt.run()
+        prompt.destroy()
+        
         try:
-            if logout_prompt(PROMPT_SUSPEND):
+            if response == gtk.RESPONSE_OK:
                 self._gpm.Suspend()
         except dbus.exceptions.DBusException:
             # this will trigger a method timeout exception.
@@ -105,8 +132,12 @@ class HibernateAction(GpmAction):
         GpmAction.__init__(self)
 
     def activate(self, text=None):
+        prompt = LogoutPrompt(PROMPT_HIBERNATE, TIMEOUT)
+        response = prompt.run()
+        prompt.destroy()
+        
         try:
-            if logout_prompt(PROMPT_HIBERNATE):
+            if response == gtk.RESPONSE_OK:
                 self._gpm.Hibernate()
         except dbus.exceptions.DBusException:
             # this will trigger a method timeout exception.
@@ -122,8 +153,12 @@ class ShutdownAction(GpmAction):
         GpmAction.__init__(self)
         
     def activate(self, text=None):
+        prompt = LogoutPrompt(PROMPT_SHUTDOWN, TIMEOUT)
+        response = prompt.run()
+        prompt.destroy()
+        
         try:
-            if logout_prompt(PROMPT_SHUTDOWN):
+            if response == gtk.RESPONSE_OK:
                 self._gpm.Shutdown()
         except dbus.exceptions.DBusException:
             # this will trigger a method timeout exception.
@@ -211,7 +246,11 @@ class GdmShutdownAction(GdmAction):
         GdmAction.__init__(self, name)
         
     def activate(self, text=None):
-        if logout_prompt(PROMPT_SHUTDOWN):
+        prompt = LogoutPrompt(PROMPT_SHUTDOWN, TIMEOUT)
+        response = prompt.run()
+        prompt.destroy()
+        
+        if response == gtk.RESPONSE_OK:
             deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_SHUTDOWN)
             self.request_logout()
         
@@ -228,7 +267,11 @@ class GdmLogoutAction(GdmAction):
         GdmAction.__init__(self, name)
         
     def activate(self, text=None):
-        if logout_prompt(PROMPT_LOGOUT):
+        prompt = LogoutPrompt(PROMPT_LOGOUT, TIMEOUT)
+        response = prompt.run()
+        prompt.destroy()
+        
+        if response == gtk.RESPONSE_OK:
             deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_NONE)
             self.request_logout()
         
@@ -245,7 +288,11 @@ class GdmRebootAction(GdmAction):
         GdmAction.__init__(self, name)
         
     def activate(self, text=None):
-        if logout_prompt(PROMPT_REBOOT):
+        prompt = LogoutPrompt(PROMPT_REBOOT, TIMEOUT)
+        response = prompt.run()
+        prompt.destroy()
+        
+        if response == gtk.RESPONSE_OK:
             deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_REBOOT)
             self.request_logout()
         
