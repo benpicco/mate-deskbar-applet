@@ -193,10 +193,14 @@ def filesystem_possible_completions(prefix, is_file=False):
         else:
             return ([], prefix, relative)
 
-    return ([f
-        for f in map(lambda x: join(path, x), os.listdir(path))
-        if my_isfile(f) == is_file and not basename(f).startswith(".") and (start == None or basename(f).startswith(start))
-    ], prefix, relative)
+    try:
+        return ([f
+            for f in map(lambda x: join(path, x), os.listdir(path))
+            if my_isfile(f) == is_file and not basename(f).startswith(".") and (start == None or basename(f).startswith(start))
+        ], prefix, relative)
+    except OSError, e:
+        LOGGER.exception(e)
+        return ([], prefix, relative)
 
 #FIXME: gross hack to detect .savedSearches from nautilus as folders
 def my_isfile(path):

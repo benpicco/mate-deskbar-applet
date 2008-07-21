@@ -1,5 +1,11 @@
 2008-07-21  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/handlers/files.py:
+    Catch OSError when calling os.listdir.
+    (Fixes bug #494922)
+
+2008-07-21  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/ui/cuemiac/CuemiacItems.py:
     Fixed typo that caused that all categories
     to appear as uncategorized
