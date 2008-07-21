@@ -30,9 +30,6 @@ class CuemiacWindowView(AbstractCuemiacView, gtk.Window):
         # Search entry
         self.vbox_main.pack_start(self.header, False)
         
-        # History TreeView
-        self.vbox_main.pack_start(self.history_box, False)
-        
         # Results
         self.results_box = gtk.HBox()
         self.results_box.connect("unmap", self.__save_window_height)

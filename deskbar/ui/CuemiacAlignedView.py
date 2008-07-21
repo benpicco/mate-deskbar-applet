@@ -39,7 +39,7 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
         self.set_default_size( self._model.get_window_width(), -1 )
 
         self.set_role("deskbar-search-window")
-
+        
         # VBox
         self.add(self.vbox_main)
         
@@ -85,9 +85,9 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
         # FIXME: Should we handle width intelligently also?
         w, h = self.cview.size_request ()
         # To ensure we don't always show scrollbars
-        h += self.header.allocation.height + self.history_box.allocation.height
-        # Spacing between header and history_box and between history_box and results_box
-        h += 2*self.VBOX_MAIN_SPACING
+        h += self.header.allocation.height
+        # Spacing between header and results_box
+        h += self.VBOX_MAIN_SPACING
         # Border at the top and the bottom
         h += 2*self.VBOX_MAIN_BORDER_WIDTH
         # Some additional space
@@ -109,12 +109,10 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
         """
         if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
             self.vbox_main.pack_start(self.header, False)
-            self.vbox_main.pack_start(self.history_box, False)
             self.vbox_main.pack_start(self.results_box)
         else:
             # We are at a bottom panel. Put entry on bottom, and prepend matches (instead of append).
             self.vbox_main.pack_start(self.results_box)
-            self.vbox_main.pack_start(self.history_box, False)
             self.vbox_main.pack_start(self.header, False)
         
     def __set_sort_order_by_orientation(self, orient):

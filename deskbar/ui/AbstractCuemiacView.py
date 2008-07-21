@@ -9,7 +9,6 @@ from deskbar.ui.cuemiac.CuemiacHeader import CuemiacHeader
 from deskbar.ui.cuemiac.CuemiacModel import CuemiacModel
 from deskbar.ui.cuemiac.CuemiacTreeView import CuemiacTreeView
 from deskbar.ui.cuemiac.CuemiacItems import CuemiacCategory
-from deskbar.ui.cuemiac.CuemiacHistory import CuemiacHistoryView
 from deskbar.ui.cuemiac.CuemiacActionsTreeView import CuemiacActionsTreeView, CuemiacActionsModel
 from deskbar.ui.cuemiac.LingeringSelectionWindow import LingeringSelectionWindow
 
@@ -41,10 +40,6 @@ class AbstractCuemiacView (deskbar.interfaces.View):
         
         self._create_header()
         self.header.show()
-        
-        # History TreeView
-        self._create_history_box()
-        self.history_box.show()
         
         # Results TreeView
         self._create_results_treeview()
@@ -92,34 +87,7 @@ class AbstractCuemiacView (deskbar.interfaces.View):
         self.entry.show()
         
         self.header = CuemiacHeader ( self.entry )
-        
-    def _create_history_box(self):
-        """
-        Sets:
-            * self.history_box
-            * self.hview
-            * self.empty_button
-        """
-        self.history_box = gtk.HBox(spacing=6)
-        
-        hlabel = gtk.Label()
-        # translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-        hlabel.set_markup_with_mnemonic("<b>%s:</b>" % _("_History"))
-        hlabel.show()
-        self.history_box.pack_start(hlabel, False)
-        
-        self.hview = CuemiacHistoryView(self._model.get_history())
-        self.hview.connect("match-selected", self._controller.on_history_match_selected)
-        self.hview.show()
-        self.history_box.pack_start(self.hview)
-        hlabel.set_mnemonic_widget(self.hview)
-        
-        self.empty_button = gtk.Button()
-        self.empty_button.set_image( gtk.image_new_from_stock(gtk.STOCK_CLEAR, gtk.ICON_SIZE_MENU) )
-        self.empty_button.connect("clicked", self._controller.on_clear_history)
-        self.empty_button.show()
-        self.history_box.pack_start(self.empty_button, False)
-        
+    
     def _create_results_treeview(self):
         """
         Sets:
@@ -215,7 +183,6 @@ class AbstractCuemiacView (deskbar.interfaces.View):
     def clear_query(self):
         self.entry.set_text("")
         self.entry.set_icon( self.default_entry_pixbuf )
-        
     
     def get_entry(self):
         return self.entry
@@ -228,8 +195,7 @@ class AbstractCuemiacView (deskbar.interfaces.View):
         self._do_clear = True
         
     def mark_history_empty(self, val):
-        self.hview.set_sensitive (not val)
-        self.empty_button.set_sensitive (not val)
+        pass
     
     def show_results(self):
         self.results_box.show()
@@ -278,5 +244,4 @@ class AbstractCuemiacView (deskbar.interfaces.View):
             # Display default icon in entry
             self.update_entry_icon()
         self.treeview_model.append (matches, self.entry.get_text())
-    
     

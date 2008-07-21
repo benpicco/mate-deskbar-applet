@@ -10,17 +10,16 @@ import time
 
 LOGGER = logging.getLogger(__name__)
 
-class ChooseFromHistoryAction (deskbar.interfaces.Action):
+class EmptyHistoryAction (deskbar.interfaces.Action):
     """
-    This will be displayed always at the top of the history
-    and is just there to display "Choose action"
+    This will be displayed if history is empty
     """
     
     def __init__(self):
         deskbar.interfaces.Action.__init__(self, "")
         
     def get_verb(self):
-        return _("<i>Choose action</i>")
+        return _("<i>Empty history</i>")
     
     def activate(self, text=None):
         pass
@@ -57,10 +56,8 @@ class DeskbarHistory (gtk.ListStore) :
         self.set_sort_order (gtk.SORT_DESCENDING)
         self.set_sort_func (self.COL_TIME, self.__sort_actions)
         
-        self._index = 0 # We don't want to show ChooseFromHistoryAction
+        self._index = -1
         self.set_max_history_items(max_history_items)
-        
-        self.append(0, "", ChooseFromHistoryAction())
     
     def set_sort_order(self, order):
         """
@@ -98,23 +95,18 @@ class DeskbarHistory (gtk.ListStore) :
         """
         action1 = model[iter1][self.COL_ACTION]
         action2 = model[iter2][self.COL_ACTION]
-        
-        if isinstance(action1, ChooseFromHistoryAction):
+                
+        if self[iter1][self.COL_TIME] > self[iter2][self.COL_TIME] :
             return 1
-        elif isinstance(action2, ChooseFromHistoryAction):
+        else:
             return -1
-        else:        
-            if self[iter1][self.COL_TIME] > self[iter2][self.COL_TIME] :
-                return 1
-            else:
-                return -1
     
     def clear (self):
         """
         Clear the history
         """
         gtk.ListStore.clear(self)
-        self.append("", "", ChooseFromHistoryAction())
+        self.append("", "", EmptyHistoryAction())
         self._index = -1
         self.emit("cleared")
     
@@ -144,6 +136,9 @@ class DeskbarHistory (gtk.ListStore) :
             LOGGER.error("Could not restore history")
             LOGGER.exception(e)
             pass
+        
+        if len(self) == 0:
+            self.append(0, "", EmptyHistoryAction())
 
     def save (self):
         """
@@ -151,7 +146,7 @@ class DeskbarHistory (gtk.ListStore) :
         """
         save = []
         for timestamp, text, action in self:
-            if not isinstance(action, ChooseFromHistoryAction):
+            if not isinstance(action, EmptyHistoryAction):
                 save.append((timestamp, text, action))
         
         try:
@@ -181,7 +176,10 @@ class DeskbarHistory (gtk.ListStore) :
         """
         assert text != None and action != None
         
-        if isinstance(action, ChooseFromHistoryAction):
+        if not isinstance(action, deskbar.interfaces.Action):
+            raise TypeError("Action must be a deskbar.interfaces.Action instance")
+        
+        if isinstance(action, EmptyHistoryAction):
             return
         if action.skip_history():
             self.reset()
@@ -189,6 +187,10 @@ class DeskbarHistory (gtk.ListStore) :
         
         for idx, val in enumerate(self):
             htime, htext, haction = val
+            if isinstance(haction, EmptyHistoryAction):
+                self.remove (self.get_iter_from_string (str(idx)))
+                continue
+                
             if (action.get_hash() == haction.get_hash() and action.__class__.__name__ == haction.__class__.__name__):
                 self.remove (self.get_iter_from_string (str(idx)))
                 break
@@ -225,8 +227,8 @@ class DeskbarHistory (gtk.ListStore) :
         """
         Reset index
         """
-        if self._index != 0:
-            self._index = 0
+        if self._index != -1:
+            self._index = -1
             return self.get_current()
     
     def last(self):
@@ -248,7 +250,7 @@ class DeskbarHistory (gtk.ListStore) :
         """
         Get action where the current index points to
         """
-        if self._index == 0:
+        if self._index == -1:
             return None
         col_id, direction = self.get_sort_column_id()
         index = self._index
