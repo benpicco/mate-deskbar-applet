@@ -1,4 +1,6 @@
 from deskbar.ui.AbstractCuemiacDeskbarIcon import AbstractCuemiacDeskbarIcon
+from deskbar.core.Categories import CATEGORIES
+from deskbar.core.DeskbarHistory import EmptyHistoryAction
 from gettext import gettext as _
 from os.path import join
 import deskbar
@@ -11,7 +13,7 @@ class DeskbarPopupMenu (gtk.Menu):
     
     class Item (gtk.ImageMenuItem):
         
-        def __init__(self, label, stock_id):
+        def __init__(self, label, stock_id=None, pixbuf=None):
             gtk.ImageMenuItem.__init__ (self)
             
             self.box = gtk.HBox (False, 3)
@@ -19,11 +21,16 @@ class DeskbarPopupMenu (gtk.Menu):
             self.add(self.box)
             
             self.image = gtk.Image ()
-            self.image.set_from_stock (stock_id, gtk.ICON_SIZE_MENU)
+            if stock_id != None:
+                self.image.set_from_stock (stock_id, gtk.ICON_SIZE_MENU)
+            elif isinstance(pixbuf, gtk.gdk.Pixbuf):
+                self.image.set_from_pixbuf(pixbuf)
+            
             self.image.show()
             self.box.pack_start (self.image, False, False, 0)
             
-            self.label = gtk.Label (label)
+            self.label = gtk.Label ()
+            self.label.set_markup(label)
             self.label.show()
             
             self.alignment = gtk.Alignment ()
@@ -31,8 +38,49 @@ class DeskbarPopupMenu (gtk.Menu):
             self.alignment.show()
             self.box.pack_start (self.alignment)
     
+    class HistoryMenu (gtk.Menu):
+        
+        def __init__(self, controller):
+            gtk.Menu.__init__(self)
+            self.__controller = controller
+            self.__is_empty = True
+            
+        def add_action(self, text, action):
+            if isinstance(action, EmptyHistoryAction):
+                menuItem = DeskbarPopupMenu.Item (_("<i>Empty</i>"),
+                                                  pixbuf=CATEGORIES["history"]["icon"])
+                self.__is_empty = True
+            else:
+                if self.__is_empty:
+                    self.clear()
+                
+                text = action.get_verb () % action.get_escaped_name(text)
+                # We only want to display the first line of text
+                # E.g. some beagle-live actions display a snippet in the second line 
+                text = text.split("\n")[0]
+                
+                menuItem = DeskbarPopupMenu.Item (text, pixbuf=action.get_pixbuf())
+                menuItem.connect ("activate", self.__controller.on_history_match_selected, text, action)
+                
+                self.__is_empty = False
+                
+            self.append(menuItem)
+            
+        def clear(self):
+            for w in self:
+                self.remove(w)
+    
     def __init__(self, controller):
         gtk.Menu.__init__ (self)
+        
+        menuItem = DeskbarPopupMenu.Item (_("History"),
+                                          pixbuf=CATEGORIES["history"]["icon"])
+        self.append(menuItem)
+        
+        self.historymenu = DeskbarPopupMenu.HistoryMenu(controller)
+        menuItem.set_submenu(self.historymenu)
+        
+        self.append(gtk.SeparatorMenuItem())
         
         menuItem = DeskbarPopupMenu.Item (_("Clear History"), gtk.STOCK_CLEAR)
         menuItem.connect ("activate", controller.on_clear_history)
@@ -50,7 +98,7 @@ class DeskbarPopupMenu (gtk.Menu):
         menuItem.connect ("activate", controller.on_show_about)
         self.append(menuItem)
         
-        self.append(gtk.MenuItem())
+        self.append(gtk.SeparatorMenuItem())
         
         menuItem = DeskbarPopupMenu.Item (_("Quit"), gtk.STOCK_QUIT)
         menuItem.connect ("activate", lambda w: gtk.main_quit())
@@ -72,8 +120,12 @@ class DeskbarStatusIcon (gtk.StatusIcon, AbstractCuemiacDeskbarIcon):
         self._setup_mvc()
         self.setup_menu()
         
-        self._on_size_changed(self, self.get_size())
+        history = self._core.get_history()
+        history.connect("action-added", lambda w, t, a: self._menu.historymenu.add_action(t, a))
+        history.connect("cleared", lambda w: self._menu.historymenu.clear())
         
+        self._on_size_changed(self, self.get_size())
+    
     def on_loaded(self, sender):
         AbstractCuemiacDeskbarIcon.on_loaded (self, sender)
         self.set_visible (True)
@@ -106,3 +158,4 @@ class DeskbarStatusIcon (gtk.StatusIcon, AbstractCuemiacDeskbarIcon):
     
     def setup_menu(self):
         self._menu = DeskbarPopupMenu (self._controller)
+        

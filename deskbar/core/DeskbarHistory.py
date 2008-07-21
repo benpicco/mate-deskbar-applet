@@ -41,7 +41,8 @@ class DeskbarHistory (gtk.ListStore) :
     """
     
     __gsignals__ = {
-        "cleared" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
+        "cleared" :        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
+        "action-added" :   (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [str, gobject.TYPE_PYOBJECT]),
     }
     __instance = None
     (COL_TIME, COL_TEXT, COL_ACTION) = range(3)
@@ -106,9 +107,9 @@ class DeskbarHistory (gtk.ListStore) :
         Clear the history
         """
         gtk.ListStore.clear(self)
-        self.append("", "", EmptyHistoryAction())
         self._index = -1
         self.emit("cleared")
+        self.append("", "", EmptyHistoryAction())
     
     def load (self):
         """
@@ -159,6 +160,7 @@ class DeskbarHistory (gtk.ListStore) :
         """
         *Do not* use this method. Always use L{add}.
         """
+        self.emit('action-added', text, action)
         self.append_method (self, (timestamp, text, action))
     
     def prepend (self, timestamp, text, action):
