@@ -246,8 +246,10 @@ def tomboy_installed():
 # this module isn't enabled.
 def get_tomboy_version():
     try:
-        command = subprocess.Popen("tomboy --version", shell=True,
-                                   stdout=subprocess.PIPE).stdout
+        process = subprocess.Popen("tomboy --version", shell=True,
+                                   stdout=subprocess.PIPE)
+        process.wait()
+        command = process.stdout
         read = command.read()
         command.close()
     except OSError, e:

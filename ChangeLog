@@ -1,5 +1,11 @@
 2008-07-23  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+	* deskbar/handlers/tomboy.py:
+	When retrieving tomboy version wait until
+	the process exited to avoid zombie process.
+
+2008-07-23  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
 	* configure.ac:
 	Post release version bump to 2.23.6
 
