@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-19 11:34+0000\n"
-"PO-Revision-Date: 2008-06-21 12:13+0200\n"
+"POT-Creation-Date: 2008-07-22 03:21+0000\n"
+"PO-Revision-Date: 2008-07-24 17:30+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -325,6 +325,7 @@ msgid "Uncategorized"
 msgstr "Sin categorizar"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
+#: ../deskbar/ui/DeskbarStatusIcon.py:76
 msgid "History"
 msgstr "Histórico"
 
@@ -384,9 +385,9 @@ msgstr "Vídeo"
 msgid "Images"
 msgstr "Imágenes"
 
-#: ../deskbar/core/DeskbarHistory.py:23
-msgid "<i>Choose action</i>"
-msgstr "<i>Elija una acción</i>"
+#: ../deskbar/core/DeskbarHistory.py:22
+msgid "<i>Empty history</i>"
+msgstr "<i>Histórico vacío</i>"
 
 #: ../deskbar/core/Utils.py:156
 msgid "Cannot execute program:"
@@ -435,48 +436,43 @@ msgstr "Abrir %s que contiene %s"
 msgid "Open %s"
 msgstr "Abrir %s"
 
-#: ../deskbar/handlers/beagle-live.py:385
+#: ../deskbar/handlers/beagle-live.py:387
 #, python-format
 msgid "Additional results for category <b>%s</b>"
 msgstr "Resultados adiciones para la categoría <b>%s</b>"
 
-#: ../deskbar/handlers/beagle-live.py:385
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "nombre"
-
-#: ../deskbar/handlers/beagle-live.py:422
-#: ../deskbar/handlers/beagle-live.py:425
+#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:427
 #, python-format
 msgid "From <i>%s</i>"
 msgstr "De <i>%s</i>"
 
-#: ../deskbar/handlers/beagle-live.py:484
+#: ../deskbar/handlers/beagle-live.py:486
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:485
+#: ../deskbar/handlers/beagle-live.py:487
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Busque todos sus documentos (usando Beagle), mientras teclea"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:730
-#: ../deskbar/handlers/beagle-live.py:747
+#: ../deskbar/handlers/beagle-live.py:732
+#: ../deskbar/handlers/beagle-live.py:749
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:781
+#: ../deskbar/handlers/beagle-live.py:783
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "No se pudo cargar beagled, libbeagle se ha compilado sin los bindings de "
 "python."
 
-#: ../deskbar/handlers/beagle-live.py:787
+#: ../deskbar/handlers/beagle-live.py:789
 msgid "Beagle daemon is not running."
 msgstr "El demonio de Beagle no se está ejecutando."
 
-#: ../deskbar/handlers/beagle-live.py:790
+#: ../deskbar/handlers/beagle-live.py:792
 msgid "Beagled could not be found in your $PATH."
 msgstr "No se pudo encontrar bleagled en su $PATH."
 
@@ -613,116 +609,126 @@ msgstr "Archivos, carpetas y lugares"
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "Vea sus archivos, carpetas, marcadores, unidades, lugares de red por nombre"
 
-#: ../deskbar/handlers/gdmactions.py:30
+#: ../deskbar/handlers/gdmactions.py:40
 msgid "Shut down this system now?"
 msgstr "¿Apagar este sistema ahora?"
 
-#: ../deskbar/handlers/gdmactions.py:31
-#, python-format
-msgid "This system will be automatically shut down in %s seconds."
-msgstr "Este sistema se apagará automáticamente en %s segundos."
-
-#: ../deskbar/handlers/gdmactions.py:32 ../deskbar/handlers/gdmactions.py:223
-#: ../deskbar/handlers/gdmactions.py:281
+#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:262
+#: ../deskbar/handlers/gdmactions.py:328
 msgid "Shut Down"
 msgstr "Apagar"
 
-#: ../deskbar/handlers/gdmactions.py:34
+#: ../deskbar/handlers/gdmactions.py:43
 msgid "Log out of this system now?"
 msgstr "¿Quiere salir de este sistema ahora?"
 
-#: ../deskbar/handlers/gdmactions.py:35
-#, python-format
-msgid "You will be automatically logged out in %s seconds."
-msgstr "Saldrá del sistema automáticamente en %s segundos."
-
-#: ../deskbar/handlers/gdmactions.py:36 ../deskbar/handlers/gdmactions.py:236
-#: ../deskbar/handlers/gdmactions.py:240 ../deskbar/handlers/gdmactions.py:284
+#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:283 ../deskbar/handlers/gdmactions.py:331
 msgid "Log Out"
 msgstr "Salir"
 
-#: ../deskbar/handlers/gdmactions.py:38
+#: ../deskbar/handlers/gdmactions.py:46
 msgid "Restart this system now?"
 msgstr "¿Reiniciar este sistema ahora?"
 
-#: ../deskbar/handlers/gdmactions.py:39
-#, python-format
-msgid "This system will be automatically restarted in %s seconds."
-msgstr "Este sistema se reiniciará automáticamente en %s segundos."
-
-#: ../deskbar/handlers/gdmactions.py:40 ../deskbar/handlers/gdmactions.py:257
-#: ../deskbar/handlers/gdmactions.py:283
+#: ../deskbar/handlers/gdmactions.py:47 ../deskbar/handlers/gdmactions.py:304
+#: ../deskbar/handlers/gdmactions.py:330
 msgid "Restart"
 msgstr "Reiniciar"
 
-#: ../deskbar/handlers/gdmactions.py:42
+#: ../deskbar/handlers/gdmactions.py:49
 msgid "Suspend this system now?"
 msgstr "¿Suspender este sistema ahora?"
 
-#: ../deskbar/handlers/gdmactions.py:43
-#, python-format
-msgid "This system will be automatically suspended in %s seconds."
-msgstr "Este sistema se suspenderá automáticamente en %s segundos."
-
-#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:313
+#: ../deskbar/handlers/gdmactions.py:50 ../deskbar/handlers/gdmactions.py:360
 msgid "Suspend"
 msgstr "Suspender"
 
-#: ../deskbar/handlers/gdmactions.py:46
+#: ../deskbar/handlers/gdmactions.py:52
 msgid "Hibernate this system now?"
 msgstr "¿Hibernar este sistema ahora?"
 
-#: ../deskbar/handlers/gdmactions.py:47
-#, python-format
-msgid "This system will be automatically hibernated in %s seconds."
-msgstr "Este sistema hibernará automáticamente en %s segundos."
-
-#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:315
+#: ../deskbar/handlers/gdmactions.py:53 ../deskbar/handlers/gdmactions.py:362
 msgid "Hibernate"
 msgstr "Hibernar"
 
-#: ../deskbar/handlers/gdmactions.py:100
+#: ../deskbar/handlers/gdmactions.py:61
+#, python-format
+msgid "This system will be automatically shut down in %s second."
+msgid_plural "This system will be automatically shut down in %s seconds."
+msgstr[0] "Este sistema se apagará automáticamente en %s segundo."
+msgstr[1] "Este sistema se apagará automáticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:65
+#, python-format
+msgid "You will be automatically logged out in %s second."
+msgid_plural "You will be automatically logged out in %s seconds."
+msgstr[0] "Saldrá del sistema automáticamente en %s segundo."
+msgstr[1] "Saldrá del sistema automáticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:69
+#, python-format
+msgid "This system will be automatically restarted in %s second."
+msgid_plural "This system will be automatically restarted in %s seconds."
+msgstr[0] "Este sistema se reiniciará automáticamente en %s segundo."
+msgstr[1] "Este sistema se reiniciará automáticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:73
+#, python-format
+msgid "This system will be automatically suspended in %s second."
+msgid_plural "This system will be automatically suspended in %s seconds."
+msgstr[0] "Este sistema se suspenderá automáticamente en %s segundo."
+msgstr[1] "Este sistema se suspenderá automáticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:77
+#, python-format
+msgid "This system will be automatically hibernated in %s second."
+msgid_plural "This system will be automatically hibernated in %s seconds."
+msgstr[0] "Este sistema hibernará automáticamente en %s segundo."
+msgstr[1] "Este sistema hibernará automáticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:127
 msgid "Suspend the machine"
 msgstr "Suspende la máquina"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Hibernate the machine"
 msgstr "Hiberna la máquina"
 
-#: ../deskbar/handlers/gdmactions.py:134
+#: ../deskbar/handlers/gdmactions.py:169
 msgid "Shutdown the machine"
 msgstr "Apaga la máquina"
 
-#: ../deskbar/handlers/gdmactions.py:155
+#: ../deskbar/handlers/gdmactions.py:190
 msgid "Lock the screen"
 msgstr "Bloquea la pantalla"
 
-#: ../deskbar/handlers/gdmactions.py:178 ../deskbar/handlers/gdmactions.py:302
+#: ../deskbar/handlers/gdmactions.py:213 ../deskbar/handlers/gdmactions.py:349
 msgid "Lock"
 msgstr "Bloquear"
 
-#: ../deskbar/handlers/gdmactions.py:219
+#: ../deskbar/handlers/gdmactions.py:258
 msgid "Turn off the computer"
 msgstr "Apaga el equipo"
 
-#: ../deskbar/handlers/gdmactions.py:253
+#: ../deskbar/handlers/gdmactions.py:300
 msgid "Restart the computer"
 msgstr "Reinicia el equipo"
 
-#: ../deskbar/handlers/gdmactions.py:268 ../deskbar/handlers/gdmactions.py:272
-#: ../deskbar/handlers/gdmactions.py:282
+#: ../deskbar/handlers/gdmactions.py:315 ../deskbar/handlers/gdmactions.py:319
+#: ../deskbar/handlers/gdmactions.py:329
 msgid "Switch User"
 msgstr "Cambiar de usuario"
 
-#: ../deskbar/handlers/gdmactions.py:278
+#: ../deskbar/handlers/gdmactions.py:325
 msgid "Computer Actions"
 msgstr "Acciones del equipo"
 
-#: ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:326
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Salir, apagar, reiniciar suspender y acciones de ese tipo."
 
-#: ../deskbar/handlers/gdmactions.py:317
+#: ../deskbar/handlers/gdmactions.py:364
 msgid "Shutdown"
 msgstr "Apagar"
 
@@ -1278,44 +1284,43 @@ msgstr ""
 msgid "<b>Search:</b>"
 msgstr "<b>Buscar:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
-msgid "default"
-msgstr "predeterminado"
-
 #: ../deskbar/ui/cuemiac/CuemiacTreeView.py:250
 msgid "Display additional actions"
 msgstr "Mostrar acciones adicionales"
 
-#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/AbstractCuemiacView.py:107
-msgid "_History"
-msgstr "_Histórico"
-
-#: ../deskbar/ui/AbstractCuemiacView.py:178
+#: ../deskbar/ui/AbstractCuemiacView.py:146
 msgid "Back to Matches"
 msgstr "Volver a las coincidencias"
 
-#: ../deskbar/ui/DeskbarApplet.py:28 ../deskbar/ui/DeskbarStatusIcon.py:66
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:114
 msgid "Show search entry"
 msgstr "Mostrar la entrada de búsqueda"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:37
+#: ../deskbar/ui/DeskbarApplet.py:74
+msgid "Show previously used actions"
+msgstr "Mostrar acciones usadas previamente"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:50
+msgid "<i>Empty</i>"
+msgstr "<i>Vacío</i>"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:85
 msgid "Clear History"
 msgstr "Limpiar histórico"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:41
+#: ../deskbar/ui/DeskbarStatusIcon.py:89
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:45
+#: ../deskbar/ui/DeskbarStatusIcon.py:93
 msgid "Help"
 msgstr "Ayuda"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:49
+#: ../deskbar/ui/DeskbarStatusIcon.py:97
 msgid "About"
 msgstr "Acerca de"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:55
+#: ../deskbar/ui/DeskbarStatusIcon.py:103
 msgid "Quit"
 msgstr "Salir"
 
@@ -1350,27 +1355,27 @@ msgstr "Ocurrió un problema"
 msgid "Extension has been installed successfully"
 msgstr "Se ha instalado la extensión con éxito"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:519
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:516
 msgid "Retrieving the extension index"
 msgstr "Obteniendo el índice de la extensión"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:521
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:518
 msgid "Downloading extension"
 msgstr "Descargando extensión"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:523
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:520
 msgid "Extracting archive"
 msgstr "Extrayendo archivo"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:530
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:527
 msgid "Installing extension"
 msgstr "Instalando extensión"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:531
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:528
 msgid "The extension will be downloaded and installed."
 msgstr "Se descargará e instalará la extensión."
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:573
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:570
 msgid "Extension could not be installed due to a problem with the provided file"
 msgstr ""
 "La extensión no se pudo instalar debido a un problema con el archivo "
