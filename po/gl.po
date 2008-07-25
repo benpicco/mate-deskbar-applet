@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-17 21:40+0200\n"
-"PO-Revision-Date: 2008-07-17 21:41+0200\n"
+"POT-Creation-Date: 2008-07-25 12:47+0200\n"
+"PO-Revision-Date: 2008-07-25 12:49+0200\n"
 "Last-Translator: Ignacio Casal Quinteiro <icq@svn.gnome.org>\n"
 "Language-Team: Galego <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -327,6 +327,7 @@ msgid "Uncategorized"
 msgstr "Sen categorizar"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
+#: ../deskbar/ui/DeskbarStatusIcon.py:76
 msgid "History"
 msgstr "Historial"
 
@@ -386,9 +387,9 @@ msgstr "Vídeo"
 msgid "Images"
 msgstr "Imaxes"
 
-#: ../deskbar/core/DeskbarHistory.py:23
-msgid "<i>Choose action</i>"
-msgstr "<i>Escoller acción</i>"
+#: ../deskbar/core/DeskbarHistory.py:22
+msgid "<i>Empty history</i>"
+msgstr "<i>Historial baleiro</i>"
 
 #: ../deskbar/core/Utils.py:156
 msgid "Cannot execute program:"
@@ -614,117 +615,127 @@ msgstr ""
 "Ver os seus ficheiros, cartafoles, marcadores, dispositivos e lugares de "
 "rede por nome"
 
-#: ../deskbar/handlers/gdmactions.py:30
+#: ../deskbar/handlers/gdmactions.py:40
 msgid "Shut down this system now?"
 msgstr "Quere apagar este sistema agora?"
 
-#: ../deskbar/handlers/gdmactions.py:31
-#, python-format
-msgid "This system will be automatically shut down in %s seconds."
-msgstr "Este sistema apagarase automaticamente en %s segundos."
-
-#: ../deskbar/handlers/gdmactions.py:32 ../deskbar/handlers/gdmactions.py:223
-#: ../deskbar/handlers/gdmactions.py:281
+#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:262
+#: ../deskbar/handlers/gdmactions.py:328
 msgid "Shut Down"
 msgstr "Apagar"
 
-#: ../deskbar/handlers/gdmactions.py:34
+#: ../deskbar/handlers/gdmactions.py:43
 msgid "Log out of this system now?"
 msgstr "Quere saír deste sistema agora?"
 
-#: ../deskbar/handlers/gdmactions.py:35
-#, python-format
-msgid "You will be automatically logged out in %s seconds."
-msgstr "Sairá do sistema automaticamente en %s segundos."
-
-#: ../deskbar/handlers/gdmactions.py:36 ../deskbar/handlers/gdmactions.py:236
-#: ../deskbar/handlers/gdmactions.py:240 ../deskbar/handlers/gdmactions.py:284
+#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:283 ../deskbar/handlers/gdmactions.py:331
 msgid "Log Out"
 msgstr "Terminar a sesión"
 
-#: ../deskbar/handlers/gdmactions.py:38
+#: ../deskbar/handlers/gdmactions.py:46
 msgid "Restart this system now?"
 msgstr "Quere reiniciar este sistema agora?"
 
-#: ../deskbar/handlers/gdmactions.py:39
-#, python-format
-msgid "This system will be automatically restarted in %s seconds."
-msgstr "Este sistema reiniciarase automaticamente en %s segundos."
-
-#: ../deskbar/handlers/gdmactions.py:40 ../deskbar/handlers/gdmactions.py:257
-#: ../deskbar/handlers/gdmactions.py:283
+#: ../deskbar/handlers/gdmactions.py:47 ../deskbar/handlers/gdmactions.py:304
+#: ../deskbar/handlers/gdmactions.py:330
 msgid "Restart"
 msgstr "Reiniciar"
 
-#: ../deskbar/handlers/gdmactions.py:42
+#: ../deskbar/handlers/gdmactions.py:49
 msgid "Suspend this system now?"
 msgstr "Quere suspender este sistema agora?"
 
-#: ../deskbar/handlers/gdmactions.py:43
-#, python-format
-msgid "This system will be automatically suspended in %s seconds."
-msgstr "Este sistema suspenderase automaticamente en %s segundos."
-
-#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:313
+#: ../deskbar/handlers/gdmactions.py:50 ../deskbar/handlers/gdmactions.py:360
 msgid "Suspend"
 msgstr "Suspender"
 
-#: ../deskbar/handlers/gdmactions.py:46
+#: ../deskbar/handlers/gdmactions.py:52
 msgid "Hibernate this system now?"
 msgstr "Quere hibernar este sistema agora?"
 
-#: ../deskbar/handlers/gdmactions.py:47
-#, python-format
-msgid "This system will be automatically hibernated in %s seconds."
-msgstr "Este sistema hibernarase automaticamente en %s segundos."
-
-#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:315
+#: ../deskbar/handlers/gdmactions.py:53 ../deskbar/handlers/gdmactions.py:362
 msgid "Hibernate"
 msgstr "Hibernar"
 
-#: ../deskbar/handlers/gdmactions.py:100
+#: ../deskbar/handlers/gdmactions.py:61
+#, python-format
+msgid "This system will be automatically shut down in %s second."
+msgid_plural "This system will be automatically shut down in %s seconds."
+msgstr[0] "Este sistema apagarase automaticamente en %s segundo."
+msgstr[1] "Este sistema apagarase automaticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:65
+#, python-format
+msgid "You will be automatically logged out in %s second."
+msgid_plural "You will be automatically logged out in %s seconds."
+msgstr[0] "Sairá do sistema automaticamente en %s segundo."
+msgstr[1] "Sairá do sistema automaticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:69
+#, python-format
+msgid "This system will be automatically restarted in %s second."
+msgid_plural "This system will be automatically restarted in %s seconds."
+msgstr[0] "Este sistema reiniciarase automaticamente en %s segundo."
+msgstr[1] "Este sistema reiniciarase automaticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:73
+#, python-format
+msgid "This system will be automatically suspended in %s second."
+msgid_plural "This system will be automatically suspended in %s seconds."
+msgstr[0] "Este sistema suspenderase automaticamente en %s segundo."
+msgstr[1] "Este sistema suspenderase automaticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:77
+#, python-format
+msgid "This system will be automatically hibernated in %s second."
+msgid_plural "This system will be automatically hibernated in %s seconds."
+msgstr[0] "Este sistema hibernarase automaticamente en %s segundo."
+msgstr[1] "Este sistema hibernarase automaticamente en %s segundos."
+
+#: ../deskbar/handlers/gdmactions.py:127
 msgid "Suspend the machine"
 msgstr "Suspender a máquina"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Hibernate the machine"
 msgstr "Hibernar a máquina"
 
-#: ../deskbar/handlers/gdmactions.py:134
+#: ../deskbar/handlers/gdmactions.py:169
 msgid "Shutdown the machine"
 msgstr "Apagar a máquina"
 
-#: ../deskbar/handlers/gdmactions.py:155
+#: ../deskbar/handlers/gdmactions.py:190
 msgid "Lock the screen"
 msgstr "Bloquear a pantalla"
 
-#: ../deskbar/handlers/gdmactions.py:178 ../deskbar/handlers/gdmactions.py:302
+#: ../deskbar/handlers/gdmactions.py:213 ../deskbar/handlers/gdmactions.py:349
 msgid "Lock"
 msgstr "Bloquear"
 
-#: ../deskbar/handlers/gdmactions.py:219
+#: ../deskbar/handlers/gdmactions.py:258
 msgid "Turn off the computer"
 msgstr "Apagar o computador"
 
-#: ../deskbar/handlers/gdmactions.py:253
+#: ../deskbar/handlers/gdmactions.py:300
 msgid "Restart the computer"
 msgstr "Reiniciar o computador"
 
-#: ../deskbar/handlers/gdmactions.py:268 ../deskbar/handlers/gdmactions.py:272
-#: ../deskbar/handlers/gdmactions.py:282
+#: ../deskbar/handlers/gdmactions.py:315 ../deskbar/handlers/gdmactions.py:319
+#: ../deskbar/handlers/gdmactions.py:329
 msgid "Switch User"
 msgstr "Cambiar de usuario"
 
-#: ../deskbar/handlers/gdmactions.py:278
+#: ../deskbar/handlers/gdmactions.py:325
 msgid "Computer Actions"
 msgstr "Accións do computador"
 
-#: ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:326
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr ""
 "Terminar a sesión, pechar, reiniciar, suspender e accións relacionadas."
 
-#: ../deskbar/handlers/gdmactions.py:317
+#: ../deskbar/handlers/gdmactions.py:364
 msgid "Shutdown"
 msgstr "Pechar"
 
@@ -967,7 +978,7 @@ msgstr "Buscar as notas do Tomboy"
 msgid "Tomboy does not seem to be installed."
 msgstr "Tomboy parece que non está instalado."
 
-#: ../deskbar/handlers/tomboy.py:276
+#: ../deskbar/handlers/tomboy.py:278
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -1289,36 +1300,39 @@ msgstr "<b>Buscar:</b>"
 msgid "Display additional actions"
 msgstr "Mostrar accións adicionais"
 
-#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/AbstractCuemiacView.py:107
-msgid "_History"
-msgstr "_Historial"
-
-#: ../deskbar/ui/AbstractCuemiacView.py:178
+#: ../deskbar/ui/AbstractCuemiacView.py:146
 msgid "Back to Matches"
 msgstr "Volver ás coincidencias"
 
-#: ../deskbar/ui/DeskbarApplet.py:28 ../deskbar/ui/DeskbarStatusIcon.py:66
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:114
 msgid "Show search entry"
 msgstr "Mostrar a entrada de busca"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:37
+#: ../deskbar/ui/DeskbarApplet.py:74
+msgid "Show previously used actions"
+msgstr "Mostrar accións usadas recentemente"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:50
+msgid "<i>Empty</i>"
+msgstr "<i>Baleiro</i>"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:85
 msgid "Clear History"
 msgstr "Limpar o historial"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:41
+#: ../deskbar/ui/DeskbarStatusIcon.py:89
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:45
+#: ../deskbar/ui/DeskbarStatusIcon.py:93
 msgid "Help"
 msgstr "Axuda"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:49
+#: ../deskbar/ui/DeskbarStatusIcon.py:97
 msgid "About"
 msgstr "Sobre"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:55
+#: ../deskbar/ui/DeskbarStatusIcon.py:103
 msgid "Quit"
 msgstr "Saír"
 
@@ -1401,6 +1415,12 @@ msgstr "Versión"
 #: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "Actualización dispoñible"
+
+#~ msgid "<i>Choose action</i>"
+#~ msgstr "<i>Escoller acción</i>"
+
+#~ msgid "_History"
+#~ msgstr "_Historial"
 
 #~ msgid "name"
 #~ msgstr "nome"
