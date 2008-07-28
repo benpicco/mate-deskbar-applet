@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-24 21:08+0200\n"
-"PO-Revision-Date: 2008-06-24 21:09+0200\n"
+"POT-Creation-Date: 2008-07-28 20:41+0200\n"
+"PO-Revision-Date: 2008-07-28 20:43+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -315,6 +315,7 @@ msgid "Uncategorized"
 msgstr "Ukategorisert"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
+#: ../deskbar/ui/DeskbarStatusIcon.py:76
 msgid "History"
 msgstr "Historikk"
 
@@ -374,9 +375,9 @@ msgstr "Video"
 msgid "Images"
 msgstr "Bilder"
 
-#: ../deskbar/core/DeskbarHistory.py:23
-msgid "<i>Choose action</i>"
-msgstr "<i>Velg handling</i>"
+#: ../deskbar/core/DeskbarHistory.py:22
+msgid "<i>Empty history</i>"
+msgstr "<i>Tom historikk</i>"
 
 #: ../deskbar/core/Utils.py:156
 msgid "Cannot execute program:"
@@ -425,47 +426,42 @@ msgstr "Åpne %s som inneholder %s"
 msgid "Open %s"
 msgstr "Åpne %s"
 
-#: ../deskbar/handlers/beagle-live.py:385
+#: ../deskbar/handlers/beagle-live.py:387
 #, python-format
 msgid "Additional results for category <b>%s</b>"
 msgstr "Flere resultater for kategori <b>%s</b>"
 
-#: ../deskbar/handlers/beagle-live.py:385
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "navn"
-
-#: ../deskbar/handlers/beagle-live.py:422
-#: ../deskbar/handlers/beagle-live.py:425
+#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:427
 #, python-format
 msgid "From <i>%s</i>"
 msgstr "Fra <i>%s</i>"
 
-#: ../deskbar/handlers/beagle-live.py:484
+#: ../deskbar/handlers/beagle-live.py:486
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:485
+#: ../deskbar/handlers/beagle-live.py:487
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Søk gjennom alle dine dokumenter med Beagle mens du skriver"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:730
-#: ../deskbar/handlers/beagle-live.py:747
+#: ../deskbar/handlers/beagle-live.py:732
+#: ../deskbar/handlers/beagle-live.py:749
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:781
+#: ../deskbar/handlers/beagle-live.py:783
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Kunne ikke laste beagle, libbeagle er kompilert uten python-bindinger."
 
-#: ../deskbar/handlers/beagle-live.py:787
+#: ../deskbar/handlers/beagle-live.py:789
 msgid "Beagle daemon is not running."
 msgstr "Beagle-tjenesten kjører ikke."
 
-#: ../deskbar/handlers/beagle-live.py:790
+#: ../deskbar/handlers/beagle-live.py:792
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagled ble ikke funnet i $PATH."
 
@@ -604,116 +600,126 @@ msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Vis dine filer, mapper, bokmerker, stasjoner og nettverkssteder etter navn"
 
-#: ../deskbar/handlers/gdmactions.py:30
+#: ../deskbar/handlers/gdmactions.py:40
 msgid "Shut down this system now?"
 msgstr "Steng ned systemet nå?"
 
-#: ../deskbar/handlers/gdmactions.py:31
-#, python-format
-msgid "This system will be automatically shut down in %s seconds."
-msgstr "Dette systemet vil bli stengt ned om %s sekunder."
-
-#: ../deskbar/handlers/gdmactions.py:32 ../deskbar/handlers/gdmactions.py:223
-#: ../deskbar/handlers/gdmactions.py:281
+#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:262
+#: ../deskbar/handlers/gdmactions.py:328
 msgid "Shut Down"
 msgstr "Slå av"
 
-#: ../deskbar/handlers/gdmactions.py:34
+#: ../deskbar/handlers/gdmactions.py:43
 msgid "Log out of this system now?"
 msgstr "Logg ut fra systemet nå?"
 
-#: ../deskbar/handlers/gdmactions.py:35
-#, python-format
-msgid "You will be automatically logged out in %s seconds."
-msgstr "Du vil automatisk logges ut om %s sekunder."
-
-#: ../deskbar/handlers/gdmactions.py:36 ../deskbar/handlers/gdmactions.py:236
-#: ../deskbar/handlers/gdmactions.py:240 ../deskbar/handlers/gdmactions.py:284
+#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:283 ../deskbar/handlers/gdmactions.py:331
 msgid "Log Out"
 msgstr "Logg ut"
 
-#: ../deskbar/handlers/gdmactions.py:38
+#: ../deskbar/handlers/gdmactions.py:46
 msgid "Restart this system now?"
 msgstr "Start systemet på nytt nå?"
 
-#: ../deskbar/handlers/gdmactions.py:39
-#, python-format
-msgid "This system will be automatically restarted in %s seconds."
-msgstr "Dette systemet vil bli startet på nytt automatisk om %s sekunder."
-
-#: ../deskbar/handlers/gdmactions.py:40 ../deskbar/handlers/gdmactions.py:257
-#: ../deskbar/handlers/gdmactions.py:283
+#: ../deskbar/handlers/gdmactions.py:47 ../deskbar/handlers/gdmactions.py:304
+#: ../deskbar/handlers/gdmactions.py:330
 msgid "Restart"
 msgstr "Start på nytt"
 
-#: ../deskbar/handlers/gdmactions.py:42
+#: ../deskbar/handlers/gdmactions.py:49
 msgid "Suspend this system now?"
 msgstr "Sett maskinen i hvilemodus nå?"
 
-#: ../deskbar/handlers/gdmactions.py:43
-#, python-format
-msgid "This system will be automatically suspended in %s seconds."
-msgstr "Systemet vil gå i hvilemodus om %s sekunder."
-
-#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:313
+#: ../deskbar/handlers/gdmactions.py:50 ../deskbar/handlers/gdmactions.py:360
 msgid "Suspend"
 msgstr "Hvilemodus"
 
-#: ../deskbar/handlers/gdmactions.py:46
+#: ../deskbar/handlers/gdmactions.py:52
 msgid "Hibernate this system now?"
 msgstr "Sett maskinen i dvalemodus nå?"
 
-#: ../deskbar/handlers/gdmactions.py:47
-#, python-format
-msgid "This system will be automatically hibernated in %s seconds."
-msgstr "Dette systemet vil gå i dvalemodus om %s sekunder."
-
-#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:315
+#: ../deskbar/handlers/gdmactions.py:53 ../deskbar/handlers/gdmactions.py:362
 msgid "Hibernate"
 msgstr "Dvalemodus"
 
-#: ../deskbar/handlers/gdmactions.py:100
+#: ../deskbar/handlers/gdmactions.py:61
+#, python-format
+msgid "This system will be automatically shut down in %s second."
+msgid_plural "This system will be automatically shut down in %s seconds."
+msgstr[0] "Dette systemet vil bli stengt ned automatisk om %s sekund."
+msgstr[1] "Dette systemet vil bli stengt ned automatisk om %s sekunder."
+
+#: ../deskbar/handlers/gdmactions.py:65
+#, python-format
+msgid "You will be automatically logged out in %s second."
+msgid_plural "You will be automatically logged out in %s seconds."
+msgstr[0] "Du vil automatisk logges ut om %s sekund."
+msgstr[1] "Du vil automatisk logges ut om %s sekunder."
+
+#: ../deskbar/handlers/gdmactions.py:69
+#, python-format
+msgid "This system will be automatically restarted in %s second."
+msgid_plural "This system will be automatically restarted in %s seconds."
+msgstr[0] "Dette systemet vil bli startet på nytt automatisk om %s sekund."
+msgstr[1] "Dette systemet vil bli startet på nytt automatisk om %s sekunder."
+
+#: ../deskbar/handlers/gdmactions.py:73
+#, python-format
+msgid "This system will be automatically suspended in %s second."
+msgid_plural "This system will be automatically suspended in %s seconds."
+msgstr[0] "Systemet vil gå i hvilemodus automatisk om %s sekund."
+msgstr[1] "Systemet vil gå i hvilemodus automatisk om %s sekunder."
+
+#: ../deskbar/handlers/gdmactions.py:77
+#, python-format
+msgid "This system will be automatically hibernated in %s second."
+msgid_plural "This system will be automatically hibernated in %s seconds."
+msgstr[0] "Dette systemet vil gå i dvalemodus automatisk om %s sekund."
+msgstr[1] "Dette systemet vil gå i dvalemodus automatisk om %s sekunder."
+
+#: ../deskbar/handlers/gdmactions.py:127
 msgid "Suspend the machine"
 msgstr "Sett maskinen i hvilemodus"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Hibernate the machine"
 msgstr "Sett maskinen i dvalemodus"
 
-#: ../deskbar/handlers/gdmactions.py:134
+#: ../deskbar/handlers/gdmactions.py:169
 msgid "Shutdown the machine"
 msgstr "Slå av maskinen"
 
-#: ../deskbar/handlers/gdmactions.py:155
+#: ../deskbar/handlers/gdmactions.py:190
 msgid "Lock the screen"
 msgstr "Lås skjermen"
 
-#: ../deskbar/handlers/gdmactions.py:178 ../deskbar/handlers/gdmactions.py:302
+#: ../deskbar/handlers/gdmactions.py:213 ../deskbar/handlers/gdmactions.py:349
 msgid "Lock"
 msgstr "Lås"
 
-#: ../deskbar/handlers/gdmactions.py:219
+#: ../deskbar/handlers/gdmactions.py:258
 msgid "Turn off the computer"
 msgstr "Slå av datamaskinen"
 
-#: ../deskbar/handlers/gdmactions.py:253
+#: ../deskbar/handlers/gdmactions.py:300
 msgid "Restart the computer"
 msgstr "Start maskinen på nytt"
 
-#: ../deskbar/handlers/gdmactions.py:268 ../deskbar/handlers/gdmactions.py:272
-#: ../deskbar/handlers/gdmactions.py:282
+#: ../deskbar/handlers/gdmactions.py:315 ../deskbar/handlers/gdmactions.py:319
+#: ../deskbar/handlers/gdmactions.py:329
 msgid "Switch User"
 msgstr "Bytt bruker"
 
-#: ../deskbar/handlers/gdmactions.py:278
+#: ../deskbar/handlers/gdmactions.py:325
 msgid "Computer Actions"
 msgstr "Handlinger for datamaskinen"
 
-#: ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:326
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Logg ut, slå av, start på nytt, hvilemodus og relaterte handlinger."
 
-#: ../deskbar/handlers/gdmactions.py:317
+#: ../deskbar/handlers/gdmactions.py:364
 msgid "Shutdown"
 msgstr "Slå av"
 
@@ -956,7 +962,7 @@ msgstr "Søk i dine Tomboy notater"
 msgid "Tomboy does not seem to be installed."
 msgstr "Tomboy ser ikke ut til å være installert."
 
-#: ../deskbar/handlers/tomboy.py:276
+#: ../deskbar/handlers/tomboy.py:278
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -1269,44 +1275,43 @@ msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 msgid "<b>Search:</b>"
 msgstr "<b>Søk:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
-msgid "default"
-msgstr "forvalgt"
-
 #: ../deskbar/ui/cuemiac/CuemiacTreeView.py:250
 msgid "Display additional actions"
 msgstr "Vis flere handlinger"
 
-#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/AbstractCuemiacView.py:107
-msgid "_History"
-msgstr "_Historikk"
-
-#: ../deskbar/ui/AbstractCuemiacView.py:178
+#: ../deskbar/ui/AbstractCuemiacView.py:146
 msgid "Back to Matches"
 msgstr "Tilbake til treff"
 
-#: ../deskbar/ui/DeskbarApplet.py:28 ../deskbar/ui/DeskbarStatusIcon.py:66
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:114
 msgid "Show search entry"
 msgstr "Vis søkeoppføring"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:37
+#: ../deskbar/ui/DeskbarApplet.py:74
+msgid "Show previously used actions"
+msgstr "Vis tidligere brukte handlinger"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:50
+msgid "<i>Empty</i>"
+msgstr "<i>Tom</i>"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:85
 msgid "Clear History"
 msgstr "Tøm historikk"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:41
+#: ../deskbar/ui/DeskbarStatusIcon.py:89
 msgid "Preferences"
 msgstr "Brukervalg"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:45
+#: ../deskbar/ui/DeskbarStatusIcon.py:93
 msgid "Help"
 msgstr "Hjelp"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:49
+#: ../deskbar/ui/DeskbarStatusIcon.py:97
 msgid "About"
 msgstr "Om"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:55
+#: ../deskbar/ui/DeskbarStatusIcon.py:103
 msgid "Quit"
 msgstr "Avslutt"
 
@@ -1341,27 +1346,27 @@ msgstr "Et problem oppsto"
 msgid "Extension has been installed successfully"
 msgstr "Installering av utvidelse er fullført"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:519
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:516
 msgid "Retrieving the extension index"
 msgstr "Henter indeks for utvidelse"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:521
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:518
 msgid "Downloading extension"
 msgstr "Laster ned utvidelse"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:523
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:520
 msgid "Extracting archive"
 msgstr "Henter ut arkiv"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:530
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:527
 msgid "Installing extension"
 msgstr "Installerer utvidelse"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:531
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:528
 msgid "The extension will be downloaded and installed."
 msgstr "Utvidelsen vil bli lastet ned og installert."
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:573
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:570
 msgid ""
 "Extension could not be installed due to a problem with the provided file"
 msgstr "Utvidelse kunne ikke installeres grunnet et problem med oppgitt fil"
