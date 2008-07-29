@@ -1,5 +1,13 @@
 2008-07-29  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/core/CoreImpl.py:
+    * deskbar/core/GconfStore.py:
+    Added sanity checks when setting values and
+    emitting signals (fixes bug #486549)
+    (patch partly by Goran Rakic <grakic at devbase dot net>)
+
+2008-07-29  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/core/Utils.py:
     Added get_locale_lang function
     Fixed bug #544587: unknown locale

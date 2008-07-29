@@ -80,20 +80,40 @@ class GconfStore(gobject.GObject):
         
     def __connect_notifications(self):
         self._client.add_dir(self.GCONF_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
-        self._client.notify_add(self.GCONF_KEYBINDING, lambda x, y, z, a: self.emit("keybinding-changed", z.value.get_string()))
-        self._client.notify_add(self.GCONF_MINCHARS, lambda x, y, z, a: self.emit("min-chars-changed", z.value.get_int()))
-        self._client.notify_add(self.GCONF_TYPINGDELAY, lambda x, y, z, a: self.emit("type-delay-changed", z.value.get_int()))
-        self._client.notify_add(self.GCONF_USE_SELECTION, lambda x, y, z, a: self.emit("use-selection-changed", z.value.get_bool()))
-        self._client.notify_add(self.GCONF_CLEAR_ENTRY, lambda x, y, z, a: self.emit("clear-entry-changed", z.value.get_bool()))
-        self._client.notify_add(self.GCONF_PROXY_USE_HTTP_PROXY, lambda x, y, z, a: self.emit("use-http-proxy-changed", z.value.get_bool()))
-        self._client.notify_add(self.GCONF_PROXY_HOST_KEY, lambda x, y, z, a: self.emit("proxy-host-changed", z.value.get_string()))
-        self._client.notify_add(self.GCONF_PROXY_PORT_KEY, lambda x, y, z, a: self.emit("proxy-port-changed", z.value.get_string()))
-        self._client.notify_add(self.GCONF_ENABLED_HANDLERS, lambda x, y, z, a: self.emit("enabled-modules-changed", [i.get_string() for i in z.value.get_list()]))
-        self._client.notify_add(self.GCONF_COLLAPSED_CAT, lambda x, y, z, a: self.emit("collapsed-rows-changed", [i.get_string() for i in z.value.get_list()]))
-        self._client.notify_add(self.GCONF_HIDE_AFTER_ACTION, lambda x, y, z, a: self.emit("hide-after-action-changed", z.value.get_bool()))
-        self._client.notify_add(self.GCONF_TYPINGDELAY, lambda x, y, z, a: self.emit("max-history-items-changed", z.value.get_int()))
-        self._client.notify_add(self.GCONF_DEFAULT_BROWSER, lambda x, y, z, a: self.emit("default-browser-changed", z.value.get_string()))
-        self._client.notify_add(self.GCONF_UI_NAME, lambda x, y, z, a: self.emit("ui-name-changed", z.value.get_string()))
+        self._client.notify_add(self.GCONF_KEYBINDING, self.__emit_signal_string, "keybinding-changed")
+        self._client.notify_add(self.GCONF_MINCHARS, self.__emit_signal_int, "min-chars-changed")
+        self._client.notify_add(self.GCONF_TYPINGDELAY, self.__emit_signal_int, "type-delay-changed")
+        self._client.notify_add(self.GCONF_USE_SELECTION, self.__emit_signal_bool, "use-selection-changed")
+        self._client.notify_add(self.GCONF_CLEAR_ENTRY, self.__emit_signal_bool, "clear-entry-changed")
+        self._client.notify_add(self.GCONF_PROXY_USE_HTTP_PROXY, self.__emit_signal_bool, "use-http-proxy-changed")
+        self._client.notify_add(self.GCONF_PROXY_HOST_KEY, self.__emit_signal_string, "proxy-host-changed")
+        self._client.notify_add(self.GCONF_PROXY_PORT_KEY, self.__emit_signal_string, "proxy-port-changed")
+        self._client.notify_add(self.GCONF_ENABLED_HANDLERS, self.__emit_signal_string_list, "enabled-modules-changed")
+        self._client.notify_add(self.GCONF_COLLAPSED_CAT, self.__emit_signal_string_list, "collapsed-rows-changed")
+        self._client.notify_add(self.GCONF_HIDE_AFTER_ACTION, self.__emit_signal_bool, "hide-after-action-changed")
+        self._client.notify_add(self.GCONF_TYPINGDELAY, self.__emit_signal_int, "max-history-items-changed")
+        self._client.notify_add(self.GCONF_DEFAULT_BROWSER, self.__emit_signal_string, "default-browser-changed")
+        self._client.notify_add(self.GCONF_UI_NAME, self.__emit_signal_string, "ui-name-changed")
+        
+    def __emit_signal_string(self, client, cnxn_id, entry, data):
+        if entry.value != None:
+            self.emit(data, entry.value.get_string())
+    
+    def __emit_signal_string_list(self, client, cnxn_id, entry, data):
+        if entry.value != None:
+            vals = []
+            for i in entry.value.get_list():
+                if i != None:
+                    vals.append(i.get_string())
+            self.emit(data, vals)
+    
+    def __emit_signal_bool(self, client, cnxn_id, entry, data):
+        if entry.value != None:
+            self.emit(data, entry.value.get_bool())
+    
+    def __emit_signal_int(self, client, cnxn_id, entry, data):
+        if entry.value != None:
+            self.emit(data, entry.value.get_int())
     
     def get_client(self):
         return self._client
@@ -168,52 +188,72 @@ class GconfStore(gobject.GObject):
         return self._client.get_string(self.GCONF_UI_NAME)
 
     def set_keybinding(self, binding):
-        self._client.set_string(self.GCONF_KEYBINDING, binding)
+        return self.__set_string_if_writeable(self.GCONF_KEYBINDING, binding)
     
     def set_min_chars(self, number):
-        self._client.set_int(self.GCONF_MINCHARS, int(number))
+        return self.__set_int_if_writeable(self.GCONF_MINCHARS, int(number))
     
     def set_type_delay(self, seconds):
-        self._client.set_int(self.GCONF_TYPINGDELAY, int(seconds))
+        return self.__set_int_if_writeable(self.GCONF_TYPINGDELAY, int(seconds))
     
     def set_use_selection(self, val):
-        self._client.set_bool(self.GCONF_USE_SELECTION, val)
+        return self.__set_bool_if_writeable(self.GCONF_USE_SELECTION, val)
     
     def set_clear_entry(self, val):
-        self._client.set_bool(self.GCONF_CLEAR_ENTRY)
+        return self.__set_bool_if_writeable(self.GCONF_CLEAR_ENTRY)
     
     def set_use_http_proxy(self, val):
-        self._client.set_bool(self.GCONF_PROXY_USE_HTTP_PROXY, val)
+        return self.__set_bool_if_writeable(self.GCONF_PROXY_USE_HTTP_PROXY, val)
     
     def set_proxy_host(self, host):
-        self._client.set_string(self.GCONF_PROXY_HOST_KEY, host)
+        return self.__set_string_if_writeable(self.GCONF_PROXY_HOST_KEY, host)
     
     def set_proxy_port(self, port):
-        self._client.set_int(self.GCONF_PROXY_HOST_KEY, port)
+        return self.__set_int_if_writeable(self.GCONF_PROXY_HOST_KEY, port)
     
     def set_enabled_modules(self, handlers):
-        self._client.set_list(self.GCONF_ENABLED_HANDLERS, gconf.VALUE_STRING,  handlers)
+        return self.__set_list_if_writeable(self.GCONF_ENABLED_HANDLERS, gconf.VALUE_STRING,  handlers)
         
     def set_collapsed_cat(self, cat):
-        self._client.set_list(self.GCONF_COLLAPSED_CAT, gconf.VALUE_STRING, cat)
+        return self.__set_list_if_writeable(self.GCONF_COLLAPSED_CAT, gconf.VALUE_STRING, cat)
      
     def set_window_width(self, width):
-        self._client.set_int(self.GCONF_WINDOW_WIDTH, width)
+        return self.__set_int_if_writeable(self.GCONF_WINDOW_WIDTH, width)
     
     def set_window_height(self, height):
-        self._client.set_int(self.GCONF_WINDOW_HEIGHT, height)  
+        return self.__set_int_if_writeable(self.GCONF_WINDOW_HEIGHT, height)  
     
     def set_window_x(self, x):      
-        self._client.set_int(self.GCONF_WINDOW_X, x)      
+        return self.__set_int_if_writeable(self.GCONF_WINDOW_X, x)      
            
     def set_window_y(self, y):      
-        self._client.set_int(self.GCONF_WINDOW_Y, y)
+        return self.__set_int_if_writeable(self.GCONF_WINDOW_Y, y)
         
     def set_hide_after_action(self, val):
-        self._client.set_bool(self.GCONF_HIDE_AFTER_ACTION, val)
+        return self.__set_bool_if_writeable(self.GCONF_HIDE_AFTER_ACTION, val)
         
     def set_max_history_items(self, amount):
-        self._client.set_int(self.GCONF_MAX_HISTORY_ITEMS, int(amount))
+        return self.__set_int_if_writeable(self.GCONF_MAX_HISTORY_ITEMS, int(amount))
         
     def set_ui_name(self, name):
-        self._client.set_string(self.GCONF_UI_NAME, name)
+        return self.__set_string_if_writeable(self.GCONF_UI_NAME, name)
+
+    def __set_string_if_writeable(self, key, val):
+        if self._client.key_is_writable(key):
+            return self._client.set_string(key, val)
+        return False
+
+    def __set_int_if_writeable(self, key, val):
+        if self._client.key_is_writable(key):
+            return self._client.set_int(key, val)
+        return False
+
+    def __set_bool_if_writeable(self, key, val):
+        if self._client.key_is_writable(key):
+            return self._client.set_bool(key, val)
+        return False
+
+    def __set_list_if_writeable(self, key, value_type, val):
+        if self._client.key_is_writable(key):
+            return self._client.set_list(key, value_type, val)
+        return False

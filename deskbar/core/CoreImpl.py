@@ -68,12 +68,17 @@ class CoreImpl(deskbar.interfaces.Core):
         self._module_loader.connect ("module-stopped", self._module_list.module_toggled_cb)
         
     def _setup_keybinder(self):
+        self._gconf.connect("keybinding-changed", self._on_keybinding_changed)
+        
         self._keybinder = Keybinder()
-        if (self.get_keybinding() == None or gtk.accelerator_parse(self.get_keybinding()) == (0,0)):
+        keybinding = self.get_keybinding()
+        if (keybinding == None or gtk.accelerator_parse(keybinding) == (0,0)):
             # Keybinding is not set or invalid, set default keybinding
-            self.set_keybinding( self.DEFAULT_KEYBINDING )
+            keybinding = self.DEFAULT_KEYBINDING
+            self.set_keybinding(keybinding) # try to save it to Gconf
         else:
-            self.set_keybinding( self.get_keybinding() )
+            keybinding = self.get_keybinding()
+        self.bind_keybinding(keybinding) # use keybindingx
     
     def get_old_modules(self):
         """
@@ -106,8 +111,9 @@ class CoreImpl(deskbar.interfaces.Core):
         
         @type name: list of class names 
         """
-        self._gconf.set_enabled_modules(name)
-    
+        if not self._gconf.set_enabled_modules(name):
+            LOGGER.error("Unable to save enabled modules list to GConf")
+
     def get_keybinding(self):
         """
         Get keybinding
@@ -160,61 +166,82 @@ class CoreImpl(deskbar.interfaces.Core):
     
     def get_ui_name(self):
         return self._gconf.get_ui_name()
-    
+
     def set_keybinding(self, binding):
         """
-        Store keybinding and actually bind it
+        Store keybinding
         """
-        self._gconf.set_keybinding(binding)
+        if not self._gconf.set_keybinding(binding):
+            LOGGER.error("Unable to save keybinding setting to GConf")
+
+    def bind_keybinding(self, binding):
+        """
+        Actually bind keybinding
+        """
         if not self._keybinder.bind(binding):
             LOGGER.error("Keybinding is already in use")
         else:
             LOGGER.info("Successfully binded Deskbar to %s", binding)
     
     def set_min_chars(self, number):
-        self._gconf.set_min_chars(number)
+        if not self._gconf.set_min_chars(number):
+            LOGGER.error("Unable to save min chars setting to GConf")
     
     def set_type_delay(self, seconds):
-        self._gconf.set_type_delay(seconds)
+        if not self._gconf.set_type_delay(seconds):
+            LOGGER.error("Unable to save type delay setting to GConf")
     
     def set_use_selection(self, val):
-        self._gconf.set_use_selection(val)
+        if not self._gconf.set_use_selection(val):
+            LOGGER.error("Unable to save use selection setting to GConf")
 
     def set_clear_entry(self, val):
-        self._gconf.set_clear_entry(val)
+        if not self._gconf.set_clear_entry(val):
+            LOGGER.error("Unable to save clear entry setting to GConf")
     
     def set_use_http_proxy(self, val):
-        self._gconf.set_use_http_proxy(val)
+        if not self._gconf.set_use_http_proxy(val):
+            LOGGER.error("Unable to save http proxy setting to GConf")
     
     def set_proxy_host(self, host):
-        self._gconf.set_proxy_host(host)
+        if not self._gconf.set_proxy_host(host):
+            LOGGER.error("Unable to save http proxy host setting to GConf")
     
     def set_proxy_port(self, port):
-        self._gconf.set_proxy_port(port)
+        if not self._gconf.set_proxy_port(port):
+            LOGGER.error("Unable to save proxy port setting to GConf")
     
     def set_collapsed_cat(self, cat):
-        self._gconf.set_collapsed_cat(cat)
+        if not self._gconf.set_collapsed_cat(cat):
+            LOGGER.error("Unable to save collapsed cat setting to GConf")
     
     def set_window_width(self, width):
-        self._gconf.set_window_width(width)
+        if not self._gconf.set_window_width(width):
+            LOGGER.error("Unable to save window width setting to GConf")
     
     def set_window_height(self, height):
-        self._gconf.set_window_height(height)
+        if not self._gconf.set_window_height(height):
+            LOGGER.error("Unable to save window height setting to GConf")
     
     def set_window_x(self, x):      
-        self._gconf.set_window_x(x)      
+        if not self._gconf.set_window_x(x):     
+            LOGGER.error("Unable to save window x position setting to GConf")
        
     def set_window_y(self, y):      
-        self._gconf.set_window_y(y)
+        if not self._gconf.set_window_y(y):
+            LOGGER.error("Unable to save window y position setting to GConf")
     
     def set_hide_after_action(self, width):
-        self._gconf.set_hide_after_action(width)
+        if not self._gconf.set_hide_after_action(width):
+            LOGGER.error("Unable to save hide after action setting to GConf")
     
     def set_max_history_items(self, amount):
-        self._gconf.set_max_history_items(amount)
+        if not self._gconf.set_max_history_items(amount):
+            LOGGER.error("Unable to save max history items setting to GConf")
         
     def set_ui_name(self, name):
-        self._gconf.set_ui_name(name)
+        if not self._gconf.set_ui_name(name):
+            LOGGER.error("Unable to save ui name setting to GConf")
     
     def get_history(self):
         """
@@ -422,3 +449,7 @@ class CoreImpl(deskbar.interfaces.Core):
                 self.initialize_module(new_module, async=False)
         
         self.update_gconf()
+        
+    def _on_keybinding_changed(self, store, keybinding):
+        if gtk.accelerator_parse(keybinding) != (0,0):
+            self.bind_keybinding(keybinding)
