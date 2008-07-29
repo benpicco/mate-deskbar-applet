@@ -11,6 +11,7 @@ import gnomevfs
 import gobject
 import gtk
 import gtk.gdk
+import locale
 import logging
 import os
 import re
@@ -208,3 +209,15 @@ def get_proxy():
         return proxies
     else:
         return None
+    
+def get_locale_lang():
+    """
+    @returns language code corresponding to RFC 1766 of currently used locale
+    or None when the code is unknown
+    """
+    try:
+        localelang = locale.getlocale()[0]
+    except ValueError:
+        return None
+    
+    return localelang

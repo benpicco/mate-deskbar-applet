@@ -1,3 +1,13 @@
+2008-07-29  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
+    * deskbar/core/Utils.py:
+    Added get_locale_lang function
+    Fixed bug #544587: unknown locale
+    
+    * deskbar/handlers/wikipedia-suggest.py:
+    * deskbar/handlers/yahoo.py:
+    Use Utils.get_locale_lang to guess language.
+
 2008-07-23  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/handlers/tomboy.py:

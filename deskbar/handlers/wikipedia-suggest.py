@@ -1,12 +1,11 @@
 from deskbar.core.GconfStore import GconfStore
-from deskbar.core.Utils import load_icon
+from deskbar.core.Utils import load_icon, get_locale_lang
 from deskbar.defs import VERSION
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from gettext import gettext as _
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
 import gtk
-import locale
 import logging
 import urllib
 
@@ -65,27 +64,45 @@ class WikipediaSuggestHandler(deskbar.interfaces.Module):
              'description': _("As you type, Wikipedia will offer suggestions."),
              'version': VERSION}
     
+    DEFAULT_LANG = "en"
+    
     def __init__(self):
         deskbar.interfaces.Module.__init__(self)
+        self._lang = None
         self._gconf = GconfStore.get_instance().get_client()
-        self._gconf.notify_add(GCONF_KEY, lambda x, y, z, a: self.set_lang(z.value.get_string()))
+        self._gconf.notify_add(GCONF_KEY, self._on_language_changed)
+        self._set_lang()
+    
+    def _set_lang(self):
         self._lang = self._gconf.get_string(GCONF_KEY)
-        # Try to guess language from current locale
         if self._lang == None:
-            lang = "en"
-            # we get (de_DE, UTF-8) and want only de
-            localelang = locale.getlocale()[0]
-            if localelang != None:
-                localelang = localelang.split("_")[0]
-            for l in LANGUAGES:
-                if l[1] == localelang:
-                    lang = localelang
-                    break
-            self._gconf.set_string(GCONF_KEY, lang)
-        
-    def set_lang(self, lang):
-        self._lang = lang
-        
+            localelang = self._guess_lang()
+            self._gconf.set_string(GCONF_KEY, localelang)
+            
+    def _guess_lang(self):
+        """ Try to guess lang """
+        localelang = get_locale_lang()
+        if localelang == None:
+            localelang = self.DEFAULT_LANG
+        else:
+            localelang = localelang.split("_")[0]
+            
+            # Check if the language is supported
+            for name, code in LANGUAGES:
+                if code == localelang:
+                    return localelang
+            
+            # Set fallback
+            localelang = self.DEFAULT_LANG
+                    
+        return localelang
+    
+    def _on_language_changed(self, client, cnxn_id, entry, data):
+        if entry.value == None:
+            self._set_lang()
+        else:
+            self._lang = entry.value.get_string()
+            
     def query(self, qstring):        
         args = {'lang': self._lang, 'search': qstring}
         url = WIKIPEDIA_SUGGEST_URL + '?' + urllib.urlencode(args)
@@ -148,11 +165,9 @@ class ConfigDialog (gtk.Dialog):
         vbox.show_all()
         
         self._gconf = GconfStore.get_instance().get_client()
-        self._gconf.notify_add(GCONF_KEY, lambda x, y, z, a: self.set_lang(z.value.get_string()))
-        self.set_lang (self._gconf.get_string(GCONF_KEY))
-        
-    def set_lang(self, lang):
-        self.entry.set_text (lang)
+        lang = self._gconf.get_string(GCONF_KEY)
+        if lang != None:
+            self.entry.set_text (lang)
         
     def get_lang(self):
         return self.entry.get_text()

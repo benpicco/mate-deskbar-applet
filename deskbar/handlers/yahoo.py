@@ -1,5 +1,5 @@
 from deskbar.core.GconfStore import GconfStore
-from deskbar.core.Utils import strip_html, get_proxy
+from deskbar.core.Utils import strip_html, get_proxy, get_locale_lang
 from deskbar.defs import VERSION
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
@@ -24,6 +24,48 @@ MAX_RESULTS = 15
     
 GCONF_YAHOO_LANG = GconfStore.GCONF_DIR+"/yahoo/language"
 
+# Languages supported by Yahoo
+# see http://developer.yahoo.com/search/languages.html
+LANGUAGES = (
+    (_("Arabic"), "ar"),
+    (_("Bulgarian"), "bg"),
+    (_("Catalan"), "ca"),
+    (_("Chinese simplified"), "szh"),
+    (_("Chinese traditional"), "tzh"),
+    (_("Croatian"), "hr"),
+    (_("Czech"), "cs"),
+    (_("Danish"), "da"),
+    (_("Dutch"), "nl"),
+    (_("English"), "en"),
+    (_("Estonian"), "et"),
+    (_("Finnish"), "fi"),
+    (_("French"), "fr"),
+    (_("German"), "de"),
+    (_("Greek"), "el"),
+    (_("Hebrew"), "he"),
+    (_("Hungarian"), "hu"),
+    (_("Icelandic"), "is"),
+    (_("Indonesian"), "id"),
+    (_("Italian"), "it"),
+    (_("Japanese"), "ja"),
+    (_("Korean"), "ko"),
+    (_("Latvian"), "lv"),
+    (_("Lithuanian"), "lt"),
+    (_("Norwegian"), "no"),
+    (_("Persian"), "fa"),
+    (_("Polish"), "pl"),
+    (_("Portuguese"), "pt"),
+    (_("Romanian"), "ro"),
+    (_("Russian"), "ru"),
+    (_("Slovak"), "sk"),
+    (_("Serbian"), "sr"),
+    (_("Slovenian"), "sl"),
+    (_("Spanish"), "es"),
+    (_("Swedish"), "sv"),
+    (_("Thai"), "th"),
+    (_("Turkish"), "tr"),
+)
+    
 class OpenYahooAction(ShowUrlAction):
     
     def __init__(self, name, url):
@@ -66,13 +108,47 @@ class YahooHandler(deskbar.interfaces.Module):
     def __init__(self):
         deskbar.interfaces.Module.__init__(self)
         self.server = None
+        self._lang = None
         self._format_regex = re.compile("format:(\w+)")
+        self._gconf = GconfStore.get_instance().get_client()
+        self._gconf.notify_add(GCONF_YAHOO_LANG, self._on_language_changed)
+        self._set_lang()
         
-    def _get_language(self):
-        lang = GconfStore.get_instance().get_client().get_string(GCONF_YAHOO_LANG)
-        if lang == None:
-            lang = self.DEFAULT_LANG
-        return lang
+    def _on_language_changed(self, client, cnxn_id, entry, data):
+        if entry.value == None:
+            self._set_lang()
+        else:
+            self._lang = entry.value.get_string()
+            
+    def _set_lang(self):
+        self._lang = self._gconf.get_string(GCONF_YAHOO_LANG)
+        if self._lang == None:
+            localelang = self._guess_lang()
+            self._gconf.set_string(GCONF_YAHOO_LANG, localelang)
+    
+    def _guess_lang(self):
+        """ Try to guess lang """
+        localelang = get_locale_lang()
+        if localelang == None:
+            localelang = self.DEFAULT_LANG
+        else:
+            # Take care of exceptions
+            if localelang == 'zh_CN':
+                localelang = 'szh'
+            elif localelang == 'zh_TW':
+                localelang = 'tzh'
+            else:
+                localelang = localelang.split("_")[0]
+            
+            # Check if the language is supported
+            for name, code in LANGUAGES:
+                if code == localelang:
+                    return localelang
+            
+            # Set fallback
+            localelang = self.DEFAULT_LANG
+                    
+        return localelang
     
     def _get_parameters_from_query(self, qstring):
         """
@@ -80,7 +156,7 @@ class YahooHandler(deskbar.interfaces.Module):
         """
         params = {'appid': YAHOO_API_KEY,
                 'results': MAX_RESULTS,
-                'language': self._get_language()}
+                'language': self._lang}
         match = self._format_regex.search(qstring)
         if match != None:
             format = match.group(1)
@@ -328,47 +404,6 @@ class RelatedSuggestionResultsParser (xml.sax.handler.ContentHandler):
             
 class YahooSearchConfigDialog(gtk.Dialog):
     
-    # Languages supported by Yahoo
-    # see http://developer.yahoo.com/search/languages.html
-    LANGUAGES = (
-    (_("Arabic"), "ar"),
-    (_("Bulgarian"), "bg"),
-    (_("Catalan"), "ca"),
-    (_("Chinese simplified"), "szh"),
-    (_("Chinese traditional"), "tzh"),
-    (_("Croatian"), "hr"),
-    (_("Czech"), "cs"),
-    (_("Danish"), "da"),
-    (_("Dutch"), "nl"),
-    (_("English"), "en"),
-    (_("Estonian"), "et"),
-    (_("Finnish"), "fi"),
-    (_("French"), "fr"),
-    (_("German"), "de"),
-    (_("Greek"), "el"),
-    (_("Hebrew"), "he"),
-    (_("Hungarian"), "hu"),
-    (_("Icelandic"), "is"),
-    (_("Indonesian"), "id"),
-    (_("Italian"), "it"),
-    (_("Japanese"), "ja"),
-    (_("Korean"), "ko"),
-    (_("Latvian"), "lv"),
-    (_("Lithuanian"), "lt"),
-    (_("Norwegian"), "no"),
-    (_("Persian"), "fa"),
-    (_("Polish"), "pl"),
-    (_("Portuguese"), "pt"),
-    (_("Romanian"), "ro"),
-    (_("Russian"), "ru"),
-    (_("Slovak"), "sk"),
-    (_("Serbian"), "sr"),
-    (_("Slovenian"), "sl"),
-    (_("Spanish"), "es"),
-    (_("Swedish"), "sv"),
-    (_("Thai"), "th"),
-    (_("Turkish"), "tr"),
-    )
     
     def __init__(self, parent):
         gtk.Dialog.__init__(self, title=_("Configure Yahoo!"),
@@ -386,7 +421,7 @@ class YahooSearchConfigDialog(gtk.Dialog):
         self.vbox2.pack_start(self.label, False)
         
         self.liststore = gtk.ListStore(str, str)
-        for lang in self.LANGUAGES:
+        for lang in LANGUAGES:
             self.liststore.append( lang )
                 
         self.combobox = gtk.ComboBox(self.liststore)
