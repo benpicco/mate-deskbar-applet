@@ -17,6 +17,7 @@ deskbar_handlers_PYTHON = \
 	files.py \
 	gdmactions.py \
 	googlecodesearch.py \
+	googlesearch.py \
 	history.py \
 	iswitch-window.py \
 	mozilla.py \
