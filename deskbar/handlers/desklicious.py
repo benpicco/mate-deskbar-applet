@@ -145,8 +145,10 @@ class DeliciousTagQueryEngine:
                 dom = xml.dom.minidom.parse(stream)
             except IOError, msg:
                 LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
+                return []
             except ExpatError, e:
                 LOGGER.exception(e)
+                return []
         finally:
             if stream != None:
                 stream.close()
