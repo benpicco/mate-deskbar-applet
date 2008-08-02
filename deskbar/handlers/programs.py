@@ -6,7 +6,7 @@ from gettext import gettext as _
 from os.path import join, expanduser, isdir
 import deskbar, deskbar.core.Indexer
 import deskbar.core.Utils
-import deskbar.core.gnomedesktop
+import gnomedesktop
 import deskbar.interfaces.Action
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
@@ -137,8 +137,8 @@ class GnomeDictHandler(SpecialProgramHandler):
     
     def create_match(self, desktop, f):
         return GnomeDictMatch(
-                    name=desktop.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
-                    icon=desktop.get_string(deskbar.core.gnomedesktop.KEY_ICON),
+                    name=desktop.get_localestring(gnomedesktop.KEY_NAME),
+                    icon=desktop.get_string(gnomedesktop.KEY_ICON),
                     desktop=desktop,
                     desktop_file=f)
         
@@ -161,8 +161,8 @@ class GnomeSearchHandler(SpecialProgramHandler):
     
     def create_match(self, desktop, f):
         return GnomeSearchMatch(
-                    name=desktop.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
-                    icon=desktop.get_string(deskbar.core.gnomedesktop.KEY_ICON),
+                    name=desktop.get_localestring(gnomedesktop.KEY_NAME),
+                    icon=desktop.get_string(gnomedesktop.KEY_ICON),
                     desktop=desktop,
                     desktop_file=f)
         
@@ -188,8 +188,8 @@ class DevhelpHandler(SpecialProgramHandler):
     
     def create_match(self, desktop, f):
         return DevhelpMatch(
-                    name=desktop.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
-                    icon=desktop.get_string(deskbar.core.gnomedesktop.KEY_ICON),
+                    name=desktop.get_localestring(gnomedesktop.KEY_NAME),
+                    icon=desktop.get_string(gnomedesktop.KEY_ICON),
                     desktop=desktop,
                     desktop_file=f)
         
@@ -340,16 +340,16 @@ class ProgramsHandler(deskbar.interfaces.Module):
                     result = parse_desktop_file(f)
                     if result != None:
                         match = GenericProgramMatch(
-                                    name=result.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
-                                    icon=result.get_string(deskbar.core.gnomedesktop.KEY_ICON),
+                                    name=result.get_localestring(gnomedesktop.KEY_NAME),
+                                    icon=result.get_string(gnomedesktop.KEY_ICON),
                                     desktop=result,
                                     desktop_file=f)
                         self._indexer.add("%s %s %s %s %s" % (
                                     result.get_string("Exec"),
-                                    result.get_localestring(deskbar.core.gnomedesktop.KEY_NAME),
-                                    result.get_localestring(deskbar.core.gnomedesktop.KEY_COMMENT),
-                                    result.get_string(deskbar.core.gnomedesktop.KEY_NAME),
-                                    result.get_string(deskbar.core.gnomedesktop.KEY_COMMENT),
+                                    result.get_localestring(gnomedesktop.KEY_NAME),
+                                    result.get_localestring(gnomedesktop.KEY_COMMENT),
+                                    result.get_string(gnomedesktop.KEY_NAME),
+                                    result.get_string(gnomedesktop.KEY_COMMENT),
                                 ), match)
 
 def get_priority_for_name(query, name):

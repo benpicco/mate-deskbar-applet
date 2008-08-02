@@ -1,4 +1,4 @@
-SUBDIRS = gnomedesktop keybinder updater _userdirs
+SUBDIRS = keybinder updater _userdirs
 	
 deskbar_coredir = $(pythondir)/deskbar/core
 deskbar_core_PYTHON = \

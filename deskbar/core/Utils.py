@@ -5,7 +5,7 @@ from htmlentitydefs import name2codepoint
 from os.path import *
 import cgi
 import deskbar
-import deskbar.core.gnomedesktop
+import gnomedesktop
 import gnome.ui
 import gnomevfs
 import gobject
@@ -79,7 +79,7 @@ def get_xdg_data_dirs():
 
 def load_icon_for_desktop_icon(icon):
     if icon != None:
-        icon = deskbar.core.gnomedesktop.find_icon(ICON_THEME, icon, deskbar.ICON_HEIGHT, 0)
+        icon = gnomedesktop.find_icon(ICON_THEME, icon, deskbar.ICON_HEIGHT, 0)
         if icon != None:
             return load_icon(icon)
         

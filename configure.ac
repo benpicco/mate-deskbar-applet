@@ -165,7 +165,6 @@ deskbar/Makefile
 deskbar/defs.py
 deskbar/core/Makefile
 deskbar/core/keybinder/Makefile
-deskbar/core/gnomedesktop/Makefile
 deskbar/core/updater/Makefile
 deskbar/core/_userdirs/Makefile
 deskbar/handlers/Makefile
