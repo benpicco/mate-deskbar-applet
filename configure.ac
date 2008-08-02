@@ -92,6 +92,19 @@ else
   AC_MSG_ERROR([gnomeapplet Python module required to build deskbar])
 fi
 
+dnl ******************
+dnl * Python modules
+dnl ******************
+AM_CHECK_PYMOD(dbus)
+AM_CHECK_PYMOD(gconf)
+AM_CHECK_PYMOD(gnomedesktop)
+AM_CHECK_PYMOD(gnome.ui)
+AM_CHECK_PYMOD(gobject)
+AM_CHECK_PYMOD(gtk)
+AM_CHECK_PYMOD(gtk.gdk)
+AM_CHECK_PYMOD(pango)
+AM_CHECK_PYMOD(wnck)
+
 dnl ****************************************************************************
 dnl * Check for evolution's libebook to build the evolution handler
 dnl ****************************************************************************
