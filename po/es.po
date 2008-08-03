@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-22 03:21+0000\n"
-"PO-Revision-Date: 2008-07-24 17:30+0200\n"
+"POT-Creation-Date: 2008-08-01 08:20+0000\n"
+"PO-Revision-Date: 2008-08-03 17:12+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -308,7 +308,8 @@ msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Buscar <b>%(text)s</b> en <i>%(name)s</i>"
 
 #: ../deskbar/core/BrowserMatch.py:111
-#: ../deskbar/handlers/googlecodesearch.py:97 ../deskbar/handlers/yahoo.py:43
+#: ../deskbar/handlers/googlecodesearch.py:97
+#: ../deskbar/handlers/googlesearch.py:200 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL"
 
@@ -389,11 +390,11 @@ msgstr "Imágenes"
 msgid "<i>Empty history</i>"
 msgstr "<i>Histórico vacío</i>"
 
-#: ../deskbar/core/Utils.py:156
+#: ../deskbar/core/Utils.py:157
 msgid "Cannot execute program:"
 msgstr "No se puede ejecutar el programa:"
 
-#: ../deskbar/core/Utils.py:196
+#: ../deskbar/core/Utils.py:197
 msgid "Cannot show URL:"
 msgstr "No se puede mostrar la URL:"
 
@@ -750,6 +751,186 @@ msgstr "Ver <i>%(name)s</i> en la búsqueda de  <b>Google Code</b>"
 msgid "Open package <i>%(name)s</i>"
 msgstr "Abrir el paquete <b>%(name)s</b>"
 
+#: ../deskbar/handlers/googlesearch.py:26 ../deskbar/handlers/yahoo.py:30
+msgid "Arabic"
+msgstr "Árabe"
+
+#: ../deskbar/handlers/googlesearch.py:27 ../deskbar/handlers/yahoo.py:31
+msgid "Bulgarian"
+msgstr "Búlgaro"
+
+#: ../deskbar/handlers/googlesearch.py:28
+#: ../deskbar/handlers/wikipedia-suggest.py:36 ../deskbar/handlers/yahoo.py:32
+msgid "Catalan"
+msgstr "Catalán"
+
+#: ../deskbar/handlers/googlesearch.py:29
+msgid "Chinese Simplified"
+msgstr "Chino simplificado"
+
+#: ../deskbar/handlers/googlesearch.py:30
+msgid "Chinese Traditional"
+msgstr "Chino tradicional"
+
+#: ../deskbar/handlers/googlesearch.py:31
+msgid "Croation"
+msgstr "Croata"
+
+#: ../deskbar/handlers/googlesearch.py:32 ../deskbar/handlers/yahoo.py:36
+msgid "Czech"
+msgstr "Checo"
+
+#: ../deskbar/handlers/googlesearch.py:33 ../deskbar/handlers/yahoo.py:37
+msgid "Danish"
+msgstr "Danés"
+
+#: ../deskbar/handlers/googlesearch.py:34
+#: ../deskbar/handlers/wikipedia-suggest.py:28 ../deskbar/handlers/yahoo.py:38
+msgid "Dutch"
+msgstr "Holandés"
+
+#: ../deskbar/handlers/googlesearch.py:35
+#: ../deskbar/handlers/wikipedia-suggest.py:22 ../deskbar/handlers/yahoo.py:39
+msgid "English"
+msgstr "Inglés"
+
+#: ../deskbar/handlers/googlesearch.py:36 ../deskbar/handlers/yahoo.py:40
+msgid "Estonian"
+msgstr "Estonio"
+
+#: ../deskbar/handlers/googlesearch.py:37
+#: ../deskbar/handlers/wikipedia-suggest.py:35 ../deskbar/handlers/yahoo.py:41
+msgid "Finnish"
+msgstr "Finlandés"
+
+#: ../deskbar/handlers/googlesearch.py:38
+#: ../deskbar/handlers/wikipedia-suggest.py:24 ../deskbar/handlers/yahoo.py:42
+msgid "French"
+msgstr "Francés"
+
+#: ../deskbar/handlers/googlesearch.py:39
+#: ../deskbar/handlers/wikipedia-suggest.py:23 ../deskbar/handlers/yahoo.py:43
+msgid "German"
+msgstr "Alemán"
+
+#: ../deskbar/handlers/googlesearch.py:40 ../deskbar/handlers/yahoo.py:44
+msgid "Greek"
+msgstr "Griego"
+
+#: ../deskbar/handlers/googlesearch.py:41 ../deskbar/handlers/yahoo.py:45
+msgid "Hebrew"
+msgstr "Hebreo"
+
+#: ../deskbar/handlers/googlesearch.py:42 ../deskbar/handlers/yahoo.py:46
+msgid "Hungarian"
+msgstr "Húngaro"
+
+#: ../deskbar/handlers/googlesearch.py:43 ../deskbar/handlers/yahoo.py:47
+msgid "Icelandic"
+msgstr "Islandés"
+
+#: ../deskbar/handlers/googlesearch.py:44 ../deskbar/handlers/yahoo.py:48
+msgid "Indonesian"
+msgstr "Indonesio"
+
+#: ../deskbar/handlers/googlesearch.py:45
+#: ../deskbar/handlers/wikipedia-suggest.py:27 ../deskbar/handlers/yahoo.py:49
+msgid "Italian"
+msgstr "Italiano"
+
+#: ../deskbar/handlers/googlesearch.py:46
+#: ../deskbar/handlers/wikipedia-suggest.py:26 ../deskbar/handlers/yahoo.py:50
+msgid "Japanese"
+msgstr "Japonés"
+
+#: ../deskbar/handlers/googlesearch.py:47 ../deskbar/handlers/yahoo.py:51
+msgid "Korean"
+msgstr "Coreano"
+
+#: ../deskbar/handlers/googlesearch.py:48 ../deskbar/handlers/yahoo.py:52
+msgid "Latvian"
+msgstr "Letón"
+
+#: ../deskbar/handlers/googlesearch.py:49 ../deskbar/handlers/yahoo.py:53
+msgid "Lithuanian"
+msgstr "Lituano"
+
+#: ../deskbar/handlers/googlesearch.py:50
+#: ../deskbar/handlers/wikipedia-suggest.py:34 ../deskbar/handlers/yahoo.py:54
+msgid "Norwegian"
+msgstr "Noruego"
+
+#: ../deskbar/handlers/googlesearch.py:51
+#: ../deskbar/handlers/wikipedia-suggest.py:25 ../deskbar/handlers/yahoo.py:56
+msgid "Polish"
+msgstr "Polaco"
+
+#: ../deskbar/handlers/googlesearch.py:52
+#: ../deskbar/handlers/wikipedia-suggest.py:29 ../deskbar/handlers/yahoo.py:57
+msgid "Portuguese"
+msgstr "Portugués"
+
+#: ../deskbar/handlers/googlesearch.py:53
+#: ../deskbar/handlers/wikipedia-suggest.py:38 ../deskbar/handlers/yahoo.py:58
+msgid "Romanian"
+msgstr "Rumano"
+
+#: ../deskbar/handlers/googlesearch.py:54
+#: ../deskbar/handlers/wikipedia-suggest.py:31 ../deskbar/handlers/yahoo.py:59
+msgid "Russian"
+msgstr "Ruso"
+
+#: ../deskbar/handlers/googlesearch.py:55 ../deskbar/handlers/yahoo.py:61
+msgid "Serbian"
+msgstr "Serbio"
+
+#: ../deskbar/handlers/googlesearch.py:56 ../deskbar/handlers/yahoo.py:60
+msgid "Slovak"
+msgstr "Eslovaco"
+
+#: ../deskbar/handlers/googlesearch.py:57 ../deskbar/handlers/yahoo.py:62
+msgid "Slovenian"
+msgstr "Esloveno"
+
+#: ../deskbar/handlers/googlesearch.py:58
+#: ../deskbar/handlers/wikipedia-suggest.py:30 ../deskbar/handlers/yahoo.py:63
+msgid "Spanish"
+msgstr "Español"
+
+#: ../deskbar/handlers/googlesearch.py:59
+#: ../deskbar/handlers/wikipedia-suggest.py:32 ../deskbar/handlers/yahoo.py:64
+msgid "Swedish"
+msgstr "Sueco"
+
+#: ../deskbar/handlers/googlesearch.py:60
+#: ../deskbar/handlers/wikipedia-suggest.py:39 ../deskbar/handlers/yahoo.py:66
+msgid "Turkish"
+msgstr "Turco"
+
+#: ../deskbar/handlers/googlesearch.py:74
+msgid "Google Search"
+msgstr "Búsqueda en Google"
+
+#: ../deskbar/handlers/googlesearch.py:75
+msgid "Search terms through Google Search engine."
+msgstr "Busque términos a través del motor de búsqueda de Google."
+
+#: ../deskbar/handlers/googlesearch.py:78 ../deskbar/handlers/yahoo.py:96
+msgid "You can configure in which language the results should be."
+msgstr "Puede configurar en qué idioma deberían estar los resultados."
+
+#: ../deskbar/handlers/googlesearch.py:180
+msgid "Python module simplejson is not available"
+msgstr "El módulo Python simplejson no está disponible"
+
+#: ../deskbar/handlers/googlesearch.py:214
+msgid "Configure Google"
+msgstr "Configurar Google"
+
+#: ../deskbar/handlers/googlesearch.py:224 ../deskbar/handlers/yahoo.py:419
+msgid "<b>Choose the language the results should be in:</b>"
+msgstr "<b>Elija el idioma en que se deberán mostrar los resultados:</b>"
+
 #: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
 msgstr "Reconocer búsquedas realizadas previamente"
@@ -968,7 +1149,7 @@ msgstr "Busque en sus notas de Tomboy"
 msgid "Tomboy does not seem to be installed."
 msgstr "Parece que Tomboy no está instalado."
 
-#: ../deskbar/handlers/tomboy.py:276
+#: ../deskbar/handlers/tomboy.py:278
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -981,112 +1162,32 @@ msgstr ""
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Abrir páginas web y enviar correo-e tecleando una dirección completa"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:23
-#: ../deskbar/handlers/yahoo.py:343
-msgid "English"
-msgstr "Inglés"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:24
-#: ../deskbar/handlers/yahoo.py:347
-msgid "German"
-msgstr "Alemán"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:25
-#: ../deskbar/handlers/yahoo.py:346
-msgid "French"
-msgstr "Francés"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:26
-#: ../deskbar/handlers/yahoo.py:360
-msgid "Polish"
-msgstr "Polaco"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:27
-#: ../deskbar/handlers/yahoo.py:354
-msgid "Japanese"
-msgstr "Japonés"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:28
-#: ../deskbar/handlers/yahoo.py:353
-msgid "Italian"
-msgstr "Italiano"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:29
-#: ../deskbar/handlers/yahoo.py:342
-msgid "Dutch"
-msgstr "Holandés"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:30
-#: ../deskbar/handlers/yahoo.py:361
-msgid "Portuguese"
-msgstr "Portugués"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:31
-#: ../deskbar/handlers/yahoo.py:367
-msgid "Spanish"
-msgstr "Español"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:32
-#: ../deskbar/handlers/yahoo.py:363
-msgid "Russian"
-msgstr "Ruso"
-
 #: ../deskbar/handlers/wikipedia-suggest.py:33
-#: ../deskbar/handlers/yahoo.py:368
-msgid "Swedish"
-msgstr "Sueco"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:34
 msgid "Chinese"
 msgstr "Chino"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:35
-#: ../deskbar/handlers/yahoo.py:358
-msgid "Norwegian"
-msgstr "Noruego"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:36
-#: ../deskbar/handlers/yahoo.py:345
-msgid "Finnish"
-msgstr "Finlandés"
-
 #: ../deskbar/handlers/wikipedia-suggest.py:37
-#: ../deskbar/handlers/yahoo.py:336
-msgid "Catalan"
-msgstr "Catalán"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:38
 msgid "Ukrainian"
 msgstr "Ucraniano"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:39
-#: ../deskbar/handlers/yahoo.py:362
-msgid "Romanian"
-msgstr "Rumano"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:40
-#: ../deskbar/handlers/yahoo.py:370
-msgid "Turkish"
-msgstr "Turco"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:49
+#: ../deskbar/handlers/wikipedia-suggest.py:48
 #, python-format
 msgid "Open article <i>%(name)s</i> in <b>Wikipedia</b>"
 msgstr "Abrir el artículo <b>%(name)s</b> en la <b>Wikipedia</b>"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:64
+#: ../deskbar/handlers/wikipedia-suggest.py:63
 msgid "Wikipedia Suggest"
 msgstr "Wikipedia sugieire"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:65
+#: ../deskbar/handlers/wikipedia-suggest.py:64
 msgid "As you type, Wikipedia will offer suggestions."
 msgstr "Wikipedia ofrecerá sugerencias según escribe."
 
-#: ../deskbar/handlers/wikipedia-suggest.py:120
+#: ../deskbar/handlers/wikipedia-suggest.py:137
 msgid "Wikipedia Suggest settings"
 msgstr "Ajustes de las sugerencias de la Wikipedia"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:127
+#: ../deskbar/handlers/wikipedia-suggest.py:144
 msgid ""
 "Choose the language you want to use or enter the code of your language "
 "manually"
@@ -1094,122 +1195,50 @@ msgstr ""
 "Elija el idioma que quiere usar o introduzca manualmente el código de su "
 "idioma"
 
-#: ../deskbar/handlers/yahoo.py:51
+#: ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
+msgstr "Chino simplificado"
+
+#: ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
+msgstr "Chino tradicional"
+
+#: ../deskbar/handlers/yahoo.py:35
+msgid "Croatian"
+msgstr "Croata"
+
+#: ../deskbar/handlers/yahoo.py:55
+msgid "Persian"
+msgstr "Persa"
+
+#: ../deskbar/handlers/yahoo.py:65
+msgid "Thai"
+msgstr "Tailandés"
+
+#: ../deskbar/handlers/yahoo.py:93
 msgid "Yahoo! Search"
 msgstr "Búsqueda en Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:52
+#: ../deskbar/handlers/yahoo.py:94
 msgid "Search Yahoo! as you type"
 msgstr "Buscar en Yahoo! mientras teclea"
 
-#: ../deskbar/handlers/yahoo.py:54
-msgid "You can configure in which language the results should be."
-msgstr "Puede configurar en qué idioma deberían estar los resultados."
-
-#: ../deskbar/handlers/yahoo.py:232
+#: ../deskbar/handlers/yahoo.py:308
 #, python-format
 msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgstr "Buscar en <b>Yahoo!</b> en <i>%(name)s</b>"
 
-#: ../deskbar/handlers/yahoo.py:250
+#: ../deskbar/handlers/yahoo.py:326
 msgid "Yahoo! Suggestions"
 msgstr "Sugerencias Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:251
+#: ../deskbar/handlers/yahoo.py:327
 msgid "Provides suggestions for queries related to the submitted query"
 msgstr "Proporciona sugerencias de consultas relacionadas con la consulta enviada"
 
-#: ../deskbar/handlers/yahoo.py:334
-msgid "Arabic"
-msgstr "Árabe"
-
-#: ../deskbar/handlers/yahoo.py:335
-msgid "Bulgarian"
-msgstr "Búlgaro"
-
-#: ../deskbar/handlers/yahoo.py:337
-msgid "Chinese simplified"
-msgstr "Chino simplificado"
-
-#: ../deskbar/handlers/yahoo.py:338
-msgid "Chinese traditional"
-msgstr "Chino tradicional"
-
-#: ../deskbar/handlers/yahoo.py:339
-msgid "Croatian"
-msgstr "Croata"
-
-#: ../deskbar/handlers/yahoo.py:340
-msgid "Czech"
-msgstr "Checo"
-
-#: ../deskbar/handlers/yahoo.py:341
-msgid "Danish"
-msgstr "Danés"
-
-#: ../deskbar/handlers/yahoo.py:344
-msgid "Estonian"
-msgstr "Estonio"
-
-#: ../deskbar/handlers/yahoo.py:348
-msgid "Greek"
-msgstr "Griego"
-
-#: ../deskbar/handlers/yahoo.py:349
-msgid "Hebrew"
-msgstr "Hebreo"
-
-#: ../deskbar/handlers/yahoo.py:350
-msgid "Hungarian"
-msgstr "Húngaro"
-
-#: ../deskbar/handlers/yahoo.py:351
-msgid "Icelandic"
-msgstr "Islandés"
-
-#: ../deskbar/handlers/yahoo.py:352
-msgid "Indonesian"
-msgstr "Indonesio"
-
-#: ../deskbar/handlers/yahoo.py:355
-msgid "Korean"
-msgstr "Coreano"
-
-#: ../deskbar/handlers/yahoo.py:356
-msgid "Latvian"
-msgstr "Letón"
-
-#: ../deskbar/handlers/yahoo.py:357
-msgid "Lithuanian"
-msgstr "Lituano"
-
-#: ../deskbar/handlers/yahoo.py:359
-msgid "Persian"
-msgstr "Persa"
-
-#: ../deskbar/handlers/yahoo.py:364
-msgid "Slovak"
-msgstr "Eslovaco"
-
-#: ../deskbar/handlers/yahoo.py:365
-msgid "Serbian"
-msgstr "Serbio"
-
-#: ../deskbar/handlers/yahoo.py:366
-msgid "Slovenian"
-msgstr "Esloveno"
-
-#: ../deskbar/handlers/yahoo.py:369
-msgid "Thai"
-msgstr "Tailandés"
-
-#: ../deskbar/handlers/yahoo.py:374
+#: ../deskbar/handlers/yahoo.py:409
 msgid "Configure Yahoo!"
 msgstr "Configurar Yahoo!"
-
-#: ../deskbar/handlers/yahoo.py:384
-msgid "<b>Choose the language the results should be in:</b>"
-msgstr "<b>Elija el idioma en que se deberán mostrar los resultados:</b>"
 
 #: ../deskbar/handlers/actions/ActionsFactory.py:70
 #, python-format
