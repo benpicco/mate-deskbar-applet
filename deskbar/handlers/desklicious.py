@@ -19,8 +19,8 @@ LOGGER = logging.getLogger(__name__)
 
 GCONF_DELICIOUS_USER  = GconfStore.GCONF_DIR+"/desklicious/user"
 
-DEFAULT_QUERY_TAG = 'http://del.icio.us/rss/%s/%s'
-QUERY_DELAY = 1
+DEFAULT_QUERY_TAG = 'http://feeds.delicious.com/rss/%s/%s'
+
 HANDLERS = ["DeliciousHandler"]
 
 class DeliciousAction(ShowUrlAction):
@@ -67,8 +67,6 @@ class DeliciousHandler(deskbar.interfaces.Module):
         LOGGER.info( "Asking del.icio.us tags for %s", tag )
         posts = self._delicious.get_posts_by_tag(tag)
 
-        # TODO: Missing
-        #self.check_query_changed (timeout=QUERY_DELAY)
         LOGGER.info('Returning del.icio.us result')
         self.set_priority_for_matches( posts )
         self._emit_query_ready(tag, posts )
@@ -133,47 +131,63 @@ class DeliciousTagQueryEngine:
         if self._user == None:
             return []
         
-        posts=[]
+        posts = []
         #Get the info from del.icio.us and parse
         url = DEFAULT_QUERY_TAG % (urllib.quote_plus(self._user), urllib.quote_plus(tag))
         
         LOGGER.debug("Opening URL %s", url)
         stream = None
         try:
-            try:
-                stream = urllib.urlopen(url, proxies=deskbar.core.Utils.get_proxy())
-                dom = xml.dom.minidom.parse(stream)
-            except IOError, msg:
-                LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
-                return []
-            except ExpatError, e:
-                LOGGER.exception(e)
-                return []
-        finally:
-            if stream != None:
-                stream.close()
+            stream = urllib.urlopen(url, proxies=deskbar.core.Utils.get_proxy())
+        except IOError, msg:
+            LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
+            return []
+                
+        try:
+            dom = xml.dom.minidom.parse(stream)
+        except ExpatError, e:
+            LOGGER.exception(e)
+            return []
+        
+        if stream != None:
+            stream.close()
         
         #And return the results
         try:
             try:
                 for item in dom.getElementsByTagName("item"):
-                    title_node = item.getElementsByTagName("title")[0]
-                    url_node = item.getElementsByTagName("link")[0]
-                    subject_node = item.getElementsByTagName("dc:subject")[0]
-                    creator_node = item.getElementsByTagName("dc:creator")[0]
+                    title_nodes = item.getElementsByTagName("title")
+                    url_nodes = item.getElementsByTagName("link")
                     
-                    # There might be no tags
-                    if (subject_node.hasChildNodes()):
-                        tags = subject_node.firstChild.nodeValue.split(" ")
+                    # Check if we have expected content at all
+                    if len(title_nodes) == 0 or len(url_nodes) == 0:
+                        return []
+                    
+                    item_title = title_nodes[0].firstChild.nodeValue
+                    item_url = url_nodes[0].firstChild.nodeValue
+                    
+                    # by default we have no tags
+                    tags = []
+                    subject_nodes = item.getElementsByTagName("dc:subject")
+                    if len(subject_nodes) > 0:
+                        subject_node = subject_nodes[0]
+                        # There might be no tags
+                        if (subject_node.hasChildNodes()):
+                            tags = subject_node.firstChild.nodeValue.split(" ")
+                    
+                    creator_nodes = item.getElementsByTagName("dc:creator")
+                    if len(creator_nodes) > 0: 
+                        creator_node = creator_nodes[0]
+                        creator = creator_node.firstChild.nodeValue
                     else:
-                        tags = []
+                        creator = self._user
                     
                     posts.append(
                         DeliciousMatch(
-                            name=title_node.firstChild.nodeValue,
-                            url=url_node.firstChild.nodeValue,
+                            name=item_title,
+                            url=item_url,
                             tags=tags,
-                            author=creator_node.firstChild.nodeValue,
+                            author=creator,
                             category="web"))
             except DOMException, e:
                 LOGGER.exception(e)
