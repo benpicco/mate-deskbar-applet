@@ -166,6 +166,9 @@ class CoreImpl(deskbar.interfaces.Core):
     
     def get_ui_name(self):
         return self._gconf.get_ui_name()
+    
+    def get_entry_width(self):
+        return self._gconf.get_entry_width()
 
     def set_keybinding(self, binding):
         """
@@ -243,6 +246,9 @@ class CoreImpl(deskbar.interfaces.Core):
         if not self._gconf.set_ui_name(name):
             LOGGER.error("Unable to save ui name setting to GConf")
     
+    def set_entry_width(self, width):
+        return self._gconf.set_entry_width(width)
+
     def get_history(self):
         """
         @return: L{deskbar.core.DeskbarHistory.DeskbarHistory}

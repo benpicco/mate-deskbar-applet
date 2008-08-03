@@ -23,12 +23,14 @@ class InfoBox(gtk.HBox):
         gtk.HBox.__init__(self, spacing=6)
         self.info_image = gtk.image_new_from_stock(stock_icon, gtk.ICON_SIZE_BUTTON)
         self.info_image.set_padding(3, 0)
+        self.info_image.show()
         self.pack_start(self.info_image, expand=False, fill=False)
         self.label = gtk.Label()
         self.label.set_line_wrap(True)
         self.label.set_alignment(0.0, 0.5)
         self.label.set_justify(gtk.JUSTIFY_LEFT)
         self.label.set_markup(text)
+        self.label.show()
         self.pack_start(self.label, expand=True, fill=True)
 
 class DeskbarPreferences:
@@ -75,6 +77,7 @@ class DeskbarPreferences:
         self.moduleview.get_selection().connect("changed", self.on_module_selected)
         self.moduleview.get_selection().connect("changed", self.set_buttons)
         self.module_list.connect('row-changed', lambda list, path, iter: self.on_module_selected(self.moduleview.get_selection()))
+        self.moduleview.show()
         container.add(self.moduleview)
         
         # Buttons beneath list
@@ -91,6 +94,7 @@ class DeskbarPreferences:
         self.old_info_message = None
         info_text = _("<i><small>Drag and drop an extension to change its order.</small></i>")
         self.default_info = InfoBox(info_text, gtk.STOCK_DIALOG_INFO)
+        self.default_info.show()
         self.info_area.add(self.default_info)
         
         # Buttons on the right
@@ -106,7 +110,16 @@ class DeskbarPreferences:
     def __setup_general_tab(self):
         self.keyboard_shortcut_entry = AccelEntry()
         self.keyboard_shortcut_entry.connect('accel-edited', self.on_keyboard_shortcut_entry_changed)
+        self.keyboard_shortcut_entry.get_widget().show()
         self.glade.get_widget("keybinding_entry_container").pack_start(self.keyboard_shortcut_entry.get_widget(), False)
+        
+        if self._model.get_ui_name() == deskbar.BUTTON_UI_NAME:
+            spinbutton = self.glade.get_widget("width")
+            spinbutton.set_value(self._model.get_entry_width())
+            spinbutton.connect('value-changed', self.on_entry_width_changed)
+        else:
+            frame = self.glade.get_widget("frame_width")
+            frame.hide()
         
         self.use_selection = self._model.get_use_selection()
         self.use_selection_box = self.glade.get_widget("use_selection")
@@ -131,6 +144,7 @@ class DeskbarPreferences:
     def __setup_disabled_modules_tab(self):
         self.disabledmoduleview = DisabledModuleListView( self._model.get_disabled_module_list() )
         self.disabledmoduleview.get_selection().connect("changed", self.on_disabled_module_changed)
+        self.disabledmoduleview.show()
         
         disabledhandlers = self.glade.get_widget("disabledhandlers")
         disabledhandlers.add(self.disabledmoduleview)
@@ -173,6 +187,7 @@ class DeskbarPreferences:
             self.webmoduleview = WebModuleListView(self.web_module_list)
             self.webmoduleview.get_selection().connect("changed", self.on_webmodule_selected)
             self.web_module_list.connect('row-changed', lambda list, path, iter: self.on_webmodule_selected    (self.webmoduleview.get_selection()))
+            self.webmoduleview.show()
             container.add(self.webmoduleview)
               
             self.install = self.glade.get_widget("install")
@@ -245,7 +260,7 @@ class DeskbarPreferences:
           
     def show_run_hide(self, parent):
         self.dialog.set_screen(parent.get_screen())
-        self.dialog.show_all()
+        self.dialog.show()
         self.moduleview.grab_focus()
         self.dialog.connect("response", self.on_dialog_response)
     
@@ -606,10 +621,16 @@ class DeskbarPreferences:
             self.moduleview.grab_focus()
         
     def on_ui_changed(self, check):
+        frame = self.glade.get_widget("frame_width")
         if self.sticktopanel_checkbox.get_active():
             self._model.set_ui_name(deskbar.BUTTON_UI_NAME)
+            frame.show()
         else:
             self._model.set_ui_name(deskbar.WINDOW_UI_NAME)
+            frame.hide()
             
     def on_modules_initialized(self, model):
         self.reload_button.set_sensitive(True)
+        
+    def on_entry_width_changed(self, spinbutton):
+        self._model.set_entry_width(spinbutton.get_value())

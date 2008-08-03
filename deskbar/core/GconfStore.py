@@ -42,6 +42,8 @@ class GconfStore(gobject.GObject):
     GCONF_MAX_HISTORY_ITEMS = GCONF_DIR + "/max_history_items"
     
     GCONF_UI_NAME = GCONF_DIR + "/ui_name" 
+    
+    GCONF_ENTRY_WIDTH = GCONF_DIR + "/entry_width"
 
     GCONF_DEFAULT_BROWSER = "/desktop/gnome/url-handlers/http/command"
     
@@ -60,6 +62,7 @@ class GconfStore(gobject.GObject):
         "max-history-items-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_INT]),
         "default-browser-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING]),
         "ui-name-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING]),
+        "entry-width-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_INT]),
     }
 
     __instance = None
@@ -94,6 +97,7 @@ class GconfStore(gobject.GObject):
         self._client.notify_add(self.GCONF_TYPINGDELAY, self.__emit_signal_int, "max-history-items-changed")
         self._client.notify_add(self.GCONF_DEFAULT_BROWSER, self.__emit_signal_string, "default-browser-changed")
         self._client.notify_add(self.GCONF_UI_NAME, self.__emit_signal_string, "ui-name-changed")
+        self._client.notify_add(self.GCONF_ENTRY_WIDTH, self.__emit_signal_int, "entry-width-changed")
         
     def __emit_signal_string(self, client, cnxn_id, entry, data):
         if entry.value != None:
@@ -186,6 +190,9 @@ class GconfStore(gobject.GObject):
         
     def get_ui_name(self):
         return self._client.get_string(self.GCONF_UI_NAME)
+    
+    def get_entry_width(self):
+        return self._client.get_int(self.GCONF_ENTRY_WIDTH)
 
     def set_keybinding(self, binding):
         return self.__set_string_if_writeable(self.GCONF_KEYBINDING, binding)
@@ -237,6 +244,9 @@ class GconfStore(gobject.GObject):
         
     def set_ui_name(self, name):
         return self.__set_string_if_writeable(self.GCONF_UI_NAME, name)
+
+    def set_entry_width(self, width):
+        return self.__set_int_if_writeable(self.GCONF_ENTRY_WIDTH, int(width))
 
     def __set_string_if_writeable(self, key, val):
         if self._client.key_is_writable(key):

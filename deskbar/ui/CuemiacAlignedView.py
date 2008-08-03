@@ -2,6 +2,7 @@ import gtk
 import gtk.gdk
 import gobject
 import gnomeapplet
+from deskbar.core.GconfStore import GconfStore
 from deskbar.ui.AbstractCuemiacView import AbstractCuemiacView
 from deskbar.ui.cuemiac.CuemiacAlignedWindow import CuemiacAlignedWindow
 
@@ -21,6 +22,8 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
         self._controller.register_view(self)
         self.applet = applet
         
+        GconfStore.get_instance().connect("entry-width-changed", self._on_entry_width_changed)
+        
         self.set_type_hint (gtk.gdk.WINDOW_TYPE_HINT_MENU)
         self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
         self.applet.set_flags(gtk.CAN_FOCUS)
@@ -39,6 +42,8 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
         self.set_default_size( self._model.get_window_width(), -1 )
 
         self.set_role("deskbar-search-window")
+        
+        self.get_entry().set_width_chars(self._model.get_entry_width())
         
         # VBox
         self.add(self.vbox_main)
@@ -133,4 +138,7 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
         else:
             self.vbox_main.reorder_child(self.results_box, 0)
             self.vbox_main.reorder_child(self.header, 2)
+            
+    def _on_entry_width_changed(self, store, width):
+        self.get_entry().set_width_chars(width)
     

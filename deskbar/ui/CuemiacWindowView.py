@@ -25,6 +25,9 @@ class CuemiacWindowView(AbstractCuemiacView, gtk.Window):
         self.set_role("deskbar-search-window")
         self.set_property("skip-taskbar-hint", True)
 
+        # Reset width to default
+        self.get_entry().set_width_chars(-1)
+
         self.add(self.vbox_main)
 
         # Search entry
