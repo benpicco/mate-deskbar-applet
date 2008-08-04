@@ -1,4 +1,36 @@
 =====================
+deskbar-applet 2.23.6
+=====================
+
+This release includes a new Google module
+that will display search results from Google
+as you type. In addition, you can now configure
+the entry width in preferences when the
+stick-to-panel UI is used.
+
+Changes:
+	- When retrieving tomboy version wait until the process exited to avoid zombie process.
+	- Added get_locale_lang function to Utils.py.
+	- Fixed bug #544587: unknown locale
+	- GconfStore.py: Added sanity checks when setting values and emitting signals (fixes bug #486549)
+	- Added Google search module. Written by Helton Doria. Requires simplejson Python module. Fixes bug #535360
+	- desklicious.py: Fixed bug #545791: local variable 'dom' referenced before assignment
+	- Removed built-in gnomedesktop module an use gnome-python-desktop's instead
+	- Added option to change entry width when Button UI is used
+	- desklicious.py: Adjusted url to RSS feeds. Check if content is formatted properly before parsing it. Fixes bug #544645
+
+Contributors to this release: Sebastian Pölsterl, Goran Rakic, Helton Doria
+
+Updated Translations:
+	- Updated ar: Khaled Hosny
+	- Updated es: Jorge González
+	- Updated gl: Ignacio Casal Quinteiro
+	- Updated nb: Kjartan Maraas
+	- Updated pl: Tomasz Dominikowski
+	- Updated pt: Duarte Loreto
+	- Updated pt_BR: Vladimir Melo, Fabrício Godoy
+
+=====================
 deskbar-applet 2.23.5
 =====================
 
