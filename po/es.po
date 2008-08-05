@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-03 18:08+0000\n"
-"PO-Revision-Date: 2008-08-04 17:53+0200\n"
+"POT-Creation-Date: 2008-08-05 21:25+0000\n"
+"PO-Revision-Date: 2008-08-06 00:32+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -406,13 +406,47 @@ msgstr "Imágenes"
 msgid "<i>Empty history</i>"
 msgstr "<i>Histórico vacío</i>"
 
-#: ../deskbar/core/Utils.py:157
+#: ../deskbar/core/Utils.py:184
 msgid "Cannot execute program:"
 msgstr "No se puede ejecutar el programa:"
 
-#: ../deskbar/core/Utils.py:197
+#: ../deskbar/core/Utils.py:224
 msgid "Cannot show URL:"
 msgstr "No se puede mostrar la URL:"
+
+#: ../deskbar/core/Web.py:99
+#, python-format
+msgid "<big><b>Login for %s</b></big>"
+msgstr "<big><b>Inicio de sesión para %s</b></big>"
+
+#: ../deskbar/core/Web.py:100
+#, python-format
+msgid "Please provide your credentials for <b>%s</b>"
+msgstr "Proporcione sus credenciales para <b>%s</b>"
+
+#: ../deskbar/core/Web.py:101
+#, python-format
+msgid "Credentials for %s"
+msgstr "Credenciales para %s"
+
+#. Show '*' instead of text
+#: ../deskbar/core/Web.py:107
+msgid "User name:"
+msgstr "Usuario:"
+
+#: ../deskbar/core/Web.py:108
+msgid "Password:"
+msgstr "Contraseña:"
+
+#: ../deskbar/core/Web.py:208
+#, python-format
+msgid "<big><b>Login to %s rejected</b></big>"
+msgstr "<big><b>Inicio de sesión en %s rechazado</b></big>"
+
+#: ../deskbar/core/Web.py:209
+#, python-format
+msgid "Please verify your credentials for <b>%s</b>"
+msgstr "Compruebe sus credenciales para <b>%s</b>"
 
 #. translators: This is the window title.
 #: ../deskbar/deskbar-applet.py:17
@@ -1173,6 +1207,52 @@ msgid ""
 msgstr ""
 "Parece que la versión no es la correcta.\n"
 "Tomboy %s o posterior debe estar instalado."
+
+#: ../deskbar/handlers/twitter.py:51
+msgid ""
+"A post is already awaiting submission, please wait before you post another "
+"message"
+msgstr "Ya hay una entrada esperando ser enviada, espere antes de publicar otro mensaje"
+
+#: ../deskbar/handlers/twitter.py:52 ../deskbar/handlers/twitter.py:98
+msgid "Error posting to twitter.com"
+msgstr "Error al publicar en twitter.com"
+
+#: ../deskbar/handlers/twitter.py:63
+msgid ""
+"Failed to post update to twitter.com. Please make sure that:\n"
+"\n"
+"  - Your internet connection is working\n"
+"  - You can connect to <i>http://twitter.com</i> in your web browser\n"
+msgstr ""
+"Falló al publicar en twitter.com. Asegúrese de que:\n"
+"\n"
+"  - Su conexión a Internet está funcionando\n"
+"  - Puede conectarse a <i>http://twitter.com</i> con su navegador web\n"
+
+#: ../deskbar/handlers/twitter.py:104
+#, python-format
+msgid "Post <i>\"%(msg)s\"</i>"
+msgstr "Publicar <i>\"%(msg)s\"</i>"
+
+#: ../deskbar/handlers/twitter.py:107
+#, python-format
+msgid ""
+"Update your Twitter account with the message:\n"
+"\n"
+"\t<i>%s</i>"
+msgstr ""
+"Actualizar su cuenta de Twitter con el mensaje:\n"
+"\n"
+"\t<i>%s</i>"
+
+#: ../deskbar/handlers/twitter.py:129
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../deskbar/handlers/twitter.py:130
+msgid "Post updates to your Twitter account"
+msgstr "Publicar actualizaciones en su cuenta de Twitter"
 
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
