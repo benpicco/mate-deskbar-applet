@@ -1,5 +1,18 @@
 2008-08-05  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
+    * deskbar/handlers/twitter.py
+    Add identi.ca handler using the Twitter API. Since identi.ca throws
+    and error on bad credentials we can not re-ask for them like the Twitter
+    handler does. We simply have to report the error to the user.
+    
+    * deskbar/core/Web.py
+    Fix issues where cancelling the very first credential request would
+    cause a crash.
+    Add support getting the return status after emission of the 'done'
+    signal of the GnomeURLopener.
+
+2008-08-05  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
     * po/POTFILES.in
     Ooops. Forgot to add deskbar/core/Web.py for translation. I am really
     starting to embarras myself here...

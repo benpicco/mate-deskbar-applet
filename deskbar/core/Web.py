@@ -187,6 +187,7 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
         self._account = account
         self._thread = None
         self._authentication_retries = 0
+        self._success = True
         
     def prompt_user_passwd (self, host, realm):
         """
@@ -224,6 +225,10 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
             login_dialog.show_all()
             login_dialog.run()            
             login_dialog.destroy()
+            if login_dialog.get_response() == gtk.RESPONSE_CANCEL:
+                LOGGER.debug ("Login to %s aborted" % self._account.get_host())
+                gtk.gdk.threads_leave ()
+                raise AuthenticationAborted()
         
         creds = self._account.get_credentials()
         
@@ -263,16 +268,27 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
                                          name="GnomeURLopener")
         
         self._thread.start()
+    
+    def get_success (self):
+        """
+        @return: C{True} if and only if no error has occured
+        """
+        return self._success
         
     def _do_open_async (self, *args):
         self._authentication_retries = 0
         self._thread = None
         
+        info = None
+        
         try:
             info = self.open (*args)
         except AuthenticationAborted:
             LOGGER.debug ("Detected authentication abort")
-            return
+            self._success = True # The user should not be warned
+        except IOError, e:
+            LOGGER.warn ("Caught IOError when posting: %s" % e)
+            self._success = False            
             
         gtk.gdk.threads_enter()
         self.emit ("done", info)
