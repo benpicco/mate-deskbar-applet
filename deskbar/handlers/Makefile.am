@@ -25,6 +25,7 @@ deskbar_handlers_PYTHON = \
 	recent.py \
 	templates.py \
 	tomboy.py \
+	twitter.py \
 	web_address.py \
 	wikipedia-suggest.py \
 	yahoo.py

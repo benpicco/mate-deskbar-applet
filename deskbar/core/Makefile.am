@@ -15,4 +15,5 @@ deskbar_core_PYTHON = \
 	ModuleLoader.py \
 	ThreadPool.py \
 	Utils.py \
-	Watcher.py
+	Watcher.py \
+	Web.py

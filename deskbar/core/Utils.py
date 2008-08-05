@@ -15,6 +15,7 @@ import locale
 import logging
 import os
 import re
+import base64
 
 LOGGER = logging.getLogger(__name__)
 
@@ -124,6 +125,32 @@ def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
 
 def load_icon_from_icon_theme(iconname, size):
     return ICON_THEME.load_icon(iconname, size, gtk.ICON_LOOKUP_USE_BUILTIN)
+
+def load_base64_icon (base64_str):
+    """
+    Load a base64 encoded image as a C{gtk.gdk.Pixbuf}.
+    
+    @param base64_str: a C{string} with a base64 encoded image
+    @return: A C{gtk.gdk.Pixbuf} or a fallback icon in case there are errors
+        parsing C{base64_str}.
+    """
+    loader = gtk.gdk.PixbufLoader()
+    
+    try:
+        loader.set_size(deskbar.ICON_HEIGHT, deskbar.ICON_HEIGHT)
+        loader.write(base64.b64decode(base64_str))
+    except Exception, e:
+        LOGGER.warning ("Failed to read base64 encoded image: %s" % e)
+    except gobject.GError, ee:
+        LOGGER.warning ("Failed to read base64 encoded image: %s" % ee)
+    finally:
+        loader.close()
+        
+    pixbuf = loader.get_pixbuf()
+    if pixbuf :
+        return pixbuf
+    
+    return _get_fall_back_icon()
 
 def _get_fall_back_icon():
     """

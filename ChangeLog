@@ -1,3 +1,23 @@
+2008-08-05  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+    * deskbar/core/Utils.py
+    Add method load_base64_icon. Handy for inlining icons inside modules
+    for easier distribution
+    
+	* deskbar/handlers/twitter.py
+    * deskbar/handlers/Makefile.am
+    * deskbar/core/Web.py
+    * deskbar/core/Makefile.am
+    Introduce a Twitter micro blogging module
+    
+    Introduce a new utility package deskbar.core.Web with tools for dealing
+    with online services. Mostly the authentication parts. Highlights include:
+    
+     - Abstraction of online account storing credentials in gnome keyring
+     - A dialog for managing an account
+     - An asynchronous url opener that hooks into the account framework
+       mentioned above to ask for credentials
+
 ========== Version 2.23.6 released 2008-08-05 ==========
 
 2008-08-05  Sebastian Pölsterl  <sebp@cvs.gnome.org>
