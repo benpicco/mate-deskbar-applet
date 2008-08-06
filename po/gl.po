@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-03 20:51+0200\n"
-"PO-Revision-Date: 2008-08-03 21:07+0200\n"
+"POT-Creation-Date: 2008-08-06 20:16+0200\n"
+"PO-Revision-Date: 2008-08-06 20:22+0200\n"
 "Last-Translator: Ignacio Casal Quinteiro <icq@svn.gnome.org>\n"
 "Language-Team: Galego <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -409,13 +409,47 @@ msgstr "Imaxes"
 msgid "<i>Empty history</i>"
 msgstr "<i>Historial baleiro</i>"
 
-#: ../deskbar/core/Utils.py:157
+#: ../deskbar/core/Utils.py:184
 msgid "Cannot execute program:"
 msgstr "Non se pode executar o programa:"
 
-#: ../deskbar/core/Utils.py:197
+#: ../deskbar/core/Utils.py:224
 msgid "Cannot show URL:"
 msgstr "Non se pode mostrar o URL:"
+
+#: ../deskbar/core/Web.py:99
+#, python-format
+msgid "<big><b>Login for %s</b></big>"
+msgstr "<big><b>Inicio de sesión para %s</b></big>"
+
+#: ../deskbar/core/Web.py:100
+#, python-format
+msgid "Please provide your credentials for <b>%s</b>"
+msgstr "Proporcione as súas credenciais para <b>%s</b>"
+
+#: ../deskbar/core/Web.py:101
+#, python-format
+msgid "Credentials for %s"
+msgstr "Credenciais para %s"
+
+#. Show '*' instead of text
+#: ../deskbar/core/Web.py:107
+msgid "User name:"
+msgstr "Nome de usuario:"
+
+#: ../deskbar/core/Web.py:108
+msgid "Password:"
+msgstr "Contrasinal:"
+
+#: ../deskbar/core/Web.py:209
+#, python-format
+msgid "<big><b>Login to %s rejected</b></big>"
+msgstr "<big><b>Incicio de sesión en %s rexeitado</b></big>"
+
+#: ../deskbar/core/Web.py:210
+#, python-format
+msgid "Please verify your credentials for <b>%s</b>"
+msgstr "Comprobe as súas credenciais para <b>%s</b>"
 
 #. translators: This is the window title.
 #: ../deskbar/deskbar-applet.py:17
@@ -1184,6 +1218,67 @@ msgid ""
 msgstr ""
 "Tomboy non parece ser da versión correcta.\n"
 "Debe ter instalado Tomboy %s ou maior."
+
+#: ../deskbar/handlers/twitter.py:40
+#, python-format
+msgid ""
+"Failed to post update to %(domain)s. Please make sure that:\n"
+"\n"
+"  - Your internet connection is working\n"
+"  - You can connect to <i>http://%(domain)s</i> in your web browser\n"
+"  - Your credentials in the preferences are correct\n"
+msgstr ""
+"Fallou ao publicar en %(domain)s. Asegúrese de que:\n"
+"\n"
+"  - A súa conexión a internet está funcionando\n"
+"  - Pode conectarse a <i>http://%(domain)s</i> co seu navegador web\n"
+"  - As súas credenciais son correctas nas preferencias\n"
+
+#: ../deskbar/handlers/twitter.py:67
+msgid ""
+"A post is already awaiting submission, please wait before you post another "
+"message"
+msgstr ""
+"Xa hai unha entrada esperando ser publicada, espere antes de publicar outra "
+"mensaxe"
+
+#: ../deskbar/handlers/twitter.py:68 ../deskbar/handlers/twitter.py:81
+#: ../deskbar/handlers/twitter.py:121
+#, python-format
+msgid "Error posting to %s"
+msgstr "Erro ao publicar en %s"
+
+#: ../deskbar/handlers/twitter.py:127
+#, python-format
+msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
+msgstr "<small>(%(remain)s)</small> Publicar <i>\"%(msg)s\"</i>"
+
+#: ../deskbar/handlers/twitter.py:130
+#, python-format
+msgid ""
+"Update your %s account with the message:\n"
+"\n"
+"\t<i>%s</i>"
+msgstr ""
+"Activar a súa conta de %s coa mensaxe:\n"
+"\n"
+"\t<i>%s</i>"
+
+#: ../deskbar/handlers/twitter.py:167
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../deskbar/handlers/twitter.py:168
+msgid "Post updates to your Twitter account"
+msgstr "Publicar actualizacións na súa conta de Twitter"
+
+#: ../deskbar/handlers/twitter.py:214
+msgid "identi.ca"
+msgstr "identi.ca"
+
+#: ../deskbar/handlers/twitter.py:215
+msgid "Post updates to your identi.ca account"
+msgstr "Publicar actualizacións na súa conta de identi.ca"
 
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
