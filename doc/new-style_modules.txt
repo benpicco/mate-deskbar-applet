@@ -1,0 +1,583 @@
+Writing new-style modules for Deskbar-Applet
+============================================
+Sebastian Pölsterl
+v1.2.8, April 29th, 2008
+
+In this article I give an introduction to the new module interface of GNOME Deskbar-Applet.
+The module interface changed for various reasons. One of them was the very slow startup time.
+With the new interface the startup is significantly faster, because the modules are checked
+before an instance is created.
+
+[[interfaces]]
+Interfaces
+----------
+
+image:uml_new-style.png[UML diagram]
+
+[[class-module]]
+Module
+~~~~~~
+Here's how the new interface looks like.
+
+[python]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+class Module(gobject.GObject):
+    
+    INFOS = {'icon': '', 'name': '', 'description': '', 'version': '1.0.0.0', 'categories': {}}
+    INSTRUCTIONS = ""
+    
+    def __init__(self):
+        super(Module, self).__init__()
+        self._priority = 0
+        self._enabled = False
+        self._filename = None
+        self._id = ""
+    
+    def _emit_query_ready (self, query, matches):
+        self.emit ("query-ready", query, matches)
+        return False
+    
+    def is_enabled(self):
+        return self._enabled
+    
+    def set_enabled(self, val):
+        self._enabled = val
+    
+    def get_priority(self):
+        return self._priority
+    
+    def set_priority(self, prio):
+        self._priority = prio
+        
+    def get_filename(self):
+        return self._filename
+    
+    def set_filename(self, filename):
+        self._filename = filename
+        
+    def get_id(self):
+        return self._id
+        
+    def set_id(self, mod_id):
+        self._id = mod_id
+        
+    def set_priority_for_matches(self, matches):
+        for m in matches:
+            m.set_priority( self.get_priority( ))
+    
+    def query(self, text):
+        raise NotImplementedError
+    
+    def has_config(self):
+        return False
+    
+    def show_config(self, parent):
+        pass
+    
+    def initialize(self):
+        pass
+    
+    def stop(self):
+        pass
+    
+    @staticmethod
+    def has_requirements():
+        return True
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+As you can see there are two attributes at the top.
+
+- `INFOS`: A dictionary containing information about the module. The mandatory keys are
+	* `icon`: A http://www.pygtk.org/pygtk2reference/class-gdkpixbuf.html[gtk.gdk.Pixbuf] representing the module's icon
+	* `name`: The name of the module
+	* `description`: A short description of the module
+	* `version`: The module's version
+	* [[categories_attr]] (optional) `categories`: You can add a dictionary here to add custom categories. Each key is the identifier of the category and the value another dictionary of the form `{"name": "My category's name"}`.
+- `INSTRUCTIONS`: Information stored here will be displayed in the preferences dialog if you select the module. You can store error messages (e.g. about missing dependencies) here, too.
+
+You can override the following methods in your sub-class:
+
+- `query`: This method will be called to start the module's search mechanism.
+- (optional) `has_config`: If your module comes with a configuration dialog override this method and return `True`.
+- (optional) `show_config`: This method should contain everything to create an optional configuration dialog and display it.
+- (optional) `initialize`: This method will be called if Deskbar is starting up. If you have to do some time-consuming stuff at startup (e.g. indexing) do this here.
+- (optional) `stop`: Any cleaning up should happen in here.
+- (optional) `has_requirements`: Override this method if your module depends on additional tools or applications. You can check for them in this method and return the appropriate value.
+
+[IMPORTANT]
+=======================================
+If you want to override `has_requirements` you *must* make it static in your sub-class as well.
+=======================================
+
+The following methods are needed by Deskbar core. *Do not override them*.
+
+- `_emit_query_ready`: Call this method if you collected your search results and want the world to know about it.
+- `is_enabled` and `set_enabled`: Getter and setter for the module's status.
+- `(get|set)_priority`: Get or set the module's priority.
+- `(get|set)_filename`: Get or set the complete path of the file that contains this module
+- `(get|set)_id`: Get or set the module's id. The id in this case is the filename.
+
+[[class-match]]
+Match
+~~~~~
+Let's take a look on the new Match interface. Unless in previous versions this class isn't responsible for "doing" the action anymore. It just supplies actions.
+
+[python]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+class Match:
+
+	def __init__(self, **args):
+		self._name = ""
+		self._icon = None
+		self._pixbuf = None
+		self._category = "default"
+		self._priority = 0
+		self._actions = []
+		self._default_action = None
+		self.__actions_hashes = set()
+		if "name" in args:
+			self._name = args["name"]
+		if "icon" in args and args["icon"] != None:
+			self.set_icon(args["icon"])
+		if "pixbuf" in args and args["pixbuf"] != None:
+			if not isinstance(args["pixbuf"], gtk.gdk.Pixbuf):
+				raise TypeError, "pixbuf must be a gtk.gdk.Pixbuf"
+			self._pixbuf = args["pixbuf"]
+		if "category" in args:
+			self._category = args["category"]
+		if "priority" in args:
+			self._priority = args["priority"]
+	
+	def _get_default_icon(self):
+		if CATEGORIES[self.get_category()].has_key("icon"):
+			return CATEGORIES[self.get_category()]["icon"]
+		else:
+			return CATEGORIES["default"]["icon"]
+	
+	def get_priority(self):
+		return self._priority
+	
+	def set_priority(self, prio):
+		self._priority = prio
+		
+	def get_icon(self):
+		if self._pixbuf != None:
+			# Only for Matches that won't be stored in history
+			return self._pixbuf
+		elif self._icon != None:
+			return deskbar.core.Utils.load_icon(self._icon)
+		else:
+			return self._get_default_icon()
+	
+	def set_icon(self, iconname):
+		if not isinstance(iconname, str):
+			raise TypeError, "icon must be a string"
+		self._icon = iconname
+	
+	def get_category(self):
+		return self._category
+	
+	def set_category(self, cat):
+		self._category = cat
+        
+	def get_actions(self):
+		return self._actions
+	
+	def get_default_action(self):
+		return self._default_action
+    
+	def add_action(self, action, is_default=False):
+		if not action.get_hash() in self.__actions_hashes:
+			self.__actions_hashes.add(action.get_hash())
+			self._actions.append(action)
+		if is_default:
+			self._default_action = action
+	
+	def add_all_actions(self, actions):
+		for action in actions:
+			self.add_action(action)
+	
+	def get_hash(self):
+		return None
+	
+	def get_name(self, text=None):
+		return self._name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can pass various parameters to the constructor and it will set the proper values.
+
+- `name`: The query string. This value is mandatory.
+- `icon`: The name or path of an icon. It's very important that you don't try to store something else in it. If you don't set a icon a default icon according to the match's category is displayed.
+- `pixbuf`: If you fetch the match's icon on the fly you can provide a pixbuf as well and it overrides the value of `icon`.
+- `category`: The <<Categories,category>> the match belongs to.
+- `priority`: Match's priority. It's recommended that you use your module's `set_priority_for_matches` method to assign your matches the priority of your module.
+
+If you create your own match class you can override the following methods:
+
+- `get_hash`: Returns a hash that identifies the result. You have to return a hashable object (a string is the best choice). If two matches have they same hash the will be merged, i.e. the actions of the second match will be added to the first match and the second match will be discarded.
+- `get_name`: Returns a string used to present a special match in the results. If more than one action is available the value returned by `get_name` will be displayed in the results.
+
+Important getter and setter methods:
+
+- `add_action`: Adds a action to the match. If the parameter `is_default` is set to `True` the action is marked as default. If you don't supply a default action the first one that has been added is treated as such.
+- `add_all_actions`: Calls `add_action` for each item in the supplied list.
+- `get_actions`: Returns a list of actions.
+- `get_default_action`: Returns the default action, if available, or `None`.
+
+[IMPORTANT]
+===========================
+You should forbear from using the attributes that start with `_` directly in your sub-class.
+Always use either the appropriate Getter/Setter or provide the value when creating the class.
+===========================
+
+[[class-action]]
+Action
+~~~~~~
+This class is entirely new. It is responsible for executing the action.
+
+[python]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+class Action:
+    
+	def __init__(self, name):
+		self._name = name
+    
+	def get_escaped_name(self, text=None):
+		# Escape the query now for display
+		name_dict = {"text" : cgi.escape(text)}
+		for key, value in self.get_name(text).items():
+			name_dict[key] = cgi.escape(value)
+		return name_dict
+    
+	def get_hash(self):
+		return self._name
+        
+	def get_icon(self):
+		return None
+	
+	def get_pixbuf(self):
+		if self.get_icon() != None:
+			return load_icon(self.get_icon())
+		return None
+    
+	def activate(self, text=None):
+		raise NotImplementedError
+		
+	def get_verb(self):
+		raise NotImplementedError
+		
+	def get_name(self, text=None):
+		return {"name": self._name}
+	
+	def is_valid(self):
+		return True
+	
+	def skip_history(self):
+		return False
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+As you can see the constructor expects a `name` parameter. This parameter should describe the object the action works with. E.g. if the action opens files, `name` should be the filename of the file that will be opened, if the action gets executed.
+
+To implement your own action you have to implement the following methods:
+
+- `activate`: This method will be called if the user activated the match.
+- `get_verb`: A string containing one or more `%(name)s` that will be replaced by the match's `get_name` method (e.g. `Execute %(prog)s`). The name between the paranthesis must be a key of the dictionary returned by `get_name`. You can always make use of `%(text)s`. It will be replaced by the query string.
+
+In addition, you can override the following methods:
+
+- `get_hash`: Returns a hash that identifies the action. You have to return a hashable object (a string is the best choice). If two actions have the same hash only the first one will be added.
+- `get_icon`: Returns the name of the icon displayed beside the action.
+- `get_name`: Returns a dictionary whose entries will be used in the action string returned by `get_verb`. *Do not* escape the strings as they will be escaped automatically.
+- `is_valid`: Whether the action is still valid. E.g. if the action opens a file and it has been deleted, this method should return `False`.
+- `skip_history`: Whether the action should be stored in history.
+
+Despite writing your own action you can make use of the basic actions shipped with Deskbar-Applet. The actions are located in the `deskbar.handlers.actions` module. It contains the actions
+
+- CopyToClipboardAction
+- GoToLocationAction
+- OpenDesktopFileAction
+- OpenFileAction
+- OpenWithApplicationAction
+- OpenWithNautilusAction
+- SendEmailToAction
+- SendFileViaEmailAction
+- ShowUrlAction
+
+If you want to know how the actions work have a look at the sources.
+
+Another way suited especially for files is the `deskbar.handlers.actions.ActionsFactory.get_actions_for_uri` function.
+You provide an unescaped URI or path of a file and it will return a list of actions depending on the file's MIME-type.
+An empty list will be returned if an error occured during the retrival of the MIME-type (e.g. file doesn't exist).
+Run Deskbar-Applet on the command line with the `-w` option to see debug information.
+
+[IMPORTANT]
+========================
+The list returned by `get_actions_for_uri` does not include a action for the default/preferred application.
+Use the `OpenFileAction` class for that and add it as default action to the match.
+========================
+
+[[Categories]]
+Categories
+~~~~~~~~~~
+Here's a list of categories you can use.
+If your favorite category is missing you can add your own with the <<categories_attr,categories>> key of your module's
+`INFO` attribute. The icon is the default icon for each category. The icon may vary depending on the icon theme you use.
+
+- default image:images/default.png[]
+- history image:images/history.png[]
+- documents image:images/documents.png[]
+- emails image:images/emails.png[]
+- conversations image:images/conversations.png[]
+- files image:images/files.png[]
+- people image:images/people.png[]
+- places image:images/places.png[]
+- actions image:images/actions.png[]
+- web image:images/web.png[]
+- websearch image:images/websearch.png[]
+- news image:images/news.png[]
+- notes image:images/notes.png[]
+
+[[creating-own-module]]
+Creating your own module
+------------------------
+Now it's time to create our own module. To do this we subclass all three interfaces from above.
+Let's say we want to search the `PATH` for a program named like the query.
+
+[[own-action]]
+Action
+~~~~~~
+First of all, we create our own Action class.
+
+[python]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+import deskbar.interfaces.Action
+
+class MyAction(deskbar.interfaces.Action):
+	
+	def __init__(self, prog):
+		deskbar.interfaces.Action.__init__(self, os.path.basename(prog))
+		self._prog = prog
+
+	def activate(self, text=None):
+		deskbar.core.Utils.spawn_async( [self._prog] )
+		
+	def get_verb(self):
+		return "Execute %(name)s"
+		
+	def get_icon(self):
+		return "gtk-execute"		
+		
+	def is_valid(self, text=None):
+		return (os.path.exists(self._prog) and os.path.isfile(self._prog)
+		and os.access(self._prog, os.F_OK | os.R_OK | os.X_OK))
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`activate` spawns the program and `get_verb` together with `get_name` determines how the result will look like to the user.
+
+[[own-match]]
+Match
+~~~~~
+Now we make your own Match class that supplies the action from above and another action named `CopyToClipboardAction`.
+
+[python]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+import deskbar.interfaces.Match
+from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
+
+class MyMatch (deskbar.interfaces.Match):
+	
+	def __init__(self, prog, **kwargs):
+		deskbar.interfaces.Match.__init__(self,
+			name=os.path.basename(prog),
+			icon="gtk-execute", category="actions", **kwargs)
+		self.prog = prog
+		self.add_action( MyAction(self.prog) )
+		self.add_action( CopyToClipboardAction("URL", self.prog) )
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+We just forward the arguments of our Match to the constructor of the base class, set the category and icon
+and store the location of the program we found. Afterwards, we add the actions `MyAction` and `CopyToClipboardAction` to the match.
+
+Now we only override one additional method. The remaining methods just retain their default implementation.
+
+[python]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	def get_hash(self):
+		return self.prog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[[own-module]]
+Module
+~~~~~~
+We have our own Action and Match class now. The only thing that's missing is our own Module class that creates those matches.
+We start of again by creating a sub-class of the Module interface.
+
+[python]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+import deskbar.core.Utils
+import deskbar.interfaces.Module
+
+class MyModule (deskbar.interfaces.Module):
+
+	INFOS = {'icon': deskbar.core.Utils.load_icon("gtk-execute"),
+		'name': 'My first module',
+		'description': 'Search the PATH for a program',
+		'version': '1.0.0.0',
+		}
+	
+	def __init__(self):
+		deskbar.interfaces.Module.__init__(self)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In the `INFO` attribute we store information about the module like the icon and name. You only have to pay attention
+that `icon` must be a http://www.pygtk.org/pygtk2reference/class-gdkpixbuf.html[gtk.gdk.Pixbuf] instance.
+
+We only have to implement our own `query` method because the other methods already return the correct values
+or don't make sense here.
+
+[python]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	def query(self, text):
+		PATH = []
+		for path in os.getenv("PATH").split(os.path.pathsep):
+			if path.strip() != "" and os.path.exists(path) and os.path.isdir(path):
+				PATH.append(path)
+		for dir in PATH:
+			prog_path = os.path.join(dir, text)
+			if os.path.exists(prog_path) and os.path.isfile(prog_path)
+			and os.access(prog_path, os.F_OK | os.R_OK | os.X_OK):
+				self._emit_query_ready( text, [MyMatch(prog_path)] )
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Basically, we just split the `PATH` variable and look out for a program that is named like the query string in all
+the directories.
+
+To let Deskbar-Applet know what modules are available from your file you have to define a `HANDLERS` variable somewhere
+in your file as a list of names of classes. In this case this would look like `HANDLERS = ["MyModule"]`.
+Now either copy your Python file to `~/.gnome2/deskbar-applet/modules-2.20-compatible` or open the preferences dialog and drag the
+file onto the list of handlers and you're set.
+
+[NOTE]
+=============================================
+You can download the complete source of the module http://www.k-d-w.org/deskbar/mymodule.tar.gz[here]
+=============================================
+
+[[advanced]]
+Advanced usage
+--------------
+
+[[advanced-configure]]
+Making your module configurable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In many cases you want to provide some options the user can change to adjust the
+behavior of the module. Deskbar-Applet allows you to provide a configure dialog when
+the module is selected and the ``More...'' button is pressed in preferences.
+
+You have to do two things in your <<class-module,Module>> sub-class:
+
+1. Override `has_config` method that it returns `True`
+2. Override `show_config` method where you create your dialog
+
+You can store the values of the options in a plain text file, in <<advanced-gconf,GConf>> or
+using one of the Python modules http://docs.python.org/lib/module-pickle.html[pickle] and 
+http://docs.python.org/lib/module-cPickle.html[cPickle].
+
+[[advanced-gconf]]
+Make use of GConf
+~~~~~~~~~~~~~~~~~
+If you want to write a module that reads or writes modules to GConf you can use the `GconfStore` class.
+
+[python]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+from deskbar.core.GconfStore import GconfStore
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+After importing the Class you get a normal GConf client with `GconfStore.get_instance().get_client()`.
+
+[NOTE]
+================
+You can only create and modify GConf keys in `/apps/deskbar/`.
+================
+
+[[advanced-internet]]
+Retrieving results from the internet
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Some modules retrieve their results from online services such as Yahoo! or del.ico.us.
+When your module retrieves its results from the internet you must pay attention to the fact
+that the user might not have a working internet connection at all time.
+In most cases it's enough to catch `IOError` exceptions, print that something went wrong for debugging
+purposes and abort retrieving results.
+In addition, you have to take into account that the user might want to use a proxy.
+The following code respects both cases:
+
+[python]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+import logging
+import urllib
+from deskbar.core.Utils import get_proxy
+
+LOGGER = logger.getLogger(__name__)
+
+class MyModule(deskbar.interfaces.Module):
+
+    def query(self, qstring):
+        # Parameters of your url
+        url_params = urllib.urlencode({'query': qstring,})
+        # Your URL with parameters
+        url = "http://www.example.com/search?%s" % url_params
+        try:
+            # Try to open your URL using user's proxy
+            # If the user doesn't use a proxy this works as well
+            stream = urllib.urlopen(url, proxies=get_proxy())
+        except IOError, msg:
+            # Print error for debugging purposes and end querying
+            LOGGER.error("Could not open URL %s: %s, %s" % (url, msg[0], msg[1]))
+            return
+        # Continue to work with stream and retrieve results as usual
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[[advanced-dbus]]
+Using DBus in your module
+~~~~~~~~~~~~~~~~~~~~~~~~~
+When you use DBus in your module make sure to catch `dbus.exceptions.DBusException` when you make
+a DBus call.
+
+[python]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+import logging
+import dbus
+import dbus.glib
+
+LOGGER = logging.getLogger(__name__)
+
+class MyModule(deskbar.interfaces.Module):
+
+    def query(self, qstring):
+        try:
+            # Some DBus call here
+        except dbus.exceptions.DBusException, e:
+            LOGGER.exception(e)
+            return
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[[advanced-pickle]]
+C modules in Action class
+~~~~~~~~~~~~~~~~~~~~~~~~~
+A problem that may occur if you're using external modules, especially modules written in C (e.g. gtk, gobject),
+is that the information stored in a class from such modules can't be stored in history.
+You have two options. Either modify the action class that `skip_history` always returns `True` or you define two
+additional methods `\_\_getstate\_\_` and `\_\_setstate\_\_` that affect they way the match is stored and re-created.
+
+The matches are stored using the http://docs.python.org/lib/module-pickle.html[pickle module].
+The method `\_\_getstate\_\_` will be called to pickle the object and `\_\_setstate\_\_` to restore it.
+More information can be found at footnote:[http://docs.python.org/lib/pickle-inst.html#pickle-inst].
+
+Let's say you create the evil object by passing it the location of a file and the object will be stored in a
+variable called `self.object`. To create it again you have to remember the file's location as well. It's stored
+in `self.file_location` here.
+The following code solves the problem and Deskbar-Applet can store those objects safely.
+
+[python]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+def __getstate__(self):
+	state = self.__dict__.copy()
+	del state["object"]
+	return state
+
+def __setstate__(self, state):
+	self.__dict__ = state
+	self.object = EvilObject( self.file_location )
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
