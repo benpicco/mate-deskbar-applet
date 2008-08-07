@@ -137,12 +137,13 @@ def load_base64_icon (base64_str):
     loader = gtk.gdk.PixbufLoader()
     
     try:
-        loader.set_size(deskbar.ICON_HEIGHT, deskbar.ICON_HEIGHT)
-        loader.write(base64.b64decode(base64_str))
-    except Exception, e:
-        LOGGER.warning ("Failed to read base64 encoded image: %s" % e)
-    except gobject.GError, ee:
-        LOGGER.warning ("Failed to read base64 encoded image: %s" % ee)
+        try:
+            loader.set_size(deskbar.ICON_HEIGHT, deskbar.ICON_HEIGHT)
+            loader.write(base64.b64decode(base64_str))
+        except Exception, e:
+            LOGGER.warning ("Failed to read base64 encoded image: %s" % e)
+        except gobject.GError, ee:
+            LOGGER.warning ("Failed to read base64 encoded image: %s" % ee)
     finally:
         loader.close()
         

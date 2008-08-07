@@ -193,7 +193,7 @@ class CalculatorModule (deskbar.interfaces.Module):
             else:
                 return None
        except Exception, e:
-           LOGGER.debug (e.message)
+           LOGGER.debug (str(e))
            return None
     
     def query (self, query):
