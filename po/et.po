@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deskbar Applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-19 11:34+0000\n"
-"PO-Revision-Date: 2008-06-19 18:57+0300\n"
+"POT-Creation-Date: 2008-08-05 22:55+0000\n"
+"PO-Revision-Date: 2008-08-07 21:58+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <et-gnome@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -68,28 +68,32 @@ msgstr ""
 "\" (nupp)"
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The applet's entry width in number of characters"
+msgstr "Rakendi sisestuskasti laius märkides"
+
+#: ../data/deskbar-applet.schemas.in.h:12
 msgid "The default height of the window in pixels"
 msgstr "Akna vaikimisi laius pikslites"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default position of the window on the screen (x-coordinate)"
 msgstr "Akna vaikimisi asukoht ekraanil (X-koordinaat)"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The default position of the window on the screen (y-coordinate)"
 msgstr "Akna vaikimisi asukoht ekraanil (Y-koordinaat)"
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid "The default width of the window in pixels"
 msgstr "Akna vaikimisi kõrgus pikslites"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "Deskbar'i rakendi fokuseerimise klahvikombinatsioon, see võimaldab kiiret "
 "sisestamist"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -101,7 +105,7 @@ msgstr ""
 "(inimesed), places (asukohad), actions (tegevused), web (veeb), websearch "
 "(veebiotsing), news (uudised) ja notes (märkmed)."
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -109,18 +113,18 @@ msgstr ""
 "Nimekiri lubatud käsitlejate eksporditud klassinimedest, sorditud tähtsuse "
 "järjekorras. Vasakpoolseim on kõrgeima prioriteediga."
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid "The maximum number of items stored in history"
 msgstr "Suurim arv kirjeid, mida ajaloo all hoida"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
 msgstr ""
 "Vähim sisestatud märkide arv, mille korral rakend hakkab vastavusi näitama"
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -128,11 +132,15 @@ msgstr ""
 "Millisekundites määratud viivitus otsingukirjes aset leidva klahvivajutuse "
 "ja tegeliku otsingu teostamise vahel"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:22
+msgid "This value only takes affect when \"ui_name\" is set to \"Button\""
+msgstr ""
+
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether to close the window after an action has been activated"
 msgstr "Kas aken tuleb pärast tegevuse aktiveerimist sulgeda või mitte"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -141,23 +149,23 @@ msgstr ""
 "mootoreid. See võti puudutab ainult Mozillal põhinevaid veebisirvijaid nagu "
 "Firefox jms."
 
-#: ../data/deskbar-applet.schemas.in.h:23
+#: ../data/deskbar-applet.schemas.in.h:25
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "Kas Deskbar'i rakendi aktiveerimine asetab valiku"
 
-#: ../data/deskbar-applet.schemas.in.h:24
+#: ../data/deskbar-applet.schemas.in.h:26
 msgid "Window height"
 msgstr "Akna kõrgus"
 
-#: ../data/deskbar-applet.schemas.in.h:25
+#: ../data/deskbar-applet.schemas.in.h:27
 msgid "Window width"
 msgstr "Akna laius"
 
-#: ../data/deskbar-applet.schemas.in.h:26
+#: ../data/deskbar-applet.schemas.in.h:28
 msgid "X-coordinate of window"
 msgstr "Akna X-koordinaat"
 
-#: ../data/deskbar-applet.schemas.in.h:27
+#: ../data/deskbar-applet.schemas.in.h:29
 msgid "Y-coordinate of window"
 msgstr "Akna Y-koordinaat"
 
@@ -202,68 +210,76 @@ msgid "<b>Loaded Extensions</b>"
 msgstr "<b>Laaditud laiendused</b>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid "<b>Width</b>"
+msgstr "<b>Laius</b>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "<b>Window Behavior</b>"
 msgstr "<b>Akna käitumine</b>"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "Deskbar'i eelistused"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Display extensions with tag:"
 msgstr "Järgneva sildiga laienduste kuvamine:"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Extensions with Errors"
 msgstr "Vigadega laiendused"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "General"
 msgstr "Üldine"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "New Extensions"
 msgstr "Uued laiendused"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "Kiirklahvile vajutamisel otsitakse aktiivset valikut"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
 msgid "Searches"
 msgstr "Otsingud"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "Stick to panel"
 msgstr "Kleeputakse paneelile"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "_Check For Updates"
 msgstr "_Kontrolli uuenduste olemasolu"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Check for new extensions"
 msgstr "_Kontrolli uute laienduste olemasolu"
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:17
 msgid "_Install"
 msgstr "_Paigalda"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:18
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Fokuseerimise kiirklahv"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:19
 msgid "_More..."
 msgstr "_Veel..."
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:20
 msgid "_Reload"
 msgstr "_Laadi uuesti"
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:21
 msgid "_Update"
 msgstr "_Uuenda"
+
+#: ../data/prefs-dialog.glade.h:22
+msgid "characters"
+msgstr ""
 
 #: ../data/smart-bookmarks.glade.h:1
 msgid ""
@@ -311,7 +327,8 @@ msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<i>%(text)s</i> otsimine mootorist <b>%(name)s</b>"
 
 #: ../deskbar/core/BrowserMatch.py:111
-#: ../deskbar/handlers/googlecodesearch.py:97 ../deskbar/handlers/yahoo.py:43
+#: ../deskbar/handlers/googlecodesearch.py:97
+#: ../deskbar/handlers/googlesearch.py:200 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL"
 
@@ -328,6 +345,7 @@ msgid "Uncategorized"
 msgstr "Kategoriseerimata"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
+#: ../deskbar/ui/DeskbarStatusIcon.py:76
 msgid "History"
 msgstr "Ajalugu"
 
@@ -387,17 +405,51 @@ msgstr "Video"
 msgid "Images"
 msgstr "Pildid"
 
-#: ../deskbar/core/DeskbarHistory.py:23
-msgid "<i>Choose action</i>"
-msgstr "<i>Vali toiming</i>"
+#: ../deskbar/core/DeskbarHistory.py:22
+msgid "<i>Empty history</i>"
+msgstr "<i>Tühi ajalugu</i>"
 
-#: ../deskbar/core/Utils.py:156
+#: ../deskbar/core/Utils.py:184
 msgid "Cannot execute program:"
 msgstr "Programmi pole võimalik käivitada:"
 
-#: ../deskbar/core/Utils.py:196
+#: ../deskbar/core/Utils.py:224
 msgid "Cannot show URL:"
 msgstr "URL-i pole võimalik näidata:"
+
+#: ../deskbar/core/Web.py:99
+#, python-format
+msgid "<big><b>Login for %s</b></big>"
+msgstr ""
+
+#: ../deskbar/core/Web.py:100
+#, python-format
+msgid "Please provide your credentials for <b>%s</b>"
+msgstr ""
+
+#: ../deskbar/core/Web.py:101
+#, python-format
+msgid "Credentials for %s"
+msgstr ""
+
+#. Show '*' instead of text
+#: ../deskbar/core/Web.py:107
+msgid "User name:"
+msgstr "Kasutaja nimi:"
+
+#: ../deskbar/core/Web.py:108
+msgid "Password:"
+msgstr "Parool:"
+
+#: ../deskbar/core/Web.py:209
+#, python-format
+msgid "<big><b>Login to %s rejected</b></big>"
+msgstr ""
+
+#: ../deskbar/core/Web.py:210
+#, python-format
+msgid "Please verify your credentials for <b>%s</b>"
+msgstr ""
 
 #. translators: This is the window title.
 #: ../deskbar/deskbar-applet.py:17
@@ -438,49 +490,44 @@ msgstr "Arhiivist %s faili %s avamine"
 msgid "Open %s"
 msgstr "Faili %s avamine"
 
-#: ../deskbar/handlers/beagle-live.py:385
+#: ../deskbar/handlers/beagle-live.py:387
 #, python-format
 msgid "Additional results for category <b>%s</b>"
 msgstr "Kategooria <b>%s</b> täiendavad tulemused"
 
-#: ../deskbar/handlers/beagle-live.py:385
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "nimi"
-
-#: ../deskbar/handlers/beagle-live.py:422
-#: ../deskbar/handlers/beagle-live.py:425
+#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:427
 #, python-format
 msgid "From <i>%s</i>"
 msgstr "Saatjalt <i>%s</i>"
 
-#: ../deskbar/handlers/beagle-live.py:484
+#: ../deskbar/handlers/beagle-live.py:486
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:485
+#: ../deskbar/handlers/beagle-live.py:487
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Sisestatud stringi otsimine Sinu dokumentidest (Beagle'i abil)"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:730
-#: ../deskbar/handlers/beagle-live.py:747
+#: ../deskbar/handlers/beagle-live.py:732
+#: ../deskbar/handlers/beagle-live.py:749
 msgid "?"
 msgstr "!?!"
 
-#: ../deskbar/handlers/beagle-live.py:781
+#: ../deskbar/handlers/beagle-live.py:783
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "Beagle't pole võimalik laadida, libbeagle on kompileeritud ilma python'i "
 "toeta."
 
-#: ../deskbar/handlers/beagle-live.py:787
+#: ../deskbar/handlers/beagle-live.py:789
 msgid "Beagle daemon is not running."
 msgstr "Beagle deemon ei tööta."
 
-#: ../deskbar/handlers/beagle-live.py:790
+#: ../deskbar/handlers/beagle-live.py:792
 msgid "Beagled could not be found in your $PATH."
 msgstr "\"Beagled\" programmi pole võimalik sinu $PATH otsinguradadelt leida."
 
@@ -522,23 +569,23 @@ msgstr "del.icio.us järjehoidjad"
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "del.icio.us järjehoidjatest otsimine sildinime alusel"
 
-#: ../deskbar/handlers/desklicious.py:80
+#: ../deskbar/handlers/desklicious.py:78
 msgid "del.icio.us Account"
 msgstr "del.icio.us konto"
 
-#: ../deskbar/handlers/desklicious.py:87
+#: ../deskbar/handlers/desklicious.py:85
 msgid "Enter your del.icio.us username below"
 msgstr "Sisesta oma deli.icio.us kasutajanimi"
 
-#: ../deskbar/handlers/desklicious.py:93
+#: ../deskbar/handlers/desklicious.py:91
 msgid "Username: "
 msgstr "Kasutajanimi: "
 
-#: ../deskbar/handlers/desklicious.py:109
+#: ../deskbar/handlers/desklicious.py:107
 msgid "You need to configure your del.icio.us account."
 msgstr "Sa pead määrama oma deli.icio.us konto sätted."
 
-#: ../deskbar/handlers/desklicious.py:114
+#: ../deskbar/handlers/desklicious.py:112
 msgid "You can modify your del.icio.us account."
 msgstr "Sa võid oma deli.icio.us kontot muuta."
 
@@ -618,116 +665,126 @@ msgstr ""
 "Sinu failide, kataloogide, järjehoidjate, kettaseadmete ja võrgukohtade "
 "vaatamine nime alusel"
 
-#: ../deskbar/handlers/gdmactions.py:30
+#: ../deskbar/handlers/gdmactions.py:40
 msgid "Shut down this system now?"
 msgstr "Kas see süsteem tuleb praegu välja lülitada?"
 
-#: ../deskbar/handlers/gdmactions.py:31
-#, python-format
-msgid "This system will be automatically shut down in %s seconds."
-msgstr "See süsteem lülitatakse %s sekundi pärast automaatselt välja."
-
-#: ../deskbar/handlers/gdmactions.py:32 ../deskbar/handlers/gdmactions.py:223
-#: ../deskbar/handlers/gdmactions.py:281
+#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:262
+#: ../deskbar/handlers/gdmactions.py:328
 msgid "Shut Down"
 msgstr "Töö lõpetamine"
 
-#: ../deskbar/handlers/gdmactions.py:34
+#: ../deskbar/handlers/gdmactions.py:43
 msgid "Log out of this system now?"
 msgstr "Kas sellest süsteemist tuleb praegu välja logida?"
 
-#: ../deskbar/handlers/gdmactions.py:35
-#, python-format
-msgid "You will be automatically logged out in %s seconds."
-msgstr "Sind logitakse %s sekundi pärast automaatselt välja."
-
-#: ../deskbar/handlers/gdmactions.py:36 ../deskbar/handlers/gdmactions.py:236
-#: ../deskbar/handlers/gdmactions.py:240 ../deskbar/handlers/gdmactions.py:284
+#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:283 ../deskbar/handlers/gdmactions.py:331
 msgid "Log Out"
 msgstr "Väljalogimine"
 
-#: ../deskbar/handlers/gdmactions.py:38
+#: ../deskbar/handlers/gdmactions.py:46
 msgid "Restart this system now?"
 msgstr "Kas see süsteem tuleb praegu taaskäivitada?"
 
-#: ../deskbar/handlers/gdmactions.py:39
-#, python-format
-msgid "This system will be automatically restarted in %s seconds."
-msgstr "See süsteem taaskäivitatakse automaatselt %s sekundi pärast."
-
-#: ../deskbar/handlers/gdmactions.py:40 ../deskbar/handlers/gdmactions.py:257
-#: ../deskbar/handlers/gdmactions.py:283
+#: ../deskbar/handlers/gdmactions.py:47 ../deskbar/handlers/gdmactions.py:304
+#: ../deskbar/handlers/gdmactions.py:330
 msgid "Restart"
 msgstr "Alglaadimine"
 
-#: ../deskbar/handlers/gdmactions.py:42
+#: ../deskbar/handlers/gdmactions.py:49
 msgid "Suspend this system now?"
 msgstr "Kas see süsteem tuleb praegu seisma jätta?"
 
-#: ../deskbar/handlers/gdmactions.py:43
-#, python-format
-msgid "This system will be automatically suspended in %s seconds."
-msgstr "See süsteem jäetakse %s sekundi pärast automaatselt seisma."
-
-#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:313
+#: ../deskbar/handlers/gdmactions.py:50 ../deskbar/handlers/gdmactions.py:360
 msgid "Suspend"
 msgstr "Seiskamine"
 
-#: ../deskbar/handlers/gdmactions.py:46
+#: ../deskbar/handlers/gdmactions.py:52
 msgid "Hibernate this system now?"
 msgstr "Kas see süsteem tuleb praegu hiberneerida?"
 
-#: ../deskbar/handlers/gdmactions.py:47
-#, python-format
-msgid "This system will be automatically hibernated in %s seconds."
-msgstr "See süsteem hiberneeritakse automaatselt %s sekundi pärast."
-
-#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:315
+#: ../deskbar/handlers/gdmactions.py:53 ../deskbar/handlers/gdmactions.py:362
 msgid "Hibernate"
 msgstr "Uinutamine"
 
-#: ../deskbar/handlers/gdmactions.py:100
+#: ../deskbar/handlers/gdmactions.py:61
+#, python-format
+msgid "This system will be automatically shut down in %s second."
+msgid_plural "This system will be automatically shut down in %s seconds."
+msgstr[0] "See süsteem lülitatakse %s sekundi pärast automaatselt välja."
+msgstr[1] "See süsteem lülitatakse %s sekundi pärast automaatselt välja."
+
+#: ../deskbar/handlers/gdmactions.py:65
+#, python-format
+msgid "You will be automatically logged out in %s second."
+msgid_plural "You will be automatically logged out in %s seconds."
+msgstr[0] "Sind logitakse %s sekundi pärast automaatselt välja."
+msgstr[1] "Sind logitakse %s sekundi pärast automaatselt välja."
+
+#: ../deskbar/handlers/gdmactions.py:69
+#, python-format
+msgid "This system will be automatically restarted in %s second."
+msgid_plural "This system will be automatically restarted in %s seconds."
+msgstr[0] "See süsteem taaskäivitatakse automaatselt %s sekundi pärast."
+msgstr[1] "See süsteem taaskäivitatakse automaatselt %s sekundi pärast."
+
+#: ../deskbar/handlers/gdmactions.py:73
+#, python-format
+msgid "This system will be automatically suspended in %s second."
+msgid_plural "This system will be automatically suspended in %s seconds."
+msgstr[0] "See süsteem jäetakse %s sekundi pärast automaatselt seisma."
+msgstr[1] "See süsteem jäetakse %s sekundi pärast automaatselt seisma."
+
+#: ../deskbar/handlers/gdmactions.py:77
+#, python-format
+msgid "This system will be automatically hibernated in %s second."
+msgid_plural "This system will be automatically hibernated in %s seconds."
+msgstr[0] "See süsteem hiberneeritakse automaatselt %s sekundi pärast."
+msgstr[1] "See süsteem hiberneeritakse automaatselt %s sekundi pärast."
+
+#: ../deskbar/handlers/gdmactions.py:127
 msgid "Suspend the machine"
 msgstr "Masina seiskamine"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Hibernate the machine"
 msgstr "Masina uinutamine"
 
-#: ../deskbar/handlers/gdmactions.py:134
+#: ../deskbar/handlers/gdmactions.py:169
 msgid "Shutdown the machine"
 msgstr "Masina seiskamine"
 
-#: ../deskbar/handlers/gdmactions.py:155
+#: ../deskbar/handlers/gdmactions.py:190
 msgid "Lock the screen"
 msgstr "Ekraani lukustamine"
 
-#: ../deskbar/handlers/gdmactions.py:178 ../deskbar/handlers/gdmactions.py:302
+#: ../deskbar/handlers/gdmactions.py:213 ../deskbar/handlers/gdmactions.py:349
 msgid "Lock"
 msgstr "Lukusta"
 
-#: ../deskbar/handlers/gdmactions.py:219
+#: ../deskbar/handlers/gdmactions.py:258
 msgid "Turn off the computer"
 msgstr "Arvuti väljalülitamine"
 
-#: ../deskbar/handlers/gdmactions.py:253
+#: ../deskbar/handlers/gdmactions.py:300
 msgid "Restart the computer"
 msgstr "Arvuti taaskäivitamine"
 
-#: ../deskbar/handlers/gdmactions.py:268 ../deskbar/handlers/gdmactions.py:272
-#: ../deskbar/handlers/gdmactions.py:282
+#: ../deskbar/handlers/gdmactions.py:315 ../deskbar/handlers/gdmactions.py:319
+#: ../deskbar/handlers/gdmactions.py:329
 msgid "Switch User"
 msgstr "Kasutaja vahetamine"
 
-#: ../deskbar/handlers/gdmactions.py:278
+#: ../deskbar/handlers/gdmactions.py:325
 msgid "Computer Actions"
 msgstr "Arvutitegevused"
 
-#: ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:326
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Väljalogimine, "
 
-#: ../deskbar/handlers/gdmactions.py:317
+#: ../deskbar/handlers/gdmactions.py:364
 msgid "Shutdown"
 msgstr "Töö lõpetamine"
 
@@ -748,6 +805,186 @@ msgstr "<i>%(name)s</i> avamine <b>Google koodiotsingus</b>"
 #, python-format
 msgid "Open package <i>%(name)s</i>"
 msgstr "Paki <b>%(name)s</b> avamine"
+
+#: ../deskbar/handlers/googlesearch.py:26 ../deskbar/handlers/yahoo.py:30
+msgid "Arabic"
+msgstr "Araabia"
+
+#: ../deskbar/handlers/googlesearch.py:27 ../deskbar/handlers/yahoo.py:31
+msgid "Bulgarian"
+msgstr "Bulgaaria"
+
+#: ../deskbar/handlers/googlesearch.py:28
+#: ../deskbar/handlers/wikipedia-suggest.py:36 ../deskbar/handlers/yahoo.py:32
+msgid "Catalan"
+msgstr "Katalaani"
+
+#: ../deskbar/handlers/googlesearch.py:29
+msgid "Chinese Simplified"
+msgstr "Hiina, lihtsustatud"
+
+#: ../deskbar/handlers/googlesearch.py:30
+msgid "Chinese Traditional"
+msgstr "Hiina, traditsiooniline"
+
+#: ../deskbar/handlers/googlesearch.py:31
+msgid "Croation"
+msgstr "Horvaatia"
+
+#: ../deskbar/handlers/googlesearch.py:32 ../deskbar/handlers/yahoo.py:36
+msgid "Czech"
+msgstr "Tšehhi"
+
+#: ../deskbar/handlers/googlesearch.py:33 ../deskbar/handlers/yahoo.py:37
+msgid "Danish"
+msgstr "Taani"
+
+#: ../deskbar/handlers/googlesearch.py:34
+#: ../deskbar/handlers/wikipedia-suggest.py:28 ../deskbar/handlers/yahoo.py:38
+msgid "Dutch"
+msgstr "Hollandi"
+
+#: ../deskbar/handlers/googlesearch.py:35
+#: ../deskbar/handlers/wikipedia-suggest.py:22 ../deskbar/handlers/yahoo.py:39
+msgid "English"
+msgstr "Inglise"
+
+#: ../deskbar/handlers/googlesearch.py:36 ../deskbar/handlers/yahoo.py:40
+msgid "Estonian"
+msgstr "Eesti"
+
+#: ../deskbar/handlers/googlesearch.py:37
+#: ../deskbar/handlers/wikipedia-suggest.py:35 ../deskbar/handlers/yahoo.py:41
+msgid "Finnish"
+msgstr "Soome"
+
+#: ../deskbar/handlers/googlesearch.py:38
+#: ../deskbar/handlers/wikipedia-suggest.py:24 ../deskbar/handlers/yahoo.py:42
+msgid "French"
+msgstr "Prantsuse"
+
+#: ../deskbar/handlers/googlesearch.py:39
+#: ../deskbar/handlers/wikipedia-suggest.py:23 ../deskbar/handlers/yahoo.py:43
+msgid "German"
+msgstr "Saksa"
+
+#: ../deskbar/handlers/googlesearch.py:40 ../deskbar/handlers/yahoo.py:44
+msgid "Greek"
+msgstr "Kreeka"
+
+#: ../deskbar/handlers/googlesearch.py:41 ../deskbar/handlers/yahoo.py:45
+msgid "Hebrew"
+msgstr "Heebrea"
+
+#: ../deskbar/handlers/googlesearch.py:42 ../deskbar/handlers/yahoo.py:46
+msgid "Hungarian"
+msgstr "Ungari"
+
+#: ../deskbar/handlers/googlesearch.py:43 ../deskbar/handlers/yahoo.py:47
+msgid "Icelandic"
+msgstr "Islandi"
+
+#: ../deskbar/handlers/googlesearch.py:44 ../deskbar/handlers/yahoo.py:48
+msgid "Indonesian"
+msgstr "Indoneesia"
+
+#: ../deskbar/handlers/googlesearch.py:45
+#: ../deskbar/handlers/wikipedia-suggest.py:27 ../deskbar/handlers/yahoo.py:49
+msgid "Italian"
+msgstr "Itaalia"
+
+#: ../deskbar/handlers/googlesearch.py:46
+#: ../deskbar/handlers/wikipedia-suggest.py:26 ../deskbar/handlers/yahoo.py:50
+msgid "Japanese"
+msgstr "Jaapani"
+
+#: ../deskbar/handlers/googlesearch.py:47 ../deskbar/handlers/yahoo.py:51
+msgid "Korean"
+msgstr "Korea"
+
+#: ../deskbar/handlers/googlesearch.py:48 ../deskbar/handlers/yahoo.py:52
+msgid "Latvian"
+msgstr "Läti"
+
+#: ../deskbar/handlers/googlesearch.py:49 ../deskbar/handlers/yahoo.py:53
+msgid "Lithuanian"
+msgstr "Leedu"
+
+#: ../deskbar/handlers/googlesearch.py:50
+#: ../deskbar/handlers/wikipedia-suggest.py:34 ../deskbar/handlers/yahoo.py:54
+msgid "Norwegian"
+msgstr "Norra"
+
+#: ../deskbar/handlers/googlesearch.py:51
+#: ../deskbar/handlers/wikipedia-suggest.py:25 ../deskbar/handlers/yahoo.py:56
+msgid "Polish"
+msgstr "Poola"
+
+#: ../deskbar/handlers/googlesearch.py:52
+#: ../deskbar/handlers/wikipedia-suggest.py:29 ../deskbar/handlers/yahoo.py:57
+msgid "Portuguese"
+msgstr "Portugali"
+
+#: ../deskbar/handlers/googlesearch.py:53
+#: ../deskbar/handlers/wikipedia-suggest.py:38 ../deskbar/handlers/yahoo.py:58
+msgid "Romanian"
+msgstr "Rumeenia"
+
+#: ../deskbar/handlers/googlesearch.py:54
+#: ../deskbar/handlers/wikipedia-suggest.py:31 ../deskbar/handlers/yahoo.py:59
+msgid "Russian"
+msgstr "Vene"
+
+#: ../deskbar/handlers/googlesearch.py:55 ../deskbar/handlers/yahoo.py:61
+msgid "Serbian"
+msgstr "Serbia"
+
+#: ../deskbar/handlers/googlesearch.py:56 ../deskbar/handlers/yahoo.py:60
+msgid "Slovak"
+msgstr "Slovaki"
+
+#: ../deskbar/handlers/googlesearch.py:57 ../deskbar/handlers/yahoo.py:62
+msgid "Slovenian"
+msgstr "Sloveenia"
+
+#: ../deskbar/handlers/googlesearch.py:58
+#: ../deskbar/handlers/wikipedia-suggest.py:30 ../deskbar/handlers/yahoo.py:63
+msgid "Spanish"
+msgstr "Hispaania"
+
+#: ../deskbar/handlers/googlesearch.py:59
+#: ../deskbar/handlers/wikipedia-suggest.py:32 ../deskbar/handlers/yahoo.py:64
+msgid "Swedish"
+msgstr "Rootsi"
+
+#: ../deskbar/handlers/googlesearch.py:60
+#: ../deskbar/handlers/wikipedia-suggest.py:39 ../deskbar/handlers/yahoo.py:66
+msgid "Turkish"
+msgstr "Türgi"
+
+#: ../deskbar/handlers/googlesearch.py:74
+msgid "Google Search"
+msgstr "Google otsing"
+
+#: ../deskbar/handlers/googlesearch.py:75
+msgid "Search terms through Google Search engine."
+msgstr ""
+
+#: ../deskbar/handlers/googlesearch.py:78 ../deskbar/handlers/yahoo.py:96
+msgid "You can configure in which language the results should be."
+msgstr "Sul on väimalik määrata, mis keeles peavad tulemused olema."
+
+#: ../deskbar/handlers/googlesearch.py:180
+msgid "Python module simplejson is not available"
+msgstr "Pythoni moodul simplejson pole saadaval"
+
+#: ../deskbar/handlers/googlesearch.py:214
+msgid "Configure Google"
+msgstr "Google seadistamine"
+
+#: ../deskbar/handlers/googlesearch.py:224 ../deskbar/handlers/yahoo.py:419
+msgid "<b>Choose the language the results should be in:</b>"
+msgstr "<b>Vali, mis keeles Sa soovid tulemusi näha:</b>"
 
 #: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
@@ -966,7 +1203,7 @@ msgstr "Otsimine sinu Tomboy märkmetest"
 msgid "Tomboy does not seem to be installed."
 msgstr "Paistab, et Tomboy pole paigaldatud."
 
-#: ../deskbar/handlers/tomboy.py:276
+#: ../deskbar/handlers/tomboy.py:278
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -975,238 +1212,137 @@ msgstr ""
 "Tomboy versioon ei paista korrektne olevat.\n"
 "Tomboy %s või uuem peab olema paigaldatud."
 
+#: ../deskbar/handlers/twitter.py:40
+#, python-format
+msgid ""
+"Failed to post update to %(domain)s. Please make sure that:\n"
+"\n"
+"  - Your internet connection is working\n"
+"  - You can connect to <i>http://%(domain)s</i> in your web browser\n"
+"  - Your credentials in the preferences are correct\n"
+msgstr ""
+
+#: ../deskbar/handlers/twitter.py:67
+msgid ""
+"A post is already awaiting submission, please wait before you post another "
+"message"
+msgstr ""
+
+#: ../deskbar/handlers/twitter.py:68 ../deskbar/handlers/twitter.py:81
+#: ../deskbar/handlers/twitter.py:121
+#, python-format
+msgid "Error posting to %s"
+msgstr ""
+
+#: ../deskbar/handlers/twitter.py:127
+#, python-format
+msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
+msgstr ""
+
+#: ../deskbar/handlers/twitter.py:130
+#, python-format
+msgid ""
+"Update your %s account with the message:\n"
+"\n"
+"\t<i>%s</i>"
+msgstr ""
+
+#: ../deskbar/handlers/twitter.py:167
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../deskbar/handlers/twitter.py:168
+msgid "Post updates to your Twitter account"
+msgstr "Uuenduste postitamine Sinu Twitteri kontole"
+
+#: ../deskbar/handlers/twitter.py:214
+msgid "identi.ca"
+msgstr ""
+
+#: ../deskbar/handlers/twitter.py:215
+msgid "Post updates to your identi.ca account"
+msgstr ""
+
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
 msgstr ""
 "Veebilehtede avamine ja e-posti saatmine täisaadressi sisestamise alusel"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:23
-#: ../deskbar/handlers/yahoo.py:343
-msgid "English"
-msgstr "Inglise"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:24
-#: ../deskbar/handlers/yahoo.py:347
-msgid "German"
-msgstr "Saksa"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:25
-#: ../deskbar/handlers/yahoo.py:346
-msgid "French"
-msgstr "Prantsuse"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:26
-#: ../deskbar/handlers/yahoo.py:360
-msgid "Polish"
-msgstr "Poola"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:27
-#: ../deskbar/handlers/yahoo.py:354
-msgid "Japanese"
-msgstr "Jaapani"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:28
-#: ../deskbar/handlers/yahoo.py:353
-msgid "Italian"
-msgstr "Itaalia"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:29
-#: ../deskbar/handlers/yahoo.py:342
-msgid "Dutch"
-msgstr "Hollandi"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:30
-#: ../deskbar/handlers/yahoo.py:361
-msgid "Portuguese"
-msgstr "Portugali"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:31
-#: ../deskbar/handlers/yahoo.py:367
-msgid "Spanish"
-msgstr "Hispaania"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:32
-#: ../deskbar/handlers/yahoo.py:363
-msgid "Russian"
-msgstr "Vene"
-
 #: ../deskbar/handlers/wikipedia-suggest.py:33
-#: ../deskbar/handlers/yahoo.py:368
-msgid "Swedish"
-msgstr "Rootsi"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:34
 msgid "Chinese"
 msgstr "Hiina"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:35
-#: ../deskbar/handlers/yahoo.py:358
-msgid "Norwegian"
-msgstr "Norra"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:36
-#: ../deskbar/handlers/yahoo.py:345
-msgid "Finnish"
-msgstr "Soome"
-
 #: ../deskbar/handlers/wikipedia-suggest.py:37
-#: ../deskbar/handlers/yahoo.py:336
-msgid "Catalan"
-msgstr "Katalaani"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:38
 msgid "Ukrainian"
 msgstr "Ukraina"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:39
-#: ../deskbar/handlers/yahoo.py:362
-msgid "Romanian"
-msgstr "Rumeenia"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:40
-#: ../deskbar/handlers/yahoo.py:370
-msgid "Turkish"
-msgstr "Türgi"
-
-#: ../deskbar/handlers/wikipedia-suggest.py:49
+#: ../deskbar/handlers/wikipedia-suggest.py:48
 #, python-format
 msgid "Open article <i>%(name)s</i> in <b>Wikipedia</b>"
 msgstr "Artikli <b>%(name)s</b> avamine <b>Wikipeediast</b>"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:64
+#: ../deskbar/handlers/wikipedia-suggest.py:63
 msgid "Wikipedia Suggest"
 msgstr "Wikipeedia soovitus"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:65
+#: ../deskbar/handlers/wikipedia-suggest.py:64
 msgid "As you type, Wikipedia will offer suggestions."
 msgstr "Wikipeedia annab soovitusi vastavalt sinu poolt sisestatud päringule."
 
-#: ../deskbar/handlers/wikipedia-suggest.py:120
+#: ../deskbar/handlers/wikipedia-suggest.py:137
 msgid "Wikipedia Suggest settings"
 msgstr "Wikipeedia soovituste sätted"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:127
+#: ../deskbar/handlers/wikipedia-suggest.py:144
 msgid ""
 "Choose the language you want to use or enter the code of your language "
 "manually"
 msgstr "Vali kasutatav keel või sisesta oma keeleeelistus käsitsi"
 
-#: ../deskbar/handlers/yahoo.py:51
+#: ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
+msgstr "Hiina, lihtsustatud"
+
+#: ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
+msgstr "Hiina, traditsiooniline"
+
+#: ../deskbar/handlers/yahoo.py:35
+msgid "Croatian"
+msgstr "Horvaatia"
+
+#: ../deskbar/handlers/yahoo.py:55
+msgid "Persian"
+msgstr "Pärsia"
+
+#: ../deskbar/handlers/yahoo.py:65
+msgid "Thai"
+msgstr "Tai"
+
+#: ../deskbar/handlers/yahoo.py:93
 msgid "Yahoo! Search"
 msgstr "Yahoo! otsing"
 
-#: ../deskbar/handlers/yahoo.py:52
+#: ../deskbar/handlers/yahoo.py:94
 msgid "Search Yahoo! as you type"
 msgstr "Sisestatud stringi otsimine Yahoo! otsingumootorist"
 
-#: ../deskbar/handlers/yahoo.py:54
-msgid "You can configure in which language the results should be."
-msgstr "Sul on väimalik määrata, mis keeles peavad tulemused olema."
-
-#: ../deskbar/handlers/yahoo.py:232
+#: ../deskbar/handlers/yahoo.py:308
 #, python-format
 msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgstr "Stringi <b>%(name)s</b> otsimine <b>Yahoo!</b>-st"
 
-#: ../deskbar/handlers/yahoo.py:250
+#: ../deskbar/handlers/yahoo.py:326
 msgid "Yahoo! Suggestions"
 msgstr "Yahoo! soovitused"
 
-#: ../deskbar/handlers/yahoo.py:251
+#: ../deskbar/handlers/yahoo.py:327
 msgid "Provides suggestions for queries related to the submitted query"
 msgstr "Sisestatud päringu kohta soovituslike päringute tagamine"
 
-#: ../deskbar/handlers/yahoo.py:334
-msgid "Arabic"
-msgstr "Araabia"
-
-#: ../deskbar/handlers/yahoo.py:335
-msgid "Bulgarian"
-msgstr "Bulgaaria"
-
-#: ../deskbar/handlers/yahoo.py:337
-msgid "Chinese simplified"
-msgstr "Hiina, lihtsustatud"
-
-#: ../deskbar/handlers/yahoo.py:338
-msgid "Chinese traditional"
-msgstr "Hiina, traditsiooniline"
-
-#: ../deskbar/handlers/yahoo.py:339
-msgid "Croatian"
-msgstr "Horvaatia"
-
-#: ../deskbar/handlers/yahoo.py:340
-msgid "Czech"
-msgstr "Tšehhi"
-
-#: ../deskbar/handlers/yahoo.py:341
-msgid "Danish"
-msgstr "Taani"
-
-#: ../deskbar/handlers/yahoo.py:344
-msgid "Estonian"
-msgstr "Eesti"
-
-#: ../deskbar/handlers/yahoo.py:348
-msgid "Greek"
-msgstr "Kreeka"
-
-#: ../deskbar/handlers/yahoo.py:349
-msgid "Hebrew"
-msgstr "Heebrea"
-
-#: ../deskbar/handlers/yahoo.py:350
-msgid "Hungarian"
-msgstr "Ungari"
-
-#: ../deskbar/handlers/yahoo.py:351
-msgid "Icelandic"
-msgstr "Islandi"
-
-#: ../deskbar/handlers/yahoo.py:352
-msgid "Indonesian"
-msgstr "Indoneesia"
-
-#: ../deskbar/handlers/yahoo.py:355
-msgid "Korean"
-msgstr "Korea"
-
-#: ../deskbar/handlers/yahoo.py:356
-msgid "Latvian"
-msgstr "Läti"
-
-#: ../deskbar/handlers/yahoo.py:357
-msgid "Lithuanian"
-msgstr "Leedu"
-
-#: ../deskbar/handlers/yahoo.py:359
-msgid "Persian"
-msgstr "Pärsia"
-
-#: ../deskbar/handlers/yahoo.py:364
-msgid "Slovak"
-msgstr "Slovaki"
-
-#: ../deskbar/handlers/yahoo.py:365
-msgid "Serbian"
-msgstr "Serbia"
-
-#: ../deskbar/handlers/yahoo.py:366
-msgid "Slovenian"
-msgstr "Sloveenia"
-
-#: ../deskbar/handlers/yahoo.py:369
-msgid "Thai"
-msgstr "Tai"
-
-#: ../deskbar/handlers/yahoo.py:374
+#: ../deskbar/handlers/yahoo.py:409
 msgid "Configure Yahoo!"
 msgstr "Yahoo! seadistamine"
-
-#: ../deskbar/handlers/yahoo.py:384
-msgid "<b>Choose the language the results should be in:</b>"
-msgstr "<b>Vali, mis keeles Sa soovid tulemusi näha:</b>"
 
 #: ../deskbar/handlers/actions/ActionsFactory.py:70
 #, python-format
@@ -1281,44 +1417,43 @@ msgstr ""
 msgid "<b>Search:</b>"
 msgstr "<b>Otsing:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
-msgid "default"
-msgstr "vaikimisi"
-
 #: ../deskbar/ui/cuemiac/CuemiacTreeView.py:250
 msgid "Display additional actions"
 msgstr "Täiendavate tegevuste kuvamine"
 
-#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/AbstractCuemiacView.py:107
-msgid "_History"
-msgstr "_Ajalugu"
-
-#: ../deskbar/ui/AbstractCuemiacView.py:178
+#: ../deskbar/ui/AbstractCuemiacView.py:146
 msgid "Back to Matches"
 msgstr "Tagasi vastavuste juurde"
 
-#: ../deskbar/ui/DeskbarApplet.py:28 ../deskbar/ui/DeskbarStatusIcon.py:66
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:114
 msgid "Show search entry"
 msgstr "Otsinguvälja kuvamine"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:37
+#: ../deskbar/ui/DeskbarApplet.py:74
+msgid "Show previously used actions"
+msgstr "Varasemalt kasutatud tegevuste näitamine"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:50
+msgid "<i>Empty</i>"
+msgstr "<i>Tühi</i>"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:85
 msgid "Clear History"
 msgstr "Puhasta ajalugu"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:41
+#: ../deskbar/ui/DeskbarStatusIcon.py:89
 msgid "Preferences"
 msgstr "Eelistused"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:45
+#: ../deskbar/ui/DeskbarStatusIcon.py:93
 msgid "Help"
 msgstr "Abi"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:49
+#: ../deskbar/ui/DeskbarStatusIcon.py:97
 msgid "About"
 msgstr "Rakendist lähemalt"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:55
+#: ../deskbar/ui/DeskbarStatusIcon.py:103
 msgid "Quit"
 msgstr "Lõpeta"
 
@@ -1337,45 +1472,45 @@ msgstr ""
 "klahvi abil redigeerimise.\n"
 "Palun proovi klahve kombineerida Control, Alt või Shift klahvidega.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:92
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:95
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr ""
 "<i><small>Laienduste järjekorda saab vahetada nende uuele asukohale "
 "lohistamise teel.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:155
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:169
 msgid "All Extensions"
 msgstr "Kõik laiendused"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:215
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:230
 msgid "A problem occured"
 msgstr "Tekkis viga"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:223
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:238
 msgid "Extension has been installed successfully"
 msgstr "Laiendus on edukalt paigaldatud"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:519
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:531
 msgid "Retrieving the extension index"
 msgstr "Laienduste indeksi vastuvõtmine"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:521
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:533
 msgid "Downloading extension"
 msgstr "Laienduste allalaadimine"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:523
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:535
 msgid "Extracting archive"
 msgstr "Arhiivi lahtipakkimine"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:530
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:542
 msgid "Installing extension"
 msgstr "Laienduste paigaldamine"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:531
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:543
 msgid "The extension will be downloaded and installed."
 msgstr "Laiendus laaditakse alla ja paigaldatakse."
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:573
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:585
 msgid ""
 "Extension could not be installed due to a problem with the provided file"
 msgstr "Laiendust pole võimalik failis esinevate probleemide tõttu paigaldada"
@@ -1399,3 +1534,15 @@ msgstr "Versioon:"
 #: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "Uuendus on saadaval"
+
+#~ msgid "<i>Choose action</i>"
+#~ msgstr "<i>Vali toiming</i>"
+
+#~ msgid "name"
+#~ msgstr "nimi"
+
+#~ msgid "default"
+#~ msgstr "vaikimisi"
+
+#~ msgid "_History"
+#~ msgstr "_Ajalugu"
