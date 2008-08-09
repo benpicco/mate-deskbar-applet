@@ -1,5 +1,12 @@
 2008-08-09  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/handlers/programs.py:
+    Check for directories in $PATH if they are actual directories
+    and if they exist, are readable and executable.
+    Fixes bug #538558
+
+2008-08-09  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/core/Web.py:
     AccountDialog expects parent window as first argument.
     Make dialog modal and destroy with parent.

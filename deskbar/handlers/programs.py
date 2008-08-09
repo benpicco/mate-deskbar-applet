@@ -309,13 +309,14 @@ class ProgramsHandler(deskbar.interfaces.Module):
         if len(args) == 1:
             results = []
             for pathdir in PATH:
-                for f in os.listdir(pathdir):
-                    pathprog = join(pathdir, f)
-                    if (not (f in desktop_progs)) and not isdir(pathprog) \
-                    and f.lower().startswith(program) and is_executable(pathprog):
-                        match = StartsWithPathProgramMatch(f)
-                        match.set_priority (self.get_priority() + get_priority_for_name(query, f))
-                        results.append( match )
+                if isdir(pathdir) and is_executable(pathdir):
+                    for f in os.listdir(pathdir):
+                        pathprog = join(pathdir, f)
+                        if (not (f in desktop_progs)) and not isdir(pathprog) \
+                        and f.lower().startswith(program) and is_executable(pathprog):
+                            match = StartsWithPathProgramMatch(f)
+                            match.set_priority (self.get_priority() + get_priority_for_name(query, f))
+                            results.append( match )
             return results
         else:
             # We have arguments, execute the command as typed in by the user
