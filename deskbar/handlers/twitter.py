@@ -200,7 +200,7 @@ class TwitterModule(deskbar.interfaces.Module):
         LOGGER.debug ("Showing config")
         account = Account (self._domain, self._realm)
         
-        login_dialog = AccountDialog(account)
+        login_dialog = AccountDialog(parent, account)
         login_dialog.show_all()
         login_dialog.run()            
         login_dialog.destroy()

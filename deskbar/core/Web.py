@@ -84,11 +84,12 @@ class AccountDialog (gtk.MessageDialog):
         dialog.destroy()
     
     """
-    def __init__ (self, account, dialog_type=gtk.MESSAGE_QUESTION):
+    def __init__ (self, parent, account, dialog_type=gtk.MESSAGE_QUESTION):
         """
         @param account: L{Account} to manage
         """
-        gtk.MessageDialog.__init__(self, None,
+        gtk.MessageDialog.__init__(self, parent=parent,
+                                   flags=gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                    type=dialog_type,
                                    buttons=gtk.BUTTONS_OK_CANCEL)
         
@@ -108,6 +109,8 @@ class AccountDialog (gtk.MessageDialog):
         password_label = gtk.Label (_("Password:"))
         
         table = gtk.Table (2, 2)
+        table.set_row_spacings(3)
+        table.set_col_spacings(6)
         table.attach (user_label, 0, 1, 0, 1)
         table.attach (self._user_entry, 1, 2, 0, 1)
         table.attach (password_label, 0, 1, 1, 2)
