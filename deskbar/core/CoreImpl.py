@@ -80,13 +80,6 @@ class CoreImpl(deskbar.interfaces.Core):
             keybinding = self.get_keybinding()
         self.bind_keybinding(keybinding) # use keybindingx
     
-    def get_old_modules(self):
-        """
-        Get a list of modules that have been
-        written for Deskbar < 2.19.6
-        """
-        return self._module_loader.get_old_modules()
-    
     def get_modules_dir(self):
         """
         Get directory where modules are stored
