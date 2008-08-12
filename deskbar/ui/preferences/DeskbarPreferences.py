@@ -3,7 +3,7 @@ import gtk.gdk
 import gtk.glade
 import traceback
 from gettext import gettext as _
-from os.path import join
+from os.path import join, basename
 import deskbar
 from deskbar.core.updater.Capuchin import *
 from deskbar.core.ModuleList import WebModuleList
@@ -505,6 +505,9 @@ class DeskbarPreferences:
         local_modules = set()
         for mod in self.module_list:
             local_modules.add(mod.get_id())
+            
+        for mod in self._model.get_disabled_module_list():
+            local_modules.add(basename(mod.filename))
         
         try:
             repo_modules = set (self._get_capuchin_instance().get_available_plugins())
@@ -527,7 +530,11 @@ class DeskbarPreferences:
         self.install.set_sensitive(mod_id != None)
     
     def _on_status(self, appobject, action, plugin_id, progress, speed):
+        primary_text = _("Installing extension")
+        secondary_text = _("The extension will be downloaded and installed.")
         if action == ACTION_UPDATING_REPO:
+            primary_text = _("Retrieving list of extensions")
+            secondary_text = _("A list of available extensions is downloaded.")
             action_text = _("Retrieving the extension index")
         elif action == ACTION_DOWNLOADING_PLUGIN:
             action_text = _("Downloading extension")
@@ -539,8 +546,7 @@ class DeskbarPreferences:
         if self.progessdialog == None:
             # Create new dialog
             self.progessdialog = ProgressbarDialog (self.dialog)
-            self.progessdialog.set_text ( _("Installing extension"),
-                                      _("The extension will be downloaded and installed.") )
+            self.progessdialog.set_text (primary_text, secondary_text)
             self.progessdialog.run_nonblocked ()
         
         self.progessdialog.set_current_operation (action_text)
@@ -549,6 +555,10 @@ class DeskbarPreferences:
     def _on_install_finished(self, appobject, plugin_id):
         self.progessdialog.destroy ()
         self.progessdialog = None
+        
+        # indicates that repository index has been downloaded
+        if plugin_id == "INDEX":
+            return
         
         # Remove from webmodulelist
         if self.__capuchin_installing:
