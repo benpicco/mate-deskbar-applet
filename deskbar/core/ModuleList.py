@@ -202,6 +202,9 @@ class DisabledModuleList (gtk.ListStore):
                                 gobject.TYPE_PYOBJECT,
                                 bool)
         
+    def __iter__ (self):
+        return ModuleListIter (self)
+        
     def add (self, sender, module):
         iter = self.append ()
         
