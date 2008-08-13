@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-10 12:16+0300\n"
+"POT-Creation-Date: 2008-08-13 16:07+0300\n"
 "PO-Revision-Date: 2008-08-10 11:54+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -700,41 +700,41 @@ msgid "Hibernate"
 msgstr "Lepotila"
 
 #: ../deskbar/handlers/gdmactions.py:61
-#, fuzzy, python-format
+#, python-format
 msgid "This system will be automatically shut down in %s second."
 msgid_plural "This system will be automatically shut down in %s seconds."
-msgstr[0] "Tämä järjestelmä sammuu automaattisesti %s sekunnin kuluttua."
-msgstr[1] "Tämä järjestelmä sammuu automaattisesti %s sekunnin kuluttua."
+msgstr[0] "Tämä tietokone sammuu automaattisesti %s sekunnin kuluttua."
+msgstr[1] "Tämä tietokone sammuu automaattisesti %s sekunnin kuluttua."
 
 #: ../deskbar/handlers/gdmactions.py:65
-#, fuzzy, python-format
+#, python-format
 msgid "You will be automatically logged out in %s second."
 msgid_plural "You will be automatically logged out in %s seconds."
 msgstr[0] "Kirjaudut ulos automaattisesti %s sekunnin kuluttua."
 msgstr[1] "Kirjaudut ulos automaattisesti %s sekunnin kuluttua."
 
 #: ../deskbar/handlers/gdmactions.py:69
-#, fuzzy, python-format
+#, python-format
 msgid "This system will be automatically restarted in %s second."
 msgid_plural "This system will be automatically restarted in %s seconds."
 msgstr[0] ""
-"Tämä järjestelmä uudelleenkäynnistyy automaattisesti %s sekunnin kuluttua."
+"Tämä tietokone uudelleenkäynnistyy automaattisesti %s sekunnin kuluttua."
 msgstr[1] ""
-"Tämä järjestelmä uudelleenkäynnistyy automaattisesti %s sekunnin kuluttua."
+"Tämä tietokone uudelleenkäynnistyy automaattisesti %s sekunnin kuluttua."
 
 #: ../deskbar/handlers/gdmactions.py:73
-#, fuzzy, python-format
+#, python-format
 msgid "This system will be automatically suspended in %s second."
 msgid_plural "This system will be automatically suspended in %s seconds."
-msgstr[0] "Tämä järjestelmä siirtyy keskeytystilaan %s sekunnin kuluttua."
-msgstr[1] "Tämä järjestelmä siirtyy keskeytystilaan %s sekunnin kuluttua."
+msgstr[0] "Tämä tietokone siirtyy keskeytystilaan %s sekunnin kuluttua."
+msgstr[1] "Tämä titeokone siirtyy keskeytystilaan %s sekunnin kuluttua."
 
 #: ../deskbar/handlers/gdmactions.py:77
-#, fuzzy, python-format
+#, python-format
 msgid "This system will be automatically hibernated in %s second."
 msgid_plural "This system will be automatically hibernated in %s seconds."
-msgstr[0] "Tämä järjestelmä siirtyy lepotilaan %s sekunnin kuluttua."
-msgstr[1] "Tämä järjestelmä siirtyy lepotilaan %s sekunnin kuluttua."
+msgstr[0] "Tämä tietokone siirtyy lepotilaan %s sekunnin kuluttua."
+msgstr[1] "Tämä tietokone siirtyy lepotilaan %s sekunnin kuluttua."
 
 #: ../deskbar/handlers/gdmactions.py:127
 msgid "Suspend the machine"
@@ -787,12 +787,13 @@ msgstr "Google-koodin haku"
 
 #: ../deskbar/handlers/googlecodesearch.py:29
 msgid "Search public source code for function definitions and sample code"
-msgstr "Etsi julkisesta lähdekoodista funktioiden määrittelyjä ja esimerkkikoodia"
+msgstr ""
+"Etsi julkisesta lähdekoodista funktioiden määrittelyjä ja esimerkkikoodia"
 
 #: ../deskbar/handlers/googlecodesearch.py:108
-#, fuzzy, python-format
+#, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
-msgstr "Avaa <b>%(name)s</b> ohjelmalla %(program)s"
+msgstr "Näytä <i>%(name)s</i> <b>Googlen koodihaussa</b>"
 
 #: ../deskbar/handlers/googlecodesearch.py:116
 #, python-format
@@ -1216,12 +1217,18 @@ msgid ""
 "  - You can connect to <i>http://%(domain)s</i> in your web browser\n"
 "  - Your credentials in the preferences are correct\n"
 msgstr ""
+"Päivityksen lähetys kohteeseen %(domain)s epäonnistui. Varmista että:\n"
+"\n"
+"  - Verkkoyhteytesi on kunnossa\n"
+"  - Voit ottaa yhteyttä osoitteeseen <i>http://%(domain)s</i> selaimella\n"
+"  - Tunnukset ja salasanat asetuksissa ovat oikeat\n"
 
 #: ../deskbar/handlers/twitter.py:67
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr ""
+"Viesti on odottamassa julkaisemista, odota ennen kuin lähetät uuden viestin"
 
 #: ../deskbar/handlers/twitter.py:68 ../deskbar/handlers/twitter.py:81
 #: ../deskbar/handlers/twitter.py:121
@@ -1294,8 +1301,7 @@ msgstr "Wikipedia-ehdotusten asetukset"
 msgid ""
 "Choose the language you want to use or enter the code of your language "
 "manually"
-msgstr ""
-"Valitse kieli, jota haluat käyttää, tai syötä kielikoodi käsin"
+msgstr "Valitse kieli, jota haluat käyttää, tai syötä kielikoodi käsin"
 
 #: ../deskbar/handlers/yahoo.py:33
 msgid "Chinese simplified"
@@ -1326,9 +1332,9 @@ msgid "Search Yahoo! as you type"
 msgstr "Etsi Yahoosta samalla kuin kirjoitat"
 
 #: ../deskbar/handlers/yahoo.py:308
-#, fuzzy, python-format
+#, python-format
 msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
-msgstr "Etsi kohteesta <b>%(name)s</b> tekstiä <i>%(text)s</i>"
+msgstr "Etsi <b>Yahoo!</b>:sta tekstiä <i>%(name)s</i>"
 
 #: ../deskbar/handlers/yahoo.py:326
 msgid "Yahoo! Suggestions"
@@ -1336,11 +1342,11 @@ msgstr "Yahoo!-ehdotukset"
 
 #: ../deskbar/handlers/yahoo.py:327
 msgid "Provides suggestions for queries related to the submitted query"
-msgstr ""
+msgstr "Tarjoaa ehdotuksia lähetettyyn kyselyyn liittyville kyselyille"
 
 #: ../deskbar/handlers/yahoo.py:409
 msgid "Configure Yahoo!"
-msgstr ""
+msgstr "Määrittele Yahoo!-asetukset"
 
 #: ../deskbar/handlers/actions/ActionsFactory.py:70
 #, python-format
@@ -1419,7 +1425,7 @@ msgstr "<b>Etsi:</b>"
 
 #: ../deskbar/ui/cuemiac/CuemiacTreeView.py:250
 msgid "Display additional actions"
-msgstr ""
+msgstr "Näytä lisätoiminnot"
 
 #: ../deskbar/ui/AbstractCuemiacView.py:146
 msgid "Back to Matches"
@@ -1435,7 +1441,7 @@ msgstr "Näytä aikaisemmin käytetyt toiminnot"
 
 #: ../deskbar/ui/DeskbarStatusIcon.py:50
 msgid "<i>Empty</i>"
-msgstr ""
+msgstr "<i>Tyhjä</i>"
 
 #: ../deskbar/ui/DeskbarStatusIcon.py:85
 msgid "Clear History"
@@ -1488,31 +1494,38 @@ msgstr "Tapahtui virhe"
 msgid "Extension has been installed successfully"
 msgstr "Lisäosa asennettiin onnistuneesti"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:531
-msgid "Retrieving the extension index"
-msgstr "Noudetaan luetteloa lisäosista"
-
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:533
-msgid "Downloading extension"
-msgstr "Noudetaan lisäosaa"
-
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:535
-msgid "Extracting archive"
-msgstr "Puretaan arkistoa"
-
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:542
 msgid "Installing extension"
 msgstr "Asennetaan lisäosaa"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:543
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:534
 msgid "The extension will be downloaded and installed."
 msgstr "Lisäosa noudetaan ja asennetaan."
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:585
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:536
+msgid "Retrieving list of extensions"
+msgstr "Noudetaan luetteloa lisäosista"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:537
+msgid "A list of available extensions is downloaded."
+msgstr "Luetteloa saatavilla olevista lisäosista noudetaan."
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:538
+msgid "Retrieving the extension index"
+msgstr "Noudetaan luetteloa lisäosista"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:540
+msgid "Downloading extension"
+msgstr "Noudetaan lisäosaa"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:542
+msgid "Extracting archive"
+msgstr "Puretaan arkistoa"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:595
 msgid ""
 "Extension could not be installed due to a problem with the provided file"
-msgstr ""
-"Lisäosaa ei voitu asentaa, koska noudetussa tiedostossa oli ongelmia"
+msgstr "Lisäosaa ei voitu asentaa, koska noudetussa tiedostossa oli ongelmia"
 
 #: ../deskbar/ui/preferences/ErrorDialog.py:8
 msgid "Error"
@@ -1533,4 +1546,3 @@ msgstr "Versio:"
 #: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "Päivitys saatavilla"
-
