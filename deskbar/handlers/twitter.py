@@ -35,17 +35,39 @@ HANDLERS = ["TwitterModule", "IdenticaModule"]
 VERSION = "0.3"
 
 MIN_MESSAGE_LEN = 2
-        
-_FAIL_POST = _(
-"""Failed to post update to %(domain)s. Please make sure that:
 
-  - Your internet connection is working
-  - You can connect to <i>http://%(domain)s</i> in your web browser
-  - Your credentials in the preferences are correct
-"""
+# Translators: The escaped characters are the standard UTF-8 bullet        
+_FAIL_POST = _(
+"""Failed to post update to %(domain)s.
+Please make sure that:
+
+ \342\200\242 Your internet connection is working
+ \342\200\242 You can connect to <i>http://%(domain)s</i> in
+    your web browser
+ \342\200\242 Your credentials in the preferences are correct"""
 )
+
+class TwitterClientFactory :
+    """
+    A factory to help instantiating C{TwitterClient}s.
+    """
+    def __init__ (self, domain="twitter.com", update_url=TWITTER_UPDATE_URL, realm="Twitter API"):
+        self._domain = domain
+        self._update_url = update_url
+        self._realm = realm
+    
+    def create_client (self):
+        return TwitterClient(domain=self._domain, update_url=self._update_url, realm=self._realm)
         
 class TwitterClient :
+    """
+    Client capable of talking to a twitter-like API.
+    
+    Note on proxies: The URLopener used here will not reflect changes done
+                     to the Gnome proxy configuration. Therefore preferably
+                     use the TwitterClientFactory and create a new TwitterClient
+                     instance each time you need it
+    """
     def __init__ (self, domain="twitter.com", update_url=TWITTER_UPDATE_URL, realm="Twitter API"):
         self._account = Account (domain, realm)
         self._opener = GnomeURLopener (self._account)
@@ -85,13 +107,13 @@ class TwitterClient :
 
 class TwitterUpdateAction(deskbar.interfaces.Action):
     
-    def __init__(self, msg, client, domain="twitter.com", service="Twitter", pixbuf=None):
+    def __init__(self, msg, client_factory, domain="twitter.com", service="Twitter", pixbuf=None):
         deskbar.interfaces.Action.__init__ (self, msg)
         
         global _twitter_pixbuf
         
         self._msg = msg
-        self._client = client
+        self._client_factory = client_factory
         self._domain = domain
         self._service = service
         
@@ -111,7 +133,9 @@ class TwitterUpdateAction(deskbar.interfaces.Action):
     def activate(self, text=None):
         LOGGER.info ("Posting: '%s'" % self._msg)
         try:
-            self._client.update (self._msg)
+            # Create the client on-demand to make sure proxy info is up to date
+            client = self._client_factory.create_client()
+            client.update (self._msg)
         except IOError, e:
             LOGGER.warning ("Failed to post to %s: %s" % (self._domain,e))
             error = gtk.MessageDialog (None,
@@ -137,7 +161,7 @@ class TwitterUpdateAction(deskbar.interfaces.Action):
 
 class TwitterMatch(deskbar.interfaces.Match):
     
-    def __init__(self, msg, client, domain="twitter.com", service="Twitter", pixbuf=None, **args):
+    def __init__(self, msg, client_factory, domain="twitter.com", service="Twitter", pixbuf=None, **args):
         global _twitter_pixbuf
         
         self._service = service
@@ -152,7 +176,7 @@ class TwitterMatch(deskbar.interfaces.Match):
                                            pixbuf=self._pixbuf,
                                            **args)
                                            
-        action = TwitterUpdateAction(self.get_name(), client,
+        action = TwitterUpdateAction(self.get_name(), client_factory,
                                      domain=self._domain,
                                      service=self._service,
                                      pixbuf=self._pixbuf)
@@ -180,13 +204,15 @@ class TwitterModule(deskbar.interfaces.Module):
         if pixbuf : self._pixbuf = pixbuf
         else : self._pixbuf = _twitter_pixbuf
         
-        self._client = TwitterClient(domain=self._domain, update_url=update_url, realm=self._realm)
+        self._client_factory = TwitterClientFactory(domain=self._domain,
+                                                    update_url=update_url,
+                                                    realm=self._realm)
     
     def query(self, qstring):
         if len (qstring) <= MIN_MESSAGE_LEN and \
            len (qstring) > 140: return None
         
-        match = TwitterMatch(qstring, self._client,
+        match = TwitterMatch(qstring, self._client_factory,
                              domain=self._domain,
                              service=self._service,
                              pixbuf=self._pixbuf)
@@ -197,10 +223,9 @@ class TwitterModule(deskbar.interfaces.Module):
         return True
     
     def show_config(self, parent):
-        LOGGER.debug ("Showing config")
         account = Account (self._domain, self._realm)
-        
-        login_dialog = AccountDialog(parent, account)
+        LOGGER.debug ("Showing config")
+        login_dialog = AccountDialog(account, dialog_parent=parent)
         login_dialog.show_all()
         login_dialog.run()            
         login_dialog.destroy()

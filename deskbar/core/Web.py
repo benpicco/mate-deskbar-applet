@@ -1,4 +1,5 @@
 from deskbar.defs import VERSION
+from deskbar.core.Utils import get_proxy
 from gettext import gettext as _
 import base64
 import deskbar
@@ -71,8 +72,18 @@ class Account :
                 "server": self._host,
                 "protocol": self._protocol,
             }
-        gnomekeyring.item_create_sync(gnomekeyring.get_default_keyring_sync(),
-                gnomekeyring.ITEM_NETWORK_PASSWORD, self._realm, attrs, pw, True)
+        
+        keyring = gnomekeyring.get_default_keyring_sync()        
+        result = gnomekeyring.item_create_sync(keyring,
+                                               gnomekeyring.ITEM_NETWORK_PASSWORD,
+                                               self._realm, attrs, pw, True)
+        
+        if result == 0:
+            LOGGER.debug ("Credential update success (keyring=%s)" % keyring)
+        elif result == 7:
+            LOGGER.debug ("Credential update cancelled (keyring=%s)" % keyring)
+        else:
+            LOGGER.debug ("Credential update failed. Keyring: %s. Result: %s" % (keyring,result))
 
 class AccountDialog (gtk.MessageDialog):
     """
@@ -84,13 +95,18 @@ class AccountDialog (gtk.MessageDialog):
         dialog.destroy()
     
     """
-    def __init__ (self, parent, account, dialog_type=gtk.MESSAGE_QUESTION):
+    def __init__ (self,
+                  account,
+                  dialog_parent=None,
+                  dialog_type=gtk.MESSAGE_QUESTION,
+                  dialog_flags=gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT):
         """
         @param account: L{Account} to manage
         """
-        gtk.MessageDialog.__init__(self, parent=parent,
-                                   flags=gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+        gtk.MessageDialog.__init__(self,
+                                   parent=dialog_parent,
                                    type=dialog_type,
+                                   flags=dialog_flags,
                                    buttons=gtk.BUTTONS_OK_CANCEL)
         
         self._account = account
@@ -178,6 +194,10 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
     A subclass of C{urllib.URLopener} able to intercept user/password requests
     and pass them through an L{Account}, displaying a L{AccountDialog} if
     necessary.
+    
+    Note on proxies: The GnomeURLopener will not react to any subsequent changes
+                     to the Gnome proxy settings. Therefore preferably create
+                     a new fresh GnomeURLopener each time you need one
     """
     
     __gsignals__ = {
@@ -185,12 +205,15 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
     }
     
     def __init__ (self, account):
-        urllib.FancyURLopener.__init__ (self)
+        proxies = get_proxy()
+        urllib.FancyURLopener.__init__ (self, proxies)
         gobject.GObject.__init__ (self)
         self._account = account
         self._thread = None
         self._authentication_retries = 0
         self._success = True
+        
+        LOGGER.debug ("Using proxies: %s" % proxies)
         
     def prompt_user_passwd (self, host, realm):
         """
