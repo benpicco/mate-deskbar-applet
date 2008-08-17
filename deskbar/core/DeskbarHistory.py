@@ -190,11 +190,11 @@ class DeskbarHistory (gtk.ListStore) :
         for idx, val in enumerate(self):
             htime, htext, haction = val
             if isinstance(haction, EmptyHistoryAction):
-                self.remove (self.get_iter_from_string (str(idx)))
+                self.remove (idx)
                 continue
                 
             if (action.get_hash() == haction.get_hash() and action.__class__.__name__ == haction.__class__.__name__):
-                self.remove (self.get_iter_from_string (str(idx)))
+                self.remove (idx)
                 break
                 
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
@@ -203,11 +203,13 @@ class DeskbarHistory (gtk.ListStore) :
 
         self.reset()
         self.save()
+        
+    def remove(self, index):
+        gtk.ListStore.remove (self, self.get_iter_from_string (str(index)))
     
     def __remove_too_many(self):
         while len(self) > self.__max_history_items:
-            last = self.get_iter_from_string (str(len(self) - 1))
-            self.remove (last)
+            self.remove (len(self) - 1)
     
     def up(self):
         """
