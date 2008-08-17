@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-13 17:33+0700\n"
-"PO-Revision-Date: 2008-08-13 18:07+0700\n"
+"POT-Creation-Date: 2008-08-17 13:27+0700\n"
+"PO-Revision-Date: 2008-08-17 13:31+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -398,36 +398,36 @@ msgstr "ไม่สามารถเรียกโปรแกรม:"
 msgid "Cannot show URL:"
 msgstr "ไม่สามารถแสดง URL:"
 
-#: ../deskbar/core/Web.py:100
+#: ../deskbar/core/Web.py:116
 #, python-format
 msgid "<big><b>Login for %s</b></big>"
 msgstr "<big><b>การเข้าระบบสำหรับ %s</b></big>"
 
-#: ../deskbar/core/Web.py:101
+#: ../deskbar/core/Web.py:117
 #, python-format
 msgid "Please provide your credentials for <b>%s</b>"
 msgstr "กรุณาป้อนข้อมูลลับสำหรับ <b>%s</b> ของคุณ"
 
-#: ../deskbar/core/Web.py:102
+#: ../deskbar/core/Web.py:118
 #, python-format
 msgid "Credentials for %s"
 msgstr "ข้อมูลลับสำหรับ %s"
 
 #. Show '*' instead of text
-#: ../deskbar/core/Web.py:108
+#: ../deskbar/core/Web.py:124
 msgid "User name:"
 msgstr "ชื่อผู้ใช้:"
 
-#: ../deskbar/core/Web.py:109
+#: ../deskbar/core/Web.py:125
 msgid "Password:"
 msgstr "รหัสผ่าน:"
 
-#: ../deskbar/core/Web.py:212
+#: ../deskbar/core/Web.py:235
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>การเข้าระบบไปยัง %s ถูกปฏิเสธ</b></big>"
 
-#: ../deskbar/core/Web.py:213
+#: ../deskbar/core/Web.py:236
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "กรุณาตรวจสอบข้อมูลลับสำหรับ <b>%s</b> ของคุณ"
@@ -1183,39 +1183,43 @@ msgstr ""
 "ดูเหมือน Tomboy จะไม่ใช่รุ่นที่ถูกต้อง\n"
 "กรุณาติดตั้ง Tomboy รุ่น %s ขึ้นไป"
 
-#: ../deskbar/handlers/twitter.py:40
+#: ../deskbar/handlers/twitter.py:41
 #, python-format
 msgid ""
-"Failed to post update to %(domain)s. Please make sure that:\n"
+"Failed to post update to %(domain)s.\n"
+"Please make sure that:\n"
 "\n"
-"  - Your internet connection is working\n"
-"  - You can connect to <i>http://%(domain)s</i> in your web browser\n"
-"  - Your credentials in the preferences are correct\n"
+" • Your internet connection is working\n"
+" • You can connect to <i>http://%(domain)s</i> in\n"
+"    your web browser\n"
+" • Your credentials in the preferences are correct"
 msgstr ""
-"ไม่สามารถแปะประกาศที่ %(domain)s กรุณาตรวจสอบให้แน่ใจว่า:\n"
+"ไม่สามารถแปะประกาศที่ %(domain)s\n"
+"กรุณาตรวจสอบให้แน่ใจว่า:\n"
 "\n"
-"  - การเชื่อมต่ออินเทอร์เน็ตของคุณทำงานปกติดี\n"
-"  - คุณสามารถเชื่อมต่อไปยัง <i>http://%(domain)s</i> ด้วยเว็บเบราว์เซอร์ได้\n"
-"  - รหัสผ่านของคุณที่กำหนดไว้ในค่าปรับแต่งนั้นถูกต้อง\n"
+" • การเชื่อมต่ออินเทอร์เน็ตของคุณทำงานปกติดี\n"
+" • คุณสามารถเชื่อมต่อไปยัง <i>http://%(domain)s</i>\n"
+"    ด้วยเว็บเบราว์เซอร์ได้\n"
+" • รหัสผ่านของคุณที่กำหนดไว้ในค่าปรับแต่งนั้นถูกต้อง"
 
-#: ../deskbar/handlers/twitter.py:67
+#: ../deskbar/handlers/twitter.py:89
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr "มีรายการแปะประกาศที่รอการส่งอยู่ กรุณารอก่อนที่จะส่งข้อความถัดไป"
 
-#: ../deskbar/handlers/twitter.py:68 ../deskbar/handlers/twitter.py:81
-#: ../deskbar/handlers/twitter.py:121
+#: ../deskbar/handlers/twitter.py:90 ../deskbar/handlers/twitter.py:103
+#: ../deskbar/handlers/twitter.py:145
 #, python-format
 msgid "Error posting to %s"
 msgstr "เกิดข้อผิดพลาดขณะแปะประกาศที่ %s"
 
-#: ../deskbar/handlers/twitter.py:127
+#: ../deskbar/handlers/twitter.py:151
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> แปะประกาศ <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:130
+#: ../deskbar/handlers/twitter.py:154
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1226,19 +1230,19 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:191
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:168
+#: ../deskbar/handlers/twitter.py:192
 msgid "Post updates to your Twitter account"
 msgstr "แปะประกาศข้อความใหม่ไปยังบัญชี Twitter ของคุณ"
 
-#: ../deskbar/handlers/twitter.py:214
+#: ../deskbar/handlers/twitter.py:239
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:215
+#: ../deskbar/handlers/twitter.py:240
 msgid "Post updates to your identi.ca account"
 msgstr "แปะประกาศข้อความใหม่ไปยังบัญชี identi.ca ของคุณ"
 
