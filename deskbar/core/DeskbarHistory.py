@@ -42,7 +42,7 @@ class DeskbarHistory (gtk.ListStore) :
     
     __gsignals__ = {
         "cleared" :        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, []),
-        "action-added" :   (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [str, gobject.TYPE_PYOBJECT]),
+        "action-added" :   (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [str, gobject.TYPE_PYOBJECT]), 
     }
     __instance = None
     (COL_TIME, COL_TEXT, COL_ACTION) = range(3)
@@ -190,11 +190,11 @@ class DeskbarHistory (gtk.ListStore) :
         for idx, val in enumerate(self):
             htime, htext, haction = val
             if isinstance(haction, EmptyHistoryAction):
-                self.remove (idx)
+                self.remove_index (idx)
                 continue
                 
             if (action.get_hash() == haction.get_hash() and action.__class__.__name__ == haction.__class__.__name__):
-                self.remove (idx)
+                self.remove_index (idx)
                 break
                 
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
@@ -204,12 +204,21 @@ class DeskbarHistory (gtk.ListStore) :
         self.reset()
         self.save()
         
-    def remove(self, index):
-        gtk.ListStore.remove (self, self.get_iter_from_string (str(index)))
+    def remove(self, aiter):
+        gtk.ListStore.remove(self, aiter)
+        if len(self) == 0:
+            self.clear()
+        
+    def remove_index(self, index):
+        self.remove (self.get_iter_from_string (str(index)))
+    
+    def remove_and_save(self, aiter):
+        self.remove(aiter)
+        self.save()
     
     def __remove_too_many(self):
         while len(self) > self.__max_history_items:
-            self.remove (len(self) - 1)
+            self.remove_index (len(self) - 1)
     
     def up(self):
         """

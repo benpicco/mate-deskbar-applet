@@ -45,6 +45,15 @@ class CuemiacAlignedWindow (gtk.Window):
         # Update position, cause the size might have changed for the window
         self.update_position ()
     
+    def adjust_popup_size(self):
+         w, h = self.widgetToAlignWith.size_request ()
+         
+         # add border width
+         w += 1
+         h += 1
+         
+         self.resize(w, h)
+    
     def update_position (self):
         """
         Calculates the position and moves the window to it.

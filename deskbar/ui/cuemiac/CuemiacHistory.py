@@ -17,6 +17,7 @@ class CuemiacHistoryView (gtk.TreeView):
         
         self.connect ("row-activated", lambda w,p,c: self.__on_activated())
         self.connect ("button-press-event", lambda w,e: self.__on_activated())
+        self.connect ("key-press-event", self.__on_key_press_event)
         self.set_property ("headers-visible", False)
         self.set_property ("hover-selection", True)
         
@@ -68,6 +69,13 @@ class CuemiacHistoryView (gtk.TreeView):
             
         return False
     
+    def __on_key_press_event(self, widget, event): 
+        if event.keyval == gtk.keysyms.Delete:
+            model, aiter = self.get_selection().get_selected()
+            if aiter != None:
+                model.remove_and_save(aiter)
+                return True
+    
 class CuemiacHistoryPopup (CuemiacAlignedWindow) :
     
     def __init__ (self, widget_to_align_with, applet, history_view):
@@ -81,12 +89,17 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
         self.applet = applet
         self.window_group = None
         self.view = history_view
-            
-        self.add (self.view)
+        
         self.connect('enter-notify-event', self.on_view_enter)
         self.connect('motion-notify-event', self.on_view_motion)
         self.connect('button-press-event', self.on_view_button_press)
         self.connect ("key-press-event", self.on_key_press_event)
+            
+        self.add (self.view)
+        self.view.get_model().connect("row-deleted", self.on_row_deleted)
+     
+    def on_row_deleted(self, model, path):
+        self.adjust_popup_size()
      
     def on_view_button_press (self, widget, event):
         self.popdown()

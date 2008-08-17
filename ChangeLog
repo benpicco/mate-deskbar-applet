@@ -1,5 +1,19 @@
 2008-08-17  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/core/DeskbarHistory.py:
+    Renamed old remove method to remove_index.
+    Added remove_and_save method.
+    Overridden gtk.ListStore.remove that history is
+    marked as empty when last item has been removed.
+    
+    * deskbar/ui/cuemiac/CuemiacAlignedWindow.py:
+    Added adjust_popup_size method
+    
+    * deskbar/ui/cuemiac/CuemiacHistory.py:
+    Remove selected item when Delete button is pressed
+
+2008-08-17  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/ui/cuemiac/CuemiacHistory.py:
     The popup window grabs keyboard and pointer not
     the treeview now. Select first item on popup.
