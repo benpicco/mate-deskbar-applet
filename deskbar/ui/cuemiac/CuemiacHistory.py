@@ -67,7 +67,7 @@ class CuemiacHistoryView (gtk.TreeView):
             self.emit ("match-selected", text, action)
             
         return False
-
+    
 class CuemiacHistoryPopup (CuemiacAlignedWindow) :
     
     def __init__ (self, widget_to_align_with, applet, history_view):
@@ -77,16 +77,17 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
         @param history_view: A L{CuemiacHistoryView} instance.
         """
         CuemiacAlignedWindow.__init__ (self, widget_to_align_with, applet, window_type=gtk.WINDOW_POPUP)
+        
         self.applet = applet
         self.window_group = None
-        
         self.view = history_view
             
         self.add (self.view)
-        self.view.connect('enter-notify-event', self.on_view_enter)
-        self.view.connect('motion-notify-event', self.on_view_motion)
-        self.view.connect('button-press-event', self.on_view_button_press)
-        
+        self.connect('enter-notify-event', self.on_view_enter)
+        self.connect('motion-notify-event', self.on_view_motion)
+        self.connect('button-press-event', self.on_view_button_press)
+        self.connect ("key-press-event", self.on_key_press_event)
+     
     def on_view_button_press (self, widget, event):
         self.popdown()
         return False
@@ -98,6 +99,10 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
         self.ignore_enter = False
         return False
     
+    def on_key_press_event(self, widget, event):
+        if event.keyval == gtk.keysyms.Escape:
+            self.popdown()
+
     def popup (self, time=None):
         if not (self.widgetToAlignWith.flags() & gtk.REALIZED):
             return
@@ -120,24 +125,31 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
                 self.window_group.add_window (target_toplevel)
                 self.window_group.add_window (self)
             else:
-                print "WARNING in CuemiacEntryPopup : No toplevel window for widgetToAlignWith!"
+                LOGGER.warning("CuemiacEntryPopup : No toplevel window for widgetToAlignWith!")
                 return
                     
         self.update_position()
         gtk.Window.show_all (self) # We issue warnings on the native methods, so bypass that
 
         # For grabbing to work we need the view realized
-        if not (self.view.flags() & gtk.REALIZED):
-            self.view.realize ()
+        if not (self.flags() & gtk.REALIZED):
+            self.realize ()
 
         # Grab pointer
-        self.view.grab_add()
+        self.grab_add()
         gtk.gdk.pointer_grab(
-            self.view.window, True,
+            self.window, True,
             gtk.gdk.BUTTON_PRESS_MASK|
                 gtk.gdk.BUTTON_RELEASE_MASK|
                 gtk.gdk.POINTER_MOTION_MASK,
             None, None, gtk.get_current_event_time())
+        
+        gtk.gdk.keyboard_grab(self.window, True,
+                              gtk.get_current_event_time())
+        
+        first = self.view.get_model().get_iter_first()
+        if first != None:
+            self.view.get_selection().select_iter(first)
             
     def popdown (self):
         if not (self.flags()&gtk.MAPPED):
@@ -147,18 +159,20 @@ class CuemiacHistoryPopup (CuemiacAlignedWindow) :
 
         gtk.Window.hide (self) # Bypass the warning we issue on hide()
 
+        gtk.gdk.keyboard_ungrab(gtk.get_current_event_time())
+
         # Ungrab pointer
         gtk.gdk.pointer_ungrab(gtk.get_current_event_time())
-        self.view.grab_remove()
+        self.grab_remove()
     
     def show (self):
         LOGGER.warning("CuemiacHistoryPopup : Use of show() detected. Please use popup() instead.")
     
     def show_all (self):
-        LOGGER.warning("WARNING, CuemiacHistoryPopup : Use of show_all() detected. Please use popup() instead.")
+        LOGGER.warning("CuemiacHistoryPopup : Use of show_all() detected. Please use popup() instead.")
     
     def hide (self):
-        LOGGER.warning("WARNING, CuemiacHistoryPopup : Use of hide() detected. Please use popdown() instead.")
+        LOGGER.warning("CuemiacHistoryPopup : Use of hide() detected. Please use popdown() instead.")
     
 if gtk.pygtk_version < (2,8,0):    
     gobject.type_register (CuemiacHistoryView)
