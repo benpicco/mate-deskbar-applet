@@ -115,7 +115,6 @@ class DeskbarHistory (gtk.ListStore) :
         """
         Load history
         """
-        new_history = []
         try:
             saved_history = cPickle.load(file(HISTORY_FILE))
             
@@ -136,7 +135,6 @@ class DeskbarHistory (gtk.ListStore) :
             # The history file is corrupted
             LOGGER.error("Could not restore history")
             LOGGER.exception(e)
-            pass
         
         if len(self) == 0:
             self.append(0, "", EmptyHistoryAction())
@@ -154,7 +152,6 @@ class DeskbarHistory (gtk.ListStore) :
             cPickle.dump(save, file(HISTORY_FILE, 'w'), cPickle.HIGHEST_PROTOCOL)
         except Exception, msg:
             LOGGER.error('History.save:%s', msg)
-        pass
     
     def append (self, timestamp, text, action):
         """
