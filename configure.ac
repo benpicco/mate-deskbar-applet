@@ -98,6 +98,7 @@ dnl ******************
 AM_CHECK_PYMOD(dbus)
 AM_CHECK_PYMOD(gconf)
 AM_CHECK_PYMOD(gnomedesktop)
+AM_CHECK_PYMOD(gnomekeyring)
 AM_CHECK_PYMOD(gnome.ui)
 AM_CHECK_PYMOD(gobject)
 AM_CHECK_PYMOD(gtk)
