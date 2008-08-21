@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 2-14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-06-07 03:48+0100\n"
-"PO-Revision-Date: 2007-06-19 22:08+0530\n"
-"Last-Translator: Tshewang Norbu <bumthap2006@hotmail.com>\n"
+"POT-Creation-Date: 2008-03-18 04:21+0000\n"
+"PO-Revision-Date: 2008-08-21 14:46+0530\n"
+"Last-Translator: Dawa pemo <daws_403@hotmail.com>\n"
 "Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -24,728 +24,217 @@ msgid "Choose whether triggering the keyboard shortcut also pastes the current s
 msgstr "ཐར་རྟ་མགྱོགས་ཐབས་ལྡེ་སྒྲོམ་གྱིས་ཡང་འཚོལ་ཞིབ་སྒྲོམ་ནང་ད་ལྟའི་སེལ་འཐུ་སྒྲུབ་ཡོད་པའི་སྦྱར་ནི་ཨིན་ན་གདམ་ཁ་བརྐྱབས།"
 
 #: ../data/deskbar-applet.schemas.in.h:2
+msgid "Clear entry after match has been selected"
+msgstr "མཐུན་སྒྲིག་ སེལ་འཐུ་འདབ་ཞིནམ་ལས་ ཐོ་བཀོད་ བསལ་"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Collapsed categories"
+msgstr "ཧྲམ་ཡོད་པའི་ དབྱེ་རིམ་ཚུ་"
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "Enabled handlers"
+msgstr "ལྕོགས་ཅན་བཟོ་ཡོད་པའི་ ལེགས་སྐྱོང་པ་ཚུ་"
+
+#: ../data/deskbar-applet.schemas.in.h:5
 msgid "If enabled it will clear the entry after a search result has been selected"
 msgstr "གལ་སྲིད་ལྕོགས་ཅན་བཟོ་ཡོད་པ་ཅིན་འཚོལ་ཞིབ་གྲུབ་འབྲས་སེལ་འཐུ་འབད་ཡོད་པའི་ཤུལ་ལུ་འདི་གིས་ཐོ་བཀོད་བསལ་འབད་འོང་།"
 
-#: ../data/deskbar-applet.schemas.in.h:3
-msgid "Selects the user interface to use, one of \"Cuemiac\" or \"Entriac\""
-msgstr "ལག་ལེན་འཐབ་ནི་ལུ་ལག་ལེན་པའི་ངོས་འདྲ་བ་སེལ་འཐུ་འབད \"Cuemiac\" or \"Entriac\"གཅིག་གི"
-
-#: ../data/deskbar-applet.schemas.in.h:4
-msgid "The applet's entry width in number of characters"
-msgstr "ཡིག་འབྲུ་ཨང་ནང་ཨེཔ་ལེཊསི་གི་ཐོ་བཀོད་རྒྱ་ཚད"
-
-#: ../data/deskbar-applet.schemas.in.h:5
-msgid "The key sequence will focus the deskbar applet, allowing to type quickly"
-msgstr "འབྱུང་རིམ་གཙོབོ་གིས་ཆེད་དམིགས་ཌེསི་བར་ཨེཔ་ལེཊིསི ཡིག་དཔར་མགྱོགས་པར་བརྐྱབས་བཅུག་འོང་"
-
 #: ../data/deskbar-applet.schemas.in.h:6
-msgid "The list of categories to be collapsed when displayed in the 'Cuemiac' UI. Valid category names are defined in Categories.py"
-msgstr "ཡུ་ཨའི་'Cuemiac'ནང་བཀྲཙ་སྟོན་འབད་བའི་སྐབས་ལུ་དབྱེ་རིམ་ཚུ་གི་ཐོ་འདིརམ་ཡོདཔ། ནུས་ཅན་དབྱེ་རིམ་གྱི་མིང་ཚུ་དབྱེ་རིམ་པའི་ནང་ངེས་འཛིན་འབད་ཡོདཔ།་"
+msgid "If enabled the window will be closed after an action has been activated"
+msgstr "ག་དེམ་ཅིག་སྦེ་ ལྕོགས་ཅན་བཟོ་བ་ཅིན་ ཝིན་ཌོ་དེ་ བྱ་བ་གཅིག་ ཤུགས་ལྡན་བཟོ་ཞིནམ་ལས་ ཁ་བསྡམ་འོང་། "
 
 #: ../data/deskbar-applet.schemas.in.h:7
+msgid "Keybinding"
+msgstr "ཀི་བཱའིན་ཌིང་།"
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid "Milliseconds to wait before starting to search"
+msgstr "འཚོལ་ཞིབ་འབད་ནི་འགོ་མ་བཙུགས་པའི་ཧེ་མ་ བསྒུག་སྡོད་དགོ་པའི་ མི་ལི་སྐར་ཆ་"
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid "Minimum number of characters needed to start searching"
+msgstr "འཚོལ་ཞིབ་འགོ་བཙུགས་ནིའི་དོན་ལུ་ དགོ་པའི་ཡིག་འབྲུའི་གྱང་ཁ་ ཉུང་མཐའ་"
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
+msgstr " \"Window\" ཡང་ན་  \"Button\" གཅིག་ལག་ལེན་འཐབ་ནིའི་དོན་ལུ་ ལག་ལེན་པའི་ ངོས་འདྲ་བ་ སེལ་འཐུ་འབདཝ་ཨིན། "
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid "The default height of the window in pixels"
+msgstr "པིག་སེལསི་ནང་ལུ་ ཝིན་ཌོ་གི་ སྔོན་སྒྲིག་ མཐོ་ཚད་"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default position of the window on the screen (x-coordinate)"
+msgstr "གསལ་གཞི་གུ་ ཝིན་ཌོ་གི་ སྔོན་སྒྲིག་ གནས་ས་ (ཨེགསི་ - ཆ་སྙོམ་)"
+
+#: ../data/deskbar-applet.schemas.in.h:13
+msgid "The default position of the window on the screen (y-coordinate)"
+msgstr "གསལ་གཞི་གུ་ ཝིན་ཌོ་གི་ སྔོན་སྒྲིག་ གནས་ས་ (ཝའི་ - ཆ་སྙོམ་)"
+
+#: ../data/deskbar-applet.schemas.in.h:14
+msgid "The default width of the window in pixels"
+msgstr "པིག་སེལསི་ནང་ ཝིན་ཌོ་གི་ སྔོན་སྒྲིག་ རྒྱ་ཚད་ "
+
+#: ../data/deskbar-applet.schemas.in.h:15
+msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
+msgstr "འབྱུང་རིམ་གཙོབོ་གིས་ཆེད་དམིགས་ ཌེསཀ་བར་ཨེཔ་-ལེཊི་ཨིནམ་དང་ དེ་གིས་ ཡིག་དཔར་མ གྱོགས་པར་བརྐྱབས་བཅུག་པ་ཨིན། "
+
+#: ../data/deskbar-applet.schemas.in.h:16
+msgid "The list of categories to be collapsed when displayed. Valid categories are: default, history, documents, emails, conversations, files, people, places, actions, web, websearch, news and notes."
+msgstr "བཀྲམ་སྟན་འབད་ཡོད་པའི་སྐབས་ ཧྲམ་འགྱོ་ནི་ཨིན་པའི་ དབྱེ་རིམ་ཚུ་གི་ཐོ་བཀོད།  སྔོན་སྒྲིག་  ལོ་རྒྱུས་    ཡིག་ཆ་  གློག་འཕྲིན་  གྲོས་གླེང་   ཡིག་སྣོད་   མི་ དང་ ས་གནས་   དེ་ལས་  བྱབ་   ཝེབ་  ཝེབ་འཚོལ་ཞིབ་  གནས་ཚུལ་དང་དྲན་འཛིན་ཚུ་ ནུས་ཅན་གྱི་ དབྱེ་རིམ་ཚུ་ཨིན། "
+
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid "The list of exported class names of the enabled handlers sorted by priority. Leftmost has highest priority"
 msgstr "གཙོ་རིམ་གྱི་དབྱེ་སེལ་འབད་ཡོད་པའི་ནུས་ཅན་ལེགས་སྐྱོང་པ་གི་ཕྱིར་འདྲེན་དབྱེ་རིགས་མིང་གི་ཐོ། གཡོན་ཕྱོགས་ལུ་གཙོ་རིམ་མཐོ་ཤོས་འདུག"
 
-#: ../data/deskbar-applet.schemas.in.h:8
+#: ../data/deskbar-applet.schemas.in.h:18
+msgid "The maximum number of items stored in history"
+msgstr "ལོ་རྒྱུས་ནང་གསོག་འཇོག་འབད་ཡོད་པའི་ རྣམ་གྲངས་ཀྱི་གྱང་ཁ་ ཉུང་མཐའ་ "
+
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid "The minimum number of characters that need to be typed before the applet starts showing matches"
 msgstr "ཨེཔ་ལེཊིསི་གིས་མཐུན་སྒྲིག་ཚུ་སྟོན་ནི་འགོ་མ་བཙུགས་པའི་ཧེ་མ་ ཡིག་འབྲུ་ཉུང་མཐའ་ཨང་ཡིག་དཔར་བརྐྱབས་དགོ"
 
-#: ../data/deskbar-applet.schemas.in.h:9
-msgid "The time in miliseconds between a keystroke in the search entry and the actual search being performed"
-msgstr "མི་ལི་སེཀོནཌི་དུས་ཚོད་འཚོལ་ཞིབ་ཐོ་བཀོད་དང་འཚོལ་ཞིབ་ངོ་མའི་བར་ན་གི་ཀིསོཊོཀ་ལཱ་འགན་འགྲུབ་ཡོདཔ།"
+#: ../data/deskbar-applet.schemas.in.h:20
+msgid "The time in milliseconds between a keystroke in the search entry and the actual search being performed"
+msgstr "འཚོལ་ཞིབ་ཐོ་བཀོད་ནང་གི་ ཀི་སོཊོཀ་གི་བར་ན་གི་ མི་ལི་སྐར་ཆ་དང་ འཚོལ་ཞིབ་ངོ་མ་"
 
-#: ../data/deskbar-applet.schemas.in.h:10
-msgid "Whether the applet should take all the available space in the panel. Overrides the width preference."
-msgstr "ཡང་ན་ཨེཔ་ལེཊིསི་གིས་པེ་ནཱལ་ནང་ཡོད་མི་ས་སྟོང་ཚུ་འབག་དགོ་ག། རྒྱ་ཚད་དགལ་གདམ་ཚུ་མེདཔ་གཏང་ཡོདཔ།"
+#: ../data/deskbar-applet.schemas.in.h:21
+msgid "Whether to close the window after an action has been activated"
+msgstr "བྱ་བ་ཅིག་ ཤུགས་ལྡན་བཟོ་ཞིནམ་ལས་ ཝིན་ཌོ་དེ་ ཁ་བསྡམ་ནི་ཨིན་ན་མེན་ན"
 
-#: ../data/deskbar-applet.schemas.in.h:11
+#: ../data/deskbar-applet.schemas.in.h:22
 msgid "Whether to show only the preferred search engine, rather than all available engines. This only affects Mozilla-based web browsers such as Firefox."
 msgstr "དགའ་གདམ་བརྐྱབས་ཡོད་པའི་འཚོལ་ཞིབ་མ་འཕྲུལ་རྐྱངམ་ཅིག་སྟོན་ནི་ཨིན་ན་ ཡང་ན་ཡོད་པའི་མ་འཕྲུལ་ཚུ་ག་རང་སྟོན་ན། འདི་གིས་མོ་ཛི་ལ་གཞི་བརྟེན་ཝེབ་བརའུ་ཟར་ ཕའིར་ཕོསི རྐྱངམ་ཅིག་ལུ་ཕན་གནོད་ཡོད"
 
+#: ../data/deskbar-applet.schemas.in.h:23
+msgid "Whether triggering Deskbar-Applet pastes the current selection"
+msgstr "འབྱུང་བའི་བསྒང་ཡོད་མི་  ཌེསིཀ་བར་-ཨེཔ་ལེཊི་དེ་གིས་ ད་ལྟོའི་སེལ་འཐུ་འདི་ སྦྱར་འོང་ག་མི་སྦྱར་ "
+
+#: ../data/deskbar-applet.schemas.in.h:24
+msgid "Window height"
+msgstr "སྒོ་སྒྲིག་གི་ མཐོ་ཚད་ "
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "Window width"
+msgstr "སྒོ་སྒྲིག་གི་ རྒྱ་ཚད་"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "X-coordinate of window"
+msgstr "ཝིན་ཌོ་གི་ ཨེགསི་ - ཆ་སྙོམ་"
+
+#: ../data/deskbar-applet.schemas.in.h:27
+msgid "Y-coordinate of window"
+msgstr "ཝིན་ཌོ་གི་ ཝའི་ - ཆ་སྙོམ་"
+
 #: ../data/Deskbar_Applet.xml.h:1
-#: ../deskbar/ui/window/CuemiacWindowUI.py:56
 msgid "_About"
 msgstr "སྐོར་ལས།(_A)"
 
 #: ../data/Deskbar_Applet.xml.h:2
-#: ../deskbar/ui/window/CuemiacWindowUI.py:52
 msgid "_Clear History"
 msgstr "ལོ་རྒྱུས་བསལ།(_C)"
 
 #: ../data/Deskbar_Applet.xml.h:3
-#: ../deskbar/ui/window/CuemiacWindowUI.py:53
+msgid "_Help"
+msgstr "གྲོགས་རམ།(_H)"
+
+#: ../data/Deskbar_Applet.xml.h:4
 msgid "_Preferences"
 msgstr "དགའ་གདམ་ཚུ།(_P)"
+
+#: ../data/Deskbar_Applet.server.in.in.h:1
+msgid "An all-in-one action bar"
+msgstr "གཅིག་ནང་ཆ་མཉམ་ཚང་བའི་ བྱ་བའི་ཕྲ་རིང་ཅིག"
+
+#: ../data/Deskbar_Applet.server.in.in.h:2
+#: ../deskbar/ui/About.py:27
+msgid "Deskbar"
+msgstr "ཌེཀསི་ཕྲ་རིང་།"
 
 #: ../data/prefs-dialog.glade.h:1
 msgid "<b>Available Extensions</b>"
 msgstr "<b>ཡོད་པའི་རྒྱ་སྐྱེད་ཚུ་</b>"
 
 #: ../data/prefs-dialog.glade.h:2
-msgid "<b>Focus</b>"
-msgstr "<b>ཆེད་དམིགས་</b>"
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>འཛོལ་བ་ཡོད་པའི་རྒྱ་སྐྱེད་ཚུ་</b>"
 
 #: ../data/prefs-dialog.glade.h:3
-msgid "<b>Layout</b>"
-msgstr "<b>སྒྲིག་བཀོད་</b>"
+msgid "<b>Focus</b>"
+msgstr "<b>ཆེད་དམིགས་</b>"
 
 #: ../data/prefs-dialog.glade.h:4
 msgid "<b>Loaded Extensions</b>"
 msgstr "<b>མངོན་གསལ་འབད་ཡོད་པའི་རྒྱ་སྐྱེད་ཚུ་</b>"
 
 #: ../data/prefs-dialog.glade.h:5
-msgid "<b>Width</b>"
-msgstr "<b>རྒྱ་ཚད་</b>"
+msgid "<b>Window Behavior</b>"
+msgstr "<b>ཝིན་ཌོ་གི་ ངང་ཚུལ་</b>"
 
 #: ../data/prefs-dialog.glade.h:6
-msgid "<i><small><b>Note:</b> Drag and drop an extension to change its order.</small></i>"
-msgstr "<i><small><b>དྲན་འཛིན་:</b> རྒྱ་སྐྱེད་ཀྱི་གོ་རིམ་སོར་ནིའི་དོན་ལུ་ འདྲུད་ཞིནམ་ལས་བཀོག་བཞག་</small></i>"
-
-#: ../data/prefs-dialog.glade.h:7
-msgid "Button in panel"
-msgstr "པེ་ནཱལ་ནང་ལུ་ཨེབ་རྟ།"
-
-#: ../data/prefs-dialog.glade.h:8
 msgid "Deskbar Preferences"
 msgstr "ཌེཀསི་ཕྲ་རིང་གི་དགའ་གདམ་ཚུ།"
 
+#: ../data/prefs-dialog.glade.h:7
+msgid "Extensions with Errors"
+msgstr "འཛོལ་བ་ཡོད་པའི་ རྒྱ་བསྐྱད་ཚུ་"
+
+#: ../data/prefs-dialog.glade.h:8
+msgid "General"
+msgstr "ཡོངས་ཁྱབ། "
+
 #: ../data/prefs-dialog.glade.h:9
-msgid "Entry in panel"
-msgstr "པེ་ནཱལ་ནང་ལུ་ཐོ་བཀོད།"
-
-#: ../data/prefs-dialog.glade.h:10
-msgid "Fixed _width:"
-msgstr "གཏན་བཟོས་རྒྱ་ཚད་:(_w)"
-
-#: ../data/prefs-dialog.glade.h:11
 msgid "New Extensions"
 msgstr "རྒྱ་སྐྱེད་གསརཔ་ཚུ།"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:10
 msgid "Search selection when triggering the shortcut"
 msgstr "མགྱོགས་ཐབས་སྟོན་པའི་སྐབས་ འཚོལ་ཞིབ་སེལ་འཐུ།"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:11
 msgid "Searches"
 msgstr "འཚོལ་ཞིབ་ཚུ།"
 
-#: ../data/prefs-dialog.glade.h:14
-msgid "Use _all available space"
-msgstr "བར་སྟོང་ཡོད་ཚད་ཆ་མཉམ་ ལག་ལེན་འཐབ།(_a)"
+#: ../data/prefs-dialog.glade.h:12
+msgid "Stick to panel"
+msgstr "པེ་ནཱལ་གུ་ བཞག་ "
 
-#: ../data/prefs-dialog.glade.h:15
-msgid "View"
-msgstr "མཐོང་སྣང་།"
-
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:13
 msgid "_Check For Updates"
 msgstr "དུས་མཐུནབཟོ་དགོཔ་ཡོད་མེད་ཞིབ་འབད།(_C)"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:14
 msgid "_Check for new extensions"
 msgstr "རྒྱ་བསྐྱེད་གསརཔ་གི་དོན་ལུ་ཞིབ་དཔྱད་འབད་(_C)"
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:15
 msgid "_Install"
 msgstr "གཞི་བཙུགས་འབད།(_I)"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Keyboard shortcut to focus:"
 msgstr "ཆེད་དམིགས་འབད་ནིའི་ ལྡེ་སྒྲོམ་མགྱོགས་ཐབས།(_K)"
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:17
 msgid "_More..."
 msgstr "ཧེང་བཀལ་...(_M)"
 
-#: ../data/prefs-dialog.glade.h:21
+#: ../data/prefs-dialog.glade.h:18
+msgid "_Reload"
+msgstr "ཡང་བསྐྱར་མངོན་གསལ་ (_R)"
+
+#: ../data/prefs-dialog.glade.h:19
 msgid "_Update"
 msgstr "དུས་མཐུན་བཟོ།(_U)"
 
-#: ../data/prefs-dialog.glade.h:22
-msgid "characters"
-msgstr "ཡིག་འབྲུ་ཚུ།"
-
 #: ../data/smart-bookmarks.glade.h:1
-msgid "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in the deskbar.</small></i>"
-msgstr "<i><small><b>དྲན་འཛིན་: </b>གལ་སྲིད་མགྱོགས་ཐབས་དེ་ ཡིག་རྐྱང་ཅིག་ཨིན་པ་ཅིན་ ཁྱོད་ཀྱིས་ (<b>t</b>བཟུམ་) \"<b>ག་ཅི་ཅིག་</b>\" ཡིག་དཔར་བརྐྱབས་ཏེ་ དེ་ལས་མནན་དགོ་ <b>Alt-t</b> ཌེཀསི་ཕྲ་རིང་ནང་།</small></i>"
-
-#: ../data/smart-bookmarks.glade.h:2
 msgid "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></i>."
 msgstr "<i><small><b>དྲན་འཛིན་:</b> མགྱོགས་ཐབས་ལག་ལེན་འཐབ་ནི་(དཔེར་ན་<b>wp</b>) འཚོལ་ནིའི་དོན་ལུ་ <b>ག་ཅི་ཅིག་</b>, ཡིག་དཔར་རྐྱབས་ \"<b>དྲབ་ལུ་པི་ ག་ཅི་ཅིག་</b>\" ཌེཀསི་ཕྲ་རིང་ནང་།</small></i>."
 
-#: ../data/smart-bookmarks.glade.h:3
+#: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "དེབ་རྟགས་བཀལ་ཡོད་པའི་ འཚོལ་ཞིབ་ཚུ་གི་དོན་ལུ་ མགྱོགས་ཐབས་ཚུ།"
-
-#: ../deskbar/BrowserMatch.py:50
-#: ../deskbar/handlers/beagle-live.py:150
-#, python-format
-msgid "Open History Item %s"
-msgstr "ལོ་རྒྱུས་རྣམ་གྲངས་%sཁ་ཕྱེ།"
-
-#: ../deskbar/BrowserMatch.py:52
-#, python-format
-msgid "Open Bookmark %s"
-msgstr "དེབ་རྟགས་%sཁ་ཕྱེ།"
-
-#. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:101
-#, python-format
-msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
-msgstr "<b>%(name)s</b>དོན་ལུ་<i>%(text)s</i>འཚོལ་ཞིབ་འབད།"
-
-#: ../deskbar/BrowserMatch.py:210
-msgid "Shortcut"
-msgstr "མགྱོགས་ཐབས།"
-
-#: ../deskbar/BrowserMatch.py:218
-msgid "Bookmark Name"
-msgstr "དེབ་རྟགས་ཀྱི་མིང་།"
-
-#: ../deskbar/Categories.py:7
-msgid "Uncategorized"
-msgstr "དབྱེ་རིམ་མ་བཟོཝ།"
-
-#: ../deskbar/Categories.py:10
-#: ../deskbar/handlers/history.py:11
-msgid "History"
-msgstr "ལོ་རྒྱུས།"
-
-#: ../deskbar/Categories.py:15
-msgid "Documents"
-msgstr "ཡིག་ཆ།"
-
-#: ../deskbar/Categories.py:18
-msgid "Emails"
-msgstr "གློག་འཕྲིན་ཚུ།"
-
-#: ../deskbar/Categories.py:21
-msgid "Conversations"
-msgstr "གྲོས་གླེང་།"
-
-#: ../deskbar/Categories.py:24
-msgid "Files"
-msgstr "ཡིག་སྣོད་ཚུ།"
-
-#: ../deskbar/Categories.py:27
-msgid "People"
-msgstr "མི་མང་།"
-
-#: ../deskbar/Categories.py:30
-msgid "Places"
-msgstr "ས་གནས་ཚུ།"
-
-#: ../deskbar/Categories.py:33
-msgid "Actions"
-msgstr "བྱ་བ་ཚུ།"
-
-#: ../deskbar/Categories.py:36
-#: ../deskbar/handlers/web_address.py:12
-msgid "Web"
-msgstr "ཝེབ།"
-
-#: ../deskbar/Categories.py:39
-msgid "Web Search"
-msgstr "ཝེབ་འཚོལ་ཞིབ།"
-
-#: ../deskbar/Categories.py:42
-msgid "News"
-msgstr "གནས་ཚུལ།"
-
-#: ../deskbar/Categories.py:45
-msgid "Notes"
-msgstr "དྲན་འཛིན།"
-
-#: ../deskbar/DeskbarHistory.py:37
-msgid "No History"
-msgstr "ལོ་རྒྱུས་མེད།"
-
-#: ../deskbar/Utils.py:109
-msgid "Cannot execute program:"
-msgstr "ལས་རིམ་ལག་ལེན་འཐབ་མི་ཚུགས:"
-
-#: ../deskbar/Utils.py:144
-msgid "Cannot show URL:"
-msgstr "ཡུ་ཨཱར་ཨེལ་ སྟོན་མི་ཚུགས:"
-
-#: ../deskbar/gtkexcepthook.py:14
-msgid "A programming error has been detected"
-msgstr "ལས་རིམ་བཟོ་ནིའི་འཛོལ་བ་ཅིག་ ངོས་འཛིན་བྱུང་ཡི།"
-
-#: ../deskbar/gtkexcepthook.py:15
-msgid "It probably isn't fatal, but should be reported to the developers nonetheless. The program may behave erratically from now on."
-msgstr "འཛོལ་བ་འདི་འཚུབ་ཆེན་ཅིག་མེནམ་འོང་། ཨིན་རུང་བཟོ་མི་ཚུ་ལུ་སྙན་ཞུ་གཏང་དགོ དེ་མེན་པ་ཅིན་ ད་ལས་ཕར་ ལས་རིམ་འདི་གིས་ ཚུལ་མིན་གྱི་སྤྱོད་པ་འབད་འོང་།"
-
-#: ../deskbar/gtkexcepthook.py:17
-msgid "Bug Detected"
-msgstr "རྐྱེན་གྱི་ངོས་འཛིན་འབད་ཡི།"
-
-#: ../deskbar/handlers/beagle-live.py:19
-msgid "Start Beagle Daemon?"
-msgstr "བི་གཱལ་ཌེ་མཱོན་ འགོ་བཙུགས་ནི་ཨིན་ན?"
-
-#: ../deskbar/handlers/beagle-live.py:24
-msgid "Start Beagle Daemon"
-msgstr "བི་གཱལ་ཌེ་མཱོན་ འགོ་བཙུགས།"
-
-#: ../deskbar/handlers/beagle-live.py:25
-msgid ""
-"The Beagle daemon does not appear to be running.\n"
-" You need to start it to use the Beagle Live handler."
-msgstr "བི་གཱལ་ཌེ་མཱོན་དེ་ ལཱ་མི་འབདཝ་བཟུམ་ཅིག་འདུག།བི་གཱལ་ལ་ཡིབ་ ལེགས་སྐྱོང་པ་ ལག་ལེན་འཐབ་ནི་ལུ་ ཁྱོད་ཀྱིས་བི་གཱལ་ཌེ་མཱོན་ ལོག་འགོ་བཙུགས་དགོ།"
-
-#: ../deskbar/handlers/beagle-live.py:39
-msgid "Failed to start Beagle"
-msgstr "བི་གཱལ་འགོ་བཙུགས་མ་ཚུགས།"
-
-#: ../deskbar/handlers/beagle-live.py:40
-msgid "Perhaps the beagle daemon isn't installed?"
-msgstr "བི་གཱལ་གྱི་ཌེ་མཱོན་དེ་ གཞི་བཙུགས་མ་འབདཝ་འདྲས་མེན་ན?"
-
-#: ../deskbar/handlers/beagle-live.py:63
-msgid "Beagle Live"
-msgstr "བི་གཱལ་ལ་ཡིབ།"
-
-#: ../deskbar/handlers/beagle-live.py:64
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr "ཁྱོད་ཀྱིས་ཡིག་དཔར་རྐྱབ་དང་འབྲེལ་ཏེ་ (བི་གཱལ་ལག་ལེན་འཐབ་ཐོག་) ཁྱོད་རའི་ཡིག་ཆ་ཚུ་ ཆ་མཉམ་ར་ འཚོལ་ཞིབ་འབད།"
-
-#: ../deskbar/handlers/beagle-live.py:92
-#, python-format
-msgid "Edit contact %s"
-msgstr "འབྲེལ་ས་%sཞུན་དག་རྐྱབས།"
-
-#: ../deskbar/handlers/beagle-live.py:101
-#, python-format
-msgid "From %s"
-msgstr "%sལས།"
-
-#. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:109
-#: ../deskbar/handlers/files.py:47
-#: ../deskbar/handlers/recent.py:43
-#, python-format
-msgid "Open %s"
-msgstr "%sཁ་ཕྱེ།"
-
-#: ../deskbar/handlers/beagle-live.py:117
-#, python-format
-msgid "News from %s"
-msgstr "%sལས་གནས་ཚུལ།"
-
-#: ../deskbar/handlers/beagle-live.py:126
-#, python-format
-msgid "Note: %s"
-msgstr "དྲན་འཛིན་:%s།"
-
-#: ../deskbar/handlers/beagle-live.py:135
-#, python-format
-msgid "With %s"
-msgstr "%sདང་གཅིག་ཁར།"
-
-#: ../deskbar/handlers/beagle-live.py:143
-#, python-format
-msgid "Calendar: %s"
-msgstr "ཟླ་ཐོ་:%s།"
-
-#. translators: This is used for unknown values returned by beagle
-#. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:318
-#: ../deskbar/handlers/beagle-live.py:340
-msgid "?"
-msgstr "?"
-
-#: ../deskbar/handlers/beagle-static.py:20
-msgid "Beagle"
-msgstr "བི་གཱལ།"
-
-#: ../deskbar/handlers/beagle-static.py:21
-msgid "Search all of your documents (using Beagle)"
-msgstr "ཁྱོད་རའི་ཡིག་ཆ་ ཆ་མཉམ་ར་(བི་གཱལ་ལག་ལེན་འཐབ་ཐོག་ལས་) འཚོལ་ཞིབ་འབད།"
-
-#: ../deskbar/handlers/beagle-static.py:36
-#, python-format
-msgid "Search for %s using Beagle"
-msgstr "བི་གཱལ་ལག་ལེན་འཐབ་ཐོག་ལས་ %sགི་དོན་ལུ་ འཚོལ་ཞིབ་འབད།"
-
-#: ../deskbar/handlers/desklicious.py:16
-msgid "You need to configure your del.icio.us account."
-msgstr "ཁྱོད་རའི་deli.icio.us རྩིས་ཐོ་ རིམ་སྒྲིག་འབད་དགོ"
-
-#: ../deskbar/handlers/desklicious.py:18
-msgid "You can modify your del.icio.us account."
-msgstr "ཁྱོད་ཀྱིས་ཁྱོད་རའི་deli.icio.usརྩིས་ཐོ་ ལེགས་བཅོས་འབད་བཏུབ།"
-
-#: ../deskbar/handlers/desklicious.py:22
-msgid "del.icio.us Bookmarks"
-msgstr "del.icio.us དེབ་རྟགས་ཚུ།"
-
-#: ../deskbar/handlers/desklicious.py:23
-msgid "Search your del.icio.us bookmarks by tag name"
-msgstr "ཁྱོད་རའི་del.icio.usདེབ་རྟགས་ཚུ་ ངོ་རྟགས་མིང་གི་ཐོག་ལས་འཚོལ་ཞིབ་འབད།"
-
-#: ../deskbar/handlers/desklicious.py:30
-msgid "del.icio.us Account"
-msgstr "del.icio.usརྩིས་ཐོ།"
-
-#: ../deskbar/handlers/desklicious.py:37
-msgid "Enter your del.icio.us username below"
-msgstr "ཁྱོད་རའི་deli.icio.us ལག་ལེན་པའི་མིང་ འོག་ལུ་བཙུགས།"
-
-#: ../deskbar/handlers/desklicious.py:43
-msgid "Username: "
-msgstr "ལག་ལེན་པའི་མིང་:"
-
-#: ../deskbar/handlers/epiphany.py:27
-msgid "You can set shortcuts for your searches."
-msgstr "ཁྱོད་རའི་འཚོལ་ཞིབ་ཚུ་གི་དོན་ལུ་ མགྱོགས་ཐབས་ཚུ་ གཞི་སྒྲིག་འབད་བཏུབ།"
-
-#: ../deskbar/handlers/epiphany.py:33
-#: ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:131
-msgid "Web Bookmarks"
-msgstr "ཝེབ་ཀྱི་དེབ་རྟགས་ཚུ།"
-
-#: ../deskbar/handlers/epiphany.py:34
-#: ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:132
-msgid "Open your web bookmarks by name"
-msgstr "ཁྱོད་རའི་ཝེབ་ཀྱི་དེབ་རྟགས་ཚུ་ མིང་གི་ཐོག་ལས་ཁ་ཕྱེ།"
-
-#: ../deskbar/handlers/epiphany.py:39
-#: ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:143
-msgid "Web History"
-msgstr "ཝེབ་ཀྱི་ལོ་རྒྱུས།"
-
-#: ../deskbar/handlers/epiphany.py:40
-#: ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:144
-msgid "Open your web history by name"
-msgstr "ཁྱོད་རའི་ཝེབ་ཀྱི་ལོ་རྒྱུས་ མིང་གི་ཐོག་ལས་ཁ་ཕྱེ།"
-
-#: ../deskbar/handlers/epiphany.py:45
-#: ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:137
-msgid "Web Searches"
-msgstr "ཝེབ་འཚོལ་ཞིབ།"
-
-#: ../deskbar/handlers/epiphany.py:46
-#: ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:138
-msgid "Search the web via your browser's search settings"
-msgstr "ཝེབ་དེ་ཁྱོད་རའི་ བརའུ་ཟར་གྱི་ འཚོལ་ཞིབ་སྒྲིག་སྟངས་བརྒྱུད་དེ་ འཚོལ་ཞིབ་འབད།"
-
-#: ../deskbar/handlers/evolution.py:12
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr "ཁྱོད་ཀྱིས་ཁྱོད་རའི་གློག་འཕྲིན་དགའ་གདམ་ཚུ་ནང་ རང་བཞིན་ཡོངས་སྒྲུབ་ ལྕོགས་ཅན་བཟོ་དགོ"
-
-#: ../deskbar/handlers/evolution.py:15
-msgid "Autocompletion Needs to be Enabled"
-msgstr "རང་བཞིན་ཡོངས་སྒྲུབ་ ལྕོགས་ཅན་བཟོ་དགོཔ་འདུག"
-
-#: ../deskbar/handlers/evolution.py:16
-msgid "We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion."
-msgstr "རང་བཞིན་ཡོངས་སྒྲུབ་ ལྕོགས་ཅན་མ་བཟོ་ཚུན་ཚོད་ ཁྱོད་ཀྱི་ཁ་བྱང་ཀི་དེབ་ནང་ལས་ གློག་འཕྲིན་ཁ་བྱང་ཚུ་བྱིན་མི་ཚུགས། འདི་འབད་ནིའི་དོན་ལུ་ ཁྱོད་རའི་ཡིག་འཕྲིན་ལས་རིམ་གྱི་དཀར་ཆག་ནང་ལས་ ཞུན་དག་དང་ དགའ་གདམ་ དེ་ལས་ རང་བཞིན་ཡོངས་སྒྲུབ་ གདམ་ཁ་རྐྱབས།"
-
-#: ../deskbar/handlers/evolution.py:21
-msgid "Mail (Address Book)"
-msgstr "ཡིག་འཕྲིན། (ཁ་བྱང་ཀི་དེབ)"
-
-#: ../deskbar/handlers/evolution.py:22
-msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr "ཁྱོད་རའི་འབྲེལ་ས་ཚུ་ལུ་ ཁོང་གི་མིང་ ཡང་ན་ གློག་འཕྲིན་ཁ་བྱང་ ཡིག་དཔར་བརྐྱབས་ཐོག་ལས་ ཡིག་འཕྲིན་གཏང་།"
-
-#. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:48
-#, python-format
-msgid "Send Email to <b>%(name)s</b> (%(email)s)"
-msgstr "<b>%(name)s</b> (%(email)s) ལུ་ཡིག་འཕྲིན་གཏང་།"
-
-#: ../deskbar/handlers/files.py:18
-msgid "Files, Folders and Places"
-msgstr "ཡིག་སྣོད་དང་སྣོད་འཛིན་ ས་གནས་ཚུ།"
-
-#: ../deskbar/handlers/files.py:19
-msgid "View your files, folders, bookmarks, drives, network places by name"
-msgstr "ཁྱོད་རའི་ཡིག་སྣོད་དང་ སྣོད་འཛིན་ དེབ་རྟགས་ འདྲེན་འཕྲུལ་ ཡོངས་འབྲེལ་ས་གནས་ཚུ་ མིང་གི་ཐོག་ལས་སྟོན།"
-
-#: ../deskbar/handlers/files.py:69
-#, python-format
-msgid "Open folder %s"
-msgstr "སྣོད་འཛིན་%sཁ་ཕྱེ།"
-
-#: ../deskbar/handlers/files.py:89
-#: ../deskbar/handlers/files.py:122
-#, python-format
-msgid "Open location %s"
-msgstr "གནས་ཁོངས་%sཁ་ཕྱེ།"
-
-#: ../deskbar/handlers/files.py:118
-#, python-format
-msgid "Open network place %s"
-msgstr "ཡོངས་འབྲེལ་ས་གནས་%sཁ་ཕྱེ།"
-
-#: ../deskbar/handlers/files.py:120
-#, python-format
-msgid "Open audio disc %s"
-msgstr "རྣར་ཉན་ཌིཀསི་%sཁ་ཕྱེ།"
-
-#: ../deskbar/handlers/gdmactions.py:10
-msgid "Computer Actions"
-msgstr "གློག་རིག་གི་བྱ་བ་ཚུ།"
-
-#: ../deskbar/handlers/gdmactions.py:11
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr "ཕྱིར་བསྐྱོད་དང་ སྒོ་བསྡམ་ནི་ ལོག་འགོ་བཙུགས་ནི་ འཕྲལ་བཀག་ དེ་ལས་ འབྲེལ་བ་ཡོད་པའི་བྱ་བ་ཚུ།"
-
-#: ../deskbar/handlers/gdmactions.py:44
-msgid "Suspend the machine"
-msgstr "གློག་འཕྲུལ་འཕྲལ་བཀག་འབད།"
-
-#: ../deskbar/handlers/gdmactions.py:60
-msgid "Hibernate the machine"
-msgstr "གློག་འཕྲུལ་གཉིད་ནང་བཙུགས།"
-
-#: ../deskbar/handlers/gdmactions.py:76
-msgid "Shutdown the machine"
-msgstr "གློག་འཕྲུལ་སྒོ་བསྡམས།"
-
-#: ../deskbar/handlers/gdmactions.py:100
-msgid "Lock the screen"
-msgstr "གསལ་གཞི་ལྡེ་མིག་རྐྱབས།"
-
-#: ../deskbar/handlers/gdmactions.py:126
-msgid "Shut Down"
-msgstr "སྒོ་བསྡམས།"
-
-#: ../deskbar/handlers/gdmactions.py:133
-msgid "Turn off the computer"
-msgstr "གློག་རིག་ཨོཕ་རྐྱབས།"
-
-#: ../deskbar/handlers/gdmactions.py:137
-msgid "Log Out"
-msgstr "ཕྱིར་བསྐྱོད་འབད།"
-
-#: ../deskbar/handlers/gdmactions.py:144
-msgid "Log out"
-msgstr "ཕྱིར་བསྐྱོད་འབད།"
-
-#: ../deskbar/handlers/gdmactions.py:148
-msgid "Restart"
-msgstr "ལོག་འགོབཙུགས།"
-
-#: ../deskbar/handlers/gdmactions.py:155
-msgid "Restart the computer"
-msgstr "གློག་རིག་ལོག་འགོ་བཙུགས།"
-
-#: ../deskbar/handlers/gdmactions.py:159
-#: ../deskbar/handlers/gdmactions.py:165
-msgid "Switch User"
-msgstr "ལག་ལེན་པ་སོར་བསྒྱུར་འབད།"
-
-#: ../deskbar/handlers/gdmactions.py:185
-msgid "Lock"
-msgstr "ལྡེ་མིག་རྐྱབས།"
-
-#: ../deskbar/handlers/gdmactions.py:196
-msgid "Suspend"
-msgstr "འཕྲལ་བཀག་འབད།"
-
-#: ../deskbar/handlers/gdmactions.py:198
-msgid "Hibernate"
-msgstr "གཉིད་ནང་བཙུགས།"
-
-#: ../deskbar/handlers/gdmactions.py:200
-msgid "Shutdown"
-msgstr "སྒོ་བསྡམས།"
-
-#: ../deskbar/handlers/history.py:12
-msgid "Recognize previously used searches"
-msgstr "ཧེ་མར་ལག་ལེན་འཐབ་མི་ འཚོལ་ཞིབ་ཚུ་ ངོས་འཛིན་འབད།"
-
-#: ../deskbar/handlers/iswitch-window.py:11
-msgid "Window Switcher"
-msgstr "སྒོ་སྒྲིག་སོར་བསྒྱུར་འབད་མི།"
-
-#: ../deskbar/handlers/iswitch-window.py:12
-msgid "Switch to an existing window by name."
-msgstr "མིང་གི་ཐོག་ལས་ ད་ལྟོ་ཡོད་མི་སྒོ་སྒྲིག་ཅིག་ལུ་སོར་བསྒྱུར་འབད།"
-
-#: ../deskbar/handlers/iswitch-window.py:16
-msgid "Windows"
-msgstr "སྒོ་སྒྲིག་ཚུ།"
-
-#: ../deskbar/handlers/iswitch-window.py:32
-#, python-format
-msgid "Switch to <b>%(name)s</b>"
-msgstr "<b>%(name)s</b> ལུ་སོར་བསྒྱུར་འབད།"
-
-#: ../deskbar/handlers/mozilla.py:122
-msgid "You can customize which search engines are offered."
-msgstr "བྱིན་ཏེ་ཡོད་པའི་ འཚོལ་ཞིབ་མ་འཕྲུལ་ཚུ་ ཁྱོད་ཀྱིས་སྲོལ་སྒྲིག་འབད་ཚུགས།"
-
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "ལས་རིམ་ཚུ།"
-
-#: ../deskbar/handlers/programs.py:15
-msgid "Launch a program by its name and/or description"
-msgstr "ལས་རིམ་ཅིག་ དེ་གི་མིང་ ཡང་ན་ འགྲེལ་བཤད་ཐོག་ལས་ གསར་བཙུགས་འབད།"
-
-#: ../deskbar/handlers/programs.py:19
-msgid "Dictionary"
-msgstr "ཚིག་མཛོད།"
-
-#: ../deskbar/handlers/programs.py:20
-msgid "Look up word definitions in the dictionary"
-msgstr "ཚིག་མཛོད་ནང་ལུ་ ཚིག་གི་ངེས་ཚིག་ཚུ་ལུ་བལྟ།"
-
-#: ../deskbar/handlers/programs.py:24
-msgid "Files and Folders Search"
-msgstr "ཡིག་སྣོད་དང་སྣོད་འཛིན་ཚུ་གི་འཚོལ་ཞིབ།"
-
-#: ../deskbar/handlers/programs.py:25
-msgid "Find files and folders by searching for a name pattern"
-msgstr "ཡིག་སྣོད་དང་སྣོད་འཛིན་ཚུ་ མིང་གི་དཔེ་གཞི་ཅིག་ འཚོལ་ཞིབ་འབད་བའི་ཐོག་ལས་འཚོལ།"
-
-#: ../deskbar/handlers/programs.py:29
-msgid "Developer Documentation"
-msgstr "བཟོ་མིའི་ཡིག་བཀོད།"
-
-#: ../deskbar/handlers/programs.py:30
-msgid "Search Devhelp for a function name"
-msgstr "ལས་འགན་མིང་ཅིག་གི་དོན་ལུ་ ཌེབ་ཧེལཔ་ འཚོལ་ཞིབ་འབད།"
-
-#. translators: First %s is the programs full name, second is the executable name
-#. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:88
-#, python-format
-msgid "Launch <b>%(name)s</b> (%(prog)s)"
-msgstr "<b>%(name)s</b> (%(prog)s) གསར་བཙུགས་འབད།"
-
-#: ../deskbar/handlers/programs.py:102
-#, python-format
-msgid "Lookup %s in dictionary"
-msgstr "ཚིག་མཛོད་ནང་%s ལུ་བལྟ།"
-
-#: ../deskbar/handlers/programs.py:110
-#, python-format
-msgid "Search for file names like %s"
-msgstr "%sབཟུམ་མའི་ཡིག་སྣོད་ཀྱི་མིང་ཚུ་གི་དོན་ལུ་ འཚོལ་ཞིབ་འབད།"
-
-#: ../deskbar/handlers/programs.py:118
-#, python-format
-msgid "Search in Devhelp for %s"
-msgstr "%sགི་དོན་ལུ་ ཌེབ་ཧེལཔ་ནང་འཚོལ།"
-
-#: ../deskbar/handlers/programs.py:222
-#, python-format
-msgid "Execute %s"
-msgstr "%sལག་ལེན་འཐབ།"
-
-#: ../deskbar/handlers/recent.py:15
-msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
-msgstr "ལེགས་སྐྱོང་འདི་ལུ་ ད་ལྟོ་འཕྲལ་ཁམས་ཀྱི་ཨིན་མི་ ཇི་ཊི་ཀེ་ ཐོན་རིམ་ (2.9.0 or newer)ཧེང་བཀལ་དགོཔ་འདུག་"
-
-#: ../deskbar/handlers/recent.py:19
-msgid "Recent Documents"
-msgstr "ད་ལྟོ་འཕྲལ་ཁམས་ཀྱི་ཡིག་ཆ་ཚུ་"
-
-#: ../deskbar/handlers/recent.py:20
-msgid "Retrieve your recently accessed files and locations"
-msgstr "ད་ལྟོ་འཕྲལ་ཁམས་འཛུལ་སྤྱོད་འབད་ཡོད་མི་ ཁྱོད་རའི་ཡིག་སྣོད་དང་ གནས་ཁོངས་ཚུ་སླར་འདྲེན་འབད་"
-
-#: ../deskbar/handlers/web_address.py:13
-msgid "Open web pages and send emails by typing a complete address"
-msgstr "ཝེབ་ཤོག་ལེབ་ཚུ་ ཁ་ཕྱེ་ཞིནམ་ལས་ ཁ་བྱང་ཆ་ཚང་ ཡིག་དཔར་བརྐྱབས་ཐོག་ལས་ གློག་འཕྲིན་ཚུ་གཏང་།"
-
-#: ../deskbar/handlers/web_address.py:42
-#, python-format
-msgid "Open the web page %s"
-msgstr "ཝེབ་ཤོག་ལེབ་%sཁ་ཕྱེ།"
-
-#: ../deskbar/handlers/web_address.py:44
-#, python-format
-msgid "Open the location %s"
-msgstr "གནས་ཁོངས་%sཁ་ཕྱེ།"
-
-#: ../deskbar/handlers/web_address.py:61
-#, python-format
-msgid "Send Email to %s"
-msgstr "%sལུ་གློག་འཕྲིན་གཏང་།"
-
-#: ../deskbar/handlers/yahoo.py:16
-msgid "Yahoo! Search"
-msgstr "ཡ་ཧུ! འཚོལ་ཞིབ།"
-
-#: ../deskbar/handlers/yahoo.py:17
-msgid "Search Yahoo! as you type"
-msgstr "ཁྱོད་ཀྱིས་ཡིག་དཔར་རྐྱབ་དང་འབྲེལ་ཏེ་ ཡ་ཧུ་འཚོལ་ཞིབ་འབད།"
-
-#: ../deskbar/ui/About.py:22
-msgid "Deskbar"
-msgstr "ཌེཀསི་ཕྲ་རིང་།"
-
-#: ../deskbar/ui/About.py:25
-msgid "An all-in-one action bar."
-msgstr "གཅིག་ནང་ཆ་མཉམ་ཚང་བའི་ བྱ་བའི་ཕྲ་རིང་ཅིག"
-
-#: ../deskbar/ui/About.py:28
-msgid "Deskbar Website"
-msgstr "ཌེཀསི་ཕྲ་རིང་གི་ ཝེབ་ས་ཁོངས།"
-
-#. about.set_artists([])
-#. about.set_documenters([])
-#. translators: These appear in the About dialog, usual format applies.
-#: ../deskbar/ui/About.py:36
-msgid "translator-credits"
-msgstr "\"ཨའི་ཌི་ཨར་སི་གི་མ་དངུལ་རྒྱབ་སྐྱོར་ཐོག་ལས་ བརྡ་དོན་འཕྲུལ་རིག་ལས་ཁུངས་ནང་ སྐད་བསྒྱུར་འབད་ཡི། ཁ་གསལ་གྱི་དོན་ལུ་ འབྲེལ་བ་འཐབ་ས་: <pema_geyleg@druknet.bt>/<pgeyleg@dit.gov.bt>\""
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:112
-msgid "New accelerator..."
-msgstr "མགྱོགས་འཕྲུལ་གསརཔ།"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:164
-#, python-format
-msgid ""
-"The shortcut \"%s\" cannot be used because it will become unusable to type using this key.\n"
-"Please try with a key such as Control, Alt or Shift at the same time.\n"
-msgstr ""
-"མགྱོགས་ཐབས་\"%s\" ལག་ལེན་འཐབ་མི་བཏུབ་ ག་ཅི་སྦེ་ཟེར་བ་ཅིན་ ཡིག་དཔར་བརྐྱབ་ནིའི་དོན་ལུ་ ལྡེ་མིག་འདི་ལག་ལེན་འཐབ་པའི་ཐོག་ལས་ འདི་ལག་ལེན་འཐབ་བཏུབ་བཟོ་བཏུབ།\n"
-"ཚད་འཛིན་ འཐེམ་ལྡེ་ ཡང་ན་ སོར་ལྡེ་ལ་སོགས་པ་ཚུ་གི་ཐོག་ལས་ འབད་བརྩོལ་བསྐྱེད་གནང་།\n"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:330
-msgid "Connection to repository failed"
-msgstr "མཛོད་གནས་ལུ་འབྲེལ་ལམ་དེ་འཐུས་ཤོར་བྱུང་ནུག"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:330
-msgid "Please check your internet connection"
-msgstr "ཁྱོད་རའི་ཨིན་ཊར་ནེཊི་གི་འབྲེལ་ལམ་དེ་ཞིབ་དཔྱད་འབད་གནང་།"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:558
-msgid "Handler has been installed successfully"
-msgstr "ལེགས་སྐྱོང་པ་དེ་ མཐར་འཁྱོལ་ཅན་སྦེ་གཞི་བཙུགས་འབད་ནུག་"
-
-#: ../deskbar/ui/DeskbarPreferencesUI.py:564
-msgid "Handler could not be installed due a problem with the provided file"
-msgstr "འབྱིན་སྟེ་ཡོད་པའི་ཡིག་སྣོད་དང་དཅིག་གར་ དཀའ་ངལ་ཡོད་ནི་དེ་གིས་ ལེགས་སྐྱོང་པ་གཞི་བཙུགས་འབད་མི་ཚུགས་"
-
-#: ../deskbar/ui/ModuleListView.py:55
-msgid "Update Available"
-msgstr "ཡོད་མི་ཚུ་དུས་མཐུའ་བཟོ།"
-
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
-msgid "Show search entry"
-msgstr "ཐོ་བཀོད་ཆ་མཉམ་སྟོན།"
-
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:87
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:55
-msgid "Show previously used actions"
-msgstr "ཧེ་མར་ལག་ལེན་འཐབ་མི་ བྱ་བ་ཚུ་སྟོན།།"
 
 #: ../data/mozilla-search.glade.h:1
 msgid "<b>Search Engines</b>"
@@ -763,79 +252,900 @@ msgstr "འཚོལ་ཞིབ་མ་འཕྲུལ་ཡོད་མི་
 msgid "Show only the primary search engine"
 msgstr "གཞི་རིམ་འཚོལ་ཞིབ་མ་འཕྲུལ་དེ་རྐྱངམ་གཅིག་སྟོན།"
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
+#: ../deskbar/core/BrowserMatch.py:57
+#: ../deskbar/handlers/beagle-live.py:181
+#, python-format
+msgid "Open History Item %s"
+msgstr "ལོ་རྒྱུས་རྣམ་གྲངས་%sཁ་ཕྱེ།"
+
+#: ../deskbar/core/BrowserMatch.py:59
+#, python-format
+msgid "Open Bookmark %s"
+msgstr "དེབ་རྟགས་%sཁ་ཕྱེ།"
+
+#. translators: First %s is the search engine name, second %s is the search term
+#: ../deskbar/core/BrowserMatch.py:75
+#, python-format
+msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+msgstr "<b>%(name)s</b>དོན་ལུ་<i>%(text)s</i>འཚོལ་ཞིབ་འབད།"
+
+#: ../deskbar/core/BrowserMatch.py:101
+#: ../deskbar/handlers/yahoo.py:33
+msgid "URL"
+msgstr "ཡུ་ཨར་ཨེལ་"
+
+#: ../deskbar/core/BrowserMatch.py:236
+msgid "Shortcut"
+msgstr "མགྱོགས་ཐབས།"
+
+#: ../deskbar/core/BrowserMatch.py:244
+msgid "Bookmark Name"
+msgstr "དེབ་རྟགས་ཀྱི་མིང་།"
+
+#: ../deskbar/core/Categories.py:7
+msgid "Uncategorized"
+msgstr "དབྱེ་རིམ་མ་བཟོཝ།"
+
+#: ../deskbar/core/Categories.py:11
+#: ../deskbar/handlers/history.py:27
+msgid "History"
+msgstr "ལོ་རྒྱུས།"
+
+#: ../deskbar/core/Categories.py:17
+msgid "Documents"
+msgstr "ཡིག་ཆ།"
+
+#: ../deskbar/core/Categories.py:21
+msgid "Emails"
+msgstr "གློག་འཕྲིན་ཚུ།"
+
+#: ../deskbar/core/Categories.py:25
+msgid "Conversations"
+msgstr "གྲོས་གླེང་།"
+
+#: ../deskbar/core/Categories.py:29
+msgid "Files"
+msgstr "ཡིག་སྣོད་ཚུ།"
+
+#: ../deskbar/core/Categories.py:33
+msgid "People"
+msgstr "མི་མང་།"
+
+#: ../deskbar/core/Categories.py:37
+msgid "Places"
+msgstr "ས་གནས་ཚུ།"
+
+#: ../deskbar/core/Categories.py:41
+msgid "Actions"
+msgstr "བྱ་བ་ཚུ།"
+
+#: ../deskbar/core/Categories.py:45
+#: ../deskbar/handlers/web_address.py:44
+msgid "Web"
+msgstr "ཝེབ།"
+
+#: ../deskbar/core/Categories.py:49
+msgid "Web Search"
+msgstr "ཝེབ་འཚོལ་ཞིབ།"
+
+#: ../deskbar/core/Categories.py:53
+msgid "News"
+msgstr "གནས་ཚུལ།"
+
+#: ../deskbar/core/Categories.py:57
+msgid "Notes"
+msgstr "དྲན་འཛིན།"
+
+#: ../deskbar/core/DeskbarHistory.py:22
+msgid "<i>Choose action</i>"
+msgstr "<i>བྱ་བ་གདམ་ཁ་ བརྐྱབ་ </i>"
+
+#: ../deskbar/core/Utils.py:132
+msgid "Cannot execute program:"
+msgstr "ལས་རིམ་ལག་ལེན་འཐབ་མི་ཚུགས:"
+
+#: ../deskbar/core/Utils.py:172
+msgid "Cannot show URL:"
+msgstr "ཡུ་ཨཱར་ཨེལ་ སྟོན་མི་ཚུགས:"
+
+#. translators: This is the window title.
+#: ../deskbar/deskbar-applet.py:15
+msgid "Deskbar Applet"
+msgstr "ཌེཀསི་ཕྲ་རིང་གི་ ཨེཔ་ལེཊི།"
+
+#: ../deskbar/handlers/beagle-live.py:103
+#, python-format
+msgid "Edit contact %s"
+msgstr "འབྲེལ་ས་%sཞུན་དག་རྐྱབས།"
+
+#: ../deskbar/handlers/beagle-live.py:114
+#, python-format
+msgid "From %s"
+msgstr "%sལས།"
+
+#: ../deskbar/handlers/beagle-live.py:129
+#, python-format
+msgid "News from %s"
+msgstr "%sལས་གནས་ཚུལ།"
+
+#: ../deskbar/handlers/beagle-live.py:143
+#, python-format
+msgid "Note: %s"
+msgstr "དྲན་འཛིན་:%s།"
+
+#: ../deskbar/handlers/beagle-live.py:156
+#, python-format
+msgid "With %s"
+msgstr "%sདང་གཅིག་ཁར།"
+
+#: ../deskbar/handlers/beagle-live.py:170
+#, python-format
+msgid "Calendar: %s"
+msgstr "ཟླ་ཐོ་:%s།"
+
+#: ../deskbar/handlers/beagle-live.py:213
+#, python-format
+msgid "Additional results for category <b>%s</b>"
+msgstr " དབྱེ་རིམ་ <b>%s</b>གི་དོན་ལུ་ གྲུབ་འབྲས་ ཁ་སྐོང་"
+
+#: ../deskbar/handlers/beagle-live.py:213
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
+msgid "name"
+msgstr "མིང་"
+
+#: ../deskbar/handlers/beagle-live.py:295
+msgid "Beagle Live"
+msgstr "བི་གཱལ་ལ་ཡིབ།"
+
+#: ../deskbar/handlers/beagle-live.py:296
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "ཁྱོད་ཀྱིས་ཡིག་དཔར་རྐྱབ་དང་འབྲེལ་ཏེ་ (བི་གཱལ་ལག་ལེན་འཐབ་ཐོག་) ཁྱོད་རའི་ཡིག་ཆ་ཚུ་ ཆ་མཉམ་ར་ འཚོལ་ཞིབ་འབད།"
+
+#. translators: This is used for unknown values returned by beagle
+#. translators: for example unknown email sender, or unknown note title
+#: ../deskbar/handlers/beagle-live.py:433
+#: ../deskbar/handlers/beagle-live.py:455
+msgid "?"
+msgstr "?"
+
+#: ../deskbar/handlers/beagle-live.py:486
+msgid "Could not load beagle, libbeagle has been compiled without python bindings."
+msgstr "བེ་གཱལ་ མངོན་གསལ་འདབ་མ་ཚུགས་      ལིབ་བེ་གཱལ་དེ་ པ་ཡི་ཐཱོན་ སྡམ་ཐག་དང་གཅིག་ཁར་ ཕྱོགས་སྒྲིག་མ་འདབ་བས། "
+
+#: ../deskbar/handlers/beagle-live.py:495
+msgid "Beagled could not be found in your $PATH."
+msgstr "ཁྱོད་རའི་ $PATH ནང་ བེ་གཱལ་འཚོལ་མ་་ཐོབ། "
+
+#: ../deskbar/handlers/beagle-static.py:21
+#, python-format
+msgid "Search for %s using Beagle"
+msgstr "བི་གཱལ་ལག་ལེན་འཐབ་ཐོག་ལས་ %sགི་དོན་ལུ་ འཚོལ་ཞིབ་འབད།"
+
+#: ../deskbar/handlers/beagle-static.py:37
+msgid "Beagle"
+msgstr "བི་གཱལ།"
+
+#: ../deskbar/handlers/beagle-static.py:38
+msgid "Search all of your documents (using Beagle)"
+msgstr "ཁྱོད་རའི་ཡིག་ཆ་ ཆ་མཉམ་ར་(བི་གཱལ་ལག་ལེན་འཐབ་ཐོག་ལས་) འཚོལ་ཞིབ་འབད།"
+
+#: ../deskbar/handlers/beagle-static.py:54
+msgid "Beagle does not seem to be installed."
+msgstr "བེ་གཱལ་ གཞི་བཙུགས་མ་འབདཝ་བཟུམ་ཅིག་འདུག། "
+
+#: ../deskbar/handlers/desklicious.py:47
+msgid "del.icio.us Bookmarks"
+msgstr "del.icio.us དེབ་རྟགས་ཚུ།"
+
+#: ../deskbar/handlers/desklicious.py:48
+msgid "Search your del.icio.us bookmarks by tag name"
+msgstr "ཁྱོད་རའི་del.icio.usདེབ་རྟགས་ཚུ་ ངོ་རྟགས་མིང་གི་ཐོག་ལས་འཚོལ་ཞིབ་འབད།"
+
+#: ../deskbar/handlers/desklicious.py:80
+msgid "del.icio.us Account"
+msgstr "del.icio.usརྩིས་ཐོ།"
+
+#: ../deskbar/handlers/desklicious.py:87
+msgid "Enter your del.icio.us username below"
+msgstr "ཁྱོད་རའི་deli.icio.us ལག་ལེན་པའི་མིང་ འོག་ལུ་བཙུགས།"
+
+#: ../deskbar/handlers/desklicious.py:93
+msgid "Username: "
+msgstr "ལག་ལེན་པའི་མིང་:"
+
+#: ../deskbar/handlers/desklicious.py:109
+msgid "You need to configure your del.icio.us account."
+msgstr "ཁྱོད་རའི་deli.icio.us རྩིས་ཐོ་ རིམ་སྒྲིག་འབད་དགོ"
+
+#: ../deskbar/handlers/desklicious.py:114
+msgid "You can modify your del.icio.us account."
+msgstr "ཁྱོད་ཀྱིས་ཁྱོད་རའི་deli.icio.usརྩིས་ཐོ་ ལེགས་བཅོས་འབད་བཏུབ།"
+
+#: ../deskbar/handlers/epiphany.py:51
+msgid "Web Bookmarks (Epiphany)"
+msgstr "ཝེབ་ དེབ་རྟགས་ཚུ་ (ཨི་པི་ཧེ་ནི)"
+
+#: ../deskbar/handlers/epiphany.py:52
+#: ../deskbar/handlers/mozilla.py:157
+msgid "Open your web bookmarks by name"
+msgstr "ཁྱོད་རའི་ཝེབ་ཀྱི་དེབ་རྟགས་ཚུ་ མིང་གི་ཐོག་ལས་ཁ་ཕྱེ།"
+
+#: ../deskbar/handlers/epiphany.py:82
+#: ../deskbar/handlers/epiphany.py:127
+#: ../deskbar/handlers/epiphany.py:161
+msgid "Epiphany is not your preferred browser."
+msgstr "ཨི་པི་ཧེ་ནི་དེ  ཁྱོད་ཀྱིས་དགའ་མི་ བརའུ་ཟར་མེན། "
+
+#: ../deskbar/handlers/epiphany.py:88
+msgid "Web Searches (Epiphany)"
+msgstr "ཝེབ་འཚོལ་ཞིབ།(ཨི་པི་ཧེ་ནི)"
+
+#: ../deskbar/handlers/epiphany.py:89
+#: ../deskbar/handlers/mozilla.py:234
+msgid "Search the web via your browser's search settings"
+msgstr "ཝེབ་དེ་ཁྱོད་རའི་ བརའུ་ཟར་གྱི་ འཚོལ་ཞིབ་སྒྲིག་སྟངས་བརྒྱུད་དེ་ འཚོལ་ཞིབ་འབད།"
+
+#: ../deskbar/handlers/epiphany.py:124
+msgid "You can set shortcuts for your searches."
+msgstr "ཁྱོད་རའི་འཚོལ་ཞིབ་ཚུ་གི་དོན་ལུ་ མགྱོགས་ཐབས་ཚུ་ གཞི་སྒྲིག་འབད་བཏུབ།"
+
+#: ../deskbar/handlers/epiphany.py:134
+msgid "Web History (Epiphany)"
+msgstr "ཝེབ་ཀྱི་ལོ་རྒྱུས་ ་ཨི་པི་ཧེ་ནི)"
+
+#: ../deskbar/handlers/epiphany.py:135
+#: ../deskbar/handlers/mozilla.py:784
+msgid "Open your web history by name"
+msgstr "ཁྱོད་རའི་ཝེབ་ཀྱི་ལོ་རྒྱུས་ མིང་གི་ཐོག་ལས་ཁ་ཕྱེ།"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:27
+#, python-format
+msgid "Edit contact <b>%(name)s</b> (%(email)s)"
+msgstr "<b>%(name)s</b> (%(email)s) འབྲེལ་ས་ཚུ་ ཞུན་དག་འབད་"
+
+#: ../deskbar/handlers/evolution.py:42
+msgid "Mail (Address Book)"
+msgstr "ཡིག་འཕྲིན། (ཁ་བྱང་ཀི་དེབ)"
+
+#: ../deskbar/handlers/evolution.py:43
+msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr "ཁྱོད་རའི་འབྲེལ་ས་ཚུ་ལུ་ ཁོང་གི་མིང་ ཡང་ན་ གློག་འཕྲིན་ཁ་བྱང་ ཡིག་དཔར་བརྐྱབས་ཐོག་ལས་ ཡིག་འཕྲིན་གཏང་།"
+
+#: ../deskbar/handlers/evolution.py:67
+msgid ""
+"Autocompletion Needs to be Enabled\n"
+"We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion."
+msgstr ""
+"རང་བཞིན་ཡོངས་སྒྲུབ་ ལྕོགས་ཅན་བཟོ་དགོ་པས། \n"
+"རང་བཞིན་ཡོངས་སྒྲུབ་ ལྕོགས་ཅན་མ་བཟོ་ཚུན་ཚོད་ ང་བཅས་ཀྱིས་ ཁྱོད་རའི་ ཁ་བྱང་ཀི་དེབ་ནང་ལས་ གློག་འཕྲིན་ཁ་བྱང་ཚུ་ བྱིན་མི་ཚུགས།   འདི་འབད་ནིའི་དོན་ལུ་ ཁྱོད་རའི་ཡིག་འཕྲིན་ལས་རིམ་གྱི་དཀར་ཆག་ནང་ལས་ ཞུན་དག་དང་ དགའ་གདམ་ དེ་ལས་ རང་བཞིན་ཡོངས་སྒྲུབ་ གདམ་ཁ་རྐྱབས།"
+
+#. FIXME:
+#. _("Location") should be _("Location of %s") % name
+#: ../deskbar/handlers/files.py:62
+#: ../deskbar/handlers/actions/ActionsFactory.py:35
+msgid "Location"
+msgstr "ས་ཁོངས་ "
+
+#: ../deskbar/handlers/files.py:70
+msgid "Files, Folders and Places"
+msgstr "ཡིག་སྣོད་དང་སྣོད་འཛིན་ ས་གནས་ཚུ།"
+
+#: ../deskbar/handlers/files.py:71
+msgid "View your files, folders, bookmarks, drives, network places by name"
+msgstr "ཁྱོད་རའི་ཡིག་སྣོད་དང་ སྣོད་འཛིན་ དེབ་རྟགས་ འདྲེན་འཕྲུལ་ ཡོངས་འབྲེལ་ས་གནས་ཚུ་ མིང་གི་ཐོག་ལས་སྟོན།"
+
+#: ../deskbar/handlers/gdmactions.py:30
+msgid "Shut down this system now?"
+msgstr "གློག་རིམ་འདི་ སྒོ་བསྡམས་ག?"
+
+#: ../deskbar/handlers/gdmactions.py:31
+#, python-format
+msgid "This system will be automatically shut down in %s seconds."
+msgstr "རིམ་ལུགས་འདི་ སྐར་ཆ་ %s ནང་རང་བཞིན་གྱིས་ སྒོ་བསྡམ་འོང་། "
+
+#: ../deskbar/handlers/gdmactions.py:32
+#: ../deskbar/handlers/gdmactions.py:223
+#: ../deskbar/handlers/gdmactions.py:281
+msgid "Shut Down"
+msgstr "སྒོ་བསྡམས།"
+
+#: ../deskbar/handlers/gdmactions.py:34
+msgid "Log out of this system now?"
+msgstr "རིམ་ལུགས་འདི་ ཕྱིར་བསྐྱོད་འབད་ག?"
+
+#: ../deskbar/handlers/gdmactions.py:35
+#, python-format
+msgid "You will be automatically logged out in %s seconds."
+msgstr "སྐར་ཆ་ %sནང་ རང་བཞིན་གྱིས་ ཕྱིར་བསྐྱོད་འབད་འོང་། "
+
+#: ../deskbar/handlers/gdmactions.py:36
+#: ../deskbar/handlers/gdmactions.py:236
+#: ../deskbar/handlers/gdmactions.py:240
+#: ../deskbar/handlers/gdmactions.py:284
+msgid "Log Out"
+msgstr "ཕྱིར་བསྐྱོད་འབད།"
+
+#: ../deskbar/handlers/gdmactions.py:38
+msgid "Restart this system now?"
+msgstr "རིམ་ལུགས་འདི་ ལོག་འགོ་བཙུགས་ནི་ཨིན་ན?"
+
+#: ../deskbar/handlers/gdmactions.py:39
+#, python-format
+msgid "This system will be automatically restarted in %s seconds."
+msgstr "རིམ་ལུགས་འདི་ སྐར་ཆ་ %s ནང་རང་བཞིན་གྱིས་ ལོག་འགོ་བཙུགས་འོང་། "
+
+#: ../deskbar/handlers/gdmactions.py:40
+#: ../deskbar/handlers/gdmactions.py:257
+#: ../deskbar/handlers/gdmactions.py:283
+msgid "Restart"
+msgstr "ལོག་འགོབཙུགས།"
+
+#: ../deskbar/handlers/gdmactions.py:42
+msgid "Suspend this system now?"
+msgstr "གློག་རིམ་འདི་ འཕྲལ་བཀག་འབད་ག?"
+
+#: ../deskbar/handlers/gdmactions.py:43
+#, python-format
+msgid "This system will be automatically suspended in %s seconds."
+msgstr "རིམ་ལུགས་འདི་ སྐར་ཆ་ %s ནང་རང་བཞིན་གྱིས་ འཕྲལ་བཀག་འབད་འོང་། "
+
+#: ../deskbar/handlers/gdmactions.py:44
+#: ../deskbar/handlers/gdmactions.py:313
+msgid "Suspend"
+msgstr "འཕྲལ་བཀག་འབད།"
+
+#: ../deskbar/handlers/gdmactions.py:46
+msgid "Hibernate this system now?"
+msgstr "གློག་རིམ་འདི་ ཉིད་ནང་བཙུགས་ག?"
+
+#: ../deskbar/handlers/gdmactions.py:47
+#, python-format
+msgid "This system will be automatically hibernated in %s seconds."
+msgstr "རིམ་ལུགས་འདི་ སྐར་ཆ་ %s ནང་རང་བཞིན་གྱིས་ གཉིད་ནང་བཙུག་འོང་། "
+
+#: ../deskbar/handlers/gdmactions.py:48
+#: ../deskbar/handlers/gdmactions.py:315
+msgid "Hibernate"
+msgstr "གཉིད་ནང་བཙུགས།"
+
+#: ../deskbar/handlers/gdmactions.py:100
+msgid "Suspend the machine"
+msgstr "གློག་འཕྲུལ་འཕྲལ་བཀག་འབད།"
+
+#: ../deskbar/handlers/gdmactions.py:117
+msgid "Hibernate the machine"
+msgstr "གློག་འཕྲུལ་གཉིད་ནང་བཙུགས།"
+
+#: ../deskbar/handlers/gdmactions.py:134
+msgid "Shutdown the machine"
+msgstr "གློག་འཕྲུལ་སྒོ་བསྡམས།"
+
+#: ../deskbar/handlers/gdmactions.py:155
+msgid "Lock the screen"
+msgstr "གསལ་གཞི་ལྡེ་མིག་རྐྱབས།"
+
+#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:302
+msgid "Lock"
+msgstr "ལྡེ་མིག་རྐྱབས།"
+
+#: ../deskbar/handlers/gdmactions.py:219
+msgid "Turn off the computer"
+msgstr "གློག་རིག་ཨོཕ་རྐྱབས།"
+
+#: ../deskbar/handlers/gdmactions.py:253
+msgid "Restart the computer"
+msgstr "གློག་རིག་ལོག་འགོ་བཙུགས།"
+
+#: ../deskbar/handlers/gdmactions.py:268
+#: ../deskbar/handlers/gdmactions.py:272
+#: ../deskbar/handlers/gdmactions.py:282
+msgid "Switch User"
+msgstr "ལག་ལེན་པ་སོར་བསྒྱུར་འབད།"
+
+#: ../deskbar/handlers/gdmactions.py:278
+msgid "Computer Actions"
+msgstr "གློག་རིག་གི་བྱ་བ་ཚུ།"
+
+#: ../deskbar/handlers/gdmactions.py:279
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "ཕྱིར་བསྐྱོད་དང་ སྒོ་བསྡམ་ནི་ ལོག་འགོ་བཙུགས་ནི་ འཕྲལ་བཀག་ དེ་ལས་ འབྲེལ་བ་ཡོད་པའི་བྱ་བ་ཚུ།"
+
+#: ../deskbar/handlers/gdmactions.py:317
+msgid "Shutdown"
+msgstr "སྒོ་བསྡམས།"
+
+#: ../deskbar/handlers/history.py:28
+msgid "Recognize previously used searches"
+msgstr "ཧེ་མར་ལག་ལེན་འཐབ་མི་ འཚོལ་ཞིབ་ཚུ་ ངོས་འཛིན་འབད།"
+
+#: ../deskbar/handlers/iswitch-window.py:15
+#, python-format
+msgid "Switch to <b>%(name)s</b>"
+msgstr "<b>%(name)s</b> ལུ་སོར་བསྒྱུར་འབད།"
+
+#: ../deskbar/handlers/iswitch-window.py:47
+msgid "Window Switcher"
+msgstr "སྒོ་སྒྲིག་སོར་བསྒྱུར་འབད་མི།"
+
+#: ../deskbar/handlers/iswitch-window.py:48
+msgid "Switch to an existing window by name."
+msgstr "མིང་གི་ཐོག་ལས་ ད་ལྟོ་ཡོད་མི་སྒོ་སྒྲིག་ཅིག་ལུ་སོར་བསྒྱུར་འབད།"
+
+#: ../deskbar/handlers/iswitch-window.py:51
+msgid "Windows"
+msgstr "སྒོ་སྒྲིག་ཚུ།"
+
+#: ../deskbar/handlers/mozilla.py:156
+msgid "Web Bookmarks (Mozilla)"
+msgstr "ཝེབ་ཀྱི་དེབ་རྟགས་ཚུ་ (མོ་ཛིལ་ལ་)"
+
+#: ../deskbar/handlers/mozilla.py:219
+#: ../deskbar/handlers/mozilla.py:305
+#: ../deskbar/handlers/mozilla.py:831
+msgid "Mozilla/Firefox is not your preferred browser."
+msgstr "མོ་ཛིལ་ལ/ཕ་ཡེར་ཕོགསི་དེ་ ཁྱོད་དགའ་མི་ བརའུ་ཟར་མེན་། "
+
+#: ../deskbar/handlers/mozilla.py:233
+msgid "Web Searches (Mozilla)"
+msgstr "ཝེབ་འཚོལ་ཞིབ(མོ་ཛིལ་ལ་)"
+
+#. Correct firefox version or iceweasel
+#: ../deskbar/handlers/mozilla.py:299
+msgid "You can customize which search engines are offered."
+msgstr "བྱིན་ཏེ་ཡོད་པའི་ འཚོལ་ཞིབ་མ་འཕྲུལ་ཚུ་ ཁྱོད་ཀྱིས་སྲོལ་སྒྲིག་འབད་ཚུགས།"
+
+#: ../deskbar/handlers/mozilla.py:783
+msgid "Web History (Mozilla)"
+msgstr "ཝེབ་ཀྱི་ལོ་རྒྱུས(མོ་ཛིལ་ལ་)"
+
+#: ../deskbar/handlers/programs.py:77
+#, python-format
+msgid "Lookup %s in dictionary"
+msgstr "ཚིག་མཛོད་ནང་%s ལུ་བལྟ།"
+
+#: ../deskbar/handlers/programs.py:84
+#, python-format
+msgid "Search for file names like %s"
+msgstr "%sབཟུམ་མའི་ཡིག་སྣོད་ཀྱི་མིང་ཚུ་གི་དོན་ལུ་ འཚོལ་ཞིབ་འབད།"
+
+#: ../deskbar/handlers/programs.py:90
+#, python-format
+msgid "Search in Devhelp for %s"
+msgstr "%sགི་དོན་ལུ་ ཌེབ་ཧེལཔ་ནང་འཚོལ།"
+
+#: ../deskbar/handlers/programs.py:124
+msgid "Dictionary"
+msgstr "ཚིག་མཛོད།"
+
+#: ../deskbar/handlers/programs.py:125
+msgid "Look up word definitions in the dictionary"
+msgstr "ཚིག་མཛོད་ནང་ལུ་ ཚིག་གི་ངེས་ཚིག་ཚུ་ལུ་བལྟ།"
+
+#: ../deskbar/handlers/programs.py:141
+msgid "GNOME dictionary is not installed"
+msgstr "ཇི་ནོམ་ ཚིག་མཛོད་དེ་ གཞི་བཙུགས་མ་འབད་བས་"
+
+#: ../deskbar/handlers/programs.py:148
+msgid "Files and Folders Search"
+msgstr "ཡིག་སྣོད་དང་སྣོད་འཛིན་ཚུ་གི་འཚོལ་ཞིབ།"
+
+#: ../deskbar/handlers/programs.py:149
+msgid "Find files and folders by searching for a name pattern"
+msgstr "ཡིག་སྣོད་དང་སྣོད་འཛིན་ཚུ་ མིང་གི་དཔེ་གཞི་ཅིག་ འཚོལ་ཞིབ་འབད་བའི་ཐོག་ལས་འཚོལ།"
+
+#: ../deskbar/handlers/programs.py:165
+msgid "GNOME search tool is not installed"
+msgstr "ཇི་ནོམ་ འཚོལ་ཞིབ་ ལག་ཆས་ གཞི་བཙུགས་མ་འབད་བས་ "
+
+#: ../deskbar/handlers/programs.py:172
+msgid "Developer Documentation"
+msgstr "བཟོ་མིའི་ཡིག་བཀོད།"
+
+#: ../deskbar/handlers/programs.py:173
+msgid "Search Devhelp for a function name"
+msgstr "ལས་འགན་མིང་ཅིག་གི་དོན་ལུ་ ཌེབ་ཧེལཔ་ འཚོལ་ཞིབ་འབད།"
+
+#: ../deskbar/handlers/programs.py:192
+msgid "Devhelp is not installed"
+msgstr "དེབ་ཧེལཔ་ གཞི་བཙུགས་མ་འབད་བས། "
+
+#: ../deskbar/handlers/programs.py:241
+#, python-format
+msgid "Execute %s in terminal"
+msgstr "ཊར་མི་ནཱལ་ནང་ %s ལག་ལེན་འཐབ་"
+
+#: ../deskbar/handlers/programs.py:243
+#, python-format
+msgid "Execute %s"
+msgstr "%sལག་ལེན་འཐབ།"
+
+#: ../deskbar/handlers/programs.py:259
+msgid "Programs"
+msgstr "ལས་རིམ་ཚུ།"
+
+#: ../deskbar/handlers/programs.py:260
+msgid "Launch a program by its name and/or description"
+msgstr "ལས་རིམ་ཅིག་ དེ་གི་མིང་ ཡང་ན་ འགྲེལ་བཤད་ཐོག་ལས་ གསར་བཙུགས་འབད།"
+
+#: ../deskbar/handlers/recent.py:38
+msgid "Recent Documents"
+msgstr "ད་ལྟོ་འཕྲལ་ཁམས་ཀྱི་ཡིག་ཆ་ཚུ་"
+
+#: ../deskbar/handlers/recent.py:39
+msgid "Retrieve your recently accessed files and locations"
+msgstr "ད་ལྟོ་འཕྲལ་ཁམས་འཛུལ་སྤྱོད་འབད་ཡོད་མི་ ཁྱོད་རའི་ཡིག་སྣོད་དང་ གནས་ཁོངས་ཚུ་སླར་འདྲེན་འབད་"
+
+#: ../deskbar/handlers/recent.py:58
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr "ལེགས་སྐྱོང་འདི་ལུ་ ད་ལྟོ་འཕྲལ་ཁམས་ཀྱི་ཨིན་མི་ ཇི་ཊི་ཀེ་ ཐོན་རིམ་ (2.9.0 or newer)ཧེང་བཀལ་དགོཔ་འདུག་"
+
+#: ../deskbar/handlers/templates.py:37
+#, python-format
+msgid "Create %s"
+msgstr "%s གསར་བསྐྲུན་འབད་"
+
+#: ../deskbar/handlers/templates.py:40
+msgid "Create Document"
+msgstr "ཡིག་ཆ་ གསར་བསྐྲུན་འབད་"
+
+#: ../deskbar/handlers/templates.py:53
+msgid "Name:"
+msgstr "མིང་:"
+
+#: ../deskbar/handlers/templates.py:60
+msgid "Folder:"
+msgstr "སྣོད་འཛིན:"
+
+#: ../deskbar/handlers/templates.py:64
+msgid "Choose Folder"
+msgstr "སྣོད་འཛིན་ གདམ་ཁ་བརྐྱབ་"
+
+#: ../deskbar/handlers/templates.py:119
+#, python-format
+msgid "A file named \"%s\" already exists.  Do you want to replace it?"
+msgstr "\"%s\" ཟེར་མི་ཡིག་སྣོད་ཅིག་ཧེ་མ་ལས་རང་འདུག་།  ཚབ་བཙུགས་འབད་ནི་ཨིན་ན?"
+
+#: ../deskbar/handlers/templates.py:123
+#, python-format
+msgid "The file already exists in \"%s\".  Replacing it will overwrite its contents."
+msgstr "ཡིག་སྣོད་འདི་ ཧེ་མ་ལས་ལང་  \"%s\" ནང་འདུག།  ཚབ་བཙུགས་འབད་བ་ཅིན་ དེའི་ནང་དོན་ཚུ་ ཚབ་སྲུང་འབད་འོང་། "
+
+#: ../deskbar/handlers/templates.py:130
+msgid "Replace"
+msgstr "ཚབ་བཙུགས་"
+
+#: ../deskbar/handlers/templates.py:166
+msgid "Templates"
+msgstr "ཊེམ་པེལེཊི་"
+
+#: ../deskbar/handlers/templates.py:167
+msgid "Create new files from your templates"
+msgstr "ཁྱོད་རའི་ ཊེམ་པེལེཏིསི་་ནང་ལས་ ཡིག་སྣོད་གསརཔ་ཚུ་ གསར་བསྐྲུན་འབད་"
+
+#: ../deskbar/handlers/tomboy.py:37
+#, python-format
+msgid "Open note <b>%(name)s</b>"
+msgstr "དྲན་འཛིན་ <b>%(name)s</b> ཁ་ཕྱེ་ "
+
+#: ../deskbar/handlers/tomboy.py:50
+msgid "Really delete this note?"
+msgstr "དྲན་འཛིན་འདི་ ཐད་རི་འབའ་རི་བཏོན་གཏང་ནི་་ཨིན་ན?"
+
+#: ../deskbar/handlers/tomboy.py:51
+msgid "If you delete a note it is permanently lost."
+msgstr "ཁྱོད་ཀྱིས་དྲན་འཛིན་གཅིག་བཏོན་གཏང་པ་ཅིན་ འདི་ ལོག་འཐོབ་མ་ཚུགསཔ་སྦེ་ བྱངམ་ཨིན། "
+
+#: ../deskbar/handlers/tomboy.py:63
+#, python-format
+msgid "Delete note <b>%(name)s</b>"
+msgstr "དྲན་འཛིན་ <b>%(name)s</b> བཏོན་གཏང་"
+
+#: ../deskbar/handlers/tomboy.py:88
+#, python-format
+msgid "Create note <b>%(name)s</b>"
+msgstr "དྲན་འཛིན་ <b>%(name)s</b> གསར་བསྐྲུན་འབད་"
+
+#: ../deskbar/handlers/tomboy.py:110
+msgid "Title"
+msgstr "མགོ་མིང་"
+
+#: ../deskbar/handlers/tomboy.py:111
+msgid "Contents"
+msgstr "ནང་དོན་"
+
+#: ../deskbar/handlers/tomboy.py:130
+msgid "Tomboy Notes"
+msgstr "ཊོམ་བོ་ཡི་ དྲན་འཛིན་ཚུ། "
+
+#: ../deskbar/handlers/tomboy.py:131
+msgid "Search your Tomboy notes"
+msgstr "ཁྱོད་རའི་ ཊོམ་བོ་ཡི་ དྲན་འཛིན་ཚུ་ འཚོལ་ཞིབ་འབད་"
+
+#: ../deskbar/handlers/tomboy.py:198
+msgid "Tomboy does not seem to be installed."
+msgstr "ཊོམ་བོ་ཡི་ གཞི་བཙུགས་མ་འབདཝ་བཟུམ་ཅིག་འདུག། "
+
+#: ../deskbar/handlers/tomboy.py:231
+#, python-format
+msgid ""
+"Tomboy does not seem to be the correct version.\n"
+"Tomboy %s or greater must be installed."
+msgstr ""
+"ཊོམ་བོ་ཡི་དེ་ ཐོན་རིམ་ ངེས་བདེན་མེནམ་བཟུམ་ཅིག་འདུག། \n"
+"ཊོམ་བོ་ཡི་ %s ཡང་ན་ འདི་བ་ སྦོམ་མི་ཅིག་ གཞི་བཙུགས་འབད་དགོ་པས། "
+
+#: ../deskbar/handlers/web_address.py:45
+msgid "Open web pages and send emails by typing a complete address"
+msgstr "ཝེབ་ཤོག་ལེབ་ཚུ་ ཁ་ཕྱེ་ཞིནམ་ལས་ ཁ་བྱང་ཆ་ཚང་ ཡིག་དཔར་བརྐྱབས་ཐོག་ལས་ གློག་འཕྲིན་ཚུ་གཏང་།"
+
+#: ../deskbar/handlers/yahoo.py:41
+msgid "Yahoo! Search"
+msgstr "ཡ་ཧུ! འཚོལ་ཞིབ།"
+
+#: ../deskbar/handlers/yahoo.py:42
+msgid "Search Yahoo! as you type"
+msgstr "ཁྱོད་ཀྱིས་ཡིག་དཔར་རྐྱབ་དང་འབྲེལ་ཏེ་ ཡ་ཧུ་འཚོལ་ཞིབ་འབད།"
+
+#: ../deskbar/handlers/actions/ActionsFactory.py:62
+#, python-format
+msgid "URL of %s"
+msgstr " %s གི་ ཡུ་ཨར་ཨེལ་"
+
+#: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
+#, python-format
+msgid "Copy <b>%(name)s</b> to clipboard"
+msgstr "<b>%(name)s</b> འཛིན་པང་གུ་ འདྲ་བཤུས་བརྐྱབ་ "
+
+#: ../deskbar/handlers/actions/GoToLocationAction.py:23
+#, python-format
+msgid "Go to location of %s"
+msgstr "%s གི་ས་ཁོངས་ནང་འགྱོ་ "
+
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#, python-format
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "<b>%(name)s</b> (%(prog)s) གསར་བཙུགས་འབད།"
+
+#: ../deskbar/handlers/actions/OpenFileAction.py:51
+#: ../deskbar/handlers/actions/ShowUrlAction.py:24
+#, python-format
+msgid "Open %s"
+msgstr "%sཁ་ཕྱེ།"
+
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
+#, python-format
+msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
+msgstr " <b>%(name)s</b> དང་གཅིག་ཁར་  <b>%(program)s</b>ཁ་ཕྱེ་ "
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
+#, python-format
+msgid "Open network place %s"
+msgstr "ཡོངས་འབྲེལ་ས་གནས་%sཁ་ཕྱེ།"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
+#, python-format
+msgid "Open audio disc %s"
+msgstr "རྣར་ཉན་ཌིཀསི་%sཁ་ཕྱེ།"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:32
+#, python-format
+msgid "Open location %s"
+msgstr "གནས་ཁོངས་%sཁ་ཕྱེ།"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/actions/SendEmailToAction.py:24
+#, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "<b>%(name)s</b> (%(email)s) ལུ་ཡིག་འཕྲིན་གཏང་།"
+
+#. translators: %s is a filename
+#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:44
+#, python-format
+msgid "Send %s via e-mail"
+msgstr "%s གློག་འཕྲིན་གྱི་ཐོག་ལས་ གཏང་"
+
+#: ../deskbar/ui/About.py:23
+msgid "An all-in-one action bar."
+msgstr "གཅིག་ནང་ཆ་མཉམ་ཚང་བའི་ བྱ་བའི་ཕྲ་རིང་ཅིག"
+
+#: ../deskbar/ui/About.py:30
+msgid "Deskbar Website"
+msgstr "ཌེཀསི་ཕྲ་རིང་གི་ ཝེབ་ས་ཁོངས།"
+
+#. translators: These appear in the About dialog, usual format applies.
+#: ../deskbar/ui/About.py:34
+msgid "translator-credits"
+msgstr "\"ཨའི་ཌི་ཨར་སི་གི་མ་དངུལ་རྒྱབ་སྐྱོར་ཐོག་ལས་ བརྡ་དོན་འཕྲུལ་རིག་ལས་ཁུངས་ནང་ སྐད་བསྒྱུར་འབད་ཡི། ཁ་གསལ་གྱི་དོན་ལུ་ འབྲེལ་བ་འཐབ་ས་: <pema_geyleg@druknet.bt>/<pgeyleg@dit.gov.bt>\""
+
+#: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
 msgstr "<b>འཚོལ་ཞིབ་:</b>"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:49
-msgid "_File"
-msgstr "ཡིག་སྣོད།(F)"
+#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
+msgid "default"
+msgstr "སྔོན་སྒྲིག་"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:50
-msgid "_Quit"
-msgstr "སྤངས།(_Q)"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:51
-msgid "_Edit"
-msgstr "ཞུན་དག།(_E)"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:54
-msgid "_View"
-msgstr "མཐོང་སྣང་།(_V)"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:55
-msgid "_Help"
-msgstr "གྲོགས་རམ།(_H)"
-
-#: ../deskbar/ui/window/CuemiacWindowUI.py:58
+#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
+#: ../deskbar/ui/CuemiacAlignedView.py:88
+#: ../deskbar/ui/CuemiacWindowView.py:77
 msgid "_History"
 msgstr "ལོ་རྒྱུས།(_H)"
 
-#. History TreeView
-#: ../deskbar/ui/window/CuemiacWindowUI.py:84
-msgid "<b>History</b>"
-msgstr "<b>ལོ་རྒྱུས་</b>"
+#: ../deskbar/ui/CuemiacAlignedView.py:150
+#: ../deskbar/ui/CuemiacWindowView.py:139
+msgid "Back to Matches"
+msgstr "ལོག་མཐུན་སྒྲིག་ཚུ་ནང་འགྱོ། "
 
-#: ../deskbar/updater/ErrorDialog.py:8
+#: ../deskbar/ui/DeskbarTray.py:44
+msgid "Show search entry"
+msgstr "ཐོ་བཀོད་ཆ་མཉམ་སྟོན།"
+
+#: ../deskbar/ui/DeskbarTray.py:111
+msgid "Some potentially old modules that make use of an old Deskbar-Applet API have been found. Remove these files for this warning to disappear.\n"
+msgstr "ཌེསིཀ་བར་-ཨེཔལེཊི་ ཨེ་པི་ཨའི་རྙིངམ་ ལག་ལེན་འཐབ་མི་ འོས་འབབ་ཡོད་པའི་ཚད་གཞི་རྙངམ་ཚུ་ ཐོབ་ཅི།  ཉེན་བརྡ་འདི་ ཡལ་འགྱོ་ནིའི་དོན་ལུ་  ཡིག་སྣོད་ཚུ་རྩབསྐྲ་གཏང་།\n"
+
+#: ../deskbar/ui/preferences/AccelEntry.py:102
+msgid "New accelerator..."
+msgstr "མགྱོགས་འཕྲུལ་གསརཔ།"
+
+#: ../deskbar/ui/preferences/AccelEntry.py:154
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will prevent correct operation of your keyboard.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"མགྱོགས་ཐབས་\"%s\" ལག་ལེན་འཐབ་མི་བཏུབ་ ག་ཅི་སྦེ་ཟེར་བ་ཅིན་ དེ་གིས་ ཁྱོད་རའི་ ལྡེ་སྒྲོམ་དེ་ ལེགས་ཤོམ་སྦེ་ བཀོལ་སྤྱོད་འབད་མ་བཏུབ་བཟོ་འོང་། །\n"
+"ཚད་འཛིན་ འཐེམ་ལྡེ་ ཡང་ན་ སོར་ལྡེ་ལ་སོགས་པ་ཚུ་གི་ཐོག་ལས་ འབད་བརྩོལ་བསྐྱེད་གནང་།\n"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:80
+msgid "Reload all extensions"
+msgstr "རྒྱ་སྐྱེད་ཚུ་ག་ར་ ཡང་བསྐྱར་མངོན་གསལ་འབད་"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:85
+msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
+msgstr "<i><small><b> རྒྱ་སྐྱེད་ཀྱི་གོ་རིམ་སོར་ནིའི་དོན་ལུ་ འདྲུད་ཞིནམ་ལས་བཀོག་བཞག་</small></i>"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:337
+msgid "A problem occured"
+msgstr "འཛོལ་བ་ཅིག་ བྱུང་ནུག།"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:402
+msgid "Handler has been installed successfully"
+msgstr "ལེགས་སྐྱོང་པ་དེ་ མཐར་འཁྱོལ་ཅན་སྦེ་གཞི་བཙུགས་འབད་ནུག་"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:405
+msgid "Handler could not be installed due a problem with the provided file"
+msgstr "འབྱིན་སྟེ་ཡོད་པའི་ཡིག་སྣོད་དང་དཅིག་གར་ དཀའ་ངལ་ཡོད་ནི་དེ་གིས་ ལེགས་སྐྱོང་པ་གཞི་བཙུགས་འབད་མི་ཚུགས་"
+
+#: ../deskbar/ui/preferences/ErrorDialog.py:8
 msgid "Error"
 msgstr "འཛོལ་བ་"
 
-#: ../deskbar/updater/ErrorDialog.py:25
-msgid "An error occured"
-msgstr "འཛོལ་བ་ཅིག་བྱུང་ནུག།"
-
-#: ../deskbar/updater/ErrorDialog.py:25
+#: ../deskbar/ui/preferences/ErrorDialog.py:26
 msgid "Check the description beneath for further details."
 msgstr "ཁ་གསལ་གྱི་དོན་ལུ་ འོག་གི་འགྲེལ་བཤད་ལུ་ ཞིབ་དཔྱད་འབད།"
 
-#: ../deskbar/updater/ErrorDialog.py:31
+#: ../deskbar/ui/preferences/ErrorDialog.py:32
 msgid "Details"
 msgstr "རྒྱས་བཤད་ཚུ་"
 
-#: ../deskbar/updater/NewStuffUpdater.py:131
-#, python-format
-msgid "Updating %s"
-msgstr "%sདུས་བཟོ་དོ།"
+#: ../deskbar/ui/preferences/ModuleListView.py:53
+msgid "Version:"
+msgstr "ཐོན་རིམ་:"
 
-#: ../deskbar/updater/NewStuffUpdater.py:131
-msgid "The update is being downloaded from the internet. Please wait until the update is complete"
-msgstr "དུས་མཐུན་བཟོ་ནི་དེ་ ཨིན་ཊར་ནེཊི་ནང་ལས་ ཕབ་ལེན་འབད་དོ། དུས་མཐུན་བཟོ་ནི་ མཇུག་མ་བསྡུ་ཚུན་ཚོད་བསྒུག་གནང་།"
+#: ../deskbar/ui/preferences/ModuleListView.py:56
+msgid "Update Available"
+msgstr "ཡོད་མི་ཚུ་དུས་མཐུའ་བཟོ།"
 
-#: ../deskbar/updater/NewStuffUpdater.py:156
-#, python-format
-msgid "Installing %s"
-msgstr "%sགཞི་བཙུགས་འབད་དོ།"
-
-#: ../deskbar/updater/NewStuffUpdater.py:156
-msgid "The handler is being downloaded from the internet. Please wait until the installation is complete"
-msgstr "ལེགས་སྐྱོང་འཐབ་མི་དེ་ ཨིན་ཊར་ནེཊི་ནང་ལས་ ཕབ་ལེན་འབད་དོ། དུས་མཐུན་བཟོ་ནི་ མཇུག་མ་བསྡུ་ཚུན་ཚོད་བསྒུག་གནང་།"
-
-#: ../deskbar/updater/NewStuffUpdater.py:157
-msgid "Downloading"
-msgstr "ཕབ་ལེན་འབད་དོ།"
-
-#~ msgid "An all-in-one action bar"
-#~ msgstr "གཅིག་ནང་ཆ་མཉམ་ཚང་བའི་ བྱ་བའི་ཕྲ་རིང་ཅིག"
+#~ msgid "The applet's entry width in number of characters"
+#~ msgstr "ཡིག་འབྲུ་ཨང་ནང་ཨེཔ་ལེཊསི་གི་ཐོ་བཀོད་རྒྱ་ཚད"
+#~ msgid ""
+#~ "The list of categories to be collapsed when displayed in the 'Cuemiac' "
+#~ "UI. Valid category names are defined in Categories.py"
+#~ msgstr ""
+#~ "ཡུ་ཨའི་'Cuemiac'ནང་བཀྲཙ་སྟོན་འབད་བའི་སྐབས་ལུ་དབྱེ་རིམ་ཚུ་གི་ཐོ་འདིརམ་ཡོདཔ། ནུས་ཅན་དབྱེ་རིམ་གྱི་"
+#~ "མིང་ཚུ་དབྱེ་རིམ་པའི་ནང་ངེས་འཛིན་འབད་ཡོདཔ།་"
+#~ msgid ""
+#~ "Whether the applet should take all the available space in the panel. "
+#~ "Overrides the width preference."
+#~ msgstr ""
+#~ "ཡང་ན་ཨེཔ་ལེཊིསི་གིས་པེ་ནཱལ་ནང་ཡོད་མི་ས་སྟོང་ཚུ་འབག་དགོ་ག། རྒྱ་ཚད་དགལ་གདམ་ཚུ་མེདཔ་གཏང་ཡོདཔ།"
+#~ msgid "<b>Layout</b>"
+#~ msgstr "<b>སྒྲིག་བཀོད་</b>"
+#~ msgid "Entry in panel"
+#~ msgstr "པེ་ནཱལ་ནང་ལུ་ཐོ་བཀོད།"
+#~ msgid "Fixed _width:"
+#~ msgstr "གཏན་བཟོས་རྒྱ་ཚད་:(_w)"
+#~ msgid "Use _all available space"
+#~ msgstr "བར་སྟོང་ཡོད་ཚད་ཆ་མཉམ་ ལག་ལེན་འཐབ།(_a)"
+#~ msgid "View"
+#~ msgstr "མཐོང་སྣང་།"
+#~ msgid "characters"
+#~ msgstr "ཡིག་འབྲུ་ཚུ།"
+#~ msgid ""
+#~ "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</"
+#~ "b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</"
+#~ "b> in the deskbar.</small></i>"
+#~ msgstr ""
+#~ "<i><small><b>དྲན་འཛིན་: </b>གལ་སྲིད་མགྱོགས་ཐབས་དེ་ ཡིག་རྐྱང་ཅིག་ཨིན་པ་ཅིན་ ཁྱོད་ཀྱིས་ "
+#~ "(<b>t</b>བཟུམ་) \"<b>ག་ཅི་ཅིག་</b>\" ཡིག་དཔར་བརྐྱབས་ཏེ་ དེ་ལས་མནན་དགོ་ <b>Alt-t</"
+#~ "b> ཌེཀསི་ཕྲ་རིང་ནང་།</small></i>"
+#~ msgid "No History"
+#~ msgstr "ལོ་རྒྱུས་མེད།"
+#~ msgid "A programming error has been detected"
+#~ msgstr "ལས་རིམ་བཟོ་ནིའི་འཛོལ་བ་ཅིག་ ངོས་འཛིན་བྱུང་ཡི།"
+#~ msgid ""
+#~ "It probably isn't fatal, but should be reported to the developers "
+#~ "nonetheless. The program may behave erratically from now on."
+#~ msgstr ""
+#~ "འཛོལ་བ་འདི་འཚུབ་ཆེན་ཅིག་མེནམ་འོང་། ཨིན་རུང་བཟོ་མི་ཚུ་ལུ་སྙན་ཞུ་གཏང་དགོ དེ་མེན་པ་ཅིན་ ད་ལས་"
+#~ "ཕར་ ལས་རིམ་འདི་གིས་ ཚུལ་མིན་གྱི་སྤྱོད་པ་འབད་འོང་།"
+#~ msgid "Bug Detected"
+#~ msgstr "རྐྱེན་གྱི་ངོས་འཛིན་འབད་ཡི།"
+#~ msgid "Start Beagle Daemon?"
+#~ msgstr "བི་གཱལ་ཌེ་མཱོན་ འགོ་བཙུགས་ནི་ཨིན་ན?"
+#~ msgid "Start Beagle Daemon"
+#~ msgstr "བི་གཱལ་ཌེ་མཱོན་ འགོ་བཙུགས།"
+#~ msgid ""
+#~ "The Beagle daemon does not appear to be running.\n"
+#~ " You need to start it to use the Beagle Live handler."
+#~ msgstr ""
+#~ "བི་གཱལ་ཌེ་མཱོན་དེ་ ལཱ་མི་འབདཝ་བཟུམ་ཅིག་འདུག།བི་གཱལ་ལ་ཡིབ་ ལེགས་སྐྱོང་པ་ ལག་ལེན་འཐབ་ནི་ལུ་ ཁྱོད་"
+#~ "ཀྱིས་བི་གཱལ་ཌེ་མཱོན་ ལོག་འགོ་བཙུགས་དགོ།"
+#~ msgid "Failed to start Beagle"
+#~ msgstr "བི་གཱལ་འགོ་བཙུགས་མ་ཚུགས།"
+#~ msgid "Perhaps the beagle daemon isn't installed?"
+#~ msgstr "བི་གཱལ་གྱི་ཌེ་མཱོན་དེ་ གཞི་བཙུགས་མ་འབདཝ་འདྲས་མེན་ན?"
+#~ msgid "You need to enable autocomplete in your mail preferences"
+#~ msgstr "ཁྱོད་ཀྱིས་ཁྱོད་རའི་གློག་འཕྲིན་དགའ་གདམ་ཚུ་ནང་ རང་བཞིན་ཡོངས་སྒྲུབ་ ལྕོགས་ཅན་བཟོ་དགོ"
+#~ msgid "Autocompletion Needs to be Enabled"
+#~ msgstr "རང་བཞིན་ཡོངས་སྒྲུབ་ ལྕོགས་ཅན་བཟོ་དགོཔ་འདུག"
+#~ msgid "Open folder %s"
+#~ msgstr "སྣོད་འཛིན་%sཁ་ཕྱེ།"
+#~ msgid "Log out"
+#~ msgstr "ཕྱིར་བསྐྱོད་འབད།"
+#~ msgid "Open the web page %s"
+#~ msgstr "ཝེབ་ཤོག་ལེབ་%sཁ་ཕྱེ།"
+#~ msgid "Send Email to %s"
+#~ msgstr "%sལུ་གློག་འཕྲིན་གཏང་།"
+#~ msgid "Connection to repository failed"
+#~ msgstr "མཛོད་གནས་ལུ་འབྲེལ་ལམ་དེ་འཐུས་ཤོར་བྱུང་ནུག"
+#~ msgid "Please check your internet connection"
+#~ msgstr "ཁྱོད་རའི་ཨིན་ཊར་ནེཊི་གི་འབྲེལ་ལམ་དེ་ཞིབ་དཔྱད་འབད་གནང་།"
+#~ msgid "Show previously used actions"
+#~ msgstr "ཧེ་མར་ལག་ལེན་འཐབ་མི་ བྱ་བ་ཚུ་སྟོན།།"
+#~ msgid "_File"
+#~ msgstr "ཡིག་སྣོད།(F)"
+#~ msgid "_Quit"
+#~ msgstr "སྤངས།(_Q)"
+#~ msgid "_Edit"
+#~ msgstr "ཞུན་དག།(_E)"
+#~ msgid "_View"
+#~ msgstr "མཐོང་སྣང་།(_V)"
+#~ msgid "<b>History</b>"
+#~ msgstr "<b>ལོ་རྒྱུས་</b>"
+#~ msgid "Updating %s"
+#~ msgstr "%sདུས་བཟོ་དོ།"
+#~ msgid ""
+#~ "The update is being downloaded from the internet. Please wait until the "
+#~ "update is complete"
+#~ msgstr ""
+#~ "དུས་མཐུན་བཟོ་ནི་དེ་ ཨིན་ཊར་ནེཊི་ནང་ལས་ ཕབ་ལེན་འབད་དོ། དུས་མཐུན་བཟོ་ནི་ མཇུག་མ་བསྡུ་ཚུན་ཚོད་"
+#~ "བསྒུག་གནང་།"
+#~ msgid "Installing %s"
+#~ msgstr "%sགཞི་བཙུགས་འབད་དོ།"
+#~ msgid ""
+#~ "The handler is being downloaded from the internet. Please wait until the "
+#~ "installation is complete"
+#~ msgstr ""
+#~ "ལེགས་སྐྱོང་འཐབ་མི་དེ་ ཨིན་ཊར་ནེཊི་ནང་ལས་ ཕབ་ལེན་འབད་དོ། དུས་མཐུན་བཟོ་ནི་ མཇུག་མ་བསྡུ་ཚུན་ཚོད་"
+#~ "བསྒུག་གནང་།"
+#~ msgid "Downloading"
+#~ msgstr "ཕབ་ལེན་འབད་དོ།"
 #~ msgid ""
 #~ "You need a Google account to use Google Live.  To get one, go to http://"
 #~ "api.google.com/\n"
@@ -884,8 +1194,6 @@ msgstr "ཕབ་ལེན་འབད་དོ།"
 #~ msgstr "གུ་གཱལ་འཚོལ་ཞིབ།"
 #~ msgid "Search Google as you type"
 #~ msgstr "ཁྱོད་ཀྱིས་ཡིག་དཔར་རྐྱབ་དང་འབྲེལ་ཏེ་ གུ་གཱལ་འཚོལ་ཞིབ་འབད།"
-#~ msgid "Deskbar Applet"
-#~ msgstr "ཌེཀསི་ཕྲ་རིང་གི་ ཨེཔ་ལེཊི།"
 #~ msgid "Desktop search"
 #~ msgstr "ཌེཀསི་ཊོཔ་འཚོལ་ཞིབ།"
 #~ msgid "Search your computer and the internet quickly"
@@ -922,8 +1230,6 @@ msgstr "ཕབ་ལེན་འབད་དོ།"
 #~ msgstr "ཡིག་འཕྲིན།"
 #~ msgid "Send mail by typing a complete e-mail address"
 #~ msgstr "གློག་འཕྲིན་ཁ་བྱང་ཆ་ཚང་ཅིག་ ཡིག་དཔར་རྐྱབ་ཐོག་ལས་ གློག་འཕྲིན་གཏང་།"
-#~ msgid "Files and Folders"
-#~ msgstr "ཡིག་སྣོད་དང་སྣོདའཛིན་ཚུ།"
 #~ msgid "Open your files and folders by name"
 #~ msgstr "ཁྱོད་རའི་ཡིག་སྣོད་དང་ སྣོད་འཛིན་ཚུ་ མིང་གི་ཐོག་ལས་ཁ་ཕྱེ།"
 #~ msgid "Files and Folders Bookmarks"
