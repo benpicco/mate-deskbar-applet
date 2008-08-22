@@ -429,7 +429,7 @@ class CoreImpl(deskbar.interfaces.Core):
         
         # Remove modules of new browser from self._disabled_module_list
         filename = None
-        for (icon, module, activatable) in self._disabled_module_list:
+        for module in self._disabled_module_list:
             if module.__module__ == new_browser:
                 if filename is None:
                     filename = module.filename
