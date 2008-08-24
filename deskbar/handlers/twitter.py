@@ -148,6 +148,14 @@ class TwitterUpdateAction(deskbar.interfaces.Action):
             error.destroy()
         
     def get_verb(self):
+        # TRANSLATORS: An example display of the below string:
+        #
+        #   (125) Post "I can eat glass"
+        #
+        # The number in the parens indicates how many characters the user 
+        # has left of the maximum message size. It should be at the start of
+        # the string as to not be hidden by ellipsation.
+        #
         return _('<small>(%(remain)s)</small> Post <i>"%(msg)s"</i>')
 
     def get_tooltip(self, text=None):

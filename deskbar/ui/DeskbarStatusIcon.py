@@ -47,6 +47,8 @@ class DeskbarPopupMenu (gtk.Menu):
             
         def add_action(self, text, action):
             if isinstance(action, EmptyHistoryAction):
+                # TRANSLATORS: Below "Empty" is an adjective. As in 
+                #              the state of being empty
                 menuItem = DeskbarPopupMenu.Item (_("<i>Empty</i>"),
                                                   pixbuf=CATEGORIES["history"]["icon"])
                 self.__is_empty = True
