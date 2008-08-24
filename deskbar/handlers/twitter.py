@@ -151,7 +151,7 @@ class TwitterUpdateAction(deskbar.interfaces.Action):
         return _('<small>(%(remain)s)</small> Post <i>"%(msg)s"</i>')
 
     def get_tooltip(self, text=None):
-        return _("Update your %s account with the message:\n\n\t<i>%s</i>") % (self._service_name, self._msg)
+        return _("Update your %s account with the message:\n\n\t<i>%s</i>") % (self._service, self._msg)
         
     def get_name(self, text=None):
         return {"name": self._msg, "msg" : self._msg, "remain" : str(140 - len(self._msg))}
