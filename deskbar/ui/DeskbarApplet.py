@@ -163,7 +163,7 @@ class DeskbarApplet (gnomeapplet.Applet, AbstractCuemiacDeskbarIcon):
 
     def _setup_history(self):
         self.hview = CuemiacHistoryView(self._core.get_history())
-        self.hview.connect("match-selected", self._controller.on_history_match_selected)
+        self.hview.connect("match-selected", self.__on_history_match_selected)
         self.hview.show()
         
         self.history_popup = CuemiacHistoryPopup (self.tray.button_arrow,
@@ -194,12 +194,15 @@ class DeskbarApplet (gnomeapplet.Applet, AbstractCuemiacDeskbarIcon):
         return False
     
     def on_toggled_main(self, widget):
-         self.set_active (not self.get_active(),
+        self.set_active (not self.get_active(),
                           gtk.get_current_event_time())
     
     def on_toggled_arrow(self, widget):
         self._controller.on_quit()
-        self.history_popup.popup ()
+        if self.history_popup.get_property("visible"):
+            self.history_popup.popdown()
+        else:
+            self.history_popup.popup()
     
     def get_reference_widget(self):
         return self.tray
@@ -220,4 +223,8 @@ class DeskbarApplet (gnomeapplet.Applet, AbstractCuemiacDeskbarIcon):
             ("Clear", lambda a,b: self._controller.on_clear_history(a),),
             ("Help", lambda a,b: self._controller.on_show_help(a),)
             ])
+        
+    def __on_history_match_selected(self, history, text, action):
+        self._controller.on_history_match_selected(history, text, action)
+        self.tray.set_active_arrow(False)
         

@@ -55,6 +55,9 @@ class AbstractCuemiacDeskbarIcon (object):
 
         self._view.set_sensitive(False)
         
+        # we want to update active when the window is closed
+        self._view.get_toplevel().connect("notify::visible", self.__on_toplevel_visible_notify)
+        
         GconfStore.get_instance().connect("ui-name-changed", self._on_ui_name_changed)
             
     def _setup_mvc(self):
@@ -81,7 +84,10 @@ class AbstractCuemiacDeskbarIcon (object):
             if format["name"] == "svg":
                 return True
         return False
-   
+    
+    def __on_toplevel_visible_notify(self, widget, param):
+        self.active = widget.get_property("visible")
+        
     def get_deskbar_icon(self, size):
         if size < 24:
             size = 16
