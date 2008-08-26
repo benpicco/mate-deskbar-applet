@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-06 09:15+0100\n"
+"POT-Creation-Date: 2008-08-26 14:42+0100\n"
 "PO-Revision-Date: 2008-08-04 21:42-0000\n"
 "Last-Translator: Youssef Chahibi <chahibi@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -339,7 +339,7 @@ msgid "Uncategorized"
 msgstr "غير مصنف"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
-#: ../deskbar/ui/DeskbarStatusIcon.py:76
+#: ../deskbar/ui/DeskbarStatusIcon.py:78
 msgid "History"
 msgstr "تأريخ"
 
@@ -403,45 +403,45 @@ msgstr "صور"
 msgid "<i>Empty history</i>"
 msgstr "<i>تاريخ فارغ</i>"
 
-#: ../deskbar/core/Utils.py:184
+#: ../deskbar/core/Utils.py:185
 msgid "Cannot execute program:"
 msgstr "تعذّر تنفيذ البرنامج:"
 
-#: ../deskbar/core/Utils.py:224
+#: ../deskbar/core/Utils.py:225
 msgid "Cannot show URL:"
 msgstr "تعذّر عرض المسار:"
 
-#: ../deskbar/core/Web.py:99
+#: ../deskbar/core/Web.py:135
 #, python-format
 msgid "<big><b>Login for %s</b></big>"
 msgstr ""
 
-#: ../deskbar/core/Web.py:100
+#: ../deskbar/core/Web.py:136
 #, python-format
 msgid "Please provide your credentials for <b>%s</b>"
 msgstr ""
 
-#: ../deskbar/core/Web.py:101
+#: ../deskbar/core/Web.py:137
 #, python-format
 msgid "Credentials for %s"
 msgstr ""
 
 #. Show '*' instead of text
-#: ../deskbar/core/Web.py:107
+#: ../deskbar/core/Web.py:143
 #, fuzzy
 msgid "User name:"
 msgstr "اسم المستخدم: "
 
-#: ../deskbar/core/Web.py:108
+#: ../deskbar/core/Web.py:144
 msgid "Password:"
 msgstr ""
 
-#: ../deskbar/core/Web.py:209
+#: ../deskbar/core/Web.py:254
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr ""
 
-#: ../deskbar/core/Web.py:210
+#: ../deskbar/core/Web.py:255
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr ""
@@ -830,14 +830,12 @@ msgstr "بلغاري"
 msgid "Catalan"
 msgstr "كاتالان"
 
-#: ../deskbar/handlers/googlesearch.py:29
-#, fuzzy
-msgid "Chinese Simplified"
+#: ../deskbar/handlers/googlesearch.py:29 ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
 msgstr "صيني مبسط"
 
-#: ../deskbar/handlers/googlesearch.py:30
-#, fuzzy
-msgid "Chinese Traditional"
+#: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
 msgstr "صيني تقليدي"
 
 #: ../deskbar/handlers/googlesearch.py:31
@@ -1228,34 +1226,44 @@ msgstr ""
 "لا يبدو أن إصدارة توم بوي صحيحة.\n"
 "يجب تثبيت توم بوي %s أو أحدث."
 
-#: ../deskbar/handlers/twitter.py:40
+#: ../deskbar/handlers/twitter.py:41
 #, python-format
 msgid ""
-"Failed to post update to %(domain)s. Please make sure that:\n"
+"Failed to post update to %(domain)s.\n"
+"Please make sure that:\n"
 "\n"
-"  - Your internet connection is working\n"
-"  - You can connect to <i>http://%(domain)s</i> in your web browser\n"
-"  - Your credentials in the preferences are correct\n"
+" • Your internet connection is working\n"
+" • You can connect to <i>http://%(domain)s</i> in\n"
+"    your web browser\n"
+" • Your credentials in the preferences are correct"
 msgstr ""
 
-#: ../deskbar/handlers/twitter.py:67
+#: ../deskbar/handlers/twitter.py:89
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr ""
 
-#: ../deskbar/handlers/twitter.py:68 ../deskbar/handlers/twitter.py:81
-#: ../deskbar/handlers/twitter.py:121
+#: ../deskbar/handlers/twitter.py:90 ../deskbar/handlers/twitter.py:103
+#: ../deskbar/handlers/twitter.py:145
 #, python-format
 msgid "Error posting to %s"
 msgstr ""
 
-#: ../deskbar/handlers/twitter.py:127
+#. TRANSLATORS: An example display of the below string:
+#.
+#. (125) Post "I can eat glass"
+#.
+#. The number in the parens indicates how many characters the user
+#. has left of the maximum message size. It should be at the start of
+#. the string as to not be hidden by ellipsation.
+#.
+#: ../deskbar/handlers/twitter.py:159
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr ""
 
-#: ../deskbar/handlers/twitter.py:130
+#: ../deskbar/handlers/twitter.py:162
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1263,20 +1271,20 @@ msgid ""
 "\t<i>%s</i>"
 msgstr ""
 
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:199
 #, fuzzy
 msgid "Twitter"
 msgstr "العنوان"
 
-#: ../deskbar/handlers/twitter.py:168
+#: ../deskbar/handlers/twitter.py:200
 msgid "Post updates to your Twitter account"
 msgstr ""
 
-#: ../deskbar/handlers/twitter.py:214
+#: ../deskbar/handlers/twitter.py:247
 msgid "identi.ca"
 msgstr ""
 
-#: ../deskbar/handlers/twitter.py:215
+#: ../deskbar/handlers/twitter.py:248
 msgid "Post updates to your identi.ca account"
 msgstr ""
 
@@ -1314,14 +1322,6 @@ msgid ""
 "Choose the language you want to use or enter the code of your language "
 "manually"
 msgstr ""
-
-#: ../deskbar/handlers/yahoo.py:33
-msgid "Chinese simplified"
-msgstr "صيني مبسط"
-
-#: ../deskbar/handlers/yahoo.py:34
-msgid "Chinese traditional"
-msgstr "صيني تقليدي"
 
 #: ../deskbar/handlers/yahoo.py:35
 msgid "Croatian"
@@ -1443,7 +1443,7 @@ msgstr "اعرض الإجراءات الإضافية"
 msgid "Back to Matches"
 msgstr "عُد إلى التطابقات"
 
-#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:114
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:116
 msgid "Show search entry"
 msgstr "أظهر مُدْخلة البحث"
 
@@ -1452,27 +1452,29 @@ msgstr "أظهر مُدْخلة البحث"
 msgid "Show previously used actions"
 msgstr "تعرّف على البحوث المستعملة سابقا"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:50
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:52
 msgid "<i>Empty</i>"
 msgstr ""
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:85
+#: ../deskbar/ui/DeskbarStatusIcon.py:87
 msgid "Clear History"
 msgstr "امسح التأريخ"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:89
+#: ../deskbar/ui/DeskbarStatusIcon.py:91
 msgid "Preferences"
 msgstr "التفضيلات"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:93
+#: ../deskbar/ui/DeskbarStatusIcon.py:95
 msgid "Help"
 msgstr "مساعدة"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:97
+#: ../deskbar/ui/DeskbarStatusIcon.py:99
 msgid "About"
 msgstr "عنْ"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:103
+#: ../deskbar/ui/DeskbarStatusIcon.py:105
 msgid "Quit"
 msgstr "أغلق"
 
@@ -1506,27 +1508,36 @@ msgstr "حدثت مشكلة"
 msgid "Extension has been installed successfully"
 msgstr "ثُبِّت الامتداد بنجاح"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:531
-msgid "Retrieving the extension index"
-msgstr "يستقبل فهرس الامتداد"
-
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:533
-msgid "Downloading extension"
-msgstr "يُنزّل الامتداد"
-
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:535
-msgid "Extracting archive"
-msgstr "يستخرج الأرشيف"
-
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:542
 msgid "Installing extension"
 msgstr "يثبّت الامتداد"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:543
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:534
 msgid "The extension will be downloaded and installed."
 msgstr "سيُنزّل الامتداد ويثبّت"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:585
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:536
+#, fuzzy
+msgid "Retrieving list of extensions"
+msgstr "يستقبل فهرس الامتداد"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:537
+msgid "A list of available extensions is downloaded."
+msgstr ""
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:538
+msgid "Retrieving the extension index"
+msgstr "يستقبل فهرس الامتداد"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:540
+msgid "Downloading extension"
+msgstr "يُنزّل الامتداد"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:542
+msgid "Extracting archive"
+msgstr "يستخرج الأرشيف"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:595
 #, fuzzy
 msgid ""
 "Extension could not be installed due to a problem with the provided file"
@@ -1551,6 +1562,14 @@ msgstr "الإصدارة:"
 #: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "يوجد تحديث"
+
+#, fuzzy
+#~ msgid "Chinese Simplified"
+#~ msgstr "صيني مبسط"
+
+#, fuzzy
+#~ msgid "Chinese Traditional"
+#~ msgstr "صيني تقليدي"
 
 #~ msgid "<i>Choose action</i>"
 #~ msgstr "<i>اختر إجراءا</i>"
