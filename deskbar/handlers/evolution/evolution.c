@@ -336,7 +336,7 @@ search_sync (const char *query,
 				int i=0;
 				hit->email = (gchar*)g_list_nth(emailList,i)->data;
 				for (i=1; g_list_nth(emailList,i) != NULL; i++)
-					hit->email = g_strjoin(",",hit->email,((gchar*)g_list_nth(emailList,i)->data));
+					hit->email = g_strjoin(",",hit->email,((gchar*)g_list_nth(emailList,i)->data), NULL);
 				g_list_foreach(emailList, (GFunc)g_free, NULL);
   				g_list_free(emailList);
 			}
