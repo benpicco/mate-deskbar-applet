@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-13 16:07+0300\n"
-"PO-Revision-Date: 2008-08-10 11:54+0300\n"
+"POT-Creation-Date: 2008-08-27 12:10+0300\n"
+"PO-Revision-Date: 2008-08-27 12.00+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -337,7 +337,7 @@ msgid "Uncategorized"
 msgstr "Luokittelematon"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
-#: ../deskbar/ui/DeskbarStatusIcon.py:76
+#: ../deskbar/ui/DeskbarStatusIcon.py:78
 msgid "History"
 msgstr "Historia"
 
@@ -409,36 +409,36 @@ msgstr "Ohjelmaa ei voi suorittaa:"
 msgid "Cannot show URL:"
 msgstr "URL:ia ei voi näyttää:"
 
-#: ../deskbar/core/Web.py:100
+#: ../deskbar/core/Web.py:135
 #, python-format
 msgid "<big><b>Login for %s</b></big>"
 msgstr "<big><b>Kirjautuminen palveluun %s</b></big>"
 
-#: ../deskbar/core/Web.py:101
+#: ../deskbar/core/Web.py:136
 #, python-format
 msgid "Please provide your credentials for <b>%s</b>"
 msgstr "Anna tunnistetietosi palvelulle <b>%s</b>"
 
-#: ../deskbar/core/Web.py:102
+#: ../deskbar/core/Web.py:137
 #, python-format
 msgid "Credentials for %s"
 msgstr "Palvelun %s tunnistetiedot"
 
 #. Show '*' instead of text
-#: ../deskbar/core/Web.py:108
+#: ../deskbar/core/Web.py:143
 msgid "User name:"
 msgstr "Käyttäjätunnus: "
 
-#: ../deskbar/core/Web.py:109
+#: ../deskbar/core/Web.py:144
 msgid "Password:"
 msgstr "Salasana: "
 
-#: ../deskbar/core/Web.py:212
+#: ../deskbar/core/Web.py:254
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>Kirjautuminen palveluun %s hylättiin</b></big>"
 
-#: ../deskbar/core/Web.py:213
+#: ../deskbar/core/Web.py:255
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "Tarkista tunnistetietosi palvelulle <b>%s</b>"
@@ -813,12 +813,12 @@ msgstr "bulgaria"
 msgid "Catalan"
 msgstr "katalaani"
 
-#: ../deskbar/handlers/googlesearch.py:29
-msgid "Chinese Simplified"
+#: ../deskbar/handlers/googlesearch.py:29 ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
 msgstr "yksinkertaistettu kiina"
 
-#: ../deskbar/handlers/googlesearch.py:30
-msgid "Chinese Traditional"
+#: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
 msgstr "perinteinen kiina"
 
 #: ../deskbar/handlers/googlesearch.py:31
@@ -1208,40 +1208,51 @@ msgstr ""
 "Tomboystä ei näytä olevan oikeaa versiota.\n"
 "Tomboy %s tai uudempi pitää olla asennettuna."
 
-#: ../deskbar/handlers/twitter.py:40
+#: ../deskbar/handlers/twitter.py:41
 #, python-format
 msgid ""
-"Failed to post update to %(domain)s. Please make sure that:\n"
+"Failed to post update to %(domain)s.\n"
+"Please make sure that:\n"
 "\n"
-"  - Your internet connection is working\n"
-"  - You can connect to <i>http://%(domain)s</i> in your web browser\n"
-"  - Your credentials in the preferences are correct\n"
+" • Your internet connection is working\n"
+" • You can connect to <i>http://%(domain)s</i> in\n"
+"    your web browser\n"
+" • Your credentials in the preferences are correct"
 msgstr ""
-"Päivityksen lähetys kohteeseen %(domain)s epäonnistui. Varmista että:\n"
+"Päivityksen lähetys kohteeseen %(domain)s epäonnistui.\n"
+"Varmista, että:\n"
 "\n"
 "  - Verkkoyhteytesi on kunnossa\n"
 "  - Voit ottaa yhteyttä osoitteeseen <i>http://%(domain)s</i> selaimella\n"
-"  - Tunnukset ja salasanat asetuksissa ovat oikeat\n"
+"  - Tunnukset ja salasanat asetuksissa ovat oikeat"
 
-#: ../deskbar/handlers/twitter.py:67
+#: ../deskbar/handlers/twitter.py:89
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr ""
 "Viesti on odottamassa julkaisemista, odota ennen kuin lähetät uuden viestin"
 
-#: ../deskbar/handlers/twitter.py:68 ../deskbar/handlers/twitter.py:81
-#: ../deskbar/handlers/twitter.py:121
+#: ../deskbar/handlers/twitter.py:90 ../deskbar/handlers/twitter.py:103
+#: ../deskbar/handlers/twitter.py:145
 #, python-format
 msgid "Error posting to %s"
 msgstr "Virhe lähetettäessä osoitteeseen %s"
 
-#: ../deskbar/handlers/twitter.py:127
+#. TRANSLATORS: An example display of the below string:
+#.
+#. (125) Post "I can eat glass"
+#.
+#. The number in the parens indicates how many characters the user
+#. has left of the maximum message size. It should be at the start of
+#. the string as to not be hidden by ellipsation.
+#.
+#: ../deskbar/handlers/twitter.py:159
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> viesti <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:130
+#: ../deskbar/handlers/twitter.py:162
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1252,19 +1263,19 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:199
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:168
+#: ../deskbar/handlers/twitter.py:200
 msgid "Post updates to your Twitter account"
 msgstr "Lähetä päivityksiä twitter-tiliisi"
 
-#: ../deskbar/handlers/twitter.py:214
+#: ../deskbar/handlers/twitter.py:247
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:215
+#: ../deskbar/handlers/twitter.py:248
 msgid "Post updates to your identi.ca account"
 msgstr "Lähetä päivityksiä identi.ca -tiliisi"
 
@@ -1302,14 +1313,6 @@ msgid ""
 "Choose the language you want to use or enter the code of your language "
 "manually"
 msgstr "Valitse kieli, jota haluat käyttää, tai syötä kielikoodi käsin"
-
-#: ../deskbar/handlers/yahoo.py:33
-msgid "Chinese simplified"
-msgstr "yksinkertaistettu kiina"
-
-#: ../deskbar/handlers/yahoo.py:34
-msgid "Chinese traditional"
-msgstr "perinteinen kiina"
 
 #: ../deskbar/handlers/yahoo.py:35
 msgid "Croatian"
@@ -1431,7 +1434,7 @@ msgstr "Näytä lisätoiminnot"
 msgid "Back to Matches"
 msgstr "Takaisin osumiin"
 
-#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:114
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:116
 msgid "Show search entry"
 msgstr "Näytä hakukenttä"
 
@@ -1439,27 +1442,29 @@ msgstr "Näytä hakukenttä"
 msgid "Show previously used actions"
 msgstr "Näytä aikaisemmin käytetyt toiminnot"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:50
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:52
 msgid "<i>Empty</i>"
 msgstr "<i>Tyhjä</i>"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:85
+#: ../deskbar/ui/DeskbarStatusIcon.py:87
 msgid "Clear History"
 msgstr "Tyhjennä historia"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:89
+#: ../deskbar/ui/DeskbarStatusIcon.py:91
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:93
+#: ../deskbar/ui/DeskbarStatusIcon.py:95
 msgid "Help"
 msgstr "Ohje"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:97
+#: ../deskbar/ui/DeskbarStatusIcon.py:99
 msgid "About"
 msgstr "Tietoja"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:103
+#: ../deskbar/ui/DeskbarStatusIcon.py:105
 msgid "Quit"
 msgstr "Lopeta"
 
@@ -1546,3 +1551,9 @@ msgstr "Versio:"
 #: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "Päivitys saatavilla"
+
+#~ msgid "Chinese Simplified"
+#~ msgstr "yksinkertaistettu kiina"
+
+#~ msgid "Chinese Traditional"
+#~ msgstr "perinteinen kiina"
