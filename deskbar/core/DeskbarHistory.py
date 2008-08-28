@@ -209,6 +209,10 @@ class DeskbarHistory (gtk.ListStore) :
     def remove_index(self, index):
         self.remove (self.get_iter_from_string (str(index)))
     
+    def remove_index_and_save(self, index):
+        self.remove_index(index)
+        self.save()
+    
     def remove_and_save(self, aiter):
         self.remove(aiter)
         self.save()
