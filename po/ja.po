@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-23 23:21+0900\n"
-"PO-Revision-Date: 2008-02-23 23:21+0900\n"
+"POT-Creation-Date: 2008-08-28 22:58+0900\n"
+"PO-Revision-Date: 2008-08-28 22:24+0900\n"
 "Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -63,28 +63,32 @@ msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
 msgstr "使用するユーザ・インタフェース"
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The applet's entry width in number of characters"
+msgstr "アプレットの入力フィールドの幅 (文字単位)"
+
+#: ../data/deskbar-applet.schemas.in.h:12
 msgid "The default height of the window in pixels"
 msgstr "検索ボックスのデフォルトの高さ (ピクセル単位) です。"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default position of the window on the screen (x-coordinate)"
 msgstr "検索ボックスのデフォルトの位置 (Ｘ座標) です。"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The default position of the window on the screen (y-coordinate)"
 msgstr "検索ボックスのデフォルトの位置 (Ｙ座標) です。"
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid "The default width of the window in pixels"
 msgstr "検索ボックスのデフォルトの幅 (ピクセル単位) です。"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "素早い検索を実現するために、デスクバー・アプレットにフォーカスを与える際の"
 "キーです。"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -94,7 +98,7 @@ msgstr ""
 "default、history、documents、emails、conversations、files、people、places、"
 "actions、web、websearch、news、notes"
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -102,17 +106,17 @@ msgstr ""
 "利用可能なハンドラのクラス名に優先順位を付けて並べたものです。左端の優先順位"
 "が一番高いです。"
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid "The maximum number of items stored in history"
 msgstr "履歴に保存するアイテムの総数"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
 msgstr "検索を開始するために最低でも入力しなければならない文字数です。"
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -120,11 +124,15 @@ msgstr ""
 "検索ボックスで入力を開始してから実際に検索を始めるまでの遅延時間 (ミリ秒) で"
 "す。"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:22
+msgid "This value only takes affect when \"ui_name\" is set to \"Button\""
+msgstr "この値は \"ui_name\" キーが \"Button\" の場合にのみ有効です。"
+
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether to close the window after an action has been activated"
 msgstr "アクションを実行したら検索ボックスを閉じるかどうか"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -133,23 +141,23 @@ msgstr ""
 "を表示するかどうかです。これは Firefox のような Mozilla 系のウェブ・ブラウザ"
 "にのみ適用されます。"
 
-#: ../data/deskbar-applet.schemas.in.h:23
+#: ../data/deskbar-applet.schemas.in.h:25
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "現在選択している内容を貼り付けるかどうか"
 
-#: ../data/deskbar-applet.schemas.in.h:24
+#: ../data/deskbar-applet.schemas.in.h:26
 msgid "Window height"
 msgstr "検索ボックスの高さ"
 
-#: ../data/deskbar-applet.schemas.in.h:25
+#: ../data/deskbar-applet.schemas.in.h:27
 msgid "Window width"
 msgstr "検索ボックスの幅"
 
-#: ../data/deskbar-applet.schemas.in.h:26
+#: ../data/deskbar-applet.schemas.in.h:28
 msgid "X-coordinate of window"
 msgstr "ウィンドウのＸ座標"
 
-#: ../data/deskbar-applet.schemas.in.h:27
+#: ../data/deskbar-applet.schemas.in.h:29
 msgid "Y-coordinate of window"
 msgstr "ウィンドウのＹ座標"
 
@@ -171,7 +179,7 @@ msgstr "設定(_P)"
 
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
-msgstr "オールインワン型のアクション・バーです"
+msgstr "オールインワンのアクション・バーです"
 
 #: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:27
 msgid "Deskbar"
@@ -194,64 +202,76 @@ msgid "<b>Loaded Extensions</b>"
 msgstr "<b>利用可能な拡張機能の一覧</b>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid "<b>Width</b>"
+msgstr "<b>エントリの幅</b>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "<b>Window Behavior</b>"
 msgstr "<b>ウィンドウの動き</b>"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "デスクバーの設定"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
+msgid "Display extensions with tag:"
+msgstr "次のタグを持つ拡張機能を表示する:"
+
+#: ../data/prefs-dialog.glade.h:9
 msgid "Extensions with Errors"
 msgstr "不完全な拡張機能"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:10
 msgid "General"
 msgstr "全般"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:11
 msgid "New Extensions"
 msgstr "新しい拡張機能"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
-msgstr "現在、選択している範囲を検索する"
+msgstr "現在選択している範囲を検索する"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:13
 msgid "Searches"
 msgstr "いろいろな検索"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:14
 msgid "Stick to panel"
 msgstr "パネルにくっつける"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "_Check For Updates"
 msgstr "アップデートの確認(_C)"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Check for new extensions"
 msgstr "新しい拡張機能のチェック(C)"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:17
 msgid "_Install"
 msgstr "インストール(_I)"
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:18
 msgid "_Keyboard shortcut to focus:"
 msgstr "ショートカット・キー(_K):"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:19
 msgid "_More..."
 msgstr "詳細(_M)..."
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:20
 msgid "_Reload"
 msgstr "再読込み(_R)"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:21
 msgid "_Update"
 msgstr "更新(_U)"
+
+#: ../data/prefs-dialog.glade.h:22
+msgid "characters"
+msgstr "文字分"
 
 #: ../data/smart-bookmarks.glade.h:1
 msgid ""
@@ -283,31 +303,33 @@ msgstr "利用可能な全ての検索エンジンを表示する"
 msgid "Show only the primary search engine"
 msgstr "一番目の検索エンジンだけ表示する"
 
-#: ../deskbar/core/BrowserMatch.py:54 ../deskbar/handlers/beagle-live.py:181
+#: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:326
 #, python-format
 msgid "Open History Item %s"
 msgstr "訪問履歴 %s を開く"
 
-#: ../deskbar/core/BrowserMatch.py:56
+#: ../deskbar/core/BrowserMatch.py:69
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "ブックマーク %s を開く"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:72
+#: ../deskbar/core/BrowserMatch.py:85
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<b>%(name)s</b> から <i>%(text)s</i> を検索する"
 
-#: ../deskbar/core/BrowserMatch.py:98 ../deskbar/handlers/yahoo.py:33
+#: ../deskbar/core/BrowserMatch.py:111
+#: ../deskbar/handlers/googlecodesearch.py:97
+#: ../deskbar/handlers/googlesearch.py:200 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL"
 
-#: ../deskbar/core/BrowserMatch.py:233
+#: ../deskbar/core/BrowserMatch.py:246
 msgid "Shortcut"
 msgstr "ショートカット"
 
-#: ../deskbar/core/BrowserMatch.py:241
+#: ../deskbar/core/BrowserMatch.py:254
 msgid "Bookmark Name"
 msgstr "ブックマーク名"
 
@@ -316,6 +338,7 @@ msgid "Uncategorized"
 msgstr "分類なし"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
+#: ../deskbar/ui/DeskbarStatusIcon.py:56
 msgid "History"
 msgstr "履歴"
 
@@ -363,183 +386,251 @@ msgstr "ニュース"
 msgid "Notes"
 msgstr "メモ"
 
-#: ../deskbar/core/DeskbarHistory.py:22
-msgid "<i>Choose action</i>"
-msgstr "<i>アクションを選択して下さい</i>"
+#: ../deskbar/core/Categories.py:61
+msgid "Audio"
+msgstr "楽曲"
 
-#: ../deskbar/core/Utils.py:132
+#: ../deskbar/core/Categories.py:65
+msgid "Video"
+msgstr "動画"
+
+#: ../deskbar/core/Categories.py:69
+msgid "Images"
+msgstr "画像"
+
+#: ../deskbar/core/DeskbarHistory.py:22
+msgid "<i>Empty history</i>"
+msgstr "<i>履歴なし</i>"
+
+#: ../deskbar/core/Utils.py:185
 msgid "Cannot execute program:"
 msgstr "実行できないプログラム:"
 
-#: ../deskbar/core/Utils.py:172
+#: ../deskbar/core/Utils.py:225
 msgid "Cannot show URL:"
 msgstr "表示できない URL:"
 
+#: ../deskbar/core/Web.py:135
+#, python-format
+msgid "<big><b>Login for %s</b></big>"
+msgstr "<big><b>%s へのログイン</b></big>"
+
+#: ../deskbar/core/Web.py:136
+#, python-format
+msgid "Please provide your credentials for <b>%s</b>"
+msgstr "<b>%s</b> に対する認証情報を提供して下さい"
+
+#: ../deskbar/core/Web.py:137
+#, python-format
+msgid "Credentials for %s"
+msgstr "%s に対する認証"
+
+#. Show '*' instead of text
+#: ../deskbar/core/Web.py:143
+msgid "User name:"
+msgstr "ユーザ名:"
+
+#: ../deskbar/core/Web.py:144
+msgid "Password:"
+msgstr "パスワード:"
+
+#: ../deskbar/core/Web.py:254
+#, python-format
+msgid "<big><b>Login to %s rejected</b></big>"
+msgstr "<big><b>%s へのログインが拒否されました</b></big>"
+
+#: ../deskbar/core/Web.py:255
+#, python-format
+msgid "Please verify your credentials for <b>%s</b>"
+msgstr "<b>%s</b> に対する認証を検証して下さい"
+
 #. translators: This is the window title.
-#: ../deskbar/deskbar-applet.py:15
+#: ../deskbar/deskbar-applet.py:17
 msgid "Deskbar Applet"
 msgstr "デスクバー・アプレット"
 
-#: ../deskbar/handlers/beagle-live.py:103
+#: ../deskbar/handlers/beagle-live.py:248
 #, python-format
 msgid "Edit contact %s"
 msgstr "%sさんの連絡先を編集する"
 
-#: ../deskbar/handlers/beagle-live.py:114
-#, python-format
-msgid "From %s"
-msgstr "差出人: %s"
-
-#: ../deskbar/handlers/beagle-live.py:129
-#, python-format
-msgid "News from %s"
-msgstr "ニュース (%s)"
-
-#: ../deskbar/handlers/beagle-live.py:143
+#: ../deskbar/handlers/beagle-live.py:289
 #, python-format
 msgid "Note: %s"
 msgstr "メモ (%s) "
 
-#: ../deskbar/handlers/beagle-live.py:156
+#: ../deskbar/handlers/beagle-live.py:301
 #, python-format
 msgid "With %s"
 msgstr "%s さんとの会話"
 
-#: ../deskbar/handlers/beagle-live.py:170
+#: ../deskbar/handlers/beagle-live.py:315
 #, python-format
 msgid "Calendar: %s"
 msgstr "カレンダ (%s) "
 
-#: ../deskbar/handlers/beagle-live.py:213
+#. translators: in this case the file (2nd) is part of an archive (1st)
+#. e.g. README is part of deskbar-applet.tar.gz
+#: ../deskbar/handlers/beagle-live.py:352
+#, python-format
+msgid "Open %s containing %s"
+msgstr "次のファイルを格納した %s という書庫を開く: %s"
+
+#: ../deskbar/handlers/beagle-live.py:354
+#: ../deskbar/handlers/actions/OpenFileAction.py:55
+#: ../deskbar/handlers/actions/ShowUrlAction.py:25
+#, python-format
+msgid "Open %s"
+msgstr "%s を開く"
+
+#: ../deskbar/handlers/beagle-live.py:387
 #, python-format
 msgid "Additional results for category <b>%s</b>"
 msgstr "<b>%s</b> のカテゴリに対する追加の検索結果"
 
-#: ../deskbar/handlers/beagle-live.py:213
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "name"
+#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:427
+#, python-format
+msgid "From <i>%s</i>"
+msgstr "差出人: <i>%s</i>"
 
-#: ../deskbar/handlers/beagle-live.py:295
+#: ../deskbar/handlers/beagle-live.py:486
 msgid "Beagle Live"
 msgstr "Beagle ライブ"
 
-#: ../deskbar/handlers/beagle-live.py:296
+#: ../deskbar/handlers/beagle-live.py:487
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Beagle で入力しながら該当するドキュメントを全て検索します"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:433
-#: ../deskbar/handlers/beagle-live.py:455
+#: ../deskbar/handlers/beagle-live.py:732
+#: ../deskbar/handlers/beagle-live.py:749
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:486
+#: ../deskbar/handlers/beagle-live.py:783
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "Beagle を起動できませんでした (libbeagle が Python バインディングなしでコンパ"
 "イルされています)"
 
-#: ../deskbar/handlers/beagle-live.py:495
+#: ../deskbar/handlers/beagle-live.py:789
+msgid "Beagle daemon is not running."
+msgstr "Beagle デーモンが起動されていません"
+
+#: ../deskbar/handlers/beagle-live.py:792
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagle が $PATH で指定されているフォルダの中にありませんでした"
 
-#: ../deskbar/handlers/beagle-static.py:21
+#: ../deskbar/handlers/beagle-static.py:22
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Beagle で %s を検索する"
 
-#: ../deskbar/handlers/beagle-static.py:37
+#: ../deskbar/handlers/beagle-static.py:38
 msgid "Beagle"
 msgstr "Beagle"
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-static.py:39
 msgid "Search all of your documents (using Beagle)"
 msgstr "(Beagle を利用して) 該当するドキュメントを全て検索します"
 
-#: ../deskbar/handlers/beagle-static.py:54
+#: ../deskbar/handlers/beagle-static.py:55
 msgid "Beagle does not seem to be installed."
 msgstr "Beagle がインストールされていないようです"
 
-#: ../deskbar/handlers/desklicious.py:47
+#: ../deskbar/handlers/calculator.py:94
+#, python-format
+msgid "Copy <b>%(origtext)s = %(name)s</b> to clipboard"
+msgstr "<b>%(origtext)s = %(name)s</b> をクリップボードにコピーする"
+
+#: ../deskbar/handlers/calculator.py:121 ../deskbar/handlers/calculator.py:124
+msgid "Calculator"
+msgstr "電卓"
+
+#: ../deskbar/handlers/calculator.py:122
+msgid "Calculate simple equations"
+msgstr "簡単な計算を行います"
+
+#: ../deskbar/handlers/desklicious.py:52
 msgid "del.icio.us Bookmarks"
 msgstr "del.icio.us のブックマーク"
 
-#: ../deskbar/handlers/desklicious.py:48
+#: ../deskbar/handlers/desklicious.py:53
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "タグ名を指定して del.icio.us のブックマークを検索します"
 
-#: ../deskbar/handlers/desklicious.py:80
+#: ../deskbar/handlers/desklicious.py:78
 msgid "del.icio.us Account"
 msgstr "del.icio.us のアカウント"
 
-#: ../deskbar/handlers/desklicious.py:87
+#: ../deskbar/handlers/desklicious.py:85
 msgid "Enter your del.icio.us username below"
 msgstr "ユーザ名を入力して下さい:"
 
-#: ../deskbar/handlers/desklicious.py:93
+#: ../deskbar/handlers/desklicious.py:91
 msgid "Username: "
 msgstr "ユーザ名: "
 
-#: ../deskbar/handlers/desklicious.py:109
+#: ../deskbar/handlers/desklicious.py:107
 msgid "You need to configure your del.icio.us account."
 msgstr "del.icio.us のアカウントを設定して下さい。"
 
-#: ../deskbar/handlers/desklicious.py:114
+#: ../deskbar/handlers/desklicious.py:112
 msgid "You can modify your del.icio.us account."
 msgstr "del.icio.us のアカウントを変更できます。"
 
-#: ../deskbar/handlers/epiphany.py:51
+#: ../deskbar/handlers/epiphany.py:53
 msgid "Web Bookmarks (Epiphany)"
 msgstr "ウェブ・ブックマーク (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:52 ../deskbar/handlers/mozilla.py:157
+#: ../deskbar/handlers/epiphany.py:54 ../deskbar/handlers/mozilla.py:159
 msgid "Open your web bookmarks by name"
 msgstr "名前を指定してウェブ・ブックマークを開きます"
 
-#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
-#: ../deskbar/handlers/epiphany.py:161
+#: ../deskbar/handlers/epiphany.py:84 ../deskbar/handlers/epiphany.py:129
+#: ../deskbar/handlers/epiphany.py:163
 msgid "Epiphany is not your preferred browser."
-msgstr "Epiphany がお気に入りのブラウザとして指定されていません"
+msgstr "Epiphany がお気に入りのブラウザに指定されていません"
 
-#: ../deskbar/handlers/epiphany.py:88
+#: ../deskbar/handlers/epiphany.py:90
 msgid "Web Searches (Epiphany)"
 msgstr "ウェブ検索 (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:235
+#: ../deskbar/handlers/epiphany.py:91 ../deskbar/handlers/mozilla.py:237
 msgid "Search the web via your browser's search settings"
 msgstr "ブラウザの検索機能を使ってウェブから検索します"
 
-#: ../deskbar/handlers/epiphany.py:124
+#: ../deskbar/handlers/epiphany.py:126
 msgid "You can set shortcuts for your searches."
 msgstr "検索する際のショートカット・キーを指定できます"
 
-#: ../deskbar/handlers/epiphany.py:134
+#: ../deskbar/handlers/epiphany.py:136
 msgid "Web History (Epiphany)"
 msgstr "ウェブの訪問履歴 (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:779
+#: ../deskbar/handlers/epiphany.py:137 ../deskbar/handlers/mozilla.py:792
 msgid "Open your web history by name"
 msgstr "名前を指定してウェブの訪問履歴を開きます"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:27
+#: ../deskbar/handlers/evolution.py:32
 #, python-format
 msgid "Edit contact <b>%(name)s</b> (%(email)s)"
 msgstr "<b>%(name)s</b> (%(email)s) さんの連絡先を編集する"
 
-#: ../deskbar/handlers/evolution.py:42
+#: ../deskbar/handlers/evolution.py:47
 msgid "Mail (Address Book)"
 msgstr "メール (アドレス帳)"
 
-#: ../deskbar/handlers/evolution.py:43
+#: ../deskbar/handlers/evolution.py:48
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "名前や E-メール・アドレスを入力しながら連絡先を検索してメールを送信します"
 
-#: ../deskbar/handlers/evolution.py:67
+#: ../deskbar/handlers/evolution.py:72
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -553,241 +644,458 @@ msgstr ""
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
-#: ../deskbar/handlers/files.py:62
+#: ../deskbar/handlers/files.py:64
 #: ../deskbar/handlers/actions/ActionsFactory.py:35
 msgid "Location"
 msgstr "場所"
 
-#: ../deskbar/handlers/files.py:70
+#: ../deskbar/handlers/files.py:72
 msgid "Files, Folders and Places"
 msgstr "ファイルやフォルダと場所"
 
-#: ../deskbar/handlers/files.py:71
+#: ../deskbar/handlers/files.py:73
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "名前を入力しながらファイルやフォルダ、ブックマーク、ドライブ、またはネット"
 "ワークの場所を開きます"
 
-#: ../deskbar/handlers/gdmactions.py:30
+#: ../deskbar/handlers/gdmactions.py:40
 msgid "Shut down this system now?"
 msgstr "このシステムを今すぐシャットダウンしますか？"
 
-#: ../deskbar/handlers/gdmactions.py:31
-#, python-format
-msgid "This system will be automatically shut down in %s seconds."
-msgstr "このシステムは %s 秒後に自動的にシャットダウンします。"
-
-#: ../deskbar/handlers/gdmactions.py:32 ../deskbar/handlers/gdmactions.py:223
-#: ../deskbar/handlers/gdmactions.py:281
+#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:262
+#: ../deskbar/handlers/gdmactions.py:328
 msgid "Shut Down"
 msgstr "シャットダウン"
 
-#: ../deskbar/handlers/gdmactions.py:34
+#: ../deskbar/handlers/gdmactions.py:43
 msgid "Log out of this system now?"
 msgstr "このシステムから今すぐログアウトしますか？"
 
-#: ../deskbar/handlers/gdmactions.py:35
-#, python-format
-msgid "You will be automatically logged out in %s seconds."
-msgstr "%s 秒後に自動的にログアウトします。"
-
-#: ../deskbar/handlers/gdmactions.py:36 ../deskbar/handlers/gdmactions.py:236
-#: ../deskbar/handlers/gdmactions.py:240 ../deskbar/handlers/gdmactions.py:284
+#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:283 ../deskbar/handlers/gdmactions.py:331
 msgid "Log Out"
 msgstr "ログアウト"
 
-#: ../deskbar/handlers/gdmactions.py:38
+#: ../deskbar/handlers/gdmactions.py:46
 msgid "Restart this system now?"
 msgstr "このシステムを今すぐ再起動しますか？"
 
-#: ../deskbar/handlers/gdmactions.py:39
-#, python-format
-msgid "This system will be automatically restarted in %s seconds."
-msgstr "このシステムは %s 秒後に自動的に再起動します。"
-
-#: ../deskbar/handlers/gdmactions.py:40 ../deskbar/handlers/gdmactions.py:257
-#: ../deskbar/handlers/gdmactions.py:283
+#: ../deskbar/handlers/gdmactions.py:47 ../deskbar/handlers/gdmactions.py:304
+#: ../deskbar/handlers/gdmactions.py:330
 msgid "Restart"
 msgstr "再起動"
 
-#: ../deskbar/handlers/gdmactions.py:42
+#: ../deskbar/handlers/gdmactions.py:49
 msgid "Suspend this system now?"
 msgstr "このシステムを今すぐサスペンドしますか？"
 
-#: ../deskbar/handlers/gdmactions.py:43
-#, python-format
-msgid "This system will be automatically suspended in %s seconds."
-msgstr "このシステムは %s 秒後に自動的にサスペンドします。"
-
-#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:313
+#: ../deskbar/handlers/gdmactions.py:50 ../deskbar/handlers/gdmactions.py:360
 msgid "Suspend"
 msgstr "サスペンド"
 
-#: ../deskbar/handlers/gdmactions.py:46
+#: ../deskbar/handlers/gdmactions.py:52
 msgid "Hibernate this system now?"
 msgstr "このシステムを今すぐハイバネートしますか？"
 
-#: ../deskbar/handlers/gdmactions.py:47
-#, python-format
-msgid "This system will be automatically hibernated in %s seconds."
-msgstr "このシステムは %s 秒後に自動的にハイバネートします。"
-
-#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:315
+#: ../deskbar/handlers/gdmactions.py:53 ../deskbar/handlers/gdmactions.py:362
 msgid "Hibernate"
 msgstr "ハイバネート"
 
-#: ../deskbar/handlers/gdmactions.py:100
+#: ../deskbar/handlers/gdmactions.py:61
+#, python-format
+msgid "This system will be automatically shut down in %s second."
+msgid_plural "This system will be automatically shut down in %s seconds."
+msgstr[0] "このシステムは %s 秒後に自動的にシャットダウンします。"
+msgstr[1] "このシステムは %s 秒後に自動的にシャットダウンします。"
+
+#: ../deskbar/handlers/gdmactions.py:65
+#, python-format
+msgid "You will be automatically logged out in %s second."
+msgid_plural "You will be automatically logged out in %s seconds."
+msgstr[0] "%s 秒後に自動的にログアウトします。"
+msgstr[1] "%s 秒後に自動的にログアウトします。"
+
+#: ../deskbar/handlers/gdmactions.py:69
+#, python-format
+msgid "This system will be automatically restarted in %s second."
+msgid_plural "This system will be automatically restarted in %s seconds."
+msgstr[0] "このシステムは %s 秒後に自動的に再起動します。"
+msgstr[1] "このシステムは %s 秒後に自動的に再起動します。"
+
+#: ../deskbar/handlers/gdmactions.py:73
+#, python-format
+msgid "This system will be automatically suspended in %s second."
+msgid_plural "This system will be automatically suspended in %s seconds."
+msgstr[0] "このシステムは %s 秒後に自動的にサスペンドの状態になります"
+msgstr[1] "このシステムは %s 秒後に自動的にサスペンドの状態になります"
+
+#: ../deskbar/handlers/gdmactions.py:77
+#, python-format
+msgid "This system will be automatically hibernated in %s second."
+msgid_plural "This system will be automatically hibernated in %s seconds."
+msgstr[0] "このシステムは %s 秒後に自動的にハイバーネートの状態になります"
+msgstr[1] "このシステムは %s 秒後に自動的にハイバーネートの状態になります"
+
+#: ../deskbar/handlers/gdmactions.py:127
 msgid "Suspend the machine"
 msgstr "システムをサスペンドします"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Hibernate the machine"
 msgstr "システムをハイバネートします"
 
-#: ../deskbar/handlers/gdmactions.py:134
+#: ../deskbar/handlers/gdmactions.py:169
 msgid "Shutdown the machine"
 msgstr "システムをシャットダウンします"
 
-#: ../deskbar/handlers/gdmactions.py:155
+#: ../deskbar/handlers/gdmactions.py:190
 msgid "Lock the screen"
 msgstr "画面をロックします"
 
-#: ../deskbar/handlers/gdmactions.py:178 ../deskbar/handlers/gdmactions.py:302
+#: ../deskbar/handlers/gdmactions.py:213 ../deskbar/handlers/gdmactions.py:349
 msgid "Lock"
 msgstr "ロック"
 
-#: ../deskbar/handlers/gdmactions.py:219
+#: ../deskbar/handlers/gdmactions.py:258
 msgid "Turn off the computer"
 msgstr "コンピュータの電源を落とします"
 
-#: ../deskbar/handlers/gdmactions.py:253
+#: ../deskbar/handlers/gdmactions.py:300
 msgid "Restart the computer"
 msgstr "コンピュータを再起動します"
 
-#: ../deskbar/handlers/gdmactions.py:268 ../deskbar/handlers/gdmactions.py:272
-#: ../deskbar/handlers/gdmactions.py:282
+#: ../deskbar/handlers/gdmactions.py:315 ../deskbar/handlers/gdmactions.py:319
+#: ../deskbar/handlers/gdmactions.py:329
 msgid "Switch User"
 msgstr "ユーザの切り替え"
 
-#: ../deskbar/handlers/gdmactions.py:278
+#: ../deskbar/handlers/gdmactions.py:325
 msgid "Computer Actions"
 msgstr "コンピュータの操作"
 
-#: ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:326
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "ログオフやシャットダウン、再起動、サスペンドなどの操作を行います"
 
-#: ../deskbar/handlers/gdmactions.py:317
+#: ../deskbar/handlers/gdmactions.py:364
 msgid "Shutdown"
 msgstr "シャットダウン"
+
+#: ../deskbar/handlers/googlecodesearch.py:28
+msgid "Google Code Search"
+msgstr "Google コード検索"
+
+#: ../deskbar/handlers/googlecodesearch.py:29
+msgid "Search public source code for function definitions and sample code"
+msgstr ""
+"公開されているソース・コードから関数の定義やサンプル・コードを検索します"
+
+#: ../deskbar/handlers/googlecodesearch.py:108
+#, python-format
+msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
+msgstr "<b>Google コード検索</b>にある <i>%(name)s</i> を表示する"
+
+#: ../deskbar/handlers/googlecodesearch.py:116
+#, python-format
+msgid "Open package <i>%(name)s</i>"
+msgstr "<b>%(name)s</b> というパッケージを開く"
+
+#: ../deskbar/handlers/googlesearch.py:26 ../deskbar/handlers/yahoo.py:30
+msgid "Arabic"
+msgstr "アラビア語"
+
+#: ../deskbar/handlers/googlesearch.py:27 ../deskbar/handlers/yahoo.py:31
+msgid "Bulgarian"
+msgstr "ブルガリア語"
+
+#: ../deskbar/handlers/googlesearch.py:28
+#: ../deskbar/handlers/wikipedia-suggest.py:36 ../deskbar/handlers/yahoo.py:32
+msgid "Catalan"
+msgstr "カタロニア語"
+
+#: ../deskbar/handlers/googlesearch.py:29 ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
+msgstr "中国語 (簡体字)"
+
+#: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
+msgstr "中国語 (繁体字)"
+
+#: ../deskbar/handlers/googlesearch.py:31
+msgid "Croation"
+msgstr "クロアチア語"
+
+#: ../deskbar/handlers/googlesearch.py:32 ../deskbar/handlers/yahoo.py:36
+msgid "Czech"
+msgstr "チェコ語"
+
+#: ../deskbar/handlers/googlesearch.py:33 ../deskbar/handlers/yahoo.py:37
+msgid "Danish"
+msgstr "デンマーク語"
+
+#: ../deskbar/handlers/googlesearch.py:34
+#: ../deskbar/handlers/wikipedia-suggest.py:28 ../deskbar/handlers/yahoo.py:38
+msgid "Dutch"
+msgstr "オランダ語"
+
+#: ../deskbar/handlers/googlesearch.py:35
+#: ../deskbar/handlers/wikipedia-suggest.py:22 ../deskbar/handlers/yahoo.py:39
+msgid "English"
+msgstr "英語"
+
+#: ../deskbar/handlers/googlesearch.py:36 ../deskbar/handlers/yahoo.py:40
+msgid "Estonian"
+msgstr "エストニア語"
+
+#: ../deskbar/handlers/googlesearch.py:37
+#: ../deskbar/handlers/wikipedia-suggest.py:35 ../deskbar/handlers/yahoo.py:41
+msgid "Finnish"
+msgstr "フィンランド語"
+
+#: ../deskbar/handlers/googlesearch.py:38
+#: ../deskbar/handlers/wikipedia-suggest.py:24 ../deskbar/handlers/yahoo.py:42
+msgid "French"
+msgstr "フランス語"
+
+#: ../deskbar/handlers/googlesearch.py:39
+#: ../deskbar/handlers/wikipedia-suggest.py:23 ../deskbar/handlers/yahoo.py:43
+msgid "German"
+msgstr "ドイツ語"
+
+#: ../deskbar/handlers/googlesearch.py:40 ../deskbar/handlers/yahoo.py:44
+msgid "Greek"
+msgstr "ギリシア語"
+
+#: ../deskbar/handlers/googlesearch.py:41 ../deskbar/handlers/yahoo.py:45
+msgid "Hebrew"
+msgstr "ヘブライ語"
+
+#: ../deskbar/handlers/googlesearch.py:42 ../deskbar/handlers/yahoo.py:46
+msgid "Hungarian"
+msgstr "ハンガリー語"
+
+#: ../deskbar/handlers/googlesearch.py:43 ../deskbar/handlers/yahoo.py:47
+msgid "Icelandic"
+msgstr "アイスランド語"
+
+#: ../deskbar/handlers/googlesearch.py:44 ../deskbar/handlers/yahoo.py:48
+msgid "Indonesian"
+msgstr "インドネシア語"
+
+#: ../deskbar/handlers/googlesearch.py:45
+#: ../deskbar/handlers/wikipedia-suggest.py:27 ../deskbar/handlers/yahoo.py:49
+msgid "Italian"
+msgstr "イタリア語"
+
+#: ../deskbar/handlers/googlesearch.py:46
+#: ../deskbar/handlers/wikipedia-suggest.py:26 ../deskbar/handlers/yahoo.py:50
+msgid "Japanese"
+msgstr "日本語"
+
+#: ../deskbar/handlers/googlesearch.py:47 ../deskbar/handlers/yahoo.py:51
+msgid "Korean"
+msgstr "韓国語"
+
+#: ../deskbar/handlers/googlesearch.py:48 ../deskbar/handlers/yahoo.py:52
+msgid "Latvian"
+msgstr "ラトビア語"
+
+#: ../deskbar/handlers/googlesearch.py:49 ../deskbar/handlers/yahoo.py:53
+msgid "Lithuanian"
+msgstr "リトアニア語"
+
+#: ../deskbar/handlers/googlesearch.py:50
+#: ../deskbar/handlers/wikipedia-suggest.py:34 ../deskbar/handlers/yahoo.py:54
+msgid "Norwegian"
+msgstr "ノルウェー語"
+
+#: ../deskbar/handlers/googlesearch.py:51
+#: ../deskbar/handlers/wikipedia-suggest.py:25 ../deskbar/handlers/yahoo.py:56
+msgid "Polish"
+msgstr "ポーランド語"
+
+#: ../deskbar/handlers/googlesearch.py:52
+#: ../deskbar/handlers/wikipedia-suggest.py:29 ../deskbar/handlers/yahoo.py:57
+msgid "Portuguese"
+msgstr "ポルトガル語"
+
+#: ../deskbar/handlers/googlesearch.py:53
+#: ../deskbar/handlers/wikipedia-suggest.py:38 ../deskbar/handlers/yahoo.py:58
+msgid "Romanian"
+msgstr "ルーマニア語"
+
+#: ../deskbar/handlers/googlesearch.py:54
+#: ../deskbar/handlers/wikipedia-suggest.py:31 ../deskbar/handlers/yahoo.py:59
+msgid "Russian"
+msgstr "ロシア語"
+
+#: ../deskbar/handlers/googlesearch.py:55 ../deskbar/handlers/yahoo.py:61
+msgid "Serbian"
+msgstr "セルビア語"
+
+#: ../deskbar/handlers/googlesearch.py:56 ../deskbar/handlers/yahoo.py:60
+msgid "Slovak"
+msgstr "スロヴァキア語"
+
+#: ../deskbar/handlers/googlesearch.py:57 ../deskbar/handlers/yahoo.py:62
+msgid "Slovenian"
+msgstr "スロヴェニア語"
+
+#: ../deskbar/handlers/googlesearch.py:58
+#: ../deskbar/handlers/wikipedia-suggest.py:30 ../deskbar/handlers/yahoo.py:63
+msgid "Spanish"
+msgstr "スペイン語"
+
+#: ../deskbar/handlers/googlesearch.py:59
+#: ../deskbar/handlers/wikipedia-suggest.py:32 ../deskbar/handlers/yahoo.py:64
+msgid "Swedish"
+msgstr "スウェーデン語"
+
+#: ../deskbar/handlers/googlesearch.py:60
+#: ../deskbar/handlers/wikipedia-suggest.py:39 ../deskbar/handlers/yahoo.py:66
+msgid "Turkish"
+msgstr "トルコ語"
+
+#: ../deskbar/handlers/googlesearch.py:74
+msgid "Google Search"
+msgstr "Google 検索"
+
+#: ../deskbar/handlers/googlesearch.py:75
+msgid "Search terms through Google Search engine."
+msgstr "Google 検索エンジンを経由して検索します"
+
+#: ../deskbar/handlers/googlesearch.py:78 ../deskbar/handlers/yahoo.py:96
+msgid "You can configure in which language the results should be."
+msgstr "検索結果で優先させる言語を指定できます"
+
+#: ../deskbar/handlers/googlesearch.py:180
+msgid "Python module simplejson is not available"
+msgstr "Python モジュールの simplejson が利用できません"
+
+#: ../deskbar/handlers/googlesearch.py:214
+msgid "Configure Google"
+msgstr "Google 検索の設定"
+
+#: ../deskbar/handlers/googlesearch.py:224 ../deskbar/handlers/yahoo.py:419
+msgid "<b>Choose the language the results should be in:</b>"
+msgstr "<b>検索結果で優先する言語を選択して下さい:</b>"
 
 #: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
 msgstr "前に検索した結果も候補に入れます"
 
-#: ../deskbar/handlers/iswitch-window.py:15
+#: ../deskbar/handlers/iswitch-window.py:21
 #, python-format
 msgid "Switch to <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> に切り替える"
 
-#: ../deskbar/handlers/iswitch-window.py:47
+#: ../deskbar/handlers/iswitch-window.py:52
 msgid "Window Switcher"
 msgstr "ウィンドウの切り替え"
 
-#: ../deskbar/handlers/iswitch-window.py:48
+#: ../deskbar/handlers/iswitch-window.py:53
 msgid "Switch to an existing window by name."
 msgstr "名前を入力してウィンドウに切り替えます"
 
-#: ../deskbar/handlers/iswitch-window.py:51
+#: ../deskbar/handlers/iswitch-window.py:56
 msgid "Windows"
 msgstr "ウィンドウ"
 
-#: ../deskbar/handlers/mozilla.py:156
+#: ../deskbar/handlers/mozilla.py:158
 msgid "Web Bookmarks (Mozilla)"
 msgstr "ウェブ・ブックマーク (Mozilla)"
 
 #: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:300
-msgid "Mozilla/Firefox is not your preferred browser."
-msgstr "Mozilla/Firefox がお気に入りのブラウザとして指定されていません"
+#: ../deskbar/handlers/mozilla.py:837
+#, python-format
+msgid "Firefox version must be between %s and %s"
+msgstr "対応する Firefox のバージョンは %s 〜 %s です"
 
-#: ../deskbar/handlers/mozilla.py:234
+#: ../deskbar/handlers/mozilla.py:222 ../deskbar/handlers/mozilla.py:310
+#: ../deskbar/handlers/mozilla.py:840
+msgid "Mozilla/Firefox is not your preferred browser."
+msgstr "Mozilla/Firefox がお気に入りのブラウザに指定されていません"
+
+#: ../deskbar/handlers/mozilla.py:236
 msgid "Web Searches (Mozilla)"
 msgstr "ウェブ検索 (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:294
+#. Correct firefox version or iceweasel
+#: ../deskbar/handlers/mozilla.py:304
 msgid "You can customize which search engines are offered."
 msgstr "どの検索エンジンを使用するか変更できます"
 
-#: ../deskbar/handlers/mozilla.py:778
+#: ../deskbar/handlers/mozilla.py:791
 msgid "Web History (Mozilla)"
 msgstr "ウェブの訪問履歴 (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:77
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "辞書から %s を検索する"
 
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/programs.py:91
 #, python-format
 msgid "Search for file names like %s"
 msgstr "%s と似た名前のファイルを検索する"
 
-#: ../deskbar/handlers/programs.py:90
+#: ../deskbar/handlers/programs.py:97
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Devhelp から %s を検索する"
 
-#: ../deskbar/handlers/programs.py:124
+#: ../deskbar/handlers/programs.py:131
 msgid "Dictionary"
 msgstr "辞書"
 
-#: ../deskbar/handlers/programs.py:125
+#: ../deskbar/handlers/programs.py:132
 msgid "Look up word definitions in the dictionary"
 msgstr "単語を入力して辞書から検索します"
 
-#: ../deskbar/handlers/programs.py:141
+#: ../deskbar/handlers/programs.py:148
 msgid "GNOME dictionary is not installed"
 msgstr "GNOME 辞書がインストールされていません"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:155
 msgid "Files and Folders Search"
 msgstr "ファイルとフォルダの検索"
 
-#: ../deskbar/handlers/programs.py:149
+#: ../deskbar/handlers/programs.py:156
 msgid "Find files and folders by searching for a name pattern"
 msgstr "名前のパターンを入力してファイルとフォルダを検索します"
 
-#: ../deskbar/handlers/programs.py:165
+#: ../deskbar/handlers/programs.py:172
 msgid "GNOME search tool is not installed"
 msgstr "GNOME 検索ツールがインストールされていません"
 
-#: ../deskbar/handlers/programs.py:172
+#: ../deskbar/handlers/programs.py:179
 msgid "Developer Documentation"
 msgstr "開発者向けのドキュメント"
 
-#: ../deskbar/handlers/programs.py:173
+#: ../deskbar/handlers/programs.py:180
 msgid "Search Devhelp for a function name"
 msgstr "Debhelp から関数名などを検索します"
 
-#: ../deskbar/handlers/programs.py:192
+#: ../deskbar/handlers/programs.py:199
 msgid "Devhelp is not installed"
 msgstr "Devhelp がインストールされていません"
 
-#: ../deskbar/handlers/programs.py:241
+#: ../deskbar/handlers/programs.py:248
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "端末から %s を起動する"
 
-#: ../deskbar/handlers/programs.py:243
+#: ../deskbar/handlers/programs.py:250
 #, python-format
 msgid "Execute %s"
 msgstr "%s を起動する"
 
-#: ../deskbar/handlers/programs.py:259
+#: ../deskbar/handlers/programs.py:277
 msgid "Programs"
 msgstr "プログラム"
 
-#: ../deskbar/handlers/programs.py:260
+#: ../deskbar/handlers/programs.py:278
 msgid "Launch a program by its name and/or description"
 msgstr "アプリの名前または説明を入力してプログラムを起動します"
 
@@ -803,33 +1111,33 @@ msgstr "最近開いたファイルや場所を取得します"
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
 msgstr "このハンドラにはもっと新しいバージョンの GTK+ が必要です (2.9.0 以上)"
 
-#: ../deskbar/handlers/templates.py:37
+#: ../deskbar/handlers/templates.py:43
 #, python-format
 msgid "Create %s"
 msgstr "%s を作成する"
 
-#: ../deskbar/handlers/templates.py:40
+#: ../deskbar/handlers/templates.py:46
 msgid "Create Document"
 msgstr "ドキュメントを作成する"
 
-#: ../deskbar/handlers/templates.py:53
+#: ../deskbar/handlers/templates.py:59
 msgid "Name:"
 msgstr "名前:"
 
-#: ../deskbar/handlers/templates.py:60
+#: ../deskbar/handlers/templates.py:66
 msgid "Folder:"
 msgstr "フォルダ:"
 
-#: ../deskbar/handlers/templates.py:64
+#: ../deskbar/handlers/templates.py:70
 msgid "Choose Folder"
 msgstr "フォルダの選択"
 
-#: ../deskbar/handlers/templates.py:119
+#: ../deskbar/handlers/templates.py:125
 #, python-format
 msgid "A file named \"%s\" already exists.  Do you want to replace it?"
 msgstr "\"%s\" というファイルは既に存在していますが、置き換えますか？"
 
-#: ../deskbar/handlers/templates.py:123
+#: ../deskbar/handlers/templates.py:129
 #, python-format
 msgid ""
 "The file already exists in \"%s\".  Replacing it will overwrite its contents."
@@ -837,62 +1145,62 @@ msgstr ""
 "\"%s\" にファイルが既に存在しています。置き換えるとファイルの内容が上書きされ"
 "ます。"
 
-#: ../deskbar/handlers/templates.py:130
+#: ../deskbar/handlers/templates.py:136
 msgid "Replace"
 msgstr "置き換える"
 
-#: ../deskbar/handlers/templates.py:166
+#: ../deskbar/handlers/templates.py:172
 msgid "Templates"
 msgstr "テンプレート"
 
-#: ../deskbar/handlers/templates.py:167
+#: ../deskbar/handlers/templates.py:173
 msgid "Create new files from your templates"
 msgstr "テンプレートから新しくファイルを作成します"
 
-#: ../deskbar/handlers/tomboy.py:37
+#: ../deskbar/handlers/tomboy.py:41
 #, python-format
 msgid "Open note <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> というメモを開く"
 
-#: ../deskbar/handlers/tomboy.py:50
+#: ../deskbar/handlers/tomboy.py:62
 msgid "Really delete this note?"
 msgstr "このメモを本当に削除しますか？"
 
-#: ../deskbar/handlers/tomboy.py:51
+#: ../deskbar/handlers/tomboy.py:63
 msgid "If you delete a note it is permanently lost."
 msgstr "メモを削除すると元に戻すことはできません。"
 
-#: ../deskbar/handlers/tomboy.py:63
+#: ../deskbar/handlers/tomboy.py:75
 #, python-format
 msgid "Delete note <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> というメモを削除する"
 
-#: ../deskbar/handlers/tomboy.py:88
+#: ../deskbar/handlers/tomboy.py:104
 #, python-format
 msgid "Create note <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> というメモを作成する"
 
-#: ../deskbar/handlers/tomboy.py:110
+#: ../deskbar/handlers/tomboy.py:130
 msgid "Title"
 msgstr "題名"
 
-#: ../deskbar/handlers/tomboy.py:111
+#: ../deskbar/handlers/tomboy.py:131
 msgid "Contents"
 msgstr "内容"
 
-#: ../deskbar/handlers/tomboy.py:130
+#: ../deskbar/handlers/tomboy.py:150
 msgid "Tomboy Notes"
 msgstr "Tomboy メモ"
 
-#: ../deskbar/handlers/tomboy.py:131
+#: ../deskbar/handlers/tomboy.py:151
 msgid "Search your Tomboy notes"
 msgstr "お使いの Tomboy メモを検索します"
 
-#: ../deskbar/handlers/tomboy.py:198
+#: ../deskbar/handlers/tomboy.py:238
 msgid "Tomboy does not seem to be installed."
 msgstr "Tomboy がインストールされていないようです。"
 
-#: ../deskbar/handlers/tomboy.py:235
+#: ../deskbar/handlers/tomboy.py:278
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -901,19 +1209,152 @@ msgstr ""
 "Tomboy のバージョンが古いようです。\n"
 "Tomboy のバージョン %s 以上をインストールして下さい。"
 
+#: ../deskbar/handlers/twitter.py:41
+#, python-format
+msgid ""
+"Failed to post update to %(domain)s.\n"
+"Please make sure that:\n"
+"\n"
+" • Your internet connection is working\n"
+" • You can connect to <i>http://%(domain)s</i> in\n"
+"    your web browser\n"
+" • Your credentials in the preferences are correct"
+msgstr ""
+"%(domain)s の更新を投稿できませんでした。\n"
+"次の内容を確認してみて下さい:\n"
+"\n"
+" •お使いのマシンからインターネットに正しく接続できているか\n"
+" •お使いのウェブ・ブラウザから <i>http://%(domain)s</i>\n"
+"  に接続できているか\n"
+" •設定で指定した認証情報が間違っていないか"
+
+#: ../deskbar/handlers/twitter.py:89
+msgid ""
+"A post is already awaiting submission, please wait before you post another "
+"message"
+msgstr ""
+"既に投稿確認待ちに入っています (少し待ってから別のメッセージを投稿してみて下"
+"さい)"
+
+#: ../deskbar/handlers/twitter.py:90 ../deskbar/handlers/twitter.py:103
+#: ../deskbar/handlers/twitter.py:145
+#, python-format
+msgid "Error posting to %s"
+msgstr "%s に投稿する際にエラー"
+
+#. TRANSLATORS: An example display of the below string:
+#.
+#. (125) Post "I can eat glass"
+#.
+#. The number in the parens indicates how many characters the user
+#. has left of the maximum message size. It should be at the start of
+#. the string as to not be hidden by ellipsation.
+#.
+#: ../deskbar/handlers/twitter.py:159
+#, python-format
+msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
+msgstr "<small>(%(remain)s)</small><i>\"%(msg)s\" を投稿する</i>"
+
+#: ../deskbar/handlers/twitter.py:162
+#, python-format
+msgid ""
+"Update your %s account with the message:\n"
+"\n"
+"\t<i>%s</i>"
+msgstr ""
+"メッセージと一緒に %s のアカウントを更新します:\n"
+"\n"
+"\t<i>%s</i>"
+
+#: ../deskbar/handlers/twitter.py:199
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../deskbar/handlers/twitter.py:200
+msgid "Post updates to your Twitter account"
+msgstr "Twitter のアカウントに対する \"つぶやき\" を投稿します"
+
+#: ../deskbar/handlers/twitter.py:247
+msgid "identi.ca"
+msgstr "identi.ca"
+
+#: ../deskbar/handlers/twitter.py:248
+msgid "Post updates to your identi.ca account"
+msgstr "identi.ca のアカウントに対する \"つぶやき\" を投稿します"
+
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "アドレスを入力しながらウェブ・ページを開いたり E-メールを送信します"
 
-#: ../deskbar/handlers/yahoo.py:41
+#: ../deskbar/handlers/wikipedia-suggest.py:33
+msgid "Chinese"
+msgstr "中国語"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:37
+msgid "Ukrainian"
+msgstr "ウクライナ語"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:48
+#, python-format
+msgid "Open article <i>%(name)s</i> in <b>Wikipedia</b>"
+msgstr "<b>Wikipedia</b> にある <i>%(name)s</i> という情報を開く"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:63
+msgid "Wikipedia Suggest"
+msgstr "Wikipedia の検索"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:64
+msgid "As you type, Wikipedia will offer suggestions."
+msgstr "Wikipedia から情報を引き出します"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:137
+msgid "Wikipedia Suggest settings"
+msgstr "Wikipedia Suggest の設定"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:144
+msgid ""
+"Choose the language you want to use or enter the code of your language "
+"manually"
+msgstr "使用する言語を選択するか、または言語コードを入力して下さい:"
+
+#: ../deskbar/handlers/yahoo.py:35
+msgid "Croatian"
+msgstr "クロアチア語"
+
+#: ../deskbar/handlers/yahoo.py:55
+msgid "Persian"
+msgstr "ペルシア語"
+
+#: ../deskbar/handlers/yahoo.py:65
+msgid "Thai"
+msgstr "タイ語"
+
+#: ../deskbar/handlers/yahoo.py:93
 msgid "Yahoo! Search"
 msgstr "Yahoo! 検索"
 
-#: ../deskbar/handlers/yahoo.py:42
+#: ../deskbar/handlers/yahoo.py:94
 msgid "Search Yahoo! as you type"
 msgstr "入力しながら Yahoo! から検索します"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:62
+#: ../deskbar/handlers/yahoo.py:308
+#, python-format
+msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
+msgstr "<b>Yahoo!</b> から <i>%(name)s</i> を検索する"
+
+#: ../deskbar/handlers/yahoo.py:326
+msgid "Yahoo! Suggestions"
+msgstr "Yahoo! Suggestions"
+
+#: ../deskbar/handlers/yahoo.py:327
+msgid "Provides suggestions for queries related to the submitted query"
+msgstr "指定した問い合わせに関連した提案などを手に入れます"
+
+#: ../deskbar/handlers/yahoo.py:409
+msgid "Configure Yahoo!"
+msgstr "Yahoo! の設定"
+
+#: ../deskbar/handlers/actions/ActionsFactory.py:70
 #, python-format
 msgid "URL of %s"
 msgstr "%s の URL"
@@ -934,12 +1375,6 @@ msgstr "%s がある場所へ移動する"
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) を起動する"
-
-#: ../deskbar/handlers/actions/OpenFileAction.py:51
-#: ../deskbar/handlers/actions/ShowUrlAction.py:24
-#, python-format
-msgid "Open %s"
-msgstr "%s を開く"
 
 #: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
 #, python-format
@@ -975,7 +1410,7 @@ msgstr "%s をメールで送信する"
 
 #: ../deskbar/ui/About.py:23
 msgid "An all-in-one action bar."
-msgstr "オールインワン型のアクション・バーです。"
+msgstr "オールインワンのアクション・バーです。"
 
 #: ../deskbar/ui/About.py:30
 msgid "Deskbar Website"
@@ -993,33 +1428,47 @@ msgstr ""
 msgid "<b>Search:</b>"
 msgstr "<b>検索:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
-msgid "default"
-msgstr "default"
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:250
+msgid "Display additional actions"
+msgstr "追加のアクションを表示します"
 
-#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacAlignedView.py:88
-#: ../deskbar/ui/CuemiacWindowView.py:77
-msgid "_History"
-msgstr "履歴(_H)"
-
-#: ../deskbar/ui/CuemiacAlignedView.py:150
-#: ../deskbar/ui/CuemiacWindowView.py:139
+#: ../deskbar/ui/AbstractCuemiacView.py:146
 msgid "Back to Matches"
 msgstr "アイテムの一覧へ戻る"
 
-#: ../deskbar/ui/DeskbarTray.py:44
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:160
 msgid "Show search entry"
 msgstr "検索バーを表示します"
 
-#: ../deskbar/ui/DeskbarTray.py:111
-msgid ""
-"Some potentially old modules that make use of an old Deskbar-Applet API have "
-"been found. Remove these files for this warning to disappear.\n"
-msgstr ""
-"古いバージョンのデスクバー・アプレット用 API を使用しているモジュールが見つか"
-"りました。この警告ダイアログを表示しないようにするには、それらのモジュールを"
-"削除して下さい。\n"
+#: ../deskbar/ui/DeskbarApplet.py:74
+msgid "Show previously used actions"
+msgstr "前に実施したアクションも候補に入れます"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:65
+msgid "Clear History"
+msgstr "履歴のクリア"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:69
+msgid "Preferences"
+msgstr "設定"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:73
+msgid "Help"
+msgstr "ヘルプ"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:77
+msgid "About"
+msgstr "情報"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:83
+msgid "Quit"
+msgstr "終了"
+
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:112
+msgid "<i>Empty</i>"
+msgstr "<i>空の</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -1037,44 +1486,74 @@ msgstr ""
 "[Control] や [Alt] または [Shift] キーといった修飾キーと一緒に指定してみて下"
 "さい。\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
-msgid "Reload all extensions"
-msgstr "全ての拡張機能を更新します"
-
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:95
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr ""
 "<i><small>優先順位を変更する場合は、上にあるモジュールをドラッグ＆ドロップし"
 "て入れ替えて下さい</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:335
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:169
+msgid "All Extensions"
+msgstr "全ての拡張機能"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:230
 msgid "A problem occured"
 msgstr "エラーが発生しました"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:400
-msgid "Handler has been installed successfully"
-msgstr "ハンドラのインストールが完了しました"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:238
+msgid "Extension has been installed successfully"
+msgstr "拡張機能のインストールが完了しました"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:403
-msgid "Handler could not be installed due a problem with the provided file"
-msgstr "ハンドラを提供するファイルに問題があったのでインストールに失敗しました"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:533
+msgid "Installing extension"
+msgstr "拡張機能のインストール"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:534
+msgid "The extension will be downloaded and installed."
+msgstr "拡張機能をダウンロードしてインストールします"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:536
+msgid "Retrieving list of extensions"
+msgstr "拡張機能の一覧を取得しています"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:537
+msgid "A list of available extensions is downloaded."
+msgstr "利用可能な拡張機能の一覧をダウンロードします"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:538
+msgid "Retrieving the extension index"
+msgstr "拡張機能のインデックスを取得しています"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:540
+msgid "Downloading extension"
+msgstr "拡張機能をダウンロードしてます"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:542
+msgid "Extracting archive"
+msgstr "アーカイブを展開しています"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:595
+msgid ""
+"Extension could not be installed due to a problem with the provided file"
+msgstr ""
+"提供されたファイルに問題があったので拡張機能をインストールできませんでした"
 
 #: ../deskbar/ui/preferences/ErrorDialog.py:8
 msgid "Error"
 msgstr "エラー"
 
-#: ../deskbar/ui/preferences/ErrorDialog.py:26
+#: ../deskbar/ui/preferences/ErrorDialog.py:27
 msgid "Check the description beneath for further details."
-msgstr "詳細については次の説明を確認してみて下さい"
+msgstr "詳細については次の内容を確認してみて下さい"
 
-#: ../deskbar/ui/preferences/ErrorDialog.py:32
+#: ../deskbar/ui/preferences/ErrorDialog.py:33
 msgid "Details"
 msgstr "詳細"
 
-#: ../deskbar/ui/preferences/ModuleListView.py:53
+#: ../deskbar/ui/preferences/ModuleListView.py:54
 msgid "Version:"
 msgstr "バージョン:"
 
-#: ../deskbar/ui/preferences/ModuleListView.py:56
+#: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "アップデートできます"
