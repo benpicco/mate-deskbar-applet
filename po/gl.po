@@ -5,16 +5,17 @@
 # Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.
 # Ignacio Casal Quinteiro <icq@cvs.gnome.org>, 2007.
 # Ignacio Casal Quinteiro <icq@svn.gnome.org>, 2007, 2008.
+# Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-14 20:36+0200\n"
-"PO-Revision-Date: 2008-08-14 20:38+0200\n"
-"Last-Translator: Ignacio Casal Quinteiro <icq@svn.gnome.org>\n"
+"POT-Creation-Date: 2008-09-01 21:29+0200\n"
+"PO-Revision-Date: 2008-09-01 21:30+0200\n"
+"Last-Translator: Ignacio Casal Quinteiro <nacho.resa@gmail.com>\n"
 "Language-Team: Galego <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type:  text/plain; charset=UTF-8\n"
+"Content-Type:  text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1)\n"
 "X-Generator: KBabel 1.11.4\n"
@@ -345,7 +346,7 @@ msgid "Uncategorized"
 msgstr "Sen categorizar"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
-#: ../deskbar/ui/DeskbarStatusIcon.py:76
+#: ../deskbar/ui/DeskbarStatusIcon.py:56
 msgid "History"
 msgstr "Historial"
 
@@ -417,36 +418,36 @@ msgstr "Non se pode executar o programa:"
 msgid "Cannot show URL:"
 msgstr "Non se pode mostrar o URL:"
 
-#: ../deskbar/core/Web.py:116
+#: ../deskbar/core/Web.py:135
 #, python-format
 msgid "<big><b>Login for %s</b></big>"
 msgstr "<big><b>Inicio de sesión para %s</b></big>"
 
-#: ../deskbar/core/Web.py:117
+#: ../deskbar/core/Web.py:136
 #, python-format
 msgid "Please provide your credentials for <b>%s</b>"
 msgstr "Proporcione as súas credenciais para <b>%s</b>"
 
-#: ../deskbar/core/Web.py:118
+#: ../deskbar/core/Web.py:137
 #, python-format
 msgid "Credentials for %s"
 msgstr "Credenciais para %s"
 
 #. Show '*' instead of text
-#: ../deskbar/core/Web.py:124
+#: ../deskbar/core/Web.py:143
 msgid "User name:"
 msgstr "Nome de usuario:"
 
-#: ../deskbar/core/Web.py:125
+#: ../deskbar/core/Web.py:144
 msgid "Password:"
 msgstr "Contrasinal:"
 
-#: ../deskbar/core/Web.py:235
+#: ../deskbar/core/Web.py:254
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>Incicio de sesión en %s rexeitado</b></big>"
 
-#: ../deskbar/core/Web.py:236
+#: ../deskbar/core/Web.py:255
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "Comprobe as súas credenciais para <b>%s</b>"
@@ -822,12 +823,12 @@ msgstr "Búlgaro"
 msgid "Catalan"
 msgstr "Catalán"
 
-#: ../deskbar/handlers/googlesearch.py:29
-msgid "Chinese Simplified"
+#: ../deskbar/handlers/googlesearch.py:29 ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
 msgstr "Chinés simplificado"
 
-#: ../deskbar/handlers/googlesearch.py:30
-msgid "Chinese Traditional"
+#: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
 msgstr "Chinés tradicional"
 
 #: ../deskbar/handlers/googlesearch.py:31
@@ -1017,8 +1018,8 @@ msgstr "Marcadores web (Mozilla)"
 #: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:300
 #: ../deskbar/handlers/mozilla.py:837
 #, python-format
-msgid "Firefox version must be between %s and %s"
-msgstr "A versión de Firefox debe estar entre %s e %s"
+msgid "Firefox version must be at least %s and less than %s"
+msgstr "A versión de Firefox debe ser alomenos %s e menos que %s"
 
 #: ../deskbar/handlers/mozilla.py:222 ../deskbar/handlers/mozilla.py:310
 #: ../deskbar/handlers/mozilla.py:840
@@ -1252,12 +1253,20 @@ msgstr ""
 msgid "Error posting to %s"
 msgstr "Erro ao publicar en %s"
 
-#: ../deskbar/handlers/twitter.py:151
+#. TRANSLATORS: An example display of the below string:
+#.
+#. (125) Post "I can eat glass"
+#.
+#. The number in the parens indicates how many characters the user
+#. has left of the maximum message size. It should be at the start of
+#. the string as to not be hidden by ellipsation.
+#.
+#: ../deskbar/handlers/twitter.py:159
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Publicar <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:154
+#: ../deskbar/handlers/twitter.py:162
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1268,19 +1277,19 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:191
+#: ../deskbar/handlers/twitter.py:199
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:192
+#: ../deskbar/handlers/twitter.py:200
 msgid "Post updates to your Twitter account"
 msgstr "Publicar actualizacións na súa conta de Twitter"
 
-#: ../deskbar/handlers/twitter.py:239
+#: ../deskbar/handlers/twitter.py:247
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:240
+#: ../deskbar/handlers/twitter.py:248
 msgid "Post updates to your identi.ca account"
 msgstr "Publicar actualizacións na súa conta de identi.ca"
 
@@ -1322,14 +1331,6 @@ msgid ""
 msgstr ""
 "Escolla o idioma que quere usar ou introduza manualmente o código do seu "
 "idioma"
-
-#: ../deskbar/handlers/yahoo.py:33
-msgid "Chinese simplified"
-msgstr "Chinés simplificado"
-
-#: ../deskbar/handlers/yahoo.py:34
-msgid "Chinese traditional"
-msgstr "Chinés tradicional"
 
 #: ../deskbar/handlers/yahoo.py:35
 msgid "Croatian"
@@ -1449,7 +1450,7 @@ msgstr "Mostrar accións adicionais"
 msgid "Back to Matches"
 msgstr "Volver ás coincidencias"
 
-#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:114
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:160
 msgid "Show search entry"
 msgstr "Mostrar a entrada de busca"
 
@@ -1457,29 +1458,31 @@ msgstr "Mostrar a entrada de busca"
 msgid "Show previously used actions"
 msgstr "Mostrar accións usadas recentemente"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:50
-msgid "<i>Empty</i>"
-msgstr "<i>Baleiro</i>"
-
-#: ../deskbar/ui/DeskbarStatusIcon.py:85
+#: ../deskbar/ui/DeskbarStatusIcon.py:65
 msgid "Clear History"
 msgstr "Limpar o historial"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:89
+#: ../deskbar/ui/DeskbarStatusIcon.py:69
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:93
+#: ../deskbar/ui/DeskbarStatusIcon.py:73
 msgid "Help"
 msgstr "Axuda"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:97
+#: ../deskbar/ui/DeskbarStatusIcon.py:77
 msgid "About"
 msgstr "Sobre"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:103
+#: ../deskbar/ui/DeskbarStatusIcon.py:83
 msgid "Quit"
 msgstr "Saír"
+
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:112
+msgid "<i>Empty</i>"
+msgstr "<i>Baleiro</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -1568,6 +1571,12 @@ msgstr "Versión"
 #: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "Actualización dispoñible"
+
+#~ msgid "Chinese Simplified"
+#~ msgstr "Chinés simplificado"
+
+#~ msgid "Chinese Traditional"
+#~ msgstr "Chinés tradicional"
 
 #~ msgid "<i>Choose action</i>"
 #~ msgstr "<i>Escoller acción</i>"
