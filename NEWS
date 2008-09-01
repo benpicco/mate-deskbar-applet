@@ -1,4 +1,43 @@
 ======================
+deskbar-applet 2.23.91
+======================
+
+This release mainly features bug fixes.
+In addition, history items can be deleted
+in tray mode pressing delete key now.
+
+Changes:
+	- Fixed #548867, Cannot iterate over gtk.ListStore (Sebastian Pölsterl)
+	- Fixed #548422, Invalid tooltip formatting in twitter module (Mikkel Kamstrup Erlandsen)
+	- Fixed #542997, Mozilla modules ask for Firefox between 2.0.0.0 and 3.0.0.0, so FF 3.0.1 doesn't work! (Sebastian Pölsterl)
+	- Fixed #549203, Superfluous strings for localisation [I18N] (Sebastian Pölsterl)
+	- Fixed #549206, Please add comments along with strings for localisation [I18] (Mikkel Kamstrup Erlandsen)
+	- Fixed #549375, deskbar-applet 2.23.90 history dropdown doesn't dismiss after selection (Sebastian Pölsterl)
+	- Fixed #549432, Fix g_strjoin() call in evolution module () (Vincent Untz)
+	- Set the 'source' parameter on updates to 'deskbar'. This should put a small 'from deskbar' links after Twitter posts. (Mikkel Kamstrup Erlandsen)
+	- Pressing the delete key will remove the selected item from history in tray mode, too. (Sebastian Pölsterl)
+	- Fix a bug in the way the new core.Web module handled updating of account info. Before this fix we leaked accounts each time editing of credentials took place, and we failed to look up the right one if there where multiple. (Mikkel Kamstrup Erlandsen)
+
+Translations:
+	- Updated LINGUAS, sr@latin.po, sr@Latn: Goran Rakic
+	- Updated bg: Alexander Shopov
+	- Updated dz: Pema Geyleg, Dawa pemo
+	- Updated es: Jorge González
+	- Updated fi: Ilkka Tuohela
+	- Updated fr: Robert-André Mauchin
+	- Updated ja: Takeshi AIHANA
+	- Updated mk: Jovan Naumovski
+	- Updated pl: Tomasz Dominikowski
+	- Updated sq: Laurent Dhima
+	- Updated ta: Tirumurthi Vasudevan, Dr.T.Vasudevan
+	- Updated te: Sunil Mohan Adapa, Krishna Babu K
+	- Updated zh_HK: Chao-Hsiung Liao
+	- Updated zh_TW: Chao-Hsiung Liao
+
+Help Manual Translations:
+	- Updated pt_BR: Leonardo, Rodrigo Flores, Leonardo Gregianin
+
+======================
 deskbar-applet 2.23.90
 ======================
 
