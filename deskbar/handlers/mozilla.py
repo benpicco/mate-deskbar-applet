@@ -216,7 +216,7 @@ class MozillaBookmarksHandler(deskbar.interfaces.Module):
                 return True
             
             MozillaBookmarksHandler.INSTRUCTIONS = \
-                _("Firefox version must be between %s and %s") % (MIN_FF_VERSION_STRING, MAX_FF_VERSION_STRING)
+                _("Firefox version must be at least %s and less than %s") % (MIN_FF_VERSION_STRING, MAX_FF_VERSION_STRING)
             return False
         else:
             MozillaBookmarksHandler.INSTRUCTIONS = _("Mozilla/Firefox is not your preferred browser.")
@@ -297,7 +297,7 @@ class MozillaSearchHandler(deskbar.interfaces.Module):
             if is_preferred_browser("firefox") and not MozillaBookmarksHandler.has_firefox_version():
                 
                 MozillaSearchHandler.INSTRUCTIONS = \
-                    _("Firefox version must be between %s and %s") % (MIN_FF_VERSION_STRING, MAX_FF_VERSION_STRING)
+                    _("Firefox version must be at least %s and less than %s") % (MIN_FF_VERSION_STRING, MAX_FF_VERSION_STRING)
                 return False
             
             # Correct firefox version or iceweasel
@@ -834,7 +834,7 @@ class MozillaHistoryHandler(deskbar.interfaces.Module):
                 return True
             
             MozillaHistoryHandler.INSTRUCTIONS = \
-                _("Firefox version must be between %s and %s") % (MIN_FF_VERSION_STRING, MAX_FF_VERSION_STRING)
+                _("Firefox version must be at least %s and less than %s") % (MIN_FF_VERSION_STRING, MAX_FF_VERSION_STRING)
             return False
         else:
             MozillaHistoryHandler.INSTRUCTIONS = _("Mozilla/Firefox is not your preferred browser.")
