@@ -1,3 +1,19 @@
+2008-09-02  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
+
+    * deskbar/core/Web.py
+    Add support for embedding an extra widget into AccountDialog
+    
+    * deskbar/core/Utils.py
+    Set the gtk.LinkButton handler to invoke deskbar.Utils.url_show,
+    without this link buttons wont work
+    
+    * deskbar/handlers/twitter.py
+    Make the identi.ca module inject a message into the account dialog
+    using the new API of said dialog mentioned above.
+    
+    Fixes bug #550297: Identi.ca module does not support OpenId causes confussion
+    Commit signed of by the Gnome release team since we are in UI freeze
+
 2008-09-01  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     * configure.ac:

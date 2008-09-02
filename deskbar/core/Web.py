@@ -223,7 +223,16 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
         "done" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
     }
     
-    def __init__ (self, account):
+    def __init__ (self, account, extra_widget_factory=None):
+        """
+        @param account: The L{Account} object to request credentials from
+        @param extra_widget_factory: This optional parameter may point to a
+                                     C{callable} returning a C{gtk.Widget} which
+                                     will be packed into the L{AccountDialog}
+                                     when it is spawned. The callable may also
+                                     return C{None} if no widgets should be
+                                     added.
+        """
         proxies = get_proxy()
         urllib.FancyURLopener.__init__ (self, proxies)
         gobject.GObject.__init__ (self)
@@ -231,6 +240,7 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
         self._thread = None
         self._authentication_retries = 0
         self._success = True
+        self._extra_widget_factory = extra_widget_factory
         
         LOGGER.debug ("Using proxies: %s" % proxies)
         
@@ -253,6 +263,9 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
                                          dialog_type=gtk.MESSAGE_WARNING)
             login_dialog.set_markup (_("<big><b>Login to %s rejected</b></big>") % self._account.get_host())
             login_dialog.format_secondary_markup (_("Please verify your credentials for <b>%s</b>") % self._account.get_host())
+            
+            self._install_extra_widget (login_dialog)
+            
             login_dialog.show_all()
             login_dialog.run()            
             login_dialog.destroy()
@@ -267,6 +280,9 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
             LOGGER.debug ("No credentials for %s in keyring. Asking for them..." %
                           self._account.get_host())
             login_dialog = AccountDialog(self._account)
+            
+            self._install_extra_widget (login_dialog)
+            
             login_dialog.show_all()
             login_dialog.run()            
             login_dialog.destroy()
@@ -280,6 +296,20 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
         gtk.gdk.threads_leave ()
         
         return creds
+    
+    def _install_extra_widget (self, login_dialog):
+        """
+        Install the extra widget returned by the extra_widget_factory into
+        login_dialog, if applicable
+        """
+        if callable(self._extra_widget_factory):
+                widget = self._extra_widget_factory()
+                if widget != None:
+                    if isinstance (widget, gtk.Widget):
+                        login_dialog.vbox.pack_start (widget)
+                    else:
+                        # The factory returned a non-None non-widget object
+                        LOGGER.error ("%s returned a non-gtk.Widget instance: %s" % (self._extra_widget_factory, type(widget)))
     
     def open_async (self, url, payload=None):
         """

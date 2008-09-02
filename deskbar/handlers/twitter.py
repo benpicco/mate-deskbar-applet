@@ -51,13 +51,21 @@ class TwitterClientFactory :
     """
     A factory to help instantiating C{TwitterClient}s.
     """
-    def __init__ (self, domain="twitter.com", update_url=TWITTER_UPDATE_URL, realm="Twitter API"):
+    def __init__ (self,
+                  domain="twitter.com",
+                  update_url=TWITTER_UPDATE_URL,
+                  realm="Twitter API",
+                  extra_widget_factory=None):
         self._domain = domain
         self._update_url = update_url
         self._realm = realm
+        self._extra_widget_factory = extra_widget_factory
     
     def create_client (self):
-        return TwitterClient(domain=self._domain, update_url=self._update_url, realm=self._realm)
+        return TwitterClient(domain=self._domain,
+                             update_url=self._update_url,
+                             realm=self._realm,
+                             extra_widget_factory=self._extra_widget_factory)
         
 class TwitterClient :
     """
@@ -68,9 +76,14 @@ class TwitterClient :
                      use the TwitterClientFactory and create a new TwitterClient
                      instance each time you need it
     """
-    def __init__ (self, domain="twitter.com", update_url=TWITTER_UPDATE_URL, realm="Twitter API"):
+    def __init__ (self,
+                  domain="twitter.com",
+                  update_url=TWITTER_UPDATE_URL,
+                  realm="Twitter API",
+                  extra_widget_factory=None):
         self._account = Account (domain, realm)
-        self._opener = GnomeURLopener (self._account)
+        self._opener = GnomeURLopener (self._account,
+                                       extra_widget_factory=extra_widget_factory)
         self._thread = None
         self._update_url = update_url
         self._domain = domain
@@ -200,7 +213,13 @@ class TwitterModule(deskbar.interfaces.Module):
              'description': _("Post updates to your Twitter account"),
              'version': VERSION}
     
-    def __init__(self, domain="twitter.com", service="Twitter", pixbuf=None, update_url=TWITTER_UPDATE_URL, realm="Twitter API"):
+    def __init__(self,
+                 domain="twitter.com",
+                 service="Twitter",
+                 pixbuf=None,
+                 update_url=TWITTER_UPDATE_URL,
+                 realm="Twitter API",
+                 extra_widget_factory=None):
         global _twitter_pixbuf
         
         deskbar.interfaces.Module.__init__(self)
@@ -214,7 +233,8 @@ class TwitterModule(deskbar.interfaces.Module):
         
         self._client_factory = TwitterClientFactory(domain=self._domain,
                                                     update_url=update_url,
-                                                    realm=self._realm)
+                                                    realm=self._realm,
+                                                    extra_widget_factory=self.get_extra_account_dialog_widget)
     
     def query(self, qstring):
         if len (qstring) <= MIN_MESSAGE_LEN and \
@@ -234,12 +254,28 @@ class TwitterModule(deskbar.interfaces.Module):
         account = Account (self._domain, self._realm)
         LOGGER.debug ("Showing config")
         login_dialog = AccountDialog(account, dialog_parent=parent)
+        
+        # Pack optional widget if appropriate
+        extra_widget = self.get_extra_account_dialog_widget ()
+        if extra_widget != None:
+            login_dialog.vbox.pack_start (extra_widget)
+        
         login_dialog.show_all()
         login_dialog.run()            
         login_dialog.destroy()
     
     def get_domain (self):
         return self._domain
+    
+    def get_extra_account_dialog_widget (self):
+        """
+        This method should return a C{gtk.Widget} or C{None}. If it returns
+        a widget that widget will be packed into the L{AccountDialog} spawned
+        by the underlying url opener.
+        
+        The default implementation simply returns C{None}
+        """
+        return None
     
 class IdenticaModule(TwitterModule):
     
@@ -255,4 +291,14 @@ class IdenticaModule(TwitterModule):
                                pixbuf=_identica_pixbuf,
                                update_url=IDENTICA_UPDATE_URL,
                                realm="Laconica API")
-
+    
+    def get_extra_account_dialog_widget (self):
+        vbox = gtk.VBox()
+        label = gtk.Label()
+        label.set_markup (_("Please note that Deskbar Applet does not support authentication via OpenId. You must configure a username and password on the <i>identi.ca</i> website if you haven't already."))
+        label.set_line_wrap(True)
+        button = gtk.LinkButton ("http://identi.ca", _("Visit identi.ca website"))
+        vbox.pack_start (label)
+        vbox.pack_start (button)
+        return vbox
+    

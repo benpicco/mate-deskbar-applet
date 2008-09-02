@@ -228,6 +228,9 @@ def url_show(url):
         if resp == gtk.RESPONSE_CLOSE:
             message_dialog.destroy()
 
+# Make gtk.LinkButtons call url_show()
+gtk.link_button_set_uri_hook (lambda button, url : url_show(url))
+
 def get_proxy():
     # TODO: Very dirty, should use CoreImpl class
     deskbarapplet = GconfStore.get_instance()
