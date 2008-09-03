@@ -295,7 +295,7 @@ class IdenticaModule(TwitterModule):
     def get_extra_account_dialog_widget (self):
         vbox = gtk.VBox()
         label = gtk.Label()
-        label.set_markup (_("Please note that Deskbar Applet does not support authentication via OpenId. You must configure a username and password on the <i>identi.ca</i> website if you haven't already."))
+        label.set_markup (_("Please note that Deskbar Applet does not support authentication via OpenID. You must configure a username and password on the <i>identi.ca</i> website if you haven't already."))
         label.set_line_wrap(True)
         button = gtk.LinkButton ("http://identi.ca", _("Visit identi.ca website"))
         vbox.pack_start (label)
