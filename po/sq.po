@@ -1,13 +1,13 @@
-# Përkthimi i mesazheve të deskbar-applet në shqip.
+# Përkthimi i deskbar-applet në shqip.
+# Laurent Dhima <laurenti@alblinux.net>, 2006-2008.
 # Copyright (C) 2006-2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the Deskbar-applet package.
-# Laurent Dhima <laurenti@alblinux.net>, 2006-2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-19 12:35+0200\n"
-"PO-Revision-Date: 2008-08-19 12:33+0200\n"
+"POT-Creation-Date: 2008-09-04 04:30+0000\n"
+"PO-Revision-Date: 2008-09-04 09:24+0200\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -36,8 +36,7 @@ msgid "Enabled handlers"
 msgstr "Trajtues aktivë"
 
 #: ../data/deskbar-applet.schemas.in.h:5
-msgid ""
-"If enabled it will clear the entry after a search result has been selected"
+msgid "If enabled it will clear the entry after a search result has been selected"
 msgstr ""
 "Nëse aktivuar do të pastrojë fushën mbasi të jetë zgjedhur njëri nga "
 "rezultatet e kërkimit"
@@ -342,7 +341,7 @@ msgid "Uncategorized"
 msgstr "Pa kategori"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
-#: ../deskbar/ui/DeskbarStatusIcon.py:76
+#: ../deskbar/ui/DeskbarStatusIcon.py:56
 msgid "History"
 msgstr "Kronollogjia"
 
@@ -414,36 +413,36 @@ msgstr "I pamundur ekzekutimi i programit:"
 msgid "Cannot show URL:"
 msgstr "E pamundur shfaqja e URL:"
 
-#: ../deskbar/core/Web.py:116
+#: ../deskbar/core/Web.py:135
 #, python-format
 msgid "<big><b>Login for %s</b></big>"
 msgstr "<big><b>Identifikimi për %s</b></big>"
 
-#: ../deskbar/core/Web.py:117
+#: ../deskbar/core/Web.py:136
 #, python-format
 msgid "Please provide your credentials for <b>%s</b>"
 msgstr "Të lutem jep kredencialet personalë për <b>%s</b>"
 
-#: ../deskbar/core/Web.py:118
+#: ../deskbar/core/Web.py:137
 #, python-format
 msgid "Credentials for %s"
 msgstr "Kredenciale për %s"
 
 #. Show '*' instead of text
-#: ../deskbar/core/Web.py:124
+#: ../deskbar/core/Web.py:143
 msgid "User name:"
 msgstr "Emri i përdoruesit:"
 
-#: ../deskbar/core/Web.py:125
+#: ../deskbar/core/Web.py:144
 msgid "Password:"
 msgstr "Fjalëkalimi:"
 
-#: ../deskbar/core/Web.py:235
+#: ../deskbar/core/Web.py:264
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>Hyrja tek %s nuk u pranua</b></big>"
 
-#: ../deskbar/core/Web.py:236
+#: ../deskbar/core/Web.py:265
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "Kontrollo kredecialet personalë për <b>%s</b>"
@@ -514,10 +513,8 @@ msgid "?"
 msgstr "?"
 
 #: ../deskbar/handlers/beagle-live.py:783
-msgid ""
-"Could not load beagle, libbeagle has been compiled without python bindings."
-msgstr ""
-"I pamundur ngarkimi i beagle, libbeagle është kompiluar pa python bindings."
+msgid "Could not load beagle, libbeagle has been compiled without python bindings."
+msgstr "I pamundur ngarkimi i beagle, libbeagle është kompiluar pa python bindings."
 
 #: ../deskbar/handlers/beagle-live.py:789
 msgid "Beagle daemon is not running."
@@ -630,8 +627,7 @@ msgstr "Posta (Rubrika)"
 
 #: ../deskbar/handlers/evolution.py:48
 msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr ""
-"Dërgo mail tek kontektet tuaj duke shkruar emrin apo adresën e tyre e-mail"
+msgstr "Dërgo mail tek kontektet tuaj duke shkruar emrin apo adresën e tyre e-mail"
 
 #: ../deskbar/handlers/evolution.py:72
 msgid ""
@@ -791,8 +787,7 @@ msgstr "Kërkim në Google Code"
 
 #: ../deskbar/handlers/googlecodesearch.py:29
 msgid "Search public source code for function definitions and sample code"
-msgstr ""
-"Kërko në kodet burues publikë për përcaktime funksionesh dhe kode si shëmbuj."
+msgstr "Kërko në kodet burues publikë për përcaktime funksionesh dhe kode si shëmbuj."
 
 #: ../deskbar/handlers/googlecodesearch.py:108
 #, python-format
@@ -817,12 +812,12 @@ msgstr "Bullgarisht"
 msgid "Catalan"
 msgstr "Katalane"
 
-#: ../deskbar/handlers/googlesearch.py:29
-msgid "Chinese Simplified"
+#: ../deskbar/handlers/googlesearch.py:29 ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
 msgstr "Kineze e thjeshtëzuar"
 
-#: ../deskbar/handlers/googlesearch.py:30
-msgid "Chinese Traditional"
+#: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
 msgstr "Kineze tradicionale"
 
 #: ../deskbar/handlers/googlesearch.py:31
@@ -1012,8 +1007,8 @@ msgstr "Libërshënues web (Mozilla)"
 #: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:300
 #: ../deskbar/handlers/mozilla.py:837
 #, python-format
-msgid "Firefox version must be between %s and %s"
-msgstr "Versioni i Firefox duhet të jetë midis %s dhe %s"
+msgid "Firefox version must be at least %s and less than %s"
+msgstr "Versioni i Firefox duhet të jetë të paktën %s e më i vogël se %s"
 
 #: ../deskbar/handlers/mozilla.py:222 ../deskbar/handlers/mozilla.py:310
 #: ../deskbar/handlers/mozilla.py:840
@@ -1112,8 +1107,7 @@ msgstr "Merr files dhe pozicionet e vizituar së fundmi"
 
 #: ../deskbar/handlers/recent.py:58
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
-msgstr ""
-"Ky trajtues ka nevojë për gtk në një version më të ri (2.9.0 ose më të ri)."
+msgstr "Ky trajtues ka nevojë për gtk në një version më të ri (2.9.0 ose më të ri)."
 
 #: ../deskbar/handlers/templates.py:43
 #, python-format
@@ -1139,13 +1133,11 @@ msgstr "Zgjidh kartelën"
 #: ../deskbar/handlers/templates.py:125
 #, python-format
 msgid "A file named \"%s\" already exists.  Do you want to replace it?"
-msgstr ""
-"Një file me emrin \"%s\" ekziston rregullisht.  Dëshiron ta zëvendësosh?"
+msgstr "Një file me emrin \"%s\" ekziston rregullisht.  Dëshiron ta zëvendësosh?"
 
 #: ../deskbar/handlers/templates.py:129
 #, python-format
-msgid ""
-"The file already exists in \"%s\".  Replacing it will overwrite its contents."
+msgid "The file already exists in \"%s\".  Replacing it will overwrite its contents."
 msgstr ""
 "File ekziston rregullisht në \"%s\".  Zëvendësimi do të mbishkruajë "
 "përmbajtjen e tij."
@@ -1233,7 +1225,7 @@ msgstr ""
 "    shfletuesin tënd web\n"
 " • Kredencialet dhe preferimet janë korrekte"
 
-#: ../deskbar/handlers/twitter.py:89
+#: ../deskbar/handlers/twitter.py:102
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
@@ -1241,18 +1233,26 @@ msgstr ""
 "Një mesazh është rregullisht në pritje të pranimit, durim para se të dërgoni "
 "një mesazh tjetër"
 
-#: ../deskbar/handlers/twitter.py:90 ../deskbar/handlers/twitter.py:103
-#: ../deskbar/handlers/twitter.py:145
+#: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
+#: ../deskbar/handlers/twitter.py:158
 #, python-format
 msgid "Error posting to %s"
 msgstr "Gabim gjatë dërgimit tek %s"
 
-#: ../deskbar/handlers/twitter.py:151
+#. TRANSLATORS: An example display of the below string:
+#.
+#. (125) Post "I can eat glass"
+#.
+#. The number in the parens indicates how many characters the user
+#. has left of the maximum message size. It should be at the start of
+#. the string as to not be hidden by ellipsation.
+#.
+#: ../deskbar/handlers/twitter.py:172
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Mesazhi <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:154
+#: ../deskbar/handlers/twitter.py:175
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1263,21 +1263,35 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:191
+#: ../deskbar/handlers/twitter.py:212
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:192
+#: ../deskbar/handlers/twitter.py:213
 msgid "Post updates to your Twitter account"
 msgstr "Dërgo përditësimet tek profili juaj Twitter"
 
-#: ../deskbar/handlers/twitter.py:239
+#: ../deskbar/handlers/twitter.py:283
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:240
+#: ../deskbar/handlers/twitter.py:284
 msgid "Post updates to your identi.ca account"
 msgstr "Dërgo përditësimet tek profili juaj identi.ca"
+
+#: ../deskbar/handlers/twitter.py:298
+msgid ""
+"Please note that Deskbar Applet does not support authentication via OpenID. "
+"You must configure a username and password on the <i>identi.ca</i> website "
+"if you haven't already."
+msgstr ""
+"Duhet të dihet që Deskbar Applet nuk suporton identifikimin me anë të OpenID. "
+"Duhet të konfiguroni një përdorues dhe fjalëkalim tek siti i <i>identi.ca</i> "
+"nëse nuk e keni bërë më parë."
+
+#: ../deskbar/handlers/twitter.py:300
+msgid "Visit identi.ca website"
+msgstr "Vizito sitin web të identi.ca"
 
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
@@ -1313,14 +1327,6 @@ msgid ""
 "Choose the language you want to use or enter the code of your language "
 "manually"
 msgstr "Zgjidh gjuhën që dëshiron të përdorësh ose shkruaj kodin e gjuhës suaj"
-
-#: ../deskbar/handlers/yahoo.py:33
-msgid "Chinese simplified"
-msgstr "Kineze e thjeshtëzuar"
-
-#: ../deskbar/handlers/yahoo.py:34
-msgid "Chinese traditional"
-msgstr "Kineze tradicionale"
 
 #: ../deskbar/handlers/yahoo.py:35
 msgid "Croatian"
@@ -1438,7 +1444,7 @@ msgstr "Shfaq veprimet shtesë"
 msgid "Back to Matches"
 msgstr "Mbrapa tek rezultatet"
 
-#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:114
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:160
 msgid "Show search entry"
 msgstr "Shfaq fushën e kërkimit"
 
@@ -1446,29 +1452,31 @@ msgstr "Shfaq fushën e kërkimit"
 msgid "Show previously used actions"
 msgstr "Shfaq veprimet e përdorur më parë"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:50
-msgid "<i>Empty</i>"
-msgstr "<i>Bosh</i>"
-
-#: ../deskbar/ui/DeskbarStatusIcon.py:85
+#: ../deskbar/ui/DeskbarStatusIcon.py:65
 msgid "Clear History"
 msgstr "Pastro kronollogjinë"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:89
+#: ../deskbar/ui/DeskbarStatusIcon.py:69
 msgid "Preferences"
 msgstr "Preferimet"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:93
+#: ../deskbar/ui/DeskbarStatusIcon.py:73
 msgid "Help"
 msgstr "Ndihmë"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:97
+#: ../deskbar/ui/DeskbarStatusIcon.py:77
 msgid "About"
 msgstr "Informacione"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:103
+#: ../deskbar/ui/DeskbarStatusIcon.py:83
 msgid "Quit"
 msgstr "Dalja"
+
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:112
+msgid "<i>Empty</i>"
+msgstr "<i>Bosh</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -1533,10 +1541,8 @@ msgid "Extracting archive"
 msgstr "Duke hapur arkivin"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:595
-msgid ""
-"Extension could not be installed due to a problem with the provided file"
-msgstr ""
-"Shtojca nuk mund të instalohet për shkak të një problemi me file e dhënë"
+msgid "Extension could not be installed due to a problem with the provided file"
+msgstr "Shtojca nuk mund të instalohet për shkak të një problemi me file e dhënë"
 
 #: ../deskbar/ui/preferences/ErrorDialog.py:8
 msgid "Error"
@@ -1557,3 +1563,4 @@ msgstr "Versioni:"
 #: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "Përditësime në dispozicion"
+
