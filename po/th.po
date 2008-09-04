@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-17 13:27+0700\n"
-"PO-Revision-Date: 2008-08-17 13:31+0700\n"
+"POT-Creation-Date: 2008-09-04 22:07+0700\n"
+"PO-Revision-Date: 2008-09-04 22:12+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -326,7 +326,7 @@ msgid "Uncategorized"
 msgstr "ไร้หมวด"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
-#: ../deskbar/ui/DeskbarStatusIcon.py:76
+#: ../deskbar/ui/DeskbarStatusIcon.py:56
 msgid "History"
 msgstr "ประวัติการค้นหา"
 
@@ -398,36 +398,36 @@ msgstr "ไม่สามารถเรียกโปรแกรม:"
 msgid "Cannot show URL:"
 msgstr "ไม่สามารถแสดง URL:"
 
-#: ../deskbar/core/Web.py:116
+#: ../deskbar/core/Web.py:135
 #, python-format
 msgid "<big><b>Login for %s</b></big>"
 msgstr "<big><b>การเข้าระบบสำหรับ %s</b></big>"
 
-#: ../deskbar/core/Web.py:117
+#: ../deskbar/core/Web.py:136
 #, python-format
 msgid "Please provide your credentials for <b>%s</b>"
 msgstr "กรุณาป้อนข้อมูลลับสำหรับ <b>%s</b> ของคุณ"
 
-#: ../deskbar/core/Web.py:118
+#: ../deskbar/core/Web.py:137
 #, python-format
 msgid "Credentials for %s"
 msgstr "ข้อมูลลับสำหรับ %s"
 
 #. Show '*' instead of text
-#: ../deskbar/core/Web.py:124
+#: ../deskbar/core/Web.py:143
 msgid "User name:"
 msgstr "ชื่อผู้ใช้:"
 
-#: ../deskbar/core/Web.py:125
+#: ../deskbar/core/Web.py:144
 msgid "Password:"
 msgstr "รหัสผ่าน:"
 
-#: ../deskbar/core/Web.py:235
+#: ../deskbar/core/Web.py:264
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>การเข้าระบบไปยัง %s ถูกปฏิเสธ</b></big>"
 
-#: ../deskbar/core/Web.py:236
+#: ../deskbar/core/Web.py:265
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "กรุณาตรวจสอบข้อมูลลับสำหรับ <b>%s</b> ของคุณ"
@@ -790,12 +790,12 @@ msgstr "บัลแกเรีย"
 msgid "Catalan"
 msgstr "คาตะลาน"
 
-#: ../deskbar/handlers/googlesearch.py:29
-msgid "Chinese Simplified"
+#: ../deskbar/handlers/googlesearch.py:29 ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
 msgstr "จีนประยุกต์"
 
-#: ../deskbar/handlers/googlesearch.py:30
-msgid "Chinese Traditional"
+#: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
 msgstr "จีนดั้งเดิม"
 
 #: ../deskbar/handlers/googlesearch.py:31
@@ -985,8 +985,8 @@ msgstr "ที่คั่นหน้าเว็บ (Mozilla)"
 #: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:300
 #: ../deskbar/handlers/mozilla.py:837
 #, python-format
-msgid "Firefox version must be between %s and %s"
-msgstr "รุ่นของ Firefox ต้องอยู่ระหว่าง %s และ %s"
+msgid "Firefox version must be at least %s and less than %s"
+msgstr "Firefox ต้องเป็นรุ่นอย่างน้อย %s และต่ำกว่า %s"
 
 #: ../deskbar/handlers/mozilla.py:222 ../deskbar/handlers/mozilla.py:310
 #: ../deskbar/handlers/mozilla.py:840
@@ -1202,24 +1202,32 @@ msgstr ""
 "    ด้วยเว็บเบราว์เซอร์ได้\n"
 " • รหัสผ่านของคุณที่กำหนดไว้ในค่าปรับแต่งนั้นถูกต้อง"
 
-#: ../deskbar/handlers/twitter.py:89
+#: ../deskbar/handlers/twitter.py:102
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr "มีรายการแปะประกาศที่รอการส่งอยู่ กรุณารอก่อนที่จะส่งข้อความถัดไป"
 
-#: ../deskbar/handlers/twitter.py:90 ../deskbar/handlers/twitter.py:103
-#: ../deskbar/handlers/twitter.py:145
+#: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
+#: ../deskbar/handlers/twitter.py:158
 #, python-format
 msgid "Error posting to %s"
 msgstr "เกิดข้อผิดพลาดขณะแปะประกาศที่ %s"
 
-#: ../deskbar/handlers/twitter.py:151
+#. TRANSLATORS: An example display of the below string:
+#.
+#. (125) Post "I can eat glass"
+#.
+#. The number in the parens indicates how many characters the user
+#. has left of the maximum message size. It should be at the start of
+#. the string as to not be hidden by ellipsation.
+#.
+#: ../deskbar/handlers/twitter.py:172
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> แปะประกาศ <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:154
+#: ../deskbar/handlers/twitter.py:175
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1230,21 +1238,34 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:191
+#: ../deskbar/handlers/twitter.py:212
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:192
+#: ../deskbar/handlers/twitter.py:213
 msgid "Post updates to your Twitter account"
 msgstr "แปะประกาศข้อความใหม่ไปยังบัญชี Twitter ของคุณ"
 
-#: ../deskbar/handlers/twitter.py:239
+#: ../deskbar/handlers/twitter.py:283
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:240
+#: ../deskbar/handlers/twitter.py:284
 msgid "Post updates to your identi.ca account"
 msgstr "แปะประกาศข้อความใหม่ไปยังบัญชี identi.ca ของคุณ"
+
+#: ../deskbar/handlers/twitter.py:298
+msgid ""
+"Please note that Deskbar Applet does not support authentication via OpenID. "
+"You must configure a username and password on the <i>identi.ca</i> website "
+"if you haven't already."
+msgstr ""
+"โปรดสังเกตว่า แอพเพล็ตเดสก์บาร์ไม่รองรับการยืนยันตัวบุคคลด้วย OpenID "
+"คุณต้องตั้งชื่อผู้ใช้และรหัสผ่านที่เว็บ <i>identi.ca</i> ก่อน ถ้าคุณยังไม่ได้ทำ"
+
+#: ../deskbar/handlers/twitter.py:300
+msgid "Visit identi.ca website"
+msgstr "ไปที่เว็บ identi.ca"
 
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
@@ -1280,14 +1301,6 @@ msgid ""
 "Choose the language you want to use or enter the code of your language "
 "manually"
 msgstr "เลือกภาษาที่คุณต้องการใช้ หรือป้อนรหัสของภาษาของคุณโดยตรง"
-
-#: ../deskbar/handlers/yahoo.py:33
-msgid "Chinese simplified"
-msgstr "จีนประยุกต์"
-
-#: ../deskbar/handlers/yahoo.py:34
-msgid "Chinese traditional"
-msgstr "จีนดั้งเดิม"
 
 #: ../deskbar/handlers/yahoo.py:35
 msgid "Croatian"
@@ -1405,7 +1418,7 @@ msgstr "แสดงปฏิบัติการเพิ่มเติม"
 msgid "Back to Matches"
 msgstr "กลับไปที่ผลการสืบค้น"
 
-#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:114
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:160
 msgid "Show search entry"
 msgstr "แสดงช่องป้อนคำค้น"
 
@@ -1413,29 +1426,31 @@ msgstr "แสดงช่องป้อนคำค้น"
 msgid "Show previously used actions"
 msgstr "แสดงปฏิบัติการที่ใช้ล่าสุด"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:50
-msgid "<i>Empty</i>"
-msgstr "<i>ว่างเปล่า</i>"
-
-#: ../deskbar/ui/DeskbarStatusIcon.py:85
+#: ../deskbar/ui/DeskbarStatusIcon.py:65
 msgid "Clear History"
 msgstr "ล้างประวัติ"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:89
+#: ../deskbar/ui/DeskbarStatusIcon.py:69
 msgid "Preferences"
 msgstr "ปรับแต่ง"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:93
+#: ../deskbar/ui/DeskbarStatusIcon.py:73
 msgid "Help"
 msgstr "วิธีใช้"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:97
+#: ../deskbar/ui/DeskbarStatusIcon.py:77
 msgid "About"
 msgstr "เกี่ยวกับ"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:103
+#: ../deskbar/ui/DeskbarStatusIcon.py:83
 msgid "Quit"
 msgstr "ออก"
+
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:112
+msgid "<i>Empty</i>"
+msgstr "<i>ว่างเปล่า</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -1519,6 +1534,12 @@ msgstr "รุ่น:"
 #: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "มีรุ่นใหม่"
+
+#~ msgid "Chinese Simplified"
+#~ msgstr "จีนประยุกต์"
+
+#~ msgid "Chinese Traditional"
+#~ msgstr "จีนดั้งเดิม"
 
 #~ msgid "<i>Choose action</i>"
 #~ msgstr "<i>เลือกปฏิบัติการ</i>"
