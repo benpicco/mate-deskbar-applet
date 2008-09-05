@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-22 15:14+0200\n"
-"PO-Revision-Date: 2008-08-22 15:41+0100\n"
+"POT-Creation-Date: 2008-09-05 15:03+0200\n"
+"PO-Revision-Date: 2008-09-05 15:05+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Aviary.pl <gnomepl@aviary.pl>\n"
 "MIME-Version: 1.0\n"
@@ -317,7 +317,7 @@ msgstr "Niesklasyfikowane"
 
 #: ../deskbar/core/Categories.py:11
 #: ../deskbar/handlers/history.py:27
-#: ../deskbar/ui/DeskbarStatusIcon.py:76
+#: ../deskbar/ui/DeskbarStatusIcon.py:56
 msgid "History"
 msgstr "Historia"
 
@@ -390,36 +390,36 @@ msgstr "Nie można wykonać programu:"
 msgid "Cannot show URL:"
 msgstr "Nie można wyświetlić adresu URL:"
 
-#: ../deskbar/core/Web.py:116
+#: ../deskbar/core/Web.py:135
 #, python-format
 msgid "<big><b>Login for %s</b></big>"
 msgstr "<big><b>Logowanie: %s</b></big>"
 
-#: ../deskbar/core/Web.py:117
+#: ../deskbar/core/Web.py:136
 #, python-format
 msgid "Please provide your credentials for <b>%s</b>"
 msgstr "Proszę wprowadzić dane uwierzytelniające <b>%s</b>"
 
-#: ../deskbar/core/Web.py:118
+#: ../deskbar/core/Web.py:137
 #, python-format
 msgid "Credentials for %s"
 msgstr "Dane uwierzytelniające dla %s"
 
 #. Show '*' instead of text
-#: ../deskbar/core/Web.py:124
+#: ../deskbar/core/Web.py:143
 msgid "User name:"
 msgstr "Nazwa użytkownika: "
 
-#: ../deskbar/core/Web.py:125
+#: ../deskbar/core/Web.py:144
 msgid "Password:"
 msgstr "Hasło:"
 
-#: ../deskbar/core/Web.py:235
+#: ../deskbar/core/Web.py:264
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>Logowanie do %s nieudane</b></big>"
 
-#: ../deskbar/core/Web.py:236
+#: ../deskbar/core/Web.py:265
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "Proszę sprawdzić dane uwierzytelniające dla <b>%s</b>"
@@ -805,11 +805,13 @@ msgid "Catalan"
 msgstr "Kataloński"
 
 #: ../deskbar/handlers/googlesearch.py:29
-msgid "Chinese Simplified"
+#: ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
 msgstr "Chiński uproszczony"
 
 #: ../deskbar/handlers/googlesearch.py:30
-msgid "Chinese Traditional"
+#: ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
 msgstr "Chiński tradycyjny"
 
 #: ../deskbar/handlers/googlesearch.py:31
@@ -1031,7 +1033,7 @@ msgstr "Zakładki sieciowe (Mozilla)"
 #: ../deskbar/handlers/mozilla.py:300
 #: ../deskbar/handlers/mozilla.py:837
 #, python-format
-msgid "Firefox version must be between %s and %s"
+msgid "Firefox version must be at least %s and less than %s"
 msgstr "Numer wersji Firefoksa musi się zawierać między %s a %s"
 
 #: ../deskbar/handlers/mozilla.py:222
@@ -1246,23 +1248,31 @@ msgstr ""
 "    przeglądarką stron WWW\n"
 " • dane uwierzytelniające są prawidłowe"
 
-#: ../deskbar/handlers/twitter.py:89
+#: ../deskbar/handlers/twitter.py:102
 msgid "A post is already awaiting submission, please wait before you post another message"
 msgstr "Wiadomość oczekuje na wysłanie, proszę poczekać przed wysłaniem kolejnej wiadomości"
 
-#: ../deskbar/handlers/twitter.py:90
 #: ../deskbar/handlers/twitter.py:103
-#: ../deskbar/handlers/twitter.py:145
+#: ../deskbar/handlers/twitter.py:116
+#: ../deskbar/handlers/twitter.py:158
 #, python-format
 msgid "Error posting to %s"
 msgstr "Błąd podczas wysyłania do %s"
 
-#: ../deskbar/handlers/twitter.py:151
+#. TRANSLATORS: An example display of the below string:
+#.
+#. (125) Post "I can eat glass"
+#.
+#. The number in the parens indicates how many characters the user
+#. has left of the maximum message size. It should be at the start of
+#. the string as to not be hidden by ellipsation.
+#.
+#: ../deskbar/handlers/twitter.py:172
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Opublikuj <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:154
+#: ../deskbar/handlers/twitter.py:175
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1273,21 +1283,29 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:191
+#: ../deskbar/handlers/twitter.py:212
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:192
+#: ../deskbar/handlers/twitter.py:213
 msgid "Post updates to your Twitter account"
 msgstr "Publikowanie aktualizacji w koncie Twitter"
 
-#: ../deskbar/handlers/twitter.py:239
+#: ../deskbar/handlers/twitter.py:283
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:240
+#: ../deskbar/handlers/twitter.py:284
 msgid "Post updates to your identi.ca account"
 msgstr "Publikowanie aktualizacji w koncie identi.ca"
+
+#: ../deskbar/handlers/twitter.py:298
+msgid "Please note that Deskbar Applet does not support authentication via OpenID. You must configure a username and password on the <i>identi.ca</i> website if you haven't already."
+msgstr "Proszę zauważyć, że aplet Deskbar nie obsługuje uwierzytelniania poprzez OpenID. Należy skonfigurować nazwę użytkownika i hasło na stronie <i>identi.ca</i>."
+
+#: ../deskbar/handlers/twitter.py:300
+msgid "Visit identi.ca website"
+msgstr "Odwiedź stronę identi.ca"
 
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
@@ -1321,14 +1339,6 @@ msgstr "Ustawienia sugestii Wikipedii"
 #: ../deskbar/handlers/wikipedia-suggest.py:144
 msgid "Choose the language you want to use or enter the code of your language manually"
 msgstr "Proszę wybrać język do użycia lub wprowadzić kod języka ręcznie"
-
-#: ../deskbar/handlers/yahoo.py:33
-msgid "Chinese simplified"
-msgstr "Chiński uproszczony"
-
-#: ../deskbar/handlers/yahoo.py:34
-msgid "Chinese traditional"
-msgstr "Chiński tradycyjny"
 
 #: ../deskbar/handlers/yahoo.py:35
 msgid "Croatian"
@@ -1450,7 +1460,7 @@ msgid "Back to Matches"
 msgstr "Powrót do wyszukanych"
 
 #: ../deskbar/ui/DeskbarApplet.py:73
-#: ../deskbar/ui/DeskbarStatusIcon.py:114
+#: ../deskbar/ui/DeskbarStatusIcon.py:160
 msgid "Show search entry"
 msgstr "Wyświetlenie wejścia wyszukiwania"
 
@@ -1458,29 +1468,31 @@ msgstr "Wyświetlenie wejścia wyszukiwania"
 msgid "Show previously used actions"
 msgstr "Wyświetlenie poprzednio używanych działań"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:50
-msgid "<i>Empty</i>"
-msgstr "<i>Pusta</i>"
-
-#: ../deskbar/ui/DeskbarStatusIcon.py:85
+#: ../deskbar/ui/DeskbarStatusIcon.py:65
 msgid "Clear History"
 msgstr "Wyczyść historię"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:89
+#: ../deskbar/ui/DeskbarStatusIcon.py:69
 msgid "Preferences"
 msgstr "Preferencje"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:93
+#: ../deskbar/ui/DeskbarStatusIcon.py:73
 msgid "Help"
 msgstr "Pomoc"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:97
+#: ../deskbar/ui/DeskbarStatusIcon.py:77
 msgid "About"
 msgstr "O programie"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:103
+#: ../deskbar/ui/DeskbarStatusIcon.py:83
 msgid "Quit"
 msgstr "Zakończ"
+
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:112
+msgid "<i>Empty</i>"
+msgstr "<i>Pusta</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -1563,6 +1575,10 @@ msgstr "Wersja:"
 msgid "Update Available"
 msgstr "Dostępna aktualizacja"
 
+#~ msgid "Chinese Simplified"
+#~ msgstr "Chiński uproszczony"
+#~ msgid "Chinese Traditional"
+#~ msgstr "Chiński tradycyjny"
 #~ msgid "<i>Choose action</i>"
 #~ msgstr "<i>Wybór działania</i>"
 #~ msgid "_History"
