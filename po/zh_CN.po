@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-11 10:05+0000\n"
+"POT-Creation-Date: 2008-09-03 08:26+0000\n"
 "PO-Revision-Date: 2008-05-25 14:10+0700\n"
 "Last-Translator: 甘露(Lu Gan) <rhythm.gan@gmail.com>\n"
 "Language-Team: Chinese i18n <i18n-zh@googlegroups.com>\n"
@@ -16,7 +16,9 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../data/deskbar-applet.schemas.in.h:1
-msgid "Choose whether triggering the keyboard shortcut also pastes the current selection in the search box."
+msgid ""
+"Choose whether triggering the keyboard shortcut also pastes the current "
+"selection in the search box."
 msgstr "选择在触发键盘快捷键时是否将当前选择粘贴在搜索框中。"
 
 #: ../data/deskbar-applet.schemas.in.h:2
@@ -32,7 +34,8 @@ msgid "Enabled handlers"
 msgstr "启用处理器"
 
 #: ../data/deskbar-applet.schemas.in.h:5
-msgid "If enabled it will clear the entry after a search result has been selected"
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
 msgstr "如果启用，它将在一个搜索结果被选择后清除输入"
 
 #: ../data/deskbar-applet.schemas.in.h:6
@@ -56,70 +59,93 @@ msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
 msgstr "选择待使用的用户界面，“Window”或“Button”其中之一"
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The applet's entry width in number of characters"
+msgstr "小程序输入项的宽度，以字符计"
+
+#: ../data/deskbar-applet.schemas.in.h:12
 msgid "The default height of the window in pixels"
 msgstr "以像素计的默认窗口高度"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default position of the window on the screen (x-coordinate)"
 msgstr "窗口在屏幕上的默认位置(x 坐标)"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The default position of the window on the screen (y-coordinate)"
 msgstr "窗口在屏幕上的默认位置(y 坐标)"
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid "The default width of the window in pixels"
 msgstr "以像素计的默认的窗口宽度"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr "使 Deskbar-Applet 获得焦点以快速输入的键序列"
 
-#: ../data/deskbar-applet.schemas.in.h:16
-msgid "The list of categories to be collapsed when displayed. Valid categories are: default, history, documents, emails, conversations, files, people, places, actions, web, websearch, news and notes."
-msgstr "折叠显示的类目列表。可用的类目为默认，历史，文档，电子邮件，聊天内容，人物，位置，行动，网页，网页搜索，新闻及便签。"
-
 #: ../data/deskbar-applet.schemas.in.h:17
-msgid "The list of exported class names of the enabled handlers sorted by priority. Leftmost has highest priority"
-msgstr "按优先级排序的所启用的处理器所输出的类名称的列表，最左端的优先级最高"
+msgid ""
+"The list of categories to be collapsed when displayed. Valid categories are: "
+"default, history, documents, emails, conversations, files, people, places, "
+"actions, web, websearch, news and notes."
+msgstr ""
+"折叠显示的类目列表。可用的类目为默认，历史，文档，电子邮件，聊天内容，人物，"
+"位置，行动，网页，网页搜索，新闻及便签。"
 
 #: ../data/deskbar-applet.schemas.in.h:18
+msgid ""
+"The list of exported class names of the enabled handlers sorted by priority. "
+"Leftmost has highest priority"
+msgstr "按优先级排序的所启用的处理器所输出的类名称的列表，最左端的优先级最高"
+
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid "The maximum number of items stored in history"
 msgstr "历史记录中保存的最大条目数"
 
-#: ../data/deskbar-applet.schemas.in.h:19
-msgid "The minimum number of characters that need to be typed before the applet starts showing matches"
+#: ../data/deskbar-applet.schemas.in.h:20
+msgid ""
+"The minimum number of characters that need to be typed before the applet "
+"starts showing matches"
 msgstr "在程序开始显示匹配项前需输入的最小的字符数"
 
-#: ../data/deskbar-applet.schemas.in.h:20
-msgid "The time in milliseconds between a keystroke in the search entry and the actual search being performed"
+#: ../data/deskbar-applet.schemas.in.h:21
+msgid ""
+"The time in milliseconds between a keystroke in the search entry and the "
+"actual search being performed"
 msgstr "搜索框中击键到开始实际搜索的时间间隔，以毫秒记"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:22
+msgid "This value only takes affect when \"ui_name\" is set to \"Button\""
+msgstr "此值仅当“ui_name”设置为“Button”时才生效"
+
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether to close the window after an action has been activated"
 msgstr "动作被激活后是否关闭窗口"
 
-#: ../data/deskbar-applet.schemas.in.h:22
-msgid "Whether to show only the preferred search engine, rather than all available engines. This only affects Mozilla-based web browsers such as Firefox."
-msgstr "是否只显示首选搜索引擎，而不是显示所有可用引擎。只影响基于 Mozilla 的浏览器，如 Firefox。"
+#: ../data/deskbar-applet.schemas.in.h:24
+msgid ""
+"Whether to show only the preferred search engine, rather than all available "
+"engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr ""
+"是否只显示首选搜索引擎，而不是显示所有可用引擎。只影响基于 Mozilla 的浏览器，"
+"如 Firefox。"
 
-#: ../data/deskbar-applet.schemas.in.h:23
+#: ../data/deskbar-applet.schemas.in.h:25
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "是否触发 Deskbar-Applet 粘贴当前选择"
 
-#: ../data/deskbar-applet.schemas.in.h:24
+#: ../data/deskbar-applet.schemas.in.h:26
 msgid "Window height"
 msgstr "窗口高度"
 
-#: ../data/deskbar-applet.schemas.in.h:25
+#: ../data/deskbar-applet.schemas.in.h:27
 msgid "Window width"
 msgstr "窗口宽度"
 
-#: ../data/deskbar-applet.schemas.in.h:26
+#: ../data/deskbar-applet.schemas.in.h:28
 msgid "X-coordinate of window"
 msgstr "窗口的 X 坐标"
 
-#: ../data/deskbar-applet.schemas.in.h:27
+#: ../data/deskbar-applet.schemas.in.h:29
 msgid "Y-coordinate of window"
 msgstr "窗口的 Y 坐标"
 
@@ -143,8 +169,7 @@ msgstr "首选项(_P)"
 msgid "An all-in-one action bar"
 msgstr "全能动作栏"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2
-#: ../deskbar/ui/About.py:27
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:27
 msgid "Deskbar"
 msgstr "桌面栏"
 
@@ -165,72 +190,85 @@ msgid "<b>Loaded Extensions</b>"
 msgstr "<b>已装入的扩展</b>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid "<b>Width</b>"
+msgstr "<b>宽度</b>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "<b>Window Behavior</b>"
 msgstr "<b>窗口行为</b>"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "桌面栏首选项"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
 msgid "Display extensions with tag:"
 msgstr "出错的扩展，标记为："
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:9
 msgid "Extensions with Errors"
 msgstr "出错的扩展"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:10
 msgid "General"
 msgstr "常规"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:11
 msgid "New Extensions"
 msgstr "新扩展"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "触发快捷键时搜索选中内容"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:13
 msgid "Searches"
 msgstr "搜索"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:14
 msgid "Stick to panel"
 msgstr "粘住面板"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:15
 msgid "_Check For Updates"
 msgstr "检查更新(_C)"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Check for new extensions"
 msgstr "检查新扩展(_C)"
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:17
 msgid "_Install"
 msgstr "安装(_I)"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:18
 msgid "_Keyboard shortcut to focus:"
 msgstr "聚焦的键盘快捷键(_K)："
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:19
 msgid "_More..."
 msgstr "更多(_M)..."
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:20
 msgid "_Reload"
 msgstr "重新加载(_R)"
 
-#: ../data/prefs-dialog.glade.h:20
+#: ../data/prefs-dialog.glade.h:21
 msgid "_Update"
 msgstr "更新(_U)"
 
+#: ../data/prefs-dialog.glade.h:22
+msgid "characters"
+msgstr "个字符"
+
 #: ../data/smart-bookmarks.glade.h:1
-msgid "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></i>."
-msgstr "<i><small><b>注意：</b>要使用快捷键(如 <b>wp</b>) 搜索<b>内容</b>，请在桌面中输入“<b>wp 内容</b>”。</small></i>"
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>注意：</b>要使用快捷键(如 <b>wp</b>) 搜索<b>内容</b>，请在桌面中"
+"输入“<b>wp 内容</b>”。</small></i>"
 
 #: ../data/smart-bookmarks.glade.h:2
 msgid "Shortcuts for Bookmarked Searches"
@@ -252,8 +290,7 @@ msgstr "显示可用的全部搜索引擎"
 msgid "Show only the primary search engine"
 msgstr "只显示最主要的搜索引擎"
 
-#: ../deskbar/core/BrowserMatch.py:67
-#: ../deskbar/handlers/beagle-live.py:312
+#: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:326
 #, python-format
 msgid "Open History Item %s"
 msgstr "打开历史项 %s"
@@ -271,7 +308,7 @@ msgstr "在 <b>%(name)s</b> 中搜索 <i>%(text)s</i>"
 
 #: ../deskbar/core/BrowserMatch.py:111
 #: ../deskbar/handlers/googlecodesearch.py:97
-#: ../deskbar/handlers/yahoo.py:43
+#: ../deskbar/handlers/googlesearch.py:200 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL地址"
 
@@ -287,8 +324,8 @@ msgstr "书签名称"
 msgid "Uncategorized"
 msgstr "未分类"
 
-#: ../deskbar/core/Categories.py:11
-#: ../deskbar/handlers/history.py:27
+#: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
+#: ../deskbar/ui/DeskbarStatusIcon.py:56
 msgid "History"
 msgstr "历史"
 
@@ -320,8 +357,7 @@ msgstr "位置"
 msgid "Actions"
 msgstr "动作"
 
-#: ../deskbar/core/Categories.py:45
-#: ../deskbar/handlers/web_address.py:44
+#: ../deskbar/core/Categories.py:45 ../deskbar/handlers/web_address.py:44
 msgid "Web"
 msgstr "Web"
 
@@ -349,97 +385,127 @@ msgstr "视频"
 msgid "Images"
 msgstr "图像"
 
-#: ../deskbar/core/DeskbarHistory.py:23
-msgid "<i>Choose action</i>"
-msgstr "<i>选择动作</i>"
+#: ../deskbar/core/DeskbarHistory.py:22
+msgid "<i>Empty history</i>"
+msgstr "<i>空历史</i>"
 
-#: ../deskbar/core/Utils.py:157
+#: ../deskbar/core/Utils.py:185
 msgid "Cannot execute program:"
 msgstr "无法执行程序："
 
-#: ../deskbar/core/Utils.py:197
+#: ../deskbar/core/Utils.py:225
 msgid "Cannot show URL:"
 msgstr "无法显示 URL："
+
+#: ../deskbar/core/Web.py:135
+#, python-format
+msgid "<big><b>Login for %s</b></big>"
+msgstr "<big><b>登录 %s</b></big>"
+
+#: ../deskbar/core/Web.py:136
+#, python-format
+msgid "Please provide your credentials for <b>%s</b>"
+msgstr "请提供您在 <b>%s</b> 的个人信息"
+
+#: ../deskbar/core/Web.py:137
+#, python-format
+msgid "Credentials for %s"
+msgstr "%s 的个人信息"
+
+#. Show '*' instead of text
+#: ../deskbar/core/Web.py:143
+msgid "User name:"
+msgstr "用户名："
+
+#: ../deskbar/core/Web.py:144
+msgid "Password:"
+msgstr "密码："
+
+#: ../deskbar/core/Web.py:264
+#, python-format
+msgid "<big><b>Login to %s rejected</b></big>"
+msgstr "<big><b>登录到 %s 被拒绝</b></big>"
+
+#: ../deskbar/core/Web.py:265
+#, python-format
+msgid "Please verify your credentials for <b>%s</b>"
+msgstr "请检查您在 <b>%s</b> 的个人信息"
 
 #. translators: This is the window title.
 #: ../deskbar/deskbar-applet.py:17
 msgid "Deskbar Applet"
 msgstr "Deskbar 面板小程序"
 
-#: ../deskbar/handlers/beagle-live.py:245
+#: ../deskbar/handlers/beagle-live.py:248
 #, python-format
 msgid "Edit contact %s"
 msgstr "编辑联系人 %s"
 
-#: ../deskbar/handlers/beagle-live.py:275
+#: ../deskbar/handlers/beagle-live.py:289
 #, python-format
 msgid "Note: %s"
 msgstr "备忘：%s"
 
-#: ../deskbar/handlers/beagle-live.py:287
+#: ../deskbar/handlers/beagle-live.py:301
 #, python-format
 msgid "With %s"
 msgstr "与 %s"
 
-#: ../deskbar/handlers/beagle-live.py:301
+#: ../deskbar/handlers/beagle-live.py:315
 #, python-format
 msgid "Calendar: %s"
 msgstr "日历 %s"
 
 #. translators: in this case the file (2nd) is part of an archive (1st)
 #. e.g. README is part of deskbar-applet.tar.gz
-#: ../deskbar/handlers/beagle-live.py:338
+#: ../deskbar/handlers/beagle-live.py:352
 #, python-format
 msgid "Open %s containing %s"
 msgstr "打开 %s 包含 %s"
 
-#: ../deskbar/handlers/beagle-live.py:340
+#: ../deskbar/handlers/beagle-live.py:354
 #: ../deskbar/handlers/actions/OpenFileAction.py:55
-#: ../deskbar/handlers/actions/ShowUrlAction.py:24
+#: ../deskbar/handlers/actions/ShowUrlAction.py:25
 #, python-format
 msgid "Open %s"
 msgstr "打开 %s"
 
-#: ../deskbar/handlers/beagle-live.py:371
+#: ../deskbar/handlers/beagle-live.py:387
 #, python-format
 msgid "Additional results for category <b>%s</b>"
 msgstr "类 <b>%s</b> 的附加结果"
 
-#: ../deskbar/handlers/beagle-live.py:371
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "姓名"
-
-#: ../deskbar/handlers/beagle-live.py:401
-#: ../deskbar/handlers/beagle-live.py:404
+#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:427
 #, python-format
 msgid "From <i>%s</i>"
 msgstr "来自于<i>%s</i>"
 
-#: ../deskbar/handlers/beagle-live.py:463
+#: ../deskbar/handlers/beagle-live.py:486
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:464
+#: ../deskbar/handlers/beagle-live.py:487
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "(通过 Beagel)随时搜索您所有的文档"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:709
-#: ../deskbar/handlers/beagle-live.py:726
+#: ../deskbar/handlers/beagle-live.py:732
+#: ../deskbar/handlers/beagle-live.py:749
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:760
-msgid "Could not load beagle, libbeagle has been compiled without python bindings."
+#: ../deskbar/handlers/beagle-live.py:783
+msgid ""
+"Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "不能加载 beagle，libbeagle 未编译 python 绑定。"
 
-#: ../deskbar/handlers/beagle-live.py:766
+#: ../deskbar/handlers/beagle-live.py:789
 msgid "Beagle daemon is not running."
 msgstr "Beagle后台程序没有运行。"
 
-#: ../deskbar/handlers/beagle-live.py:769
+#: ../deskbar/handlers/beagle-live.py:792
 msgid "Beagled could not be found in your $PATH."
 msgstr "在您的 $PATH 中无法找到 Beagled。"
 
@@ -460,6 +526,19 @@ msgstr "(使用 Beagle)搜索您所有的文档"
 msgid "Beagle does not seem to be installed."
 msgstr "尚未安装 Beagle"
 
+#: ../deskbar/handlers/calculator.py:94
+#, python-format
+msgid "Copy <b>%(origtext)s = %(name)s</b> to clipboard"
+msgstr "将 <b>%(origtext)s = %(name)s</b> 复制到剪贴板"
+
+#: ../deskbar/handlers/calculator.py:121 ../deskbar/handlers/calculator.py:124
+msgid "Calculator"
+msgstr "计算器"
+
+#: ../deskbar/handlers/calculator.py:122
+msgid "Calculate simple equations"
+msgstr "计算简单的等式"
+
 #: ../deskbar/handlers/desklicious.py:52
 msgid "del.icio.us Bookmarks"
 msgstr "del.icio.us 书签"
@@ -468,23 +547,23 @@ msgstr "del.icio.us 书签"
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "按标签名称搜索您的 del.icio.us 书签"
 
-#: ../deskbar/handlers/desklicious.py:80
+#: ../deskbar/handlers/desklicious.py:78
 msgid "del.icio.us Account"
 msgstr "del.icio.us 账户"
 
-#: ../deskbar/handlers/desklicious.py:87
+#: ../deskbar/handlers/desklicious.py:85
 msgid "Enter your del.icio.us username below"
 msgstr "在下面输入您的 del.icio.us 用户名"
 
-#: ../deskbar/handlers/desklicious.py:93
+#: ../deskbar/handlers/desklicious.py:91
 msgid "Username: "
 msgstr "用户名："
 
-#: ../deskbar/handlers/desklicious.py:109
+#: ../deskbar/handlers/desklicious.py:107
 msgid "You need to configure your del.icio.us account."
 msgstr "您需要配置您的 del.icio.us 账户。"
 
-#: ../deskbar/handlers/desklicious.py:114
+#: ../deskbar/handlers/desklicious.py:112
 msgid "You can modify your del.icio.us account."
 msgstr "您可以修改您的 del.icio.us 账户。"
 
@@ -492,13 +571,11 @@ msgstr "您可以修改您的 del.icio.us 账户。"
 msgid "Web Bookmarks (Epiphany)"
 msgstr "网络书签(Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:54
-#: ../deskbar/handlers/mozilla.py:159
+#: ../deskbar/handlers/epiphany.py:54 ../deskbar/handlers/mozilla.py:159
 msgid "Open your web bookmarks by name"
 msgstr "按名称打开您的 Web 书签"
 
-#: ../deskbar/handlers/epiphany.py:84
-#: ../deskbar/handlers/epiphany.py:129
+#: ../deskbar/handlers/epiphany.py:84 ../deskbar/handlers/epiphany.py:129
 #: ../deskbar/handlers/epiphany.py:163
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany 目前不是您的首选浏览器。"
@@ -507,8 +584,7 @@ msgstr "Epiphany 目前不是您的首选浏览器。"
 msgid "Web Searches (Epiphany)"
 msgstr "Web 搜索(Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:91
-#: ../deskbar/handlers/mozilla.py:237
+#: ../deskbar/handlers/epiphany.py:91 ../deskbar/handlers/mozilla.py:237
 msgid "Search the web via your browser's search settings"
 msgstr "通过您浏览器搜索设置搜索 Web"
 
@@ -520,8 +596,7 @@ msgstr "您可以为您的搜索设定快捷键。"
 msgid "Web History (Epiphany)"
 msgstr "Web 历史(Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:137
-#: ../deskbar/handlers/mozilla.py:792
+#: ../deskbar/handlers/epiphany.py:137 ../deskbar/handlers/mozilla.py:792
 msgid "Open your web history by name"
 msgstr "按名称打开您的 Web 历史"
 
@@ -542,10 +617,13 @@ msgstr "输入姓名或电子邮件地址以便向您的联系人发送邮件"
 #: ../deskbar/handlers/evolution.py:72
 msgid ""
 "Autocompletion Needs to be Enabled\n"
-"We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion."
+"We cannot provide e-mail addresses from your address book unless "
+"autocompletion is enabled.  To do this, from your mail program's menu, "
+"choose Edit - Preferences, and then Autocompletion."
 msgstr ""
 "需要启用自动补全\n"
-"除非您启用自动补全，否则我们无法从您的地址簿中提供电子邮件地址。要启用这一功能，请从您邮件程序的菜单中选择 编辑 - 首选项，然后设置自动补全功能。"
+"除非您启用自动补全，否则我们无法从您的地址簿中提供电子邮件地址。要启用这一功"
+"能，请从您邮件程序的菜单中选择 编辑 - 首选项，然后设置自动补全功能。"
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
@@ -562,130 +640,127 @@ msgstr "文件、文件夹和位置"
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "按名称查看您的文件、文件夹、书签、驱动器和网络位置"
 
-#: ../deskbar/handlers/gdmactions.py:30
+#: ../deskbar/handlers/gdmactions.py:40
 msgid "Shut down this system now?"
 msgstr "现在就关闭此系统吗？"
 
-#: ../deskbar/handlers/gdmactions.py:31
-#, python-format
-msgid "This system will be automatically shut down in %s seconds."
-msgstr "此系统将在 %s 秒后自动关机。"
-
-#: ../deskbar/handlers/gdmactions.py:32
-#: ../deskbar/handlers/gdmactions.py:223
-#: ../deskbar/handlers/gdmactions.py:281
+#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:262
+#: ../deskbar/handlers/gdmactions.py:328
 msgid "Shut Down"
 msgstr "关机"
 
-#: ../deskbar/handlers/gdmactions.py:34
+#: ../deskbar/handlers/gdmactions.py:43
 msgid "Log out of this system now?"
 msgstr "现在登出此系统吗？"
 
-#: ../deskbar/handlers/gdmactions.py:35
-#, python-format
-msgid "You will be automatically logged out in %s seconds."
-msgstr "您将在 %s 秒后被自动注销。"
-
-#: ../deskbar/handlers/gdmactions.py:36
-#: ../deskbar/handlers/gdmactions.py:236
-#: ../deskbar/handlers/gdmactions.py:240
-#: ../deskbar/handlers/gdmactions.py:284
+#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:283 ../deskbar/handlers/gdmactions.py:331
 msgid "Log Out"
 msgstr "注销"
 
-#: ../deskbar/handlers/gdmactions.py:38
+#: ../deskbar/handlers/gdmactions.py:46
 msgid "Restart this system now?"
 msgstr "现在重新启动此系统吗？"
 
-#: ../deskbar/handlers/gdmactions.py:39
-#, python-format
-msgid "This system will be automatically restarted in %s seconds."
-msgstr "此系统将在 %s 秒后自动重启。"
-
-#: ../deskbar/handlers/gdmactions.py:40
-#: ../deskbar/handlers/gdmactions.py:257
-#: ../deskbar/handlers/gdmactions.py:283
+#: ../deskbar/handlers/gdmactions.py:47 ../deskbar/handlers/gdmactions.py:304
+#: ../deskbar/handlers/gdmactions.py:330
 msgid "Restart"
 msgstr "重新启动"
 
-#: ../deskbar/handlers/gdmactions.py:42
+#: ../deskbar/handlers/gdmactions.py:49
 msgid "Suspend this system now?"
 msgstr "现在挂起此系统吗？"
 
-#: ../deskbar/handlers/gdmactions.py:43
-#, python-format
-msgid "This system will be automatically suspended in %s seconds."
-msgstr "此系统将在%s秒后自动挂起。"
-
-#: ../deskbar/handlers/gdmactions.py:44
-#: ../deskbar/handlers/gdmactions.py:313
+#: ../deskbar/handlers/gdmactions.py:50 ../deskbar/handlers/gdmactions.py:360
 msgid "Suspend"
 msgstr "挂起"
 
-#: ../deskbar/handlers/gdmactions.py:46
+#: ../deskbar/handlers/gdmactions.py:52
 msgid "Hibernate this system now?"
 msgstr "现在将此系统转入休眠吗？"
 
-#: ../deskbar/handlers/gdmactions.py:47
-#, python-format
-msgid "This system will be automatically hibernated in %s seconds."
-msgstr "此系统将在%s秒后自动休眠。"
-
-#: ../deskbar/handlers/gdmactions.py:48
-#: ../deskbar/handlers/gdmactions.py:315
+#: ../deskbar/handlers/gdmactions.py:53 ../deskbar/handlers/gdmactions.py:362
 msgid "Hibernate"
 msgstr "休眠"
 
-#: ../deskbar/handlers/gdmactions.py:100
+#: ../deskbar/handlers/gdmactions.py:61
+#, python-format
+msgid "This system will be automatically shut down in %s second."
+msgid_plural "This system will be automatically shut down in %s seconds."
+msgstr[0] "此系统将在 %s 秒后自动关机。"
+
+#: ../deskbar/handlers/gdmactions.py:65
+#, python-format
+msgid "You will be automatically logged out in %s second."
+msgid_plural "You will be automatically logged out in %s seconds."
+msgstr[0] "您将在 %s 秒后被自动注销。"
+
+#: ../deskbar/handlers/gdmactions.py:69
+#, python-format
+msgid "This system will be automatically restarted in %s second."
+msgid_plural "This system will be automatically restarted in %s seconds."
+msgstr[0] "此系统将在 %s 秒后自动重启。"
+
+#: ../deskbar/handlers/gdmactions.py:73
+#, python-format
+msgid "This system will be automatically suspended in %s second."
+msgid_plural "This system will be automatically suspended in %s seconds."
+msgstr[0] "此系统将在 %s 秒后自动挂起。"
+
+#: ../deskbar/handlers/gdmactions.py:77
+#, python-format
+msgid "This system will be automatically hibernated in %s second."
+msgid_plural "This system will be automatically hibernated in %s seconds."
+msgstr[0] "此系统将在 %s 秒后自动休眠。"
+
+#: ../deskbar/handlers/gdmactions.py:127
 msgid "Suspend the machine"
 msgstr "挂起计算机"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Hibernate the machine"
 msgstr "将计算机转入休眠"
 
-#: ../deskbar/handlers/gdmactions.py:134
+#: ../deskbar/handlers/gdmactions.py:169
 msgid "Shutdown the machine"
 msgstr "关闭计算机"
 
-#: ../deskbar/handlers/gdmactions.py:155
+#: ../deskbar/handlers/gdmactions.py:190
 msgid "Lock the screen"
 msgstr "锁住屏幕"
 
-#: ../deskbar/handlers/gdmactions.py:178
-#: ../deskbar/handlers/gdmactions.py:302
+#: ../deskbar/handlers/gdmactions.py:213 ../deskbar/handlers/gdmactions.py:349
 msgid "Lock"
 msgstr "锁定"
 
-#: ../deskbar/handlers/gdmactions.py:219
+#: ../deskbar/handlers/gdmactions.py:258
 msgid "Turn off the computer"
 msgstr "关闭计算机"
 
-#: ../deskbar/handlers/gdmactions.py:253
+#: ../deskbar/handlers/gdmactions.py:300
 msgid "Restart the computer"
 msgstr "重新启动计算机"
 
-#: ../deskbar/handlers/gdmactions.py:268
-#: ../deskbar/handlers/gdmactions.py:272
-#: ../deskbar/handlers/gdmactions.py:282
+#: ../deskbar/handlers/gdmactions.py:315 ../deskbar/handlers/gdmactions.py:319
+#: ../deskbar/handlers/gdmactions.py:329
 msgid "Switch User"
 msgstr "切换用户"
 
-#: ../deskbar/handlers/gdmactions.py:278
+#: ../deskbar/handlers/gdmactions.py:325
 msgid "Computer Actions"
 msgstr "计算机动作"
 
-#: ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:326
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "注销、关机、重新启动、挂起和相关动作。"
 
-#: ../deskbar/handlers/gdmactions.py:317
+#: ../deskbar/handlers/gdmactions.py:364
 msgid "Shutdown"
 msgstr "关机"
 
 #: ../deskbar/handlers/googlecodesearch.py:28
 msgid "Google Code Search"
-msgstr "谷歌代码搜索"
+msgstr "Google 代码搜索"
 
 #: ../deskbar/handlers/googlecodesearch.py:29
 msgid "Search public source code for function definitions and sample code"
@@ -694,12 +769,192 @@ msgstr "为功能定义及代码例子搜索公开的源代码"
 #: ../deskbar/handlers/googlecodesearch.py:108
 #, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
-msgstr "在<b>谷歌代码搜索</b>中查看<i>%(name)s</i>"
+msgstr "在 <b>Google 代码搜索</b>中查看<i>%(name)s</i>"
 
 #: ../deskbar/handlers/googlecodesearch.py:116
 #, python-format
 msgid "Open package <i>%(name)s</i>"
 msgstr "打开<b>%(name)s</b>包"
+
+#: ../deskbar/handlers/googlesearch.py:26 ../deskbar/handlers/yahoo.py:30
+msgid "Arabic"
+msgstr "阿拉伯语"
+
+#: ../deskbar/handlers/googlesearch.py:27 ../deskbar/handlers/yahoo.py:31
+msgid "Bulgarian"
+msgstr "保加利亚语"
+
+#: ../deskbar/handlers/googlesearch.py:28
+#: ../deskbar/handlers/wikipedia-suggest.py:36 ../deskbar/handlers/yahoo.py:32
+msgid "Catalan"
+msgstr "加泰罗尼亚语"
+
+#: ../deskbar/handlers/googlesearch.py:29 ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
+msgstr "简体中文"
+
+#: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
+msgstr "繁体中文"
+
+#: ../deskbar/handlers/googlesearch.py:31
+msgid "Croation"
+msgstr "克罗地亚语"
+
+#: ../deskbar/handlers/googlesearch.py:32 ../deskbar/handlers/yahoo.py:36
+msgid "Czech"
+msgstr "捷克语"
+
+#: ../deskbar/handlers/googlesearch.py:33 ../deskbar/handlers/yahoo.py:37
+msgid "Danish"
+msgstr "丹麦语"
+
+#: ../deskbar/handlers/googlesearch.py:34
+#: ../deskbar/handlers/wikipedia-suggest.py:28 ../deskbar/handlers/yahoo.py:38
+msgid "Dutch"
+msgstr "荷兰语"
+
+#: ../deskbar/handlers/googlesearch.py:35
+#: ../deskbar/handlers/wikipedia-suggest.py:22 ../deskbar/handlers/yahoo.py:39
+msgid "English"
+msgstr "英语"
+
+#: ../deskbar/handlers/googlesearch.py:36 ../deskbar/handlers/yahoo.py:40
+msgid "Estonian"
+msgstr "爱沙尼亚语"
+
+#: ../deskbar/handlers/googlesearch.py:37
+#: ../deskbar/handlers/wikipedia-suggest.py:35 ../deskbar/handlers/yahoo.py:41
+msgid "Finnish"
+msgstr "芬兰语"
+
+#: ../deskbar/handlers/googlesearch.py:38
+#: ../deskbar/handlers/wikipedia-suggest.py:24 ../deskbar/handlers/yahoo.py:42
+msgid "French"
+msgstr "法语"
+
+#: ../deskbar/handlers/googlesearch.py:39
+#: ../deskbar/handlers/wikipedia-suggest.py:23 ../deskbar/handlers/yahoo.py:43
+msgid "German"
+msgstr "德语"
+
+#: ../deskbar/handlers/googlesearch.py:40 ../deskbar/handlers/yahoo.py:44
+msgid "Greek"
+msgstr "希腊语"
+
+#: ../deskbar/handlers/googlesearch.py:41 ../deskbar/handlers/yahoo.py:45
+msgid "Hebrew"
+msgstr "希伯来语"
+
+#: ../deskbar/handlers/googlesearch.py:42 ../deskbar/handlers/yahoo.py:46
+msgid "Hungarian"
+msgstr "匈牙利语"
+
+#: ../deskbar/handlers/googlesearch.py:43 ../deskbar/handlers/yahoo.py:47
+msgid "Icelandic"
+msgstr "冰岛语"
+
+#: ../deskbar/handlers/googlesearch.py:44 ../deskbar/handlers/yahoo.py:48
+msgid "Indonesian"
+msgstr "印度尼西亚语"
+
+#: ../deskbar/handlers/googlesearch.py:45
+#: ../deskbar/handlers/wikipedia-suggest.py:27 ../deskbar/handlers/yahoo.py:49
+msgid "Italian"
+msgstr "意大利语"
+
+#: ../deskbar/handlers/googlesearch.py:46
+#: ../deskbar/handlers/wikipedia-suggest.py:26 ../deskbar/handlers/yahoo.py:50
+msgid "Japanese"
+msgstr "日语"
+
+#: ../deskbar/handlers/googlesearch.py:47 ../deskbar/handlers/yahoo.py:51
+msgid "Korean"
+msgstr "韩语"
+
+#: ../deskbar/handlers/googlesearch.py:48 ../deskbar/handlers/yahoo.py:52
+msgid "Latvian"
+msgstr "拉脱维亚语"
+
+#: ../deskbar/handlers/googlesearch.py:49 ../deskbar/handlers/yahoo.py:53
+msgid "Lithuanian"
+msgstr "立陶宛语"
+
+#: ../deskbar/handlers/googlesearch.py:50
+#: ../deskbar/handlers/wikipedia-suggest.py:34 ../deskbar/handlers/yahoo.py:54
+msgid "Norwegian"
+msgstr "挪威"
+
+#: ../deskbar/handlers/googlesearch.py:51
+#: ../deskbar/handlers/wikipedia-suggest.py:25 ../deskbar/handlers/yahoo.py:56
+msgid "Polish"
+msgstr "波兰语"
+
+#: ../deskbar/handlers/googlesearch.py:52
+#: ../deskbar/handlers/wikipedia-suggest.py:29 ../deskbar/handlers/yahoo.py:57
+msgid "Portuguese"
+msgstr "葡萄牙语"
+
+#: ../deskbar/handlers/googlesearch.py:53
+#: ../deskbar/handlers/wikipedia-suggest.py:38 ../deskbar/handlers/yahoo.py:58
+msgid "Romanian"
+msgstr "罗马尼亚语"
+
+#: ../deskbar/handlers/googlesearch.py:54
+#: ../deskbar/handlers/wikipedia-suggest.py:31 ../deskbar/handlers/yahoo.py:59
+msgid "Russian"
+msgstr "俄罗斯语"
+
+#: ../deskbar/handlers/googlesearch.py:55 ../deskbar/handlers/yahoo.py:61
+msgid "Serbian"
+msgstr "塞尔维亚语"
+
+#: ../deskbar/handlers/googlesearch.py:56 ../deskbar/handlers/yahoo.py:60
+msgid "Slovak"
+msgstr "斯洛伐克语"
+
+#: ../deskbar/handlers/googlesearch.py:57 ../deskbar/handlers/yahoo.py:62
+msgid "Slovenian"
+msgstr "斯洛文尼亚语"
+
+#: ../deskbar/handlers/googlesearch.py:58
+#: ../deskbar/handlers/wikipedia-suggest.py:30 ../deskbar/handlers/yahoo.py:63
+msgid "Spanish"
+msgstr "西班牙语"
+
+#: ../deskbar/handlers/googlesearch.py:59
+#: ../deskbar/handlers/wikipedia-suggest.py:32 ../deskbar/handlers/yahoo.py:64
+msgid "Swedish"
+msgstr "瑞典语"
+
+#: ../deskbar/handlers/googlesearch.py:60
+#: ../deskbar/handlers/wikipedia-suggest.py:39 ../deskbar/handlers/yahoo.py:66
+msgid "Turkish"
+msgstr "土耳其语"
+
+#: ../deskbar/handlers/googlesearch.py:74
+msgid "Google Search"
+msgstr "Google 搜索"
+
+#: ../deskbar/handlers/googlesearch.py:75
+msgid "Search terms through Google Search engine."
+msgstr "通过 Google 搜索引擎搜索关键字。"
+
+#: ../deskbar/handlers/googlesearch.py:78 ../deskbar/handlers/yahoo.py:96
+msgid "You can configure in which language the results should be."
+msgstr "你可以配置结果应当为何种语言"
+
+#: ../deskbar/handlers/googlesearch.py:180
+msgid "Python module simplejson is not available"
+msgstr "Python 模块 simplejson 不可用"
+
+#: ../deskbar/handlers/googlesearch.py:214
+msgid "Configure Google"
+msgstr "配置 Google"
+
+#: ../deskbar/handlers/googlesearch.py:224 ../deskbar/handlers/yahoo.py:419
+msgid "<b>Choose the language the results should be in:</b>"
+msgstr "<b>选择结果的语言</b>"
 
 #: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
@@ -726,15 +981,13 @@ msgstr "窗口"
 msgid "Web Bookmarks (Mozilla)"
 msgstr "网络书签(Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:219
-#: ../deskbar/handlers/mozilla.py:300
+#: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:300
 #: ../deskbar/handlers/mozilla.py:837
 #, python-format
-msgid "Firefox version must be between %s and %s"
-msgstr "Firefox 的版本必须在%s和%s之间"
+msgid "Firefox version must be at least %s and less than %s"
+msgstr "Firefox 的版本必须在 %s 和 %s 之间"
 
-#: ../deskbar/handlers/mozilla.py:222
-#: ../deskbar/handlers/mozilla.py:310
+#: ../deskbar/handlers/mozilla.py:222 ../deskbar/handlers/mozilla.py:310
 #: ../deskbar/handlers/mozilla.py:840
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox 不是您的首选浏览器。"
@@ -861,7 +1114,8 @@ msgstr "文件“%s”已经存在。您想替换它吗？"
 
 #: ../deskbar/handlers/templates.py:129
 #, python-format
-msgid "The file already exists in \"%s\".  Replacing it will overwrite its contents."
+msgid ""
+"The file already exists in \"%s\".  Replacing it will overwrite its contents."
 msgstr "文件已经在“%s”中存在。替换它将覆盖它的内容。"
 
 #: ../deskbar/handlers/templates.py:136
@@ -909,212 +1163,183 @@ msgstr "内容"
 
 #: ../deskbar/handlers/tomboy.py:150
 msgid "Tomboy Notes"
-msgstr "Tomboy 便笺"
+msgstr "阿帖便笺"
 
 #: ../deskbar/handlers/tomboy.py:151
 msgid "Search your Tomboy notes"
-msgstr "搜索您的 Tomboy 便笺"
+msgstr "搜索您的阿帖便笺"
 
-#: ../deskbar/handlers/tomboy.py:235
+#: ../deskbar/handlers/tomboy.py:238
 msgid "Tomboy does not seem to be installed."
-msgstr "尚未安装 Tomboy。"
+msgstr "尚未安装阿帖。"
 
-#: ../deskbar/handlers/tomboy.py:268
+#: ../deskbar/handlers/tomboy.py:278
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
 "Tomboy %s or greater must be installed."
-msgstr "Tomboy 版本不正确，应当安装 Tomboy %s 或更高版本。"
+msgstr "阿帖版本不正确，应当安装阿帖 %s 或更高版本。"
+
+#: ../deskbar/handlers/twitter.py:41
+#, python-format
+msgid ""
+"Failed to post update to %(domain)s.\n"
+"Please make sure that:\n"
+"\n"
+" • Your internet connection is working\n"
+" • You can connect to <i>http://%(domain)s</i> in\n"
+"    your web browser\n"
+" • Your credentials in the preferences are correct"
+msgstr ""
+"更新 %(domain)s 失败。\n"
+"请确保：\n"
+"\n"
+" * 您的 Internet 连接工作正常\n"
+" * 您可以通过 Web 浏览器连接到 <i>http://%(domain)s</i>\n"
+" * 您在首选项中的个人信息正确"
+
+#: ../deskbar/handlers/twitter.py:102
+msgid ""
+"A post is already awaiting submission, please wait before you post another "
+"message"
+msgstr ""
+"已经有正在等候提交的文章，请稍后再提交新消息"
+
+#: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
+#: ../deskbar/handlers/twitter.py:158
+#, python-format
+msgid "Error posting to %s"
+msgstr "发表到 %s 出错"
+
+#. TRANSLATORS: An example display of the below string:
+#.
+#. (125) Post "I can eat glass"
+#.
+#. The number in the parens indicates how many characters the user
+#. has left of the maximum message size. It should be at the start of
+#. the string as to not be hidden by ellipsation.
+#.
+#: ../deskbar/handlers/twitter.py:172
+#, python-format
+msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
+msgstr "<small>(%(remain)s)</small> 文章 <i>\"%(msg)s\"</i>"
+
+#: ../deskbar/handlers/twitter.py:175
+#, python-format
+msgid ""
+"Update your %s account with the message:\n"
+"\n"
+"\t<i>%s</i>"
+msgstr ""
+"将您的 %s 帐号更新为：\n"
+"\n"
+"\t<i>%s</i>"
+
+#: ../deskbar/handlers/twitter.py:212
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../deskbar/handlers/twitter.py:213
+msgid "Post updates to your Twitter account"
+msgstr "更新您的 Twitter 帐号"
+
+#: ../deskbar/handlers/twitter.py:283
+msgid "identi.ca"
+msgstr "identi.ca"
+
+#: ../deskbar/handlers/twitter.py:284
+msgid "Post updates to your identi.ca account"
+msgstr "更新您的 identi.ca 帐号"
+
+#: ../deskbar/handlers/twitter.py:298
+msgid ""
+"Please note that Deskbar Applet does not support authentication via OpenID. "
+"You must configure a username and password on the <i>identi.ca</i> website "
+"if you haven't already."
+msgstr ""
+"请注意，Deskbar 小程序上不支持通过 OpenID 的身份验证。您必须在 <i>"
+"identi.ca</i> 网站上注册。"
+
+#: ../deskbar/handlers/twitter.py:300
+msgid "Visit identi.ca website"
+msgstr "浏览 identi.ca 网站"
 
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "输入完整地址即可打开 Web 页和发送电子邮件"
 
-#: ../deskbar/handlers/yahoo.py:51
+#: ../deskbar/handlers/wikipedia-suggest.py:33
+msgid "Chinese"
+msgstr "中文"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:37
+msgid "Ukrainian"
+msgstr "乌克兰语"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:48
+#, python-format
+msgid "Open article <i>%(name)s</i> in <b>Wikipedia</b>"
+msgstr "在<b>维基百科</b>中打开文章 <i>%(name)s</i>"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:63
+msgid "Wikipedia Suggest"
+msgstr "维基百科建议"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:64
+msgid "As you type, Wikipedia will offer suggestions."
+msgstr "在您输入时，维基百科将会提供建议。"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:137
+msgid "Wikipedia Suggest settings"
+msgstr "维基百科建议设置"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:144
+msgid ""
+"Choose the language you want to use or enter the code of your language "
+"manually"
+msgstr "选择您想要使用的语言，或者手动输入您语言的代码"
+
+#: ../deskbar/handlers/yahoo.py:35
+msgid "Croatian"
+msgstr "克罗地亚语"
+
+#: ../deskbar/handlers/yahoo.py:55
+msgid "Persian"
+msgstr "波斯语"
+
+#: ../deskbar/handlers/yahoo.py:65
+msgid "Thai"
+msgstr "泰语"
+
+#: ../deskbar/handlers/yahoo.py:93
 msgid "Yahoo! Search"
 msgstr "雅虎搜索"
 
-#: ../deskbar/handlers/yahoo.py:52
+#: ../deskbar/handlers/yahoo.py:94
 msgid "Search Yahoo! as you type"
 msgstr "随时用雅虎搜索"
 
-#: ../deskbar/handlers/yahoo.py:54
-msgid "You can configure in which language the results should be."
-msgstr "你可以配置结果应当为何种语言"
-
-#: ../deskbar/handlers/yahoo.py:232
+#: ../deskbar/handlers/yahoo.py:308
 #, python-format
 msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgstr "在<b>雅虎</b>中搜索<i>%(name)s</i>"
 
-#: ../deskbar/handlers/yahoo.py:250
+#: ../deskbar/handlers/yahoo.py:326
 msgid "Yahoo! Suggestions"
 msgstr "雅虎建议"
 
-#: ../deskbar/handlers/yahoo.py:251
+#: ../deskbar/handlers/yahoo.py:327
 msgid "Provides suggestions for queries related to the submitted query"
 msgstr "提供与所提交查询有关的其他查询的建议"
 
-#: ../deskbar/handlers/yahoo.py:334
-msgid "Arabic"
-msgstr "阿拉伯语"
-
-#: ../deskbar/handlers/yahoo.py:335
-msgid "Bulgarian"
-msgstr "保加利亚语"
-
-#: ../deskbar/handlers/yahoo.py:336
-msgid "Catalan"
-msgstr "加泰罗尼亚语"
-
-#: ../deskbar/handlers/yahoo.py:337
-msgid "Chinese simplified"
-msgstr "简体中文"
-
-#: ../deskbar/handlers/yahoo.py:338
-msgid "Chinese traditional"
-msgstr "繁体中文"
-
-#: ../deskbar/handlers/yahoo.py:339
-msgid "Croatian"
-msgstr "克罗地亚语"
-
-#: ../deskbar/handlers/yahoo.py:340
-msgid "Czech"
-msgstr "捷克语"
-
-#: ../deskbar/handlers/yahoo.py:341
-msgid "Danish"
-msgstr "丹麦语"
-
-#: ../deskbar/handlers/yahoo.py:342
-msgid "Dutch"
-msgstr "荷兰语"
-
-#: ../deskbar/handlers/yahoo.py:343
-msgid "English"
-msgstr "英语"
-
-#: ../deskbar/handlers/yahoo.py:344
-msgid "Estonian"
-msgstr "爱沙尼亚语"
-
-#: ../deskbar/handlers/yahoo.py:345
-msgid "Finnish"
-msgstr "芬兰语"
-
-#: ../deskbar/handlers/yahoo.py:346
-msgid "French"
-msgstr "法语"
-
-#: ../deskbar/handlers/yahoo.py:347
-msgid "German"
-msgstr "德语"
-
-#: ../deskbar/handlers/yahoo.py:348
-msgid "Greek"
-msgstr "希腊语"
-
-#: ../deskbar/handlers/yahoo.py:349
-msgid "Hebrew"
-msgstr "希伯来语"
-
-#: ../deskbar/handlers/yahoo.py:350
-msgid "Hungarian"
-msgstr "匈牙利语"
-
-#: ../deskbar/handlers/yahoo.py:351
-msgid "Icelandic"
-msgstr "冰岛语"
-
-#: ../deskbar/handlers/yahoo.py:352
-msgid "Indonesian"
-msgstr "印度尼西亚语"
-
-#: ../deskbar/handlers/yahoo.py:353
-msgid "Italian"
-msgstr "意大利语"
-
-#: ../deskbar/handlers/yahoo.py:354
-msgid "Japanese"
-msgstr "日语"
-
-#: ../deskbar/handlers/yahoo.py:355
-msgid "Korean"
-msgstr "韩语"
-
-#: ../deskbar/handlers/yahoo.py:356
-msgid "Latvian"
-msgstr "拉脱维亚语"
-
-#: ../deskbar/handlers/yahoo.py:357
-msgid "Lithuanian"
-msgstr "立陶宛语"
-
-#: ../deskbar/handlers/yahoo.py:358
-msgid "Norwegian"
-msgstr "挪威"
-
-#: ../deskbar/handlers/yahoo.py:359
-msgid "Persian"
-msgstr "波斯语"
-
-#: ../deskbar/handlers/yahoo.py:360
-msgid "Polish"
-msgstr "波兰语"
-
-#: ../deskbar/handlers/yahoo.py:361
-msgid "Portuguese"
-msgstr "葡萄牙语"
-
-#: ../deskbar/handlers/yahoo.py:362
-msgid "Romanian"
-msgstr "罗马尼亚语"
-
-#: ../deskbar/handlers/yahoo.py:363
-msgid "Russian"
-msgstr "俄罗斯语"
-
-#: ../deskbar/handlers/yahoo.py:364
-msgid "Slovak"
-msgstr "斯洛伐克语"
-
-#: ../deskbar/handlers/yahoo.py:365
-msgid "Serbian"
-msgstr "塞尔维亚语"
-
-#: ../deskbar/handlers/yahoo.py:366
-msgid "Slovenian"
-msgstr "斯洛文尼亚语"
-
-#: ../deskbar/handlers/yahoo.py:367
-msgid "Spanish"
-msgstr "西班牙语"
-
-#: ../deskbar/handlers/yahoo.py:368
-msgid "Swedish"
-msgstr "瑞典语"
-
-#: ../deskbar/handlers/yahoo.py:369
-msgid "Thai"
-msgstr "泰语"
-
-#: ../deskbar/handlers/yahoo.py:370
-msgid "Turkish"
-msgstr "土耳其语"
-
-#: ../deskbar/handlers/yahoo.py:374
+#: ../deskbar/handlers/yahoo.py:409
 msgid "Configure Yahoo!"
 msgstr "配置雅虎"
-
-#: ../deskbar/handlers/yahoo.py:384
-msgid "<b>Choose the language the results should be in:</b>"
-msgstr "<b>选择结果的语言</b>"
 
 #: ../deskbar/handlers/actions/ActionsFactory.py:70
 #, python-format
 msgid "URL of %s"
-msgstr "%s 的 URL地址"
+msgstr "%s 的 URL"
 
 #: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
 #, python-format
@@ -1176,53 +1401,55 @@ msgstr "桌面栏网站"
 #. translators: These appear in the About dialog, usual format applies.
 #: ../deskbar/ui/About.py:34
 msgid "translator-credits"
-msgstr "Funda Wang <fundawang@linux.net.cn>, 2005.甘露(Lu Gan) <rhythm.gan@gmail.com>，2008"
+msgstr ""
+"Funda Wang <fundawang@linux.net.cn>, 2005.甘露(Lu Gan) <rhythm.gan@gmail."
+"com>，2008"
 
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
 msgstr "<b>搜索：</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
-msgid "default"
-msgstr "默认"
-
 #: ../deskbar/ui/cuemiac/CuemiacTreeView.py:250
 msgid "Display additional actions"
 msgstr "显示额外的行动"
 
-#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/AbstractCuemiacView.py:107
-msgid "_History"
-msgstr "历史(_H)"
-
-#: ../deskbar/ui/AbstractCuemiacView.py:178
+#: ../deskbar/ui/AbstractCuemiacView.py:146
 msgid "Back to Matches"
 msgstr "返回搜索结果"
 
-#: ../deskbar/ui/DeskbarApplet.py:28
-#: ../deskbar/ui/DeskbarStatusIcon.py:66
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:160
 msgid "Show search entry"
 msgstr "显示搜索项"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:37
+#: ../deskbar/ui/DeskbarApplet.py:74
+msgid "Show previously used actions"
+msgstr "显示先前使用过的动作"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:65
 msgid "Clear History"
 msgstr "清除历史"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:41
+#: ../deskbar/ui/DeskbarStatusIcon.py:69
 msgid "Preferences"
 msgstr "首选项"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:45
+#: ../deskbar/ui/DeskbarStatusIcon.py:73
 msgid "Help"
 msgstr "帮助"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:49
+#: ../deskbar/ui/DeskbarStatusIcon.py:77
 msgid "About"
 msgstr "关于"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:55
+#: ../deskbar/ui/DeskbarStatusIcon.py:83
 msgid "Quit"
 msgstr "退出"
+
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:112
+msgid "<i>Empty</i>"
+msgstr "<i>空</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -1231,50 +1458,60 @@ msgstr "新建加速器..."
 #: ../deskbar/ui/preferences/AccelEntry.py:154
 #, python-format
 msgid ""
-"The shortcut \"%s\" cannot be used because it will prevent correct operation of your keyboard.\n"
+"The shortcut \"%s\" cannot be used because it will prevent correct operation "
+"of your keyboard.\n"
 "Please try with a key such as Control, Alt or Shift at the same time.\n"
 msgstr ""
 "无法使用快捷键“%s”，因为此快捷键会阻止你的键盘的正常操作。\n"
 "您可以试试同时使用 Ctrl、Alt 或 Shift。\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:92
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:95
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>拖曳扩展以更改其顺序。</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:155
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:169
 msgid "All Extensions"
 msgstr "所有扩展"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:215
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:230
 msgid "A problem occured"
 msgstr "发生了错误"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:223
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:238
 msgid "Extension has been installed successfully"
 msgstr "扩展程序已成功安装"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:519
-msgid "Retrieving the extension index"
-msgstr "取回扩展索引"
-
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:521
-msgid "Downloading extension"
-msgstr "正在下载扩展程序"
-
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:523
-msgid "Extracting archive"
-msgstr "解压缩压缩文件"
-
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:530
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:533
 msgid "Installing extension"
 msgstr "正在安装扩展程序"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:531
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:534
 msgid "The extension will be downloaded and installed."
 msgstr "扩展将被下载并安装"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:573
-msgid "Extension could not be installed due a problem with the provided file"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:536
+msgid "Retrieving list of extensions"
+msgstr "取回扩展列表"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:537
+msgid "A list of available extensions is downloaded."
+msgstr "列出已下载的可用扩展。"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:538
+msgid "Retrieving the extension index"
+msgstr "取回扩展索引"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:540
+msgid "Downloading extension"
+msgstr "正在下载扩展程序"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:542
+msgid "Extracting archive"
+msgstr "解压缩压缩文件"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:595
+msgid ""
+"Extension could not be installed due to a problem with the provided file"
 msgstr "扩展程序无法安装，原因是它所提供的文件有问题"
 
 #: ../deskbar/ui/preferences/ErrorDialog.py:8
@@ -1296,93 +1533,3 @@ msgstr "版本："
 #: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "有更新"
-
-#~ msgid "News from %s"
-#~ msgstr "%s 的新闻"
-#~ msgid ""
-#~ "Some potentially old modules that make use of an old Deskbar-Applet API "
-#~ "have been found. Remove these files for this warning to disappear.\n"
-#~ msgstr ""
-#~ "发现一些潜在的使用旧版 Deskbar-Applet API 的模块。删除这些文件以消除此警"
-#~ "告。\n"
-#~ msgid "Reload all extensions"
-#~ msgstr "重新加载所有扩展"
-#~ msgid "Log out"
-#~ msgstr "注销"
-#~ msgid "<b>Layout</b>"
-#~ msgstr "<b>布局</b>"
-#~ msgid "Entry in panel"
-#~ msgstr "面板中的输入框"
-#~ msgid "Fixed _width:"
-#~ msgstr "固定宽度(_W)："
-#~ msgid "Use _all available space"
-#~ msgstr "使用可用的全部空间(_A)"
-#~ msgid "characters"
-#~ msgstr "个字符"
-#~ msgid ""
-#~ "<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</"
-#~ "b>) you can also just type \"<b>something</b>\" and then press <b>Alt-t</"
-#~ "b> in the deskbar.</small></i>"
-#~ msgstr ""
-#~ "<i><small><b>注意：</b>如果快捷键是单个字符(如 <b>t</b>)，您还可以输入“<b>"
-#~ "内容</b>”，然后在桌面栏中按 <b>Alt+T</b>。</small></i>"
-#~ msgid "No History"
-#~ msgstr "无历史"
-#~ msgid "A programming error has been detected"
-#~ msgstr "检测到了程序错误"
-#~ msgid ""
-#~ "It probably isn't fatal, but should be reported to the developers "
-#~ "nonetheless. The program may behave erratically from now on."
-#~ msgstr ""
-#~ "错误可能不太严重，但总是应该报告给开发者。程序从现在起可能工作不正常。"
-#~ msgid "Bug Detected"
-#~ msgstr "检测到错误"
-#~ msgid "Start Beagle Daemon?"
-#~ msgstr "启动 Beagle 守护程序吗？"
-#~ msgid "Start Beagle Daemon"
-#~ msgstr "启动 Beagle 守护程序"
-#~ msgid ""
-#~ "The Beagle daemon does not appear to be running.\n"
-#~ " You need to start it to use the Beagle Live handler."
-#~ msgstr ""
-#~ "Beagle 守护程序似乎未在运行。\n"
-#~ "要使用 Beagle Live 处理程序，您需要先启动该守护程序。"
-#~ msgid "Failed to start Beagle"
-#~ msgstr "启动 Beagle 失败"
-#~ msgid "Perhaps the beagle daemon isn't installed?"
-#~ msgstr "可能 Beagle 守护程序未安装？"
-#~ msgid "You need to enable autocomplete in your mail preferences"
-#~ msgstr "您需要在您的邮件首选项中启用自动补全"
-#~ msgid "Autocompletion Needs to be Enabled"
-#~ msgstr "需要启用自动补全"
-#~ msgid "Open folder %s"
-#~ msgstr "打开文件夹 %s"
-#~ msgid "Open the web page %s"
-#~ msgstr "打开 Web 页 %s"
-#~ msgid "Send Email to %s"
-#~ msgstr "给 %s 发送电子邮件"
-#~ msgid "Connection to repository failed"
-#~ msgstr "连接到仓库失败"
-#~ msgid "Please check your internet connection"
-#~ msgstr "请检查您的互联网连接"
-#~ msgid "Show previously used actions"
-#~ msgstr "显示先前使用过的动作"
-#~ msgid "_File"
-#~ msgstr "文件(_F)"
-#~ msgid "_Edit"
-#~ msgstr "编辑(_E)"
-#~ msgid "_View"
-#~ msgstr "查看(_V)"
-#~ msgid "<b>History</b>"
-#~ msgstr "<b>历史</b>"
-#~ msgid "Updating %s"
-#~ msgstr "正在更新 %s"
-#~ msgid ""
-#~ "The update is being downloaded from the internet. Please wait until the "
-#~ "update is complete"
-#~ msgstr "正在从互联网中下载更新。请稍候，更新即将完成"
-#~ msgid ""
-#~ "The handler is being downloaded from the internet. Please wait until the "
-#~ "installation is complete"
-#~ msgstr "正在从互联网中下载处理程序。请稍候，安装即将完成"
-
