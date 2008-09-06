@@ -133,6 +133,7 @@ class Match:
 		self._priority = 0
 		self._actions = []
 		self._default_action = None
+		self._snippet = None
 		self.__actions_hashes = set()
 		if "name" in args:
 			self._name = args["name"]
@@ -172,7 +173,13 @@ class Match:
 		if not isinstance(iconname, str):
 			raise TypeError, "icon must be a string"
 		self._icon = iconname
-	
+
+	def get_snippet(self):
+		return self._snippet
+
+	def set_snippet(self, snippet):
+		self._snippet = snippet
+
 	def get_category(self):
 		return self._category
 	
@@ -221,6 +228,7 @@ Important getter and setter methods:
 - `add_all_actions`: Calls `add_action` for each item in the supplied list.
 - `get_actions`: Returns a list of actions.
 - `get_default_action`: Returns the default action, if available, or `None`.
+- `set_snippet`: You can supply markup that will displayed in a new line under the Matche's `get_verb` value. This method is available since 2.24.
 
 [IMPORTANT]
 ===========================
@@ -263,7 +271,10 @@ class Action:
 		
 	def get_verb(self):
 		raise NotImplementedError
-		
+
+	def get_tooltip(self, text=None):
+		return None
+
 	def get_name(self, text=None):
 		return {"name": self._name}
 	
@@ -287,6 +298,7 @@ In addition, you can override the following methods:
 - `get_name`: Returns a dictionary whose entries will be used in the action string returned by `get_verb`. *Do not* escape the strings as they will be escaped automatically.
 - `is_valid`: Whether the action is still valid. E.g. if the action opens a file and it has been deleted, this method should return `False`.
 - `skip_history`: Whether the action should be stored in history.
+- `get_snippet`: Returns the tooltip markup string associated to this action. Override this method to display a tooltip when the user hovers over the match (the default action's tooltip is displayed) or over an action in the list of additional actions. This method is available since 2.24.
 
 Despite writing your own action you can make use of the basic actions shipped with Deskbar-Applet. The actions are located in the `deskbar.handlers.actions` module. It contains the actions
 
@@ -447,8 +459,8 @@ the directories.
 
 To let Deskbar-Applet know what modules are available from your file you have to define a `HANDLERS` variable somewhere
 in your file as a list of names of classes. In this case this would look like `HANDLERS = ["MyModule"]`.
-Now either copy your Python file to `~/.gnome2/deskbar-applet/modules-2.20-compatible` or open the preferences dialog and drag the
-file onto the list of handlers and you're set.
+Now open the preferences dialog and drag the
+Python file onto the list of handlers and you're set.
 
 [NOTE]
 =============================================
