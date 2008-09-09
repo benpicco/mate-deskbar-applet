@@ -13,4 +13,4 @@ DOC_INCLUDES = legal.xml
 # List of figures to include.  Paths are relative to the C/ subdir
 DOC_FIGURES = figures/deskbar-applet.png
 
-DOC_LINGUAS = ca el en_GB es fr oc pt_BR ru sv uk zh_CN
+DOC_LINGUAS = ca el en_GB es fr it oc pt_BR ru sv uk zh_CN
