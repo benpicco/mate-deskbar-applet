@@ -176,6 +176,7 @@ class TemplateHandler(deskbar.interfaces.Module):
     def __init__(self):
         deskbar.interfaces.Module.__init__(self)    
         self.indexer = deskbar.core.Indexer.Indexer()
+        self.monitor_id = None
 
     def _add_template_file(self, path):
         template_file = TemplateFile(path)
@@ -190,15 +191,20 @@ class TemplateHandler(deskbar.interfaces.Module):
     def initialize(self):
         templates_dir = deskbar.core.Utils.get_xdg_user_dir(deskbar.core.Utils.USER_DIR_TEMPLATES)
 
-        for f in os.listdir(templates_dir):
-            # Skip backup files and hidden files
-            if f.endswith("~") or f.startswith("."):
-                continue
-            self._add_template_file(os.path.join(templates_dir, f))
+        if templates_dir != None:
+            for f in os.listdir(templates_dir):
+                # Skip backup files and hidden files
+                if f.endswith("~") or f.startswith("."):
+                    continue
+                self._add_template_file(os.path.join(templates_dir, f))
+    
+            self.monitor_id = gnomevfs.monitor_add(templates_dir,
+                                 gnomevfs.MONITOR_DIRECTORY,
+                                 self._templates_dir_monitor_cb)
 
-        gnomevfs.monitor_add(templates_dir,
-                             gnomevfs.MONITOR_DIRECTORY,
-                             self._templates_dir_monitor_cb)
+    def stop(self):
+        if self.monitor_id != None:
+            gnomevfs.monitor_cancel(self.monitor_id)
 
     def query(self, query):
         matches = self.indexer.look_up(query)
