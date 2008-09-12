@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-01 21:29+0200\n"
-"PO-Revision-Date: 2008-09-01 21:30+0200\n"
+"POT-Creation-Date: 2008-09-12 15:52+0200\n"
+"PO-Revision-Date: 2008-09-12 15:53+0200\n"
 "Last-Translator: Ignacio Casal Quinteiro <nacho.resa@gmail.com>\n"
 "Language-Team: Galego <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -442,12 +442,12 @@ msgstr "Nome de usuario:"
 msgid "Password:"
 msgstr "Contrasinal:"
 
-#: ../deskbar/core/Web.py:254
+#: ../deskbar/core/Web.py:264
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>Incicio de sesión en %s rexeitado</b></big>"
 
-#: ../deskbar/core/Web.py:255
+#: ../deskbar/core/Web.py:265
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "Comprobe as súas credenciais para <b>%s</b>"
@@ -1239,7 +1239,7 @@ msgstr ""
 "    seu navegador web\n"
 " • As súas credenciais son correctas nas preferencias"
 
-#: ../deskbar/handlers/twitter.py:89
+#: ../deskbar/handlers/twitter.py:102
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
@@ -1247,8 +1247,8 @@ msgstr ""
 "Xa hai unha entrada esperando ser publicada, espere antes de publicar outra "
 "mensaxe"
 
-#: ../deskbar/handlers/twitter.py:90 ../deskbar/handlers/twitter.py:103
-#: ../deskbar/handlers/twitter.py:145
+#: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
+#: ../deskbar/handlers/twitter.py:158
 #, python-format
 msgid "Error posting to %s"
 msgstr "Erro ao publicar en %s"
@@ -1261,12 +1261,12 @@ msgstr "Erro ao publicar en %s"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:159
+#: ../deskbar/handlers/twitter.py:172
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Publicar <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:162
+#: ../deskbar/handlers/twitter.py:175
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1277,21 +1277,35 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:199
+#: ../deskbar/handlers/twitter.py:212
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:200
+#: ../deskbar/handlers/twitter.py:213
 msgid "Post updates to your Twitter account"
 msgstr "Publicar actualizacións na súa conta de Twitter"
 
-#: ../deskbar/handlers/twitter.py:247
+#: ../deskbar/handlers/twitter.py:283
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:248
+#: ../deskbar/handlers/twitter.py:284
 msgid "Post updates to your identi.ca account"
 msgstr "Publicar actualizacións na súa conta de identi.ca"
+
+#: ../deskbar/handlers/twitter.py:298
+msgid ""
+"Please note that Deskbar Applet does not support authentication via OpenID. "
+"You must configure a username and password on the <i>identi.ca</i> website "
+"if you haven't already."
+msgstr ""
+"Note que a applet Deskbar non soporta autenticación por medio de OpenID. "
+"Debe configurar un nome de usuario e contrasinal na páxina web <i>identi.ca</"
+"i> se aínda non o fixo."
+
+#: ../deskbar/handlers/twitter.py:300
+msgid "Visit identi.ca website"
+msgstr "Visitar a páxina web de identi.ca"
 
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
