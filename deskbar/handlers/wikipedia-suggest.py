@@ -1,5 +1,5 @@
 from deskbar.core.GconfStore import GconfStore
-from deskbar.core.Utils import load_icon, get_locale_lang
+from deskbar.core.Utils import load_icon, get_locale_lang, get_proxy
 from deskbar.defs import VERSION
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from gettext import gettext as _
@@ -108,7 +108,7 @@ class WikipediaSuggestHandler(deskbar.interfaces.Module):
         url = WIKIPEDIA_SUGGEST_URL + '?' + urllib.urlencode(args)
         
         try:
-            result = urllib.urlopen(url)
+            result = urllib.urlopen(url, proxies=get_proxy())
         except IOError, msg:
             # Print error for debugging purposes and end querying
             LOGGER.error("Could not open URL %s: %s, %s" % (url, msg[0], msg[1]))
