@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-26 10:26+0900\n"
-"PO-Revision-Date: 2008-02-26 10:29+0900\n"
-"Last-Translator: Namhyung Kim <namhyung@gmail.com>\n"
+"POT-Creation-Date: 2008-09-12 19:38+0900\n"
+"PO-Revision-Date: 2008-09-13 11:51+0900\n"
+"Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid ""
 "Choose whether triggering the keyboard shortcut also pastes the current "
 "selection in the search box."
-msgstr "바로 가기를 눌르면, 찾기 입력란에 선택한 텍스트를 붙여 넣을 지 여부."
+msgstr "바로 가기를 누르면 찾기 입력란에 선택한 텍스트를 붙여 넣을 지 여부."
 
 #: ../data/deskbar-applet.schemas.in.h:2
 msgid "Clear entry after match has been selected"
@@ -65,26 +65,30 @@ msgstr ""
 "사용할 사용자 인터페이스를 선택합니다. \"Windows\" 혹은 \"Button\" 중 하나."
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The applet's entry width in number of characters"
+msgstr "애플릿의 입력창 너비, 문자 수 단위"
+
+#: ../data/deskbar-applet.schemas.in.h:12
 msgid "The default height of the window in pixels"
 msgstr "창의 기본 높이 (픽셀)"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default position of the window on the screen (x-coordinate)"
 msgstr "화면에서 창의 기본 가로 위치"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The default position of the window on the screen (y-coordinate)"
 msgstr "화면에서 창의 기본 세로 위치"
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid "The default width of the window in pixels"
 msgstr "창의 기본 너비 (픽셀)"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr "데스크바 애플릿에 포커스를 옮기는 단축키"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -94,7 +98,7 @@ msgstr ""
 "history, documents, emails, conversations, files, people, places, actions, "
 "web, websearch, news, notes."
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -102,27 +106,31 @@ msgstr ""
 "우선 순위별로 정렬한, 사용하는 핸들러의 클래스 이름 목록. 왼쪽이 우선 순위가 "
 "높습니다"
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid "The maximum number of items stored in history"
 msgstr "기록에 저장될 최대 항목 수"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
 msgstr "애플릿이 해당 결과를 표시하려면 입력해야 하는 문자의 최소 개수"
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
 msgstr "찾기 창에서 키 입력과 실제 검색이 일어나는 사이의 시간 (밀리초)"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:22
+msgid "This value only takes affect when \"ui_name\" is set to \"Button\""
+msgstr "이 값은 \"ui_name\"을 \"Button\"으로 설정한 경우에만 효과가 있습니다"
+
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether to close the window after an action has been activated"
 msgstr "동작을 활성화할 때 창을 닫을 지 여부"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -130,23 +138,23 @@ msgstr ""
 "다른 검색 엔진은 표시하지 않고 기본 검색 엔진만 표시할 지 여부. 파이어폭스 같"
 "은 모질라 기반 웹브라우저에서만 적용됩니다."
 
-#: ../data/deskbar-applet.schemas.in.h:23
+#: ../data/deskbar-applet.schemas.in.h:25
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr "데스크바 애플릿이 현재 클립보드 항목을 붙여 넣을지 여부"
 
-#: ../data/deskbar-applet.schemas.in.h:24
+#: ../data/deskbar-applet.schemas.in.h:26
 msgid "Window height"
 msgstr "창 높이"
 
-#: ../data/deskbar-applet.schemas.in.h:25
+#: ../data/deskbar-applet.schemas.in.h:27
 msgid "Window width"
 msgstr "창 너비"
 
-#: ../data/deskbar-applet.schemas.in.h:26
+#: ../data/deskbar-applet.schemas.in.h:28
 msgid "X-coordinate of window"
 msgstr "창의 가로 좌표"
 
-#: ../data/deskbar-applet.schemas.in.h:27
+#: ../data/deskbar-applet.schemas.in.h:29
 msgid "Y-coordinate of window"
 msgstr "창의 세로 좌표"
 
@@ -191,64 +199,76 @@ msgid "<b>Loaded Extensions</b>"
 msgstr "<b>읽어들인 확장 기능</b>"
 
 #: ../data/prefs-dialog.glade.h:5
+msgid "<b>Width</b>"
+msgstr "<b>너비</b>"
+
+#: ../data/prefs-dialog.glade.h:6
 msgid "<b>Window Behavior</b>"
 msgstr "<b>창 동작</b>"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.glade.h:7
 msgid "Deskbar Preferences"
 msgstr "데스크바 기본 설정"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.glade.h:8
+msgid "Display extensions with tag:"
+msgstr "다음 태그가 있는 확장 기능 표시:"
+
+#: ../data/prefs-dialog.glade.h:9
 msgid "Extensions with Errors"
 msgstr "오류가 있는 확장 기능"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.glade.h:10
 msgid "General"
 msgstr "일반"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.glade.h:11
 msgid "New Extensions"
 msgstr "새 확장 기능"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.glade.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "바로 가기 키를 누르면 선택한 텍스트 검색"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.glade.h:13
 msgid "Searches"
 msgstr "찾기"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.glade.h:14
 msgid "Stick to panel"
 msgstr "패널에 붙기"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.glade.h:15
 msgid "_Check For Updates"
 msgstr "업데이트 검사(_C)"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.glade.h:16
 msgid "_Check for new extensions"
 msgstr "새 확장 기능 확인(_C)"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.glade.h:17
 msgid "_Install"
 msgstr "설치(_I)"
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.glade.h:18
 msgid "_Keyboard shortcut to focus:"
 msgstr "포커스를 옮기는 키보드 바로 가기(_K):"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.glade.h:19
 msgid "_More..."
 msgstr "기타(_M)..."
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.glade.h:20
 msgid "_Reload"
 msgstr "다시 읽어들이기(_R)"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.glade.h:21
 msgid "_Update"
 msgstr "업데이트(_U)"
+
+#: ../data/prefs-dialog.glade.h:22
+msgid "characters"
+msgstr "글자"
 
 #: ../data/smart-bookmarks.glade.h:1
 msgid ""
@@ -279,31 +299,33 @@ msgstr "사용할 수 있는 검색 엔진 모두 보기"
 msgid "Show only the primary search engine"
 msgstr "기본 검색 엔진만 보기"
 
-#: ../deskbar/core/BrowserMatch.py:54 ../deskbar/handlers/beagle-live.py:181
+#: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:326
 #, python-format
 msgid "Open History Item %s"
 msgstr "기록 항목 %s 열기"
 
-#: ../deskbar/core/BrowserMatch.py:56
+#: ../deskbar/core/BrowserMatch.py:69
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "책갈피 %s 열기"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:72
+#: ../deskbar/core/BrowserMatch.py:85
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<i>%(name)s</i>에서 <b>%(text)s</b> 찾기"
 
-#: ../deskbar/core/BrowserMatch.py:98 ../deskbar/handlers/yahoo.py:33
+#: ../deskbar/core/BrowserMatch.py:111
+#: ../deskbar/handlers/googlecodesearch.py:97
+#: ../deskbar/handlers/googlesearch.py:200 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL"
 
-#: ../deskbar/core/BrowserMatch.py:233
+#: ../deskbar/core/BrowserMatch.py:246
 msgid "Shortcut"
 msgstr "바로 가기"
 
-#: ../deskbar/core/BrowserMatch.py:241
+#: ../deskbar/core/BrowserMatch.py:254
 msgid "Bookmark Name"
 msgstr "책갈피 이름"
 
@@ -312,6 +334,7 @@ msgid "Uncategorized"
 msgstr "분류 없음"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
+#: ../deskbar/ui/DeskbarStatusIcon.py:56
 msgid "History"
 msgstr "기록"
 
@@ -359,181 +382,249 @@ msgstr "새소식"
 msgid "Notes"
 msgstr "알림"
 
-#: ../deskbar/core/DeskbarHistory.py:22
-msgid "<i>Choose action</i>"
-msgstr "<i>동작 선택</i>"
+#: ../deskbar/core/Categories.py:61
+msgid "Audio"
+msgstr "오디오"
 
-#: ../deskbar/core/Utils.py:132
+#: ../deskbar/core/Categories.py:65
+msgid "Video"
+msgstr "비디오"
+
+#: ../deskbar/core/Categories.py:69
+msgid "Images"
+msgstr "그림"
+
+#: ../deskbar/core/DeskbarHistory.py:22
+msgid "<i>Empty history</i>"
+msgstr "<i>기록 비었음</i>"
+
+#: ../deskbar/core/Utils.py:185
 msgid "Cannot execute program:"
 msgstr "프로그램을 실행할 수 없습니다:"
 
-#: ../deskbar/core/Utils.py:172
+#: ../deskbar/core/Utils.py:225
 msgid "Cannot show URL:"
 msgstr "URL을 표시할 수 없습니다:"
 
+#: ../deskbar/core/Web.py:135
+#, python-format
+msgid "<big><b>Login for %s</b></big>"
+msgstr "<big><b>%s에 로그인</b></big>"
+
+#: ../deskbar/core/Web.py:136
+#, python-format
+msgid "Please provide your credentials for <b>%s</b>"
+msgstr "<b>%s</b>에 대한 암호를 입력하십시오"
+
+#: ../deskbar/core/Web.py:137
+#, python-format
+msgid "Credentials for %s"
+msgstr "%s에 대한 암호"
+
+#. Show '*' instead of text
+#: ../deskbar/core/Web.py:143
+msgid "User name:"
+msgstr "사용자 이름:"
+
+#: ../deskbar/core/Web.py:144
+msgid "Password:"
+msgstr "암호:"
+
+#: ../deskbar/core/Web.py:264
+#, python-format
+msgid "<big><b>Login to %s rejected</b></big>"
+msgstr "<big><b>%s에 로그인이 거부되었습니다</b></big>"
+
+#: ../deskbar/core/Web.py:265
+#, python-format
+msgid "Please verify your credentials for <b>%s</b>"
+msgstr "%s에 대한 암호가 맞는 지 확인하십시오"
+
 #. translators: This is the window title.
-#: ../deskbar/deskbar-applet.py:15
+#: ../deskbar/deskbar-applet.py:17
 msgid "Deskbar Applet"
 msgstr "데스크바 애플릿"
 
-#: ../deskbar/handlers/beagle-live.py:103
+#: ../deskbar/handlers/beagle-live.py:248
 #, python-format
 msgid "Edit contact %s"
 msgstr "연락처 %s 편집"
 
-#: ../deskbar/handlers/beagle-live.py:114
-#, python-format
-msgid "From %s"
-msgstr "보낸 사람: %s"
-
-#: ../deskbar/handlers/beagle-live.py:129
-#, python-format
-msgid "News from %s"
-msgstr "새소식, 보낸 사람: %s"
-
-#: ../deskbar/handlers/beagle-live.py:143
+#: ../deskbar/handlers/beagle-live.py:289
 #, python-format
 msgid "Note: %s"
 msgstr "알림: %s"
 
-#: ../deskbar/handlers/beagle-live.py:156
+#: ../deskbar/handlers/beagle-live.py:301
 #, python-format
 msgid "With %s"
 msgstr "%s 이용"
 
-#: ../deskbar/handlers/beagle-live.py:170
+#: ../deskbar/handlers/beagle-live.py:315
 #, python-format
 msgid "Calendar: %s"
 msgstr "달력: %s"
 
-#: ../deskbar/handlers/beagle-live.py:213
+#. translators: in this case the file (2nd) is part of an archive (1st)
+#. e.g. README is part of deskbar-applet.tar.gz
+#: ../deskbar/handlers/beagle-live.py:352
+#, python-format
+msgid "Open %s containing %s"
+msgstr "%s 열기 (%s 파일 포함)"
+
+#: ../deskbar/handlers/beagle-live.py:354
+#: ../deskbar/handlers/actions/OpenFileAction.py:55
+#: ../deskbar/handlers/actions/ShowUrlAction.py:25
+#, python-format
+msgid "Open %s"
+msgstr "%s 열기"
+
+#: ../deskbar/handlers/beagle-live.py:387
 #, python-format
 msgid "Additional results for category <b>%s</b>"
 msgstr "<b>%s</b> 분류의 추가 결과"
 
-#: ../deskbar/handlers/beagle-live.py:213
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "이름"
+#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:427
+#, python-format
+msgid "From <i>%s</i>"
+msgstr "보낸 사람: <i>%s</i>"
 
-#: ../deskbar/handlers/beagle-live.py:295
+#: ../deskbar/handlers/beagle-live.py:486
 msgid "Beagle Live"
 msgstr "비글 라이브"
 
-#: ../deskbar/handlers/beagle-live.py:296
+#: ../deskbar/handlers/beagle-live.py:487
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "입력하는대로 모든 문서를 찾습니다 (비글 사용)"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:433
-#: ../deskbar/handlers/beagle-live.py:455
+#: ../deskbar/handlers/beagle-live.py:732
+#: ../deskbar/handlers/beagle-live.py:749
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:486
+#: ../deskbar/handlers/beagle-live.py:783
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "비글을 읽어들일 수 없습니다. libbeagle을 파이썬 바인딩 없이 컴파일했습니다."
 
-#: ../deskbar/handlers/beagle-live.py:495
+#: ../deskbar/handlers/beagle-live.py:789
+msgid "Beagle daemon is not running."
+msgstr "비글 데몬이 실행 중이 아닙니다"
+
+#: ../deskbar/handlers/beagle-live.py:792
 msgid "Beagled could not be found in your $PATH."
 msgstr "beagled가 $PATH에 없습니다."
 
-#: ../deskbar/handlers/beagle-static.py:21
+#: ../deskbar/handlers/beagle-static.py:22
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "비글에서 %s 찾기"
 
-#: ../deskbar/handlers/beagle-static.py:37
+#: ../deskbar/handlers/beagle-static.py:38
 msgid "Beagle"
 msgstr "비글"
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-static.py:39
 msgid "Search all of your documents (using Beagle)"
 msgstr "모든 문서를 찾습니다 (비글 사용)"
 
-#: ../deskbar/handlers/beagle-static.py:54
+#: ../deskbar/handlers/beagle-static.py:55
 msgid "Beagle does not seem to be installed."
 msgstr "비글을 설치하지 않은 것 같습니다."
 
-#: ../deskbar/handlers/desklicious.py:47
+#: ../deskbar/handlers/calculator.py:94
+#, python-format
+msgid "Copy <b>%(origtext)s = %(name)s</b> to clipboard"
+msgstr "클립보드로 <b>%(origtext)s = %(name)s</b> 복사"
+
+#: ../deskbar/handlers/calculator.py:121 ../deskbar/handlers/calculator.py:124
+msgid "Calculator"
+msgstr "계산기"
+
+#: ../deskbar/handlers/calculator.py:122
+msgid "Calculate simple equations"
+msgstr "간단한 계산식을 계산합니다"
+
+#: ../deskbar/handlers/desklicious.py:52
 msgid "del.icio.us Bookmarks"
 msgstr "del.icio.us 책갈피"
 
-#: ../deskbar/handlers/desklicious.py:48
+#: ../deskbar/handlers/desklicious.py:53
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "태그 이름으로 del.icio.us 책갈피를 찾습니다"
 
-#: ../deskbar/handlers/desklicious.py:80
+#: ../deskbar/handlers/desklicious.py:78
 msgid "del.icio.us Account"
 msgstr "del.icio.us 계정"
 
-#: ../deskbar/handlers/desklicious.py:87
+#: ../deskbar/handlers/desklicious.py:85
 msgid "Enter your del.icio.us username below"
 msgstr "del.icio.us 사용자 이름을 아래에 입력하십시오"
 
-#: ../deskbar/handlers/desklicious.py:93
+#: ../deskbar/handlers/desklicious.py:91
 msgid "Username: "
 msgstr "사용자 이름: "
 
-#: ../deskbar/handlers/desklicious.py:109
+#: ../deskbar/handlers/desklicious.py:107
 msgid "You need to configure your del.icio.us account."
 msgstr "del.icio.us 계정을 설정해야 합니다."
 
-#: ../deskbar/handlers/desklicious.py:114
+#: ../deskbar/handlers/desklicious.py:112
 msgid "You can modify your del.icio.us account."
 msgstr "del.icio.us 계정을 바꿀 수 있습니다."
 
-#: ../deskbar/handlers/epiphany.py:51
+#: ../deskbar/handlers/epiphany.py:53
 msgid "Web Bookmarks (Epiphany)"
 msgstr "웹 책갈피 (에피파니)"
 
-#: ../deskbar/handlers/epiphany.py:52 ../deskbar/handlers/mozilla.py:157
+#: ../deskbar/handlers/epiphany.py:54 ../deskbar/handlers/mozilla.py:159
 msgid "Open your web bookmarks by name"
 msgstr "이름으로 웹 책갈피를 엽니다"
 
-#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
-#: ../deskbar/handlers/epiphany.py:161
+#: ../deskbar/handlers/epiphany.py:84 ../deskbar/handlers/epiphany.py:129
+#: ../deskbar/handlers/epiphany.py:163
 msgid "Epiphany is not your preferred browser."
 msgstr "기본 브라우저로 에피파니를 쓰지 않고 있습니다."
 
-#: ../deskbar/handlers/epiphany.py:88
+#: ../deskbar/handlers/epiphany.py:90
 msgid "Web Searches (Epiphany)"
 msgstr "웹 검색 (에피파니)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:235
+#: ../deskbar/handlers/epiphany.py:91 ../deskbar/handlers/mozilla.py:237
 msgid "Search the web via your browser's search settings"
 msgstr "브라우저의 검색 설정에 따라 웹을 검색합니다"
 
-#: ../deskbar/handlers/epiphany.py:124
+#: ../deskbar/handlers/epiphany.py:126
 msgid "You can set shortcuts for your searches."
 msgstr "찾은 결과에 대한 바로 가기를 설정할 수 있습니다."
 
-#: ../deskbar/handlers/epiphany.py:134
+#: ../deskbar/handlers/epiphany.py:136
 msgid "Web History (Epiphany)"
 msgstr "웹 방문기록 (에피파니)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:779
+#: ../deskbar/handlers/epiphany.py:137 ../deskbar/handlers/mozilla.py:792
 msgid "Open your web history by name"
 msgstr "이름으로 웹 방문기록을 엽니다"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:27
+#: ../deskbar/handlers/evolution.py:32
 #, python-format
 msgid "Edit contact <b>%(name)s</b> (%(email)s)"
 msgstr "<b>%(name)s</b>(%(email)s)의 연락처를 수정합니다"
 
-#: ../deskbar/handlers/evolution.py:42
+#: ../deskbar/handlers/evolution.py:47
 msgid "Mail (Address Book)"
 msgstr "메일 (주소록)"
 
-#: ../deskbar/handlers/evolution.py:43
+#: ../deskbar/handlers/evolution.py:48
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "이름이나 메일 주소를 입력해서 메일을 보냅니다"
 
-#: ../deskbar/handlers/evolution.py:67
+#: ../deskbar/handlers/evolution.py:72
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -541,243 +632,456 @@ msgid ""
 "choose Edit - Preferences, and then Autocompletion."
 msgstr ""
 "자동 완성기능을 켜야 합니다\n"
-"자동 완성기능을 켜지 않으면 주소록에서 전자메일 주소를 가져올 수 없습니다. 자동완성 기능을 켜려면 메일 프로그램 메뉴에서 편집 - 기본 설정 - 자동 완성을 선택하십시오."
+"자동 완성기능을 켜지 않으면 주소록에서 전자메일 주소를 가져올 수 없습니다. 자"
+"동완성 기능을 켜려면 메일 프로그램 메뉴에서 편집 - 기본 설정 - 자동 완성을 선"
+"택하십시오."
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
-#: ../deskbar/handlers/files.py:62
+#: ../deskbar/handlers/files.py:64
 #: ../deskbar/handlers/actions/ActionsFactory.py:35
 msgid "Location"
 msgstr "위치"
 
-#: ../deskbar/handlers/files.py:70
+#: ../deskbar/handlers/files.py:72
 msgid "Files, Folders and Places"
 msgstr "파일, 폴더 및 위치"
 
-#: ../deskbar/handlers/files.py:71
+#: ../deskbar/handlers/files.py:73
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "이름을 입력해 파일, 폴더, 책갈피, 드라이브, 네트워크 위치를 봅니다"
 
-#: ../deskbar/handlers/gdmactions.py:30
+#: ../deskbar/handlers/gdmactions.py:40
 msgid "Shut down this system now?"
 msgstr "지금 시스템을 끄시겠습니까?"
 
-#: ../deskbar/handlers/gdmactions.py:31
-#, python-format
-msgid "This system will be automatically shut down in %s seconds."
-msgstr "이 컴퓨터는 %s초 후에 자동으로 꺼질 것입니다."
-
-#: ../deskbar/handlers/gdmactions.py:32 ../deskbar/handlers/gdmactions.py:223
-#: ../deskbar/handlers/gdmactions.py:281
+#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:262
+#: ../deskbar/handlers/gdmactions.py:328
 msgid "Shut Down"
 msgstr "컴퓨터 끄기"
 
-#: ../deskbar/handlers/gdmactions.py:34
+#: ../deskbar/handlers/gdmactions.py:43
 msgid "Log out of this system now?"
 msgstr "지금 시스템에서 로그아웃하시겠습니까?"
 
-#: ../deskbar/handlers/gdmactions.py:35
-#, python-format
-msgid "You will be automatically logged out in %s seconds."
-msgstr "%s초 후에 자동으로 로그아웃합니다."
-
-#: ../deskbar/handlers/gdmactions.py:36 ../deskbar/handlers/gdmactions.py:236
-#: ../deskbar/handlers/gdmactions.py:240 ../deskbar/handlers/gdmactions.py:284
+#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:283 ../deskbar/handlers/gdmactions.py:331
 msgid "Log Out"
 msgstr "로그아웃"
 
-#: ../deskbar/handlers/gdmactions.py:38
+#: ../deskbar/handlers/gdmactions.py:46
 msgid "Restart this system now?"
 msgstr "지금 컴퓨터를 다시 시작하시겠습니까?"
 
-#: ../deskbar/handlers/gdmactions.py:39
-#, python-format
-msgid "This system will be automatically restarted in %s seconds."
-msgstr "이 컴퓨터는 %s초 후에 자동으로 다시 시작합니다."
-
-#: ../deskbar/handlers/gdmactions.py:40 ../deskbar/handlers/gdmactions.py:257
-#: ../deskbar/handlers/gdmactions.py:283
+#: ../deskbar/handlers/gdmactions.py:47 ../deskbar/handlers/gdmactions.py:304
+#: ../deskbar/handlers/gdmactions.py:330
 msgid "Restart"
 msgstr "다시 시작"
 
-#: ../deskbar/handlers/gdmactions.py:42
+#: ../deskbar/handlers/gdmactions.py:49
 msgid "Suspend this system now?"
 msgstr "지금 컴퓨터를 절전 상태로 바꾸시겠습니까?"
 
-#: ../deskbar/handlers/gdmactions.py:43
-#, python-format
-msgid "This system will be automatically suspended in %s seconds."
-msgstr "이 컴퓨터는 %s초 후에 자동으로 절전 상태로 들어갑니다."
-
-#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:313
+#: ../deskbar/handlers/gdmactions.py:50 ../deskbar/handlers/gdmactions.py:360
 msgid "Suspend"
 msgstr "절전"
 
-#: ../deskbar/handlers/gdmactions.py:46
+#: ../deskbar/handlers/gdmactions.py:52
 msgid "Hibernate this system now?"
 msgstr "지금 컴퓨터를 최대절전 상태로 바꾸시겠습니까?"
 
-#: ../deskbar/handlers/gdmactions.py:47
-#, python-format
-msgid "This system will be automatically hibernated in %s seconds."
-msgstr "이 컴퓨터는 %s초 후에 자동으로 최대 절전 상태로 들어갑니다."
-
-#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:315
+#: ../deskbar/handlers/gdmactions.py:53 ../deskbar/handlers/gdmactions.py:362
 msgid "Hibernate"
 msgstr "최대 절전"
 
-#: ../deskbar/handlers/gdmactions.py:100
+#: ../deskbar/handlers/gdmactions.py:61
+#, python-format
+msgid "This system will be automatically shut down in %s second."
+msgid_plural "This system will be automatically shut down in %s seconds."
+msgstr[0] "이 컴퓨터는 %s초 후에 자동으로 꺼집니다."
+
+#: ../deskbar/handlers/gdmactions.py:65
+#, python-format
+msgid "You will be automatically logged out in %s second."
+msgid_plural "You will be automatically logged out in %s seconds."
+msgstr[0] "%s초 후에 자동으로 로그아웃합니다."
+
+#: ../deskbar/handlers/gdmactions.py:69
+#, python-format
+msgid "This system will be automatically restarted in %s second."
+msgid_plural "This system will be automatically restarted in %s seconds."
+msgstr[0] "이 컴퓨터는 %s초 후에 자동으로 다시 시작합니다."
+
+#: ../deskbar/handlers/gdmactions.py:73
+#, python-format
+msgid "This system will be automatically suspended in %s second."
+msgid_plural "This system will be automatically suspended in %s seconds."
+msgstr[0] "이 컴퓨터는 %s초 후에 자동으로 절전 상태로 들어갑니다."
+
+#: ../deskbar/handlers/gdmactions.py:77
+#, python-format
+msgid "This system will be automatically hibernated in %s second."
+msgid_plural "This system will be automatically hibernated in %s seconds."
+msgstr[0] "이 컴퓨터는 %s초 후에 자동으로 최대 절전 상태로 들어갑니다."
+
+#: ../deskbar/handlers/gdmactions.py:127
 msgid "Suspend the machine"
 msgstr "컴퓨터를 절전 상태로"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Hibernate the machine"
 msgstr "컴퓨터를 최대절전 상태로"
 
-#: ../deskbar/handlers/gdmactions.py:134
+#: ../deskbar/handlers/gdmactions.py:169
 msgid "Shutdown the machine"
 msgstr "컴퓨터 끄기"
 
-#: ../deskbar/handlers/gdmactions.py:155
+#: ../deskbar/handlers/gdmactions.py:190
 msgid "Lock the screen"
 msgstr "화면 잠그기"
 
-#: ../deskbar/handlers/gdmactions.py:178 ../deskbar/handlers/gdmactions.py:302
+#: ../deskbar/handlers/gdmactions.py:213 ../deskbar/handlers/gdmactions.py:349
 msgid "Lock"
 msgstr "잠그기"
 
-#: ../deskbar/handlers/gdmactions.py:219
+#: ../deskbar/handlers/gdmactions.py:258
 msgid "Turn off the computer"
 msgstr "컴퓨터를 끕니다"
 
-#: ../deskbar/handlers/gdmactions.py:253
+#: ../deskbar/handlers/gdmactions.py:300
 msgid "Restart the computer"
 msgstr "컴퓨터 다시 시작"
 
-#: ../deskbar/handlers/gdmactions.py:268 ../deskbar/handlers/gdmactions.py:272
-#: ../deskbar/handlers/gdmactions.py:282
+#: ../deskbar/handlers/gdmactions.py:315 ../deskbar/handlers/gdmactions.py:319
+#: ../deskbar/handlers/gdmactions.py:329
 msgid "Switch User"
 msgstr "사용자 바꾸기"
 
-#: ../deskbar/handlers/gdmactions.py:278
+#: ../deskbar/handlers/gdmactions.py:325
 msgid "Computer Actions"
 msgstr "컴퓨터 동작"
 
-#: ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:326
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "로그오프, 컴퓨터 끄기, 컴퓨터 다시 시작, 절전 및 관련 동작."
 
-#: ../deskbar/handlers/gdmactions.py:317
+#: ../deskbar/handlers/gdmactions.py:364
 msgid "Shutdown"
 msgstr "컴퓨터 끄기"
+
+#: ../deskbar/handlers/googlecodesearch.py:28
+msgid "Google Code Search"
+msgstr "구글 코드 검색"
+
+#: ../deskbar/handlers/googlecodesearch.py:29
+msgid "Search public source code for function definitions and sample code"
+msgstr "공개된 소스 코드에서 함수와 예제 코드를 검색합니다"
+
+#: ../deskbar/handlers/googlecodesearch.py:108
+#, python-format
+msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
+msgstr "<b>구글 코드 검색</b>에서 <i>%(name)s</i> 보기"
+
+#: ../deskbar/handlers/googlecodesearch.py:116
+#, python-format
+msgid "Open package <i>%(name)s</i>"
+msgstr "<i>%(name)s</i> 패키지 열기"
+
+#: ../deskbar/handlers/googlesearch.py:26 ../deskbar/handlers/yahoo.py:30
+msgid "Arabic"
+msgstr "아랍어"
+
+#: ../deskbar/handlers/googlesearch.py:27 ../deskbar/handlers/yahoo.py:31
+msgid "Bulgarian"
+msgstr "불가리아어"
+
+#: ../deskbar/handlers/googlesearch.py:28
+#: ../deskbar/handlers/wikipedia-suggest.py:36 ../deskbar/handlers/yahoo.py:32
+msgid "Catalan"
+msgstr "카탈루냐어"
+
+#: ../deskbar/handlers/googlesearch.py:29 ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
+msgstr "중국어 간체"
+
+#: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
+msgstr "중국어 번체"
+
+#: ../deskbar/handlers/googlesearch.py:31
+msgid "Croation"
+msgstr "크로아티아어"
+
+#: ../deskbar/handlers/googlesearch.py:32 ../deskbar/handlers/yahoo.py:36
+msgid "Czech"
+msgstr "체코어"
+
+#: ../deskbar/handlers/googlesearch.py:33 ../deskbar/handlers/yahoo.py:37
+msgid "Danish"
+msgstr "덴마크어"
+
+#: ../deskbar/handlers/googlesearch.py:34
+#: ../deskbar/handlers/wikipedia-suggest.py:28 ../deskbar/handlers/yahoo.py:38
+msgid "Dutch"
+msgstr "네덜란드어"
+
+#: ../deskbar/handlers/googlesearch.py:35
+#: ../deskbar/handlers/wikipedia-suggest.py:22 ../deskbar/handlers/yahoo.py:39
+msgid "English"
+msgstr "영어"
+
+#: ../deskbar/handlers/googlesearch.py:36 ../deskbar/handlers/yahoo.py:40
+msgid "Estonian"
+msgstr "에스토니아어"
+
+#: ../deskbar/handlers/googlesearch.py:37
+#: ../deskbar/handlers/wikipedia-suggest.py:35 ../deskbar/handlers/yahoo.py:41
+msgid "Finnish"
+msgstr "핀란드어"
+
+#: ../deskbar/handlers/googlesearch.py:38
+#: ../deskbar/handlers/wikipedia-suggest.py:24 ../deskbar/handlers/yahoo.py:42
+msgid "French"
+msgstr "프랑스어"
+
+#: ../deskbar/handlers/googlesearch.py:39
+#: ../deskbar/handlers/wikipedia-suggest.py:23 ../deskbar/handlers/yahoo.py:43
+msgid "German"
+msgstr "독일어"
+
+#: ../deskbar/handlers/googlesearch.py:40 ../deskbar/handlers/yahoo.py:44
+msgid "Greek"
+msgstr "그리스어"
+
+#: ../deskbar/handlers/googlesearch.py:41 ../deskbar/handlers/yahoo.py:45
+msgid "Hebrew"
+msgstr "히브리어"
+
+#: ../deskbar/handlers/googlesearch.py:42 ../deskbar/handlers/yahoo.py:46
+msgid "Hungarian"
+msgstr "헝가리어"
+
+#: ../deskbar/handlers/googlesearch.py:43 ../deskbar/handlers/yahoo.py:47
+msgid "Icelandic"
+msgstr "아이슬란드어"
+
+#: ../deskbar/handlers/googlesearch.py:44 ../deskbar/handlers/yahoo.py:48
+msgid "Indonesian"
+msgstr "인도네시아어"
+
+#: ../deskbar/handlers/googlesearch.py:45
+#: ../deskbar/handlers/wikipedia-suggest.py:27 ../deskbar/handlers/yahoo.py:49
+msgid "Italian"
+msgstr "이탈리아어"
+
+#: ../deskbar/handlers/googlesearch.py:46
+#: ../deskbar/handlers/wikipedia-suggest.py:26 ../deskbar/handlers/yahoo.py:50
+msgid "Japanese"
+msgstr "일본어"
+
+#: ../deskbar/handlers/googlesearch.py:47 ../deskbar/handlers/yahoo.py:51
+msgid "Korean"
+msgstr "한국어"
+
+#: ../deskbar/handlers/googlesearch.py:48 ../deskbar/handlers/yahoo.py:52
+msgid "Latvian"
+msgstr "라트비아어"
+
+#: ../deskbar/handlers/googlesearch.py:49 ../deskbar/handlers/yahoo.py:53
+msgid "Lithuanian"
+msgstr "리투아니아어"
+
+#: ../deskbar/handlers/googlesearch.py:50
+#: ../deskbar/handlers/wikipedia-suggest.py:34 ../deskbar/handlers/yahoo.py:54
+msgid "Norwegian"
+msgstr "노르웨이어"
+
+#: ../deskbar/handlers/googlesearch.py:51
+#: ../deskbar/handlers/wikipedia-suggest.py:25 ../deskbar/handlers/yahoo.py:56
+msgid "Polish"
+msgstr "폴란드어"
+
+#: ../deskbar/handlers/googlesearch.py:52
+#: ../deskbar/handlers/wikipedia-suggest.py:29 ../deskbar/handlers/yahoo.py:57
+msgid "Portuguese"
+msgstr "포르투갈어"
+
+#: ../deskbar/handlers/googlesearch.py:53
+#: ../deskbar/handlers/wikipedia-suggest.py:38 ../deskbar/handlers/yahoo.py:58
+msgid "Romanian"
+msgstr "루마니아어"
+
+#: ../deskbar/handlers/googlesearch.py:54
+#: ../deskbar/handlers/wikipedia-suggest.py:31 ../deskbar/handlers/yahoo.py:59
+msgid "Russian"
+msgstr "러시아어"
+
+#: ../deskbar/handlers/googlesearch.py:55 ../deskbar/handlers/yahoo.py:61
+msgid "Serbian"
+msgstr "세르비아어"
+
+#: ../deskbar/handlers/googlesearch.py:56 ../deskbar/handlers/yahoo.py:60
+msgid "Slovak"
+msgstr "슬로바키아어"
+
+#: ../deskbar/handlers/googlesearch.py:57 ../deskbar/handlers/yahoo.py:62
+msgid "Slovenian"
+msgstr "슬로베니아어"
+
+#: ../deskbar/handlers/googlesearch.py:58
+#: ../deskbar/handlers/wikipedia-suggest.py:30 ../deskbar/handlers/yahoo.py:63
+msgid "Spanish"
+msgstr "스페인어"
+
+#: ../deskbar/handlers/googlesearch.py:59
+#: ../deskbar/handlers/wikipedia-suggest.py:32 ../deskbar/handlers/yahoo.py:64
+msgid "Swedish"
+msgstr "스웨덴어"
+
+#: ../deskbar/handlers/googlesearch.py:60
+#: ../deskbar/handlers/wikipedia-suggest.py:39 ../deskbar/handlers/yahoo.py:66
+msgid "Turkish"
+msgstr "터키어"
+
+#: ../deskbar/handlers/googlesearch.py:74
+msgid "Google Search"
+msgstr "구글 검색"
+
+#: ../deskbar/handlers/googlesearch.py:75
+msgid "Search terms through Google Search engine."
+msgstr "구글 검색 엔진을 통해 검색합니다"
+
+#: ../deskbar/handlers/googlesearch.py:78 ../deskbar/handlers/yahoo.py:96
+msgid "You can configure in which language the results should be."
+msgstr "검색 결과의 언어를 설정할 수 있습니다."
+
+#: ../deskbar/handlers/googlesearch.py:180
+msgid "Python module simplejson is not available"
+msgstr "simplejson 파이썬 모듈이 없습니다"
+
+#: ../deskbar/handlers/googlesearch.py:214
+msgid "Configure Google"
+msgstr "구글 설정"
+
+#: ../deskbar/handlers/googlesearch.py:224 ../deskbar/handlers/yahoo.py:419
+msgid "<b>Choose the language the results should be in:</b>"
+msgstr "<b>검색 결과의 언어를 선택하십시오:</b>"
 
 #: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
 msgstr "이전에 했던 검색을 기억합니다"
 
-#: ../deskbar/handlers/iswitch-window.py:15
+#: ../deskbar/handlers/iswitch-window.py:21
 #, python-format
 msgid "Switch to <b>%(name)s</b>"
 msgstr "<b>%(name)s</b>(으)로 바꾸기"
 
-#: ../deskbar/handlers/iswitch-window.py:47
+#: ../deskbar/handlers/iswitch-window.py:52
 msgid "Window Switcher"
 msgstr "창 바꾸기"
 
-#: ../deskbar/handlers/iswitch-window.py:48
+#: ../deskbar/handlers/iswitch-window.py:53
 msgid "Switch to an existing window by name."
 msgstr "이름을 입력해서 열려 있는 창으로 이동합니다."
 
-#: ../deskbar/handlers/iswitch-window.py:51
+#: ../deskbar/handlers/iswitch-window.py:56
 msgid "Windows"
 msgstr "창"
 
-#: ../deskbar/handlers/mozilla.py:156
+#: ../deskbar/handlers/mozilla.py:158
 msgid "Web Bookmarks (Mozilla)"
 msgstr "웹 책갈피 (모질라)"
 
 #: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:300
+#: ../deskbar/handlers/mozilla.py:837
+#, python-format
+msgid "Firefox version must be at least %s and less than %s"
+msgstr "파이어폭스 버전이 최소 %s이고 %s보다 작아야 합니다"
+
+#: ../deskbar/handlers/mozilla.py:222 ../deskbar/handlers/mozilla.py:310
+#: ../deskbar/handlers/mozilla.py:840
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "기본 브라우저로 모질라/파이어폭스를 쓰지 않고 있습니다."
 
-#: ../deskbar/handlers/mozilla.py:234
+#: ../deskbar/handlers/mozilla.py:236
 msgid "Web Searches (Mozilla)"
 msgstr "웹 검색 (모질라)"
 
-#: ../deskbar/handlers/mozilla.py:294
+#. Correct firefox version or iceweasel
+#: ../deskbar/handlers/mozilla.py:304
 msgid "You can customize which search engines are offered."
 msgstr "어떤 검색 엔진을 제공할 지 설정할 수 있습니다."
 
-#: ../deskbar/handlers/mozilla.py:778
+#: ../deskbar/handlers/mozilla.py:791
 msgid "Web History (Mozilla)"
 msgstr "웹 방문기록 (모질라)"
 
-#: ../deskbar/handlers/programs.py:77
+#: ../deskbar/handlers/programs.py:84
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "사전에서 %s 찾기"
 
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/programs.py:91
 #, python-format
 msgid "Search for file names like %s"
 msgstr "%s와 비슷한 파일 이름을 찾습니다"
 
-#: ../deskbar/handlers/programs.py:90
+#: ../deskbar/handlers/programs.py:97
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "개발자 도움말에서 %s 항목을 찾습니다"
 
-#: ../deskbar/handlers/programs.py:124
+#: ../deskbar/handlers/programs.py:131
 msgid "Dictionary"
 msgstr "사전"
 
-#: ../deskbar/handlers/programs.py:125
+#: ../deskbar/handlers/programs.py:132
 msgid "Look up word definitions in the dictionary"
 msgstr "사전에서 단어 정의를 찾아봅니다"
 
-#: ../deskbar/handlers/programs.py:141
+#: ../deskbar/handlers/programs.py:148
 msgid "GNOME dictionary is not installed"
 msgstr "그놈 사전을 설치하지 않았습니다"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:155
 msgid "Files and Folders Search"
 msgstr "파일 및 폴더 찾기"
 
-#: ../deskbar/handlers/programs.py:149
+#: ../deskbar/handlers/programs.py:156
 msgid "Find files and folders by searching for a name pattern"
 msgstr "이름 패턴으로 파일과 폴더를 찾습니다"
 
-#: ../deskbar/handlers/programs.py:165
+#: ../deskbar/handlers/programs.py:172
 msgid "GNOME search tool is not installed"
 msgstr "그놈 찾기 도구를 설치하지 않았습니다"
 
-#: ../deskbar/handlers/programs.py:172
+#: ../deskbar/handlers/programs.py:179
 msgid "Developer Documentation"
 msgstr "개발자 문서"
 
-#: ../deskbar/handlers/programs.py:173
+#: ../deskbar/handlers/programs.py:180
 msgid "Search Devhelp for a function name"
 msgstr "개발자 도움말에서 함수 이름 찾기"
 
-#: ../deskbar/handlers/programs.py:192
+#: ../deskbar/handlers/programs.py:199
 msgid "Devhelp is not installed"
 msgstr "개발자 도움말을 설치하지 않았습니다"
 
-#: ../deskbar/handlers/programs.py:241
+#: ../deskbar/handlers/programs.py:248
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "터미널에서 %s 실행"
 
-#: ../deskbar/handlers/programs.py:243
+#: ../deskbar/handlers/programs.py:250
 #, python-format
 msgid "Execute %s"
 msgstr "%s 실행"
 
-#: ../deskbar/handlers/programs.py:259
+#: ../deskbar/handlers/programs.py:277
 msgid "Programs"
 msgstr "프로그램"
 
-#: ../deskbar/handlers/programs.py:260
+#: ../deskbar/handlers/programs.py:278
 msgid "Launch a program by its name and/or description"
 msgstr "이름이나 설명을 입력해 프로그램을 실행합니다"
 
@@ -793,94 +1097,96 @@ msgstr "최근에 사용한 파일이나 위치를 찾습니다"
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
 msgstr "이 핸들러는 더 높은 버전의 GTK가 (2.9.0 이상) 필요합니다."
 
-#: ../deskbar/handlers/templates.py:37
+#: ../deskbar/handlers/templates.py:43
 #, python-format
 msgid "Create %s"
 msgstr "%s 만들기"
 
-#: ../deskbar/handlers/templates.py:40
+#: ../deskbar/handlers/templates.py:46
 msgid "Create Document"
 msgstr "문서 만들기"
 
-#: ../deskbar/handlers/templates.py:53
+#: ../deskbar/handlers/templates.py:59
 msgid "Name:"
 msgstr "이름:"
 
-#: ../deskbar/handlers/templates.py:60
+#: ../deskbar/handlers/templates.py:66
 msgid "Folder:"
 msgstr "폴더:"
 
-#: ../deskbar/handlers/templates.py:64
+#: ../deskbar/handlers/templates.py:70
 msgid "Choose Folder"
 msgstr "폴더 선택"
 
-#: ../deskbar/handlers/templates.py:119
+#: ../deskbar/handlers/templates.py:125
 #, python-format
 msgid "A file named \"%s\" already exists.  Do you want to replace it?"
-msgstr "\"%s\"(이)라는 이름의 파일이 이미 있습니다. 이 파일을 덮어쓰시겠습니까?"
+msgstr ""
+"\"%s\"(이)라는 이름의 파일이 이미 있습니다. 이 파일을 덮어쓰시겠습니까?"
 
-#: ../deskbar/handlers/templates.py:123
+#: ../deskbar/handlers/templates.py:129
 #, python-format
 msgid ""
 "The file already exists in \"%s\".  Replacing it will overwrite its contents."
-msgstr "파일이 \"%s\" 안에 이미 있습니다. 파일을 덮어쓰면 기존의 내용이 지워집니다."
+msgstr ""
+"파일이 \"%s\" 안에 이미 있습니다. 파일을 덮어쓰면 기존의 내용이 지워집니다."
 
-#: ../deskbar/handlers/templates.py:130
+#: ../deskbar/handlers/templates.py:136
 msgid "Replace"
 msgstr "바꾸기"
 
-#: ../deskbar/handlers/templates.py:166
+#: ../deskbar/handlers/templates.py:172
 msgid "Templates"
-msgstr "템플릿"
+msgstr "서식"
 
-#: ../deskbar/handlers/templates.py:167
+#: ../deskbar/handlers/templates.py:173
 msgid "Create new files from your templates"
-msgstr "템플릿을 이용하여 새 파일을 만듭니다"
+msgstr "서식을 이용해 새 파일을 만듭니다"
 
-#: ../deskbar/handlers/tomboy.py:37
+#: ../deskbar/handlers/tomboy.py:41
 #, python-format
 msgid "Open note <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> 쪽지 열기"
 
-#: ../deskbar/handlers/tomboy.py:50
+#: ../deskbar/handlers/tomboy.py:62
 msgid "Really delete this note?"
 msgstr "정말로 이 쪽지를 지우시겠습니까?"
 
-#: ../deskbar/handlers/tomboy.py:51
+#: ../deskbar/handlers/tomboy.py:63
 msgid "If you delete a note it is permanently lost."
 msgstr "쪽지를 지우면 시스템에서 완전히 사라집니다."
 
-#: ../deskbar/handlers/tomboy.py:63
+#: ../deskbar/handlers/tomboy.py:75
 #, python-format
 msgid "Delete note <b>%(name)s</b>"
 msgstr "<b>%(name)s</b>쪽지 지우기"
 
-#: ../deskbar/handlers/tomboy.py:88
+#: ../deskbar/handlers/tomboy.py:104
 #, python-format
 msgid "Create note <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> 쪽지 만들기"
 
-#: ../deskbar/handlers/tomboy.py:110
+#: ../deskbar/handlers/tomboy.py:130
 msgid "Title"
 msgstr "제목"
 
-#: ../deskbar/handlers/tomboy.py:111
+#: ../deskbar/handlers/tomboy.py:131
 msgid "Contents"
 msgstr "내용"
 
-#: ../deskbar/handlers/tomboy.py:130
+#: ../deskbar/handlers/tomboy.py:150
 msgid "Tomboy Notes"
 msgstr "톰보이 쪽지"
 
-#: ../deskbar/handlers/tomboy.py:131
+#: ../deskbar/handlers/tomboy.py:151
 msgid "Search your Tomboy notes"
 msgstr "톰보이 쪽지 찾기"
 
-#: ../deskbar/handlers/tomboy.py:198
+#: ../deskbar/handlers/tomboy.py:238
 msgid "Tomboy does not seem to be installed."
 msgstr "톰보이를 설치하지 않은 것 같습니다."
 
-#: ../deskbar/handlers/tomboy.py:235
+#: ../deskbar/handlers/tomboy.py:278
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -889,19 +1195,161 @@ msgstr ""
 "톰보이의 버전이 올바르지 않은 것 같습니다.\n"
 "톰보이 %s 이상을 설치해야 합니다."
 
+#: ../deskbar/handlers/twitter.py:41
+#, python-format
+msgid ""
+"Failed to post update to %(domain)s.\n"
+"Please make sure that:\n"
+"\n"
+" • Your internet connection is working\n"
+" • You can connect to <i>http://%(domain)s</i> in\n"
+"    your web browser\n"
+" • Your credentials in the preferences are correct"
+msgstr ""
+"%(domain)s에 업데이트 글을 올리는 데 실패했습니다.\n"
+"다음을 확인하십시오:\n"
+"\n"
+" • 인터넷이 연결되어 있는 지\n"
+" • 웹 브라우저에서 <i>http://%(domain)s</i> 사이트에\n"
+"    연결할 수 있는 지\n"
+" • 기본 설정의 암호가 올바른지"
+
+#: ../deskbar/handlers/twitter.py:102
+msgid ""
+"A post is already awaiting submission, please wait before you post another "
+"message"
+msgstr "이미 글을 제출 대기하고 있습니다. 다른 메세지를 올릴 때까지 기다리십시오."
+
+#: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
+#: ../deskbar/handlers/twitter.py:158
+#, python-format
+msgid "Error posting to %s"
+msgstr "%s에 글을 올리는 데 실패했습니다"
+
+#. TRANSLATORS: An example display of the below string:
+#.
+#. (125) Post "I can eat glass"
+#.
+#. The number in the parens indicates how many characters the user
+#. has left of the maximum message size. It should be at the start of
+#. the string as to not be hidden by ellipsation.
+#.
+#: ../deskbar/handlers/twitter.py:172
+#, python-format
+msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
+msgstr "<small>(%(remain)s)</small> 글 올림, <i>\"%(msg)s\"</i>"
+
+#: ../deskbar/handlers/twitter.py:175
+#, python-format
+msgid ""
+"Update your %s account with the message:\n"
+"\n"
+"\t<i>%s</i>"
+msgstr ""
+"%s 계정에 다음 업데이트 메세지를 올립니다:\n"
+"\n"
+"\t<i>%s</i>"
+
+#: ../deskbar/handlers/twitter.py:212
+msgid "Twitter"
+msgstr "트위터"
+
+#: ../deskbar/handlers/twitter.py:213
+msgid "Post updates to your Twitter account"
+msgstr "트위터 계정에 업데이트 글을 올립니다"
+
+#: ../deskbar/handlers/twitter.py:283
+msgid "identi.ca"
+msgstr "아이덴티카"
+
+#: ../deskbar/handlers/twitter.py:284
+msgid "Post updates to your identi.ca account"
+msgstr "아이덴티카 계정에 업데이트 글을 올립니다"
+
+#: ../deskbar/handlers/twitter.py:298
+msgid ""
+"Please note that Deskbar Applet does not support authentication via OpenID. "
+"You must configure a username and password on the <i>identi.ca</i> website "
+"if you haven't already."
+msgstr "참고로 데스크바 애플릿은 오픈아이디 인증을 지원하지 않습니다. <i>identi.ca</i> 웹사이트에서 사용자 이름과 암호를 설정해야 합니다."
+
+#: ../deskbar/handlers/twitter.py:300
+msgid "Visit identi.ca website"
+msgstr "아이덴티카 (identi.ca) 웹사이트 방문"
+
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "주소를 완전히 입력해서 웹페이지를 열거나 전자메일을 보냅니다"
 
-#: ../deskbar/handlers/yahoo.py:41
+#: ../deskbar/handlers/wikipedia-suggest.py:33
+msgid "Chinese"
+msgstr "중국어"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:37
+msgid "Ukrainian"
+msgstr "우크라니아어"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:48
+#, python-format
+msgid "Open article <i>%(name)s</i> in <b>Wikipedia</b>"
+msgstr "<b>위키백과</b>에서 <i>%(name)s</i> 페이지를 엽니다"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:63
+msgid "Wikipedia Suggest"
+msgstr "위키백과 제시어"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:64
+msgid "As you type, Wikipedia will offer suggestions."
+msgstr "글자를 입력하면, 위키백과의 제시어를 표시합니다."
+
+#: ../deskbar/handlers/wikipedia-suggest.py:137
+msgid "Wikipedia Suggest settings"
+msgstr "위키백과 제시어 설정"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:144
+msgid ""
+"Choose the language you want to use or enter the code of your language "
+"manually"
+msgstr "사용하려는 언어를 고르거나 언어 코드를 직접 입력하십시오."
+
+#: ../deskbar/handlers/yahoo.py:35
+msgid "Croatian"
+msgstr "크로아티아어"
+
+#: ../deskbar/handlers/yahoo.py:55
+msgid "Persian"
+msgstr "페르시아어"
+
+#: ../deskbar/handlers/yahoo.py:65
+msgid "Thai"
+msgstr "타이어"
+
+#: ../deskbar/handlers/yahoo.py:93
 msgid "Yahoo! Search"
 msgstr "야후! 검색"
 
-#: ../deskbar/handlers/yahoo.py:42
+#: ../deskbar/handlers/yahoo.py:94
 msgid "Search Yahoo! as you type"
 msgstr "입력하는 대로 야후!에서 찾습니다"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:62
+#: ../deskbar/handlers/yahoo.py:308
+#, python-format
+msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
+msgstr "<b>야후!</b>에서 <i>%(name)s</i>을(를) 검색합니다"
+
+#: ../deskbar/handlers/yahoo.py:326
+msgid "Yahoo! Suggestions"
+msgstr "야후! 제시어"
+
+#: ../deskbar/handlers/yahoo.py:327
+msgid "Provides suggestions for queries related to the submitted query"
+msgstr "입력한 말과 관계있는 제시어를 표시합니다."
+
+#: ../deskbar/handlers/yahoo.py:409
+msgid "Configure Yahoo!"
+msgstr "야후! 설정"
+
+#: ../deskbar/handlers/actions/ActionsFactory.py:70
 #, python-format
 msgid "URL of %s"
 msgstr "%s의 URL"
@@ -909,7 +1357,7 @@ msgstr "%s의 URL"
 #: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
 #, python-format
 msgid "Copy <b>%(name)s</b> to clipboard"
-msgstr "<b>%(name)s</b>를 클립보드로 복사"
+msgstr "클립보드로 <b>%(name)s</b> 복사"
 
 #: ../deskbar/handlers/actions/GoToLocationAction.py:23
 #, python-format
@@ -922,12 +1370,6 @@ msgstr "%s의 위치로 가기"
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) 실행"
-
-#: ../deskbar/handlers/actions/OpenFileAction.py:51
-#: ../deskbar/handlers/actions/ShowUrlAction.py:24
-#, python-format
-msgid "Open %s"
-msgstr "%s 열기"
 
 #: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
 #, python-format
@@ -981,32 +1423,47 @@ msgstr ""
 msgid "<b>Search:</b>"
 msgstr "<b>찾기:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
-msgid "default"
-msgstr "기본값"
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:250
+msgid "Display additional actions"
+msgstr "추가 동작 표시"
 
-#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacAlignedView.py:88
-#: ../deskbar/ui/CuemiacWindowView.py:77
-msgid "_History"
-msgstr "기록(_H)"
-
-#: ../deskbar/ui/CuemiacAlignedView.py:150
-#: ../deskbar/ui/CuemiacWindowView.py:139
+#: ../deskbar/ui/AbstractCuemiacView.py:146
 msgid "Back to Matches"
 msgstr "검색 결과로 돌아가기"
 
-#: ../deskbar/ui/DeskbarTray.py:44
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:160
 msgid "Show search entry"
 msgstr "찾기 항목 표시"
 
-#: ../deskbar/ui/DeskbarTray.py:111
-msgid ""
-"Some potentially old modules that make use of an old Deskbar-Applet API have "
-"been found. Remove these files for this warning to disappear.\n"
-msgstr ""
-"구식 데스크바 애플릿 API를 사용하는 모듈을 발견했습니다. 이 경고를 없애려면 "
-"파일을 지우십시오.\n"
+#: ../deskbar/ui/DeskbarApplet.py:74
+msgid "Show previously used actions"
+msgstr "이전에 사용한 동작을 봅니다"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:65
+msgid "Clear History"
+msgstr "기록 지우기"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:69
+msgid "Preferences"
+msgstr "기본 설정"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:73
+msgid "Help"
+msgstr "도움말"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:77
+msgid "About"
+msgstr "정보"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:83
+msgid "Quit"
+msgstr "끝내기"
+
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:112
+msgid "<i>Empty</i>"
+msgstr "<i>비었음</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -1023,42 +1480,71 @@ msgstr ""
 "수 없습니다. \n"
 "Control, Alt, 또는 Shift키를 동시에 눌러서 설정하기 바랍니다.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
-msgid "Reload all extensions"
-msgstr "확장 기능 모두 다시 읽어들이기"
-
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:95
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>순서를 바꾸려면 확장 기능을 끌어 놓으십시오.</small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:335
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:169
+msgid "All Extensions"
+msgstr "모든 확장 기능"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:230
 msgid "A problem occured"
 msgstr "문제가 발생했습니다"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:400
-msgid "Handler has been installed successfully"
-msgstr "핸들러를 올바르게 설치했습니다"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:238
+msgid "Extension has been installed successfully"
+msgstr "확장 기능을 올바르게 설치했습니다"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:403
-msgid "Handler could not be installed due a problem with the provided file"
-msgstr "해당 파일에 문제가 있어서 핸들러를 설치하지 못했습니다"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:533
+msgid "Installing extension"
+msgstr "확장 기능 설치"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:534
+msgid "The extension will be downloaded and installed."
+msgstr "확장 기능을 다운로드해서 설치합니다."
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:536
+msgid "Retrieving list of extensions"
+msgstr "확장 기능 목록을 가져오는 중"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:537
+msgid "A list of available extensions is downloaded."
+msgstr "사용 가능한 확장 기능 목록을 다운로드했습니다."
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:538
+msgid "Retrieving the extension index"
+msgstr "확장 기능 목록을 가져오는 중"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:540
+msgid "Downloading extension"
+msgstr "확장 기능 다운로드하는 중"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:542
+msgid "Extracting archive"
+msgstr "압축 파일을 푸는 중"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:595
+msgid ""
+"Extension could not be installed due to a problem with the provided file"
+msgstr "해당 파일에 문제가 있어서 확장 기능을 설치하지 못했습니다"
 
 #: ../deskbar/ui/preferences/ErrorDialog.py:8
 msgid "Error"
 msgstr "오류"
 
-#: ../deskbar/ui/preferences/ErrorDialog.py:26
+#: ../deskbar/ui/preferences/ErrorDialog.py:27
 msgid "Check the description beneath for further details."
 msgstr "자세한 정보를 보려면 아래의 설명을 확인해 보십시오."
 
-#: ../deskbar/ui/preferences/ErrorDialog.py:32
+#: ../deskbar/ui/preferences/ErrorDialog.py:33
 msgid "Details"
 msgstr "자세히"
 
-#: ../deskbar/ui/preferences/ModuleListView.py:53
+#: ../deskbar/ui/preferences/ModuleListView.py:54
 msgid "Version:"
 msgstr "버전:"
 
-#: ../deskbar/ui/preferences/ModuleListView.py:56
+#: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "업데이트가 있습니다"
