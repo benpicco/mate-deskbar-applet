@@ -74,7 +74,7 @@ class TemplateAction(deskbar.interfaces.Action):
         dialog.vbox.pack_start(table)
         dialog.show_all()
 
-        folder = deskbar.core.Utils.get_xdg_user_dir(deskbar.core.Utils.USER_DIR_DOCUMENTS)
+        folder = deskbar.core.Utils.get_xdg_user_dir(deskbar.core.Utils.DIRECTORY_DOCUMENTS)
 
         if not folder:
             folder = "~"
@@ -189,7 +189,7 @@ class TemplateHandler(deskbar.interfaces.Module):
             self._add_template_file(info_uri[7:])
  
     def initialize(self):
-        templates_dir = deskbar.core.Utils.get_xdg_user_dir(deskbar.core.Utils.USER_DIR_TEMPLATES)
+        templates_dir = deskbar.core.Utils.get_xdg_user_dir(deskbar.core.Utils.DIRECTORY_TEMPLATES)
 
         if templates_dir != None:
             for f in os.listdir(templates_dir):
