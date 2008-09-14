@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-27 12:10+0300\n"
-"PO-Revision-Date: 2008-08-27 12.00+0300\n"
+"POT-Creation-Date: 2008-09-14 12:39+0300\n"
+"PO-Revision-Date: 2008-09-14 12:00+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -337,7 +337,7 @@ msgid "Uncategorized"
 msgstr "Luokittelematon"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
-#: ../deskbar/ui/DeskbarStatusIcon.py:78
+#: ../deskbar/ui/DeskbarStatusIcon.py:56
 msgid "History"
 msgstr "Historia"
 
@@ -433,12 +433,12 @@ msgstr "Käyttäjätunnus: "
 msgid "Password:"
 msgstr "Salasana: "
 
-#: ../deskbar/core/Web.py:254
+#: ../deskbar/core/Web.py:264
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>Kirjautuminen palveluun %s hylättiin</b></big>"
 
-#: ../deskbar/core/Web.py:255
+#: ../deskbar/core/Web.py:265
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "Tarkista tunnistetietosi palvelulle <b>%s</b>"
@@ -1008,8 +1008,8 @@ msgstr "WWW-kirjanmerkit (mozilla)"
 #: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:300
 #: ../deskbar/handlers/mozilla.py:837
 #, python-format
-msgid "Firefox version must be between %s and %s"
-msgstr "Firefox-version täytyy olla väliltä %s ja %s"
+msgid "Firefox version must be at least %s and less than %s"
+msgstr "Firefox-version täytyy olla vähintään %s ja enintään %s"
 
 #: ../deskbar/handlers/mozilla.py:222 ../deskbar/handlers/mozilla.py:310
 #: ../deskbar/handlers/mozilla.py:840
@@ -1226,15 +1226,15 @@ msgstr ""
 "  - Voit ottaa yhteyttä osoitteeseen <i>http://%(domain)s</i> selaimella\n"
 "  - Tunnukset ja salasanat asetuksissa ovat oikeat"
 
-#: ../deskbar/handlers/twitter.py:89
+#: ../deskbar/handlers/twitter.py:102
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr ""
 "Viesti on odottamassa julkaisemista, odota ennen kuin lähetät uuden viestin"
 
-#: ../deskbar/handlers/twitter.py:90 ../deskbar/handlers/twitter.py:103
-#: ../deskbar/handlers/twitter.py:145
+#: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
+#: ../deskbar/handlers/twitter.py:158
 #, python-format
 msgid "Error posting to %s"
 msgstr "Virhe lähetettäessä osoitteeseen %s"
@@ -1247,12 +1247,12 @@ msgstr "Virhe lähetettäessä osoitteeseen %s"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:159
+#: ../deskbar/handlers/twitter.py:172
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> viesti <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:162
+#: ../deskbar/handlers/twitter.py:175
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1263,21 +1263,36 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:199
+#: ../deskbar/handlers/twitter.py:212
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:200
+#: ../deskbar/handlers/twitter.py:213
 msgid "Post updates to your Twitter account"
 msgstr "Lähetä päivityksiä twitter-tiliisi"
 
-#: ../deskbar/handlers/twitter.py:247
+#: ../deskbar/handlers/twitter.py:283
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:248
+#: ../deskbar/handlers/twitter.py:284
 msgid "Post updates to your identi.ca account"
 msgstr "Lähetä päivityksiä identi.ca -tiliisi"
+
+#: ../deskbar/handlers/twitter.py:298
+msgid ""
+"Please note that Deskbar Applet does not support authentication via OpenID. "
+"You must configure a username and password on the <i>identi.ca</i> website "
+"if you haven't already."
+msgstr ""
+"Huomaa, että työpöytäpalkkisovelma ei tue tunnistautumista käyttäen OpenID:tä.  "
+"Sinun täytyy antaa käyttäjätunnus ja salasana <i>identi.ca</i> sivustolle, "
+"jos et ole vielä tätä tehnyt."
+
+
+#: ../deskbar/handlers/twitter.py:300
+msgid "Visit identi.ca website"
+msgstr "Käy identi.ca -sivustolla"
 
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
@@ -1434,7 +1449,7 @@ msgstr "Näytä lisätoiminnot"
 msgid "Back to Matches"
 msgstr "Takaisin osumiin"
 
-#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:116
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:160
 msgid "Show search entry"
 msgstr "Näytä hakukenttä"
 
@@ -1442,31 +1457,31 @@ msgstr "Näytä hakukenttä"
 msgid "Show previously used actions"
 msgstr "Näytä aikaisemmin käytetyt toiminnot"
 
-#. TRANSLATORS: Below "Empty" is an adjective. As in
-#. the state of being empty
-#: ../deskbar/ui/DeskbarStatusIcon.py:52
-msgid "<i>Empty</i>"
-msgstr "<i>Tyhjä</i>"
-
-#: ../deskbar/ui/DeskbarStatusIcon.py:87
+#: ../deskbar/ui/DeskbarStatusIcon.py:65
 msgid "Clear History"
 msgstr "Tyhjennä historia"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:91
+#: ../deskbar/ui/DeskbarStatusIcon.py:69
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:95
+#: ../deskbar/ui/DeskbarStatusIcon.py:73
 msgid "Help"
 msgstr "Ohje"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:99
+#: ../deskbar/ui/DeskbarStatusIcon.py:77
 msgid "About"
 msgstr "Tietoja"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:105
+#: ../deskbar/ui/DeskbarStatusIcon.py:83
 msgid "Quit"
 msgstr "Lopeta"
+
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:112
+msgid "<i>Empty</i>"
+msgstr "<i>Tyhjä</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
