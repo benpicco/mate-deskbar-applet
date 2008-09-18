@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-14 10:30+0200\n"
-"PO-Revision-Date: 2008-08-14 11:50+0200\n"
+"POT-Creation-Date: 2008-09-18 09:53+0200\n"
+"PO-Revision-Date: 2008-09-03 17:02+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,8 @@ msgid "Enabled handlers"
 msgstr "Gaitu kudeatzaileak"
 
 #: ../data/deskbar-applet.schemas.in.h:5
-msgid "If enabled it will clear the entry after a search result has been selected"
+msgid ""
+"If enabled it will clear the entry after a search result has been selected"
 msgstr "Gaitzen bada sarrera garbituko du bilaketako emaitza hautatu ondoren"
 
 #: ../data/deskbar-applet.schemas.in.h:6
@@ -86,7 +87,8 @@ msgstr "Leihoaren zabalera lehenetsia (pixeletan)"
 
 #: ../data/deskbar-applet.schemas.in.h:16
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
-msgstr "Tekla-sekuentziak deskbar-appletean fokua jarriko du, azkar idaztea eskainiz"
+msgstr ""
+"Tekla-sekuentziak deskbar-appletean fokua jarriko du, azkar idaztea eskainiz"
 
 #: ../data/deskbar-applet.schemas.in.h:17
 msgid ""
@@ -128,7 +130,9 @@ msgstr ""
 
 #: ../data/deskbar-applet.schemas.in.h:22
 msgid "This value only takes affect when \"ui_name\" is set to \"Button\""
-msgstr "Balio honek eragina izango du \"ui_name\" parametroa \"Button\" balioarekin ezarrita dagoenean"
+msgstr ""
+"Balio honek eragina izango du \"ui_name\" parametroa \"Button\" balioarekin "
+"ezarrita dagoenean"
 
 #: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether to close the window after an action has been activated"
@@ -339,7 +343,7 @@ msgid "Uncategorized"
 msgstr "Kategoriarik gabe"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
-#: ../deskbar/ui/DeskbarStatusIcon.py:76
+#: ../deskbar/ui/DeskbarStatusIcon.py:56
 msgid "History"
 msgstr "Historia"
 
@@ -411,36 +415,36 @@ msgstr "Ezin da programa exekutatu:"
 msgid "Cannot show URL:"
 msgstr "Ezin da URLa erakutsi:"
 
-#: ../deskbar/core/Web.py:116
+#: ../deskbar/core/Web.py:135
 #, python-format
 msgid "<big><b>Login for %s</b></big>"
 msgstr "<big><b>%s(r)en saio-hasiera</b></big>"
 
-#: ../deskbar/core/Web.py:117
+#: ../deskbar/core/Web.py:136
 #, python-format
 msgid "Please provide your credentials for <b>%s</b>"
 msgstr "Eman zure kredentzialak <b>%s</b>(r)entzako"
 
-#: ../deskbar/core/Web.py:118
+#: ../deskbar/core/Web.py:137
 #, python-format
 msgid "Credentials for %s"
 msgstr "Kredentzialak %s(r)entzako"
 
 #. Show '*' instead of text
-#: ../deskbar/core/Web.py:124
+#: ../deskbar/core/Web.py:143
 msgid "User name:"
 msgstr "Erabiltzaile-izena:"
 
-#: ../deskbar/core/Web.py:125
+#: ../deskbar/core/Web.py:144
 msgid "Password:"
 msgstr "Pasahitza:"
 
-#: ../deskbar/core/Web.py:235
+#: ../deskbar/core/Web.py:264
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>%s(e)rako saio-hasiera baztertuta</b></big>"
 
-#: ../deskbar/core/Web.py:236
+#: ../deskbar/core/Web.py:265
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "Egiaztatu zure kredentzialak <b>%s</b>(r)entzako"
@@ -511,7 +515,8 @@ msgid "?"
 msgstr "?"
 
 #: ../deskbar/handlers/beagle-live.py:783
-msgid "Could not load beagle, libbeagle has been compiled without python bindings."
+msgid ""
+"Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
 "Ezin izan da 'beagle' kargatu, python-en loturarik gabe konpilatu da "
 "libbeagle."
@@ -627,7 +632,8 @@ msgstr "Posta (Helbide-liburua)"
 
 #: ../deskbar/handlers/evolution.py:48
 msgid "Send mail to your contacts by typing their name or e-mail address"
-msgstr "Bidali posta bat zure kontaktuei haien izena edo helbide elektronikoa idatziz"
+msgstr ""
+"Bidali posta bat zure kontaktuei haien izena edo helbide elektronikoa idatziz"
 
 #: ../deskbar/handlers/evolution.py:72
 msgid ""
@@ -787,7 +793,8 @@ msgstr "Google Code bilaketa"
 
 #: ../deskbar/handlers/googlecodesearch.py:29
 msgid "Search public source code for function definitions and sample code"
-msgstr "Bilatu kode iturburu publikoetan funtzioen definizioak eta kode laginak"
+msgstr ""
+"Bilatu kode iturburu publikoetan funtzioen definizioak eta kode laginak"
 
 #: ../deskbar/handlers/googlecodesearch.py:108
 #, python-format
@@ -812,12 +819,12 @@ msgstr "Bulgariera"
 msgid "Catalan"
 msgstr "Katalaniera"
 
-#: ../deskbar/handlers/googlesearch.py:29
-msgid "Chinese Simplified"
+#: ../deskbar/handlers/googlesearch.py:29 ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
 msgstr "Txinatar soildua"
 
-#: ../deskbar/handlers/googlesearch.py:30
-msgid "Chinese Traditional"
+#: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
 msgstr "Txinatar tradizionala"
 
 #: ../deskbar/handlers/googlesearch.py:31
@@ -1007,7 +1014,7 @@ msgstr "Web-eko laster-markak (Mozilla)"
 #: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:300
 #: ../deskbar/handlers/mozilla.py:837
 #, python-format
-msgid "Firefox version must be between %s and %s"
+msgid "Firefox version must be at least %s and less than %s"
 msgstr "Firefox-en bertsioa %s eta %s artekoa izan behar du"
 
 #: ../deskbar/handlers/mozilla.py:222 ../deskbar/handlers/mozilla.py:310
@@ -1107,7 +1114,8 @@ msgstr "Eskuratu azken aldian atzitutako fitxategi eta kokalekuak"
 
 #: ../deskbar/handlers/recent.py:58
 msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
-msgstr "Kudeatzaile honek GTK bertsio berriagoa behar du (2.9.0 edo berriagoa)."
+msgstr ""
+"Kudeatzaile honek GTK bertsio berriagoa behar du (2.9.0 edo berriagoa)."
 
 #: ../deskbar/handlers/templates.py:43
 #, python-format
@@ -1137,7 +1145,8 @@ msgstr "\"%s\" izeneko fitxategia badago lehendik ere. Ordeztea nahi duzu?"
 
 #: ../deskbar/handlers/templates.py:129
 #, python-format
-msgid "The file already exists in \"%s\".  Replacing it will overwrite its contents."
+msgid ""
+"The file already exists in \"%s\".  Replacing it will overwrite its contents."
 msgstr ""
 "\"%s\" izeneko fitxategia badago lehendik ere. Ordeztean bere edukia "
 "gainidatziko da."
@@ -1225,24 +1234,33 @@ msgstr ""
 "   gunera konekta zaitezkela\n"
 " • Hobespenetako zure kredentzialak zuzenak direla"
 
-#: ../deskbar/handlers/twitter.py:89
+#: ../deskbar/handlers/twitter.py:102
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
-msgstr "Mezua bidaltzeko zai dago. Itxaron ezazu beste mezu bat bidali aurretik"
+msgstr ""
+"Mezua bidaltzeko zai dago. Itxaron ezazu beste mezu bat bidali aurretik"
 
-#: ../deskbar/handlers/twitter.py:90 ../deskbar/handlers/twitter.py:103
-#: ../deskbar/handlers/twitter.py:145
+#: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
+#: ../deskbar/handlers/twitter.py:158
 #, python-format
 msgid "Error posting to %s"
 msgstr "Errorea %s(e)n argitaratzean"
 
-#: ../deskbar/handlers/twitter.py:151
+#. TRANSLATORS: An example display of the below string:
+#.
+#. (125) Post "I can eat glass"
+#.
+#. The number in the parens indicates how many characters the user
+#. has left of the maximum message size. It should be at the start of
+#. the string as to not be hidden by ellipsation.
+#.
+#: ../deskbar/handlers/twitter.py:172
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Argitaratu <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:154
+#: ../deskbar/handlers/twitter.py:175
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1253,21 +1271,35 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:191
+#: ../deskbar/handlers/twitter.py:212
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:192
+#: ../deskbar/handlers/twitter.py:213
 msgid "Post updates to your Twitter account"
 msgstr "Argitaratu eguneraketak Twitter-eko zure kontuan"
 
-#: ../deskbar/handlers/twitter.py:239
+#: ../deskbar/handlers/twitter.py:283
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:240
+#: ../deskbar/handlers/twitter.py:284
 msgid "Post updates to your identi.ca account"
 msgstr "Argitaratu eguneraketak 'identi.ca'-ko zure kontuan"
+
+#: ../deskbar/handlers/twitter.py:298
+msgid ""
+"Please note that Deskbar Applet does not support authentication via OpenID. "
+"You must configure a username and password on the <i>identi.ca</i> website "
+"if you haven't already."
+msgstr ""
+"Jakin ezazu Deskbar miniaplikazioak ez duela onartzen OpenID bidezko "
+"autentifikariorik. <i>identi.ca</i> webgunean erabiltzaile-izena eta "
+"pasahitza konfiguratu behar duzu (jadanik konfiguratu ez baduzu bederen)."
+
+#: ../deskbar/handlers/twitter.py:300
+msgid "Visit identi.ca website"
+msgstr "Bisitatu identi.ca webgunea"
 
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
@@ -1302,15 +1334,8 @@ msgstr "Wikipedia-ren iradokizunen ezarpenak"
 msgid ""
 "Choose the language you want to use or enter the code of your language "
 "manually"
-msgstr "Aukeratu erabiltzea nahi duzun hizkuntza, edo sartu hizkuntzaren kodea eskuz"
-
-#: ../deskbar/handlers/yahoo.py:33
-msgid "Chinese simplified"
-msgstr "Txinatar soildua"
-
-#: ../deskbar/handlers/yahoo.py:34
-msgid "Chinese traditional"
-msgstr "Txinatar tradizionala"
+msgstr ""
+"Aukeratu erabiltzea nahi duzun hizkuntza, edo sartu hizkuntzaren kodea eskuz"
 
 #: ../deskbar/handlers/yahoo.py:35
 msgid "Croatian"
@@ -1430,7 +1455,7 @@ msgstr "Bistaratu ekintza gehigarriak"
 msgid "Back to Matches"
 msgstr "Itzuli emaitzetara"
 
-#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:114
+#: ../deskbar/ui/DeskbarApplet.py:73 ../deskbar/ui/DeskbarStatusIcon.py:160
 msgid "Show search entry"
 msgstr "Erakutsi bilaketa-sarrera"
 
@@ -1438,29 +1463,31 @@ msgstr "Erakutsi bilaketa-sarrera"
 msgid "Show previously used actions"
 msgstr "Erakutsi lehen erabilitako ekintzak"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:50
-msgid "<i>Empty</i>"
-msgstr "<i>Hutsik</i>"
-
-#: ../deskbar/ui/DeskbarStatusIcon.py:85
+#: ../deskbar/ui/DeskbarStatusIcon.py:65
 msgid "Clear History"
 msgstr "Garbitu historia"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:89
+#: ../deskbar/ui/DeskbarStatusIcon.py:69
 msgid "Preferences"
 msgstr "Hobespenak"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:93
+#: ../deskbar/ui/DeskbarStatusIcon.py:73
 msgid "Help"
 msgstr "Laguntza"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:97
+#: ../deskbar/ui/DeskbarStatusIcon.py:77
 msgid "About"
 msgstr "Honi buruz"
 
-#: ../deskbar/ui/DeskbarStatusIcon.py:103
+#: ../deskbar/ui/DeskbarStatusIcon.py:83
 msgid "Quit"
 msgstr "Irten"
+
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:112
+msgid "<i>Empty</i>"
+msgstr "<i>Hutsik</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -1524,7 +1551,8 @@ msgid "Extracting archive"
 msgstr "Artxiboa erauzten"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:595
-msgid "Extension could not be installed due to a problem with the provided file"
+msgid ""
+"Extension could not be installed due to a problem with the provided file"
 msgstr ""
 "Ezin izan da hedapena instalatu arazo bat gertatu delako emandako "
 "fitxategiarekin"
@@ -1548,4 +1576,3 @@ msgstr "Bertsioa:"
 #: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "Eguneraketa erabilgarria"
-
