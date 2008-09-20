@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Deskbar Applet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-03 08:26+0000\n"
-"PO-Revision-Date: 2008-09-05 07:26+0300\n"
+"PO-Revision-Date: 2008-09-19 15:54+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <et-gnome@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -421,17 +421,17 @@ msgstr "URL-i pole võimalik näidata:"
 #: ../deskbar/core/Web.py:135
 #, python-format
 msgid "<big><b>Login for %s</b></big>"
-msgstr ""
+msgstr "<big><b>Sisselogimine hostile %s</b></big>"
 
 #: ../deskbar/core/Web.py:136
 #, python-format
 msgid "Please provide your credentials for <b>%s</b>"
-msgstr ""
+msgstr "Palun sisesta autentimistunnused hosti <b>%s</b> jaoks"
 
 #: ../deskbar/core/Web.py:137
 #, python-format
 msgid "Credentials for %s"
-msgstr ""
+msgstr "Autentimistunnused hostile %s"
 
 #. Show '*' instead of text
 #: ../deskbar/core/Web.py:143
@@ -445,12 +445,14 @@ msgstr "Parool:"
 #: ../deskbar/core/Web.py:264
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
-msgstr ""
+msgstr "<big><b>Sisselogimiskatse hostile %s lükati tagasi</b></big>"
 
 #: ../deskbar/core/Web.py:265
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr ""
+"Palun kontrolli hostile <b>%s</b> sisselogimiseks määratud "
+"autentimistõendeid"
 
 #. translators: This is the window title.
 #: ../deskbar/deskbar-applet.py:17
@@ -1224,18 +1226,27 @@ msgid ""
 "    your web browser\n"
 " • Your credentials in the preferences are correct"
 msgstr ""
+"Tõrge uuenduste postitamisel saidile %(domain)s.\n"
+"Palun veendu, et:\n"
+"\n"
+" • Sinu internetiühendus toimib\n"
+" • Sul on võimalik oma veebisirvijaga avada aadressi <i>http://%(domain)s</i>"
+"\n"
+" • Sinu (eelistuste alt määratud) autentimistunnused on korrektsed"
 
 #: ../deskbar/handlers/twitter.py:102
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr ""
+"Postitus on juba oma sisestamist ootamas. Enne uue sõnumi postitamist oota "
+"palun ära, kuni eelmine postitus lõplikult sisestatud saab."
 
 #: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
 #: ../deskbar/handlers/twitter.py:158
 #, python-format
 msgid "Error posting to %s"
-msgstr ""
+msgstr "Viga saidile %s postitamisel"
 
 #. TRANSLATORS: An example display of the below string:
 #.
@@ -1248,7 +1259,7 @@ msgstr ""
 #: ../deskbar/handlers/twitter.py:172
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
-msgstr ""
+msgstr "<small>(%(remain)s)</small> Postitus <i>\"%(msg)s\"</i>"
 
 #: ../deskbar/handlers/twitter.py:175
 #, python-format
@@ -1257,6 +1268,9 @@ msgid ""
 "\n"
 "\t<i>%s</i>"
 msgstr ""
+"Sinu %s konto uuendamine sõnumiga:\n"
+"\n"
+"\t<i>%s</i>"
 
 #: ../deskbar/handlers/twitter.py:212
 msgid "Twitter"
@@ -1280,6 +1294,8 @@ msgid ""
 "You must configure a username and password on the <i>identi.ca</i> website "
 "if you haven't already."
 msgstr ""
+"Pane tähele, et Deskbari rakend ei toeta OpenID kaudu autentimist. "
+"<i>identi.ca</i> veebisaidi jaoks pead sa sisestama kasutajanime ja parooli."
 
 #: ../deskbar/handlers/twitter.py:300
 msgid "Visit identi.ca website"
@@ -1558,9 +1574,3 @@ msgstr "Versioon:"
 #: ../deskbar/ui/preferences/ModuleListView.py:57
 msgid "Update Available"
 msgstr "Uuendus on saadaval"
-
-#~ msgid "Chinese Simplified"
-#~ msgstr "Hiina, lihtsustatud"
-
-#~ msgid "Chinese Traditional"
-#~ msgstr "Hiina, traditsiooniline"
