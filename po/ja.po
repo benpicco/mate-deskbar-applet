@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-28 22:58+0900\n"
-"PO-Revision-Date: 2008-08-28 22:24+0900\n"
+"POT-Creation-Date: 2008-09-22 04:02+0900\n"
+"PO-Revision-Date: 2008-09-22 04:02+0900\n"
 "Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -418,7 +418,7 @@ msgstr "<big><b>%s へのログイン</b></big>"
 #: ../deskbar/core/Web.py:136
 #, python-format
 msgid "Please provide your credentials for <b>%s</b>"
-msgstr "<b>%s</b> に対する認証情報を提供して下さい"
+msgstr "<b>%s</b> に対する認証情報を入力して下さい"
 
 #: ../deskbar/core/Web.py:137
 #, python-format
@@ -434,15 +434,15 @@ msgstr "ユーザ名:"
 msgid "Password:"
 msgstr "パスワード:"
 
-#: ../deskbar/core/Web.py:254
+#: ../deskbar/core/Web.py:264
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>%s へのログインが拒否されました</b></big>"
 
-#: ../deskbar/core/Web.py:255
+#: ../deskbar/core/Web.py:265
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
-msgstr "<b>%s</b> に対する認証を検証して下さい"
+msgstr "<b>%s</b> に対する認証情報を確認して下さい"
 
 #. translators: This is the window title.
 #: ../deskbar/deskbar-applet.py:17
@@ -1009,8 +1009,8 @@ msgstr "ウェブ・ブックマーク (Mozilla)"
 #: ../deskbar/handlers/mozilla.py:219 ../deskbar/handlers/mozilla.py:300
 #: ../deskbar/handlers/mozilla.py:837
 #, python-format
-msgid "Firefox version must be between %s and %s"
-msgstr "対応する Firefox のバージョンは %s 〜 %s です"
+msgid "Firefox version must be at least %s and less than %s"
+msgstr "対応する Firefox の最低バージョンは %s (%s は除く) です"
 
 #: ../deskbar/handlers/mozilla.py:222 ../deskbar/handlers/mozilla.py:310
 #: ../deskbar/handlers/mozilla.py:840
@@ -1228,7 +1228,7 @@ msgstr ""
 "  に接続できているか\n"
 " •設定で指定した認証情報が間違っていないか"
 
-#: ../deskbar/handlers/twitter.py:89
+#: ../deskbar/handlers/twitter.py:102
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
@@ -1236,8 +1236,8 @@ msgstr ""
 "既に投稿確認待ちに入っています (少し待ってから別のメッセージを投稿してみて下"
 "さい)"
 
-#: ../deskbar/handlers/twitter.py:90 ../deskbar/handlers/twitter.py:103
-#: ../deskbar/handlers/twitter.py:145
+#: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
+#: ../deskbar/handlers/twitter.py:158
 #, python-format
 msgid "Error posting to %s"
 msgstr "%s に投稿する際にエラー"
@@ -1250,12 +1250,12 @@ msgstr "%s に投稿する際にエラー"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:159
+#: ../deskbar/handlers/twitter.py:172
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small><i>\"%(msg)s\" を投稿する</i>"
 
-#: ../deskbar/handlers/twitter.py:162
+#: ../deskbar/handlers/twitter.py:175
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1266,21 +1266,35 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:199
+#: ../deskbar/handlers/twitter.py:212
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:200
+#: ../deskbar/handlers/twitter.py:213
 msgid "Post updates to your Twitter account"
 msgstr "Twitter のアカウントに対する \"つぶやき\" を投稿します"
 
-#: ../deskbar/handlers/twitter.py:247
+#: ../deskbar/handlers/twitter.py:283
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:248
+#: ../deskbar/handlers/twitter.py:284
 msgid "Post updates to your identi.ca account"
 msgstr "identi.ca のアカウントに対する \"つぶやき\" を投稿します"
+
+#: ../deskbar/handlers/twitter.py:298
+msgid ""
+"Please note that Deskbar Applet does not support authentication via OpenID. "
+"You must configure a username and password on the <i>identi.ca</i> website "
+"if you haven't already."
+msgstr ""
+"このアプレットは OpenID を使った認証方法をサポートしていないのでご注意下さ"
+"い。<i>identi.ca</i> のウェブサイトにおける設定を未だ行っていないのであれば"
+"ユーザ名とパスワードを指定してアカウントを取得しておく必要があります。"
+
+#: ../deskbar/handlers/twitter.py:300
+msgid "Visit identi.ca website"
+msgstr "identi.ca のウェブサイトに移動する"
 
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
