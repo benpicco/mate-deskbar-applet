@@ -2,18 +2,20 @@
 # German translation of deskbar-applet.
 # Copyright (C) 2005 THE deskbar-applet'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the deskbar-applet package.
-# Hendrik Brandt <heb@gnome-de.org>, 2005, 2006.
+# Hendrik Brandt <heb@gnome-de.org>, 2005, 2006, 2008.
 # Hendrik Richter <hendrikr@gnome.org>, 2006, 2007, 2008.
 # Johannes Schmid <jhs@gnome.org>, 2007.
 # Andre Klapper <ak-47@gmx.net>, 2008.
+# Hendrik Richter <hendrikr@gnome.org>, 2008.
+#
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: de\n"
+"Project-Id-Version: deskbar-applet trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-18 20:59+0200\n"
-"PO-Revision-Date: 2008-09-18 21:05+0200\n"
-"Last-Translator: Hendrik Richter <hendrikr@gnome.org>\n"
+"POT-Creation-Date: 2008-09-22 19:21+0200\n"
+"PO-Revision-Date: 2008-09-22 18:50+0200\n"
+"Last-Translator: Hendrik Brandt <heb@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -534,8 +536,8 @@ msgstr "?"
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr ""
-"Konnte Beagle nicht laden, weil libbeagle ohne Python-Bindings übersetzt "
-"wurde."
+"Beagle konnte nicht geladen werden, da libbeagle ohne Python-Bindings "
+"übersetzt wurde."
 
 #: ../deskbar/handlers/beagle-live.py:789
 msgid "Beagle daemon is not running."
@@ -543,7 +545,7 @@ msgstr "Der Beagle-Daemon läuft nicht."
 
 #: ../deskbar/handlers/beagle-live.py:792
 msgid "Beagled could not be found in your $PATH."
-msgstr "Beagled konnte nicht in $PATH gefunden werden."
+msgstr "Beagled wurde nicht in $PATH gefunden."
 
 #: ../deskbar/handlers/beagle-static.py:22
 #, python-format
@@ -573,7 +575,7 @@ msgstr "Taschenrechner"
 
 #: ../deskbar/handlers/calculator.py:122
 msgid "Calculate simple equations"
-msgstr "Simple Gleichungen berechnen"
+msgstr "Einfache Gleichungen berechnen"
 
 #: ../deskbar/handlers/desklicious.py:52
 msgid "del.icio.us Bookmarks"
@@ -1165,15 +1167,16 @@ msgstr "Ordner wählen"
 #, python-format
 msgid "A file named \"%s\" already exists.  Do you want to replace it?"
 msgstr ""
-"Eine Datei mit dem Namen »%s« besteht bereits. Soll diese ersetzt werden?"
+"Eine Datei mit dem Namen »%s« ist bereits vorhanden. Soll diese ersetzt "
+"werden?"
 
 #: ../deskbar/handlers/templates.py:129
 #, python-format
 msgid ""
 "The file already exists in \"%s\".  Replacing it will overwrite its contents."
 msgstr ""
-"Die Datei besteht bereits in »%s«. Durch Ersetzen wird der vorherige Inhalt "
-"überschrieben werden."
+"Die Datei ist bereits in »%s« vorhanden. Durch Ersetzen wird der vorherige "
+"Inhalt überschrieben."
 
 #: ../deskbar/handlers/templates.py:136
 msgid "Replace"
@@ -1410,12 +1413,12 @@ msgstr "URL von %s"
 #: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
 #, python-format
 msgid "Copy <b>%(name)s</b> to clipboard"
-msgstr "Kopiere <b>%(name)s</b> in die Zwischenablage"
+msgstr "<b>%(name)s</b> in die Zwischenablage kopieren"
 
 #: ../deskbar/handlers/actions/GoToLocationAction.py:23
 #, python-format
 msgid "Go to location of %s"
-msgstr "Gehe zu Ort von %s"
+msgstr "Den Ort von %s öffnen"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
@@ -1427,7 +1430,7 @@ msgstr "<b>%(name)s</b> (%(prog)s) starten"
 #: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
 #, python-format
 msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
-msgstr "Öffne <b>%(name)s</b> mit <b>%(program)s</b>"
+msgstr "<b>%(name)s</b> mit <b>%(program)s</b> öffnen"
 
 #: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
 #, python-format
