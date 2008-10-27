@@ -90,7 +90,7 @@ class GconfStore(gobject.GObject):
         self._client.notify_add(self.GCONF_CLEAR_ENTRY, self.__emit_signal_bool, "clear-entry-changed")
         self._client.notify_add(self.GCONF_PROXY_USE_HTTP_PROXY, self.__emit_signal_bool, "use-http-proxy-changed")
         self._client.notify_add(self.GCONF_PROXY_HOST_KEY, self.__emit_signal_string, "proxy-host-changed")
-        self._client.notify_add(self.GCONF_PROXY_PORT_KEY, self.__emit_signal_string, "proxy-port-changed")
+        self._client.notify_add(self.GCONF_PROXY_PORT_KEY, self.__emit_signal_int, "proxy-port-changed")
         self._client.notify_add(self.GCONF_ENABLED_HANDLERS, self.__emit_signal_string_list, "enabled-modules-changed")
         self._client.notify_add(self.GCONF_COLLAPSED_CAT, self.__emit_signal_string_list, "collapsed-rows-changed")
         self._client.notify_add(self.GCONF_HIDE_AFTER_ACTION, self.__emit_signal_bool, "hide-after-action-changed")
