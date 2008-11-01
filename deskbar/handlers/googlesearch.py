@@ -28,7 +28,7 @@ LANGUAGES = (
     (_("Catalan"), "lang_ca"),
     (_("Chinese simplified"), "lang_zh-CN"),
     (_("Chinese traditional"), "lang_zh-TW"),
-    (_("Croation"), "lang_hr"),
+    (_("Croatian"), "lang_hr"),
     (_("Czech"), "lang_cs"),
     (_("Danish"), "lang_da"),
     (_("Dutch"), "lang_nl"),
