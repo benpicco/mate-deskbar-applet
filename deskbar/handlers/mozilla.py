@@ -128,10 +128,11 @@ def _on_handler_preferences(dialog):
         show_all_radio.set_active(not new_show_only_primary)
         show_primary_radio.set_active(new_show_only_primary)
     
-    glade = gtk.glade.XML(os.path.join(deskbar.SHARED_DATA_DIR, "mozilla-search.glade"))
-    dialog = glade.get_widget("prefs-dialog")
-    show_all_radio = glade.get_widget("show_all_radio")
-    show_primary_radio = glade.get_widget("show_primary_radio")
+    builder = gtk.Builder()
+    builder.add_from_file(os.path.join(deskbar.SHARED_DATA_DIR, "mozilla-search.ui"))
+    dialog = builder.get_object("prefs-dialog")
+    show_all_radio = builder.get_object("show_all_radio")
+    show_primary_radio = builder.get_object("show_primary_radio")
     
     show_primary_radio.set_active(SHOW_ONLY_PRIMARY)
     show_all_radio.set_active(not SHOW_ONLY_PRIMARY)

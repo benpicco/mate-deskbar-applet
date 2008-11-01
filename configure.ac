@@ -69,7 +69,7 @@ dnl ****************************************************************************
 PKG_CHECK_MODULES(DESKBAR,
 	gtk+-2.0				>= 2.12
 	pygtk-2.0				>= 2.12
-	pygobject-2.0			>= 2.12
+	pygobject-2.0			>= 2.15.3
 	gnome-python-2.0		>= 2.10
 	gnome-desktop-2.0		>= 2.10
 	dbus-python				>= 0.80.2
@@ -98,6 +98,8 @@ dnl * Python modules
 dnl ******************
 AM_CHECK_PYMOD(dbus)
 AM_CHECK_PYMOD(gconf)
+AM_CHECK_PYMOD(gio)
+AM_CHECK_PYMOD(glib)
 AM_CHECK_PYMOD(gnomedesktop)
 AM_CHECK_PYMOD(gnomekeyring)
 AM_CHECK_PYMOD(gnome.ui)

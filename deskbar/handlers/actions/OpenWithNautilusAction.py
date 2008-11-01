@@ -1,6 +1,6 @@
 from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
 from gettext import gettext as _
-import gnomevfs
+import gio
 
 class OpenWithNautilusAction(OpenWithApplicationAction):
     """
@@ -22,7 +22,7 @@ class OpenWithNautilusAction(OpenWithApplicationAction):
         return "file-manager"
     
     def get_verb(self):
-        uri_scheme = gnomevfs.get_uri_scheme(self._url)
+        uri_scheme = gio.File(uri=self._url).get_uri_scheme()
         
         if uri_scheme in self.NETWORK_URIS:
             return _("Open network place %s") % "<b>%(name)s</b>"
@@ -32,4 +32,4 @@ class OpenWithNautilusAction(OpenWithApplicationAction):
             return _("Open location %s") % "<b>%(name)s</b>"
         
     def get_tooltip(self, text=None):
-        return self._url
+        return gio.File(uri=self._url).get_parse_name()

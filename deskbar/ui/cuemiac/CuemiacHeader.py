@@ -1,6 +1,6 @@
 import gtk
 import gtk.gdk
-import gobject
+import glib
 
 from gettext import gettext as _
 
@@ -42,7 +42,7 @@ class CuemiacHeader (gtk.EventBox):
         self.modify_bg (gtk.STATE_NORMAL, self.style.bg[gtk.STATE_SELECTED])
         self.label.modify_fg (gtk.STATE_NORMAL, self.style.fg[gtk.STATE_SELECTED])
         self.entry.modify_bg (gtk.STATE_NORMAL, self.style.bg[gtk.STATE_SELECTED])
-        gobject.timeout_add (100, self._enable_styles) # reenable style changes
+        glib.timeout_add (100, self._enable_styles) # reenable style changes
     
     def _enable_styles (self):
         self._ignore_style = False

@@ -11,14 +11,13 @@ from os.path import split, expanduser, exists, isfile
 import deskbar, deskbar.core.Indexer
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
-import gnomevfs
+import gio
 import gtk
 import logging
 import os
 import urllib
 
 LOGGER = logging.getLogger(__name__)
-MONITOR = gnomevfs.VolumeMonitor()
 
 HANDLERS = ["FileFolderHandler"]
 
@@ -76,6 +75,7 @@ class FileFolderHandler(deskbar.interfaces.Module):
     def __init__(self):
         deskbar.interfaces.Module.__init__(self)
         self._locations = {}
+        self._volume_monitor = gio.volume_monitor_get()
         
     def initialize(self):
         # Gtk Bookmarks --
@@ -102,24 +102,17 @@ class FileFolderHandler(deskbar.interfaces.Module):
                 gtk_bookmark_match = GtkBookmarkMatch(name, loc, priority=self.get_priority())
                 result.append(gtk_bookmark_match)
         
-        # Volumes        
-        # We search both mounted_volumes() and connected_drives.
-        # This way an audio cd in the cd drive will show up both
-        # on "au" and "cd".
-        # Drives returned by mounted_volumes() and connected_drives()
-        # does not have the same display_name() strings.
-        for drive in MONITOR.get_mounted_volumes() + MONITOR.get_connected_drives():
-            if not drive.is_user_visible() : continue
-            if not drive.is_mounted () : continue
-            display_name = drive.get_display_name()
-            if display_name == None or not display_name.lower().startswith(query): continue
+        # Mounts
+        for mount in self._volume_monitor.get_mounts():
+            if not mount.get_name().lower().startswith(query): continue
             
-            uri = drive.get_activation_uri()
+            uri = mount.get_root()
             if uri != None:
-                vol_match = VolumeMatch (display_name, uri, drive.get_icon(), priority=self.get_priority())
+                icon = "drive-harddisk"
+                vol_match = VolumeMatch (mount.get_name(), uri.get_path(), icon, priority=self.get_priority())
                 result.append (vol_match)
         
-        self._emit_query_ready(query, result )
+        self._emit_query_ready(query, result)
     
     def _query_filefolder(self, query, is_file):
         completions, prefix, relative = filesystem_possible_completions(query, is_file)
@@ -134,15 +127,22 @@ class FileFolderHandler(deskbar.interfaces.Module):
             
         for line in file(GTK_BOOKMARKS_FILE):
             line = line.strip()
+             # First column is url, second the label
+            cols = line.split(" ", 1)
             try:
-                if gnomevfs.exists(line):
-                    uri = urllib.unquote(line)
-                    head, tail = split(uri)
-                    # Sometimes tail=="" when for example using "file:///tmp"
-                    if tail == "":
-                         i = head.rfind("/")
-                         tail = head[i+1:]
-                    self._locations[tail.lower()] = (tail, line)
+                uri = urllib.unquote(cols[0])
+                
+                gfile = gio.File(uri=uri)
+                if gfile.query_exists():
+                    name = gfile.get_basename().lower()
+                    
+                    if len(cols) > 1:
+                        display_name = cols[1]
+                    else:
+                        display_name = name    
+                    
+                    self._locations[name] = (display_name, gfile.get_path())
+                    self._locations[display_name] = (display_name, gfile.get_path())
             except Exception, msg:
                 LOGGER.exception(msg)
                 

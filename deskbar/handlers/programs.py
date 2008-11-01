@@ -11,7 +11,7 @@ import deskbar.interfaces.Action
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
 import glob
-import gobject
+import glib
 import gtk
 import os
 import re
@@ -228,8 +228,8 @@ class OpenPathProgramAction(deskbar.interfaces.Action):
                     stdin=prog.stdout)
     
                 # Reap the processes when they have done
-                gobject.child_watch_add(zenity.pid, lambda pid, code: None)
-                gobject.child_watch_add(prog.pid, lambda pid, code: None)
+                glib.child_watch_add(zenity.pid, lambda pid, code: None)
+                glib.child_watch_add(prog.pid, lambda pid, code: None)
                 return
             except:
                 #No zenity, get out of the if, and launch without GUI

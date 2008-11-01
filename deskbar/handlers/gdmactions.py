@@ -11,7 +11,7 @@ import deskbar.interfaces.Action
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
 import gnome.ui
-import gobject
+import glib
 import gtk
 
 HANDLERS = ["GdmHandler"]
@@ -90,12 +90,12 @@ class LogoutPrompt(gtk.MessageDialog):
             return False
         
     def run(self):
-        self.countdown_thread = gobject.timeout_add(1000, self.countdown_func)
+        self.countdown_thread = glib.timeout_add(1000, self.countdown_func)
         return gtk.MessageDialog.run(self)
     
     def on_response(self, dialog, response):
         if response == gtk.RESPONSE_CANCEL and self.countdown_thread != None:
-            gobject.source_remove(self.countdown_thread)
+            glib.source_remove(self.countdown_thread)
 
 class GpmAction(deskbar.interfaces.Action):
     

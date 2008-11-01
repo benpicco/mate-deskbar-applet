@@ -7,8 +7,8 @@ import cgi
 import deskbar
 import gnomedesktop
 import gnome.ui
-import gnomevfs
-import gobject
+import gio
+import glib
 import gtk
 import gtk.gdk
 import locale
@@ -96,7 +96,7 @@ def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
     """
     pixbuf = None
     if icon != None and icon != "":
-        if icon.startswith("file://") and gnomevfs.exists(icon):
+        if icon.startswith("file://") and gio.File(uri=icon).query_exists():
             icon, flags = gnome.ui.icon_lookup(ICON_THEME, factory,
                 icon, "",
                 gnome.ui.ICON_LOOKUP_FLAGS_SHOW_SMALL_IMAGES_AS_THEMSELVES)
@@ -177,7 +177,7 @@ def is_executable(prog_path):
 
 def spawn_async(args):
     try:
-        gobject.spawn_async(args, flags=gobject.SPAWN_SEARCH_PATH)
+        glib.spawn_async(args, flags=glib.SPAWN_SEARCH_PATH)
         return True
     except Exception, e:
         message_dialog = gtk.MessageDialog(flags=gtk.DIALOG_MODAL, type=gtk.MESSAGE_ERROR, buttons=gtk.BUTTONS_CLOSE)
@@ -196,30 +196,61 @@ def add_to_recent(uri):
         manager = gtk.recent_manager_get_default()
         manager.add_item(uri)
 
+def launch_default_for_uri(uri_string):
+    """
+    Open uri_string with the default application
+    according to content type
+    
+    @type uri_string: str 
+    """
+    gfile = gio.File(uri=uri_string)
+    appinfo = gfile.query_default_handler()
+    
+    if appinfo != None:
+        appinfo.launch([gfile], None)
+    else:
+        LOGGER.error("Could not detect default application for %s", uri.get_uri())
+
+def launch_default_for_uri_and_scheme(uri_string):
+    """
+    Open uri_string with the default application
+    according to scheme
+    
+    @type uri_string: str 
+    """
+    gfile = gio.File(uri=uri_string)
+    appinfo = gio.app_info_get_default_for_uri_scheme(gfile.get_uri_scheme())
+    
+    if appinfo != None:
+        appinfo.launch([gfile], None)
+    else:
+        LOGGER.error("Could not detect default application for %s", uri.get_uri())
+    
 def url_show_file(url, escape=True):
     """
     @param escape: Whether C{url} should be escaped or not 
     """
     try:
         if escape:
-            url = gnomevfs.escape_host_and_path_string(url)
-        gnomevfs.url_show(url)
+            url = gio.File(uri=url).get_uri()
+        launch_default_for_uri(url)
         add_to_recent(url)
     except Exception, e:
         executed = False
         try:
-            executed = spawn_async([gnomevfs.get_local_path_from_uri(url)])
+            executed = spawn_async([gio.File(uri=url).get_path()])
         except:
             if not executed:
                 if escape:
-                    url = gnomevfs.escape_host_and_path_string(dirname(url))
+                    url = gio.File(uri=url).get_uri()
                 url_show(url)
                 add_to_recent(url)
 
 def url_show(url):
     try:
-        gnomevfs.url_show(url)
+        launch_default_for_uri(url)
     except Exception, e:
+        LOGGER.exception(e)
         message_dialog = gtk.MessageDialog(flags=gtk.DIALOG_MODAL, type=gtk.MESSAGE_ERROR, buttons=gtk.BUTTONS_CLOSE)
         message_dialog.set_markup("<span size='larger' weight='bold'>%s</span>\n\n '%s'" % (
             _("Cannot show URL:"), cgi.escape(url)))

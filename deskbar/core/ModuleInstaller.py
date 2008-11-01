@@ -1,4 +1,4 @@
-import gnomevfs
+import gio
 import urllib
 import shutil
 import bz2
@@ -8,8 +8,11 @@ import threading
 import zipfile
 from os.path import join, exists
 from os import unlink
+import logging
 
 import deskbar
+
+LOGGER = logging.getLogger(__name__)
 
 class FormatNotSupportedError(Exception):
     """
@@ -87,7 +90,14 @@ class Decompresser(threading.Thread):
         Extract the contents of the file to C{self.dest_dir}
         @raise FormatNotSupportedError:
         """
-        mime_type = gnomevfs.get_mime_type(self.path)
+        gfile = gio.File(path=self.path)
+        try:
+            fileinfo = gfile.query_info("standard::content-type")
+        except Exception, e:
+            self.parent_error = (Exception, e.message)
+            return
+        
+        mime_type = gio.content_type_get_mime_type (fileinfo.get_content_type())
         if mime_type == 'application/x-bzip-compressed-tar':
             extracter = Bzip2Extracter
         elif mime_type == 'application/x-compressed-tar':
@@ -138,18 +148,22 @@ class ModuleInstaller:
         do_cleanup = False
         self._reset()
         
-        uri = gnomevfs.URI(uri_string)
-        if (uri.is_local == 1):
-            handlers_path = join(deskbar.USER_HANDLERS_DIR[0], uri.short_name)
-            self.local_path = uri.path
+        if (uri_string.startswith("file://")):
+            gfile = gio.File(uri=uri_string)
+            handlers_path = join(deskbar.USER_HANDLERS_DIR[0], gfile.get_basename())
+            self.local_path = gfile.get_path()
             if handlers_path == join(deskbar.USER_HANDLERS_DIR[0], self.local_path):
                 # Source and destination are the same, nothing to do here
                 return
-            if (gnomevfs.get_mime_type(uri_string) == "text/x-python"):
+            
+            fileinfo = gfile.query_info ("standard::content-type")
+            mime_type = gio.content_type_get_mime_type (fileinfo.get_content_type())
+            if (mime_type == "text/x-python"):
                 shutil.copy(self.local_path, deskbar.USER_HANDLERS_DIR[0])
                 return
         else:
-            handlers_path = join(deskbar.USER_HANDLERS_DIR[0], uri.short_name)
+            gfile = gio.File(path=uri_string)
+            handlers_path = join(deskbar.USER_HANDLERS_DIR[0], gfile.get_basename())
             urllib.urlretrieve(uri_string, handlers_path)
             self.local_path = handlers_path
             do_cleanup = True

@@ -3,6 +3,7 @@ from os.path import abspath, expanduser, join, basename
 import deskbar
 import deskbar.core.Categories
 import deskbar.interfaces.Module
+import glib
 import gobject
 import gtk
 import logging
@@ -211,19 +212,19 @@ class ModuleLoader (gobject.GObject):
         """
         Same as load_all() except the loading is done in an idle mainloop call.
         """
-        gobject.idle_add(self.load_all)
+        glib.idle_add(self.load_all)
         
     def initialize_module_async (self, module):
         """
         Invokes initialize_module in an idle mainloop call.
         """
-        gobject.idle_add(self.initialize_module, module)
+        glib.idle_add(self.initialize_module, module)
         
     def stop_module_async (self, module):
         """
         Invokes stop_module in an idle mainloop call.
         """
-        gobject.idle_add(self.stop_module, module)
+        glib.idle_add(self.stop_module, module)
         
 if gtk.pygtk_version < (2,8,0):
     gobject.type_register(ModuleLoader)

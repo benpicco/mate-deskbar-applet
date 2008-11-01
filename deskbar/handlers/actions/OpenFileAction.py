@@ -1,8 +1,7 @@
 from deskbar.core.Utils import url_show_file
 from gettext import gettext as _
-from os.path import exists
 import deskbar.interfaces.Action
-import gnomevfs
+import gio
 import logging
 
 LOGGER = logging.getLogger(__name__) 
@@ -25,27 +24,25 @@ class OpenFileAction(deskbar.interfaces.Action):
     def get_icon(self):
         return "gtk-open"
     
-    def _get_unesacped_url_without_protocol(self):
-        url = self._url[7:]
-        if not self._escape:
-            url = gnomevfs.unescape_string_for_display(url)
-        return url
+    def _get_unescaped_url_without_protocol(self):
+        return gio.File(uri=self._url).get_path()
     
     def is_valid(self):
-        url = self._get_unesacped_url_without_protocol()
+        gfile = gio.File (uri=self._url)
 
-        if not exists(url):
-            LOGGER.debug("File %s does not exist", url)
+        if not gfile.query_exists():
+            LOGGER.debug("File %s does not exist", gfile.get_uri ())
             return False
         else:
-            try:
-                mime_type = gnomevfs.get_mime_type(url)
-                returnval = gnomevfs.mime_get_default_application(mime_type) != None
-            except RuntimeError, e:
+            try: 
+                fileinfo = gfile.query_info("standard::content-type")
+                returnval = gio.app_info_get_default_for_type(
+                                fileinfo.get_content_type(), True) != None
+            except Exception, e:
                 # get_mime_type throws a RuntimeException when something went wrong
                 returnval = False
         if not returnval:
-            LOGGER.debug("File %s has no default application", url)
+            LOGGER.debug("File %s has no default application", gfile.get_uri ())
         return returnval
     
     def get_hash(self):
@@ -58,4 +55,4 @@ class OpenFileAction(deskbar.interfaces.Action):
         url_show_file(self._url, escape=self._escape)
         
     def get_tooltip(self, text=None):
-        return self._get_unesacped_url_without_protocol()
+        return self._get_unescaped_url_without_protocol()

@@ -1,6 +1,5 @@
 import gtk
 import gtk.gdk
-import gtk.glade
 import traceback
 from gettext import gettext as _
 from os.path import join, basename
@@ -41,9 +40,10 @@ class DeskbarPreferences:
         
         self.module_list = self._model.get_module_list()
     
-        self.glade = gtk.glade.XML(join(deskbar.SHARED_DATA_DIR, "prefs-dialog.glade"))
+        self.builder = gtk.Builder()
+        self.builder.add_from_file(join(deskbar.SHARED_DATA_DIR, "prefs-dialog.ui"))
         
-        self.dialog = self.glade.get_widget("preferences")
+        self.dialog = self.builder.get_object("preferences")
         
         # Since capuchin is optional we have to check if self.capuchin is None each time we use it
         self.__capuchin = None
@@ -71,7 +71,7 @@ class DeskbarPreferences:
         self.sync_ui()
 
     def __setup_active_modules_tab(self):
-        container = self.glade.get_widget("handlers")
+        container = self.builder.get_object("handlers")
         self.moduleview = ModuleListView(self.module_list)
         self.moduleview.connect ("row-toggled", self.on_module_toggled)
         self.moduleview.get_selection().connect("changed", self.on_module_selected)
@@ -81,16 +81,16 @@ class DeskbarPreferences:
         container.add(self.moduleview)
         
         # Buttons beneath list
-        self.more_button = self.glade.get_widget("more")
+        self.more_button = self.builder.get_object("more")
         self.more_button.set_sensitive(False)
         self.more_button.connect("clicked", self.on_more_button_clicked)
         self.more_button_callback = None
-        self.reload_button = self.glade.get_widget("reload")
+        self.reload_button = self.builder.get_object("reload")
         self.reload_button.connect("clicked", self.on_reload_button_clicked)
         self.reload_button.set_tooltip_markup(("Reload all extensions"))
 
         # Info are at the bottom
-        self.info_area = self.glade.get_widget("info_area")
+        self.info_area = self.builder.get_object("info_area")
         self.old_info_message = None
         info_text = _("<i><small>Drag and drop an extension to change its order.</small></i>")
         self.default_info = InfoBox(info_text, gtk.STOCK_DIALOG_INFO)
@@ -98,38 +98,38 @@ class DeskbarPreferences:
         self.info_area.add(self.default_info)
         
         # Buttons on the right
-        self.button_top = self.glade.get_widget("button_top")
+        self.button_top = self.builder.get_object("button_top")
         self.button_top.connect("clicked", self.on_button_top_clicked)
-        self.button_up = self.glade.get_widget("button_up")
+        self.button_up = self.builder.get_object("button_up")
         self.button_up.connect("clicked", self.on_button_up_clicked)
-        self.button_down = self.glade.get_widget("button_down")
+        self.button_down = self.builder.get_object("button_down")
         self.button_down.connect("clicked", self.on_button_down_clicked)
-        self.button_bottom = self.glade.get_widget("button_bottom")
+        self.button_bottom = self.builder.get_object("button_bottom")
         self.button_bottom.connect("clicked", self.on_button_bottom_clicked)
 
     def __setup_general_tab(self):
         self.keyboard_shortcut_entry = AccelEntry()
         self.keyboard_shortcut_entry.connect('accel-edited', self.on_keyboard_shortcut_entry_changed)
         self.keyboard_shortcut_entry.get_widget().show()
-        self.glade.get_widget("keybinding_entry_container").pack_start(self.keyboard_shortcut_entry.get_widget(), False)
+        self.builder.get_object("keybinding_entry_container").pack_start(self.keyboard_shortcut_entry.get_widget(), False)
         
         if self._model.get_ui_name() == deskbar.BUTTON_UI_NAME:
-            spinbutton = self.glade.get_widget("width")
+            spinbutton = self.builder.get_object("width")
             spinbutton.set_value(self._model.get_entry_width())
             spinbutton.connect('value-changed', self.on_entry_width_changed)
         else:
-            frame = self.glade.get_widget("frame_width")
+            frame = self.builder.get_object("frame_width")
             frame.hide()
         
         self.use_selection = self._model.get_use_selection()
-        self.use_selection_box = self.glade.get_widget("use_selection")
+        self.use_selection_box = self.builder.get_object("use_selection")
         self.use_selection_box.connect('toggled', self.on_use_selection_toggled)
 
-        self.sticktopanel_checkbox = self.glade.get_widget("sticktopanel_checkbox")
+        self.sticktopanel_checkbox = self.builder.get_object("sticktopanel_checkbox")
         self.sticktopanel_checkbox.connect("toggled", self.on_ui_changed)
        
     def __setup_drag_and_drop(self):
-        big_box = self.glade.get_widget("big_box")
+        big_box = self.builder.get_object("big_box")
         self.TARGET_URI_LIST, self.TARGET_NS_URL = range(2)
         DROP_TYPES = [('text/uri-list', 0, self.TARGET_URI_LIST),
                       ('_NETSCAPE_URL', 0, self.TARGET_NS_URL),
@@ -146,14 +146,14 @@ class DeskbarPreferences:
         self.disabledmoduleview.get_selection().connect("changed", self.on_disabled_module_changed)
         self.disabledmoduleview.show()
         
-        disabledhandlers = self.glade.get_widget("disabledhandlers")
+        disabledhandlers = self.builder.get_object("disabledhandlers")
         disabledhandlers.add(self.disabledmoduleview)
         
-        self.disabledhandlers_box = self.glade.get_widget("disabledhandlers_box")
+        self.disabledhandlers_box = self.builder.get_object("disabledhandlers_box")
 
     def __select_first_tab(self):
         """ Select first tab """
-        notebook = self.glade.get_widget("notebook1")
+        notebook = self.builder.get_object("notebook1")
         current = notebook.get_current_page()
         if (current != 0):
             for i in range(current):
@@ -168,7 +168,7 @@ class DeskbarPreferences:
             self.ROW_SEPERATOR_STRING = "<-->"
             self.ALL_EXTENSIONS_TEXT = _("All Extensions")
             
-            self.combobox_tags = self.glade.get_widget("combobox_tags")
+            self.combobox_tags = self.builder.get_object("combobox_tags")
             self.combobox_tags.set_row_separator_func( lambda model, iter: model[iter][0] == self.ROW_SEPERATOR_STRING )  
             
             tag_cell = gtk.CellRendererText ()
@@ -182,7 +182,7 @@ class DeskbarPreferences:
             self.combobox_tags.set_model (self.tags_list)
             self.combobox_tags.connect ("changed", self.on_combobox_tags_changed)
             
-            container = self.glade.get_widget("newhandlers")
+            container = self.builder.get_object("newhandlers")
             
             self.webmoduleview = WebModuleListView(self.web_module_list)
             self.webmoduleview.get_selection().connect("changed", self.on_webmodule_selected)
@@ -190,10 +190,10 @@ class DeskbarPreferences:
             self.webmoduleview.show()
             container.add(self.webmoduleview)
               
-            self.install = self.glade.get_widget("install")
-            self.check_new_extensions = self.glade.get_widget("check_new_extensions")
-            self.check = self.glade.get_widget("check")
-            self.update = self.glade.get_widget("update")
+            self.install = self.builder.get_object("install")
+            self.check_new_extensions = self.builder.get_object("check_new_extensions")
+            self.check = self.builder.get_object("check")
+            self.update = self.builder.get_object("update")
               
             self.check.connect('clicked', self.on_check_handlers)
             self.update.connect('clicked', self.on_update_handler)
@@ -202,12 +202,12 @@ class DeskbarPreferences:
             self.install.connect('clicked', self.on_install_handler)
             self.install.set_sensitive(False)
         else:
-            notebook = self.glade.get_widget("notebook1")
-            tab = self.glade.get_widget("extensions_vbox")
+            notebook = self.builder.get_object("notebook1")
+            tab = self.builder.get_object("extensions_vbox")
             notebook.remove_page( notebook.page_num(tab) )
             # Remove buttons in handlers tab
-            self.glade.get_widget("check").destroy()
-            self.glade.get_widget("update").destroy()
+            self.builder.get_object("check").destroy()
+            self.builder.get_object("update").destroy()
     
     def _get_capuchin_instance(self):
         if self.__capuchin == None:
@@ -631,7 +631,7 @@ class DeskbarPreferences:
             self.moduleview.grab_focus()
         
     def on_ui_changed(self, check):
-        frame = self.glade.get_widget("frame_width")
+        frame = self.builder.get_object("frame_width")
         if self.sticktopanel_checkbox.get_active():
             self._model.set_ui_name(deskbar.BUTTON_UI_NAME)
             frame.show()

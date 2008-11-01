@@ -228,7 +228,6 @@ class WebSearchResultsParser (xml.sax.handler.ContentHandler):
     RESULT_ELEMENT = "Result"
     TITLE_ELMENT = "Title"
     SUMMARY_ELEMENT = "Summary"
-    URL_ELEMENT = "Url"
     CLICK_URL_ELEMENT = "ClickUrl"
     MIME_TYPE_ELEMENT = "MimeType"
      
@@ -237,7 +236,6 @@ class WebSearchResultsParser (xml.sax.handler.ContentHandler):
         # Elements we want to store the contents of
         self._elements = set([self.TITLE_ELMENT,
                               self.SUMMARY_ELEMENT,
-                              self.URL_ELEMENT,
                               self.CLICK_URL_ELEMENT,
                               self.MIME_TYPE_ELEMENT])
         

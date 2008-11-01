@@ -1,3 +1,4 @@
+import glib
 import gtk
 import gobject
 from gettext import gettext as _
@@ -76,7 +77,7 @@ class ModuleListView (gtk.TreeView):
     def scroll_to_iter(self, iter):
         path = self.get_model().get_path(iter)
         self.get_selection().select_path( path )
-        gobject.idle_add(self.scroll_to_cell, path )
+        glib.idle_add(self.scroll_to_cell, path )
         self.set_cursor_on_cell( path )
 
 if gtk.pygtk_version < (2,8,0):

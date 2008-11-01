@@ -1,6 +1,6 @@
 import gtk
 import gtk.gdk
-import gobject
+import glib
 from gettext import gettext as _
 import deskbar.core.Utils
 import deskbar.interfaces.View
@@ -32,7 +32,7 @@ class AbstractCuemiacView (deskbar.interfaces.View):
         deskbar.interfaces.View.__init__(self, controller, model)
         self._do_clear = True
         
-        self._model.connect("query-ready", lambda s,m: gobject.idle_add(self.append_matches, s, m))
+        self._model.connect("query-ready", lambda s,m: glib.idle_add(self.append_matches, s, m))
         
         # VBox 
         self._create_vbox_main()

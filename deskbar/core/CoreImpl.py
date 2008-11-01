@@ -1,6 +1,6 @@
 import sys
 import logging
-import gobject
+import glib
 import gtk
 import deskbar
 import deskbar.interfaces.Match
@@ -297,8 +297,8 @@ class CoreImpl(deskbar.interfaces.Core):
         """
         if (len(text) >= self.get_min_chars()):            
             if (self._start_query_id != 0):
-                gobject.source_remove(self._start_query_id)
-            self._start_query_id = gobject.timeout_add( self.get_type_delay(), self._query_real, text )
+                glib.source_remove(self._start_query_id)
+            self._start_query_id = glib.timeout_add( self.get_type_delay(), self._query_real, text )
             self._stop_queries = False
             
     def _query_real(self, text):

@@ -235,9 +235,10 @@ def on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_
     list_store = gtk.ListStore(str, gobject.TYPE_PYOBJECT)
     _sync_list_store_from_shortcuts_map(list_store, smart_bookmarks, shortcuts_to_smart_bookmarks_map)
     
-    glade = gtk.glade.XML(os.path.join(deskbar.SHARED_DATA_DIR, "smart-bookmarks.glade"))
+    builder = gtk.Builder()
+    builder.add_from_file(os.path.join(deskbar.SHARED_DATA_DIR, "smart-bookmarks.ui"))
     
-    view = glade.get_widget("bookmarks-view")
+    view = builder.get_object("bookmarks-view")
     view.set_model(list_store)
     
     crt_shortcut = gtk.CellRendererText()
@@ -255,7 +256,7 @@ def on_customize_search_shortcuts(smart_bookmarks, shortcuts_to_smart_bookmarks_
     tvc_name.set_cell_data_func(crt_name, bookmark_to_bookmark_name)
     view.append_column(tvc_name)
     
-    dialog = glade.get_widget("smart-bookmarks")
+    dialog = builder.get_object("smart-bookmarks")
     dialog.set_icon_name("deskbar-applet")
     dialog.show_all()
     dialog.run()

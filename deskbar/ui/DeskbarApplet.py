@@ -2,6 +2,7 @@ import gnomeapplet
 import gtk
 import deskbar
 import os.path
+import glib
 import gobject
 from deskbar.ui.AbstractCuemiacDeskbarIcon import AbstractCuemiacDeskbarIcon
 from deskbar.ui.cuemiac.CuemiacHistory import CuemiacHistoryView, CuemiacHistoryPopup
@@ -187,7 +188,7 @@ class DeskbarApplet (gnomeapplet.Applet, AbstractCuemiacDeskbarIcon):
         self.applet.handler_block(self.handler_size_allocate_id)
         self.tray.set_button_image_from_pixbuf(pixbuf)
         # If we unblock immediately we get an infinite loop
-        gobject.timeout_add(100, self.unblock_allocate)
+        glib.timeout_add(100, self.unblock_allocate)
         
     def unblock_allocate(self):
         self.applet.handler_unblock (self.handler_size_allocate_id)

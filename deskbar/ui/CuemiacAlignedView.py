@@ -1,6 +1,6 @@
 import gtk
 import gtk.gdk
-import gobject
+import glib
 import gnomeapplet
 from deskbar.core.GconfStore import GconfStore
 from deskbar.ui.AbstractCuemiacView import AbstractCuemiacView
@@ -79,7 +79,7 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
     def append_matches (self, sender, matches):
         AbstractCuemiacView.append_matches(self, sender, matches)
         # Wait a little bit to resize, otherwise we get a size that's too small
-        gobject.timeout_add(200, self.__adjust_popup_size)
+        glib.timeout_add(200, self.__adjust_popup_size)
     
     def __on_window_key_press_event(self, window, event):
         if event.keyval == gtk.keysyms.Escape:

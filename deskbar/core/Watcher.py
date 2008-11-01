@@ -1,11 +1,13 @@
 """
-Helper classes to monitor directories/files for changes using gnomevfs
+Helper classes to monitor directories/files for changes
 """
 
-import gnomevfs
+import gio
+import glib
 import gobject
 import gtk
 import logging
+from os.path import isdir
 
 LOGGER = logging.getLogger(__name__)
 
@@ -16,7 +18,7 @@ class Watcher(gobject.GObject):
     def __init__(self):
         gobject.GObject.__init__(self)
         self.watched = {}
-        self.monitor_type = gnomevfs.MONITOR_FILE
+        self._get_monitor_func = "monitor_file"
         
     def add(self, args):
         if not type(args) is list:
@@ -27,11 +29,15 @@ class Watcher(gobject.GObject):
                 continue
                 
             if not name in self.watched:
+                gfile = gio.File (path=name)
+                
                 try:
-                    self.watched[name] = gnomevfs.monitor_add(name, self.monitor_type, self._on_change)
+                    self.watched[name] = getattr(gfile, self._get_monitor_func) ()
                 except Exception, msg:
                     LOGGER.exception(msg)
                     self.watched[name] = 0
+                    
+                self.watched[name].connect ("changed", self._on_changed)
     
     def remove(self, args):
         if not type(args) is list:
@@ -40,15 +46,16 @@ class Watcher(gobject.GObject):
         for name in args:
             if name in self.watched:
                 if self.watched[name] != 0:
-                    gnomevfs.monitor_cancel(self.watched[name])
+                    self.watched[name].cancel()
                 del self.watched[name]
     
     def remove_all(self):
         self.remove(self.watched.keys())
                 
-    def _on_change(self, monitor, changed, event):
-        if event == gnomevfs.MONITOR_EVENT_CHANGED or event == gnomevfs.MONITOR_EVENT_CREATED:
-            gobject.idle_add(self.emit, 'changed', gnomevfs.get_local_path_from_uri(changed))
+    def _on_changed(self, monitor, file, other_file, event_type):
+        if event_type == gio.FILE_MONITOR_EVENT_CHANGED \
+            or event_type == gio.FILE_MONITOR_EVENT_CREATED:
+            glib.idle_add(self.emit, 'changed', file.get_path ())
 
 class FileWatcher(Watcher):
     def __init__(self):
@@ -57,7 +64,7 @@ class FileWatcher(Watcher):
 class DirWatcher(Watcher):
     def __init__(self):
         Watcher.__init__(self)
-        self.monitor_type = gnomevfs.MONITOR_DIRECTORY
+        self._get_monitor_func = "monitor_directory"
 
 if gtk.pygtk_version < (2,8,0):
     gobject.type_register(Watcher)

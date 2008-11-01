@@ -5,14 +5,15 @@ import deskbar.core.Utils
 import deskbar.interfaces.Action
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module 
-import gnomevfs
+import gio
 import gtk
+import logging
 import os
 import os.path
 import shutil
 import subprocess
 
-
+LOGGER = logging.getLogger(__name__)
 HANDLERS = ["TemplateHandler"]
 
 class TemplateFile(object):
@@ -176,38 +177,40 @@ class TemplateHandler(deskbar.interfaces.Module):
     def __init__(self):
         deskbar.interfaces.Module.__init__(self)    
         self.indexer = deskbar.core.Indexer.Indexer()
-        self.monitor_id = None
+        self.monitors = []
 
     def _add_template_file(self, path):
         template_file = TemplateFile(path)
         match = TemplateMatch(template_file)
         self.indexer.add(match.get_name(), match)
     
-    def _templates_dir_monitor_cb(self, monitor_uri, info_uri, event_type):
-        if event_type == gnomevfs.MONITOR_EVENT_CREATED:
-            # strip "file://"
-            self._add_template_file(info_uri[7:])
+    def _templates_dir_monitor_cb(self, monitor, file, other_file, event_type):
+        self._add_template_file(file.get_path())
  
     def initialize(self):
         templates_dir = deskbar.core.Utils.get_xdg_user_dir(deskbar.core.Utils.DIRECTORY_TEMPLATES)
 
-        if templates_dir != None:
-            for f in os.listdir(templates_dir):
-                # Skip backup files and hidden files
-                if f.endswith("~") or f.startswith("."):
-                    continue
-                self._add_template_file(os.path.join(templates_dir, f))
-    
-            self.monitor_id = gnomevfs.monitor_add(templates_dir,
-                                 gnomevfs.MONITOR_DIRECTORY,
-                                 self._templates_dir_monitor_cb)
+        for f in os.listdir(templates_dir):
+            # Skip backup files and hidden files
+            if f.endswith("~") or f.startswith("."):
+                continue
+            self._add_template_file(os.path.join(templates_dir, f))
 
-    def stop(self):
-        if self.monitor_id != None:
-            gnomevfs.monitor_cancel(self.monitor_id)
+        gfile = gio.File(path=templates_dir)
+        try:
+            filemonitor = gfile.monitor_directory()
+            if filemonitor != None:
+                filemonitor.connect ("changed", self._templates_dir_monitor_cb)
+                self.monitors.append(filemonitor)
+        except Exception, e:
+            LOGGER.exception(e)
 
     def query(self, query):
         matches = self.indexer.look_up(query)
         self.set_priority_for_matches(matches)
         self._emit_query_ready(query, matches)
 
+    def stop(self):
+        for filemonitor in self.monitors:
+            filemonitor.cancel()
+    

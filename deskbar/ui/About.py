@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
-from gettext import gettext as _
+from deskbar.core.Utils import launch_default_for_uri
 from deskbar.defs import VERSION
-import gtk, gtk.gdk, gnomevfs
+from gettext import gettext as _
+import gtk
+import gtk.gdk
 
 
 def on_email(about, mail):
-    gnomevfs.url_show("mailto:%s" % mail)
+    launch_default_for_uri("mailto:%s" % mail)
 
 def on_url(about, link):
-    gnomevfs.url_show(link)
+    launch_default_for_uri(link)
 
 gtk.about_dialog_set_email_hook(on_email)
 gtk.about_dialog_set_url_hook(on_url)

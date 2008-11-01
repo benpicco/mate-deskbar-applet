@@ -1,3 +1,4 @@
+import glib
 import gtk
 import gtk.gdk
 import gobject
@@ -93,7 +94,7 @@ class CuemiacActionsTreeView(gtk.TreeView):
     
     def __select_path(self, path):
         self.get_selection().select_path( path )
-        gobject.idle_add(self.scroll_to_cell, path )
+        glib.idle_add(self.scroll_to_cell, path )
         self.set_cursor_on_cell( path )
        
     def __on_query_tooltip(self, widget, x, y, keyboard_mode, tooltip):

@@ -12,7 +12,7 @@ import cgi
 import re
 import deskbar, deskbar.interfaces.Module
 import deskbar.interfaces.Match
-import gnomevfs
+import gio
 import logging
 import threading
 
@@ -291,7 +291,7 @@ class OpenNoteAction(OpenWithApplicationAction):
 class OpenIMLogAction(OpenWithApplicationAction):
     def __init__(self, name, uri, client, snippet=None):
         OpenWithApplicationAction.__init__(self, name, "beagle-imlogviewer", [])
-        self._uri = gnomevfs.get_local_path_from_uri(uri)
+        self._uri = gio.File(uri=uri).get_path ()
         self._client = client
         
     def get_icon(self):
@@ -317,7 +317,7 @@ class OpenCalendarAction(OpenWithEvolutionAction):
 class OpenWebHistoryAction(ShowUrlAction):
     def __init__(self, name, uri, escaped_uri):
         ShowUrlAction.__init__(self, name, uri)
-        self._display_uri = gnomevfs.unescape_string_for_display(escaped_uri)
+        self._display_uri = gio.File (uri=escaped_uri).get_parse_name()
         
     def get_icon(self):
         return "system-search"
@@ -437,7 +437,7 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
             # For files inside archives only work with the archive itsself
             result["escaped_uri"] = result["escaped_uri"].split('#')[0]
             # Unescape URI again
-            unescaped_uri = gnomevfs.unescape_string_for_display(result["escaped_uri"])
+            unescaped_uri = gio.File(uri=result["escaped_uri"]).get_parse_name()
             if not result.has_key("inside_archive"):
                 result["inside_archive"] = "false"
             

@@ -1,5 +1,5 @@
 import gtk
-import gobject
+import glib
 
 class LingeringSelectionWindow (gtk.Window):
 	"""
@@ -59,7 +59,5 @@ class LingeringSelectionWindow (gtk.Window):
 		Display for a short while
 		"""
 		self.show_all ()
-		gobject.timeout_add (self.linger_time, self.hide)
-		
-		
+		glib.timeout_add (self.linger_time, self.hide)
 			
