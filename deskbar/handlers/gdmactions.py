@@ -102,8 +102,8 @@ class GpmAction(deskbar.interfaces.Action):
     def __init__(self):
         deskbar.interfaces.Action.__init__(self, "")
         bus = dbus.Bus(dbus.Bus.TYPE_SESSION)
-        obj = bus.get_object('org.gnome.PowerManager', '/org/gnome/PowerManager')
-        self._gpm = dbus.Interface (obj, "org.gnome.PowerManager")
+        obj = bus.get_object('org.freedesktop.PowerManagement', '/org/freedesktop/PowerManagement')
+        self._gpm = dbus.Interface (obj, "org.freedesktop.PowerManagement")
         
 class SuspendAction(GpmAction):
     
@@ -195,7 +195,7 @@ class GpmMatch(deskbar.interfaces.Match):
 
 class SuspendMatch(GpmMatch):
     def __init__(self, **args):
-        GpmMatch.__init__(self, category="actions", icon="gpm-suspend-to-ram.png")
+        GpmMatch.__init__(self, icon="gpm-suspend-to-ram.png")
         self.add_action( SuspendAction() )
 
 class HibernateMatch(GpmMatch):
@@ -354,13 +354,13 @@ class GdmHandler(deskbar.interfaces.Module):
     def init_gpm_matches(self):
         try:
             bus = dbus.Bus(dbus.Bus.TYPE_SESSION)
-            obj = bus.get_object('org.gnome.PowerManager', '/org/gnome/PowerManager')
-            gpm = dbus.Interface (obj, "org.gnome.PowerManager")
-            if gpm.canSuspend():
+            obj = bus.get_object('org.freedesktop.PowerManagement', '/org/freedesktop/PowerManagement')
+            gpm = dbus.Interface (obj, "org.freedesktop.PowerManagement")
+            if gpm.CanSuspend():
                 self.indexer.add(_("Suspend"), SuspendMatch())
-            if gpm.canHibernate():
+            if gpm.CanHibernate():
                 self.indexer.add(_("Hibernate"), HibernateMatch())
-            if gpm.canShutdown():
+            if gpm.CanShutdown():
                 self.indexer.add(_("Shutdown"), ShutdownMatch())
         except dbus.DBusException:
             return False
