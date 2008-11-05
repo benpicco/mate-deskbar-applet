@@ -184,9 +184,14 @@ class CuemiacTreeView (gtk.TreeView):
             cell.set_property ("is-header", True)
             cell.set_property ("match-count", match.get_count ())
             cell.set_property ("cell-background-gdk", self.style.bg[gtk.STATE_NORMAL])
-        else:
+        elif isinstance(match, Match):
             cell.set_property ("is-header", False)
             cell.set_property ("has-more-actions", len(match.get_actions()) > 1)
+            cell.set_property ("cell-background-gdk", self.style.base[gtk.STATE_NORMAL])
+        else:
+            LOGGER.error("This should never happen, see bug 552204")
+            cell.set_property ("is-header", False)
+            cell.set_property ("has-more-actions", False)
             cell.set_property ("cell-background-gdk", self.style.base[gtk.STATE_NORMAL])
         
     def __on_show_actions_activated(self, widget, path):
