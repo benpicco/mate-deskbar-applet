@@ -168,6 +168,29 @@ class ShutdownAction(GpmAction):
     def get_verb(self):
         return _("Shutdown the machine")
     
+    
+class RebootAction(GpmAction):
+        
+    def __init__(self):
+        GpmAction.__init__(self)
+        
+    def activate(self, text=None):
+        prompt = LogoutPrompt(PROMPT_REBOOT, TIMEOUT)
+        response = prompt.run()
+        prompt.destroy()
+        
+        try:
+            if response == gtk.RESPONSE_OK:
+                self._gpm.Reboot()
+        except dbus.exceptions.DBusException:
+            # this will trigger a method timeout exception.
+            # As a workaround we swallow it silently
+            pass
+
+    def get_verb(self):
+        return _("Reboot the machine")
+     
+    
 class LockScreenAction(deskbar.interfaces.Action):
         
     def __init__(self):
@@ -207,7 +230,12 @@ class ShutdownMatch(GpmMatch):
     def __init__(self, **args):
         GpmMatch.__init__(self, icon = "gnome-shutdown")
         self.add_action( ShutdownAction() )
-    
+
+class RebootMatch(GpmMatch):
+    def __init__(self, **args):
+        GpmMatch.__init__(self, icon = "gtk-refresh")
+        self.add_action( RebootAction() )
+        
 class LockScreenMatch(deskbar.interfaces.Match):
     def __init__(self, **args):
         deskbar.interfaces.Match.__init__(self, name=_("Lock"), icon = "system-lock-screen", **args)
@@ -301,7 +329,7 @@ class GdmRebootAction(GdmAction):
     
 class GdmRebootMatch(GdmMatch):
     def __init__(self, **args):
-        GdmMatch.__init__(self, name=_("Restart"), **args)
+        GdmMatch.__init__(self, name=_("Restart"), icon = "gtk-refresh", **args)
         self.add_action( GdmRebootAction(self.get_name()) )
     
 class GdmSwitchUserAction(GdmAction):    
@@ -362,6 +390,8 @@ class GdmHandler(deskbar.interfaces.Module):
                 self.indexer.add(_("Hibernate"), HibernateMatch())
             if gpm.CanShutdown():
                 self.indexer.add(_("Shutdown"), ShutdownMatch())
+            if gpm.CanReboot():
+                self.indexer.add(_("Reboot"), RebootMatch())
         except dbus.DBusException:
             return False
             
