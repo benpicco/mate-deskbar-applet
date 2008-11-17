@@ -29,6 +29,7 @@ class InfoBox(gtk.HBox):
         self.label.set_alignment(0.0, 0.5)
         self.label.set_justify(gtk.JUSTIFY_LEFT)
         self.label.set_markup(text)
+        self.label.set_selectable(True)
         self.label.show()
         self.pack_start(self.label, expand=True, fill=True)
 
