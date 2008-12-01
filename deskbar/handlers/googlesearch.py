@@ -10,10 +10,14 @@ import deskbar.interfaces.Module
 import logging
 import urllib
 import gtk
+
 try:
-    import simplejson
+    import json
 except:
-    pass
+    try:
+        import simplejson as json
+    except:
+        pass
     
 LOGGER = logging.getLogger(__name__)
     
@@ -152,8 +156,8 @@ class GoogleHandler(deskbar.interfaces.Module):
             
         LOGGER.debug('Got Google answer for: %s', qstring)
 
-        json = simplejson.loads(stream.read())
-        results = json['responseData']['results']
+        jsondata = json.loads(stream.read())
+        results = jsondata['responseData']['results']
         stream.close()
         
         LOGGER.debug("Returning Google answer for: %s", qstring)
@@ -173,12 +177,19 @@ class GoogleHandler(deskbar.interfaces.Module):
         
     @staticmethod
     def has_requirements():
+        """
+        Check that required libraries are available for this module to work
+        """
+
         try:
-            import simplejson
-            return True
+            import json
         except:
-            GoogleHandler.INSTRUCTIONS = _("Python module simplejson is not available")
-            return False
+            try:
+                import simplejson as json
+            except:
+                 GoogleHandler.INSTRUCTIONS = _("Python module json or simplejson are not available")
+                 return False
+        return True
 
 
 class OpenGoogleAction(ShowUrlAction):
