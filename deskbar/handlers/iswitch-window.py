@@ -30,6 +30,13 @@ class SwitchToWindowAction(deskbar.interfaces.Action):
             LOGGER.warning("Using bogus timestamp.")
             time = gtk.get_current_event_time()
         
+        workspace = self._window.get_workspace()
+        if workspace != None and workspace.is_virtual():
+            if not self._window.is_in_viewport(workspace):
+                pos_x = workspace.get_viewport_x() + self._window.get_geometry()[0]
+                pos_y = workspace.get_viewport_y() + self._window.get_geometry()[1]
+                self._window.get_screen().move_viewport(pos_x, pos_y)
+
         if hasattr(self._window.get_workspace(), 'activate') and self._window.get_workspace() != self._window.get_screen().get_active_workspace():
             self._window.get_workspace().activate(time)
 
