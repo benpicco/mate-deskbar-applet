@@ -45,6 +45,8 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
             self._model.set_window_y(y)
         
         window.hide()
+        
+        return True
 
     def on_show_about(self, sender):
         show_about(self._view.get_toplevel())
