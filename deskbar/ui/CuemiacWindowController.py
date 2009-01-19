@@ -56,9 +56,7 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         prefs.show_run_hide(self._view.get_toplevel())
         
     def on_show_help(self, sender):
-        screen = self._view.get_toplevel().get_screen()
-        gtk.show_uri(screen, "ghelp:deskbar",
-                              gtk.get_current_event_time())
+        deskbar.core.Utils.launch_default_for_uri_and_scheme("ghelp:deskbar")
         
     def on_query_entry_changed(self, entry):
         self._view.set_clear()
