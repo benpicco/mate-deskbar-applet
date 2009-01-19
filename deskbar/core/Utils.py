@@ -219,10 +219,10 @@ def launch_default_for_uri_and_scheme(uri_string):
     @type uri_string: str 
     """
     gfile = gio.File(uri=uri_string)
-    appinfo = gio.app_info_get_default_for_uri_scheme(gfile.get_uri_scheme())
+    appinfo = gfile.query_default_handler(None)
     
     if appinfo != None:
-        appinfo.launch([gfile], None)
+        appinfo.launch_uris([uri_string], None)
     else:
         LOGGER.error("Could not detect default application for %s", uri.get_uri())
     
