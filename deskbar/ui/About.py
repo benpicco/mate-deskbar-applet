@@ -21,7 +21,7 @@ def show_about(parent):
         "authors": ["Nigel Tao <nigel.tao@myrealbox.com>",
                     "Raphael Slinckx <raphael@slinckx.net>",
                     "Mikkel Kamstrup Erlandsen <kamstrup@daimi.au.dk>",
-                    "Sebastian Pölsterl <marduk@k-d-w.org>"],
+                    "Sebastian Pölsterl <sebp@k-d-w.org>"],
         "comments" : _("An all-in-one action bar."),
         "copyright" : "Copyright © 2004-2008\nNigel Tao, Raphael Slinckx, Mikkel Kamstrup Erlandsen, Sebastian Pölsterl.",
         "documenters" : ["Phil Bull <philbull@gmail.com>", "Qing Gan"],
