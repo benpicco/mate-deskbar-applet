@@ -153,6 +153,9 @@ class DeskbarApplet (gnomeapplet.Applet, AbstractCuemiacDeskbarIcon):
         self.applet.add(self.tray)
         self.tray.show()
         
+        self.__style_applied = False
+        self.force_no_focus_applet()
+        
         self.setup_menu()
         self._setup_mvc()
         
@@ -161,6 +164,20 @@ class DeskbarApplet (gnomeapplet.Applet, AbstractCuemiacDeskbarIcon):
         self._setup_history()
         
         self.applet.show_all()
+
+    def force_no_focus_applet(self):
+        # Fixes bug #542861: Deskbar applet has a pixel border
+        if not self.__style_applied:
+            gtk.rc_parse_string ("""
+               style \"deskbar-applet-button-style\"
+               {
+                 GtkWidget::focus-line-width = 0
+                 GtkWidget::focus-padding = 0
+               }
+               widget \"*.deskbar-applet-button\" style \"deskbar-applet-button-style\"
+               """)
+            self.__style_applied = False
+        self.applet.set_name("deskbar-applet-button")
 
     def _setup_history(self):
         self.hview = CuemiacHistoryView(self._core.get_history())
