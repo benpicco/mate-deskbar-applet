@@ -209,6 +209,8 @@ class YahooHandler(deskbar.interfaces.Module):
                                       summary=result_summary,
                                       priority=result_prio))
             
+        matches.append(YahooSearchForMatch(qstring, priority=self.get_priority()))
+            
         LOGGER.debug("Returning yahoo answer for: %s", qstring)
         self._emit_query_ready(qstring, matches)
         
@@ -316,7 +318,7 @@ class YahooSearchForMatch(deskbar.interfaces.Match):
         self.add_action( SearchWithYahooAction(self._term) )
     
     def get_hash(self):
-        return self._term
+        return "yahoo:"+self._term
        
 class YahooSuggestHandler(deskbar.interfaces.Module):
     

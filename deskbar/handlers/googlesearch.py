@@ -163,9 +163,14 @@ class GoogleHandler(deskbar.interfaces.Module):
         LOGGER.debug("Returning Google answer for: %s", qstring)
         
         if not 'Error' in results:
-            for result in results:
-                matches.append( GoogleMatch(result) )
-            self._emit_query_ready(qstring, matches)
+            num_results = len(results)
+            for i, result in enumerate(results):
+                print result
+                prio = self.get_priority() + num_results - i
+                matches.append(GoogleMatch(result, priority=prio))
+            
+        matches.append(GoogleSearchForMatch(qstring, priority=self.get_priority()))    
+        self._emit_query_ready(qstring, matches)
 
     def has_config(self):
         return True
@@ -213,6 +218,34 @@ class GoogleMatch(deskbar.interfaces.Match):
     def get_hash(self):
         return self.url
         
+
+class SearchWithGoogleAction(ShowUrlAction):
+    """
+    Open the Google search page with results
+    for the given query
+    """
+    
+    BASE_URL = "http://www.google.com/search?%s"
+    
+    def __init__(self, term):
+        url = self.BASE_URL % urllib.urlencode({'q': term})
+        ShowUrlAction.__init__(self, term, url)
+
+    def get_verb(self):
+        return _("Search <b>Google</b> for <i>%(name)s</i>")
+
+class GoogleSearchForMatch(deskbar.interfaces.Match):
+    """
+    Search Google for the given query
+    """
+    
+    def __init__(self, term=None, **args):
+        deskbar.interfaces.Match.__init__ (self, category="web", icon="google.png", **args)
+        self._term = term
+        self.add_action( SearchWithGoogleAction(self._term) )
+    
+    def get_hash(self):
+        return "google:"+self._term
 
 class GoogleConfigDialog(gtk.Dialog):
     """
