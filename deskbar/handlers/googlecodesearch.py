@@ -39,12 +39,19 @@ class GoogleCodeSearchModule(deskbar.interfaces.Module):
         """
         content_lines = strip_html(content).split("\n")
         pattern = re.escape(qstring)
+        new_content = ""
         for content in content_lines:
-            if pattern in content:
-                return re.sub(pattern,
+            if qstring in content:
+                new_content += re.sub(pattern,
                               "<span weight='bold'>"+qstring+"</span>",
                               content.strip(),
                               re.IGNORECASE | re.MULTILINE)
+                new_content += "\n"
+            
+        if len(new_content) > 0:
+            return new_content.strip()
+        else:
+            return None
         
     def query(self, qstring):
         url = BASE_URL % urllib.urlencode(
@@ -73,14 +80,17 @@ class GoogleCodeSearchModule(deskbar.interfaces.Module):
             return
             
         results = handler.get_results()
-        for result in results:
-            for key, value in result.items():
-                content = self._format_content(result["content"], qstring)
-                matches.append(
-                    GoogleCodeSearchMatch(result["id"], result["title"], content,
-                                          result["package-name"], result["package-uri"])
-                )
+        num_results = len(results)
+        for i, result in enumerate(results):
+            prio = self.get_priority() + num_results - i
+            content = self._format_content(result["content"], qstring)
+            matches.append(
+                GoogleCodeSearchMatch(result["id"], result["title"], content,
+                                      result["package-name"], result["package-uri"],
+                                      priority=prio)
+            )
             
+        matches.append(GoogleCodeSearchForMatch(qstring, priority=self.get_priority()))
         self._emit_query_ready(qstring, matches)
     
 class GoogleCodeSearchMatch(deskbar.interfaces.Match):
@@ -114,6 +124,34 @@ class GoToPackageLocationAction(ShowUrlAction):
     
     def get_verb(self):
         return _("Open package <i>%(name)s</i>")
+
+class SearchWithGoogleCodeAction(ShowUrlAction):
+    """
+    Open the Google Codesearch page with results
+    for the given query
+    """
+    
+    BASE_URL = "http://www.google.com/codesearch?%s"
+    
+    def __init__(self, term):
+        url = self.BASE_URL % urllib.urlencode({'q': term})
+        ShowUrlAction.__init__(self, term, url)
+
+    def get_verb(self):
+        return _("Search <b>Google Codesearch</b> for <i>%(name)s</i>")
+
+class GoogleCodeSearchForMatch(deskbar.interfaces.Match):
+    """
+    Search Google Codesearch for the given query
+    """
+    
+    def __init__(self, term=None, **args):
+        deskbar.interfaces.Match.__init__ (self, category="web", icon="google.png", **args)
+        self._term = term
+        self.add_action( SearchWithGoogleCodeAction(self._term) )
+    
+    def get_hash(self):
+        return "googlecodesearch:"+self._term
     
 class GoogleCodeSearchFeedParser(xml.sax.handler.ContentHandler):
     """
