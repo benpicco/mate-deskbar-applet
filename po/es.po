@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the deskbar-applet package.
 #
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2005, 2006.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 200, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=deskbar-applet&amp;component=general\n"
-"POT-Creation-Date: 2008-12-01 18:20+0000\n"
-"PO-Revision-Date: 2008-12-15 21:20+0100\n"
+"product=deskbar-applet&component=general\n"
+"POT-Creation-Date: 2009-01-22 18:11+0000\n"
+"PO-Revision-Date: 2009-01-23 16:30+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgid ""
 "selection in the search box."
 msgstr ""
 "Elija si al disparar el atajo de teclado también se ha de pegar la selección "
-"actual en la caja de búsqueda../co"
+"actual en la caja de búsqueda."
 
 #: ../data/deskbar-applet.schemas.in.h:2
 msgid "Clear entry after match has been selected"
@@ -211,8 +211,8 @@ msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Buscar <b>%(text)s</b> en <i>%(name)s</i>"
 
 #: ../deskbar/core/BrowserMatch.py:111
-#: ../deskbar/handlers/googlecodesearch.py:97
-#: ../deskbar/handlers/googlesearch.py:211 ../deskbar/handlers/yahoo.py:85
+#: ../deskbar/handlers/googlecodesearch.py:107
+#: ../deskbar/handlers/googlesearch.py:216 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL"
 
@@ -690,15 +690,21 @@ msgid "Search public source code for function definitions and sample code"
 msgstr ""
 "Buscar en el código público definiciones de funciones y código de ejemplo"
 
-#: ../deskbar/handlers/googlecodesearch.py:108
+#: ../deskbar/handlers/googlecodesearch.py:118
 #, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
 msgstr "Ver <i>%(name)s</i> en la búsqueda de  <b>Google Code</b>"
 
-#: ../deskbar/handlers/googlecodesearch.py:116
+#: ../deskbar/handlers/googlecodesearch.py:126
 #, python-format
 msgid "Open package <i>%(name)s</i>"
 msgstr "Abrir el paquete <b>%(name)s</b>"
+
+#: ../deskbar/handlers/googlecodesearch.py:141
+#, python-format
+#| msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
+msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
+msgstr "Buscar <i>%(name)s</b> en <b>Google Codesearch</b>"
 
 #: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:30
 msgid "Arabic"
@@ -868,15 +874,21 @@ msgstr "Busque términos a través del motor de búsqueda de Google."
 msgid "You can configure in which language the results should be."
 msgstr "Puede configurar en qué idioma deberían estar los resultados."
 
-#: ../deskbar/handlers/googlesearch.py:190
+#: ../deskbar/handlers/googlesearch.py:195
 msgid "Python module json or simplejson are not available"
 msgstr "El módulo Python json o simplejson no está disponible"
 
-#: ../deskbar/handlers/googlesearch.py:225
+#: ../deskbar/handlers/googlesearch.py:235
+#, python-format
+#| msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
+msgid "Search <b>Google</b> for <i>%(name)s</i>"
+msgstr "Buscar <i>%(name)s</b> en <b>Google</b>"
+
+#: ../deskbar/handlers/googlesearch.py:258
 msgid "Configure Google"
 msgstr "Configurar Google"
 
-#: ../deskbar/handlers/googlesearch.py:235 ../deskbar/handlers/yahoo.py:417
+#: ../deskbar/handlers/googlesearch.py:268 ../deskbar/handlers/yahoo.py:419
 msgid "<b>Choose the language the results should be in:</b>"
 msgstr "<b>Elija el idioma en que se deberán mostrar los resultados:</b>"
 
@@ -889,15 +901,15 @@ msgstr "Reconocer búsquedas realizadas previamente"
 msgid "Switch to <b>%(name)s</b>"
 msgstr "Cambiar a <b>%(name)s</b>"
 
-#: ../deskbar/handlers/iswitch-window.py:52
+#: ../deskbar/handlers/iswitch-window.py:59
 msgid "Window Switcher"
 msgstr "Selector de ventana"
 
-#: ../deskbar/handlers/iswitch-window.py:53
+#: ../deskbar/handlers/iswitch-window.py:60
 msgid "Switch to an existing window by name."
 msgstr "Cambie a una ventana existente por nombre."
 
-#: ../deskbar/handlers/iswitch-window.py:56
+#: ../deskbar/handlers/iswitch-window.py:63
 msgid "Windows"
 msgstr "Ventanas"
 
@@ -1247,21 +1259,21 @@ msgstr "Búsqueda en Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "Buscar en Yahoo! mientras teclea"
 
-#: ../deskbar/handlers/yahoo.py:306
+#: ../deskbar/handlers/yahoo.py:308
 #, python-format
 msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
-msgstr "Buscar en <b>Yahoo!</b> en <i>%(name)s</b>"
+msgstr "Buscar <i>%(name)s</b> en <b>Yahoo!</b>"
 
-#: ../deskbar/handlers/yahoo.py:324
+#: ../deskbar/handlers/yahoo.py:326
 msgid "Yahoo! Suggestions"
 msgstr "Sugerencias Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:325
+#: ../deskbar/handlers/yahoo.py:327
 msgid "Provides suggestions for queries related to the submitted query"
 msgstr ""
 "Proporciona sugerencias de consultas relacionadas con la consulta enviada"
 
-#: ../deskbar/handlers/yahoo.py:407
+#: ../deskbar/handlers/yahoo.py:409
 msgid "Configure Yahoo!"
 msgstr "Configurar Yahoo!"
 
@@ -1331,7 +1343,7 @@ msgstr "Sitio web de Deskbar"
 #: ../deskbar/ui/About.py:36
 msgid "translator-credits"
 msgstr ""
-"Jorge González <jorgegonz@svn.gnome.org>, 2007-2008\n"
+"Jorge González <jorgegonz@svn.gnome.org>, 2007-2009\n"
 "Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2006"
 
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
