@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-12 20:40+0100\n"
-"PO-Revision-Date: 2009-01-12 20:40+0100\n"
+"POT-Creation-Date: 2009-01-28 13:16+0100\n"
+"PO-Revision-Date: 2009-01-28 13:17+0100\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -213,8 +213,8 @@ msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Cerca <b>%(name)s</b> a <i>%(text)s</i>"
 
 #: ../deskbar/core/BrowserMatch.py:111
-#: ../deskbar/handlers/googlecodesearch.py:97
-#: ../deskbar/handlers/googlesearch.py:211 ../deskbar/handlers/yahoo.py:85
+#: ../deskbar/handlers/googlecodesearch.py:107
+#: ../deskbar/handlers/googlesearch.py:216 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL"
 
@@ -694,15 +694,20 @@ msgstr "Cerca al Google Code"
 msgid "Search public source code for function definitions and sample code"
 msgstr "Cerca definicions de funcions i codi d'exemple en codi font públic"
 
-#: ../deskbar/handlers/googlecodesearch.py:108
+#: ../deskbar/handlers/googlecodesearch.py:118
 #, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
 msgstr "Obre <b>%(name)s<b> amb el <b>Cerca al Google Code</b>"
 
-#: ../deskbar/handlers/googlecodesearch.py:116
+#: ../deskbar/handlers/googlecodesearch.py:126
 #, python-format
 msgid "Open package <i>%(name)s</i>"
 msgstr "Obre el paquet <b>%(name)s<b>"
+
+#: ../deskbar/handlers/googlecodesearch.py:141
+#, python-format
+msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
+msgstr "Cerca <i>%(name)s</i> al <b>Google Codesearch</b>"
 
 #: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:30
 msgid "Arabic"
@@ -872,15 +877,20 @@ msgstr "Cerca termes amb el motor de cerca del Google."
 msgid "You can configure in which language the results should be."
 msgstr "Podeu configurar en quin idioma voleu que es mostrin els resultats."
 
-#: ../deskbar/handlers/googlesearch.py:190
+#: ../deskbar/handlers/googlesearch.py:195
 msgid "Python module json or simplejson are not available"
 msgstr "No estan disponibles el mòdul json o simplejson de Python"
 
-#: ../deskbar/handlers/googlesearch.py:225
+#: ../deskbar/handlers/googlesearch.py:235
+#, python-format
+msgid "Search <b>Google</b> for <i>%(name)s</i>"
+msgstr "Cerca <b>%(name)s</b> al <i>Google</i>"
+
+#: ../deskbar/handlers/googlesearch.py:258
 msgid "Configure Google"
 msgstr "Configura el Google"
 
-#: ../deskbar/handlers/googlesearch.py:235 ../deskbar/handlers/yahoo.py:417
+#: ../deskbar/handlers/googlesearch.py:268 ../deskbar/handlers/yahoo.py:419
 msgid "<b>Choose the language the results should be in:</b>"
 msgstr "<b>Escolliu l'idioma en què haurien de ser els resultats:</b>"
 
@@ -1253,20 +1263,20 @@ msgstr "Cerca al Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "Cerqueu amb el Yahoo! mentre escriviu"
 
-#: ../deskbar/handlers/yahoo.py:306
+#: ../deskbar/handlers/yahoo.py:308
 #, python-format
 msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgstr "Cerca <b>%(name)s</b> a <i>Yahoo!</i>"
 
-#: ../deskbar/handlers/yahoo.py:324
+#: ../deskbar/handlers/yahoo.py:326
 msgid "Yahoo! Suggestions"
 msgstr "Suggeriments del Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:325
+#: ../deskbar/handlers/yahoo.py:327
 msgid "Provides suggestions for queries related to the submitted query"
 msgstr "Proporciona suggeriments de consultes relacionades amb la que heu fet"
 
-#: ../deskbar/handlers/yahoo.py:407
+#: ../deskbar/handlers/yahoo.py:409
 msgid "Configure Yahoo!"
 msgstr "Configura el Yahoo!"
 
