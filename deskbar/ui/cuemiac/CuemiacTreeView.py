@@ -126,8 +126,9 @@ class CuemiacTreeView (gtk.TreeView):
 
     def select_first_item(self):
         model = self.get_model()
-        path = self.__find_top_path()
-        if path != None:
+        first_iter = model.get_iter_first()
+        if first_iter != None:
+            path = model.get_path(first_iter)
             self.__select_path(path)
         
     def select_last_item(self):
@@ -301,42 +302,17 @@ class CuemiacTreeView (gtk.TreeView):
                 col = model.ACTIONS
                 self.__on_activated(widget, path, col, event)
         elif (event.keyval == gtk.keysyms.Down):
-            if isinstance(match, CuemiacCategory):
-                return False
-            elif model.get_path(iter) == self.__find_bottom_path():
+            if not isinstance(match, CuemiacCategory) and \
+                model.get_path(iter) == self.__find_bottom_path():
                 # We're at the bottom of the list
                 self.emit("pressed-up-at-top")
                 return True
-            else:
-                iter_next = model.iter_next(iter)
-                if iter_next == None:
-                    # We're at the last item of a category
-                    # Select the first item of the next category
-                    next_cat = self.__find_next_cat(iter )
-                    if next_cat == None:
-                        return False
-                    else:
-                        num = model.get_path(next_cat)[0]
-                        self.__select_path( (num, 0) )
-                    return True
         elif (event.keyval == gtk.keysyms.Up):
-            if isinstance(match, CuemiacCategory):
-                return False
-            elif model.get_path(iter) == self.__find_top_path():
+            if not isinstance(match, CuemiacCategory) and \
+                model.get_path(iter) == self.__find_top_path():
                 # We're at the top of the list 
                 self.emit("pressed-down-at-bottom")
                 return True
-            elif model.get_path(iter)[1] == 0:
-                # We're at the first item of a category
-                # Select the last item of the previous category
-                prev_cat = self.__find_previous_cat( iter )
-                if prev_cat == None:
-                    return False
-                else:
-                    num = model.get_path(prev_cat)[0]
-                    child = model.iter_n_children(prev_cat)-1
-                    self.__select_path( (num, child) )
-                    return True
             
         return False
     
