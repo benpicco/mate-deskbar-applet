@@ -62,7 +62,7 @@ class GoogleCodeSearchModule(deskbar.interfaces.Module):
         
         try:
             stream = urllib.urlopen(url, proxies=get_proxy())
-        except IOError, msg:
+        except (IOError, EOFError), msg:
             LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
             return
         

@@ -109,7 +109,7 @@ class WikipediaSuggestHandler(deskbar.interfaces.Module):
         
         try:
             result = urllib.urlopen(url, proxies=get_proxy())
-        except IOError, msg:
+        except (IOError, EOFError), msg:
             # Print error for debugging purposes and end querying
             LOGGER.error("Could not open URL %s: %s, %s" % (url, msg[0], msg[1]))
             return

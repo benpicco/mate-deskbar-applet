@@ -139,7 +139,7 @@ class DeliciousTagQueryEngine:
         stream = None
         try:
             stream = urllib.urlopen(url, proxies=deskbar.core.Utils.get_proxy())
-        except IOError, msg:
+        except (IOError, EOFError), msg:
             LOGGER.error("Could not open URL %s: %s, %s", url, msg[0], msg[1])
             return []
                 
