@@ -1,17 +1,12 @@
-from deskbar.core.GconfStore import GconfStore
-from deskbar.core.Utils import strip_html, get_proxy, load_base64_icon
+from deskbar.core.Utils import load_base64_icon
 from deskbar.core.Web import GnomeURLopener, Account, AccountDialog, ConcurrentRequestsException
 from deskbar.defs import VERSION
-from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
-from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from gettext import gettext as _
-from xml.sax.saxutils import unescape
 import deskbar
 import deskbar.interfaces.Action
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
 import gtk
-import gobject
 import logging
 import urllib
 
