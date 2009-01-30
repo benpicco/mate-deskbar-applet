@@ -21,6 +21,7 @@ deskbar_handlers_PYTHON = \
 	history.py \
 	iswitch-window.py \
 	mozilla.py \
+	opensearch.py \
 	programs.py \
 	recent.py \
 	templates.py \
