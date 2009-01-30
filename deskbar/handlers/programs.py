@@ -4,6 +4,7 @@ from deskbar.handlers.actions.OpenDesktopFileAction import OpenDesktopFileAction
 from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
 from gettext import gettext as _
 from os.path import join, expanduser, isdir
+from os import stat
 import deskbar, deskbar.core.Indexer
 import deskbar.core.Utils
 import gnomedesktop
@@ -15,6 +16,7 @@ import glib
 import gtk
 import os
 import re
+import time
 
 HANDLERS = [
     "ProgramsHandler",
@@ -281,10 +283,12 @@ class ProgramsHandler(deskbar.interfaces.Module):
     def __init__(self):
         deskbar.interfaces.Module.__init__(self)
         self._indexer = deskbar.core.Indexer.Indexer()
+        self._path_indexers = {}
         
     def initialize(self):
         self._scan_desktop_files()
-        
+        self._scan_path_directories()
+
     def query(self, query):
         result = self.query_desktop_programs(query)
         
@@ -305,18 +309,31 @@ class ProgramsHandler(deskbar.interfaces.Module):
         """
         args = query.split(" ")     
         program = args[0]
-        
+        priority = self.get_priority()
+
         if len(args) == 1:
             results = []
             for pathdir in PATH:
-                if isdir(pathdir) and is_executable(pathdir):
-                    for f in os.listdir(pathdir):
-                        pathprog = join(pathdir, f)
-                        if (not (f in desktop_progs)) and not isdir(pathprog) \
-                        and f.lower().startswith(program) and is_executable(pathprog):
-                            match = StartsWithPathProgramMatch(f)
-                            match.set_priority (self.get_priority() + get_priority_for_name(query, f))
-                            results.append( match )
+                try:
+                    pathstat = stat(pathdir)
+                    pathmtime = pathstat.st_mtime
+                except OSError:
+                    continue
+
+                indexpair = self._path_indexers.get(pathdir, None)
+                if indexpair is not None:
+                    indexer, updatetime = indexpair
+                else:
+                    indexer, updatetime = deskbar.core.Indexer.Indexer(), -1
+                if pathmtime > updatetime:
+                    self._scan_path(pathdir, indexer)
+                    self._path_indexers[pathdir] = (indexer, time.time())
+                for match in indexer.look_up(program):
+                    if match.get_hash() in desktop_progs:
+                        continue
+                    match.set_priority(priority + get_priority_for_name(query, program))
+                    results.append(match)
+
             return results
         else:
             # We have arguments, execute the command as typed in by the user
@@ -333,7 +350,22 @@ class ProgramsHandler(deskbar.interfaces.Module):
             match.set_priority (get_priority_for_name(query, match._desktop.get_string("Exec")))
             result.append(match)
         return result
-                
+
+    def _scan_path_directories(self):
+        for pathdir in PATH:
+            if isdir(pathdir) and is_executable(pathdir):
+                indexer = deskbar.core.Indexer.Indexer()
+                self._scan_path(pathdir, indexer)
+                self._path_indexers[pathdir] = (indexer, time.time())
+
+    def _scan_path(self, path, indexer):
+        if isdir(path) and is_executable(path):
+            for f in os.listdir(path):
+                pathprog = join(path, f)
+                if not isdir(pathprog) and is_executable(pathprog):
+                    match = StartsWithPathProgramMatch(f)
+                    indexer.add(f, match)
+
     def _scan_desktop_files(self):
         for dir in get_xdg_data_dirs():
             for root, dirs, files in os.walk( join(dir, "applications") ):
