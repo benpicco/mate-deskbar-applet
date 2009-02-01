@@ -7,9 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=deskbar-applet&amp;component=general\n"
-"POT-Creation-Date: 2008-12-01 18:20+0000\n"
-"PO-Revision-Date: 2009-01-05 02:27+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=deskbar-applet&component=general\n"
+"POT-Creation-Date: 2009-01-30 20:15+0000\n"
+"PO-Revision-Date: 2009-02-01 01:32+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@fsf.hu>\n"
 "MIME-Version: 1.0\n"
@@ -206,14 +206,14 @@ msgid "Open Bookmark %s"
 msgstr "%s könyvjelző megnyitása"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:85
+#: ../deskbar/core/BrowserMatch.py:85 ../deskbar/handlers/opensearch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<i>%(text)s</i> keresése ezzel: <b>%(name)s</b>"
 
 #: ../deskbar/core/BrowserMatch.py:111
-#: ../deskbar/handlers/googlecodesearch.py:97
-#: ../deskbar/handlers/googlesearch.py:211 ../deskbar/handlers/yahoo.py:85
+#: ../deskbar/handlers/googlecodesearch.py:107
+#: ../deskbar/handlers/googlesearch.py:216 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL"
 
@@ -690,15 +690,21 @@ msgstr "Google kódkeresés"
 msgid "Search public source code for function definitions and sample code"
 msgstr "Függvénydefiníciók és példakódok keresése nyilvános forráskódokban"
 
-#: ../deskbar/handlers/googlecodesearch.py:108
+#: ../deskbar/handlers/googlecodesearch.py:118
 #, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
 msgstr "<i>%(name)s</i> megjelenítése a <b>Google kódkereséssel</b>"
 
-#: ../deskbar/handlers/googlecodesearch.py:116
+#: ../deskbar/handlers/googlecodesearch.py:126
 #, python-format
 msgid "Open package <i>%(name)s</i>"
 msgstr "<i>%(name)s</i> csomag megnyitása"
+
+#: ../deskbar/handlers/googlecodesearch.py:141
+#, python-format
+#| msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
+msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
+msgstr "<i>%(name)s</i> keresése a <b>Google Codesearch</b>-ön"
 
 #: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:30
 msgid "Arabic"
@@ -868,15 +874,21 @@ msgstr "Kifejezések keresése a Google keresővel."
 msgid "You can configure in which language the results should be."
 msgstr "Itt beállíthatja az eredmények nyelvét."
 
-#: ../deskbar/handlers/googlesearch.py:190
+#: ../deskbar/handlers/googlesearch.py:195
 msgid "Python module json or simplejson are not available"
 msgstr "A json vagy simplejson Python modul nem áll rendelkezésre"
 
-#: ../deskbar/handlers/googlesearch.py:225
+#: ../deskbar/handlers/googlesearch.py:235
+#, python-format
+#| msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
+msgid "Search <b>Google</b> for <i>%(name)s</i>"
+msgstr "<i>%(name)s</i> keresése a <b>Google</b>-lel"
+
+#: ../deskbar/handlers/googlesearch.py:258
 msgid "Configure Google"
 msgstr "Google beállítása"
 
-#: ../deskbar/handlers/googlesearch.py:235 ../deskbar/handlers/yahoo.py:417
+#: ../deskbar/handlers/googlesearch.py:268 ../deskbar/handlers/yahoo.py:419
 msgid "<b>Choose the language the results should be in:</b>"
 msgstr "<b>Válassza ki a találatok nyelvét:</b>"
 
@@ -889,15 +901,15 @@ msgstr "Korábban használt keresések felismerése"
 msgid "Switch to <b>%(name)s</b>"
 msgstr "Váltás a következőre: <b>%(name)s</b>"
 
-#: ../deskbar/handlers/iswitch-window.py:52
+#: ../deskbar/handlers/iswitch-window.py:59
 msgid "Window Switcher"
 msgstr "Ablakváltó"
 
-#: ../deskbar/handlers/iswitch-window.py:53
+#: ../deskbar/handlers/iswitch-window.py:60
 msgid "Switch to an existing window by name."
 msgstr "Váltás meglévő ablakra név alapján."
 
-#: ../deskbar/handlers/iswitch-window.py:56
+#: ../deskbar/handlers/iswitch-window.py:63
 msgid "Windows"
 msgstr "Ablakok"
 
@@ -929,72 +941,162 @@ msgstr "Személyre szabhatja a felajánlott keresőmotorokat."
 msgid "Web History (Mozilla)"
 msgstr "Webes előzmények (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/opensearch.py:86
+#, python-format
+#| msgid "Open note <b>%(name)s</b>"
+msgid "Website: <b>%(name)s</b>"
+msgstr "Webhely: <b>%(name)s</b>"
+
+#: ../deskbar/handlers/opensearch.py:92
+#| msgid "Web Search"
+msgid "OpenSearch"
+msgstr "OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:93
+msgid "Searches any OpenSearch compliant website"
+msgstr "Keresés bármely OpenSearch-képes webhelyen"
+
+#: ../deskbar/handlers/opensearch.py:97
+#| msgid "You can customize which search engines are offered."
+msgid "You can configure the search engines you want to use."
+msgstr "Beállíthatja a használandó keresőmotorokat."
+
+#: ../deskbar/handlers/opensearch.py:211
+msgid "OpenSearch Settings"
+msgstr "OpenSearch beállításai"
+
+#: ../deskbar/handlers/opensearch.py:218
+msgid "You can manage the list of websites used by the OpenSearch module here."
+msgstr "Itt kezelheti az OpenSearch modul által használt weboldalak listáját."
+
+#: ../deskbar/handlers/opensearch.py:410
+msgid ""
+"Enter the location (URL) of the OpenSearch description document for this "
+"website. The name and description can be loaded automatically from this "
+"document or you can just enter your own values manually."
+msgstr "Adja meg a weboldal OpenSearch leíródokumentumának helyét (URL). A név és leírás automatikusan betölthető ebből a dokumentumból, vagy megadhat saját értékeket."
+
+#: ../deskbar/handlers/opensearch.py:427
+#| msgid "Location"
+msgid "_Location (URL):"
+msgstr "_Hely (URL):"
+
+#: ../deskbar/handlers/opensearch.py:442
+#| msgid "Name:"
+msgid "_Name:"
+msgstr "_Név:"
+
+#: ../deskbar/handlers/opensearch.py:453
+msgid "_Description:"
+msgstr "_Leírás:"
+
+#: ../deskbar/handlers/opensearch.py:469
+msgid "Edit OpenSearch Website"
+msgstr "OpenSearch weboldal megnyitása"
+
+#: ../deskbar/handlers/opensearch.py:476
+#| msgid "Location"
+msgid "Location missing"
+msgstr "A hely hiányzik"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Please enter a valid location (URL) for this website"
+msgstr "Adja meg a weboldal érvényes helyét"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Name missing"
+msgstr "A név hiányzik"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Please enter a name for this website"
+msgstr "Adja meg a weboldal nevét"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Description missing"
+msgstr "A leírás hiányzik"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Please enter a description for this website"
+msgstr "Adja meg a weboldal leírását"
+
+#: ../deskbar/handlers/opensearch.py:529
+msgid "Unable to load description document"
+msgstr "A leíródokumentum nem tölthető be"
+
+#: ../deskbar/handlers/opensearch.py:530
+msgid "Make sure the URL points to a valid OpenSearch description document."
+msgstr "Győződjön meg róla, hogy az URL egy érvényes OpenSearch leíródokumentumra mutat."
+
+#: ../deskbar/handlers/opensearch.py:546
+msgid "Add OpenSearch Website"
+msgstr "OpenSearch weboldal hozzáadása"
+
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "%s keresése a szótárban"
 
-#: ../deskbar/handlers/programs.py:91
+#: ../deskbar/handlers/programs.py:93
 #, python-format
 msgid "Search for file names like %s"
 msgstr "A következőhöz hasonló fájlnevek keresése: %s"
 
-#: ../deskbar/handlers/programs.py:97
+#: ../deskbar/handlers/programs.py:99
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "%s keresése a Devhelpben"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:133
 msgid "Dictionary"
 msgstr "Szótár"
 
-#: ../deskbar/handlers/programs.py:132
+#: ../deskbar/handlers/programs.py:134
 msgid "Look up word definitions in the dictionary"
 msgstr "Szódefiníciók keresése a szótárban"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:150
 msgid "GNOME dictionary is not installed"
 msgstr "A GNOME szótár nincs telepítve"
 
-#: ../deskbar/handlers/programs.py:155
+#: ../deskbar/handlers/programs.py:157
 msgid "Files and Folders Search"
 msgstr "Fájlok és mappák keresése"
 
-#: ../deskbar/handlers/programs.py:156
+#: ../deskbar/handlers/programs.py:158
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Fájlok és mappák keresése névminta alapján"
 
-#: ../deskbar/handlers/programs.py:172
+#: ../deskbar/handlers/programs.py:174
 msgid "GNOME search tool is not installed"
 msgstr "A GNOME keresőeszköz nincs telepítve"
 
-#: ../deskbar/handlers/programs.py:179
+#: ../deskbar/handlers/programs.py:181
 msgid "Developer Documentation"
 msgstr "Fejlesztői dokumentáció"
 
-#: ../deskbar/handlers/programs.py:180
+#: ../deskbar/handlers/programs.py:182
 msgid "Search Devhelp for a function name"
 msgstr "Függvénynév keresése a Devhelp használatával"
 
-#: ../deskbar/handlers/programs.py:199
+#: ../deskbar/handlers/programs.py:201
 msgid "Devhelp is not installed"
 msgstr "A Devhelp nincs telepítve"
 
-#: ../deskbar/handlers/programs.py:248
+#: ../deskbar/handlers/programs.py:250
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "%s indítása terminálban"
 
-#: ../deskbar/handlers/programs.py:250
+#: ../deskbar/handlers/programs.py:252
 #, python-format
 msgid "Execute %s"
 msgstr "%s indítása"
 
-#: ../deskbar/handlers/programs.py:277
+#: ../deskbar/handlers/programs.py:279
 msgid "Programs"
 msgstr "Programok"
 
-#: ../deskbar/handlers/programs.py:278
+#: ../deskbar/handlers/programs.py:280
 msgid "Launch a program by its name and/or description"
 msgstr "Program indítása név és/vagy leírás alapján"
 
@@ -1107,7 +1209,7 @@ msgstr ""
 "Úgy tűnik, a Tomboy nem a megfelelő verziójú.\n"
 "A Tomboy %s vagy újabb verziója szükséges."
 
-#: ../deskbar/handlers/twitter.py:41
+#: ../deskbar/handlers/twitter.py:36
 #, python-format
 msgid ""
 "Failed to post update to %(domain)s.\n"
@@ -1125,14 +1227,14 @@ msgstr ""
 " • A böngészőből tud kapcsolódni a <i>http://%(domain)s</i> oldalhoz\n"
 " • A beállításokban megadott hitelesítési adatai helyesek"
 
-#: ../deskbar/handlers/twitter.py:102
+#: ../deskbar/handlers/twitter.py:97
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr "Egy bejegyzés már beküldésre vár, várjon a következő bejegyzés beküldésével"
 
-#: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
-#: ../deskbar/handlers/twitter.py:158
+#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
+#: ../deskbar/handlers/twitter.py:153
 #, python-format
 msgid "Error posting to %s"
 msgstr "Hiba a beküldéskor ide: %s"
@@ -1145,12 +1247,12 @@ msgstr "Hiba a beküldéskor ide: %s"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:172
+#: ../deskbar/handlers/twitter.py:167
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> <i>„%(msg)s”</i> beküldése"
 
-#: ../deskbar/handlers/twitter.py:175
+#: ../deskbar/handlers/twitter.py:170
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1161,23 +1263,23 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:212
+#: ../deskbar/handlers/twitter.py:207
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:213
+#: ../deskbar/handlers/twitter.py:208
 msgid "Post updates to your Twitter account"
 msgstr "Frissítések küldése a Twitter fiókjába"
 
-#: ../deskbar/handlers/twitter.py:283
+#: ../deskbar/handlers/twitter.py:278
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:284
+#: ../deskbar/handlers/twitter.py:279
 msgid "Post updates to your identi.ca account"
 msgstr "Frissítések küldése az identi.ca fiókjába"
 
-#: ../deskbar/handlers/twitter.py:298
+#: ../deskbar/handlers/twitter.py:293
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
@@ -1187,7 +1289,7 @@ msgstr ""
 "hitelesítést. Be kell állítania egy felhasználónevet és jelszót az <i>identi."
 "ca</i> weboldalon, ha még nem tette."
 
-#: ../deskbar/handlers/twitter.py:300
+#: ../deskbar/handlers/twitter.py:295
 msgid "Visit identi.ca website"
 msgstr "Az identi.ca weboldal felkeresése"
 
@@ -1242,20 +1344,20 @@ msgstr "Yahoo! keresés"
 msgid "Search Yahoo! as you type"
 msgstr "Keresés a Yahoo! használatával gépelés közben"
 
-#: ../deskbar/handlers/yahoo.py:306
+#: ../deskbar/handlers/yahoo.py:308
 #, python-format
 msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgstr "<i>%(name)s</i> keresése a <b>Yahoo!</b>-val"
 
-#: ../deskbar/handlers/yahoo.py:324
+#: ../deskbar/handlers/yahoo.py:326
 msgid "Yahoo! Suggestions"
 msgstr "Yahoo! javaslatok"
 
-#: ../deskbar/handlers/yahoo.py:325
+#: ../deskbar/handlers/yahoo.py:327
 msgid "Provides suggestions for queries related to the submitted query"
 msgstr "Az elküldött kifejezésekhez hasonló kifejezések ajánlása"
 
-#: ../deskbar/handlers/yahoo.py:407
+#: ../deskbar/handlers/yahoo.py:409
 msgid "Configure Yahoo!"
 msgstr "A Yahoo! beállítása"
 
@@ -1332,7 +1434,7 @@ msgstr ""
 msgid "<b>Search:</b>"
 msgstr "<b>Keresés:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:256
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:257
 msgid "Display additional actions"
 msgstr "További műveletek megjelenítése"
 
