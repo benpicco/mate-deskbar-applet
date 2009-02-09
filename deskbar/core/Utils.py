@@ -209,7 +209,7 @@ def launch_default_for_uri(uri_string):
     if appinfo != None:
         appinfo.launch([gfile], None)
     else:
-        LOGGER.error("Could not detect default application for %s", uri.get_uri())
+        LOGGER.error("Could not detect default application for %s", gfile.get_uri())
 
 def launch_default_for_uri_and_scheme(uri_string):
     """
@@ -224,7 +224,23 @@ def launch_default_for_uri_and_scheme(uri_string):
     if appinfo != None:
         appinfo.launch_uris([uri_string], None)
     else:
-        LOGGER.error("Could not detect default application for %s", uri.get_uri())
+        LOGGER.error("Could not detect default application for %s", gfile.get_uri())
+        
+def uri_has_default_handler(uri_string):
+    """
+    Returns True if there's a default application
+    to open the specified URI
+    @type uri_string: str 
+    """
+    gfile = gio.File(uri=uri_string)
+    try:
+        appinfo = gfile.query_default_handler(None)
+    except Exception, e:
+        LOGGER.error("Error retrieving default application for %s: %s",
+                     gfile.get_uri(), str(e))
+        return False
+    
+    return (appinfo != None)
     
 def url_show_file(url, escape=True):
     """

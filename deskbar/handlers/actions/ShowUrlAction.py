@@ -1,6 +1,6 @@
 import deskbar.interfaces.Action
 from gettext import gettext as _
-from deskbar.core.Utils import url_show
+from deskbar.core.Utils import url_show, uri_has_default_handler
 import cgi
 
 class ShowUrlAction(deskbar.interfaces.Action):
@@ -29,3 +29,6 @@ class ShowUrlAction(deskbar.interfaces.Action):
         
     def get_tooltip(self, text=None):
         return cgi.escape(self._url)
+    
+    def is_valid(self):
+        return uri_has_default_handler(self._url)

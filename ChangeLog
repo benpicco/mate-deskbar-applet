@@ -1,5 +1,14 @@
 2009-02-09  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
+    * deskbar/core/Utils.py:
+    Added uri_has_default_handler function
+    
+    * deskbar/handlers/actions/ShowUrlAction.py:
+    Check if there's an default application to open the url
+    in is_valid
+
+2009-02-09  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+
     * deskbar/handlers/files.py:
     Fixed bug that only local GTK bookmarks showed up.
     Searching for bookmark name is case insensitive now.
