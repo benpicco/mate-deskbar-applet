@@ -133,16 +133,23 @@ class FileFolderHandler(deskbar.interfaces.Module):
                 uri = urllib.unquote(cols[0])
                 
                 gfile = gio.File(uri=uri)
-                if gfile.query_exists():
-                    name = gfile.get_basename().lower()
+                
+                # We can only check if file exists for local files
+                if gfile.get_uri_scheme() == "file":
+                    file_exists = gfile.query_exists()
+                else:
+                    file_exists = True
+                    
+                if file_exists:
+                    name = gfile.get_basename()
                     
                     if len(cols) > 1:
                         display_name = cols[1]
                     else:
                         display_name = name    
                     
-                    self._locations[name] = (display_name, gfile.get_path())
-                    self._locations[display_name] = (display_name, gfile.get_path())
+                    self._locations[name.lower()] = (display_name, gfile.get_uri())
+                    self._locations[display_name.lower()] = (display_name, gfile.get_uri())
             except Exception, msg:
                 LOGGER.exception(msg)
                 
