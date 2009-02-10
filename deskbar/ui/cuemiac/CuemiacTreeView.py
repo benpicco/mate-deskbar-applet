@@ -108,7 +108,13 @@ class CuemiacTreeView (gtk.TreeView):
         """
         Activate to the first item and scroll to it if C{scroll} is C{True}
         """
-        path = self.__find_top_path()
+        sort_order = self.get_model().get_sort_column_id()[1]
+        # Distinguish between bottom and top panel layout
+        if sort_order == gtk.SORT_ASCENDING:
+            path = self.__find_top_path()
+        else:
+            path = self.__find_bottom_item_path()
+        
         if path != None:
             if scroll:
                 self.__select_path(path)
@@ -348,6 +354,21 @@ class CuemiacTreeView (gtk.TreeView):
     def __select_iter(self, iter):
         self.__select_path( self.get_model().get_path(iter) )
     
+    def __find_bottom_item_path(self):
+        """
+        Find last item of last expanded category
+        """
+        model = self.get_model()
+        last_cat = len(model)-1
+        while (last_cat >= 0) and (not self.row_expanded( (last_cat,) )):
+            last_cat -= 1
+        if last_cat < 0:
+            # All categories are collapsed
+            return None
+        last_cat_iter = model.iter_nth_child(None, last_cat)
+        last_cat_children = model.iter_n_children(last_cat_iter)-1
+        return (last_cat, last_cat_children) 
+
     def __find_bottom_path(self):
         """
         Find last item
