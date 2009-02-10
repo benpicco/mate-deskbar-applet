@@ -136,10 +136,6 @@ class CuemiacTreeView (gtk.TreeView):
         if path != None:
             self.__select_path(path)
 
-#    def __on_config_expanded_cat (self, value):
-#        if value != None and value.type == gconf.VALUE_LIST:
-#            self.__collapsed_rows = [h.get_string() for h in value.get_list()]
-    
     def __get_match_icon_for_cell (self, column, cell, model, iter, data=None):
     
         match = model[iter][model.MATCHES]
@@ -302,14 +298,12 @@ class CuemiacTreeView (gtk.TreeView):
                 col = model.ACTIONS
                 self.__on_activated(widget, path, col, event)
         elif (event.keyval == gtk.keysyms.Down):
-            if not isinstance(match, CuemiacCategory) and \
-                model.get_path(iter) == self.__find_bottom_path():
+            if model.get_path(iter) == self.__find_bottom_path():
                 # We're at the bottom of the list
                 self.emit("pressed-up-at-top")
                 return True
         elif (event.keyval == gtk.keysyms.Up):
-            if not isinstance(match, CuemiacCategory) and \
-                model.get_path(iter) == self.__find_top_path():
+            if model.get_path(iter) == model.get_path(model.get_iter_root()):
                 # We're at the top of the list 
                 self.emit("pressed-down-at-bottom")
                 return True
@@ -356,18 +350,18 @@ class CuemiacTreeView (gtk.TreeView):
     
     def __find_bottom_path(self):
         """
-        Find last item of last expanded category
+        Find last item
         """
         model = self.get_model()
         last_cat = len(model)-1
-        while (last_cat >= 0) and (not self.row_expanded( (last_cat,) )):
-            last_cat -= 1
-        if last_cat < 0:
-            # All categories are collapsed
-            return None
         last_cat_iter =  model.iter_nth_child(None, last_cat)
-        last_cat_children = model.iter_n_children(last_cat_iter)-1
-        return (last_cat, last_cat_children)
+        if self.row_expanded( (last_cat,) ):
+            last_cat_children = model.iter_n_children(last_cat_iter)-1
+            path =  (last_cat, last_cat_children)
+        else:
+            path = (last_cat,)
+        
+        return path
     
     def __find_top_path(self):
         """
