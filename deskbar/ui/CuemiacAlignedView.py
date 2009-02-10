@@ -121,6 +121,8 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
             # We are at a bottom panel. Put entry on bottom, and prepend matches (instead of append).
             self.vbox_main.pack_start(self.results_box)
             self.vbox_main.pack_start(self.header, False)
+            
+        self._on_change_orient(self.applet, orient)
         
     def __set_sort_order_by_orientation(self, orient):
         if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
