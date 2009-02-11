@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-08 01:46+0100\n"
-"PO-Revision-Date: 2009-01-08 01:47+0100\n"
+"POT-Creation-Date: 2009-02-11 03:49+0100\n"
+"PO-Revision-Date: 2009-02-11 03:53+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -157,6 +157,118 @@ msgstr "En allt-i-en-åtgärdsrad"
 msgid "Deskbar"
 msgstr "Skrivbordsrad"
 
+#: ../data/prefs-dialog.ui.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Tillgängliga utökningar</b>"
+
+#: ../data/prefs-dialog.ui.h:2
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>Utökningar med fel</b>"
+
+#: ../data/prefs-dialog.ui.h:3
+msgid "<b>Focus</b>"
+msgstr "<b>Fokus</b>"
+
+#: ../data/prefs-dialog.ui.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Inlästa utökningar</b>"
+
+#: ../data/prefs-dialog.ui.h:5
+msgid "<b>Width</b>"
+msgstr "<b>Bredd</b>"
+
+#: ../data/prefs-dialog.ui.h:6
+msgid "<b>Window Behavior</b>"
+msgstr "<b>Fönsterbeteende</b>"
+
+#: ../data/prefs-dialog.ui.h:7
+msgid "Deskbar Preferences"
+msgstr "Inställningar för skrivbordsrad"
+
+#: ../data/prefs-dialog.ui.h:8
+msgid "Display extensions with tag:"
+msgstr "Visa utökningar med taggen:"
+
+#: ../data/prefs-dialog.ui.h:9
+msgid "Extensions with Errors"
+msgstr "Utökningar med fel"
+
+#: ../data/prefs-dialog.ui.h:10
+msgid "General"
+msgstr "Allmänt"
+
+#: ../data/prefs-dialog.ui.h:11
+msgid "New Extensions"
+msgstr "Nya utökningar"
+
+#: ../data/prefs-dialog.ui.h:12
+msgid "Search selection when triggering the shortcut"
+msgstr "Sök markering när genvägen aktiveras"
+
+#: ../data/prefs-dialog.ui.h:13
+msgid "Searches"
+msgstr "Sökningar"
+
+#: ../data/prefs-dialog.ui.h:14
+msgid "Stick to panel"
+msgstr "Fäst till panel"
+
+#: ../data/prefs-dialog.ui.h:15
+msgid "_Check For Updates"
+msgstr "_Leta efter uppdateringar"
+
+#: ../data/prefs-dialog.ui.h:16
+msgid "_Check for new extensions"
+msgstr "_Leta efter nya utökningar"
+
+#: ../data/prefs-dialog.ui.h:17
+msgid "_Install"
+msgstr "_Installera"
+
+#: ../data/prefs-dialog.ui.h:18
+msgid "_Keyboard shortcut to focus:"
+msgstr "_Tangentbordsgenvägar för fokus:"
+
+#: ../data/prefs-dialog.ui.h:19
+msgid "_More..."
+msgstr "_Mer..."
+
+#: ../data/prefs-dialog.ui.h:20
+msgid "_Reload"
+msgstr "_Läs om"
+
+#: ../data/prefs-dialog.ui.h:21
+msgid "_Update"
+msgstr "Upp_datera"
+
+#: ../data/prefs-dialog.ui.h:22
+msgid "characters"
+msgstr "tecken"
+
+#: ../data/smart-bookmarks.ui.h:1
+msgid "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></i>."
+msgstr "<i><small><b>Observera:</b> För att använda en genväg (till exempel <b>wp</b>) för att söka efter <b>någonting</b>, skriv \"<b>wp någonting</b>\" i skrivbordsraden</small></i>."
+
+#: ../data/smart-bookmarks.ui.h:2
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "Genvägar för bokmärkta sökningar"
+
+#: ../data/mozilla-search.ui.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Sökmotorer</b>"
+
+#: ../data/mozilla-search.ui.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Inställningar för skrivbordsrad - Webbsökningar"
+
+#: ../data/mozilla-search.ui.h:3
+msgid "Show all available search engines"
+msgstr "Visa alla tillgängliga sökmotorer"
+
+#: ../data/mozilla-search.ui.h:4
+msgid "Show only the primary search engine"
+msgstr "Visa endast den primära sökmotorn"
+
 #: ../deskbar/core/BrowserMatch.py:67
 #: ../deskbar/handlers/beagle-live.py:326
 #, python-format
@@ -170,13 +282,14 @@ msgstr "Öppna bokmärket %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
 #: ../deskbar/core/BrowserMatch.py:85
+#: ../deskbar/handlers/opensearch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Sök på <b>%(name)s</b> efter <i>%(text)s</i>"
 
 #: ../deskbar/core/BrowserMatch.py:111
-#: ../deskbar/handlers/googlecodesearch.py:97
-#: ../deskbar/handlers/googlesearch.py:211
+#: ../deskbar/handlers/googlecodesearch.py:107
+#: ../deskbar/handlers/googlesearch.py:216
 #: ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL"
@@ -264,7 +377,7 @@ msgstr "<i>Tom historik</i>"
 msgid "Cannot execute program:"
 msgstr "Kan inte köra program:"
 
-#: ../deskbar/core/Utils.py:256
+#: ../deskbar/core/Utils.py:272
 msgid "Cannot show URL:"
 msgstr "Kan inte visa url:"
 
@@ -662,15 +775,20 @@ msgstr "Sök i publik källkod efter funktionsdefinitioner och exempelkod"
 # FIXME:
 # http://bugzilla.gnome.org/show_bug.cgi?id=321396
 #
-#: ../deskbar/handlers/googlecodesearch.py:108
+#: ../deskbar/handlers/googlecodesearch.py:118
 #, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
 msgstr "Visa <i>%(name)s</i> på <b>Google Code Search</b>"
 
-#: ../deskbar/handlers/googlecodesearch.py:116
+#: ../deskbar/handlers/googlecodesearch.py:126
 #, python-format
 msgid "Open package <i>%(name)s</i>"
 msgstr "Öppna paketet <i>%(name)s</i>"
+
+#: ../deskbar/handlers/googlecodesearch.py:141
+#, python-format
+msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
+msgstr "Sök på <b>Google Codesearch</b> efter <i>%(name)s</i>"
 
 #: ../deskbar/handlers/googlesearch.py:30
 #: ../deskbar/handlers/yahoo.py:30
@@ -876,16 +994,21 @@ msgstr "Sök efter termer genom sökmotorn Google."
 msgid "You can configure in which language the results should be."
 msgstr "Du kan konfigurera vilket språk som resultaten ska visas i."
 
-#: ../deskbar/handlers/googlesearch.py:190
+#: ../deskbar/handlers/googlesearch.py:195
 msgid "Python module json or simplejson are not available"
 msgstr "Python-modulen json eller simplejson finns inte tillgängliga"
 
-#: ../deskbar/handlers/googlesearch.py:225
+#: ../deskbar/handlers/googlesearch.py:235
+#, python-format
+msgid "Search <b>Google</b> for <i>%(name)s</i>"
+msgstr "Sök på <b>Google</b> efter <i>%(name)s</i>"
+
+#: ../deskbar/handlers/googlesearch.py:258
 msgid "Configure Google"
 msgstr "Konfigurera Google"
 
-#: ../deskbar/handlers/googlesearch.py:235
-#: ../deskbar/handlers/yahoo.py:417
+#: ../deskbar/handlers/googlesearch.py:268
+#: ../deskbar/handlers/yahoo.py:419
 msgid "<b>Choose the language the results should be in:</b>"
 msgstr "<b>Välj språket som resultaten ska visas i:</b>"
 
@@ -940,72 +1063,153 @@ msgstr "Du kan anpassa vilka sökmotorer som erbjuds."
 msgid "Web History (Mozilla)"
 msgstr "Webbhistorik (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/opensearch.py:86
+#, python-format
+msgid "Website: <b>%(name)s</b>"
+msgstr "Webbplats: <b>%(name)s</b>"
+
+#: ../deskbar/handlers/opensearch.py:92
+msgid "OpenSearch"
+msgstr "OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:93
+msgid "Searches any OpenSearch compliant website"
+msgstr "Söker på valfri OpenSearch-standardiserad webbplats"
+
+#: ../deskbar/handlers/opensearch.py:97
+msgid "You can configure the search engines you want to use."
+msgstr "Du kan konfigurera vilka sökmotorer som du vill använda."
+
+#: ../deskbar/handlers/opensearch.py:211
+msgid "OpenSearch Settings"
+msgstr "Inställningar för OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:218
+msgid "You can manage the list of websites used by the OpenSearch module here."
+msgstr "Du kan hantera listan över webbplatser här som används av OpenSearch-modulen."
+
+#: ../deskbar/handlers/opensearch.py:410
+msgid "Enter the location (URL) of the OpenSearch description document for this website. The name and description can be loaded automatically from this document or you can just enter your own values manually."
+msgstr "Ange platsen (URL) för OpenSearch-beskrivningsdokumentet för denna webbplats. Namn och beskrivning kan läsas in automatiskt från detta dokument eller så kan du bara ange dina egna värden manuellt."
+
+#: ../deskbar/handlers/opensearch.py:427
+msgid "_Location (URL):"
+msgstr "_Plats (URL):"
+
+#: ../deskbar/handlers/opensearch.py:442
+msgid "_Name:"
+msgstr "_Namn:"
+
+#: ../deskbar/handlers/opensearch.py:453
+msgid "_Description:"
+msgstr "_Beskrivning:"
+
+#: ../deskbar/handlers/opensearch.py:469
+msgid "Edit OpenSearch Website"
+msgstr "Redigera OpenSearch-webbplats"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Location missing"
+msgstr "Plats saknas"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Please enter a valid location (URL) for this website"
+msgstr "Ange en giltig plats (URL) för denna webbplats"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Name missing"
+msgstr "Namn saknas"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Please enter a name for this website"
+msgstr "Ange ett namn för denna webbplats"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Description missing"
+msgstr "Beskrivning saknas"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Please enter a description for this website"
+msgstr "Ange en beskrivning av denna webbplats"
+
+#: ../deskbar/handlers/opensearch.py:529
+msgid "Unable to load description document"
+msgstr "Kunde inte läsa in beskrivningsdokumentet"
+
+#: ../deskbar/handlers/opensearch.py:530
+msgid "Make sure the URL points to a valid OpenSearch description document."
+msgstr "Försäkra dig om att URL:en pekar på ett giltigt OpenSearch-beskrivningsdokument."
+
+#: ../deskbar/handlers/opensearch.py:546
+msgid "Add OpenSearch Website"
+msgstr "Lägg till OpenSearch-webbplats"
+
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Slå upp %s i ordboken"
 
-#: ../deskbar/handlers/programs.py:91
+#: ../deskbar/handlers/programs.py:93
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Sök efter filnamn som %s"
 
-#: ../deskbar/handlers/programs.py:97
+#: ../deskbar/handlers/programs.py:99
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Sök i Devhelp efter %s"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:133
 msgid "Dictionary"
 msgstr "Ordbok"
 
-#: ../deskbar/handlers/programs.py:132
+#: ../deskbar/handlers/programs.py:134
 msgid "Look up word definitions in the dictionary"
 msgstr "Slå upp betydelsen för ett ord i ordboken"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:150
 msgid "GNOME dictionary is not installed"
 msgstr "GNOME-ordbok är inte installerat"
 
-#: ../deskbar/handlers/programs.py:155
+#: ../deskbar/handlers/programs.py:157
 msgid "Files and Folders Search"
 msgstr "Fil- och mappsökning"
 
-#: ../deskbar/handlers/programs.py:156
+#: ../deskbar/handlers/programs.py:158
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Sök filer och mappar genom att söka efter ett namnmönster"
 
-#: ../deskbar/handlers/programs.py:172
+#: ../deskbar/handlers/programs.py:174
 msgid "GNOME search tool is not installed"
 msgstr "GNOME-sökverktyg är inte installerat"
 
-#: ../deskbar/handlers/programs.py:179
+#: ../deskbar/handlers/programs.py:181
 msgid "Developer Documentation"
 msgstr "Utvecklardokumentation"
 
-#: ../deskbar/handlers/programs.py:180
+#: ../deskbar/handlers/programs.py:182
 msgid "Search Devhelp for a function name"
 msgstr "Sök i Devhelp efter ett funktionsnamn"
 
-#: ../deskbar/handlers/programs.py:199
+#: ../deskbar/handlers/programs.py:201
 msgid "Devhelp is not installed"
 msgstr "Devhelp är inte installerat"
 
-#: ../deskbar/handlers/programs.py:248
+#: ../deskbar/handlers/programs.py:250
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "Kör %s i terminal"
 
-#: ../deskbar/handlers/programs.py:250
+#: ../deskbar/handlers/programs.py:252
 #, python-format
 msgid "Execute %s"
 msgstr "Kör %s"
 
-#: ../deskbar/handlers/programs.py:277
+#: ../deskbar/handlers/programs.py:279
 msgid "Programs"
 msgstr "Program"
 
-#: ../deskbar/handlers/programs.py:278
+#: ../deskbar/handlers/programs.py:280
 msgid "Launch a program by its name and/or description"
 msgstr "Starta ett program efter dess namn och/eller beskrivning"
 
@@ -1116,7 +1320,7 @@ msgstr ""
 "Installerad version av Tomboy verkar inte vara den korrekta.\n"
 "Tomboy %s eller senare måste vara installerat."
 
-#: ../deskbar/handlers/twitter.py:41
+#: ../deskbar/handlers/twitter.py:36
 #, python-format
 msgid ""
 "Failed to post update to %(domain)s.\n"
@@ -1135,13 +1339,13 @@ msgstr ""
 "    med din webbläsare\n"
 " • Dina uppgifter i inställningarna är korrekta"
 
-#: ../deskbar/handlers/twitter.py:102
+#: ../deskbar/handlers/twitter.py:97
 msgid "A post is already awaiting submission, please wait before you post another message"
 msgstr "Ett inlägg väntar redan på att skickas, vänta med att posta ytterligare meddelande"
 
-#: ../deskbar/handlers/twitter.py:103
-#: ../deskbar/handlers/twitter.py:116
-#: ../deskbar/handlers/twitter.py:158
+#: ../deskbar/handlers/twitter.py:98
+#: ../deskbar/handlers/twitter.py:111
+#: ../deskbar/handlers/twitter.py:153
 #, python-format
 msgid "Error posting to %s"
 msgstr "Fel vid postning till %s"
@@ -1154,12 +1358,12 @@ msgstr "Fel vid postning till %s"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:172
+#: ../deskbar/handlers/twitter.py:167
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Inlägg <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:175
+#: ../deskbar/handlers/twitter.py:170
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1170,27 +1374,27 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:212
+#: ../deskbar/handlers/twitter.py:207
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:213
+#: ../deskbar/handlers/twitter.py:208
 msgid "Post updates to your Twitter account"
 msgstr "Posta uppdateringar till ditt Twitter-konto"
 
-#: ../deskbar/handlers/twitter.py:283
+#: ../deskbar/handlers/twitter.py:278
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:284
+#: ../deskbar/handlers/twitter.py:279
 msgid "Post updates to your identi.ca account"
 msgstr "Posta uppdateringar till ditt konto på identi.ca"
 
-#: ../deskbar/handlers/twitter.py:298
+#: ../deskbar/handlers/twitter.py:293
 msgid "Please note that Deskbar Applet does not support authentication via OpenID. You must configure a username and password on the <i>identi.ca</i> website if you haven't already."
 msgstr "Observera att Panelprogrammet Skrivbordsrad inte har stöd för autentisering via OpenID. Du måste ange ett användarnamn och lösenord på webbplatsen <i>identi.ca</i> om du inte redan har gjort det."
 
-#: ../deskbar/handlers/twitter.py:300
+#: ../deskbar/handlers/twitter.py:295
 msgid "Visit identi.ca website"
 msgstr "Besök webbplatsen identi.ca"
 
@@ -1246,20 +1450,20 @@ msgstr "Yahoo!-sökning"
 msgid "Search Yahoo! as you type"
 msgstr "Sök på Yahoo! när du skriver"
 
-#: ../deskbar/handlers/yahoo.py:306
+#: ../deskbar/handlers/yahoo.py:308
 #, python-format
 msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgstr "Sök på <b>Yahoo!</b> efter <i>%(name)s</i>"
 
-#: ../deskbar/handlers/yahoo.py:324
+#: ../deskbar/handlers/yahoo.py:326
 msgid "Yahoo! Suggestions"
 msgstr "Yahoo!-förslag"
 
-#: ../deskbar/handlers/yahoo.py:325
+#: ../deskbar/handlers/yahoo.py:327
 msgid "Provides suggestions for queries related to the submitted query"
 msgstr "Tillhandahåller förslag på frågor relaterade till skickad fråga"
 
-#: ../deskbar/handlers/yahoo.py:407
+#: ../deskbar/handlers/yahoo.py:409
 msgid "Configure Yahoo!"
 msgstr "Konfigurera Yahoo!"
 
@@ -1345,7 +1549,7 @@ msgstr ""
 msgid "<b>Search:</b>"
 msgstr "<b>Sök:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:256
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
 msgid "Display additional actions"
 msgstr "Visa ytterligare åtgärder"
 
@@ -1469,68 +1673,6 @@ msgstr "Version:"
 msgid "Update Available"
 msgstr "Uppdatering tillgänglig"
 
-#~ msgid "<b>Available Extensions</b>"
-#~ msgstr "<b>Tillgängliga utökningar</b>"
-#~ msgid "<b>Extensions with Errors</b>"
-#~ msgstr "<b>Utökningar med fel</b>"
-#~ msgid "<b>Focus</b>"
-#~ msgstr "<b>Fokus</b>"
-#~ msgid "<b>Loaded Extensions</b>"
-#~ msgstr "<b>Inlästa utökningar</b>"
-#~ msgid "<b>Width</b>"
-#~ msgstr "<b>Bredd</b>"
-#~ msgid "<b>Window Behavior</b>"
-#~ msgstr "<b>Fönsterbeteende</b>"
-#~ msgid "Deskbar Preferences"
-#~ msgstr "Inställningar för skrivbordsrad"
-#~ msgid "Display extensions with tag:"
-#~ msgstr "Visa utökningar med taggen:"
-#~ msgid "Extensions with Errors"
-#~ msgstr "Utökningar med fel"
-#~ msgid "General"
-#~ msgstr "Allmänt"
-#~ msgid "New Extensions"
-#~ msgstr "Nya utökningar"
-#~ msgid "Search selection when triggering the shortcut"
-#~ msgstr "Sök markering när genvägen aktiveras"
-#~ msgid "Searches"
-#~ msgstr "Sökningar"
-#~ msgid "Stick to panel"
-#~ msgstr "Fäst till panel"
-#~ msgid "_Check For Updates"
-#~ msgstr "_Leta efter uppdateringar"
-#~ msgid "_Check for new extensions"
-#~ msgstr "_Leta efter nya utökningar"
-#~ msgid "_Install"
-#~ msgstr "_Installera"
-#~ msgid "_Keyboard shortcut to focus:"
-#~ msgstr "_Tangentbordsgenvägar för fokus:"
-#~ msgid "_More..."
-#~ msgstr "_Mer..."
-#~ msgid "_Reload"
-#~ msgstr "_Läs om"
-#~ msgid "_Update"
-#~ msgstr "Upp_datera"
-#~ msgid "characters"
-#~ msgstr "tecken"
-#~ msgid ""
-#~ "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to "
-#~ "search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</"
-#~ "small></i>."
-#~ msgstr ""
-#~ "<i><small><b>Observera:</b> För att använda en genväg (till exempel "
-#~ "<b>wp</b>) för att söka efter <b>någonting</b>, skriv \"<b>wp någonting</"
-#~ "b>\" i skrivbordsraden</small></i>."
-#~ msgid "Shortcuts for Bookmarked Searches"
-#~ msgstr "Genvägar för bokmärkta sökningar"
-#~ msgid "<b>Search Engines</b>"
-#~ msgstr "<b>Sökmotorer</b>"
-#~ msgid "Deskbar Preferences - Web Searches"
-#~ msgstr "Inställningar för skrivbordsrad - Webbsökningar"
-#~ msgid "Show all available search engines"
-#~ msgstr "Visa alla tillgängliga sökmotorer"
-#~ msgid "Show only the primary search engine"
-#~ msgstr "Visa endast den primära sökmotorn"
 #~ msgid "Croation"
 #~ msgstr "Kroatiska"
 #~ msgid "<i>Choose action</i>"
