@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 2.25.91,
+AC_INIT(deskbar-applet, 2.25.92,
     [http://bugzilla.gnome.org/browse.cgi?product=deskbar-applet])
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
