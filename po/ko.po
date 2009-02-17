@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-23 20:46+0900\n"
-"PO-Revision-Date: 2009-01-23 20:51+0900\n"
+"POT-Creation-Date: 2009-02-17 14:30+0900\n"
+"PO-Revision-Date: 2009-02-17 14:51+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -182,6 +182,123 @@ msgstr "각종 기능이 들어 있는 실행 창."
 msgid "Deskbar"
 msgstr "데스크바"
 
+#: ../data/prefs-dialog.ui.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>사용할 수 있는 확장 기능</b>"
+
+#: ../data/prefs-dialog.ui.h:2
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>오류가 있는 확장 기능</b>"
+
+#: ../data/prefs-dialog.ui.h:3
+msgid "<b>Focus</b>"
+msgstr "<b>포커스</b>"
+
+#: ../data/prefs-dialog.ui.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>읽어들인 확장 기능</b>"
+
+#: ../data/prefs-dialog.ui.h:5
+msgid "<b>Width</b>"
+msgstr "<b>너비</b>"
+
+#: ../data/prefs-dialog.ui.h:6
+msgid "<b>Window Behavior</b>"
+msgstr "<b>창 동작</b>"
+
+#: ../data/prefs-dialog.ui.h:7
+msgid "Deskbar Preferences"
+msgstr "데스크바 기본 설정"
+
+#: ../data/prefs-dialog.ui.h:8
+msgid "Display extensions with tag:"
+msgstr "다음 태그가 있는 확장 기능 표시:"
+
+#: ../data/prefs-dialog.ui.h:9
+msgid "Extensions with Errors"
+msgstr "오류가 있는 확장 기능"
+
+#: ../data/prefs-dialog.ui.h:10
+msgid "General"
+msgstr "일반"
+
+#: ../data/prefs-dialog.ui.h:11
+msgid "New Extensions"
+msgstr "새 확장 기능"
+
+#: ../data/prefs-dialog.ui.h:12
+msgid "Search selection when triggering the shortcut"
+msgstr "바로 가기 키를 누르면 선택한 텍스트 검색"
+
+#: ../data/prefs-dialog.ui.h:13
+msgid "Searches"
+msgstr "찾기"
+
+#: ../data/prefs-dialog.ui.h:14
+msgid "Stick to panel"
+msgstr "패널에 붙기"
+
+#: ../data/prefs-dialog.ui.h:15
+msgid "_Check For Updates"
+msgstr "업데이트 검사(_C)"
+
+#: ../data/prefs-dialog.ui.h:16
+msgid "_Check for new extensions"
+msgstr "새 확장 기능 확인(_C)"
+
+#: ../data/prefs-dialog.ui.h:17
+msgid "_Install"
+msgstr "설치(_I)"
+
+#: ../data/prefs-dialog.ui.h:18
+msgid "_Keyboard shortcut to focus:"
+msgstr "포커스를 옮기는 키보드 바로 가기(_K):"
+
+#: ../data/prefs-dialog.ui.h:19
+msgid "_More..."
+msgstr "기타(_M)..."
+
+#: ../data/prefs-dialog.ui.h:20
+msgid "_Reload"
+msgstr "다시 읽어들이기(_R)"
+
+#: ../data/prefs-dialog.ui.h:21
+msgid "_Update"
+msgstr "업데이트(_U)"
+
+#: ../data/prefs-dialog.ui.h:22
+msgid "characters"
+msgstr "글자"
+
+#: ../data/smart-bookmarks.ui.h:1
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>알림:</b> <b>무언가</b>를 찾으려고 바로 가기를 (예: <b>wp</b>) "
+"사용하려면, \"<b>wp 무언가</b>\"를 데스크바에 입력하십시오</small></i>."
+
+#: ../data/smart-bookmarks.ui.h:2
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "책갈피에 넣을 찾기 바로 가기"
+
+#: ../data/mozilla-search.ui.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>검색 엔진</b>"
+
+#: ../data/mozilla-search.ui.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "데스크바 기본 설정 - 웹 검색"
+
+#: ../data/mozilla-search.ui.h:3
+msgid "Show all available search engines"
+msgstr "사용할 수 있는 검색 엔진 모두 보기"
+
+#: ../data/mozilla-search.ui.h:4
+msgid "Show only the primary search engine"
+msgstr "기본 검색 엔진만 보기"
+
 #: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:326
 #, python-format
 msgid "Open History Item %s"
@@ -193,7 +310,7 @@ msgid "Open Bookmark %s"
 msgstr "책갈피 %s 열기"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:85
+#: ../deskbar/core/BrowserMatch.py:85 ../deskbar/handlers/opensearch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<i>%(name)s</i>에서 <b>%(text)s</b> 찾기"
@@ -285,7 +402,7 @@ msgstr "<i>기록 비었음</i>"
 msgid "Cannot execute program:"
 msgstr "프로그램을 실행할 수 없습니다:"
 
-#: ../deskbar/core/Utils.py:256
+#: ../deskbar/core/Utils.py:272
 msgid "Cannot show URL:"
 msgstr "URL을 표시할 수 없습니다:"
 
@@ -917,72 +1034,156 @@ msgstr "어떤 검색 엔진을 제공할 지 설정할 수 있습니다."
 msgid "Web History (Mozilla)"
 msgstr "웹 방문기록 (모질라)"
 
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/opensearch.py:86
+#, python-format
+msgid "Website: <b>%(name)s</b>"
+msgstr "웹사이트: <b>%(name)s</b>"
+
+#: ../deskbar/handlers/opensearch.py:92
+msgid "OpenSearch"
+msgstr "오픈서치"
+
+#: ../deskbar/handlers/opensearch.py:93
+msgid "Searches any OpenSearch compliant website"
+msgstr "오픈서치(OpenSearch) 기준을 따르는 웹사이트에서 검색합니다"
+
+#: ../deskbar/handlers/opensearch.py:97
+msgid "You can configure the search engines you want to use."
+msgstr "어떤 검색 엔진을 사용할 지 설정할 수 있습니다."
+
+#: ../deskbar/handlers/opensearch.py:211
+msgid "OpenSearch Settings"
+msgstr "오픈서치 설정"
+
+#: ../deskbar/handlers/opensearch.py:218
+msgid "You can manage the list of websites used by the OpenSearch module here."
+msgstr "여기에서 오픈서치 모듈이 사용하는 웹사이트 목록을 관리할 수 있습니다."
+
+#: ../deskbar/handlers/opensearch.py:410
+msgid ""
+"Enter the location (URL) of the OpenSearch description document for this "
+"website. The name and description can be loaded automatically from this "
+"document or you can just enter your own values manually."
+msgstr "이 웹사이트의 오픈서치 디스크립션 문서의 위치(URL)를 입력하십시오. 이 문서에서 자동으로 이름과 설명을 읽어들일 수도 있고, 수동으로 직접 입력할 수도 있습니다."
+
+#: ../deskbar/handlers/opensearch.py:427
+msgid "_Location (URL):"
+msgstr "위치 (URL)(_L):"
+
+#: ../deskbar/handlers/opensearch.py:442
+msgid "_Name:"
+msgstr "이름(_N):"
+
+#: ../deskbar/handlers/opensearch.py:453
+msgid "_Description:"
+msgstr "설명(_D):"
+
+#: ../deskbar/handlers/opensearch.py:469
+msgid "Edit OpenSearch Website"
+msgstr "오픈서치 웹사이트 편집"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Location missing"
+msgstr "위치가 없습니다"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Please enter a valid location (URL) for this website"
+msgstr "이 웹사이트의 위치(URL)를 입력하십시오"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Name missing"
+msgstr "이름이 없습니다"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Please enter a name for this website"
+msgstr "이 웹사이트의 이름을 입력하십시오"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Description missing"
+msgstr "설명이 없습니다"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Please enter a description for this website"
+msgstr "이 웹사이트의 설명을 입력하십시오"
+
+#: ../deskbar/handlers/opensearch.py:529
+msgid "Unable to load description document"
+msgstr "디스크립션 문서를 읽어들일 수 없습니다"
+
+#: ../deskbar/handlers/opensearch.py:530
+msgid "Make sure the URL points to a valid OpenSearch description document."
+msgstr "해당 URL이 올바른 오픈서치 디스크립션 문서를 가리키는 지 확인하십시오."
+
+#: ../deskbar/handlers/opensearch.py:546
+msgid "Add OpenSearch Website"
+msgstr "오픈서치 웹사이트 추가"
+
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "사전에서 %s 찾기"
 
-#: ../deskbar/handlers/programs.py:91
+#: ../deskbar/handlers/programs.py:93
 #, python-format
 msgid "Search for file names like %s"
 msgstr "%s와 비슷한 파일 이름을 찾습니다"
 
-#: ../deskbar/handlers/programs.py:97
+#: ../deskbar/handlers/programs.py:99
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "개발자 도움말에서 %s 항목을 찾습니다"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:133
 msgid "Dictionary"
 msgstr "사전"
 
-#: ../deskbar/handlers/programs.py:132
+#: ../deskbar/handlers/programs.py:134
 msgid "Look up word definitions in the dictionary"
 msgstr "사전에서 단어 정의를 찾아봅니다"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:150
 msgid "GNOME dictionary is not installed"
 msgstr "그놈 사전을 설치하지 않았습니다"
 
-#: ../deskbar/handlers/programs.py:155
+#: ../deskbar/handlers/programs.py:157
 msgid "Files and Folders Search"
 msgstr "파일 및 폴더 찾기"
 
-#: ../deskbar/handlers/programs.py:156
+#: ../deskbar/handlers/programs.py:158
 msgid "Find files and folders by searching for a name pattern"
 msgstr "이름 패턴으로 파일과 폴더를 찾습니다"
 
-#: ../deskbar/handlers/programs.py:172
+#: ../deskbar/handlers/programs.py:174
 msgid "GNOME search tool is not installed"
 msgstr "그놈 찾기 도구를 설치하지 않았습니다"
 
-#: ../deskbar/handlers/programs.py:179
+#: ../deskbar/handlers/programs.py:181
 msgid "Developer Documentation"
 msgstr "개발자 문서"
 
-#: ../deskbar/handlers/programs.py:180
+#: ../deskbar/handlers/programs.py:182
 msgid "Search Devhelp for a function name"
 msgstr "개발자 도움말에서 함수 이름 찾기"
 
-#: ../deskbar/handlers/programs.py:199
+#: ../deskbar/handlers/programs.py:201
 msgid "Devhelp is not installed"
 msgstr "개발자 도움말을 설치하지 않았습니다"
 
-#: ../deskbar/handlers/programs.py:248
+#: ../deskbar/handlers/programs.py:250
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "터미널에서 %s 실행"
 
-#: ../deskbar/handlers/programs.py:250
+#: ../deskbar/handlers/programs.py:252
 #, python-format
 msgid "Execute %s"
 msgstr "%s 실행"
 
-#: ../deskbar/handlers/programs.py:277
+#: ../deskbar/handlers/programs.py:279
 msgid "Programs"
 msgstr "프로그램"
 
-#: ../deskbar/handlers/programs.py:278
+#: ../deskbar/handlers/programs.py:280
 msgid "Launch a program by its name and/or description"
 msgstr "이름이나 설명을 입력해 프로그램을 실행합니다"
 
@@ -1096,7 +1297,7 @@ msgstr ""
 "톰보이의 버전이 올바르지 않은 것 같습니다.\n"
 "톰보이 %s 이상을 설치해야 합니다."
 
-#: ../deskbar/handlers/twitter.py:41
+#: ../deskbar/handlers/twitter.py:36
 #, python-format
 msgid ""
 "Failed to post update to %(domain)s.\n"
@@ -1115,14 +1316,15 @@ msgstr ""
 "    연결할 수 있는 지\n"
 " • 기본 설정의 암호가 올바른지"
 
-#: ../deskbar/handlers/twitter.py:102
+#: ../deskbar/handlers/twitter.py:97
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
-msgstr "이미 글을 제출 대기하고 있습니다. 다른 메시지를 올릴 때까지 기다리십시오."
+msgstr ""
+"이미 글을 제출 대기하고 있습니다. 다른 메시지를 올릴 때까지 기다리십시오."
 
-#: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
-#: ../deskbar/handlers/twitter.py:158
+#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
+#: ../deskbar/handlers/twitter.py:153
 #, python-format
 msgid "Error posting to %s"
 msgstr "%s에 글을 올리는 데 실패했습니다"
@@ -1135,12 +1337,12 @@ msgstr "%s에 글을 올리는 데 실패했습니다"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:172
+#: ../deskbar/handlers/twitter.py:167
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> 글 올림, <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:175
+#: ../deskbar/handlers/twitter.py:170
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1151,23 +1353,23 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:212
+#: ../deskbar/handlers/twitter.py:207
 msgid "Twitter"
 msgstr "트위터"
 
-#: ../deskbar/handlers/twitter.py:213
+#: ../deskbar/handlers/twitter.py:208
 msgid "Post updates to your Twitter account"
 msgstr "트위터 계정에 업데이트 글을 올립니다"
 
-#: ../deskbar/handlers/twitter.py:283
+#: ../deskbar/handlers/twitter.py:278
 msgid "identi.ca"
 msgstr "아이덴티카"
 
-#: ../deskbar/handlers/twitter.py:284
+#: ../deskbar/handlers/twitter.py:279
 msgid "Post updates to your identi.ca account"
 msgstr "아이덴티카 계정에 업데이트 글을 올립니다"
 
-#: ../deskbar/handlers/twitter.py:298
+#: ../deskbar/handlers/twitter.py:293
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
@@ -1176,7 +1378,7 @@ msgstr ""
 "참고로 데스크바 애플릿은 오픈아이디 인증을 지원하지 않습니다. <i>identi.ca</"
 "i> 웹사이트에서 사용자 이름과 암호를 설정해야 합니다."
 
-#: ../deskbar/handlers/twitter.py:300
+#: ../deskbar/handlers/twitter.py:295
 msgid "Visit identi.ca website"
 msgstr "아이덴티카 (identi.ca) 웹사이트 방문"
 
@@ -1322,7 +1524,7 @@ msgstr ""
 msgid "<b>Search:</b>"
 msgstr "<b>찾기:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:256
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
 msgid "Display additional actions"
 msgstr "추가 동작 표시"
 
@@ -1447,96 +1649,3 @@ msgstr "버전:"
 #: ../deskbar/ui/preferences/ModuleListView.py:58
 msgid "Update Available"
 msgstr "업데이트가 있습니다"
-
-#~ msgid "<b>Available Extensions</b>"
-#~ msgstr "<b>사용할 수 있는 확장 기능</b>"
-
-#~ msgid "<b>Extensions with Errors</b>"
-#~ msgstr "<b>오류가 있는 확장 기능</b>"
-
-#~ msgid "<b>Focus</b>"
-#~ msgstr "<b>포커스</b>"
-
-#~ msgid "<b>Loaded Extensions</b>"
-#~ msgstr "<b>읽어들인 확장 기능</b>"
-
-#~ msgid "<b>Width</b>"
-#~ msgstr "<b>너비</b>"
-
-#~ msgid "<b>Window Behavior</b>"
-#~ msgstr "<b>창 동작</b>"
-
-#~ msgid "Deskbar Preferences"
-#~ msgstr "데스크바 기본 설정"
-
-#~ msgid "Display extensions with tag:"
-#~ msgstr "다음 태그가 있는 확장 기능 표시:"
-
-#~ msgid "Extensions with Errors"
-#~ msgstr "오류가 있는 확장 기능"
-
-#~ msgid "General"
-#~ msgstr "일반"
-
-#~ msgid "New Extensions"
-#~ msgstr "새 확장 기능"
-
-#~ msgid "Search selection when triggering the shortcut"
-#~ msgstr "바로 가기 키를 누르면 선택한 텍스트 검색"
-
-#~ msgid "Searches"
-#~ msgstr "찾기"
-
-#~ msgid "Stick to panel"
-#~ msgstr "패널에 붙기"
-
-#~ msgid "_Check For Updates"
-#~ msgstr "업데이트 검사(_C)"
-
-#~ msgid "_Check for new extensions"
-#~ msgstr "새 확장 기능 확인(_C)"
-
-#~ msgid "_Install"
-#~ msgstr "설치(_I)"
-
-#~ msgid "_Keyboard shortcut to focus:"
-#~ msgstr "포커스를 옮기는 키보드 바로 가기(_K):"
-
-#~ msgid "_More..."
-#~ msgstr "기타(_M)..."
-
-#~ msgid "_Reload"
-#~ msgstr "다시 읽어들이기(_R)"
-
-#~ msgid "_Update"
-#~ msgstr "업데이트(_U)"
-
-#~ msgid "characters"
-#~ msgstr "글자"
-
-#~ msgid ""
-#~ "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to "
-#~ "search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</"
-#~ "small></i>."
-#~ msgstr ""
-#~ "<i><small><b>알림:</b> <b>무언가</b>를 찾으려고 바로 가기를 (예: <b>wp</"
-#~ "b>) 사용하려면, \"<b>wp 무언가</b>\"를 데스크바에 입력하십시오</small></"
-#~ "i>."
-
-#~ msgid "Shortcuts for Bookmarked Searches"
-#~ msgstr "책갈피에 넣을 찾기 바로 가기"
-
-#~ msgid "<b>Search Engines</b>"
-#~ msgstr "<b>검색 엔진</b>"
-
-#~ msgid "Deskbar Preferences - Web Searches"
-#~ msgstr "데스크바 기본 설정 - 웹 검색"
-
-#~ msgid "Show all available search engines"
-#~ msgstr "사용할 수 있는 검색 엔진 모두 보기"
-
-#~ msgid "Show only the primary search engine"
-#~ msgstr "기본 검색 엔진만 보기"
-
-#~ msgid "Croation"
-#~ msgstr "크로아티아어"
