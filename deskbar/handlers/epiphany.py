@@ -173,6 +173,7 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
         self.title = None
         self.href = None
         self.smarthref = None
+        self.tags = []
         
         self._indexer = deskbar.core.Indexer.Indexer()
         self._smart_bookmarks = []
@@ -211,6 +212,7 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
             self.title = None
             self.href = None
             self.smarthref = None
+            self.tags = []
 
     def endElement(self, name):
         if name == "title":
@@ -219,6 +221,8 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
             self.href = self.chars.encode('utf8')
         elif name == "ephy:smartlink":
             self.smarthref = self.chars.encode('utf8')
+        elif name == "dc:subject":
+            self.tags.append(self.chars.encode('utf8'))
         elif name == "item":
             if self.href.startswith("javascript:"):
                 return
@@ -233,7 +237,8 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
                 bookmark = BrowserSmartMatch(self.title, self.smarthref, icon=icon, bookmark=bookmark)
                 self._smart_bookmarks.append(bookmark)
             else:
-                self._indexer.add("%s %s" % (self.title, self.href), bookmark)
+                tags = " ".join(self.tags)
+                self._indexer.add("%s %s %s" % (self.title, self.href, tags), bookmark)
 
 class EpiphanyFaviconCacheParser(xml.sax.ContentHandler):
     def __init__(self):
