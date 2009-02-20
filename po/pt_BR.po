@@ -8,14 +8,15 @@
 # Hugo Doria <hugodoria@gmail.com>, 2007.
 # Enrico Nicoletto <liverig@gmail.com>, 2008.
 #
+# Jonh Wendell <jwendell@gnome.org>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 16:30-0300\n"
-"PO-Revision-Date: 2009-01-26 16:03-0300\n"
-"Last-Translator: Daniel S. Koda <danielskoda@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
+"POT-Creation-Date: 2009-02-20 16:23-0300\n"
+"PO-Revision-Date: 2009-02-20 16:23-0300\n"
+"Last-Translator: Jonh Wendell <jwendell@gnome.org>\n"
+"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -196,6 +197,124 @@ msgstr "Uma barra de ação unificada"
 msgid "Deskbar"
 msgstr "Deskbar"
 
+#: ../data/prefs-dialog.ui.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Extensões Disponíveis</b>"
+
+#: ../data/prefs-dialog.ui.h:2
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>Extensões com Erros</b>"
+
+#: ../data/prefs-dialog.ui.h:3
+msgid "<b>Focus</b>"
+msgstr "<b>Foco</b>"
+
+#: ../data/prefs-dialog.ui.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Extensões Carregadas</b>"
+
+#: ../data/prefs-dialog.ui.h:5
+msgid "<b>Width</b>"
+msgstr "<b>Largura</b>"
+
+#: ../data/prefs-dialog.ui.h:6
+msgid "<b>Window Behavior</b>"
+msgstr "<b>Comportamento da Janela</b>"
+
+#: ../data/prefs-dialog.ui.h:7
+msgid "Deskbar Preferences"
+msgstr "Preferências da Deskbar"
+
+#: ../data/prefs-dialog.ui.h:8
+msgid "Display extensions with tag:"
+msgstr "Exibir extensões com a marca:"
+
+#: ../data/prefs-dialog.ui.h:9
+msgid "Extensions with Errors"
+msgstr "Extensões com erros"
+
+#: ../data/prefs-dialog.ui.h:10
+msgid "General"
+msgstr "Geral"
+
+#: ../data/prefs-dialog.ui.h:11
+msgid "New Extensions"
+msgstr "Novas extensões"
+
+#: ../data/prefs-dialog.ui.h:12
+msgid "Search selection when triggering the shortcut"
+msgstr "Pesquisar o texto selecionado ao pressionar o atalho"
+
+#: ../data/prefs-dialog.ui.h:13
+msgid "Searches"
+msgstr "Pesquisas"
+
+#: ../data/prefs-dialog.ui.h:14
+msgid "Stick to panel"
+msgstr "Aderir ao painel"
+
+#: ../data/prefs-dialog.ui.h:15
+msgid "_Check For Updates"
+msgstr "_Verificar atualizações"
+
+#: ../data/prefs-dialog.ui.h:16
+msgid "_Check for new extensions"
+msgstr "_Verificar novas extensões"
+
+#: ../data/prefs-dialog.ui.h:17
+msgid "_Install"
+msgstr "_Instalar"
+
+#: ../data/prefs-dialog.ui.h:18
+msgid "_Keyboard shortcut to focus:"
+msgstr "Atalho de _teclado para foco:"
+
+#: ../data/prefs-dialog.ui.h:19
+msgid "_More..."
+msgstr "_Mais..."
+
+#: ../data/prefs-dialog.ui.h:20
+msgid "_Reload"
+msgstr "_Recarregar"
+
+#: ../data/prefs-dialog.ui.h:21
+msgid "_Update"
+msgstr "_Atualizar"
+
+#: ../data/prefs-dialog.ui.h:22
+msgid "characters"
+msgstr "caracteres"
+
+#: ../data/smart-bookmarks.ui.h:1
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"<i><small><b>Nota:</b> Para usar um atalho (por exemplo <b>wp</b>) para "
+"pesquisar por <b>exemplo</b>, digite \"<b>wp exemplo</b>\" na deskbar</"
+"small></i>."
+
+#: ../data/smart-bookmarks.ui.h:2
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "Atalhos para pesquisas gravadas"
+
+#: ../data/mozilla-search.ui.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Mecanismos de Busca</b>"
+
+#: ../data/mozilla-search.ui.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Preferências da Deskbar - pesquisas na Internet"
+
+#: ../data/mozilla-search.ui.h:3
+msgid "Show all available search engines"
+msgstr "Mostrar todos os mecanismos de busca disponíveis"
+
+#: ../data/mozilla-search.ui.h:4
+msgid "Show only the primary search engine"
+msgstr "Mostrar apenas o mecanismo de busca primário"
+
 #: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:326
 #, python-format
 msgid "Open History Item %s"
@@ -207,7 +326,7 @@ msgid "Open Bookmark %s"
 msgstr "Abrir marcador %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:85
+#: ../deskbar/core/BrowserMatch.py:85 ../deskbar/handlers/opensearch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Pesquisar <i>%(text)s</i> em <b>%(name)s</b>"
@@ -299,7 +418,7 @@ msgstr "<i>Histórico vazio</i>"
 msgid "Cannot execute program:"
 msgstr "Não é possível executar o programa:"
 
-#: ../deskbar/core/Utils.py:256
+#: ../deskbar/core/Utils.py:272
 msgid "Cannot show URL:"
 msgstr "Não foi possível exibir o URL:"
 
@@ -945,72 +1064,162 @@ msgstr "Você pode personalizar quais mecanismos de pesquisa são oferecidos."
 msgid "Web History (Mozilla)"
 msgstr "Histórico da Web (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/opensearch.py:86
+#, python-format
+msgid "Website: <b>%(name)s</b>"
+msgstr "Site: <b>%(name)s</b>"
+
+#: ../deskbar/handlers/opensearch.py:92
+msgid "OpenSearch"
+msgstr "OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:93
+msgid "Searches any OpenSearch compliant website"
+msgstr "Pesquisa em qualquer site compatível com o OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:97
+msgid "You can configure the search engines you want to use."
+msgstr "Você pode configurar os mecanimos de busca que você pretende usar."
+
+#: ../deskbar/handlers/opensearch.py:211
+msgid "OpenSearch Settings"
+msgstr "Configurações OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:218
+msgid "You can manage the list of websites used by the OpenSearch module here."
+msgstr ""
+"Você pode configurar a lista de sites usados pelo módulo OpenSearch aqui."
+
+#: ../deskbar/handlers/opensearch.py:410
+msgid ""
+"Enter the location (URL) of the OpenSearch description document for this "
+"website. The name and description can be loaded automatically from this "
+"document or you can just enter your own values manually."
+msgstr ""
+"Digite a localização (URL) do documento de descrição OpenSearch para esse "
+"site. O nome e a descrição podem ser carregados automaticamente a partir "
+"desse documento ou você pode apenas digitar os valores manualmente."
+
+#: ../deskbar/handlers/opensearch.py:427
+msgid "_Location (URL):"
+msgstr "_Localização (URL):"
+
+#: ../deskbar/handlers/opensearch.py:442
+msgid "_Name:"
+msgstr "_Nome:"
+
+#: ../deskbar/handlers/opensearch.py:453
+msgid "_Description:"
+msgstr "_Descrição:"
+
+#: ../deskbar/handlers/opensearch.py:469
+msgid "Edit OpenSearch Website"
+msgstr "OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Location missing"
+msgstr "Faltando localização"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Please enter a valid location (URL) for this website"
+msgstr "Por favor digite uma localização (URL) válida para esse site"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Name missing"
+msgstr "Faltando nome"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Please enter a name for this website"
+msgstr "Por favor digite um nome para esse site"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Description missing"
+msgstr "Faltando descrição"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Please enter a description for this website"
+msgstr "Por favor digite uma descrição para esse site"
+
+#: ../deskbar/handlers/opensearch.py:529
+msgid "Unable to load description document"
+msgstr "Não foi possível carregar o documento de descrição"
+
+#: ../deskbar/handlers/opensearch.py:530
+msgid "Make sure the URL points to a valid OpenSearch description document."
+msgstr ""
+"Certifique-se que a URL aponta para um documento de descrição OpenSearch "
+"válido."
+
+#: ../deskbar/handlers/opensearch.py:546
+msgid "Add OpenSearch Website"
+msgstr "Adicionar site OpenSearch"
+
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Consultar %s no dicionário"
 
-#: ../deskbar/handlers/programs.py:91
+#: ../deskbar/handlers/programs.py:93
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Pesquisar nomes de arquivo parecidos com %s"
 
-#: ../deskbar/handlers/programs.py:97
+#: ../deskbar/handlers/programs.py:99
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Pesquisar em DevHelp por %s"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:133
 msgid "Dictionary"
 msgstr "Dicionário"
 
-#: ../deskbar/handlers/programs.py:132
+#: ../deskbar/handlers/programs.py:134
 msgid "Look up word definitions in the dictionary"
 msgstr "Consulta o significado das palavras no dicionário"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:150
 msgid "GNOME dictionary is not installed"
 msgstr "O dicionário do GNOME não está instalado"
 
-#: ../deskbar/handlers/programs.py:155
+#: ../deskbar/handlers/programs.py:157
 msgid "Files and Folders Search"
 msgstr "Pesquisa de arquivos e pastas"
 
-#: ../deskbar/handlers/programs.py:156
+#: ../deskbar/handlers/programs.py:158
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Localiza arquivos e pastas pesquisando por um padrão de nome"
 
-#: ../deskbar/handlers/programs.py:172
+#: ../deskbar/handlers/programs.py:174
 msgid "GNOME search tool is not installed"
 msgstr "A ferramenta de busca do GNOME não está instalada"
 
-#: ../deskbar/handlers/programs.py:179
+#: ../deskbar/handlers/programs.py:181
 msgid "Developer Documentation"
 msgstr "Documentação para desenvolvedores"
 
-#: ../deskbar/handlers/programs.py:180
+#: ../deskbar/handlers/programs.py:182
 msgid "Search Devhelp for a function name"
 msgstr "Pesquisa no DevHelp por um nome de função"
 
-#: ../deskbar/handlers/programs.py:199
+#: ../deskbar/handlers/programs.py:201
 msgid "Devhelp is not installed"
 msgstr "DevHelp não está instalado"
 
-#: ../deskbar/handlers/programs.py:248
+#: ../deskbar/handlers/programs.py:250
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "Executar %s no terminal"
 
-#: ../deskbar/handlers/programs.py:250
+#: ../deskbar/handlers/programs.py:252
 #, python-format
 msgid "Execute %s"
 msgstr "Executar %s"
 
-#: ../deskbar/handlers/programs.py:277
+#: ../deskbar/handlers/programs.py:279
 msgid "Programs"
 msgstr "Programas"
 
-#: ../deskbar/handlers/programs.py:278
+#: ../deskbar/handlers/programs.py:280
 msgid "Launch a program by its name and/or description"
 msgstr "Lança um programa pela sua descrição e/ou nome"
 
@@ -1126,7 +1335,7 @@ msgstr ""
 "A versão do Tomboy não parece ser a correta.\n"
 "O Tomboy %s ou mais recente precisa estar instalado."
 
-#: ../deskbar/handlers/twitter.py:41
+#: ../deskbar/handlers/twitter.py:36
 #, python-format
 msgid ""
 "Failed to post update to %(domain)s.\n"
@@ -1145,7 +1354,7 @@ msgstr ""
 "    no seu Navegador da Web; e\n"
 "  - Suas credenciais nas preferências estejam corretas."
 
-#: ../deskbar/handlers/twitter.py:102
+#: ../deskbar/handlers/twitter.py:97
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
@@ -1153,8 +1362,8 @@ msgstr ""
 "Já há uma entrada aguardando o envio, por favor aguarde antes de enviar "
 "outra mensagem."
 
-#: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
-#: ../deskbar/handlers/twitter.py:158
+#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
+#: ../deskbar/handlers/twitter.py:153
 #, python-format
 msgid "Error posting to %s"
 msgstr "Erro ao publicar em %s"
@@ -1167,12 +1376,12 @@ msgstr "Erro ao publicar em %s"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:172
+#: ../deskbar/handlers/twitter.py:167
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Publicar <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:175
+#: ../deskbar/handlers/twitter.py:170
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1183,23 +1392,23 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:212
+#: ../deskbar/handlers/twitter.py:207
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:213
+#: ../deskbar/handlers/twitter.py:208
 msgid "Post updates to your Twitter account"
 msgstr "Publica atualizações na sua conta do Twitter"
 
-#: ../deskbar/handlers/twitter.py:283
+#: ../deskbar/handlers/twitter.py:278
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:284
+#: ../deskbar/handlers/twitter.py:279
 msgid "Post updates to your identi.ca account"
 msgstr "Publica atualizações na sua conta do identi.ca"
 
-#: ../deskbar/handlers/twitter.py:298
+#: ../deskbar/handlers/twitter.py:293
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
@@ -1209,7 +1418,7 @@ msgstr ""
 "com OpenID. Você deve configurar um nome de usuário e senha no site "
 "<i>identi.ca</i> se você não já o tiver feito."
 
-#: ../deskbar/handlers/twitter.py:300
+#: ../deskbar/handlers/twitter.py:295
 msgid "Visit identi.ca website"
 msgstr "Visitar o site identi.ca"
 
@@ -1359,7 +1568,7 @@ msgstr ""
 msgid "<b>Search:</b>"
 msgstr "<b>Pesquisa:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:256
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
 msgid "Display additional actions"
 msgstr "Exibir ações adicionais"
 
@@ -1487,96 +1696,6 @@ msgstr "Versão:"
 #: ../deskbar/ui/preferences/ModuleListView.py:58
 msgid "Update Available"
 msgstr "Atualização disponível"
-
-#~ msgid "<b>Available Extensions</b>"
-#~ msgstr "<b>Extensões Disponíveis</b>"
-
-#~ msgid "<b>Extensions with Errors</b>"
-#~ msgstr "<b>Extensões com Erros</b>"
-
-#~ msgid "<b>Focus</b>"
-#~ msgstr "<b>Foco</b>"
-
-#~ msgid "<b>Loaded Extensions</b>"
-#~ msgstr "<b>Extensões Carregadas</b>"
-
-#~ msgid "<b>Width</b>"
-#~ msgstr "<b>Largura</b>"
-
-#~ msgid "<b>Window Behavior</b>"
-#~ msgstr "<b>Comportamento da Janela</b>"
-
-#~ msgid "Deskbar Preferences"
-#~ msgstr "Preferências da Deskbar"
-
-#~ msgid "Display extensions with tag:"
-#~ msgstr "Exibir extensões com a marca:"
-
-#~ msgid "Extensions with Errors"
-#~ msgstr "Extensões com erros"
-
-#~ msgid "General"
-#~ msgstr "Geral"
-
-#~ msgid "New Extensions"
-#~ msgstr "Novas extensões"
-
-#~ msgid "Search selection when triggering the shortcut"
-#~ msgstr "Pesquisar o texto selecionado ao pressionar o atalho"
-
-#~ msgid "Searches"
-#~ msgstr "Pesquisas"
-
-#~ msgid "Stick to panel"
-#~ msgstr "Aderir ao painel"
-
-#~ msgid "_Check For Updates"
-#~ msgstr "_Verificar atualizações"
-
-#~ msgid "_Check for new extensions"
-#~ msgstr "_Verificar novas extensões"
-
-#~ msgid "_Install"
-#~ msgstr "_Instalar"
-
-#~ msgid "_Keyboard shortcut to focus:"
-#~ msgstr "Atalho de _teclado para foco:"
-
-#~ msgid "_More..."
-#~ msgstr "_Mais..."
-
-#~ msgid "_Reload"
-#~ msgstr "_Recarregar"
-
-#~ msgid "_Update"
-#~ msgstr "_Atualizar"
-
-#~ msgid "characters"
-#~ msgstr "caracteres"
-
-#~ msgid ""
-#~ "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to "
-#~ "search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</"
-#~ "small></i>."
-#~ msgstr ""
-#~ "<i><small><b>Nota:</b> Para usar um atalho (por exemplo <b>wp</b>) para "
-#~ "pesquisar por <b>exemplo</b>, digite \"<b>wp exemplo</b>\" na deskbar</"
-#~ "small></i>."
-
-#~ msgid "Shortcuts for Bookmarked Searches"
-#~ msgstr "Atalhos para pesquisas gravadas"
-
-#~ msgid "<b>Search Engines</b>"
-#~ msgstr "<b>Mecanismos de Busca</b>"
-
-#~ msgid "Deskbar Preferences - Web Searches"
-#~ msgstr "Preferências da Deskbar - pesquisas na Internet"
-
-#~ msgid "Show all available search engines"
-#~ msgstr "Mostrar todos os mecanismos de busca disponíveis"
-
-#~ msgid "Show only the primary search engine"
-#~ msgstr "Mostrar apenas o mecanismo de busca primário"
 
 #~ msgid "Croation"
 #~ msgstr "Croata"
