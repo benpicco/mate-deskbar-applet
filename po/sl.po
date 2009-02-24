@@ -1,13 +1,13 @@
 # This file is distributed under the same license as the program package.
 #
-# Matej Urbančič <mateju@svn.gnome.org>, 2005 - 2008.
+# Matej Urbančič <mateju@svn.gnome.org>, 2005 - 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=deskbar-applet&amp;component=general\n"
-"POT-Creation-Date: 2008-12-16 18:48+0000\n"
-"PO-Revision-Date: 2008-12-17 19:46+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=deskbar-applet&component=general\n"
+"POT-Creation-Date: 2009-02-01 23:23+0000\n"
+"PO-Revision-Date: 2009-02-02 11:41+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -159,6 +159,118 @@ msgstr "Vse v enem orodna vrstica"
 msgid "Deskbar"
 msgstr "Namizna plošča"
 
+#: ../data/prefs-dialog.ui.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Razširitve na voljo</b>"
+
+#: ../data/prefs-dialog.ui.h:2
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>Razširitve z napakami</b>"
+
+#: ../data/prefs-dialog.ui.h:3
+msgid "<b>Focus</b>"
+msgstr "<b>Fokus</b>"
+
+#: ../data/prefs-dialog.ui.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Naložene razširitve</b>"
+
+#: ../data/prefs-dialog.ui.h:5
+msgid "<b>Width</b>"
+msgstr "<b>Širina</b>"
+
+#: ../data/prefs-dialog.ui.h:6
+msgid "<b>Window Behavior</b>"
+msgstr "<b>Obnašanje oken</b>"
+
+#: ../data/prefs-dialog.ui.h:7
+msgid "Deskbar Preferences"
+msgstr "Nastavitve namizne plošče"
+
+#: ../data/prefs-dialog.ui.h:8
+msgid "Display extensions with tag:"
+msgstr "Prikaži razširitve z oznakami:"
+
+#: ../data/prefs-dialog.ui.h:9
+msgid "Extensions with Errors"
+msgstr "Razširitve z napakami"
+
+#: ../data/prefs-dialog.ui.h:10
+msgid "General"
+msgstr "Splošno"
+
+#: ../data/prefs-dialog.ui.h:11
+msgid "New Extensions"
+msgstr "Nove razširitve"
+
+#: ../data/prefs-dialog.ui.h:12
+msgid "Search selection when triggering the shortcut"
+msgstr "Izbor iskanja povezan z bližnjico"
+
+#: ../data/prefs-dialog.ui.h:13
+msgid "Searches"
+msgstr "Iskalniki"
+
+#: ../data/prefs-dialog.ui.h:14
+msgid "Stick to panel"
+msgstr "Prilepi na pladenj"
+
+#: ../data/prefs-dialog.ui.h:15
+msgid "_Check For Updates"
+msgstr "_Preveri za posodobitve"
+
+#: ../data/prefs-dialog.ui.h:16
+msgid "_Check for new extensions"
+msgstr "_Preveri za nove razširitve"
+
+#: ../data/prefs-dialog.ui.h:17
+msgid "_Install"
+msgstr "_Naloži"
+
+#: ../data/prefs-dialog.ui.h:18
+msgid "_Keyboard shortcut to focus:"
+msgstr "Fo_kus bližnjice povezave:"
+
+#: ../data/prefs-dialog.ui.h:19
+msgid "_More..."
+msgstr "_Več ..."
+
+#: ../data/prefs-dialog.ui.h:20
+msgid "_Reload"
+msgstr "_Ponovno naloži"
+
+#: ../data/prefs-dialog.ui.h:21
+msgid "_Update"
+msgstr "_Posodobi"
+
+#: ../data/prefs-dialog.ui.h:22
+msgid "characters"
+msgstr "znakov"
+
+#: ../data/smart-bookmarks.ui.h:1
+msgid "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></i>."
+msgstr "<i><small><b>Opomba:</b> Za uporabo bližnjice (na primer <b>wp</b>) za iskanje <b>besede</b>, vtipkajte \"<b>wp beseda</b>\" na namizni plošči</small></i>."
+
+#: ../data/smart-bookmarks.ui.h:2
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "Bližnjice do zaznamkov iskanja"
+
+#: ../data/mozilla-search.ui.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Iskalniki</b>"
+
+#: ../data/mozilla-search.ui.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "Nastavitve namizne plošče - Spletni iskalniki"
+
+#: ../data/mozilla-search.ui.h:3
+msgid "Show all available search engines"
+msgstr "Prikaži vse iskalnike na voljo"
+
+#: ../data/mozilla-search.ui.h:4
+msgid "Show only the primary search engine"
+msgstr "Prikaži samo primarne iskalnike"
+
 #: ../deskbar/core/BrowserMatch.py:67
 #: ../deskbar/handlers/beagle-live.py:326
 #, python-format
@@ -172,13 +284,14 @@ msgstr "Odpri zaznamek %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
 #: ../deskbar/core/BrowserMatch.py:85
+#: ../deskbar/handlers/opensearch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Preišči <b>%(name)s</b> za <i>%(text)s</i>"
 
 #: ../deskbar/core/BrowserMatch.py:111
-#: ../deskbar/handlers/googlecodesearch.py:97
-#: ../deskbar/handlers/googlesearch.py:211
+#: ../deskbar/handlers/googlecodesearch.py:107
+#: ../deskbar/handlers/googlesearch.py:216
 #: ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL"
@@ -504,7 +617,7 @@ msgstr ""
 #: ../deskbar/handlers/files.py:63
 #: ../deskbar/handlers/actions/ActionsFactory.py:33
 msgid "Location"
-msgstr "Položaj"
+msgstr "Mesto"
 
 #: ../deskbar/handlers/files.py:71
 msgid "Files, Folders and Places"
@@ -671,15 +784,20 @@ msgstr "Google iskalnik kode"
 msgid "Search public source code for function definitions and sample code"
 msgstr "Iskanje javno dostopne izvorne programske kode za določila funkcije ali primera"
 
-#: ../deskbar/handlers/googlecodesearch.py:108
+#: ../deskbar/handlers/googlecodesearch.py:118
 #, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
 msgstr "Poglej <b>%(name)s</b> na <b>Google iskalniku kode</b>"
 
-#: ../deskbar/handlers/googlecodesearch.py:116
+#: ../deskbar/handlers/googlecodesearch.py:126
 #, python-format
 msgid "Open package <i>%(name)s</i>"
 msgstr "Odpri paket <i>%(name)s</i>"
+
+#: ../deskbar/handlers/googlecodesearch.py:141
+#, python-format
+msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
+msgstr "Poišči <b>Google Codesearch</b> za <i>%(name)s</i>"
 
 #: ../deskbar/handlers/googlesearch.py:30
 #: ../deskbar/handlers/yahoo.py:30
@@ -885,16 +1003,21 @@ msgstr "Iskanje preko iskalnika Google."
 msgid "You can configure in which language the results should be."
 msgstr "Nastavite lahko jezik v katerem bodo izpisani rezultati."
 
-#: ../deskbar/handlers/googlesearch.py:190
+#: ../deskbar/handlers/googlesearch.py:195
 msgid "Python module json or simplejson are not available"
 msgstr "Python modula simplejson in json nista na voljo"
 
-#: ../deskbar/handlers/googlesearch.py:225
+#: ../deskbar/handlers/googlesearch.py:235
+#, python-format
+msgid "Search <b>Google</b> for <i>%(name)s</i>"
+msgstr "Poišči <b>Google!</b> za <i>%(name)s</i>"
+
+#: ../deskbar/handlers/googlesearch.py:258
 msgid "Configure Google"
 msgstr "Nastavitve Google"
 
-#: ../deskbar/handlers/googlesearch.py:235
-#: ../deskbar/handlers/yahoo.py:417
+#: ../deskbar/handlers/googlesearch.py:268
+#: ../deskbar/handlers/yahoo.py:419
 msgid "<b>Choose the language the results should be in:</b>"
 msgstr "<b>Izberite jezik izpisa rezultatov:</b>"
 
@@ -949,72 +1072,153 @@ msgstr "Prilagajanje uporabe iskalnih orodij."
 msgid "Web History (Mozilla)"
 msgstr "Zgodovina mreže (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/opensearch.py:86
+#, python-format
+msgid "Website: <b>%(name)s</b>"
+msgstr "Spletišče: <b>%(name)s</b>"
+
+#: ../deskbar/handlers/opensearch.py:92
+msgid "OpenSearch"
+msgstr "OdprtoIskanje"
+
+#: ../deskbar/handlers/opensearch.py:93
+msgid "Searches any OpenSearch compliant website"
+msgstr "Iskanje po spletiščih prirejenih za OdprtoIskanje"
+
+#: ../deskbar/handlers/opensearch.py:97
+msgid "You can configure the search engines you want to use."
+msgstr "Prilagajanje uporabe iskalnih orodij."
+
+#: ../deskbar/handlers/opensearch.py:211
+msgid "OpenSearch Settings"
+msgstr "Nastavitve OdprtegaIskanja"
+
+#: ../deskbar/handlers/opensearch.py:218
+msgid "You can manage the list of websites used by the OpenSearch module here."
+msgstr "Upravljate in urejate lahko seznam spletišč, ki jih uporablja modul OdprtegaIskanja."
+
+#: ../deskbar/handlers/opensearch.py:410
+msgid "Enter the location (URL) of the OpenSearch description document for this website. The name and description can be loaded automatically from this document or you can just enter your own values manually."
+msgstr "Vnesite mesto (URL) dokumenta za OdprtoIskanje. Ime in opis je mogoče naložiti samodejno iz dokumenta ali pa lahko vrednosti dopišete sami."
+
+#: ../deskbar/handlers/opensearch.py:427
+msgid "_Location (URL):"
+msgstr "_Mesto  (URL):"
+
+#: ../deskbar/handlers/opensearch.py:442
+msgid "_Name:"
+msgstr "_Ime:"
+
+#: ../deskbar/handlers/opensearch.py:453
+msgid "_Description:"
+msgstr "_Opis:"
+
+#: ../deskbar/handlers/opensearch.py:469
+msgid "Edit OpenSearch Website"
+msgstr "Uredi spletišče za OdprtoIskanje"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Location missing"
+msgstr "Manjkajoče mesto"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Please enter a valid location (URL) for this website"
+msgstr "Prosim, vnesite veljavno mesto (URL) spletišča"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Name missing"
+msgstr "Manjka ime"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Please enter a name for this website"
+msgstr "Prosim, vnesite ime spletišča"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Description missing"
+msgstr "Manjka opis"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Please enter a description for this website"
+msgstr "Prosim, vnesite opis spletišča"
+
+#: ../deskbar/handlers/opensearch.py:529
+msgid "Unable to load description document"
+msgstr "Ni mogoče naložiti dokumenta opisa"
+
+#: ../deskbar/handlers/opensearch.py:530
+msgid "Make sure the URL points to a valid OpenSearch description document."
+msgstr "Prepričajte se, da povezava vodi do veljavnega dokumenta opisa za OdprtoIskanje."
+
+#: ../deskbar/handlers/opensearch.py:546
+msgid "Add OpenSearch Website"
+msgstr "Dodaj spletišče OdprtoIskanje"
+
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Poišči %s v slovarju"
 
-#: ../deskbar/handlers/programs.py:91
+#: ../deskbar/handlers/programs.py:93
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Išči imena datotek kot %s"
 
-#: ../deskbar/handlers/programs.py:97
+#: ../deskbar/handlers/programs.py:99
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Išči Devhelp za %s"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:133
 msgid "Dictionary"
 msgstr "Slovar"
 
-#: ../deskbar/handlers/programs.py:132
+#: ../deskbar/handlers/programs.py:134
 msgid "Look up word definitions in the dictionary"
 msgstr "Poišči besedo v slovarju"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:150
 msgid "GNOME dictionary is not installed"
 msgstr "Slovar okolja GNOME ni nameščen"
 
-#: ../deskbar/handlers/programs.py:155
+#: ../deskbar/handlers/programs.py:157
 msgid "Files and Folders Search"
 msgstr "Iskanje datotek in map"
 
-#: ../deskbar/handlers/programs.py:156
+#: ../deskbar/handlers/programs.py:158
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Išči datoteke in mape po vzorcu imena"
 
-#: ../deskbar/handlers/programs.py:172
+#: ../deskbar/handlers/programs.py:174
 msgid "GNOME search tool is not installed"
 msgstr "Iskalno orodje okolja GNOME ni nameščeno"
 
-#: ../deskbar/handlers/programs.py:179
+#: ../deskbar/handlers/programs.py:181
 msgid "Developer Documentation"
 msgstr "Dokumentacija za razvijalce"
 
-#: ../deskbar/handlers/programs.py:180
+#: ../deskbar/handlers/programs.py:182
 msgid "Search Devhelp for a function name"
 msgstr "Preišči devhelp za ime funkcije"
 
-#: ../deskbar/handlers/programs.py:199
+#: ../deskbar/handlers/programs.py:201
 msgid "Devhelp is not installed"
 msgstr "Devhelp ni nameščen"
 
-#: ../deskbar/handlers/programs.py:248
+#: ../deskbar/handlers/programs.py:250
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "Izvedi %s v terminalu"
 
-#: ../deskbar/handlers/programs.py:250
+#: ../deskbar/handlers/programs.py:252
 #, python-format
 msgid "Execute %s"
 msgstr "Izvedi %s"
 
-#: ../deskbar/handlers/programs.py:277
+#: ../deskbar/handlers/programs.py:279
 msgid "Programs"
 msgstr "Programi"
 
-#: ../deskbar/handlers/programs.py:278
+#: ../deskbar/handlers/programs.py:280
 msgid "Launch a program by its name and/or description"
 msgstr "Zaženi program z imenom ali po opisu"
 
@@ -1125,7 +1329,7 @@ msgstr ""
 "Program Tomboy ni prave različice.\n"
 "Nameščena mora biti različica Tomboy %s ali višja."
 
-#: ../deskbar/handlers/twitter.py:41
+#: ../deskbar/handlers/twitter.py:36
 #, python-format
 msgid ""
 "Failed to post update to %(domain)s.\n"
@@ -1144,13 +1348,13 @@ msgstr ""
 "    vašim spletnim brskalnikom\n"
 " • imate varovala ustrezno določena med nastavitvami"
 
-#: ../deskbar/handlers/twitter.py:102
+#: ../deskbar/handlers/twitter.py:97
 msgid "A post is already awaiting submission, please wait before you post another message"
 msgstr "Sporočilo čaka na objavo. Prosimo, počakajte preden pošljete novo sporočilo."
 
-#: ../deskbar/handlers/twitter.py:103
-#: ../deskbar/handlers/twitter.py:116
-#: ../deskbar/handlers/twitter.py:158
+#: ../deskbar/handlers/twitter.py:98
+#: ../deskbar/handlers/twitter.py:111
+#: ../deskbar/handlers/twitter.py:153
 #, python-format
 msgid "Error posting to %s"
 msgstr "Napaka pri objavljanju na %s"
@@ -1163,12 +1367,12 @@ msgstr "Napaka pri objavljanju na %s"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:172
+#: ../deskbar/handlers/twitter.py:167
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Objavi <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:175
+#: ../deskbar/handlers/twitter.py:170
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1179,27 +1383,27 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:212
+#: ../deskbar/handlers/twitter.py:207
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:213
+#: ../deskbar/handlers/twitter.py:208
 msgid "Post updates to your Twitter account"
 msgstr "Objavite posodobitve vašega Twitter računa"
 
-#: ../deskbar/handlers/twitter.py:283
+#: ../deskbar/handlers/twitter.py:278
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:284
+#: ../deskbar/handlers/twitter.py:279
 msgid "Post updates to your identi.ca account"
 msgstr "Objavite posodobitve vašega identi.ca računa"
 
-#: ../deskbar/handlers/twitter.py:298
+#: ../deskbar/handlers/twitter.py:293
 msgid "Please note that Deskbar Applet does not support authentication via OpenID. You must configure a username and password on the <i>identi.ca</i> website if you haven't already."
 msgstr "Bodite pozorni, da Deskbar aplet ne podbira overitve preko OpenID. Nastaviti morate uporabniško ime in geslo na <i>identi.ca</i> spletni strani."
 
-#: ../deskbar/handlers/twitter.py:300
+#: ../deskbar/handlers/twitter.py:295
 msgid "Visit identi.ca website"
 msgstr "Obiščite spletno stran identi.ca"
 
@@ -1252,20 +1456,20 @@ msgstr "Yahoo! Iskanje"
 msgid "Search Yahoo! as you type"
 msgstr "Iskanje Yahoo! med tipkanjem"
 
-#: ../deskbar/handlers/yahoo.py:306
+#: ../deskbar/handlers/yahoo.py:308
 #, python-format
 msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgstr "Preišči <b>Yahoo!</b> za <i>%(name)s</i>"
 
-#: ../deskbar/handlers/yahoo.py:324
+#: ../deskbar/handlers/yahoo.py:326
 msgid "Yahoo! Suggestions"
 msgstr "Yahoo! predlogi"
 
-#: ../deskbar/handlers/yahoo.py:325
+#: ../deskbar/handlers/yahoo.py:327
 msgid "Provides suggestions for queries related to the submitted query"
 msgstr "Omogoča predloge iskanja, ki sovpadajo s poslanim iskalnim nizom."
 
-#: ../deskbar/handlers/yahoo.py:407
+#: ../deskbar/handlers/yahoo.py:409
 msgid "Configure Yahoo!"
 msgstr "Nastavitve Yahoo!"
 
@@ -1282,7 +1486,7 @@ msgstr "Kopiraj <b>%(name)s</b> v odložišče"
 #: ../deskbar/handlers/actions/GoToLocationAction.py:23
 #, python-format
 msgid "Go to location of %s"
-msgstr "Odpri lokacijo %s"
+msgstr "Odpri mesto %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
@@ -1309,7 +1513,7 @@ msgstr "Odpri avdio disk %s"
 #: ../deskbar/handlers/actions/OpenWithNautilusAction.py:32
 #, python-format
 msgid "Open location %s"
-msgstr "Odpri lokacijo %s"
+msgstr "Odpri mesto %s"
 
 #. translators: First %s is the contact full name, second %s is the email address
 #: ../deskbar/handlers/actions/SendEmailToAction.py:24
@@ -1340,7 +1544,7 @@ msgstr "Matej Urbančič <mateju@svn.gnome.org>"
 msgid "<b>Search:</b>"
 msgstr "<b>Iskanje:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:256
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:257
 msgid "Display additional actions"
 msgstr "Prikaži dodatne možnosti dejanj"
 
@@ -1464,68 +1668,6 @@ msgstr "Različica:"
 msgid "Update Available"
 msgstr "Na voljo je posodobitev"
 
-#~ msgid "<b>Available Extensions</b>"
-#~ msgstr "<b>Razširitve na voljo</b>"
-#~ msgid "<b>Extensions with Errors</b>"
-#~ msgstr "<b>Razširitve z napakami</b>"
-#~ msgid "<b>Focus</b>"
-#~ msgstr "<b>Fokus</b>"
-#~ msgid "<b>Loaded Extensions</b>"
-#~ msgstr "<b>Naložene razširitve</b>"
-#~ msgid "<b>Width</b>"
-#~ msgstr "<b>Širina</b>"
-#~ msgid "<b>Window Behavior</b>"
-#~ msgstr "<b>Obnašanje oken</b>"
-#~ msgid "Deskbar Preferences"
-#~ msgstr "Nastavitve namizne plošče"
-#~ msgid "Display extensions with tag:"
-#~ msgstr "Prikaži razširitve z oznakami:"
-#~ msgid "Extensions with Errors"
-#~ msgstr "Razširitve z napakami"
-#~ msgid "General"
-#~ msgstr "Splošno"
-#~ msgid "New Extensions"
-#~ msgstr "Nove razširitve"
-#~ msgid "Search selection when triggering the shortcut"
-#~ msgstr "Izbor iskanja povezan z bližnjico"
-#~ msgid "Searches"
-#~ msgstr "Iskalniki"
-#~ msgid "Stick to panel"
-#~ msgstr "Prilepi na pladenj"
-#~ msgid "_Check For Updates"
-#~ msgstr "_Preveri za posodobitve"
-#~ msgid "_Check for new extensions"
-#~ msgstr "_Preveri za nove razširitve"
-#~ msgid "_Install"
-#~ msgstr "_Naloži"
-#~ msgid "_Keyboard shortcut to focus:"
-#~ msgstr "Fo_kus bližnjice povezave:"
-#~ msgid "_More..."
-#~ msgstr "_Več ..."
-#~ msgid "_Reload"
-#~ msgstr "_Ponovno naloži"
-#~ msgid "_Update"
-#~ msgstr "_Posodobi"
-#~ msgid "characters"
-#~ msgstr "znakov"
-#~ msgid ""
-#~ "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to "
-#~ "search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</"
-#~ "small></i>."
-#~ msgstr ""
-#~ "<i><small><b>Opomba:</b> Za uporabo bližnjice (na primer <b>wp</b>) za "
-#~ "iskanje <b>besede</b>, vtipkajte \"<b>wp beseda</b>\" na namizni plošči</"
-#~ "small></i>."
-#~ msgid "Shortcuts for Bookmarked Searches"
-#~ msgstr "Bližnjice do zaznamkov iskanja"
-#~ msgid "<b>Search Engines</b>"
-#~ msgstr "<b>Iskalniki</b>"
-#~ msgid "Deskbar Preferences - Web Searches"
-#~ msgstr "Nastavitve namizne plošče - Spletni iskalniki"
-#~ msgid "Show all available search engines"
-#~ msgstr "Prikaži vse iskalnike na voljo"
-#~ msgid "Show only the primary search engine"
-#~ msgstr "Prikaži samo primarne iskalnike"
 #~ msgid "Croation"
 #~ msgstr "Hrvaško"
 #~ msgid "<i>Choose action</i>"
