@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=deskbar-applet&amp;component=general\n"
-"POT-Creation-Date: 2008-12-01 18:20+0000\n"
+"product=deskbar-applet&component=general\n"
+"POT-Creation-Date: 2009-02-01 20:27+0000\n"
 "PO-Revision-Date: 2008-01-29 19:17+0200\n"
 "Last-Translator: Mark Krapivner <mark125@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
@@ -186,6 +186,123 @@ msgstr "שורת פקודה רב שימושית"
 msgid "Deskbar"
 msgstr "Deskbar"
 
+#: ../data/prefs-dialog.ui.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>הרחבות זמינות</b>"
+
+#: ../data/prefs-dialog.ui.h:2
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>הרחבות עם שגיאות</b>"
+
+#: ../data/prefs-dialog.ui.h:3
+msgid "<b>Focus</b>"
+msgstr "<b>מיקוד</b>"
+
+#: ../data/prefs-dialog.ui.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>הרחבות טעונות</b>"
+
+#: ../data/prefs-dialog.ui.h:5
+msgid "<b>Width</b>"
+msgstr "<b>רוחב</b>"
+
+#: ../data/prefs-dialog.ui.h:6
+msgid "<b>Window Behavior</b>"
+msgstr "<b>התנהגות חלון</b>"
+
+#: ../data/prefs-dialog.ui.h:7
+msgid "Deskbar Preferences"
+msgstr "מאפייני Deskbar"
+
+#: ../data/prefs-dialog.ui.h:8
+msgid "Display extensions with tag:"
+msgstr "הצג הרחבות עם תגית:"
+
+#: ../data/prefs-dialog.ui.h:9
+msgid "Extensions with Errors"
+msgstr "הרחבות עם שגיאות"
+
+#: ../data/prefs-dialog.ui.h:10
+msgid "General"
+msgstr "כללי"
+
+#: ../data/prefs-dialog.ui.h:11
+msgid "New Extensions"
+msgstr "הרחבות חדשות"
+
+#: ../data/prefs-dialog.ui.h:12
+msgid "Search selection when triggering the shortcut"
+msgstr "בצע חיפוש עבור הטקסט בתיבה כאשר קימור המקשים נלחץ"
+
+#: ../data/prefs-dialog.ui.h:13
+msgid "Searches"
+msgstr "חיפושים"
+
+#: ../data/prefs-dialog.ui.h:14
+msgid "Stick to panel"
+msgstr "הדבק ללוח"
+
+#: ../data/prefs-dialog.ui.h:15
+msgid "_Check For Updates"
+msgstr "_חפש עדכונים"
+
+#: ../data/prefs-dialog.ui.h:16
+msgid "_Check for new extensions"
+msgstr "ח_פש הרחבות חדשות"
+
+#: ../data/prefs-dialog.ui.h:17
+msgid "_Install"
+msgstr "_התקן"
+
+#: ../data/prefs-dialog.ui.h:18
+msgid "_Keyboard shortcut to focus:"
+msgstr "קיצור מקלדת להתמקדות:_"
+
+#: ../data/prefs-dialog.ui.h:19
+msgid "_More..."
+msgstr "_עוד..."
+
+#: ../data/prefs-dialog.ui.h:20
+msgid "_Reload"
+msgstr "_רענן"
+
+#: ../data/prefs-dialog.ui.h:21
+msgid "_Update"
+msgstr "_עדכן"
+
+#: ../data/prefs-dialog.ui.h:22
+msgid "characters"
+msgstr "תווים"
+
+#: ../data/smart-bookmarks.ui.h:1
+msgid ""
+"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
+"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
+"i>."
+msgstr ""
+"‏<i><small><b>הערה:</b> כדי להשתמש בקיצור דרך (לדוגמה <b>wp</b>) כדי לחפש "
+"<b>משהו</b>, הקלד \"<b>wp משהו</Deskbar</small></i>."
+
+#: ../data/smart-bookmarks.ui.h:2
+msgid "Shortcuts for Bookmarked Searches"
+msgstr "קיצור דרך לחיפוש בסימניות"
+
+#: ../data/mozilla-search.ui.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>מנועי חיפוש</b>"
+
+#: ../data/mozilla-search.ui.h:2
+msgid "Deskbar Preferences - Web Searches"
+msgstr "העדפות Deskbar - חיפוש ברשת"
+
+#: ../data/mozilla-search.ui.h:3
+msgid "Show all available search engines"
+msgstr "הצג את כל מנועי החיפוש הזמינים"
+
+#: ../data/mozilla-search.ui.h:4
+msgid "Show only the primary search engine"
+msgstr "הראה רק את מנוע החיפוש הראשון"
+
 #: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:326
 #, python-format
 msgid "Open History Item %s"
@@ -197,14 +314,14 @@ msgid "Open Bookmark %s"
 msgstr "פתח סימנייה %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:85
+#: ../deskbar/core/BrowserMatch.py:85 ../deskbar/handlers/opensearch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "חפש ב-‎<b>%(name)s</b>‏ עבור ‎<i>%(text)s</i>‏"
 
 #: ../deskbar/core/BrowserMatch.py:111
-#: ../deskbar/handlers/googlecodesearch.py:97
-#: ../deskbar/handlers/googlesearch.py:211 ../deskbar/handlers/yahoo.py:85
+#: ../deskbar/handlers/googlecodesearch.py:107
+#: ../deskbar/handlers/googlesearch.py:216 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "כתובת"
 
@@ -677,15 +794,22 @@ msgstr "חיפוש קוד - Google"
 msgid "Search public source code for function definitions and sample code"
 msgstr "חפש בקוד מקור ציבורי עבור הגדרות פונקציה וקוד לדוגמה"
 
-#: ../deskbar/handlers/googlecodesearch.py:108
+#: ../deskbar/handlers/googlecodesearch.py:118
 #, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
 msgstr "הצג <i>%(name)s</i> ב-<b>חיפוש קוד - Google</b>"
 
-#: ../deskbar/handlers/googlecodesearch.py:116
+#: ../deskbar/handlers/googlecodesearch.py:126
 #, python-format
 msgid "Open package <i>%(name)s</i>"
 msgstr "פתח חבילה <i>%(name)s</i>"
+
+#: ../deskbar/handlers/googlecodesearch.py:141
+#, python-format
+#| msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
+msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
+msgstr ""
+"חפש ב-<b>חיפוש קוד של Google‏</b> עבור <i>%(name)s</i>"
 
 #: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:30
 msgid "Arabic"
@@ -855,15 +979,21 @@ msgstr "חפש ביטויים במנוע החיפוש של Google"
 msgid "You can configure in which language the results should be."
 msgstr "באפשרותך להגדיר באיזה שפה התוצאות צריכות להיות."
 
-#: ../deskbar/handlers/googlesearch.py:190
+#: ../deskbar/handlers/googlesearch.py:195
 msgid "Python module json or simplejson are not available"
 msgstr ""
 
-#: ../deskbar/handlers/googlesearch.py:225
+#: ../deskbar/handlers/googlesearch.py:235
+#, python-format
+#| msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
+msgid "Search <b>Google</b> for <i>%(name)s</i>"
+msgstr "חפש ב-<b>Google</b> עבור <i>%(name)s</i>"
+
+#: ../deskbar/handlers/googlesearch.py:258
 msgid "Configure Google"
 msgstr "הגדר את Google"
 
-#: ../deskbar/handlers/googlesearch.py:235 ../deskbar/handlers/yahoo.py:417
+#: ../deskbar/handlers/googlesearch.py:268 ../deskbar/handlers/yahoo.py:419
 msgid "<b>Choose the language the results should be in:</b>"
 msgstr "<b>בחר את השפה שבה התוצאות צריכות להיות:</b>"
 
@@ -876,15 +1006,15 @@ msgstr "זהה חיפושים קודמים"
 msgid "Switch to <b>%(name)s</b>"
 msgstr "החלף אל <b>%(name)s</b>"
 
-#: ../deskbar/handlers/iswitch-window.py:52
+#: ../deskbar/handlers/iswitch-window.py:59
 msgid "Window Switcher"
 msgstr "מחליף חלונות"
 
-#: ../deskbar/handlers/iswitch-window.py:53
+#: ../deskbar/handlers/iswitch-window.py:60
 msgid "Switch to an existing window by name."
 msgstr "החלף לחלון קיים על פי שמו."
 
-#: ../deskbar/handlers/iswitch-window.py:56
+#: ../deskbar/handlers/iswitch-window.py:63
 msgid "Windows"
 msgstr "חלונות"
 
@@ -896,8 +1026,7 @@ msgstr "סימניות אינטרנט (Mozilla)"
 #: ../deskbar/handlers/mozilla.py:838
 #, python-format
 msgid "Firefox version must be at least %s and less than %s"
-msgstr ""
-"גירסת Firefox חייבת להיות לפחות %s ופחות מ-%s"
+msgstr "גירסת Firefox חייבת להיות לפחות %s ופחות מ-%s"
 
 #: ../deskbar/handlers/mozilla.py:223 ../deskbar/handlers/mozilla.py:311
 #: ../deskbar/handlers/mozilla.py:841
@@ -917,72 +1046,163 @@ msgstr "אתה יכול להתאים את ההצעות של מנועי החיפ�
 msgid "Web History (Mozilla)"
 msgstr "היסטורית אינטרנט (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/opensearch.py:86
+#, python-format
+#| msgid "Open note <b>%(name)s</b>"
+msgid "Website: <b>%(name)s</b>"
+msgstr "אתר: <b>%(name)s</b>"
+
+#: ../deskbar/handlers/opensearch.py:92
+#| msgid "Web Search"
+msgid "OpenSearch"
+msgstr "OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:93
+msgid "Searches any OpenSearch compliant website"
+msgstr ""
+
+#: ../deskbar/handlers/opensearch.py:97
+#| msgid "You can customize which search engines are offered."
+msgid "You can configure the search engines you want to use."
+msgstr "אתה יכול לבחור באילו מנועי חיפוש להשתמש."
+
+#: ../deskbar/handlers/opensearch.py:211
+msgid "OpenSearch Settings"
+msgstr "הגדרות OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:218
+msgid "You can manage the list of websites used by the OpenSearch module here."
+msgstr ""
+
+#: ../deskbar/handlers/opensearch.py:410
+msgid ""
+"Enter the location (URL) of the OpenSearch description document for this "
+"website. The name and description can be loaded automatically from this "
+"document or you can just enter your own values manually."
+msgstr ""
+
+#: ../deskbar/handlers/opensearch.py:427
+#| msgid "Location"
+msgid "_Location (URL):"
+msgstr ""
+"_מיקום (כתובת):"
+
+#: ../deskbar/handlers/opensearch.py:442
+#| msgid "Name:"
+msgid "_Name:"
+msgstr "שם_:"
+
+#: ../deskbar/handlers/opensearch.py:453
+msgid "_Description:"
+msgstr "_תיאור:"
+
+#: ../deskbar/handlers/opensearch.py:469
+msgid "Edit OpenSearch Website"
+msgstr ""
+
+#: ../deskbar/handlers/opensearch.py:476
+#| msgid "Location"
+msgid "Location missing"
+msgstr "המיקום חסר"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Please enter a valid location (URL) for this website"
+msgstr ""
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Name missing"
+msgstr "השם חסר"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Please enter a name for this website"
+msgstr ""
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Description missing"
+msgstr "התיאור חסר"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Please enter a description for this website"
+msgstr ""
+
+#: ../deskbar/handlers/opensearch.py:529
+msgid "Unable to load description document"
+msgstr ""
+
+#: ../deskbar/handlers/opensearch.py:530
+msgid "Make sure the URL points to a valid OpenSearch description document."
+msgstr ""
+
+#: ../deskbar/handlers/opensearch.py:546
+msgid "Add OpenSearch Website"
+msgstr ""
+
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "חפש %s במילון"
 
-#: ../deskbar/handlers/programs.py:91
+#: ../deskbar/handlers/programs.py:93
 #, python-format
 msgid "Search for file names like %s"
 msgstr "חפש שמות קבצים כמו %s"
 
-#: ../deskbar/handlers/programs.py:97
+#: ../deskbar/handlers/programs.py:99
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "חפש ב-Devhelp עבור %s"
 
-#: ../deskbar/handlers/programs.py:131
+#: ../deskbar/handlers/programs.py:133
 msgid "Dictionary"
 msgstr "מילון"
 
-#: ../deskbar/handlers/programs.py:132
+#: ../deskbar/handlers/programs.py:134
 msgid "Look up word definitions in the dictionary"
 msgstr "מצא פירוש של מילה במילון"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:150
 msgid "GNOME dictionary is not installed"
 msgstr "מילון GNOME לא מותקן"
 
-#: ../deskbar/handlers/programs.py:155
+#: ../deskbar/handlers/programs.py:157
 msgid "Files and Folders Search"
 msgstr "קבצים ותיקיות חיפוש"
 
-#: ../deskbar/handlers/programs.py:156
+#: ../deskbar/handlers/programs.py:158
 msgid "Find files and folders by searching for a name pattern"
 msgstr "מצא קבצים ותיקיות באמצעות חיפוש תבניות שם"
 
-#: ../deskbar/handlers/programs.py:172
+#: ../deskbar/handlers/programs.py:174
 msgid "GNOME search tool is not installed"
 msgstr "כלי חיפוש GNOME לא מותקן"
 
-#: ../deskbar/handlers/programs.py:179
+#: ../deskbar/handlers/programs.py:181
 msgid "Developer Documentation"
 msgstr "תיעוד למפתחים"
 
-#: ../deskbar/handlers/programs.py:180
+#: ../deskbar/handlers/programs.py:182
 msgid "Search Devhelp for a function name"
 msgstr "חפש שם פונקצייה ב-Devhelp"
 
-#: ../deskbar/handlers/programs.py:199
+#: ../deskbar/handlers/programs.py:201
 msgid "Devhelp is not installed"
 msgstr "‏Devhelp לא מותקן"
 
-#: ../deskbar/handlers/programs.py:248
+#: ../deskbar/handlers/programs.py:250
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "הפעל %s במסוף"
 
-#: ../deskbar/handlers/programs.py:250
+#: ../deskbar/handlers/programs.py:252
 #, python-format
 msgid "Execute %s"
 msgstr "הפעל %s"
 
-#: ../deskbar/handlers/programs.py:277
+#: ../deskbar/handlers/programs.py:279
 msgid "Programs"
 msgstr "תוכניות"
 
-#: ../deskbar/handlers/programs.py:278
+#: ../deskbar/handlers/programs.py:280
 msgid "Launch a program by its name and/or description"
 msgstr "הפעל תוכנית לפי השם ו/או התיאור"
 
@@ -1094,7 +1314,7 @@ msgstr ""
 "נראה שמותקנת גירסה ישנה של Tomboy.\n"
 "אנא התקן Tomboy מגירסה %s ומעלה."
 
-#: ../deskbar/handlers/twitter.py:41
+#: ../deskbar/handlers/twitter.py:36
 #, python-format
 msgid ""
 "Failed to post update to %(domain)s.\n"
@@ -1106,14 +1326,14 @@ msgid ""
 " • Your credentials in the preferences are correct"
 msgstr ""
 
-#: ../deskbar/handlers/twitter.py:102
+#: ../deskbar/handlers/twitter.py:97
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr ""
 
-#: ../deskbar/handlers/twitter.py:103 ../deskbar/handlers/twitter.py:116
-#: ../deskbar/handlers/twitter.py:158
+#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
+#: ../deskbar/handlers/twitter.py:153
 #, python-format
 msgid "Error posting to %s"
 msgstr "שגיאה בשליחה ל-%s"
@@ -1126,12 +1346,12 @@ msgstr "שגיאה בשליחה ל-%s"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:172
+#: ../deskbar/handlers/twitter.py:167
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr ""
 
-#: ../deskbar/handlers/twitter.py:175
+#: ../deskbar/handlers/twitter.py:170
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1139,30 +1359,30 @@ msgid ""
 "\t<i>%s</i>"
 msgstr ""
 
-#: ../deskbar/handlers/twitter.py:212
+#: ../deskbar/handlers/twitter.py:207
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:213
+#: ../deskbar/handlers/twitter.py:208
 msgid "Post updates to your Twitter account"
 msgstr "שלח עדכונים לחשבון ה-Twitter שלח"
 
-#: ../deskbar/handlers/twitter.py:283
+#: ../deskbar/handlers/twitter.py:278
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:284
+#: ../deskbar/handlers/twitter.py:279
 msgid "Post updates to your identi.ca account"
 msgstr "שלח עדכונים לחשבון ה-identi.ca שלח"
 
-#: ../deskbar/handlers/twitter.py:298
+#: ../deskbar/handlers/twitter.py:293
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
 "if you haven't already."
 msgstr ""
 
-#: ../deskbar/handlers/twitter.py:300
+#: ../deskbar/handlers/twitter.py:295
 msgid "Visit identi.ca website"
 msgstr "בקר באתר של identi.ca"
 
@@ -1217,20 +1437,20 @@ msgstr "חיפוש ב-Yahoo!"
 msgid "Search Yahoo! as you type"
 msgstr "חפש ב-Yahoo! בעת הכתיבה"
 
-#: ../deskbar/handlers/yahoo.py:306
+#: ../deskbar/handlers/yahoo.py:308
 #, python-format
 msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgstr "חפש ב-<b>Yahoo!</b> עבור <i>%(name)s</i>"
 
-#: ../deskbar/handlers/yahoo.py:324
+#: ../deskbar/handlers/yahoo.py:326
 msgid "Yahoo! Suggestions"
 msgstr "הצעות Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:325
+#: ../deskbar/handlers/yahoo.py:327
 msgid "Provides suggestions for queries related to the submitted query"
 msgstr "הצעות עבור שאילתות שקשורות לשאילתה שבוצעה"
 
-#: ../deskbar/handlers/yahoo.py:407
+#: ../deskbar/handlers/yahoo.py:409
 msgid "Configure Yahoo!"
 msgstr "הגדר את Yahoo!"
 
@@ -1313,7 +1533,7 @@ msgstr ""
 msgid "<b>Search:</b>"
 msgstr "<b>חפש:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:256
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:257
 msgid "Display additional actions"
 msgstr "הצג פעולות נוספות"
 
@@ -1438,95 +1658,6 @@ msgstr "גירסה:"
 #: ../deskbar/ui/preferences/ModuleListView.py:58
 msgid "Update Available"
 msgstr "עדכון זמין"
-
-#~ msgid "<b>Available Extensions</b>"
-#~ msgstr "<b>הרחבות זמינות</b>"
-
-#~ msgid "<b>Extensions with Errors</b>"
-#~ msgstr "<b>הרחבות עם שגיאות</b>"
-
-#~ msgid "<b>Focus</b>"
-#~ msgstr "<b>מיקוד</b>"
-
-#~ msgid "<b>Loaded Extensions</b>"
-#~ msgstr "<b>הרחבות טעונות</b>"
-
-#~ msgid "<b>Width</b>"
-#~ msgstr "<b>רוחב</b>"
-
-#~ msgid "<b>Window Behavior</b>"
-#~ msgstr "<b>התנהגות חלון</b>"
-
-#~ msgid "Deskbar Preferences"
-#~ msgstr "מאפייני Deskbar"
-
-#~ msgid "Display extensions with tag:"
-#~ msgstr "הצג הרחבות עם תגית:"
-
-#~ msgid "Extensions with Errors"
-#~ msgstr "הרחבות עם שגיאות"
-
-#~ msgid "General"
-#~ msgstr "כללי"
-
-#~ msgid "New Extensions"
-#~ msgstr "הרחבות חדשות"
-
-#~ msgid "Search selection when triggering the shortcut"
-#~ msgstr "בצע חיפוש עבור הטקסט בתיבה כאשר קימור המקשים נלחץ"
-
-#~ msgid "Searches"
-#~ msgstr "חיפושים"
-
-#~ msgid "Stick to panel"
-#~ msgstr "הדבק ללוח"
-
-#~ msgid "_Check For Updates"
-#~ msgstr "_חפש עדכונים"
-
-#~ msgid "_Check for new extensions"
-#~ msgstr "ח_פש הרחבות חדשות"
-
-#~ msgid "_Install"
-#~ msgstr "_התקן"
-
-#~ msgid "_Keyboard shortcut to focus:"
-#~ msgstr "קיצור מקלדת להתמקדות:_"
-
-#~ msgid "_More..."
-#~ msgstr "_עוד..."
-
-#~ msgid "_Reload"
-#~ msgstr "_רענן"
-
-#~ msgid "_Update"
-#~ msgstr "_עדכן"
-
-#~ msgid "characters"
-#~ msgstr "תווים"
-
-#~ msgid ""
-#~ "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to "
-#~ "search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</"
-#~ "small></i>."
-#~ msgstr ""
-#~ "‏<i><small><b>הערה:</b> כדי להשתמש בקיצור דרך (לדוגמה <b>wp</b>) כדי לחפש "
-#~ "<b>משהו</b>, הקלד \"<b>wp משהו</Deskbar</small></i>."
-
-#~ msgid "Shortcuts for Bookmarked Searches"
-#~ msgstr "קיצור דרך לחיפוש בסימניות"
-
-#~ msgid "<b>Search Engines</b>"
-#~ msgstr "<b>מנועי חיפוש</b>"
-
-#~ msgid "Deskbar Preferences - Web Searches"
-#~ msgstr "העדפות Deskbar - חיפוש ברשת"
-
-#~ msgid "Show all available search engines"
-#~ msgstr "הצג את כל מנועי החיפוש הזמינים"
-
-#~ msgid "Show only the primary search engine"
-#~ msgstr "הראה רק את מנוע החיפוש הראשון"
 
 #~ msgid "Chinese Simplified"
 #~ msgstr "סינית מפושטת"
