@@ -1,19 +1,18 @@
-# translation of deskbar-applet.HEAD.tr.po to Turkish
+# translation of deskbar-applet to Turkish
 # Baris Cicek <baris@teamforce.name.tr>, 2007.
-# Serdar CICEK <serdar@nerd.com.tr>, 2008.
+# Serdar CICEK <serdar@nerd.com.tr>, 2008, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet.HEAD.tr\n"
+"Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-01 18:09+0200\n"
-"PO-Revision-Date: 2008-01-10 22:42+0200\n"
+"POT-Creation-Date: 2009-03-16 21:41+0200\n"
+"PO-Revision-Date: 2009-02-21 20:58+0200\n"
 "Last-Translator: Serdar CICEK <serdar@nerd.com.tr>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=1; plural=0;\n"
-"X-Generator: KBabel 1.11.4\n"
 
 #: ../data/deskbar-applet.schemas.in.h:1
 msgid ""
@@ -60,31 +59,35 @@ msgstr "Aramaya başlamak için gerekli en az karakter sayısı"
 
 #: ../data/deskbar-applet.schemas.in.h:10
 msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
-msgstr ""
+msgstr "Kullanılacak kullanıcı arayüzünü seçer, \"Window\" ya da \"Button\"."
 
 #: ../data/deskbar-applet.schemas.in.h:11
+msgid "The applet's entry width in number of characters"
+msgstr "Karakter olarak uygulamacığın girişinin genişliği"
+
+#: ../data/deskbar-applet.schemas.in.h:12
 msgid "The default height of the window in pixels"
 msgstr "Pencerenin benek olarak öntanımlı değeri"
 
-#: ../data/deskbar-applet.schemas.in.h:12
+#: ../data/deskbar-applet.schemas.in.h:13
 msgid "The default position of the window on the screen (x-coordinate)"
 msgstr "Pencerenin ekrandaki öntanımlı pozisyonu (x-koordinatı)"
 
-#: ../data/deskbar-applet.schemas.in.h:13
+#: ../data/deskbar-applet.schemas.in.h:14
 msgid "The default position of the window on the screen (y-coordinate)"
 msgstr "Pencerenin ekrandaki öntanımlı pozisyonu (y-koordinatı)"
 
-#: ../data/deskbar-applet.schemas.in.h:14
+#: ../data/deskbar-applet.schemas.in.h:15
 msgid "The default width of the window in pixels"
 msgstr "Pencerenin benek olarak öntanımlı genişliği"
 
-#: ../data/deskbar-applet.schemas.in.h:15
+#: ../data/deskbar-applet.schemas.in.h:16
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
 msgstr ""
 "Anahtar sırası daha çabuk yazabilmeniz için Deskbar-Applet uygulamasını "
 "odaklayacaktır"
 
-#: ../data/deskbar-applet.schemas.in.h:16
+#: ../data/deskbar-applet.schemas.in.h:17
 msgid ""
 "The list of categories to be collapsed when displayed. Valid categories are: "
 "default, history, documents, emails, conversations, files, people, places, "
@@ -94,7 +97,7 @@ msgstr ""
 "öntanımlı, geçmiş, dökümanlar, e-postalar, konuşmalar, dosyalar, insanlar, "
 "yerler, eylemler, web, web arama, haberler ve notlar."
 
-#: ../data/deskbar-applet.schemas.in.h:17
+#: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
@@ -102,11 +105,11 @@ msgstr ""
 "Etkinleştirilmiş işleyicilerin dışa aktarılmış sınıf adlarının önceliğe göre "
 "sıralanmış listesi. En soldaki en yüksek öncelikte"
 
-#: ../data/deskbar-applet.schemas.in.h:18
+#: ../data/deskbar-applet.schemas.in.h:19
 msgid "The maximum number of items stored in history"
 msgstr "Geçmişte saklanan en fazla öge sayısı"
 
-#: ../data/deskbar-applet.schemas.in.h:19
+#: ../data/deskbar-applet.schemas.in.h:20
 msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
@@ -114,7 +117,7 @@ msgstr ""
 "Uygulamacık eşleşmeleri göstermeden önce girilmesi gereken en az karakter "
 "sayısı"
 
-#: ../data/deskbar-applet.schemas.in.h:20
+#: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
@@ -122,11 +125,17 @@ msgstr ""
 "Arama girdisinde tuşa basma ile aramanın gerçekleştirilmesi arasındaki "
 "milisaniye değerinden zaman"
 
-#: ../data/deskbar-applet.schemas.in.h:21
+#: ../data/deskbar-applet.schemas.in.h:22
+msgid "This value only takes effect when \"ui_name\" is set to \"Button\""
+msgstr ""
+"Bu değer sadece \"ui_name\" anahtarı \"Button\" olarak atandığında etki "
+"gösterir"
+
+#: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether to close the window after an action has been activated"
 msgstr "Eylemler etkinleştirildikten sonra pencerenin kapanıp kapanmayacağı"
 
-#: ../data/deskbar-applet.schemas.in.h:22
+#: ../data/deskbar-applet.schemas.in.h:24
 msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
@@ -135,24 +144,24 @@ msgstr ""
 "gösterilip gösterilmeyeceği. Bu sadece Firefox gibi Mozilla tabanlı "
 "tarayıcıları etkiler."
 
-#: ../data/deskbar-applet.schemas.in.h:23
+#: ../data/deskbar-applet.schemas.in.h:25
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
 msgstr ""
 "Deskbar-Applet'ı tetiklemenin o anki seçimi yapıştırıp yapıştırmayacağı"
 
-#: ../data/deskbar-applet.schemas.in.h:24
+#: ../data/deskbar-applet.schemas.in.h:26
 msgid "Window height"
 msgstr "Pencere yüksekliği"
 
-#: ../data/deskbar-applet.schemas.in.h:25
+#: ../data/deskbar-applet.schemas.in.h:27
 msgid "Window width"
 msgstr "Pencere genişliği"
 
-#: ../data/deskbar-applet.schemas.in.h:26
+#: ../data/deskbar-applet.schemas.in.h:28
 msgid "X-coordinate of window"
 msgstr "Pencerenin X konumu"
 
-#: ../data/deskbar-applet.schemas.in.h:27
+#: ../data/deskbar-applet.schemas.in.h:29
 msgid "Y-coordinate of window"
 msgstr "Pencerenin Y konumu"
 
@@ -176,87 +185,99 @@ msgstr "_Tercihler"
 msgid "An all-in-one action bar"
 msgstr "Bir hepsi-bir-arada eylem çubuğu"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:19
+#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:29
 msgid "Deskbar"
 msgstr "Deskbar"
 
-#: ../data/prefs-dialog.glade.h:1
+#: ../data/prefs-dialog.ui.h:1
 msgid "<b>Available Extensions</b>"
 msgstr "<b>Mevcut Eklentiler</b>"
 
-#: ../data/prefs-dialog.glade.h:2
+#: ../data/prefs-dialog.ui.h:2
 msgid "<b>Extensions with Errors</b>"
 msgstr "<b>Hatalı Eklentiler</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.ui.h:3
 msgid "<b>Focus</b>"
 msgstr "<b>Odaklan</b>"
 
-#: ../data/prefs-dialog.glade.h:4
+#: ../data/prefs-dialog.ui.h:4
 msgid "<b>Loaded Extensions</b>"
 msgstr "<b>Yüklenen Uzantılar</b>"
 
-#: ../data/prefs-dialog.glade.h:5
-msgid "<b>Window Behavior</b>"
-msgstr ""
+#: ../data/prefs-dialog.ui.h:5
+msgid "<b>Width</b>"
+msgstr "<b>Genişlik</b>"
 
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.ui.h:6
+msgid "<b>Window Behavior</b>"
+msgstr "<b>Pencere İşleyişi</b>"
+
+#: ../data/prefs-dialog.ui.h:7
 msgid "Deskbar Preferences"
 msgstr "Deskbar Tercihleri"
 
-#: ../data/prefs-dialog.glade.h:7
+#: ../data/prefs-dialog.ui.h:8
+msgid "Display extensions with tag:"
+msgstr "Görüntü eklentilerinin sahip olduğu etiket:"
+
+#: ../data/prefs-dialog.ui.h:9
 msgid "Extensions with Errors"
 msgstr "Hatalı Eklentiler"
 
-#: ../data/prefs-dialog.glade.h:8
+#: ../data/prefs-dialog.ui.h:10
 msgid "General"
 msgstr "Genel"
 
-#: ../data/prefs-dialog.glade.h:9
+#: ../data/prefs-dialog.ui.h:11
 msgid "New Extensions"
 msgstr "Yeni Eklentiler"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.ui.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "Kısayolu tetiklerken seçimi ara"
 
-#: ../data/prefs-dialog.glade.h:11
+#: ../data/prefs-dialog.ui.h:13
 msgid "Searches"
 msgstr "Aramalar"
 
-#: ../data/prefs-dialog.glade.h:12
+#: ../data/prefs-dialog.ui.h:14
 msgid "Stick to panel"
-msgstr ""
+msgstr "Panele yapış"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.ui.h:15
 msgid "_Check For Updates"
 msgstr "_Güncellemeleri Kontrol Et"
 
-#: ../data/prefs-dialog.glade.h:14
+#: ../data/prefs-dialog.ui.h:16
 msgid "_Check for new extensions"
 msgstr "Yeni eklentileri _kontrol et"
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.ui.h:17
 msgid "_Install"
 msgstr "_Kur"
 
-#: ../data/prefs-dialog.glade.h:16
+#: ../data/prefs-dialog.ui.h:18
 msgid "_Keyboard shortcut to focus:"
 msgstr "Odaklama için _klavye kısayolu:"
 
-#: ../data/prefs-dialog.glade.h:17
+#: ../data/prefs-dialog.ui.h:19
 msgid "_More..."
 msgstr "_Daha fazla..."
 
-#: ../data/prefs-dialog.glade.h:18
+#: ../data/prefs-dialog.ui.h:20
 msgid "_Reload"
 msgstr "Tek_rar yükle"
 
-#: ../data/prefs-dialog.glade.h:19
+#: ../data/prefs-dialog.ui.h:21
 msgid "_Update"
 msgstr "_Güncelle"
 
-#: ../data/smart-bookmarks.glade.h:1
+#: ../data/prefs-dialog.ui.h:22
+msgid "characters"
+msgstr "karakter"
+
+#: ../data/smart-bookmarks.ui.h:1
 msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
@@ -266,51 +287,53 @@ msgstr ""
 "(örneğin <b>wp</b>) deskbar içinde \"<b>wp herhangi bir şey</b>\" "
 "yazabilirsiniz</small></i>."
 
-#: ../data/smart-bookmarks.glade.h:2
+#: ../data/smart-bookmarks.ui.h:2
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Yer imi olan aramalar için kısayollar"
 
-#: ../data/mozilla-search.glade.h:1
+#: ../data/mozilla-search.ui.h:1
 msgid "<b>Search Engines</b>"
 msgstr "<b>Arama Motorları</b>"
 
-#: ../data/mozilla-search.glade.h:2
+#: ../data/mozilla-search.ui.h:2
 msgid "Deskbar Preferences - Web Searches"
 msgstr "Deskbar Tercihleri - Ağ Aramaları"
 
-#: ../data/mozilla-search.glade.h:3
+#: ../data/mozilla-search.ui.h:3
 msgid "Show all available search engines"
 msgstr "Tüm kullanılabilir arama motorlarını göster"
 
-#: ../data/mozilla-search.glade.h:4
+#: ../data/mozilla-search.ui.h:4
 msgid "Show only the primary search engine"
 msgstr "Sadece ilk arama motorunu göster"
 
-#: ../deskbar/core/BrowserMatch.py:51 ../deskbar/handlers/beagle-live.py:181
+#: ../deskbar/core/BrowserMatch.py:67 ../deskbar/handlers/beagle-live.py:326
 #, python-format
 msgid "Open History Item %s"
 msgstr "%s Geçmiş Öğesini Aç"
 
-#: ../deskbar/core/BrowserMatch.py:53
+#: ../deskbar/core/BrowserMatch.py:69
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "%s Yer imini Aç"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/core/BrowserMatch.py:69
+#: ../deskbar/core/BrowserMatch.py:85 ../deskbar/handlers/opensearch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "<b>%(name)s</b> kullanarak <i>%(text)s</i> metnini ara"
 
-#: ../deskbar/core/BrowserMatch.py:95 ../deskbar/handlers/yahoo.py:33
+#: ../deskbar/core/BrowserMatch.py:111
+#: ../deskbar/handlers/googlecodesearch.py:107
+#: ../deskbar/handlers/googlesearch.py:216 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL"
 
-#: ../deskbar/core/BrowserMatch.py:230
+#: ../deskbar/core/BrowserMatch.py:247
 msgid "Shortcut"
 msgstr "Kısayol"
 
-#: ../deskbar/core/BrowserMatch.py:238
+#: ../deskbar/core/BrowserMatch.py:255
 msgid "Bookmark Name"
 msgstr "Yer imi Adı"
 
@@ -319,6 +342,7 @@ msgid "Uncategorized"
 msgstr "Sınıflandırılmamış"
 
 #: ../deskbar/core/Categories.py:11 ../deskbar/handlers/history.py:27
+#: ../deskbar/ui/DeskbarStatusIcon.py:56
 msgid "History"
 msgstr "Geçmiş"
 
@@ -366,182 +390,250 @@ msgstr "Haberler"
 msgid "Notes"
 msgstr "Notlar"
 
-#: ../deskbar/core/DeskbarHistory.py:22
-msgid "<i>Choose action</i>"
-msgstr "<i>Eylem seçin</i>"
+#: ../deskbar/core/Categories.py:61
+msgid "Audio"
+msgstr "Ses"
 
-#: ../deskbar/core/Utils.py:132
+#: ../deskbar/core/Categories.py:65
+msgid "Video"
+msgstr "Video"
+
+#: ../deskbar/core/Categories.py:69
+msgid "Images"
+msgstr "Resim"
+
+#: ../deskbar/core/DeskbarHistory.py:22
+msgid "<i>Empty history</i>"
+msgstr "<i>Boş geçmiş</i>"
+
+#: ../deskbar/core/Utils.py:185
 msgid "Cannot execute program:"
 msgstr "Program çalıştırılamıyor:"
 
-#: ../deskbar/core/Utils.py:172
+#: ../deskbar/core/Utils.py:272
 msgid "Cannot show URL:"
 msgstr "URL gösterilemiyor:"
 
+#: ../deskbar/core/Web.py:135
+#, python-format
+msgid "<big><b>Login for %s</b></big>"
+msgstr "<big><b>Giriş kullanıcısı %s</b></big>"
+
+#: ../deskbar/core/Web.py:136
+#, python-format
+msgid "Please provide your credentials for <b>%s</b>"
+msgstr "Lütfen <b>%s</b> için bilgileri sağlayın"
+
+#: ../deskbar/core/Web.py:137
+#, python-format
+msgid "Credentials for %s"
+msgstr "Bilgileri girilen kullanıcı %s"
+
+#. Show '*' instead of text
+#: ../deskbar/core/Web.py:143
+msgid "User name:"
+msgstr "Kullanıcı adı:"
+
+#: ../deskbar/core/Web.py:144
+msgid "Password:"
+msgstr "Parola:"
+
+#: ../deskbar/core/Web.py:264
+#, python-format
+msgid "<big><b>Login to %s rejected</b></big>"
+msgstr "<big><b>%s için giriş reddedildi</b></big>"
+
+#: ../deskbar/core/Web.py:265
+#, python-format
+msgid "Please verify your credentials for <b>%s</b>"
+msgstr "Lütfen <b>%s</b> için bilgileri doğrulayın"
+
 #. translators: This is the window title.
-#: ../deskbar/deskbar-applet.py:15
+#: ../deskbar/deskbar-applet.py:17
 msgid "Deskbar Applet"
 msgstr "Deskbar Uygulamacığı"
 
-#: ../deskbar/handlers/beagle-live.py:103
+#: ../deskbar/handlers/beagle-live.py:248
 #, python-format
 msgid "Edit contact %s"
 msgstr "%s bağlantısını düzenle"
 
-#: ../deskbar/handlers/beagle-live.py:114
-#, python-format
-msgid "From %s"
-msgstr "%s konumundan"
-
-#: ../deskbar/handlers/beagle-live.py:129
-#, python-format
-msgid "News from %s"
-msgstr "%s konumundan haber"
-
-#: ../deskbar/handlers/beagle-live.py:143
+#: ../deskbar/handlers/beagle-live.py:289
 #, python-format
 msgid "Note: %s"
 msgstr "Not: %s"
 
-#: ../deskbar/handlers/beagle-live.py:156
+#: ../deskbar/handlers/beagle-live.py:301
 #, python-format
 msgid "With %s"
 msgstr "%s ile"
 
-#: ../deskbar/handlers/beagle-live.py:170
+#: ../deskbar/handlers/beagle-live.py:315
 #, python-format
 msgid "Calendar: %s"
 msgstr "Takvim: %s"
 
-#: ../deskbar/handlers/beagle-live.py:213
+#. translators: in this case the file (2nd) is part of an archive (1st)
+#. e.g. README is part of deskbar-applet.tar.gz
+#: ../deskbar/handlers/beagle-live.py:352
+#, python-format
+msgid "Open %s containing %s"
+msgstr "%2s içeren %1s arşivini aç"
+
+#: ../deskbar/handlers/beagle-live.py:354
+#: ../deskbar/handlers/actions/OpenFileAction.py:52
+#: ../deskbar/handlers/actions/ShowUrlAction.py:25
+#, python-format
+msgid "Open %s"
+msgstr "%s dosyasını aç"
+
+#: ../deskbar/handlers/beagle-live.py:387
 #, python-format
 msgid "Additional results for category <b>%s</b>"
-msgstr ""
+msgstr "Kategori <b>%s</b> için ek sonuçlar"
 
-#: ../deskbar/handlers/beagle-live.py:213
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:19
-msgid "name"
-msgstr "isim"
+#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:427
+#, python-format
+msgid "From <i>%s</i>"
+msgstr "<i>%s</i> konumundan"
 
-#: ../deskbar/handlers/beagle-live.py:295
+#: ../deskbar/handlers/beagle-live.py:486
 msgid "Beagle Live"
 msgstr "Beagle Live"
 
-#: ../deskbar/handlers/beagle-live.py:296
+#: ../deskbar/handlers/beagle-live.py:487
 msgid "Search all of your documents (using Beagle), as you type"
 msgstr "Tüm belgelerinizi (Beagle kullanarak), yazdığınız anda arayın"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:433
-#: ../deskbar/handlers/beagle-live.py:455
+#: ../deskbar/handlers/beagle-live.py:732
+#: ../deskbar/handlers/beagle-live.py:749
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-live.py:486
+#: ../deskbar/handlers/beagle-live.py:783
 msgid ""
 "Could not load beagle, libbeagle has been compiled without python bindings."
 msgstr "Beagle yüklenemedi, libbeagle piton bağları olmadan derlenmiş."
 
-#: ../deskbar/handlers/beagle-live.py:495
+#: ../deskbar/handlers/beagle-live.py:789
+msgid "Beagle daemon is not running."
+msgstr "Beagle servisi çalışmıyor."
+
+#: ../deskbar/handlers/beagle-live.py:792
 msgid "Beagled could not be found in your $PATH."
 msgstr "Beagled size ait $PATH içinde bulunamadı."
 
-#: ../deskbar/handlers/beagle-static.py:21
+#: ../deskbar/handlers/beagle-static.py:22
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "%s için Beagle kullanarak ara"
 
-#: ../deskbar/handlers/beagle-static.py:37
+#: ../deskbar/handlers/beagle-static.py:38
 msgid "Beagle"
 msgstr "Beagle"
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-static.py:39
 msgid "Search all of your documents (using Beagle)"
 msgstr "Tüm belgelerinizi arar (Beagle kullanarak)"
 
-#: ../deskbar/handlers/beagle-static.py:54
+#: ../deskbar/handlers/beagle-static.py:55
 msgid "Beagle does not seem to be installed."
 msgstr "Beagle yüklenmiş gibi görünmüyor."
 
-#: ../deskbar/handlers/desklicious.py:47
+#: ../deskbar/handlers/calculator.py:94
+#, python-format
+msgid "Copy <b>%(origtext)s = %(name)s</b> to clipboard"
+msgstr "<b>%(origtext)s = %(name)s</b>'i panoya kopyala"
+
+#: ../deskbar/handlers/calculator.py:121 ../deskbar/handlers/calculator.py:124
+msgid "Calculator"
+msgstr "Hesaplayıcı"
+
+#: ../deskbar/handlers/calculator.py:122
+msgid "Calculate simple equations"
+msgstr "Basit eşitlikleri hesapla"
+
+#: ../deskbar/handlers/desklicious.py:52
 msgid "del.icio.us Bookmarks"
 msgstr "del.icio.us Yer imleri"
 
-#: ../deskbar/handlers/desklicious.py:48
+#: ../deskbar/handlers/desklicious.py:53
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "del.icio.us yer imlerinizi etiket isimlerine göre arayın"
 
-#: ../deskbar/handlers/desklicious.py:80
+#: ../deskbar/handlers/desklicious.py:78
 msgid "del.icio.us Account"
 msgstr "del.icio.us Hesabı"
 
-#: ../deskbar/handlers/desklicious.py:87
+#: ../deskbar/handlers/desklicious.py:85
 msgid "Enter your del.icio.us username below"
 msgstr "Aşağıya del.icio.us kullanıcı adınızı girin"
 
-#: ../deskbar/handlers/desklicious.py:93
+#: ../deskbar/handlers/desklicious.py:91
 msgid "Username: "
 msgstr "Kullanıcı adı: "
 
-#: ../deskbar/handlers/desklicious.py:109
+#: ../deskbar/handlers/desklicious.py:107
 msgid "You need to configure your del.icio.us account."
 msgstr "del.icio.us hesabınızı yapılandırmanız gerekmektedir."
 
-#: ../deskbar/handlers/desklicious.py:114
+#: ../deskbar/handlers/desklicious.py:112
 msgid "You can modify your del.icio.us account."
 msgstr "del.icio.us hesabınızı değiştirebilirsiniz."
 
-#: ../deskbar/handlers/epiphany.py:48
+#: ../deskbar/handlers/epiphany.py:53
 msgid "Web Bookmarks (Epiphany)"
 msgstr "Web Yer İmleri (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:49 ../deskbar/handlers/mozilla.py:127
+#: ../deskbar/handlers/epiphany.py:54 ../deskbar/handlers/mozilla.py:160
 msgid "Open your web bookmarks by name"
 msgstr "Ağ yer imlerinizi adı ile açın"
 
-#: ../deskbar/handlers/epiphany.py:82 ../deskbar/handlers/epiphany.py:127
-#: ../deskbar/handlers/epiphany.py:164
+#: ../deskbar/handlers/epiphany.py:84 ../deskbar/handlers/epiphany.py:129
+#: ../deskbar/handlers/epiphany.py:163
 msgid "Epiphany is not your preferred browser."
 msgstr "Epiphany tercih ettiğiniz tarayıcı değil."
 
-#: ../deskbar/handlers/epiphany.py:88
+#: ../deskbar/handlers/epiphany.py:90
 msgid "Web Searches (Epiphany)"
 msgstr "Web Aramaları (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:89 ../deskbar/handlers/mozilla.py:194
+#: ../deskbar/handlers/epiphany.py:91 ../deskbar/handlers/mozilla.py:238
 msgid "Search the web via your browser's search settings"
 msgstr "Ağı tarayıcınızın arama ayarları ile arayın"
 
-#: ../deskbar/handlers/epiphany.py:124
+#: ../deskbar/handlers/epiphany.py:126
 msgid "You can set shortcuts for your searches."
 msgstr "Aramalarınız için kısayolları belirleyebilirsiniz."
 
-#: ../deskbar/handlers/epiphany.py:134
+#: ../deskbar/handlers/epiphany.py:136
 msgid "Web History (Epiphany)"
 msgstr "Web Geçmişi (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:135 ../deskbar/handlers/mozilla.py:738
+#: ../deskbar/handlers/epiphany.py:137 ../deskbar/handlers/mozilla.py:793
 msgid "Open your web history by name"
 msgstr "Ağ geçmişinizi adı ile açın"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:27
+#: ../deskbar/handlers/evolution.py:32
 #, python-format
 msgid "Edit contact <b>%(name)s</b> (%(email)s)"
 msgstr "Bağlantıyı düzenle <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/evolution.py:42
+#: ../deskbar/handlers/evolution.py:47
 msgid "Mail (Address Book)"
 msgstr "E-posta (Adres Defteri)"
 
-#: ../deskbar/handlers/evolution.py:43
+#: ../deskbar/handlers/evolution.py:48
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Bağlantılarınızın adını ya da e-posta adresini yazarak onlara posta "
 "gönderebilirsiniz"
 
-#: ../deskbar/handlers/evolution.py:67
+#: ../deskbar/handlers/evolution.py:72
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
@@ -555,241 +647,560 @@ msgstr ""
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
-#: ../deskbar/handlers/files.py:62
-#: ../deskbar/handlers/actions/ActionsFactory.py:35
+#: ../deskbar/handlers/files.py:63
+#: ../deskbar/handlers/actions/ActionsFactory.py:33
 msgid "Location"
 msgstr "Konum"
 
-#: ../deskbar/handlers/files.py:70
+#: ../deskbar/handlers/files.py:71
 msgid "Files, Folders and Places"
 msgstr "Dosyalar, Klasörler ve Yerler"
 
-#: ../deskbar/handlers/files.py:71
+#: ../deskbar/handlers/files.py:72
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Dosyalarınızı, klasörleriniz, yerimlerinizi, sürücülerinizi, ağ yerlerinizi "
 "adlari ile görüntüleyin"
 
-#: ../deskbar/handlers/gdmactions.py:30
-msgid "Shut down of this system now?"
-msgstr "Makine şimdi kapatılsın mı?"
+#: ../deskbar/handlers/gdmactions.py:40
+msgid "Shut down this system now?"
+msgstr "Bu sistem şimdi kapatılsın mı?"
 
-#: ../deskbar/handlers/gdmactions.py:31
-#, python-format
-msgid "This system will be automatically shut down in %s seconds."
-msgstr "Makina %s saniye sonra otomatik olarak kapatılacak."
-
-#: ../deskbar/handlers/gdmactions.py:32 ../deskbar/handlers/gdmactions.py:223
-#: ../deskbar/handlers/gdmactions.py:281
+#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:290
+#: ../deskbar/handlers/gdmactions.py:356
 msgid "Shut Down"
 msgstr "Kapat"
 
-#: ../deskbar/handlers/gdmactions.py:34
+#: ../deskbar/handlers/gdmactions.py:43
 msgid "Log out of this system now?"
 msgstr "Sistem şimdi sonlandırılsın mı?"
 
-#: ../deskbar/handlers/gdmactions.py:35
-#, python-format
-msgid "You will be automatically logged out in %s seconds."
-msgstr "%s saniye sonra otomatik olarak oturumun kapatılacak."
-
-#: ../deskbar/handlers/gdmactions.py:36 ../deskbar/handlers/gdmactions.py:236
-#: ../deskbar/handlers/gdmactions.py:240 ../deskbar/handlers/gdmactions.py:284
+#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:307
+#: ../deskbar/handlers/gdmactions.py:311 ../deskbar/handlers/gdmactions.py:359
 msgid "Log Out"
 msgstr "Çıkış"
 
-#: ../deskbar/handlers/gdmactions.py:38
+#: ../deskbar/handlers/gdmactions.py:46
 msgid "Restart this system now?"
 msgstr "Makine şimdi yeniden başlatılsın mı?"
 
-#: ../deskbar/handlers/gdmactions.py:39
-#, python-format
-msgid "This system will be automatically restarted in %s seconds."
-msgstr "Makine %s saniye sonra otomatik olarak yeniden başlatılacak."
-
-#: ../deskbar/handlers/gdmactions.py:40 ../deskbar/handlers/gdmactions.py:257
-#: ../deskbar/handlers/gdmactions.py:283
+#: ../deskbar/handlers/gdmactions.py:47 ../deskbar/handlers/gdmactions.py:332
+#: ../deskbar/handlers/gdmactions.py:358
 msgid "Restart"
 msgstr "Yeniden Başlat"
 
-#: ../deskbar/handlers/gdmactions.py:42
+#: ../deskbar/handlers/gdmactions.py:49
 msgid "Suspend this system now?"
 msgstr "Makine şimdi askıya alınsın mı?"
 
-#: ../deskbar/handlers/gdmactions.py:43
-#, python-format
-msgid "This system will be automatically suspended in %s seconds."
-msgstr "Makine %s saniye sonra otomatik olarak askıya alınacak."
-
-#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:313
+#: ../deskbar/handlers/gdmactions.py:50 ../deskbar/handlers/gdmactions.py:388
 msgid "Suspend"
 msgstr "Askıya Al"
 
-#: ../deskbar/handlers/gdmactions.py:46
+#: ../deskbar/handlers/gdmactions.py:52
 msgid "Hibernate this system now?"
 msgstr "Makineyi şimdi uyuma moduna alınsın mı?"
 
-#: ../deskbar/handlers/gdmactions.py:47
-#, python-format
-msgid "This system will be automatically hibernated in %s seconds."
-msgstr "Makine %s saniye sonra otomatik olarak uyku moduna alıncak."
-
-#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:315
+#: ../deskbar/handlers/gdmactions.py:53 ../deskbar/handlers/gdmactions.py:390
 msgid "Hibernate"
 msgstr "Uyku Modu"
 
-#: ../deskbar/handlers/gdmactions.py:100
+#: ../deskbar/handlers/gdmactions.py:61
+#, python-format
+msgid "This system will be automatically shut down in %s second."
+msgid_plural "This system will be automatically shut down in %s seconds."
+msgstr[0] "Bu sistem %s saniye sonra kendiliğinden kapatılacak."
+
+#: ../deskbar/handlers/gdmactions.py:65
+#, python-format
+msgid "You will be automatically logged out in %s second."
+msgid_plural "You will be automatically logged out in %s seconds."
+msgstr[0] "%s saniye sonra kendiliğinden oturumunuz kapatılacak."
+
+#: ../deskbar/handlers/gdmactions.py:69
+#, python-format
+msgid "This system will be automatically restarted in %s second."
+msgid_plural "This system will be automatically restarted in %s seconds."
+msgstr[0] "Bu sistem %s saniye sonra kendiliğinden yeniden başlatılacak."
+
+#: ../deskbar/handlers/gdmactions.py:73
+#, python-format
+msgid "This system will be automatically suspended in %s second."
+msgid_plural "This system will be automatically suspended in %s seconds."
+msgstr[0] "Bu sistem %s saniye sonra kendiliğinden askıya alınacak."
+
+#: ../deskbar/handlers/gdmactions.py:77
+#, python-format
+msgid "This system will be automatically hibernated in %s second."
+msgid_plural "This system will be automatically hibernated in %s seconds."
+msgstr[0] "Bu sistem %s saniye sonra kendiliğinden uyku moduna alıncak."
+
+#: ../deskbar/handlers/gdmactions.py:127
 msgid "Suspend the machine"
 msgstr "Makineyi askıya al"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:148
 msgid "Hibernate the machine"
 msgstr "Makineyi uyuma moduna al"
 
-#: ../deskbar/handlers/gdmactions.py:134
+#: ../deskbar/handlers/gdmactions.py:169
 msgid "Shutdown the machine"
 msgstr "Makineyi kapat"
 
-#: ../deskbar/handlers/gdmactions.py:155
+#: ../deskbar/handlers/gdmactions.py:191
+msgid "Reboot the machine"
+msgstr "Makineyi yeniden başlat"
+
+#: ../deskbar/handlers/gdmactions.py:213
 msgid "Lock the screen"
 msgstr "Ekranı kilitle"
 
-#: ../deskbar/handlers/gdmactions.py:178 ../deskbar/handlers/gdmactions.py:302
+#: ../deskbar/handlers/gdmactions.py:241 ../deskbar/handlers/gdmactions.py:377
 msgid "Lock"
 msgstr "Kilitle"
 
-#: ../deskbar/handlers/gdmactions.py:219
+#: ../deskbar/handlers/gdmactions.py:286
 msgid "Turn off the computer"
 msgstr "Bilgisayarı kapat"
 
-#: ../deskbar/handlers/gdmactions.py:253
+#: ../deskbar/handlers/gdmactions.py:328
 msgid "Restart the computer"
 msgstr "Bilgisayarı yeniden başlat"
 
-#: ../deskbar/handlers/gdmactions.py:268 ../deskbar/handlers/gdmactions.py:272
-#: ../deskbar/handlers/gdmactions.py:282
+#: ../deskbar/handlers/gdmactions.py:343 ../deskbar/handlers/gdmactions.py:347
+#: ../deskbar/handlers/gdmactions.py:357
 msgid "Switch User"
 msgstr "Kullanıcı Değiştir"
 
-#: ../deskbar/handlers/gdmactions.py:278
+#: ../deskbar/handlers/gdmactions.py:353
 msgid "Computer Actions"
 msgstr "Bilgisayar Eylemleri"
 
-#: ../deskbar/handlers/gdmactions.py:279
+#: ../deskbar/handlers/gdmactions.py:354
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Çıkış, kapatma, yeniden başlatma, askıya alma ve ilgili eylemler."
 
-#: ../deskbar/handlers/gdmactions.py:317
+#: ../deskbar/handlers/gdmactions.py:392
 msgid "Shutdown"
 msgstr "Kapat"
+
+#: ../deskbar/handlers/gdmactions.py:394
+msgid "Reboot"
+msgstr "Yeniden Başlat"
+
+#: ../deskbar/handlers/googlecodesearch.py:28
+msgid "Google Code Search"
+msgstr "Google Kod Araması"
+
+#: ../deskbar/handlers/googlecodesearch.py:29
+msgid "Search public source code for function definitions and sample code"
+msgstr "İşlev tanımları ve örnek kodu için genel kaynak kodlarını ara"
+
+#: ../deskbar/handlers/googlecodesearch.py:118
+#, python-format
+msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
+msgstr "<b>Google Kod Araması</b> üzerindeki <i>%(name)s</i> görüntüle"
+
+#: ../deskbar/handlers/googlecodesearch.py:126
+#, python-format
+msgid "Open package <i>%(name)s</i>"
+msgstr "<i>%(name)s</i> paketini aç"
+
+#: ../deskbar/handlers/googlecodesearch.py:141
+#, python-format
+msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
+msgstr "<b>Google Codesearch</b> kullanarak <i>%(name)s</i> metnini ara"
+
+#: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:30
+msgid "Arabic"
+msgstr "Arapça"
+
+#: ../deskbar/handlers/googlesearch.py:31 ../deskbar/handlers/yahoo.py:31
+msgid "Bulgarian"
+msgstr "Bulgarca"
+
+#: ../deskbar/handlers/googlesearch.py:32
+#: ../deskbar/handlers/wikipedia-suggest.py:36 ../deskbar/handlers/yahoo.py:32
+msgid "Catalan"
+msgstr "Katalanca"
+
+#: ../deskbar/handlers/googlesearch.py:33 ../deskbar/handlers/yahoo.py:33
+msgid "Chinese simplified"
+msgstr "Çince basitleştirilmiş"
+
+#: ../deskbar/handlers/googlesearch.py:34 ../deskbar/handlers/yahoo.py:34
+msgid "Chinese traditional"
+msgstr "Çince geleneksel"
+
+#: ../deskbar/handlers/googlesearch.py:35 ../deskbar/handlers/yahoo.py:35
+msgid "Croatian"
+msgstr "Hırvatça"
+
+#: ../deskbar/handlers/googlesearch.py:36 ../deskbar/handlers/yahoo.py:36
+msgid "Czech"
+msgstr "Çekçe"
+
+#: ../deskbar/handlers/googlesearch.py:37 ../deskbar/handlers/yahoo.py:37
+msgid "Danish"
+msgstr "Danca"
+
+#: ../deskbar/handlers/googlesearch.py:38
+#: ../deskbar/handlers/wikipedia-suggest.py:28 ../deskbar/handlers/yahoo.py:38
+msgid "Dutch"
+msgstr "Felemenkçe"
+
+#: ../deskbar/handlers/googlesearch.py:39
+#: ../deskbar/handlers/wikipedia-suggest.py:22 ../deskbar/handlers/yahoo.py:39
+msgid "English"
+msgstr "İngilizce"
+
+#: ../deskbar/handlers/googlesearch.py:40 ../deskbar/handlers/yahoo.py:40
+msgid "Estonian"
+msgstr "Estonyaca"
+
+#: ../deskbar/handlers/googlesearch.py:41
+#: ../deskbar/handlers/wikipedia-suggest.py:35 ../deskbar/handlers/yahoo.py:41
+msgid "Finnish"
+msgstr "Fince"
+
+#: ../deskbar/handlers/googlesearch.py:42
+#: ../deskbar/handlers/wikipedia-suggest.py:24 ../deskbar/handlers/yahoo.py:42
+msgid "French"
+msgstr "Fransızca"
+
+#: ../deskbar/handlers/googlesearch.py:43
+#: ../deskbar/handlers/wikipedia-suggest.py:23 ../deskbar/handlers/yahoo.py:43
+msgid "German"
+msgstr "Almanca"
+
+#: ../deskbar/handlers/googlesearch.py:44 ../deskbar/handlers/yahoo.py:44
+msgid "Greek"
+msgstr "Yunanca"
+
+#: ../deskbar/handlers/googlesearch.py:45 ../deskbar/handlers/yahoo.py:45
+msgid "Hebrew"
+msgstr "İbranice"
+
+#: ../deskbar/handlers/googlesearch.py:46 ../deskbar/handlers/yahoo.py:46
+msgid "Hungarian"
+msgstr "Macarca"
+
+#: ../deskbar/handlers/googlesearch.py:47 ../deskbar/handlers/yahoo.py:47
+msgid "Icelandic"
+msgstr "İzlandaca"
+
+#: ../deskbar/handlers/googlesearch.py:48 ../deskbar/handlers/yahoo.py:48
+msgid "Indonesian"
+msgstr "Endonezce"
+
+#: ../deskbar/handlers/googlesearch.py:49
+#: ../deskbar/handlers/wikipedia-suggest.py:27 ../deskbar/handlers/yahoo.py:49
+msgid "Italian"
+msgstr "İtalyanca"
+
+#: ../deskbar/handlers/googlesearch.py:50
+#: ../deskbar/handlers/wikipedia-suggest.py:26 ../deskbar/handlers/yahoo.py:50
+msgid "Japanese"
+msgstr "Japonca"
+
+#: ../deskbar/handlers/googlesearch.py:51 ../deskbar/handlers/yahoo.py:51
+msgid "Korean"
+msgstr "Korece"
+
+#: ../deskbar/handlers/googlesearch.py:52 ../deskbar/handlers/yahoo.py:52
+msgid "Latvian"
+msgstr "Latviyanca"
+
+#: ../deskbar/handlers/googlesearch.py:53 ../deskbar/handlers/yahoo.py:53
+msgid "Lithuanian"
+msgstr "Litvanyaca"
+
+#: ../deskbar/handlers/googlesearch.py:54
+#: ../deskbar/handlers/wikipedia-suggest.py:34 ../deskbar/handlers/yahoo.py:54
+msgid "Norwegian"
+msgstr "Norveççe"
+
+#: ../deskbar/handlers/googlesearch.py:55
+#: ../deskbar/handlers/wikipedia-suggest.py:25 ../deskbar/handlers/yahoo.py:56
+msgid "Polish"
+msgstr "Lehçe"
+
+#: ../deskbar/handlers/googlesearch.py:56
+#: ../deskbar/handlers/wikipedia-suggest.py:29 ../deskbar/handlers/yahoo.py:57
+msgid "Portuguese"
+msgstr "Portekizce"
+
+#: ../deskbar/handlers/googlesearch.py:57
+#: ../deskbar/handlers/wikipedia-suggest.py:38 ../deskbar/handlers/yahoo.py:58
+msgid "Romanian"
+msgstr "Romence"
+
+#: ../deskbar/handlers/googlesearch.py:58
+#: ../deskbar/handlers/wikipedia-suggest.py:31 ../deskbar/handlers/yahoo.py:59
+msgid "Russian"
+msgstr "Rusça"
+
+#: ../deskbar/handlers/googlesearch.py:59 ../deskbar/handlers/yahoo.py:61
+msgid "Serbian"
+msgstr "Sırpça"
+
+#: ../deskbar/handlers/googlesearch.py:60 ../deskbar/handlers/yahoo.py:60
+msgid "Slovak"
+msgstr "Slovakça"
+
+#: ../deskbar/handlers/googlesearch.py:61 ../deskbar/handlers/yahoo.py:62
+msgid "Slovenian"
+msgstr "Slovence"
+
+#: ../deskbar/handlers/googlesearch.py:62
+#: ../deskbar/handlers/wikipedia-suggest.py:30 ../deskbar/handlers/yahoo.py:63
+msgid "Spanish"
+msgstr "İspanyolca"
+
+#: ../deskbar/handlers/googlesearch.py:63
+#: ../deskbar/handlers/wikipedia-suggest.py:32 ../deskbar/handlers/yahoo.py:64
+msgid "Swedish"
+msgstr "İsveççe"
+
+#: ../deskbar/handlers/googlesearch.py:64
+#: ../deskbar/handlers/wikipedia-suggest.py:39 ../deskbar/handlers/yahoo.py:66
+msgid "Turkish"
+msgstr "Türkçe"
+
+#: ../deskbar/handlers/googlesearch.py:78
+msgid "Google Search"
+msgstr "Google Araması"
+
+#: ../deskbar/handlers/googlesearch.py:79
+msgid "Search terms through Google Search engine."
+msgstr "Terimleri Google Arama aracılığıyla araştırır."
+
+#: ../deskbar/handlers/googlesearch.py:82 ../deskbar/handlers/yahoo.py:96
+msgid "You can configure in which language the results should be."
+msgstr "Sonuçşarın hangi dil içinde olması gerektiğini yapılandırabilirsiniz."
+
+#: ../deskbar/handlers/googlesearch.py:195
+msgid "Python module json or simplejson are not available"
+msgstr "Python modülü json ya da simplejson mevcut değil"
+
+#: ../deskbar/handlers/googlesearch.py:235
+#, python-format
+msgid "Search <b>Google</b> for <i>%(name)s</i>"
+msgstr "<i>%(name)s</i> için <b>Google</b> araması yap"
+
+#: ../deskbar/handlers/googlesearch.py:258
+msgid "Configure Google"
+msgstr "Google Yapılandır"
+
+#: ../deskbar/handlers/googlesearch.py:268 ../deskbar/handlers/yahoo.py:419
+msgid "<b>Choose the language the results should be in:</b>"
+msgstr "<b>Sonuçların olması gerektiği dili seçin:</b>"
 
 #: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
 msgstr "Daha önce yapılan aramaları tanı"
 
-#: ../deskbar/handlers/iswitch-window.py:15
+#: ../deskbar/handlers/iswitch-window.py:21
 #, python-format
 msgid "Switch to <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> penceresine geç"
 
-#: ../deskbar/handlers/iswitch-window.py:47
+#: ../deskbar/handlers/iswitch-window.py:59
 msgid "Window Switcher"
 msgstr "Pencere Değiştirici"
 
-#: ../deskbar/handlers/iswitch-window.py:48
+#: ../deskbar/handlers/iswitch-window.py:60
 msgid "Switch to an existing window by name."
 msgstr "Var olan bir pencereye adı ile geçiş yap."
 
-#: ../deskbar/handlers/iswitch-window.py:51
+#: ../deskbar/handlers/iswitch-window.py:63
 msgid "Windows"
 msgstr "Pencereler"
 
-#: ../deskbar/handlers/mozilla.py:126
+#: ../deskbar/handlers/mozilla.py:159
 msgid "Web Bookmarks (Mozilla)"
 msgstr "Web Yer İmleri (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:186 ../deskbar/handlers/mozilla.py:259
+#: ../deskbar/handlers/mozilla.py:220 ../deskbar/handlers/mozilla.py:301
+#: ../deskbar/handlers/mozilla.py:838
+#, python-format
+msgid "Firefox version must be at least %s and less than %s"
+msgstr "Firefox sürümü en az %s olmalı ve %s sürümünden daha düşük olmalı"
+
+#: ../deskbar/handlers/mozilla.py:223 ../deskbar/handlers/mozilla.py:311
+#: ../deskbar/handlers/mozilla.py:841
 msgid "Mozilla/Firefox is not your preferred browser."
 msgstr "Mozilla/Firefox tercih ettiğiniz tarayıcı değil."
 
-#: ../deskbar/handlers/mozilla.py:193
+#: ../deskbar/handlers/mozilla.py:237
 msgid "Web Searches (Mozilla)"
 msgstr "Web Aramaları (Mozilla)"
 
-#: ../deskbar/handlers/mozilla.py:253
+#. Correct firefox version or iceweasel
+#: ../deskbar/handlers/mozilla.py:305
 msgid "You can customize which search engines are offered."
 msgstr "Sunulan arama motorlarını özelleştirebilirsiniz."
 
-#: ../deskbar/handlers/mozilla.py:737
+#: ../deskbar/handlers/mozilla.py:792
 msgid "Web History (Mozilla)"
 msgstr "Web Geçmişi (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:77
+#: ../deskbar/handlers/opensearch.py:86
+#, python-format
+msgid "Website: <b>%(name)s</b>"
+msgstr "Web sitesi: <b>%(name)s</b>"
+
+#: ../deskbar/handlers/opensearch.py:92
+msgid "OpenSearch"
+msgstr "OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:93
+msgid "Searches any OpenSearch compliant website"
+msgstr "OpenSearch uyumlu web sistesi ara"
+
+#: ../deskbar/handlers/opensearch.py:97
+msgid "You can configure the search engines you want to use."
+msgstr "Kullanmak istediğiniz arama motorlarını yapılandırabilirsiniz."
+
+#: ../deskbar/handlers/opensearch.py:211
+msgid "OpenSearch Settings"
+msgstr "OpenSearch Ayarları"
+
+#: ../deskbar/handlers/opensearch.py:218
+msgid "You can manage the list of websites used by the OpenSearch module here."
+msgstr ""
+"Buradaki OpenSearch modülü tarafından kullanılan web sitelerinin listesini "
+"yönetebilirsiniz."
+
+#: ../deskbar/handlers/opensearch.py:410
+msgid ""
+"Enter the location (URL) of the OpenSearch description document for this "
+"website. The name and description can be loaded automatically from this "
+"document or you can just enter your own values manually."
+msgstr ""
+"Bu web sitesi için OpenSearch tanım belgesinin konumunu (URL) girin. İsim ve "
+"tanım bu belgeden kendiliğinden yüklenebilir ya da kendi değerlerinizi el "
+"ile girebilirsiniz."
+
+#: ../deskbar/handlers/opensearch.py:427
+msgid "_Location (URL):"
+msgstr "_Konum (URL):"
+
+#: ../deskbar/handlers/opensearch.py:442
+msgid "_Name:"
+msgstr "İ_sim:"
+
+#: ../deskbar/handlers/opensearch.py:453
+msgid "_Description:"
+msgstr "_Tanım:"
+
+#: ../deskbar/handlers/opensearch.py:469
+msgid "Edit OpenSearch Website"
+msgstr "OpenSearch Web Sitesini Düzenle"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Location missing"
+msgstr "Konum eksik"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Please enter a valid location (URL) for this website"
+msgstr "Lütfen bu web sitesi için geçerli bir konum (URL) girin"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Name missing"
+msgstr "İsim eksik"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Please enter a name for this website"
+msgstr "Lütfe bu web sistesi için bir isim girin"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Description missing"
+msgstr "Tanım eksik"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Please enter a description for this website"
+msgstr "Lütfen bu web sitesi için bir tanım girin"
+
+#: ../deskbar/handlers/opensearch.py:529
+msgid "Unable to load description document"
+msgstr "Tanım belgesi yüklenemedi"
+
+#: ../deskbar/handlers/opensearch.py:530
+msgid "Make sure the URL points to a valid OpenSearch description document."
+msgstr ""
+"URL'nin geçerli bir OpenSearch tanım belgesini belirttiğinden emin olun."
+
+#: ../deskbar/handlers/opensearch.py:546
+msgid "Add OpenSearch Website"
+msgstr "OpenSearch Web Sitesi Ekle"
+
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Sözlükte %s için ara"
 
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/programs.py:93
 #, python-format
 msgid "Search for file names like %s"
 msgstr "%s gibi dosya isimleri ara"
 
-#: ../deskbar/handlers/programs.py:90
+#: ../deskbar/handlers/programs.py:99
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Devhelp içinde %s için ara"
 
-#: ../deskbar/handlers/programs.py:124
+#: ../deskbar/handlers/programs.py:133
 msgid "Dictionary"
 msgstr "Sözlük"
 
-#: ../deskbar/handlers/programs.py:125
+#: ../deskbar/handlers/programs.py:134
 msgid "Look up word definitions in the dictionary"
 msgstr "Kelime tanımlarını sözlükte ara"
 
-#: ../deskbar/handlers/programs.py:141
+#: ../deskbar/handlers/programs.py:150
 msgid "GNOME dictionary is not installed"
 msgstr "GNOME sözlüğü yüklenmedi"
 
-#: ../deskbar/handlers/programs.py:148
+#: ../deskbar/handlers/programs.py:157
 msgid "Files and Folders Search"
 msgstr "Dosya ve Klasör Arama"
 
-#: ../deskbar/handlers/programs.py:149
+#: ../deskbar/handlers/programs.py:158
 msgid "Find files and folders by searching for a name pattern"
 msgstr "Bir ad şablonu için arama yaparak dosya ve klasörleri bul"
 
-#: ../deskbar/handlers/programs.py:165
+#: ../deskbar/handlers/programs.py:174
 msgid "GNOME search tool is not installed"
 msgstr "GNOME tarama araçları yüklenmedi"
 
-#: ../deskbar/handlers/programs.py:172
+#: ../deskbar/handlers/programs.py:181
 msgid "Developer Documentation"
 msgstr "Geliştirici Belgelendirmesi"
 
-#: ../deskbar/handlers/programs.py:173
+#: ../deskbar/handlers/programs.py:182
 msgid "Search Devhelp for a function name"
 msgstr "Bir işlev adını Devhelp içinde ara"
 
-#: ../deskbar/handlers/programs.py:192
+#: ../deskbar/handlers/programs.py:201
 msgid "Devhelp is not installed"
 msgstr "Devhelp yüklenmedi"
 
-#: ../deskbar/handlers/programs.py:241
+#: ../deskbar/handlers/programs.py:250
 #, python-format
 msgid "Execute %s in terminal"
 msgstr "Uç Birimde %s çalıştır"
 
-#: ../deskbar/handlers/programs.py:243
+#: ../deskbar/handlers/programs.py:252
 #, python-format
 msgid "Execute %s"
 msgstr "%s çalıştır"
 
-#: ../deskbar/handlers/programs.py:259
+#: ../deskbar/handlers/programs.py:279
 msgid "Programs"
 msgstr "Programlar"
 
-#: ../deskbar/handlers/programs.py:260
+#: ../deskbar/handlers/programs.py:280
 msgid "Launch a program by its name and/or description"
 msgstr "Ad ve/veya tanıma göre bir program çalıştır"
 
@@ -807,35 +1218,35 @@ msgstr ""
 "Bu işleyici daha güncel bir gtk sürümüne ihtiyaç duymakta (2.9.0 veya daha "
 "yeni)."
 
-#: ../deskbar/handlers/templates.py:37
+#: ../deskbar/handlers/templates.py:44
 #, python-format
 msgid "Create %s"
 msgstr "%s Oluştur"
 
-#: ../deskbar/handlers/templates.py:40
+#: ../deskbar/handlers/templates.py:47
 msgid "Create Document"
 msgstr "Belge Oluştur"
 
-#: ../deskbar/handlers/templates.py:53
+#: ../deskbar/handlers/templates.py:60
 msgid "Name:"
 msgstr "isim:"
 
-#: ../deskbar/handlers/templates.py:60
+#: ../deskbar/handlers/templates.py:67
 msgid "Folder:"
 msgstr "Klasör:"
 
-#: ../deskbar/handlers/templates.py:64
+#: ../deskbar/handlers/templates.py:71
 msgid "Choose Folder"
 msgstr "Klasör Seç"
 
-#: ../deskbar/handlers/templates.py:119
+#: ../deskbar/handlers/templates.py:126
 #, python-format
 msgid "A file named \"%s\" already exists.  Do you want to replace it?"
 msgstr ""
 "\"%s\" olarak isimlendirilmiş bir dosya zaten mevcut.  Yerine koymak istiyor "
 "musunuz?"
 
-#: ../deskbar/handlers/templates.py:123
+#: ../deskbar/handlers/templates.py:130
 #, python-format
 msgid ""
 "The file already exists in \"%s\".  Replacing it will overwrite its contents."
@@ -843,62 +1254,62 @@ msgstr ""
 "\"%s\" isimlendirilen dosya zaten mevcut.  Yerine koymak iceriginin uzerine "
 "yazilmasina sebep olacak."
 
-#: ../deskbar/handlers/templates.py:130
+#: ../deskbar/handlers/templates.py:137
 msgid "Replace"
 msgstr "Yenile"
 
-#: ../deskbar/handlers/templates.py:166
+#: ../deskbar/handlers/templates.py:173
 msgid "Templates"
 msgstr "Şablomlar"
 
-#: ../deskbar/handlers/templates.py:167
+#: ../deskbar/handlers/templates.py:174
 msgid "Create new files from your templates"
 msgstr "Şablomlarınızdan yeni dosyalar oluşturun"
 
-#: ../deskbar/handlers/tomboy.py:37
+#: ../deskbar/handlers/tomboy.py:41
 #, python-format
 msgid "Open note <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> notu aç"
 
-#: ../deskbar/handlers/tomboy.py:50
+#: ../deskbar/handlers/tomboy.py:62
 msgid "Really delete this note?"
 msgstr "Bu notu silmek istediğinizden emin misiniz?"
 
-#: ../deskbar/handlers/tomboy.py:51
+#: ../deskbar/handlers/tomboy.py:63
 msgid "If you delete a note it is permanently lost."
 msgstr "Eğer bu notu silerseniz kalıcı olarak kaybolacak."
 
-#: ../deskbar/handlers/tomboy.py:63
+#: ../deskbar/handlers/tomboy.py:75
 #, python-format
 msgid "Delete note <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> notu sil"
 
-#: ../deskbar/handlers/tomboy.py:88
+#: ../deskbar/handlers/tomboy.py:104
 #, python-format
 msgid "Create note <b>%(name)s</b>"
 msgstr "<b>%(name)s</b> not oluştur"
 
-#: ../deskbar/handlers/tomboy.py:110
+#: ../deskbar/handlers/tomboy.py:130
 msgid "Title"
 msgstr "Başlık"
 
-#: ../deskbar/handlers/tomboy.py:111
+#: ../deskbar/handlers/tomboy.py:131
 msgid "Contents"
 msgstr "İçerikler"
 
-#: ../deskbar/handlers/tomboy.py:130
+#: ../deskbar/handlers/tomboy.py:150
 msgid "Tomboy Notes"
 msgstr "Tomboy Notları"
 
-#: ../deskbar/handlers/tomboy.py:131
+#: ../deskbar/handlers/tomboy.py:151
 msgid "Search your Tomboy notes"
 msgstr "Tomboy notlarını ara"
 
-#: ../deskbar/handlers/tomboy.py:198
+#: ../deskbar/handlers/tomboy.py:238
 msgid "Tomboy does not seem to be installed."
 msgstr "Tomboy yüklenmiş gibi görünmüyor."
 
-#: ../deskbar/handlers/tomboy.py:235
+#: ../deskbar/handlers/tomboy.py:278
 #, python-format
 msgid ""
 "Tomboy does not seem to be the correct version.\n"
@@ -907,19 +1318,162 @@ msgstr ""
 "Tomboy versiyonu doğru gözükmüyor.\n"
 "Tomboy %s ya da daha iyisi yüklenmeli."
 
+#: ../deskbar/handlers/twitter.py:36
+#, python-format
+msgid ""
+"Failed to post update to %(domain)s.\n"
+"Please make sure that:\n"
+"\n"
+" • Your internet connection is working\n"
+" • You can connect to <i>http://%(domain)s</i> in\n"
+"    your web browser\n"
+" • Your credentials in the preferences are correct"
+msgstr ""
+"Güncellemenin %(domain)s konumuna yollanması başarısız oldu.\n"
+"Lütfen bunlardan emin olun:\n"
+"\n"
+" • İnternet bağlantınız çalıştığından\n"
+" • Web tarayıcınızda <i>http://%(domain)s</i> adresine\n"
+"    bağlanabildiğinizden\n"
+" • Tercihlerdeki bilgilerinizin doğru olduğundan."
+
+#: ../deskbar/handlers/twitter.py:97
+msgid ""
+"A post is already awaiting submission, please wait before you post another "
+"message"
+msgstr ""
+"Bir gönderi zaten yollanmak için bekliyor, lütfen başka bir ileti "
+"göndermeden önce bekleyin."
+
+#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
+#: ../deskbar/handlers/twitter.py:153
+#, python-format
+msgid "Error posting to %s"
+msgstr "%s gönderiminde hata"
+
+#. TRANSLATORS: An example display of the below string:
+#.
+#. (125) Post "I can eat glass"
+#.
+#. The number in the parens indicates how many characters the user
+#. has left of the maximum message size. It should be at the start of
+#. the string as to not be hidden by ellipsation.
+#.
+#: ../deskbar/handlers/twitter.py:167
+#, python-format
+msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
+msgstr "<small>(%(remain)s)</small> Gönderi <i>\"%(msg)s\"</i>"
+
+#: ../deskbar/handlers/twitter.py:170
+#, python-format
+msgid ""
+"Update your %s account with the message:\n"
+"\n"
+"\t<i>%s</i>"
+msgstr ""
+"%s hesabınızı bu ileti ile güncelleyin:\n"
+"\n"
+"\t<i>%s</i>"
+
+#: ../deskbar/handlers/twitter.py:207
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../deskbar/handlers/twitter.py:208
+msgid "Post updates to your Twitter account"
+msgstr "Güncellemeleri Twitter hesabınıza gönderin"
+
+#: ../deskbar/handlers/twitter.py:278
+msgid "identi.ca"
+msgstr "identi.ca"
+
+#: ../deskbar/handlers/twitter.py:279
+msgid "Post updates to your identi.ca account"
+msgstr "Güncellemeleri identi.ca hesabınıza gönderin"
+
+#: ../deskbar/handlers/twitter.py:293
+msgid ""
+"Please note that Deskbar Applet does not support authentication via OpenID. "
+"You must configure a username and password on the <i>identi.ca</i> website "
+"if you haven't already."
+msgstr ""
+"Lütfen Deskbar Uygulamacığının OpenID ile kimlik doğrulamayı "
+"desteklemediğine dikkat edin. Eğer hala yoksa </i>identi.ca<i> web "
+"sitesinden bir kullanıcı adı ve parola yapılandırmalısınız."
+
+#: ../deskbar/handlers/twitter.py:295
+msgid "Visit identi.ca website"
+msgstr "Idneti.ca web sitesini ziyaret et"
+
 #: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Tam adres yazarak web sayfalarını aç ve mektup gönder"
 
-#: ../deskbar/handlers/yahoo.py:41
+#: ../deskbar/handlers/wikipedia-suggest.py:33
+msgid "Chinese"
+msgstr "Çince"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:37
+msgid "Ukrainian"
+msgstr "Ukraynaca"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:48
+#, python-format
+msgid "Open article <i>%(name)s</i> in <b>Wikipedia</b>"
+msgstr "<b>Wikipedia</b> içinde <i>%(name)s</i> makalesini aç"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:63
+msgid "Wikipedia Suggest"
+msgstr "Wikipedia Suggest"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:64
+msgid "As you type, Wikipedia will offer suggestions."
+msgstr "Yazarken, Wikipedia tavsiyeler sunacak."
+
+#: ../deskbar/handlers/wikipedia-suggest.py:137
+msgid "Wikipedia Suggest settings"
+msgstr "Wikipedia Suggest ayarları"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:144
+msgid ""
+"Choose the language you want to use or enter the code of your language "
+"manually"
+msgstr "Kullanmak istediğiniz dili seçin ya da dilinizin kodunu el ile girin"
+
+#: ../deskbar/handlers/yahoo.py:55
+msgid "Persian"
+msgstr "Farsça"
+
+#: ../deskbar/handlers/yahoo.py:65
+msgid "Thai"
+msgstr "Tay Dili"
+
+#: ../deskbar/handlers/yahoo.py:93
 msgid "Yahoo! Search"
 msgstr "Yahoo! Arama"
 
-#: ../deskbar/handlers/yahoo.py:42
+#: ../deskbar/handlers/yahoo.py:94
 msgid "Search Yahoo! as you type"
 msgstr "Yazar yazmaz Yahoo! araması yap"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:62
+#: ../deskbar/handlers/yahoo.py:308
+#, python-format
+msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
+msgstr "<i>%(name)s</i> için <b>Yahoo!</b> araması yap"
+
+#: ../deskbar/handlers/yahoo.py:326
+msgid "Yahoo! Suggestions"
+msgstr "Yahoo! Tavsiyeleri"
+
+#: ../deskbar/handlers/yahoo.py:327
+msgid "Provides suggestions for queries related to the submitted query"
+msgstr "Girilen sorguyla alakalı sorgular için tavsiyeler sağlar"
+
+#: ../deskbar/handlers/yahoo.py:409
+msgid "Configure Yahoo!"
+msgstr "Yahoo! Yapılandır"
+
+#: ../deskbar/handlers/actions/ActionsFactory.py:60
 #, python-format
 msgid "URL of %s"
 msgstr "%s URL'si"
@@ -940,12 +1494,6 @@ msgstr "%s konumuna git"
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr " <b>%(name)s</b> (%(prog)s) Başlat"
-
-#: ../deskbar/handlers/actions/OpenFileAction.py:51
-#: ../deskbar/handlers/actions/ShowUrlAction.py:24
-#, python-format
-msgid "Open %s"
-msgstr "%s dosyasını aç"
 
 #: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
 #, python-format
@@ -979,53 +1527,64 @@ msgstr "<b>%(name)s</b> (%(email)s) bağlantısına e-posta gönder"
 msgid "Send %s via e-mail"
 msgstr "%s dosyasını e-posta ile gönder"
 
-#: ../deskbar/ui/About.py:22
+#: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Bir hepsi bir arada eylem çubuğu."
 
-#: ../deskbar/ui/About.py:25
+#: ../deskbar/ui/About.py:32
 msgid "Deskbar Website"
 msgstr "Deskbar Web Sitesi"
 
-#. about.set_artists([])
-#. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
 #: ../deskbar/ui/About.py:36
 msgid "translator-credits"
-msgstr ""
-"Deniz Koçak <deniz@gaplan.org>\n"
-"Barış Çiçek <baris@teamforce.name.tr>"
+msgstr "Barış Çiçek <baris@teamforce.name.tr>"
 
 #: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
 msgid "<b>Search:</b>"
 msgstr "<b>Arama:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacItems.py:22
-msgid "default"
-msgstr "öntanımlı"
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
+msgid "Display additional actions"
+msgstr "Ek eylemleri göster"
 
-#. translators: _H is a mnemonic, i.e. pressing Alt+h will focus the widget
-#: ../deskbar/ui/CuemiacAlignedView.py:88
-#: ../deskbar/ui/CuemiacWindowView.py:77
-msgid "_History"
-msgstr "G_eçmiş"
-
-#: ../deskbar/ui/CuemiacAlignedView.py:150
-#: ../deskbar/ui/CuemiacWindowView.py:139
+#: ../deskbar/ui/AbstractCuemiacView.py:146
 msgid "Back to Matches"
 msgstr "Eşleşenlere Dön"
 
-#: ../deskbar/ui/DeskbarTray.py:44
+#: ../deskbar/ui/DeskbarApplet.py:74 ../deskbar/ui/DeskbarStatusIcon.py:160
 msgid "Show search entry"
 msgstr "Arama girişi göster"
 
-#: ../deskbar/ui/DeskbarTray.py:111
-msgid ""
-"Some potentially old modules that make use of an old Deskbar-Applet API have "
-"been found. Remove these files for this warning to disappear.\n"
-msgstr ""
-"Eski bir Deskbar-Applet API kullanan potansiyel olarak eski modüller "
-"bulundu. Bu uyarının gösterilmemesi için bu dosyaları kaldırın.\n"
+#: ../deskbar/ui/DeskbarApplet.py:75
+msgid "Show previously used actions"
+msgstr "Daha önce kullanılan eylemleri göster"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:65
+msgid "Clear History"
+msgstr "Geçmişi Temizle"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:69
+msgid "Preferences"
+msgstr "Tercihler"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:73
+msgid "Help"
+msgstr "Yardım"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:77
+msgid "About"
+msgstr "Hakkında"
+
+#: ../deskbar/ui/DeskbarStatusIcon.py:83
+msgid "Quit"
+msgstr "Çık"
+
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:112
+msgid "<i>Empty</i>"
+msgstr "<i>Boş</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
 msgid "New accelerator..."
@@ -1042,44 +1601,95 @@ msgstr ""
 "engelleyebilir.\n"
 "Lütfen aynı anda Kontrol, Alt veya üst karakter tuşu ile birlikte deneyin.\n"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:79
-msgid "Reload all extensions"
-msgstr "Tüm eklentileri yeniden yükle"
-
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:84
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:96
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr ""
 "<i><small>Bir eklentinin sırasını değiştirmek için sürükle ve bırak yapın.</"
 "small></i>"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:335
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:170
+msgid "All Extensions"
+msgstr "Tüm Eklentiler"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:231
 msgid "A problem occured"
 msgstr "Bir sorun oluştu"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:400
-msgid "Handler has been installed successfully"
-msgstr "İşleyici başarıyla kuruldu"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:239
+msgid "Extension has been installed successfully"
+msgstr "Ek başarıyla kuruldu"
 
-#: ../deskbar/ui/preferences/DeskbarPreferences.py:403
-msgid "Handler could not be installed due a problem with the provided file"
-msgstr "Sağlanan dosyadan kaynaklanan bir sorundan dolayı işleyici kurulamadı"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:534
+msgid "Installing extension"
+msgstr "Eklenti yükleniyor"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:535
+msgid "The extension will be downloaded and installed."
+msgstr "Eklenti indirilecek ve yüklenecek."
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:537
+msgid "Retrieving list of extensions"
+msgstr "Ekleti listesi alınıyor"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:538
+msgid "A list of available extensions is downloaded."
+msgstr "Mevcut eklentilerin bir listesi indirildi."
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:539
+msgid "Retrieving the extension index"
+msgstr "Eklenti dizini alınıyor"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:541
+msgid "Downloading extension"
+msgstr "Eklenti indiriliyor"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:543
+msgid "Extracting archive"
+msgstr "Arşiv açılıyor"
+
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:596
+msgid ""
+"Extension could not be installed due to a problem with the provided file"
+msgstr "Sağlanan dosyadan kaynaklanan bir sorundan dolayı eklenti kurulamadı"
 
 #: ../deskbar/ui/preferences/ErrorDialog.py:8
 msgid "Error"
 msgstr "Hata"
 
-#: ../deskbar/ui/preferences/ErrorDialog.py:26
+#: ../deskbar/ui/preferences/ErrorDialog.py:27
 msgid "Check the description beneath for further details."
 msgstr "Daha fazla detay için tanımın aşağısını kontrol edin."
 
-#: ../deskbar/ui/preferences/ErrorDialog.py:32
+#: ../deskbar/ui/preferences/ErrorDialog.py:33
 msgid "Details"
 msgstr "Detaylar"
 
-#: ../deskbar/ui/preferences/ModuleListView.py:53
+#: ../deskbar/ui/preferences/ModuleListView.py:55
 msgid "Version:"
 msgstr "Sürüm:"
 
-#: ../deskbar/ui/preferences/ModuleListView.py:56
+#: ../deskbar/ui/preferences/ModuleListView.py:58
 msgid "Update Available"
 msgstr "Güncellemeler mevcut"
+
+#~ msgid "<i>Choose action</i>"
+#~ msgstr "<i>Eylem seçin</i>"
+
+#~ msgid "News from %s"
+#~ msgstr "%s konumundan haber"
+
+#~ msgid "name"
+#~ msgstr "isim"
+
+#~ msgid "default"
+#~ msgstr "öntanımlı"
+
+#~ msgid "_History"
+#~ msgstr "G_eçmiş"
+
+#~ msgid ""
+#~ "Some potentially old modules that make use of an old Deskbar-Applet API "
+#~ "have been found. Remove these files for this warning to disappear.\n"
+#~ msgstr ""
+#~ "Eski bir Deskbar-Applet API kullanan potansiyel olarak eski modüller "
+#~ "bulundu. Bu uyarının gösterilmemesi için bu dosyaları kaldırın.\n"
