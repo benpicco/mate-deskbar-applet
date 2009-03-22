@@ -37,6 +37,7 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
         
         self.connect("delete-event", self._controller.on_quit)
         self.connect("destroy-event", self._controller.on_quit)
+        self.connect("focus-out-event", self._controller.on_quit)
         self.connect("key-press-event", self.__on_window_key_press_event)
        
         self.set_title("Deskbar Applet")
