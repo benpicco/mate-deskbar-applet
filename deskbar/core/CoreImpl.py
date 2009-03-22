@@ -380,7 +380,7 @@ class CoreImpl(deskbar.interfaces.Core):
         self.update_modules_priority(enabled_modules)
             
     def forward_query_ready(self, handler, query, matches):
-        if query == self._last_query and matches != None and len(matches) > 0 and not self._stop_queries:
+        if query == self._last_query and matches != None and not self._stop_queries:
             for match in matches:
                 if not isinstance(match, deskbar.interfaces.Match):
                     raise TypeError("Handler %r returned an invalid match: %r", handler,  match)
