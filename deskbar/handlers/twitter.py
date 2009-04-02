@@ -27,7 +27,7 @@ _twitter_pixbuf = load_base64_icon (TWITTER_ICON)
 _identica_pixbuf = load_base64_icon (IDENTICA_ICON)
 
 HANDLERS = ["TwitterModule", "IdenticaModule"]
-VERSION = "0.3"
+VERSION = "0.3.1"
 
 MIN_MESSAGE_LEN = 2
 
@@ -232,6 +232,9 @@ class TwitterModule(deskbar.interfaces.Module):
                                                     extra_widget_factory=self.get_extra_account_dialog_widget)
     
     def query(self, qstring):
+        # Convert string to unicode string so we get the correct length
+        # See bug #577487
+        qstring = unicode(qstring)
         if len (qstring) <= MIN_MESSAGE_LEN and \
            len (qstring) > 140: return None
         
