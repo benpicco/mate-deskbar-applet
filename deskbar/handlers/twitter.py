@@ -83,12 +83,10 @@ class TwitterClient :
         self._update_url = update_url
         self._domain = domain
         
-        self._opener.connect ("done", self._on_opener_done)
-        
     def update (self, msg):
         try:
             post_payload = urllib.urlencode({"status" : msg, "source" : "deskbar"})
-            self._opener.open_async (self._update_url, post_payload)
+            self._opener.open_async (self._update_url, post_payload, self._on_opener_done)
         except ConcurrentRequestsException :
             LOGGER.warning ("Attempting to post while another post is already running. Ignoring")
             error = gtk.MessageDialog (None,

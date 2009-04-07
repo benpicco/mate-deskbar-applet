@@ -208,7 +208,7 @@ class AuthenticationAborted (Exception):
         Exception.__init__ (self)
 
 
-class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
+class GnomeURLopener (urllib.FancyURLopener):
     """
     A subclass of C{urllib.URLopener} able to intercept user/password requests
     and pass them through an L{Account}, displaying a L{AccountDialog} if
@@ -218,10 +218,6 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
                      to the Gnome proxy settings. Therefore preferably create
                      a new fresh GnomeURLopener each time you need one
     """
-    
-    __gsignals__ = {
-        "done" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_PYOBJECT]),
-    }
     
     def __init__ (self, account, extra_widget_factory=None):
         """
@@ -235,7 +231,7 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
         """
         proxies = get_proxy()
         urllib.FancyURLopener.__init__ (self, proxies)
-        gobject.GObject.__init__ (self)
+        
         self._account = account
         self._thread = None
         self._authentication_retries = 0
@@ -311,7 +307,7 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
                         # The factory returned a non-None non-widget object
                         LOGGER.error ("%s returned a non-gtk.Widget instance: %s" % (self._extra_widget_factory, type(widget)))
     
-    def open_async (self, url, payload=None):
+    def open_async (self, url, payload=None, callback=None):
         """
         Open a URL asynchronously. When the request has been completed the
         C{"done"} signal of this class is emitted.
@@ -334,9 +330,9 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
             raise ConcurrentRequestsException()
     
         if payload != None :
-            async_args = (url, payload)
+            async_args = ((url, payload), callback)
         else :
-            async_args = (url, )
+            async_args = ((url, ), callback)
         
         self._thread = threading.Thread (target=self._do_open_async,
                                          args=async_args,
@@ -355,9 +351,10 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
         self._thread = None
         
         info = None
+        open_args, callback = args
         
         try:
-            info = self.open (*args)
+            info = self.open (*open_args)
         except AuthenticationAborted:
             LOGGER.debug ("Detected authentication abort")
             self._success = True # The user should not be warned
@@ -366,6 +363,7 @@ class GnomeURLopener (urllib.FancyURLopener, gobject.GObject):
             self._success = False            
             
         gtk.gdk.threads_enter()
-        self.emit ("done", info)
+        if callback != None and callable(callback):
+            callback(self, info)
         gtk.gdk.threads_leave()
 
