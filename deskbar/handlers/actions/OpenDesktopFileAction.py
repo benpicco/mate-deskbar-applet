@@ -37,7 +37,7 @@ class OpenDesktopFileAction(deskbar.interfaces.Action):
         return exists(self._desktop_file)
     
     def get_icon(self):
-        return "gtk-open"
+        return self._desktop.get_string(gnomedesktop.KEY_ICON)
     
     def get_name(self, text=None):
         name_dict = {"name": self._name}
