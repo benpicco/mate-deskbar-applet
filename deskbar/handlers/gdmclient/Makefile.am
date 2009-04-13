@@ -1,6 +1,6 @@
 INCLUDES = $(PYTHON_INCLUDES) $(DESKBAR_CFLAGS)
 
-_gdmclientdir = $(pythondir)/deskbar/handlers/gdmclient
+_gdmclientdir = $(pyexecdir)/deskbar/handlers/gdmclient
 _gdmclient_LTLIBRARIES = _gdmclient.la
 _gdmclient_la_LDFLAGS = -module -avoid-version -export-symbols-regex init_gdmclient
 _gdmclient_la_LIBADD = $(DESKBAR_LIBS)
