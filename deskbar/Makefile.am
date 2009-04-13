@@ -1,8 +1,8 @@
 SUBDIRS = core handlers interfaces osutils ui
-	
-deskbar-applet: deskbar-applet.py
-	sed -e "s|\@PYTHONDIR\@|$(pythondir)/deskbar|" $< > $@
 
+deskbar-applet: deskbar-applet.py
+	cp -f $< $@
+	
 deskbarbindir = $(libdir)/deskbar-applet
 deskbarbin_SCRIPTS = deskbar-applet
 
