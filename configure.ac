@@ -78,8 +78,6 @@ AC_MSG_CHECKING([for gnomeapplet module])
 if AC_RUN_LOG([DISPLAY= $PYTHON -c '
 import pygtk
 pygtk.require("2.0")
-import gtk
-gtk.gdk.threads_init()
 
 try:
     import gnomeapplet
