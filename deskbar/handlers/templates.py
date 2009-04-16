@@ -187,14 +187,20 @@ class TemplateHandler(deskbar.interfaces.Module):
     def _templates_dir_monitor_cb(self, monitor, file, other_file, event_type):
         self._add_template_file(file.get_path())
  
-    def initialize(self):
-        templates_dir = deskbar.core.Utils.get_xdg_user_dir(deskbar.core.Utils.DIRECTORY_TEMPLATES)
-
+    def _add_templates_dir(self, templates_dir):
         for f in os.listdir(templates_dir):
             # Skip backup files and hidden files
             if f.endswith("~") or f.startswith("."):
                 continue
-            self._add_template_file(os.path.join(templates_dir, f))
+            file_path = os.path.join(templates_dir, f)
+            if os.path.isdir(file_path):
+                self._add_templates_dir(file_path)
+            else:
+                self._add_template_file(file_path)
+ 
+    def initialize(self):
+        templates_dir = deskbar.core.Utils.get_xdg_user_dir(deskbar.core.Utils.DIRECTORY_TEMPLATES)
+        self._add_templates_dir(templates_dir)
 
         gfile = gio.File(path=templates_dir)
         try:
