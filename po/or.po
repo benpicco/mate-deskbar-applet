@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: or\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=deskbar-applet&component=general\n"
 "POT-Creation-Date: 2009-02-01 20:27+0000\n"
-"PO-Revision-Date: 2009-03-09 18:41+0530\n"
+"PO-Revision-Date: 2009-04-28 16:12+0530\n"
 "Last-Translator: Manoj Kumar Giri <mgiri@redhat.com>\n"
 "Language-Team: Oriya <oriya-it@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -18,12 +18,15 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n!=1);\n\n"
 "\n"
+"\n"
 
 #: ../data/deskbar-applet.schemas.in.h:1
 msgid ""
 "Choose whether triggering the keyboard shortcut also pastes the current "
 "selection in the search box."
 msgstr ""
+"କିବୋର୍ଡ ସଂକ୍ଷିପ୍ତ ପଥକୁ ଆରମ୍ଭ କରିବା ପାଇଁ ବାଛିବା ଦ୍ୱାରା ମଧ୍ଯ ପ୍ରଚଳିତ ଚୟନକୁ "
+"ସନ୍ଧାନ ବାକ୍ସରେ ଲଗାଇଥାଏ।"
 
 #: ../data/deskbar-applet.schemas.in.h:2
 msgid "Clear entry after match has been selected"
@@ -91,12 +94,17 @@ msgid ""
 "default, history, documents, emails, conversations, files, people, places, "
 "actions, web, websearch, news and notes."
 msgstr ""
+"ବିଭାଗଗୁଡ଼ିକର ତାଲିକା ଦର୍ଶାଯାଇଥିବା ସମୟରେ ଭାଙ୍ଗିପଡ଼ିଥାଏ। ବୈଧ ବିଭାଗଗୁଡ଼ିକ ହେଉଛି: "
+"ପୂର୍ବନିର୍ଦ୍ଧାରିତ, ପୁରୁଣା ତଥ୍ୟ, ଦଲିଲ, ଇମେଲ, ବାର୍ତ୍ତାଳାପ, ଫାଇଲଗୁଡ଼ିକ, ବ୍ୟକ୍ତି, ସ୍ଥାନ, "
+"କାର୍ଯ୍ୟ, ୱେବ, ୱେବ ସନ୍ଧାନ, ଖବର ଏବଂ ଟିପ୍ପଣୀ।"
 
 #: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "Leftmost has highest priority"
 msgstr ""
+"ରପ୍ତାନୀ କରାଯାଇଥିବା ସକ୍ରିୟ ନିୟନ୍ତ୍ରଣକାରୀଙ୍କ ଶ୍ରେଣୀ ନାମଗୁଡ଼ିକୁ ପ୍ରାଥମିକତା ଅନୁସାରେ ବାମରୁ "
+"ଉଚ୍ଚତର ପ୍ରାଥମିକତା କ୍ରମରେ ସଜଡ଼ାଯାଇଥାଏ"
 
 #: ../data/deskbar-applet.schemas.in.h:19
 msgid "The maximum number of items stored in history"
@@ -107,16 +115,18 @@ msgid ""
 "The minimum number of characters that need to be typed before the applet "
 "starts showing matches"
 msgstr ""
+"ସର୍ବନିମ୍ନ ସଂଖ୍ୟକ ଅକ୍ଷର ଯାହାକି ଆପଲେଟ ମେଳକ ଦର୍ଶାଇବା ପୂର୍ବରୁ "
+"ଟାଇପ ହେବା ଆବଶ୍ୟକ"
 
 #: ../data/deskbar-applet.schemas.in.h:21
 msgid ""
 "The time in milliseconds between a keystroke in the search entry and the "
 "actual search being performed"
-msgstr ""
+msgstr "ସନ୍ଧାନ ଭରଣ ଏବଂ ପ୍ରକୃତ ସନ୍ଧାନକୁ କାର୍ଯ୍ୟକାରୀ କରିବା ସମୟରେ କିଷ୍ଟ୍ରୋକର ଅବଧି ମିଲିସେକଣ୍ଡରେ"
 
 #: ../data/deskbar-applet.schemas.in.h:22
 msgid "This value only takes effect when \"ui_name\" is set to \"Button\""
-msgstr ""
+msgstr "ଏହି ମୂଲ୍ୟ କେବଳ \"ui_name\" କୁ \"Button\" ରେ ସେଟ କରିବା ସମୟରେ ପ୍ରଭାବ ପକାଇଥାଏ"
 
 #: ../data/deskbar-applet.schemas.in.h:23
 msgid "Whether to close the window after an action has been activated"
@@ -127,10 +137,12 @@ msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
 msgstr ""
+"ସମସ୍ତ ଉପଲବ୍ଧ ଯନ୍ତ୍ର ଅପେକ୍ଷା, କେବଳ ପସନ୍ଦଯୋଗ୍ୟ ସନ୍ଧାନ ଯନ୍ତ୍ରକୁ ଦର୍ଶାଇବା ଉଚିତ ନୁହଁ। "
+"ଏହା କେବଳ Mozilla-ଆଧାରିତ ୱେବ ବ୍ରାଉଜର ଯେପରିକି Firefox ଉପରେ ପ୍ରଭାବ ପକାଇଥାଏ।"
 
 #: ../data/deskbar-applet.schemas.in.h:25
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
-msgstr ""
+msgstr "Deskbar-Applet ପ୍ରଚଳିତ ଚୟନକୁ ଲଗାଇଥାଏ"
 
 #: ../data/deskbar-applet.schemas.in.h:26
 msgid "Window height"
@@ -498,7 +510,7 @@ msgstr "?"
 
 #: ../deskbar/handlers/beagle-live.py:783
 msgid "Could not load beagle, libbeagle has been compiled without python bindings."
-msgstr ""
+msgstr "beagleକୁ ଧାରଣ କରିପାରିଲା ନାହିଁ, libbeagle କୁ python ବନ୍ଧନ ବିନା ସଙ୍କଳନ କରାଯାଇପାରିବ ନାହିଁ।"
 
 #: ../deskbar/handlers/beagle-live.py:789
 msgid "Beagle daemon is not running."
@@ -620,6 +632,10 @@ msgid ""
 "autocompletion is enabled.  To do this, from your mail program's menu, "
 "choose Edit - Preferences, and then Autocompletion."
 msgstr ""
+"ସ୍ୱୟଂଚାଳନକୁ ସକ୍ରିୟ କରିବା ଆବଶ୍ୟକ\n"
+"ସ୍ୱୟଂଚାଳନ ସକ୍ରିୟ ହୋଇନଥିଲେ ଆମ୍ଭେମାନେ ଆପଣଙ୍କର ଠିକଣା ବହିରୁ ଇ-ମେଲ ଠିକଣା ପ୍ରଦାନ "
+"କରିପାରିବୁ ନାହିଁ।  ଏହା କରିବା ପାଇଁ, ଆପଣଙ୍କର ମେଲ ପ୍ରଗ୍ରାମ ତାଲିକାରୁ, "
+"ସମ୍ପାଦନ କରନ୍ତୁ - ପସନ୍ଦ, ଏବଂ ତାପରେ ସ୍ୱୟଂଚାଳନକୁ ବାଛନ୍ତୁ।"
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
@@ -683,36 +699,36 @@ msgstr "ନିଭ୍ରୁତ ଅବସ୍ଥାକୁ ନିଅନ୍ତୁ"
 #, python-format
 msgid "This system will be automatically shut down in %s second."
 msgid_plural "This system will be automatically shut down in %s seconds."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ଏହି ତନ୍ତ୍ରଟି %s ସେକଣ୍ଡ ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ବନ୍ଦ ହୋଇଥାଏ।"
+msgstr[1] "ଏହି ତନ୍ତ୍ରଟି %s ସେକଣ୍ଡ ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ବନ୍ଦ ହୋଇଥାଏ।"
 
 #: ../deskbar/handlers/gdmactions.py:65
 #, python-format
 msgid "You will be automatically logged out in %s second."
 msgid_plural "You will be automatically logged out in %s seconds."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ଏହି ତନ୍ତ୍ରଟି %s ସେକଣ୍ଡ ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ପୁନଃଚାଳନ ହୋଇଥାଏ।"
+msgstr[1] "ଏହି ତନ୍ତ୍ରଟି %s ସେକଣ୍ଡ ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ପୁନଃଚାଳନ ହୋଇଥାଏ।"
 
 #: ../deskbar/handlers/gdmactions.py:69
 #, python-format
 msgid "This system will be automatically restarted in %s second."
 msgid_plural "This system will be automatically restarted in %s seconds."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ଏହି ତନ୍ତ୍ରଟି %s ସେକଣ୍ଡ ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ପୁନଃଚାଳନ ହୋଇଥାଏ।"
+msgstr[1] "ଏହି ତନ୍ତ୍ରଟି %s ସେକଣ୍ଡ ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ପୁନଃଚାଳନ ହୋଇଥାଏ।"
 
 #: ../deskbar/handlers/gdmactions.py:73
 #, python-format
 msgid "This system will be automatically suspended in %s second."
 msgid_plural "This system will be automatically suspended in %s seconds."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ଏହି ତନ୍ତ୍ରଟି %s ସେକଣ୍ଡ ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ନିଲମ୍ବିତ ହୋଇଥାଏ।"
+msgstr[1] "ଏହି ତନ୍ତ୍ରଟି %s ସେକଣ୍ଡ ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ନିଲମ୍ବିତ ହୋଇଥାଏ।"
 
 #: ../deskbar/handlers/gdmactions.py:77
 #, python-format
 msgid "This system will be automatically hibernated in %s second."
 msgid_plural "This system will be automatically hibernated in %s seconds."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ଏହି ତନ୍ତ୍ରଟି %s ସେକଣ୍ଡ ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ସୁପ୍ତାବସ୍ଥାକୁ ଯାଇଥାଏ।"
+msgstr[1] "ଏହି ତନ୍ତ୍ରଟି %s ସେକଣ୍ଡ ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ସୁପ୍ତାବସ୍ଥାକୁ ଯାଇଥାଏ।"
 
 #: ../deskbar/handlers/gdmactions.py:127
 msgid "Suspend the machine"
@@ -774,7 +790,7 @@ msgstr "Google ସଂକେତ ସନ୍ଧାନ"
 
 #: ../deskbar/handlers/googlecodesearch.py:29
 msgid "Search public source code for function definitions and sample code"
-msgstr ""
+msgstr "ଫଳନ ବ୍ୟାଖ୍ୟା ଏବଂ ନମୁନା ସଂକେତ ପାଇଁ ସାର୍ବଜନିକ ଉତ୍ସ ସଂକେତ ସନ୍ଧାନ କରନ୍ତୁ"
 
 #: ../deskbar/handlers/googlecodesearch.py:118
 #, python-format
@@ -1062,6 +1078,9 @@ msgid ""
 "website. The name and description can be loaded automatically from this "
 "document or you can just enter your own values manually."
 msgstr ""
+"ଏହି ୱେବସାଇଟ ପାଇଁ OpenSearch ବର୍ଣ୍ଣନା ଦଲିଲର ଅବସ୍ଥାନ (URL)। "
+"ଏହି ଦଲିଲରୁ ନାମ ଏବଂ ବର୍ଣ୍ଣନାକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଧାରଣ କରାଯାଇପାରିବ କିମ୍ବା ଆପଣ ନିଜର ମୂଲ୍ୟକୁ "
+"ହସ୍ତକୃତ ଭାବରେ ଭରଣ କରିପାରିବେ।"
 
 #: ../deskbar/handlers/opensearch.py:427
 #| msgid "Location"
@@ -1305,12 +1324,21 @@ msgid ""
 "    your web browser\n"
 " • Your credentials in the preferences are correct"
 msgstr ""
+"%(domain)s କୁ ଅଦ୍ୟତନ ପୋଷ୍ଟ କରିବାରେ ବିଫଳ।\n"
+"ଦୟାକରି ନିଶ୍ଚିତ ହୁଅନ୍ତୁ ଯେ:\n"
+"\n"
+" • ଆପଣଙ୍କର ଇଣ୍ଟରନେଟ ସଂଯୋଗ କାର୍ଯ୍ୟକରୁନାହିଁ\n"
+" • ଆପଣଙ୍କର ୱେବ ବ୍ରାଉଜରରେ <i>http://%(domain)s</i> କୁ\n"
+"    ସଂଯୋଗ କରିପାରିବେ\n"
+" • ପସନ୍ଦରେ ଆପଣଙ୍କର ପ୍ରମାଣପତ୍ରଗୁଡ଼ିକ ସଠିକ ଅଛି"
 
 #: ../deskbar/handlers/twitter.py:97
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr ""
+"ଗୋଟିଏ ପୋଷ୍ଟ ପୂର୍ବରୁ ଦାଖଲ ପାଇଁ ଅପେକ୍ଷା କରିଅଛି, ଅନ୍ୟ ଏକ ସନ୍ଦେଶ ଦାଖଲ କରିବା ପୂର୍ବରୁ "
+"ଦୟାକରି ଅପେକ୍ଷା କରନ୍ତୁ"
 
 #: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
 #: ../deskbar/handlers/twitter.py:153
@@ -1364,6 +1392,9 @@ msgid ""
 "You must configure a username and password on the <i>identi.ca</i> website "
 "if you haven't already."
 msgstr ""
+"ଦୟାକରି ମନେରଖନ୍ତୁ ଯେ Deskbar Applet ପ୍ରାଧିକରଣକୁ OpenID ମାଧ୍ଯମରେ ସମର୍ଥନ କରେ ନାହିଁ।"
+"<i>identi.ca</i> ୱେବ ସାଇଟ ଉପରେ ଆପଣଙ୍କୁ ଗୋଟିଏ ଚାଳକ ନାମ ଏବଂ ପ୍ରବେଶ ସଂକେତ "
+"ସଂରଚନା କରିବାକୁ ହେବ, ଯଦି ଆପଣଙ୍କ ପାଖରେ ପୂର୍ବରୁ ଅଛି।"
 
 #: ../deskbar/handlers/twitter.py:295
 msgid "Visit identi.ca website"
@@ -1561,6 +1592,9 @@ msgid ""
 "of your keyboard.\n"
 "Please try with a key such as Control, Alt or Shift at the same time.\n"
 msgstr ""
+"ସଂକ୍ଷିପ୍ତ ପଥ \"%s\" କୁ ବ୍ୟବହାର କରାଯାଇପାରିବ ନାହିଁ କାରଣ ଏହା ଆପଣଙ୍କର କି "
+"ବୋର୍ଡର ସଠିକ ପ୍ରୟୋଗକୁ ବାରଣ କରିଥାଏ।\n"
+"ଏକା ସମୟରେ ଦୟାକରି Control, Alt କିମ୍ବା Shift କି ସହାୟତାରେ ଚେଷ୍ଟାକରନ୍ତୁ।\n"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:96
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
