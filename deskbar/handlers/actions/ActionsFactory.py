@@ -28,8 +28,14 @@ def get_actions_for_uri(uri, display_name=None):
     if display_name == None:
         display_name = gfile.get_basename()
     
+    # Check if file exists
+    path = gfile.get_path()
+    if path == None:
+        LOGGER.warning("File %s does not exist", uri)
+        return []
+
     # If we have a directory only return one action
-    if isdir(gfile.get_path()):
+    if isdir(path):
         return [CopyToClipboardAction( _("Location"), gfile.get_path())]
         
     try:
