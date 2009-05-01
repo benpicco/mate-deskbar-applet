@@ -219,4 +219,21 @@ class TemplateHandler(deskbar.interfaces.Module):
     def stop(self):
         for filemonitor in self.monitors:
             filemonitor.cancel()
+            
+    @staticmethod
+    def has_requirements():
+        # Work around bug #577649
+        try:
+            templates_dir = deskbar.core.Utils.get_xdg_user_dir(deskbar.core.Utils.DIRECTORY_TEMPLATES)
+        except ValueError, e:
+            LOGGER.exception(e)
+            # TODO mark translatable
+            TemplateHandler.INSTRUCTIONS = "Could not retrieve templates directory"
+            return False
+
+        if os.path.exists(templates_dir):
+            return True
+        else:
+           TemplateHandler.INSTRUCTIONS = "Templates directory %s does not exist" % templates_dir
+           return False
     
