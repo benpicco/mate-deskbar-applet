@@ -18,8 +18,11 @@ class CuemiacHistoryView (gtk.TreeView):
         self.connect ("row-activated", lambda w,p,c: self.__on_activated())
         self.connect ("button-press-event", lambda w,e: self.__on_activated())
         self.connect ("key-press-event", self.__on_key_press_event)
+        self.connect ("query-tooltip", self.__on_query_tooltip)
         self.set_property ("headers-visible", False)
         self.set_property ("hover-selection", True)
+        
+        self.set_tooltip_column(historystore.COL_TEXT)
         
         icon = gtk.CellRendererPixbuf ()
         icon.set_property("xpad", 4)
@@ -75,6 +78,28 @@ class CuemiacHistoryView (gtk.TreeView):
             if aiter != None:
                 model.remove_and_save(aiter)
                 return True
+            
+    def __on_query_tooltip(self, widget, x, y, keyboard_mode, tooltip):
+        path = self.get_path_at_pos(x, y)
+        if path == None:
+            return False
+        
+        tree_path, col = path[:2]
+        
+        model = self.get_model()
+        iter = model.get_iter(tree_path)
+        action = model[iter][model.COL_ACTION]
+        qstring = model[iter][model.COL_TEXT]
+        
+        markup = action.get_tooltip (qstring)
+        
+        # Return False to not show a blank tooltip
+        if markup != None and len(markup) != 0:
+            tooltip.set_markup (markup)
+            self.set_tooltip_row (tooltip, tree_path)
+            return True
+            
+        return False
     
 class CuemiacHistoryPopup (CuemiacAlignedWindow) :
     
