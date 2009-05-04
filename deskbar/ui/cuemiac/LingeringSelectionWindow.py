@@ -15,7 +15,7 @@ class LingeringSelectionWindow (gtk.Window):
 		"""
 		gtk.Window.__init__ (self, gtk.WINDOW_POPUP)
 		
-		self.linger_time = 1000 # Linger for one second
+		self.linger_time = 1 # Linger for one second
 		
 		self.set_focus_on_map (False)
 				
@@ -59,5 +59,5 @@ class LingeringSelectionWindow (gtk.Window):
 		Display for a short while
 		"""
 		self.show_all ()
-		glib.timeout_add (self.linger_time, self.hide)
+		glib.timeout_add_seconds (self.linger_time, self.hide)
 			
