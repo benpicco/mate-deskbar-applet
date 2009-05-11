@@ -3,6 +3,7 @@
 
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
+touch ChangeLog
 
 PKG_NAME="deskbar-applet"
 ACLOCAL_FLAGS="$ACLOCAL_FLAGS -I m4"
