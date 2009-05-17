@@ -1,3 +1,4 @@
+import glib
 import gtk
 import gtk.gdk
 import logging
@@ -20,14 +21,15 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
         self._model.connect("keybinding-activated", self.on_keybinding_activated)
         self._model.connect("initialized", self.on_core_initialized)
         self._clipboard = gtk.clipboard_get (selection="PRIMARY")
+        self._focus_out = False
         
     def on_keybinding_activated(self, core, time, paste=True):
         """
         Toggle view if keybinding has been activated
         """
-        if self._view.get_toplevel().get_property("visible"):
-            self.on_quit()
-        else:
+        # Check if we saw a focus-out-event recently
+        # focus-out-event takes care of closing the window
+        if not self._focus_out:
             if self._model.get_use_selection() and paste:
                 text = self._clipboard.wait_for_text()
                 if text != None:
@@ -44,9 +46,25 @@ class CuemiacWindowController(deskbar.interfaces.Controller):
             self._model.set_window_x(x)
             self._model.set_window_y(y)
         
+        if len(args) == 2:
+            event = args[1]
+            if hasattr(event, 'type'):
+                if event.type == gtk.gdk.FOCUS_CHANGE:
+                    # If the keybinding is pressed to close the window
+                    # we receive a focus-out-event first. Now we close
+                    # the window and the keybinding handler thinks it
+                    # should show the window.
+                    # Settings this flag will tell us
+                    # that we saw a focus-out-event recently
+                    self._focus_out = True
+                    glib.timeout_add(250, self._reset_focus_out)
+        
         window.hide()
         
         return True
+    
+    def _reset_focus_out(self):
+        self._focus_out = False
 
     def on_show_about(self, sender):
         show_about(self._view.get_toplevel())
