@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-02 00:23+0100\n"
-"PO-Revision-Date: 2009-02-01 12:01+0100\n"
+"POT-Creation-Date: 2009-05-30 17:28+0200\n"
+"PO-Revision-Date: 2009-05-15 00:15+0200\n"
 "Last-Translator: Kenneth Nielsen <k.nielsen81@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen>\n"
 "MIME-Version: 1.0\n"
@@ -422,7 +422,7 @@ msgstr "<i>Tøm historik</i>"
 msgid "Cannot execute program:"
 msgstr "Kan ikke køre program:"
 
-#: ../deskbar/core/Utils.py:256
+#: ../deskbar/core/Utils.py:272
 msgid "Cannot show URL:"
 msgstr "Kan ikke vise adresse:"
 
@@ -450,12 +450,12 @@ msgstr "Brugernavn:"
 msgid "Password:"
 msgstr "Kodeord:"
 
-#: ../deskbar/core/Web.py:264
+#: ../deskbar/core/Web.py:260
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>Logind til %s afvist</b></big>"
 
-#: ../deskbar/core/Web.py:265
+#: ../deskbar/core/Web.py:261
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "Bekræft venligst dine akkreditiver for <b>%s</b>"
@@ -561,7 +561,7 @@ msgstr "Beagle ser ikke ud til at være installeret."
 #: ../deskbar/handlers/calculator.py:94
 #, python-format
 msgid "Copy <b>%(origtext)s = %(name)s</b> to clipboard"
-msgstr "Kopier <b>%(origtext)s = %(name)s</b> til klippebordet"
+msgstr "Kopiér <b>%(origtext)s = %(name)s</b> til udklipsholderen"
 
 #: ../deskbar/handlers/calculator.py:121 ../deskbar/handlers/calculator.py:124
 msgid "Calculator"
@@ -663,7 +663,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:63
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:39
 msgid "Location"
 msgstr "Placering"
 
@@ -1288,6 +1288,15 @@ msgstr "Skabeloner"
 msgid "Create new files from your templates"
 msgstr "Opret nye filer ved hjælp af dine skabeloner"
 
+#: ../deskbar/handlers/templates.py:230
+msgid "Could not retrieve templates directory"
+msgstr ""
+
+#: ../deskbar/handlers/templates.py:236
+#, python-format
+msgid "Templates directory %s does not exist"
+msgstr ""
+
 # FIXME:
 # http://bugzilla.gnome.org/show_bug.cgi?id=321396
 #: ../deskbar/handlers/tomboy.py:41
@@ -1364,7 +1373,7 @@ msgstr ""
 "    din internetbrowser\n"
 " • Dine akkreditiver i indstillingerne er korrekte"
 
-#: ../deskbar/handlers/twitter.py:97
+#: ../deskbar/handlers/twitter.py:95
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
@@ -1372,8 +1381,8 @@ msgstr ""
 "En postering venter allerede på at blive sendt, vent venligst med at sende "
 "en ny besked"
 
-#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
-#: ../deskbar/handlers/twitter.py:153
+#: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
+#: ../deskbar/handlers/twitter.py:151
 #, python-format
 msgid "Error posting to %s"
 msgstr "Fejl ved afsendelse til %s"
@@ -1388,12 +1397,12 @@ msgstr "Fejl ved afsendelse til %s"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:165
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:170
+#: ../deskbar/handlers/twitter.py:168
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1404,23 +1413,23 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:207
+#: ../deskbar/handlers/twitter.py:205
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:208
+#: ../deskbar/handlers/twitter.py:206
 msgid "Post updates to your Twitter account"
 msgstr "Send opdateringer til din Twitter-konto"
 
-#: ../deskbar/handlers/twitter.py:278
+#: ../deskbar/handlers/twitter.py:279
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:279
+#: ../deskbar/handlers/twitter.py:280
 msgid "Post updates to your identi.ca account"
 msgstr "Send opdateringer til din identi.ca-konto"
 
-#: ../deskbar/handlers/twitter.py:293
+#: ../deskbar/handlers/twitter.py:294
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
@@ -1430,7 +1439,7 @@ msgstr ""
 "via OpenID. Du skal have konfigureret et brugernavn og kodeord på webstedet "
 "<i>identi.ca</i>, hvis du ikke allerede har gjort det."
 
-#: ../deskbar/handlers/twitter.py:295
+#: ../deskbar/handlers/twitter.py:296
 msgid "Visit identi.ca website"
 msgstr "Besøg webstedet identi.ca"
 
@@ -1508,7 +1517,7 @@ msgstr ""
 msgid "Configure Yahoo!"
 msgstr "Konfigurér Yahoo!"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:66
 #, python-format
 msgid "URL of %s"
 msgstr "URL til %s"
@@ -1516,7 +1525,7 @@ msgstr "URL til %s"
 #: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
 #, python-format
 msgid "Copy <b>%(name)s</b> to clipboard"
-msgstr "Kopiér <b>%(name)s</b> til klippebordet"
+msgstr "Kopiér <b>%(name)s</b> til udklipsholderen"
 
 #: ../deskbar/handlers/actions/GoToLocationAction.py:23
 #, python-format
@@ -1527,7 +1536,7 @@ msgstr "Gå til placeringen for %s"
 # http://bugzilla.gnome.org/show_bug.cgi?id=321396
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:57
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Start <b>%(name)s</b> (%(prog)s)"
@@ -1589,7 +1598,7 @@ msgstr ""
 msgid "<b>Search:</b>"
 msgstr "<b>Søg:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:257
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
 msgid "Display additional actions"
 msgstr "Vis ekstra handlinger"
 
