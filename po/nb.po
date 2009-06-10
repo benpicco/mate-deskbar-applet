@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 2.25.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-17 09:18+0100\n"
-"PO-Revision-Date: 2009-03-17 09:22+0100\n"
+"POT-Creation-Date: 2009-06-10 09:56+0200\n"
+"PO-Revision-Date: 2009-06-10 09:57+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -427,12 +427,12 @@ msgstr "Brukernavn:"
 msgid "Password:"
 msgstr "Passord:"
 
-#: ../deskbar/core/Web.py:264
+#: ../deskbar/core/Web.py:260
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>Innlogging til %s avvist</b></big>"
 
-#: ../deskbar/core/Web.py:265
+#: ../deskbar/core/Web.py:261
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "Vennligst verifiser din påloggingsinformasjon for <b>%s</b>"
@@ -637,7 +637,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:63
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:39
 msgid "Location"
 msgstr "Lokasjon"
 
@@ -1063,14 +1063,18 @@ msgstr "Innstillinger for OpenSearch"
 
 #: ../deskbar/handlers/opensearch.py:218
 msgid "You can manage the list of websites used by the OpenSearch module here."
-msgstr "Du kan håndtere listen med nettsteder som brukes av OpenSearch-modulen her."
+msgstr ""
+"Du kan håndtere listen med nettsteder som brukes av OpenSearch-modulen her."
 
 #: ../deskbar/handlers/opensearch.py:410
 msgid ""
 "Enter the location (URL) of the OpenSearch description document for this "
 "website. The name and description can be loaded automatically from this "
 "document or you can just enter your own values manually."
-msgstr "Oppgi lokasjon (URL) for beskrivelsesdokument for OpenSearch for dette nettstedet. Navn og beskrivelse kan lastes automatisk fra dette dokumentet eller du kan oppgi dine egne verdier manuelt."
+msgstr ""
+"Oppgi lokasjon (URL) for beskrivelsesdokument for OpenSearch for dette "
+"nettstedet. Navn og beskrivelse kan lastes automatisk fra dette dokumentet "
+"eller du kan oppgi dine egne verdier manuelt."
 
 #: ../deskbar/handlers/opensearch.py:427
 msgid "_Location (URL):"
@@ -1118,7 +1122,9 @@ msgstr "Kan ikke laste beskrivelsesdokument"
 
 #: ../deskbar/handlers/opensearch.py:530
 msgid "Make sure the URL points to a valid OpenSearch description document."
-msgstr "Forsikre deg om at URLen peker til et gyldig beskrivelsesdokument for OpenSearch."
+msgstr ""
+"Forsikre deg om at URLen peker til et gyldig beskrivelsesdokument for "
+"OpenSearch."
 
 #: ../deskbar/handlers/opensearch.py:546
 msgid "Add OpenSearch Website"
@@ -1251,6 +1257,15 @@ msgstr "Maler"
 msgid "Create new files from your templates"
 msgstr "Opprett nye filer fra dine maler"
 
+#: ../deskbar/handlers/templates.py:230
+msgid "Could not retrieve templates directory"
+msgstr "Kunne ikke hente malkatalog"
+
+#: ../deskbar/handlers/templates.py:236
+#, python-format
+msgid "Templates directory %s does not exist"
+msgstr "Malkatalog %s eksisterer ikke"
+
 #: ../deskbar/handlers/tomboy.py:41
 #, python-format
 msgid "Open note <b>%(name)s</b>"
@@ -1322,14 +1337,14 @@ msgstr ""
 "   nettleseren\n"
 " - påloggingsinformasjonen i brukervalg er korrekt"
 
-#: ../deskbar/handlers/twitter.py:97
+#: ../deskbar/handlers/twitter.py:95
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr "En post venter på innlegging. Vent før du poster en ny melding"
 
-#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
-#: ../deskbar/handlers/twitter.py:153
+#: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
+#: ../deskbar/handlers/twitter.py:151
 #, python-format
 msgid "Error posting to %s"
 msgstr "Feil ved posting til %s"
@@ -1342,12 +1357,12 @@ msgstr "Feil ved posting til %s"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:165
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:170
+#: ../deskbar/handlers/twitter.py:168
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1358,23 +1373,23 @@ msgstr ""
 "\n"
 "<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:207
+#: ../deskbar/handlers/twitter.py:205
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:208
+#: ../deskbar/handlers/twitter.py:206
 msgid "Post updates to your Twitter account"
 msgstr "Post oppdateringer til din Twitter-konto"
 
-#: ../deskbar/handlers/twitter.py:278
+#: ../deskbar/handlers/twitter.py:279
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:279
+#: ../deskbar/handlers/twitter.py:280
 msgid "Post updates to your identi.ca account"
 msgstr "Post oppdateringer til din identi.ca-konto"
 
-#: ../deskbar/handlers/twitter.py:293
+#: ../deskbar/handlers/twitter.py:294
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
@@ -1384,7 +1399,7 @@ msgstr ""
 "må konfigurere et brukernavn og passord på <i>identi.ca</i> nettstedet hvis "
 "du ikke allerede har gjort dette."
 
-#: ../deskbar/handlers/twitter.py:295
+#: ../deskbar/handlers/twitter.py:296
 msgid "Visit identi.ca website"
 msgstr "Gå til identi.ca nettstedet"
 
@@ -1457,7 +1472,7 @@ msgstr "Gir forslag for spørringer relatert til innsendt spørring"
 msgid "Configure Yahoo!"
 msgstr "Konfigurer Yahoo!"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:66
 #, python-format
 msgid "URL of %s"
 msgstr "URL for %s"
@@ -1474,7 +1489,7 @@ msgstr "Gå til lokasjon %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:57
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Start <b>%(name)s</b> (%(prog)s"
