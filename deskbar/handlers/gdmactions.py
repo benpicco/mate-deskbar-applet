@@ -10,7 +10,6 @@ import deskbar.handlers.gdmclient
 import deskbar.interfaces.Action
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
-import gnome.ui
 import glib
 import gtk
 
@@ -24,6 +23,8 @@ HANDLERS = ["GdmHandler"]
 ) = range(5)
 
 TIMEOUT = 60
+SESSION_MANAGER_PATH = '/org/gnome/SessionManager'
+SESSION_MANAGER_SERVICE = 'org.gnome.SessionManager'
 
 class LogoutPrompt(gtk.MessageDialog):
     
@@ -243,35 +244,15 @@ class LockScreenMatch(deskbar.interfaces.Match):
 
     def get_category(self):
         return "actions"
-    
-class GdmAction(deskbar.interfaces.Action):
-        
-    def __init__(self, name):
-        deskbar.interfaces.Action.__init__(self, name)
-        self.logout_reentrance = 0
-    
-    def request_logout(self):
-        if self.logout_reentrance == 0:
-            self.logout_reentrance += 1
 
-            client = gnome.ui.master_client()
-            if client:
-                client.request_save(gnome.ui.SAVE_GLOBAL,
-                    True, # Shutdown?
-                    gnome.ui.INTERACT_ANY,
-                    True, # Fast?
-                    True) # Global?
-
-                self.logout_reentrance -= 1
-                
 class GdmMatch(deskbar.interfaces.Match):
     def __init__(self, **args):
         deskbar.interfaces.Match.__init__(self, category="actions", **args)
     
-class GdmShutdownAction(GdmAction):
+class GdmShutdownAction(deskbar.interfaces.Action):
     
     def __init__(self, name):
-        GdmAction.__init__(self, name)
+        deskbar.interfaces.Action.__init__(self, name)
         
     def activate(self, text=None):
         prompt = LogoutPrompt(PROMPT_SHUTDOWN, TIMEOUT)
@@ -279,8 +260,10 @@ class GdmShutdownAction(GdmAction):
         prompt.destroy()
         
         if response == gtk.RESPONSE_OK:
-            deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_SHUTDOWN)
-            self.request_logout()
+            bus = dbus.SessionBus()
+            obj = bus.get_object(SESSION_MANAGER_SERVICE, SESSION_MANAGER_PATH)
+            sessionManager = dbus.Interface(obj, SESSION_MANAGER_SERVICE)
+            sessionManager.RequestShutdown()
         
     def get_verb(self):
         return _("Turn off the computer")
@@ -290,9 +273,9 @@ class GdmShutdownMatch(GdmMatch):
         GdmMatch.__init__(self, name=_("Shut Down"), icon = "gnome-shutdown", **args)
         self.add_action( GdmShutdownAction(self.get_name()) )
     
-class GdmLogoutAction(GdmAction):
+class GdmLogoutAction(deskbar.interfaces.Action):
     def __init__(self, name):
-        GdmAction.__init__(self, name)
+        deskbar.interfaces.Action.__init__(self, name)
         
     def activate(self, text=None):
         prompt = LogoutPrompt(PROMPT_LOGOUT, TIMEOUT)
@@ -300,8 +283,10 @@ class GdmLogoutAction(GdmAction):
         prompt.destroy()
         
         if response == gtk.RESPONSE_OK:
-            deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_NONE)
-            self.request_logout()
+            bus = dbus.SessionBus()
+            obj = bus.get_object(SESSION_MANAGER_SERVICE, SESSION_MANAGER_PATH)
+            sessionManager = dbus.Interface(obj, SESSION_MANAGER_SERVICE)
+            sessionManager.Logout(dbus.types.UInt32(0))
         
     def get_verb(self):
         return _("Log Out")
@@ -311,9 +296,9 @@ class GdmLogoutMatch(GdmMatch):
         GdmMatch.__init__(self, name=_("Log Out"), icon = "system-log-out", **args)
         self.add_action( GdmLogoutAction(self.get_name()) )
     
-class GdmRebootAction(GdmAction):
+class GdmRebootAction(deskbar.interfaces.Action):
     def __init__(self, name):
-        GdmAction.__init__(self, name)
+        deskbar.interfaces.Action.__init__(self, name)
         
     def activate(self, text=None):
         prompt = LogoutPrompt(PROMPT_REBOOT, TIMEOUT)
@@ -321,8 +306,10 @@ class GdmRebootAction(GdmAction):
         prompt.destroy()
         
         if response == gtk.RESPONSE_OK:
-            deskbar.handlers.gdmclient.set_logout_action(deskbar.handlers.gdmclient.LOGOUT_ACTION_REBOOT)
-            self.request_logout()
+            bus = dbus.SessionBus()
+            obj = bus.get_object(SESSION_MANAGER_SERVICE, SESSION_MANAGER_PATH)
+            sessionManager = dbus.Interface(obj, SESSION_MANAGER_SERVICE)
+            sessionManager.RequestReboot()
         
     def get_verb(self):
         return _("Restart the computer")
@@ -332,9 +319,9 @@ class GdmRebootMatch(GdmMatch):
         GdmMatch.__init__(self, name=_("Restart"), icon = "gtk-refresh", **args)
         self.add_action( GdmRebootAction(self.get_name()) )
     
-class GdmSwitchUserAction(GdmAction):    
+class GdmSwitchUserAction(deskbar.interfaces.Action):
     def __init__(self, name):
-        GdmAction.__init__(self, name)
+        deskbar.interfaces.Action.__init__(self, name)
         
     def activate(self, text=None):
         deskbar.handlers.gdmclient.new_login()
