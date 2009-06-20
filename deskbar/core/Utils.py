@@ -6,7 +6,6 @@ from os.path import *
 import cgi
 import deskbar
 import gnomedesktop
-import gnome.ui
 import gio
 import glib
 import gtk
@@ -23,7 +22,6 @@ PATH = [path for path in os.getenv("PATH").split(os.path.pathsep)
         if path.strip() != "" and exists(path) and isdir(path)]
 
 ICON_THEME = gtk.icon_theme_get_default()
-factory = gnome.ui.ThumbnailFactory(deskbar.ICON_HEIGHT)
 
 # This pattern matches a character entity reference (a decimal numeric
 # references, a hexadecimal numeric reference, or a named reference).
@@ -96,10 +94,11 @@ def load_icon(icon, width=deskbar.ICON_HEIGHT, height=deskbar.ICON_HEIGHT):
     """
     pixbuf = None
     if icon != None and icon != "":
-        if icon.startswith("file://") and gio.File(uri=icon).query_exists():
-            icon, flags = gnome.ui.icon_lookup(ICON_THEME, factory,
-                icon, "",
-                gnome.ui.ICON_LOOKUP_FLAGS_SHOW_SMALL_IMAGES_AS_THEMSELVES)
+        if icon.startswith("file://"):
+            gfile = gio.File(uri=icon)
+            if gfile.query_exists():
+                info = gfile.query_info("thumbnail::path", 0)
+                icon = info.get_attribute_byte_string("thumbnail::path")
         try:
             our_icon = join(deskbar.ART_DATA_DIR, icon)
             custom_icon = join(deskbar.USER_HANDLERS_DIR[0], icon)
