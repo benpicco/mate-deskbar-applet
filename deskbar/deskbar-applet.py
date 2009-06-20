@@ -98,10 +98,8 @@ if options.tray:
     gtk.main()
     gtk.gdk.threads_leave()
 elif options.window:
-    import gnome
     from deskbar.ui.DeskbarApplet import DeskbarApplet
-    
-    gnome.init(deskbar.defs.PACKAGE, deskbar.defs.VERSION)
+
     build_window()
     gtk.gdk.threads_enter()
     gtk.main()
