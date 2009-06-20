@@ -118,7 +118,7 @@ class CuemiacTreeView (gtk.TreeView):
         if path != None:
             if scroll:
                 self.__select_path(path)
-            self.activate_row( self.get_model().get_iter(path) )
+            self.__on_do_default_action(self, path, None, None)
 
     def activate_row(self, iter):
         """
