@@ -96,15 +96,15 @@ class FileFolderHandler(deskbar.interfaces.Module):
         result += self._query_filefolder(query, True)
         
         # Gtk Bookmarks
-        query = query.lower()
+        lquery = query.lower()
         for bmk, (name, loc) in self._locations.items():
-            if bmk.startswith(query):
+            if bmk.startswith(lquery):
                 gtk_bookmark_match = GtkBookmarkMatch(name, loc, priority=self.get_priority())
                 result.append(gtk_bookmark_match)
         
         # Mounts
         for mount in self._volume_monitor.get_mounts():
-            if not mount.get_name().lower().startswith(query): continue
+            if not mount.get_name().lower().startswith(lquery): continue
             
             uri = mount.get_root()
             if uri != None:
