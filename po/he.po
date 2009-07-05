@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=deskbar-applet&component=general\n"
-"POT-Creation-Date: 2009-03-09 09:19+0000\n"
-"PO-Revision-Date: 2009-03-31 19:20+0200\n"
-"Last-Translator: Mark Krapivner <mark125@gmail.com>\n"
+"POT-Creation-Date: 2009-05-01 18:03+0000\n"
+"PO-Revision-Date: 2009-07-05 17:32+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -406,15 +406,15 @@ msgstr "שם משתמש:"
 msgid "Password:"
 msgstr "סיסמה:"
 
-#: ../deskbar/core/Web.py:264
+#: ../deskbar/core/Web.py:260
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>ההתחברות ל־%s נדחתה</b></big>"
 
-#: ../deskbar/core/Web.py:265
+#: ../deskbar/core/Web.py:261
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
-msgstr ""
+msgstr "נא לאמת את פרטי הזיהוי שלך עבור <b>%s</b>"
 
 #. translators: This is the window title.
 #: ../deskbar/deskbar-applet.py:17
@@ -614,7 +614,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:63
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:39
 msgid "Location"
 msgstr "מיקום"
 
@@ -995,7 +995,7 @@ msgstr "באפשרותך להגדיר באיזה שפה התוצאות צריכ�
 
 #: ../deskbar/handlers/googlesearch.py:195
 msgid "Python module json or simplejson are not available"
-msgstr ""
+msgstr "מודולי ה־Python - ‏json או simplejson לא זמינים"
 
 #: ../deskbar/handlers/googlesearch.py:235
 #, python-format
@@ -1089,7 +1089,7 @@ msgstr "כאן תוכל לנהל את רשימת האתרים בהם נעשה ש
 
 #: ../deskbar/handlers/opensearch.py:410
 msgid "Enter the location (URL) of the OpenSearch description document for this website. The name and description can be loaded automatically from this document or you can just enter your own values manually."
-msgstr ""
+msgstr "הזן את כתובת מסמך תיאור ה־OpenSearch עבור אתר זה. ניתן לטעון את השם והתיאור אוטומטית מתוך מסמך זה או פשוט להזין ערכים משלך באופן ידני."
 
 #: ../deskbar/handlers/opensearch.py:427
 msgid "_Location (URL):"
@@ -1137,7 +1137,7 @@ msgstr "לא ניתן לטעון את מסמך התיאור"
 
 #: ../deskbar/handlers/opensearch.py:530
 msgid "Make sure the URL points to a valid OpenSearch description document."
-msgstr ""
+msgstr "יש לוודא כי הכתובת מצביעה אל מסמך תיאור OpenSearch תקני."
 
 #: ../deskbar/handlers/opensearch.py:546
 msgid "Add OpenSearch Website"
@@ -1267,6 +1267,15 @@ msgstr "תבניות"
 msgid "Create new files from your templates"
 msgstr "צור קבצים חדשים מהתבניות שלך"
 
+#: ../deskbar/handlers/templates.py:230
+msgid "Could not retrieve templates directory"
+msgstr "לא ניתן לאחזר את תיקיית התבניות"
+
+#: ../deskbar/handlers/templates.py:236
+#, python-format
+msgid "Templates directory %s does not exist"
+msgstr "תיקיית התבניות %s אינה קיימת"
+
 #: ../deskbar/handlers/tomboy.py:41
 #, python-format
 msgid "Open note <b>%(name)s</b>"
@@ -1330,14 +1339,21 @@ msgid ""
 "    your web browser\n"
 " • Your credentials in the preferences are correct"
 msgstr ""
+"נכשל בפרסום העדכון אל %(domain)s.\n"
+"נא לוודא כי:\n"
+"\n"
+" • הקישור לאינטרנט פעיל\n"
+" • ניתן להתחבר אל הכתובת <i>http://%(domain)s</i>\n"
+"    בדפדפן האינטרנט שלך\n"
+" • פרטי הזיהוי שבהעדפות נכונים"
 
-#: ../deskbar/handlers/twitter.py:97
+#: ../deskbar/handlers/twitter.py:95
 msgid "A post is already awaiting submission, please wait before you post another message"
-msgstr ""
+msgstr "ישנה כבר הודעה הממתינה לפרסום, נא להמתין לפני פרסום הודעה נוספת"
 
-#: ../deskbar/handlers/twitter.py:98
-#: ../deskbar/handlers/twitter.py:111
-#: ../deskbar/handlers/twitter.py:153
+#: ../deskbar/handlers/twitter.py:96
+#: ../deskbar/handlers/twitter.py:109
+#: ../deskbar/handlers/twitter.py:151
 #, python-format
 msgid "Error posting to %s"
 msgstr "שגיאה בשליחה ל־%s"
@@ -1350,40 +1366,43 @@ msgstr "שגיאה בשליחה ל־%s"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:165
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
-msgstr ""
+msgstr "<small>(%(remain)s)</small> הודעה <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:170
+#: ../deskbar/handlers/twitter.py:168
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
 "\n"
 "\t<i>%s</i>"
 msgstr ""
+"עדכון ההודעה עבור חשבון ה־%s שלך:\n"
+"\n"
+"\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:207
+#: ../deskbar/handlers/twitter.py:205
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:208
+#: ../deskbar/handlers/twitter.py:206
 msgid "Post updates to your Twitter account"
 msgstr "שלח עדכונים לחשבון ה־Twitter שלח"
 
-#: ../deskbar/handlers/twitter.py:278
+#: ../deskbar/handlers/twitter.py:279
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:279
+#: ../deskbar/handlers/twitter.py:280
 msgid "Post updates to your identi.ca account"
 msgstr "שלח עדכונים לחשבון ה־identi.ca"
 
-#: ../deskbar/handlers/twitter.py:293
+#: ../deskbar/handlers/twitter.py:294
 msgid "Please note that Deskbar Applet does not support authentication via OpenID. You must configure a username and password on the <i>identi.ca</i> website if you haven't already."
 msgstr "נא לשים לב, Deskbar Apple לא תומך בהזדהות באמצעות OpenID. חובה להגדיר שם משתמש וסיסמה באתר <i>identi.ca</i> אם לא עשית זאת עדיין."
 
-#: ../deskbar/handlers/twitter.py:295
+#: ../deskbar/handlers/twitter.py:296
 msgid "Visit identi.ca website"
 msgstr "בקר באתר של identi.ca"
 
@@ -1453,7 +1472,7 @@ msgstr "הצעות עבור שאילתות שקשורות לשאילתה שבו�
 msgid "Configure Yahoo!"
 msgstr "הגדר את Yahoo!"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:66
 #, python-format
 msgid "URL of %s"
 msgstr "כתובת של %s"
@@ -1470,7 +1489,7 @@ msgstr "לך למיקום של %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:57
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "הפעל <b>%(name)s</b> (%(prog)s)"
