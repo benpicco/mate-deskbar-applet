@@ -184,7 +184,6 @@ deskbar/core/updater/Makefile
 deskbar/core/_userdirs/Makefile
 deskbar/handlers/Makefile
 deskbar/handlers/actions/Makefile
-deskbar/handlers/gdmclient/Makefile
 deskbar/handlers/evolution/Makefile
 deskbar/osutils/Makefile
 deskbar/interfaces/Makefile

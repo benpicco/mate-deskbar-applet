@@ -1,4 +1,4 @@
-SUBDIRS = actions gdmclient
+SUBDIRS = actions
 
 if ENABLE_EVOLUTION
 SUBDIRS += evolution
