@@ -147,7 +147,7 @@ class TemplateAction(deskbar.interfaces.Action):
                     return
 
             shutil.copyfile(self.template_file.uri, created_file)
-            subprocess.Popen(["gnome-open", created_file])
+            deskbar.core.Utils.url_show_file(created_file)
 
         dialog.destroy()
 
