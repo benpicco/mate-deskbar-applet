@@ -147,7 +147,7 @@ class TemplateAction(deskbar.interfaces.Action):
                     return
 
             shutil.copyfile(self.template_file.uri, created_file)
-            deskbar.core.Utils.url_show_file(created_file)
+            deskbar.core.Utils.url_show_file("file://%s" % created_file)
 
         dialog.destroy()
 
