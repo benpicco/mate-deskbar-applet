@@ -1,4 +1,21 @@
 =====================
+deskbar-applet 2.27.4
+=====================
+In this release the dependency on deprecated libgnomeui has been removed.
+
+- Fixed bug in files handler that uppercase querys never showed up
+- Use gio instead gnome.ui to retrieve thumbnails
+- Use SessionManager DBus service to logout/restart/shutdown instead of gnome.ui
+- Fixed bug #573639: Remove deprecated libgnomeui dependency
+- Always execute default action of first item when pressing Enter in entry
+- Use Utils.url_show_file instead of gnome-open
+
+- Updated cs: Lucas Lommer
+- Updated et: Ivar Smolin
+- Updated he: Yaron Shahrabani
+- Updated uk: wanderlust
+
+=====================
 deskbar-applet 2.27.3
 =====================
 
