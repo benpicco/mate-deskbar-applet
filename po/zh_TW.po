@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet 2.25.91\n"
+"Project-Id-Version: deskbar-applet 2.27.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-03 07:25+0800\n"
-"PO-Revision-Date: 2009-02-01 14:27+0800\n"
+"POT-Creation-Date: 2009-07-14 22:26+0800\n"
+"PO-Revision-Date: 2009-07-13 15:04+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <zh-l10n@lists.linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -390,11 +390,11 @@ msgstr "圖片"
 msgid "<i>Empty history</i>"
 msgstr "<i>清空紀錄</i>"
 
-#: ../deskbar/core/Utils.py:185
+#: ../deskbar/core/Utils.py:184
 msgid "Cannot execute program:"
 msgstr "無法執行程式："
 
-#: ../deskbar/core/Utils.py:256
+#: ../deskbar/core/Utils.py:271
 msgid "Cannot show URL:"
 msgstr "無法顯示 URL："
 
@@ -422,12 +422,12 @@ msgstr "使用者名稱:"
 msgid "Password:"
 msgstr "密碼:"
 
-#: ../deskbar/core/Web.py:264
+#: ../deskbar/core/Web.py:260
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>登入至 %s 被拒絕</b></big>"
 
-#: ../deskbar/core/Web.py:265
+#: ../deskbar/core/Web.py:261
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "請檢查您的 <b>%s</b> 憑證"
@@ -629,7 +629,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:63
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:39
 msgid "Location"
 msgstr "位置"
 
@@ -641,129 +641,129 @@ msgstr "檔案、資料夾及位置"
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "以名稱檢視檔案、資料夾、書籤、磁碟機及網路位置"
 
-#: ../deskbar/handlers/gdmactions.py:40
+#: ../deskbar/handlers/gdmactions.py:41
 msgid "Shut down this system now?"
 msgstr "是否立刻關閉這個系統？"
 
-#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:290
-#: ../deskbar/handlers/gdmactions.py:356
+#: ../deskbar/handlers/gdmactions.py:42 ../deskbar/handlers/gdmactions.py:273
+#: ../deskbar/handlers/gdmactions.py:343
 msgid "Shut Down"
 msgstr "關閉電腦"
 
-#: ../deskbar/handlers/gdmactions.py:43
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Log out of this system now?"
 msgstr "是否立刻登出系統？"
 
-#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:307
-#: ../deskbar/handlers/gdmactions.py:311 ../deskbar/handlers/gdmactions.py:359
+#: ../deskbar/handlers/gdmactions.py:45 ../deskbar/handlers/gdmactions.py:292
+#: ../deskbar/handlers/gdmactions.py:296 ../deskbar/handlers/gdmactions.py:346
 msgid "Log Out"
 msgstr "登出"
 
-#: ../deskbar/handlers/gdmactions.py:46
+#: ../deskbar/handlers/gdmactions.py:47
 msgid "Restart this system now?"
 msgstr "是否立刻重新啟動系統？"
 
-#: ../deskbar/handlers/gdmactions.py:47 ../deskbar/handlers/gdmactions.py:332
-#: ../deskbar/handlers/gdmactions.py:358
+#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:319
+#: ../deskbar/handlers/gdmactions.py:345
 msgid "Restart"
 msgstr "重新啟動"
 
-#: ../deskbar/handlers/gdmactions.py:49
+#: ../deskbar/handlers/gdmactions.py:50
 msgid "Suspend this system now?"
 msgstr "立刻讓系統進入暫停模式？"
 
-#: ../deskbar/handlers/gdmactions.py:50 ../deskbar/handlers/gdmactions.py:388
+#: ../deskbar/handlers/gdmactions.py:51 ../deskbar/handlers/gdmactions.py:375
 msgid "Suspend"
 msgstr "暫停"
 
-#: ../deskbar/handlers/gdmactions.py:52
+#: ../deskbar/handlers/gdmactions.py:53
 msgid "Hibernate this system now?"
 msgstr "立刻讓系統進入休眠模式？"
 
-#: ../deskbar/handlers/gdmactions.py:53 ../deskbar/handlers/gdmactions.py:390
+#: ../deskbar/handlers/gdmactions.py:54 ../deskbar/handlers/gdmactions.py:377
 msgid "Hibernate"
 msgstr "休眠"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:62
 #, python-format
 msgid "This system will be automatically shut down in %s second."
 msgid_plural "This system will be automatically shut down in %s seconds."
 msgstr[0] "本系統會在 %s 秒後自動關閉。"
 
-#: ../deskbar/handlers/gdmactions.py:65
+#: ../deskbar/handlers/gdmactions.py:66
 #, python-format
 msgid "You will be automatically logged out in %s second."
 msgid_plural "You will be automatically logged out in %s seconds."
 msgstr[0] "您將在 %s 秒後自動登出。"
 
-#: ../deskbar/handlers/gdmactions.py:69
+#: ../deskbar/handlers/gdmactions.py:70
 #, python-format
 msgid "This system will be automatically restarted in %s second."
 msgid_plural "This system will be automatically restarted in %s seconds."
 msgstr[0] "本系統會在 %s 秒後自動重新啟動。"
 
-#: ../deskbar/handlers/gdmactions.py:73
+#: ../deskbar/handlers/gdmactions.py:74
 #, python-format
 msgid "This system will be automatically suspended in %s second."
 msgid_plural "This system will be automatically suspended in %s seconds."
 msgstr[0] "本系統會在 %s 秒後自動暫停。"
 
-#: ../deskbar/handlers/gdmactions.py:77
+#: ../deskbar/handlers/gdmactions.py:78
 #, python-format
 msgid "This system will be automatically hibernated in %s second."
 msgid_plural "This system will be automatically hibernated in %s seconds."
 msgstr[0] "本系統會在 %s 秒後自動待命。"
 
-#: ../deskbar/handlers/gdmactions.py:127
+#: ../deskbar/handlers/gdmactions.py:128
 msgid "Suspend the machine"
 msgstr "進入暫停模式"
 
-#: ../deskbar/handlers/gdmactions.py:148
+#: ../deskbar/handlers/gdmactions.py:149
 msgid "Hibernate the machine"
 msgstr "進入休眠模式"
 
-#: ../deskbar/handlers/gdmactions.py:169
+#: ../deskbar/handlers/gdmactions.py:170
 msgid "Shutdown the machine"
 msgstr "關閉電腦"
 
-#: ../deskbar/handlers/gdmactions.py:191
+#: ../deskbar/handlers/gdmactions.py:192
 msgid "Reboot the machine"
 msgstr "重新啟動電腦"
 
-#: ../deskbar/handlers/gdmactions.py:213
+#: ../deskbar/handlers/gdmactions.py:214
 msgid "Lock the screen"
 msgstr "鎖定螢幕"
 
-#: ../deskbar/handlers/gdmactions.py:241 ../deskbar/handlers/gdmactions.py:377
+#: ../deskbar/handlers/gdmactions.py:242 ../deskbar/handlers/gdmactions.py:364
 msgid "Lock"
 msgstr "鎖定"
 
-#: ../deskbar/handlers/gdmactions.py:286
+#: ../deskbar/handlers/gdmactions.py:269
 msgid "Turn off the computer"
 msgstr "關閉電腦"
 
-#: ../deskbar/handlers/gdmactions.py:328
+#: ../deskbar/handlers/gdmactions.py:315
 msgid "Restart the computer"
 msgstr "重新啟動電腦"
 
-#: ../deskbar/handlers/gdmactions.py:343 ../deskbar/handlers/gdmactions.py:347
-#: ../deskbar/handlers/gdmactions.py:357
+#: ../deskbar/handlers/gdmactions.py:330 ../deskbar/handlers/gdmactions.py:334
+#: ../deskbar/handlers/gdmactions.py:344
 msgid "Switch User"
 msgstr "切換使用者"
 
-#: ../deskbar/handlers/gdmactions.py:353
+#: ../deskbar/handlers/gdmactions.py:340
 msgid "Computer Actions"
 msgstr "電腦動作"
 
-#: ../deskbar/handlers/gdmactions.py:354
+#: ../deskbar/handlers/gdmactions.py:341
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "登出、關機、重新啟動、暫停及相關動作。"
 
-#: ../deskbar/handlers/gdmactions.py:392
+#: ../deskbar/handlers/gdmactions.py:379
 msgid "Shutdown"
 msgstr "關機"
 
-#: ../deskbar/handlers/gdmactions.py:394
+#: ../deskbar/handlers/gdmactions.py:381
 msgid "Reboot"
 msgstr "重新開機"
 
@@ -1235,6 +1235,15 @@ msgstr "範本"
 msgid "Create new files from your templates"
 msgstr "從您的範本建立新的檔案"
 
+#: ../deskbar/handlers/templates.py:230
+msgid "Could not retrieve templates directory"
+msgstr "無法取得範本目錄"
+
+#: ../deskbar/handlers/templates.py:236
+#, python-format
+msgid "Templates directory %s does not exist"
+msgstr "範本目錄 %s 不存在"
+
 #: ../deskbar/handlers/tomboy.py:41
 #, python-format
 msgid "Open note <b>%(name)s</b>"
@@ -1306,14 +1315,14 @@ msgstr ""
 "    \n"
 " • 您在偏好設定中的憑證是正確的"
 
-#: ../deskbar/handlers/twitter.py:97
+#: ../deskbar/handlers/twitter.py:95
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr "一份貼文已在等候傳送，在您張貼另一篇訊息前請先等待"
 
-#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
-#: ../deskbar/handlers/twitter.py:153
+#: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
+#: ../deskbar/handlers/twitter.py:151
 #, python-format
 msgid "Error posting to %s"
 msgstr "張貼至 %s 時發生錯誤"
@@ -1326,12 +1335,12 @@ msgstr "張貼至 %s 時發生錯誤"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:165
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> 張貼 <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:170
+#: ../deskbar/handlers/twitter.py:168
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1342,23 +1351,23 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:207
+#: ../deskbar/handlers/twitter.py:205
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:208
+#: ../deskbar/handlers/twitter.py:206
 msgid "Post updates to your Twitter account"
 msgstr "張貼更新至您的 Twitter 帳號"
 
-#: ../deskbar/handlers/twitter.py:278
+#: ../deskbar/handlers/twitter.py:279
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:279
+#: ../deskbar/handlers/twitter.py:280
 msgid "Post updates to your identi.ca account"
 msgstr "張貼更新到您的 identi.ca 帳號"
 
-#: ../deskbar/handlers/twitter.py:293
+#: ../deskbar/handlers/twitter.py:294
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
@@ -1367,7 +1376,7 @@ msgstr ""
 "請注意 Deskbar Applet 不支援透過 OpenID 驗證。如果您還沒有準備好，必須先在 "
 "<i>identi.ca</i> 網站設定好使用者名稱和密碼。"
 
-#: ../deskbar/handlers/twitter.py:295
+#: ../deskbar/handlers/twitter.py:296
 msgid "Visit identi.ca website"
 msgstr "參訪 identi.ca 網站"
 
@@ -1439,7 +1448,7 @@ msgstr "根據送出的查詢提供建議的查詢關鍵字"
 msgid "Configure Yahoo!"
 msgstr "設定 Yahoo!"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:66
 #, python-format
 msgid "URL of %s"
 msgstr "%s 的網址"
@@ -1456,7 +1465,7 @@ msgstr "移至 %s 位置"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:57
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "執行 <b>%(name)s</b> (%(prog)s)"
@@ -1515,7 +1524,7 @@ msgstr ""
 msgid "<b>Search:</b>"
 msgstr "<b>搜尋：</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:257
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
 msgid "Display additional actions"
 msgstr "顯示額外的動作"
 
