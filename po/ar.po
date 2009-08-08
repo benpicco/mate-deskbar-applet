@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-18 21:52+0200\n"
-"PO-Revision-Date: 2009-04-18 22:31+0300\n"
+"POT-Creation-Date: 2009-08-08 21:36+0300\n"
+"PO-Revision-Date: 2009-08-08 21:41+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "Language: ar\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Virtaal 0.3.1\n"
+"X-Generator: Virtaal 0.4.0\n"
 
 #: ../data/deskbar-applet.schemas.in.h:1
 msgid ""
@@ -404,11 +404,11 @@ msgstr "صور"
 msgid "<i>Empty history</i>"
 msgstr "<i>تاريخ فارغ</i>"
 
-#: ../deskbar/core/Utils.py:185
+#: ../deskbar/core/Utils.py:184
 msgid "Cannot execute program:"
 msgstr "تعذّر تنفيذ البرنامج:"
 
-#: ../deskbar/core/Utils.py:272
+#: ../deskbar/core/Utils.py:271
 msgid "Cannot show URL:"
 msgstr "تعذّر عرض المسار:"
 
@@ -644,7 +644,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:63
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:39
 msgid "Location"
 msgstr "مكان"
 
@@ -656,50 +656,50 @@ msgstr "ملفات ومجلدات وأماكن"
 msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "اعرض ملفاتك ومجلداتك وعلاماتك وأماكن الشبكة حسب الاسم"
 
-#: ../deskbar/handlers/gdmactions.py:40
+#: ../deskbar/handlers/gdmactions.py:41
 msgid "Shut down this system now?"
 msgstr "أأطفئ النظام الآن؟"
 
-#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:290
-#: ../deskbar/handlers/gdmactions.py:356
+#: ../deskbar/handlers/gdmactions.py:42 ../deskbar/handlers/gdmactions.py:273
+#: ../deskbar/handlers/gdmactions.py:343
 msgid "Shut Down"
 msgstr "أطفئ"
 
-#: ../deskbar/handlers/gdmactions.py:43
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Log out of this system now?"
 msgstr "أأخرج من النظام الآن؟"
 
-#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:307
-#: ../deskbar/handlers/gdmactions.py:311 ../deskbar/handlers/gdmactions.py:359
+#: ../deskbar/handlers/gdmactions.py:45 ../deskbar/handlers/gdmactions.py:292
+#: ../deskbar/handlers/gdmactions.py:296 ../deskbar/handlers/gdmactions.py:346
 msgid "Log Out"
 msgstr "اخرج"
 
-#: ../deskbar/handlers/gdmactions.py:46
+#: ../deskbar/handlers/gdmactions.py:47
 msgid "Restart this system now?"
 msgstr "أأعيد التشغيل الآن؟"
 
-#: ../deskbar/handlers/gdmactions.py:47 ../deskbar/handlers/gdmactions.py:332
-#: ../deskbar/handlers/gdmactions.py:358
+#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:319
+#: ../deskbar/handlers/gdmactions.py:345
 msgid "Restart"
 msgstr "أعد التشغيل"
 
-#: ../deskbar/handlers/gdmactions.py:49
+#: ../deskbar/handlers/gdmactions.py:50
 msgid "Suspend this system now?"
 msgstr "أأعلّق الآن؟"
 
-#: ../deskbar/handlers/gdmactions.py:50 ../deskbar/handlers/gdmactions.py:388
+#: ../deskbar/handlers/gdmactions.py:51 ../deskbar/handlers/gdmactions.py:375
 msgid "Suspend"
 msgstr "علّق"
 
-#: ../deskbar/handlers/gdmactions.py:52
+#: ../deskbar/handlers/gdmactions.py:53
 msgid "Hibernate this system now?"
 msgstr "أأسبِت هذا النظام الآن؟"
 
-#: ../deskbar/handlers/gdmactions.py:53 ../deskbar/handlers/gdmactions.py:390
+#: ../deskbar/handlers/gdmactions.py:54 ../deskbar/handlers/gdmactions.py:377
 msgid "Hibernate"
 msgstr "أسِبت"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:62
 #, python-format
 msgid "This system will be automatically shut down in %s second."
 msgid_plural "This system will be automatically shut down in %s seconds."
@@ -710,7 +710,7 @@ msgstr[3] "سيطفأ هذا النظام آليا خلال %s ثوان."
 msgstr[4] "سيطفأ هذا النظام آليا خلال %s ثانية."
 msgstr[5] "سيطفأ هذا النظام آليا خلال %s ثانية."
 
-#: ../deskbar/handlers/gdmactions.py:65
+#: ../deskbar/handlers/gdmactions.py:66
 #, python-format
 msgid "You will be automatically logged out in %s second."
 msgid_plural "You will be automatically logged out in %s seconds."
@@ -721,7 +721,7 @@ msgstr[3] "ستُخرج آليا خلال %s ثوان."
 msgstr[4] "ستُخرج آليا خلال %s ثانية."
 msgstr[5] "ستُخرج آليا خلال %s ثانية."
 
-#: ../deskbar/handlers/gdmactions.py:69
+#: ../deskbar/handlers/gdmactions.py:70
 #, python-format
 msgid "This system will be automatically restarted in %s second."
 msgid_plural "This system will be automatically restarted in %s seconds."
@@ -732,7 +732,7 @@ msgstr[3] "سيُعاد تشغيل هذا النظام آلياً خلال %s ث
 msgstr[4] "سيُعاد تشغيل هذا النظام آلياً خلال %s ثانية."
 msgstr[5] "سيُعاد تشغيل هذا النظام آلياً خلال %s ثانية."
 
-#: ../deskbar/handlers/gdmactions.py:73
+#: ../deskbar/handlers/gdmactions.py:74
 #, python-format
 msgid "This system will be automatically suspended in %s second."
 msgid_plural "This system will be automatically suspended in %s seconds."
@@ -743,7 +743,7 @@ msgstr[3] "سيُعلّق هذا النظام آليا خلال %s ثوان."
 msgstr[4] "سيُعلّق هذا النظام آليا خلال %s ثانية."
 msgstr[5] "سيُعلّق هذا النظام آليا خلال %s ثانية."
 
-#: ../deskbar/handlers/gdmactions.py:77
+#: ../deskbar/handlers/gdmactions.py:78
 #, python-format
 msgid "This system will be automatically hibernated in %s second."
 msgid_plural "This system will be automatically hibernated in %s seconds."
@@ -754,56 +754,56 @@ msgstr[3] "سيُسبت هذا النظام آليا خلال %s ثوان."
 msgstr[4] "سيُسبت هذا النظام آليا خلال %s ثانية."
 msgstr[5] "سيُسبت هذا النظام آليا خلال %s ثانية."
 
-#: ../deskbar/handlers/gdmactions.py:127
+#: ../deskbar/handlers/gdmactions.py:128
 msgid "Suspend the machine"
 msgstr "علّق الجهاز"
 
-#: ../deskbar/handlers/gdmactions.py:148
+#: ../deskbar/handlers/gdmactions.py:149
 msgid "Hibernate the machine"
 msgstr "أسبِت الجهاز"
 
-#: ../deskbar/handlers/gdmactions.py:169
+#: ../deskbar/handlers/gdmactions.py:170
 msgid "Shutdown the machine"
 msgstr "أطفئ الجهاز"
 
-#: ../deskbar/handlers/gdmactions.py:191
+#: ../deskbar/handlers/gdmactions.py:192
 msgid "Reboot the machine"
 msgstr "أعِد تشغيل الجهاز"
 
-#: ../deskbar/handlers/gdmactions.py:213
+#: ../deskbar/handlers/gdmactions.py:214
 msgid "Lock the screen"
 msgstr "أوصِد الشاشة"
 
-#: ../deskbar/handlers/gdmactions.py:241 ../deskbar/handlers/gdmactions.py:377
+#: ../deskbar/handlers/gdmactions.py:242 ../deskbar/handlers/gdmactions.py:364
 msgid "Lock"
 msgstr "أوصِد"
 
-#: ../deskbar/handlers/gdmactions.py:286
+#: ../deskbar/handlers/gdmactions.py:269
 msgid "Turn off the computer"
 msgstr "أطفئ الحاسوب"
 
-#: ../deskbar/handlers/gdmactions.py:328
+#: ../deskbar/handlers/gdmactions.py:315
 msgid "Restart the computer"
 msgstr "أعد تشغيل الحاسوب"
 
-#: ../deskbar/handlers/gdmactions.py:343 ../deskbar/handlers/gdmactions.py:347
-#: ../deskbar/handlers/gdmactions.py:357
+#: ../deskbar/handlers/gdmactions.py:330 ../deskbar/handlers/gdmactions.py:334
+#: ../deskbar/handlers/gdmactions.py:344
 msgid "Switch User"
 msgstr "بدّل المستخدم"
 
-#: ../deskbar/handlers/gdmactions.py:353
+#: ../deskbar/handlers/gdmactions.py:340
 msgid "Computer Actions"
 msgstr "إجراءات الحاسوب"
 
-#: ../deskbar/handlers/gdmactions.py:354
+#: ../deskbar/handlers/gdmactions.py:341
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "خروج وإطفاء وإعادة تشغيل وتعليق وإجراءات متعلقة بها."
 
-#: ../deskbar/handlers/gdmactions.py:392
+#: ../deskbar/handlers/gdmactions.py:379
 msgid "Shutdown"
 msgstr "أطفئ"
 
-#: ../deskbar/handlers/gdmactions.py:394
+#: ../deskbar/handlers/gdmactions.py:381
 msgid "Reboot"
 msgstr "أعِد التشغيل"
 
@@ -1087,7 +1087,7 @@ msgstr "إعدادات OpenSearch"
 
 #: ../deskbar/handlers/opensearch.py:218
 msgid "You can manage the list of websites used by the OpenSearch module here."
-msgstr ""
+msgstr "يمكنك هنا إدارة قائمة المواقع التي يستخدمها OpenSearch."
 
 #: ../deskbar/handlers/opensearch.py:410
 msgid ""
@@ -1095,6 +1095,8 @@ msgid ""
 "website. The name and description can be loaded automatically from this "
 "document or you can just enter your own values manually."
 msgstr ""
+"أدخل مكان (مسار) مستند وصف OpenSearch لهذا الموقع. يمكن تحميل الاسم والوصف "
+"تلقائيا من هذا المستند أو يمكنك إدخالهم يدويا."
 
 #: ../deskbar/handlers/opensearch.py:427
 msgid "_Location (URL):"
@@ -1110,44 +1112,43 @@ msgstr "ال_وصف:"
 
 #: ../deskbar/handlers/opensearch.py:469
 msgid "Edit OpenSearch Website"
-msgstr ""
+msgstr "حرر موقع OpenSearch"
 
 #: ../deskbar/handlers/opensearch.py:476
-#, fuzzy
 msgid "Location missing"
-msgstr "مكان"
+msgstr "المكان ناقص"
 
 #: ../deskbar/handlers/opensearch.py:476
 msgid "Please enter a valid location (URL) for this website"
-msgstr ""
+msgstr "من فضلك أدخل مكانا (عنوانا) سليما لهذا الموقع"
 
 #: ../deskbar/handlers/opensearch.py:479
 msgid "Name missing"
-msgstr ""
+msgstr "الاسم ناقص"
 
 #: ../deskbar/handlers/opensearch.py:479
 msgid "Please enter a name for this website"
-msgstr ""
+msgstr "من فضلك أدخل اسما لهذا الموقع"
 
 #: ../deskbar/handlers/opensearch.py:482
 msgid "Description missing"
-msgstr ""
+msgstr "الوصف ناقص"
 
 #: ../deskbar/handlers/opensearch.py:482
 msgid "Please enter a description for this website"
-msgstr ""
+msgstr "من فضلك أدخل وصفا لهذا الموقع"
 
 #: ../deskbar/handlers/opensearch.py:529
 msgid "Unable to load description document"
-msgstr ""
+msgstr "تعذّر تحميل مستند الوصف"
 
 #: ../deskbar/handlers/opensearch.py:530
 msgid "Make sure the URL points to a valid OpenSearch description document."
-msgstr ""
+msgstr "تأكد من أن المسار يشير إلى مستند وصف OpenSearch سليم."
 
 #: ../deskbar/handlers/opensearch.py:546
 msgid "Add OpenSearch Website"
-msgstr ""
+msgstr "أضف موقع OpenSearch"
 
 #: ../deskbar/handlers/programs.py:86
 #, python-format
@@ -1273,6 +1274,15 @@ msgstr "قوالب"
 #: ../deskbar/handlers/templates.py:174
 msgid "Create new files from your templates"
 msgstr "أنشئ ملفات جديدة من قوالبك"
+
+#: ../deskbar/handlers/templates.py:230
+msgid "Could not retrieve templates directory"
+msgstr "تعذّر جلب دليل القوالب"
+
+#: ../deskbar/handlers/templates.py:236
+#, python-format
+msgid "Templates directory %s does not exist"
+msgstr "دليل القوالب %s لا وجود له"
 
 #: ../deskbar/handlers/tomboy.py:41
 #, python-format
@@ -1478,7 +1488,7 @@ msgstr "يوفر اقتراحات للاستعلامات المتعلقة بال
 msgid "Configure Yahoo!"
 msgstr "اضبط ياهو!"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:66
 #, python-format
 msgid "URL of %s"
 msgstr "مسار %s"
@@ -1495,7 +1505,7 @@ msgstr "اذهب إلى مكان %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:57
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "شغّل ‪<b>%(name)s</b>‬ ‫‪(%(prog)s)‬"
