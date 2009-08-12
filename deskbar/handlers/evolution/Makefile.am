@@ -1,6 +1,6 @@
 INCLUDES = $(PYTHON_INCLUDES) $(EVOLUTION_CFLAGS)
 
-_evolutiondir = $(pyexecdir)/deskbar/handlers/evolution
+_evolutiondir = $(pythondir)/deskbar/handlers/evolution
 _evolution_LTLIBRARIES = _evolution.la
 _evolution_la_LDFLAGS = -module -avoid-version -export-symbols-regex init_evolution
 _evolution_la_LIBADD = $(EVOLUTION_LIBS)

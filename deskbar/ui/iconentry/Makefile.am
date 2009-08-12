@@ -1,6 +1,6 @@
 INCLUDES = $(PYTHON_INCLUDES) $(DESKBAR_CFLAGS)
 
-_iconentrydir = $(pyexecdir)/deskbar/ui/iconentry
+_iconentrydir = $(pythondir)/deskbar/ui/iconentry
 _iconentry_LTLIBRARIES = _iconentry.la
 _iconentry_la_LDFLAGS = -module -avoid-version -export-symbols-regex init_iconentry
 _iconentry_la_LIBADD = $(DESKBAR_LIBS)
