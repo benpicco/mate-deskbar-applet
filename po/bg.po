@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-12 14:19+0200\n"
-"PO-Revision-Date: 2009-02-12 14:19+0200\n"
+"POT-Creation-Date: 2009-08-14 07:40+0300\n"
+"PO-Revision-Date: 2009-08-14 07:40+0300\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -407,11 +407,11 @@ msgstr "Изображения"
 msgid "<i>Empty history</i>"
 msgstr "<i>Изчистване на историята</i>"
 
-#: ../deskbar/core/Utils.py:185
+#: ../deskbar/core/Utils.py:184
 msgid "Cannot execute program:"
 msgstr "Не може да се изпълни програмата:"
 
-#: ../deskbar/core/Utils.py:272
+#: ../deskbar/core/Utils.py:271
 msgid "Cannot show URL:"
 msgstr "Не може да се отвори адрес:"
 
@@ -439,12 +439,12 @@ msgstr "Потребителско име:"
 msgid "Password:"
 msgstr "Парола:"
 
-#: ../deskbar/core/Web.py:264
+#: ../deskbar/core/Web.py:260
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>Отказан вход в %s</b></big>"
 
-#: ../deskbar/core/Web.py:265
+#: ../deskbar/core/Web.py:261
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "Проверете информацията за регистрацията ви в <b>%s</b>"
@@ -652,7 +652,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:63
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:39
 msgid "Location"
 msgstr "Местоположение"
 
@@ -666,138 +666,138 @@ msgstr ""
 "Преглеждане на файловете, папките, отметките, устройствата и мрежовите места "
 "по име"
 
-#: ../deskbar/handlers/gdmactions.py:40
+#: ../deskbar/handlers/gdmactions.py:41
 msgid "Shut down this system now?"
 msgstr "Спиране на компютъра?"
 
-#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:290
-#: ../deskbar/handlers/gdmactions.py:356
+#: ../deskbar/handlers/gdmactions.py:42 ../deskbar/handlers/gdmactions.py:273
+#: ../deskbar/handlers/gdmactions.py:343
 msgid "Shut Down"
 msgstr "Спиране"
 
-#: ../deskbar/handlers/gdmactions.py:43
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Log out of this system now?"
 msgstr "Излизане от системата?"
 
-#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:307
-#: ../deskbar/handlers/gdmactions.py:311 ../deskbar/handlers/gdmactions.py:359
+#: ../deskbar/handlers/gdmactions.py:45 ../deskbar/handlers/gdmactions.py:292
+#: ../deskbar/handlers/gdmactions.py:296 ../deskbar/handlers/gdmactions.py:346
 msgid "Log Out"
 msgstr "Излизане от системата"
 
 # Различава се от другите действия (където е „компютър“), но компютъра
 # не се рестартира, а системата.  FIXME: Може би всички да се променят
 # на „система“?
-#: ../deskbar/handlers/gdmactions.py:46
+#: ../deskbar/handlers/gdmactions.py:47
 msgid "Restart this system now?"
 msgstr "Рестартиране на компютъра?"
 
-#: ../deskbar/handlers/gdmactions.py:47 ../deskbar/handlers/gdmactions.py:332
-#: ../deskbar/handlers/gdmactions.py:358
+#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:319
+#: ../deskbar/handlers/gdmactions.py:345
 msgid "Restart"
 msgstr "Рестартиране"
 
-#: ../deskbar/handlers/gdmactions.py:49
+#: ../deskbar/handlers/gdmactions.py:50
 msgid "Suspend this system now?"
 msgstr "Приспиване на компютъра?"
 
-#: ../deskbar/handlers/gdmactions.py:50 ../deskbar/handlers/gdmactions.py:388
+#: ../deskbar/handlers/gdmactions.py:51 ../deskbar/handlers/gdmactions.py:375
 msgid "Suspend"
 msgstr "Приспиване"
 
-#: ../deskbar/handlers/gdmactions.py:52
+#: ../deskbar/handlers/gdmactions.py:53
 msgid "Hibernate this system now?"
 msgstr "Дълбоко приспиване на компютъра?"
 
-#: ../deskbar/handlers/gdmactions.py:53 ../deskbar/handlers/gdmactions.py:390
+#: ../deskbar/handlers/gdmactions.py:54 ../deskbar/handlers/gdmactions.py:377
 msgid "Hibernate"
 msgstr "Дълбоко приспиване"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:62
 #, python-format
 msgid "This system will be automatically shut down in %s second."
 msgid_plural "This system will be automatically shut down in %s seconds."
 msgstr[0] "Компютърът ще се изключи автоматично след %s секунда."
 msgstr[1] "Компютърът ще се изключи автоматично след %s секунди."
 
-#: ../deskbar/handlers/gdmactions.py:65
+#: ../deskbar/handlers/gdmactions.py:66
 #, python-format
 msgid "You will be automatically logged out in %s second."
 msgid_plural "You will be automatically logged out in %s seconds."
 msgstr[0] "Ще излезете от системата автоматично след %s секунда."
 msgstr[1] "Ще излезете от системата автоматично след %s секунди."
 
-#: ../deskbar/handlers/gdmactions.py:69
+#: ../deskbar/handlers/gdmactions.py:70
 #, python-format
 msgid "This system will be automatically restarted in %s second."
 msgid_plural "This system will be automatically restarted in %s seconds."
 msgstr[0] "Компютърът ще се рестартира автоматично след %s секунда."
 msgstr[1] "Компютърът ще се рестартира автоматично след %s секунди."
 
-#: ../deskbar/handlers/gdmactions.py:73
+#: ../deskbar/handlers/gdmactions.py:74
 #, python-format
 msgid "This system will be automatically suspended in %s second."
 msgid_plural "This system will be automatically suspended in %s seconds."
 msgstr[0] "Компютърът ще се приспи автоматично на след %s секунда."
 msgstr[1] "Компютърът ще се приспи автоматично на след %s секунди."
 
-#: ../deskbar/handlers/gdmactions.py:77
+#: ../deskbar/handlers/gdmactions.py:78
 #, python-format
 msgid "This system will be automatically hibernated in %s second."
 msgid_plural "This system will be automatically hibernated in %s seconds."
 msgstr[0] "Компютърът ще се приспи дълбоко автоматично на след %s секунда."
 msgstr[1] "Компютърът ще се приспи дълбоко автоматично на след %s секунди."
 
-#: ../deskbar/handlers/gdmactions.py:127
+#: ../deskbar/handlers/gdmactions.py:128
 msgid "Suspend the machine"
 msgstr "Приспиване на компютъра"
 
-#: ../deskbar/handlers/gdmactions.py:148
+#: ../deskbar/handlers/gdmactions.py:149
 msgid "Hibernate the machine"
 msgstr "Дълбоко приспиване на компютъра"
 
-#: ../deskbar/handlers/gdmactions.py:169
+#: ../deskbar/handlers/gdmactions.py:170
 msgid "Shutdown the machine"
 msgstr "Изключване на компютъра"
 
-#: ../deskbar/handlers/gdmactions.py:191
+#: ../deskbar/handlers/gdmactions.py:192
 msgid "Reboot the machine"
 msgstr "Рестартиране на компютъра"
 
-#: ../deskbar/handlers/gdmactions.py:213
+#: ../deskbar/handlers/gdmactions.py:214
 msgid "Lock the screen"
 msgstr "Заключване на екрана"
 
-#: ../deskbar/handlers/gdmactions.py:241 ../deskbar/handlers/gdmactions.py:377
+#: ../deskbar/handlers/gdmactions.py:242 ../deskbar/handlers/gdmactions.py:364
 msgid "Lock"
 msgstr "Заключване"
 
-#: ../deskbar/handlers/gdmactions.py:286
+#: ../deskbar/handlers/gdmactions.py:269
 msgid "Turn off the computer"
 msgstr "Изключване на компютъра"
 
-#: ../deskbar/handlers/gdmactions.py:328
+#: ../deskbar/handlers/gdmactions.py:315
 msgid "Restart the computer"
 msgstr "Рестартиране на компютъра"
 
-#: ../deskbar/handlers/gdmactions.py:343 ../deskbar/handlers/gdmactions.py:347
-#: ../deskbar/handlers/gdmactions.py:357
+#: ../deskbar/handlers/gdmactions.py:330 ../deskbar/handlers/gdmactions.py:334
+#: ../deskbar/handlers/gdmactions.py:344
 msgid "Switch User"
 msgstr "Промяна на потребителя"
 
-#: ../deskbar/handlers/gdmactions.py:353
+#: ../deskbar/handlers/gdmactions.py:340
 msgid "Computer Actions"
 msgstr "Действия с компютъра"
 
-#: ../deskbar/handlers/gdmactions.py:354
+#: ../deskbar/handlers/gdmactions.py:341
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr ""
 "Излизане от системата, приспиване, дълбоко приспиване и др. подобни действия"
 
-#: ../deskbar/handlers/gdmactions.py:392
+#: ../deskbar/handlers/gdmactions.py:379
 msgid "Shutdown"
 msgstr "Изключване"
 
-#: ../deskbar/handlers/gdmactions.py:394
+#: ../deskbar/handlers/gdmactions.py:381
 msgid "Reboot"
 msgstr "Рестартиране"
 
@@ -1275,6 +1275,15 @@ msgstr "Шаблони"
 msgid "Create new files from your templates"
 msgstr "Създаване на нови файлове по ваши шаблони"
 
+#: ../deskbar/handlers/templates.py:230
+msgid "Could not retrieve templates directory"
+msgstr "Папката за шаблоните не може да бъде получена"
+
+#: ../deskbar/handlers/templates.py:236
+#, python-format
+msgid "Templates directory %s does not exist"
+msgstr "Папката за шаблони %s не съществува"
+
 #: ../deskbar/handlers/tomboy.py:41
 #, python-format
 msgid "Open note <b>%(name)s</b>"
@@ -1347,7 +1356,7 @@ msgstr ""
 " • Информацията за регистрацията ви в\n"
 "   настройките е вярна."
 
-#: ../deskbar/handlers/twitter.py:97
+#: ../deskbar/handlers/twitter.py:95
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
@@ -1355,8 +1364,8 @@ msgstr ""
 "Вече има едно съобщение, което чака да бъде изпратено. Изчакайте, преди да "
 "пратите друго."
 
-#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
-#: ../deskbar/handlers/twitter.py:153
+#: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
+#: ../deskbar/handlers/twitter.py:151
 #, python-format
 msgid "Error posting to %s"
 msgstr "Грешка при пращането на съобщение до %s"
@@ -1369,12 +1378,12 @@ msgstr "Грешка при пращането на съобщение до %s"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:165
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Съобщение <i>„%(msg)s“</i>"
 
-#: ../deskbar/handlers/twitter.py:170
+#: ../deskbar/handlers/twitter.py:168
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1385,23 +1394,23 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:207
+#: ../deskbar/handlers/twitter.py:205
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:208
+#: ../deskbar/handlers/twitter.py:206
 msgid "Post updates to your Twitter account"
 msgstr "Пращане на съобщения до регистрацията ви в Twitter"
 
-#: ../deskbar/handlers/twitter.py:278
+#: ../deskbar/handlers/twitter.py:279
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:279
+#: ../deskbar/handlers/twitter.py:280
 msgid "Post updates to your identi.ca account"
 msgstr "Пращане на съобщения до регистрацията ви в identi.ca"
 
-#: ../deskbar/handlers/twitter.py:293
+#: ../deskbar/handlers/twitter.py:294
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
@@ -1410,7 +1419,7 @@ msgstr ""
 "Аплетът Deskbar все още не поддържа идентификация чрез OpenID. Трябва да "
 "имате име и парола за сайта <i>identi.ca</i>."
 
-#: ../deskbar/handlers/twitter.py:295
+#: ../deskbar/handlers/twitter.py:296
 msgid "Visit identi.ca website"
 msgstr "Посетете сайта на identi.ca"
 
@@ -1483,7 +1492,7 @@ msgstr "Дава предложения за търсения свързани �
 msgid "Configure Yahoo!"
 msgstr "Настройки на Yahoo!"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:66
 #, python-format
 msgid "URL of %s"
 msgstr "Адресът на %s"
@@ -1500,7 +1509,7 @@ msgstr "Отваряне на адреса на %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:57
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "Стартиране на <b>%(name)s</b> (%(prog)s)"
