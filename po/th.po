@@ -6,9 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet 0.8.6\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-13 14:20+0700\n"
-"PO-Revision-Date: 2009-02-13 14:50+0700\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=deskbar-applet&component=general\n"
+"POT-Creation-Date: 2009-05-01 18:03+0000\n"
+"PO-Revision-Date: 2009-08-22 23:15+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -422,12 +423,12 @@ msgstr "ชื่อผู้ใช้:"
 msgid "Password:"
 msgstr "รหัสผ่าน:"
 
-#: ../deskbar/core/Web.py:264
+#: ../deskbar/core/Web.py:260
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>การเข้าระบบไปยัง %s ถูกปฏิเสธ</b></big>"
 
-#: ../deskbar/core/Web.py:265
+#: ../deskbar/core/Web.py:261
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "กรุณาตรวจสอบข้อมูลลับสำหรับ <b>%s</b> ของคุณ"
@@ -629,7 +630,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:63
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:39
 msgid "Location"
 msgstr "ตำแหน่งเก็บ"
 
@@ -1236,6 +1237,15 @@ msgstr "ต้นแบบ"
 msgid "Create new files from your templates"
 msgstr "สร้างแฟ้มใหม่จากต้นแบบ"
 
+#: ../deskbar/handlers/templates.py:230
+msgid "Could not retrieve templates directory"
+msgstr "ไม่สามารถดึงข้อมูลจากไดเรกทอรีของต้นแบบ"
+
+#: ../deskbar/handlers/templates.py:236
+#, python-format
+msgid "Templates directory %s does not exist"
+msgstr "ไดเรกทอรีต้นแบบ %s ไม่มีอยู่"
+
 #: ../deskbar/handlers/tomboy.py:41
 #, python-format
 msgid "Open note <b>%(name)s</b>"
@@ -1307,14 +1317,14 @@ msgstr ""
 "    ด้วยเว็บเบราว์เซอร์ได้\n"
 " • รหัสผ่านของคุณที่กำหนดไว้ในค่าปรับแต่งนั้นถูกต้อง"
 
-#: ../deskbar/handlers/twitter.py:97
+#: ../deskbar/handlers/twitter.py:95
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr "มีรายการแปะประกาศที่รอการส่งอยู่ กรุณารอก่อนที่จะส่งข้อความถัดไป"
 
-#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
-#: ../deskbar/handlers/twitter.py:153
+#: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
+#: ../deskbar/handlers/twitter.py:151
 #, python-format
 msgid "Error posting to %s"
 msgstr "เกิดข้อผิดพลาดขณะแปะประกาศที่ %s"
@@ -1327,12 +1337,12 @@ msgstr "เกิดข้อผิดพลาดขณะแปะประก
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:165
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> แปะประกาศ <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:170
+#: ../deskbar/handlers/twitter.py:168
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1343,23 +1353,23 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:207
+#: ../deskbar/handlers/twitter.py:205
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:208
+#: ../deskbar/handlers/twitter.py:206
 msgid "Post updates to your Twitter account"
 msgstr "แปะประกาศข้อความใหม่ไปยังบัญชี Twitter ของคุณ"
 
-#: ../deskbar/handlers/twitter.py:278
+#: ../deskbar/handlers/twitter.py:279
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:279
+#: ../deskbar/handlers/twitter.py:280
 msgid "Post updates to your identi.ca account"
 msgstr "แปะประกาศข้อความใหม่ไปยังบัญชี identi.ca ของคุณ"
 
-#: ../deskbar/handlers/twitter.py:293
+#: ../deskbar/handlers/twitter.py:294
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
@@ -1368,7 +1378,7 @@ msgstr ""
 "โปรดสังเกตว่า แอพเพล็ตเดสก์บาร์ไม่รองรับการยืนยันตัวบุคคลด้วย OpenID "
 "คุณต้องตั้งชื่อผู้ใช้และรหัสผ่านที่เว็บ <i>identi.ca</i> ก่อน ถ้าคุณยังไม่ได้ทำ"
 
-#: ../deskbar/handlers/twitter.py:295
+#: ../deskbar/handlers/twitter.py:296
 msgid "Visit identi.ca website"
 msgstr "ไปที่เว็บ identi.ca"
 
@@ -1440,7 +1450,7 @@ msgstr "แนะนำคำค้นที่เกี่ยวข้องก
 msgid "Configure Yahoo!"
 msgstr "ตั้งค่า Yahoo!"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:66
 #, python-format
 msgid "URL of %s"
 msgstr "URL ของ %s"
@@ -1457,7 +1467,7 @@ msgstr "ไปยังตำแหน่งเก็บของ %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:57
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "เรียกใช้ <b>%(name)s</b> (%(prog)s)"
