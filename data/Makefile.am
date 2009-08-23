@@ -32,7 +32,7 @@ resources_DATA = \
 	smart-bookmarks.ui \
 	prefs-dialog.ui
 
-deskbarbindir = $(libdir)/deskbar-applet
+deskbarbindir = $(libexecdir)/deskbar-applet
 
 #
 # Desktop file

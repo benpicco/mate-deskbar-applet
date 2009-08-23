@@ -7,7 +7,7 @@ endif
 deskbar_handlers_modulesdir = $(pythondir)/deskbar/handlers
 deskbar_handlers_modules_PYTHON = __init__.py
 
-deskbar_handlersdir = $(libdir)/deskbar-applet/modules-2.20-compatible
+deskbar_handlersdir = $(libexecdir)/deskbar-applet/modules-2.20-compatible
 deskbar_handlers_PYTHON = \
 	beagle-static.py \
 	beagle-live.py \
