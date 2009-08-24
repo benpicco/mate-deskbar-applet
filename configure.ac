@@ -57,8 +57,8 @@ AC_SUBST(PACKAGE)
 AS_AC_EXPAND(DATADIR, $datarootdir)
 AC_SUBST(DATADIR)
 
-AS_AC_EXPAND(LIBDIR, $libdir)
-AC_SUBST(LIBDIR)
+AS_AC_EXPAND(LIBEXECDIR, $libexecdir)
+AC_SUBST(LIBEXECDIR)
 
 dnl ****************************************************************************
 dnl * PyGTK & co for Gnome Streamer
