@@ -1,4 +1,4 @@
-# translation of deskbar-applet.HEAD.gu.po to Gujarati
+# translation of deskbar-applet.master.gu.po to Gujarati
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -7,17 +7,18 @@
 # Sweta Kothari <swkothar@redhat.com>, 2008, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet.HEAD.gu\n"
+"Project-Id-Version: deskbar-applet.master.gu\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=deskbar-applet&component=general\n"
-"POT-Creation-Date: 2009-02-17 06:47+0000\n"
-"PO-Revision-Date: 2009-03-09 23:27+0530\n"
-"Last-Translator: Ankit Patel <ankit@redhat.com>\n"
-"Language-Team: Gujarati <fedora-trans-gu@redhat.com>\n"
+"POT-Creation-Date: 2009-05-01 18:03+0000\n"
+"PO-Revision-Date: 2009-08-26 12:22+0530\n"
+"Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
+"Language-Team: Gujarati\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=2; plural=(n!=1);\n\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -306,7 +307,9 @@ msgid ""
 "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
-msgstr "<i><small><b>નોંધ:</b> <b>something</b> માટે શોધ કરવા માટે ટૂંકાણ (ઉદાહરણ તરીકે <b>wp</b>) વાપરવા માટે, \"<b>wp something</b>\" ને ડેસ્કબારમાં લખો</small></i>."
+msgstr ""
+"<i><small><b>નોંધ:</b> <b>something</b> માટે શોધ કરવા માટે ટૂંકાણ (ઉદાહરણ તરીકે "
+"<b>wp</b>) વાપરવા માટે, \"<b>wp something</b>\" ને ડેસ્કબારમાં લખો</small></i>."
 
 #: ../data/smart-bookmarks.ui.h:2
 msgid "Shortcuts for Bookmarked Searches"
@@ -459,12 +462,12 @@ msgstr "વપરાશકર્તા નામ:"
 msgid "Password:"
 msgstr "પાસવર્ડ:"
 
-#: ../deskbar/core/Web.py:264
+#: ../deskbar/core/Web.py:260
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>%s નો પ્રવેશ નકારેલ છે</b></big>"
 
-#: ../deskbar/core/Web.py:265
+#: ../deskbar/core/Web.py:261
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "મહેરબાની કરીને તમારો <b>%s</b> માટે શ્રેય ચકાસો"
@@ -666,7 +669,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:63
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:39
 msgid "Location"
 msgstr "સ્થાન"
 
@@ -1096,7 +1099,10 @@ msgid ""
 "Enter the location (URL) of the OpenSearch description document for this "
 "website. The name and description can be loaded automatically from this "
 "document or you can just enter your own values manually."
-msgstr "આ વેબસાઈટ માટે OpenSearch વર્ણન દસ્તાવેજનું સ્થાન (URL) દાખલ કરો. નામ અને વર્ણન આ દસ્તાવેજમાંથી આપોઆપ લાવી શકાય છે અથવા તમે ખાલી તમારી પોતાની કિંમતો જાતે દાખલ કરી શકો છો."
+msgstr ""
+"આ વેબસાઈટ માટે OpenSearch વર્ણન દસ્તાવેજનું સ્થાન (URL) દાખલ કરો. નામ અને વર્ણન આ "
+"દસ્તાવેજમાંથી આપોઆપ લાવી શકાય છે અથવા તમે ખાલી તમારી પોતાની કિંમતો જાતે દાખલ કરી "
+"શકો છો."
 
 #: ../deskbar/handlers/opensearch.py:427
 msgid "_Location (URL):"
@@ -1276,6 +1282,15 @@ msgstr "ટેમ્પલેટો"
 msgid "Create new files from your templates"
 msgstr "તમારી ટેમ્પલેટોમાંથી નવી ફાઈલો બનાવો"
 
+#: ../deskbar/handlers/templates.py:230
+msgid "Could not retrieve templates directory"
+msgstr "ટેમ્પલેટો ડિરેક્ટરીને મેળવી શકાઇ નહિં"
+
+#: ../deskbar/handlers/templates.py:236
+#, python-format
+msgid "Templates directory %s does not exist"
+msgstr "ટેમ્પલેટો ડિરેક્ટરી %s અસ્તિત્વ ધરાવતી નથી"
+
 #: ../deskbar/handlers/tomboy.py:41
 #, python-format
 msgid "Open note <b>%(name)s</b>"
@@ -1347,7 +1362,7 @@ msgstr ""
 "    તમે જોડાઇ શકો છો\n"
 " • તમારો શ્રેય પસંદગીઓમાં સાચુ છે"
 
-#: ../deskbar/handlers/twitter.py:97
+#: ../deskbar/handlers/twitter.py:95
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
@@ -1355,8 +1370,8 @@ msgstr ""
 "પોસ્ટ એ પહેલેથી રજૂ કરવા પ્રતિક્ષા કરે છે, તમે બીજો સંદેશ પોસ્ટ કરતા પહેલા મહેરબાની કરીને "
 "થોભો"
 
-#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
-#: ../deskbar/handlers/twitter.py:153
+#: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
+#: ../deskbar/handlers/twitter.py:151
 #, python-format
 msgid "Error posting to %s"
 msgstr "%s ને પોસ્ટ કરી રહ્યા હોય ત્યારે ભૂલ"
@@ -1369,12 +1384,12 @@ msgstr "%s ને પોસ્ટ કરી રહ્યા હોય ત્ય�
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:165
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:170
+#: ../deskbar/handlers/twitter.py:168
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1385,23 +1400,23 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:207
+#: ../deskbar/handlers/twitter.py:205
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:208
+#: ../deskbar/handlers/twitter.py:206
 msgid "Post updates to your Twitter account"
 msgstr "તમારા Twitter ખાતા નાં સુધારો પોસ્ટ કરો"
 
-#: ../deskbar/handlers/twitter.py:278
+#: ../deskbar/handlers/twitter.py:279
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:279
+#: ../deskbar/handlers/twitter.py:280
 msgid "Post updates to your identi.ca account"
 msgstr "તમારા identi.ca ખાતાનો સુધારો પોસ્ટ કરો"
 
-#: ../deskbar/handlers/twitter.py:293
+#: ../deskbar/handlers/twitter.py:294
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
@@ -1411,7 +1426,7 @@ msgstr ""
 "તમારી પાસે અત્યારે હોય તો <i>identi.ca</i> વેબસાઇટ પર વપરાશકર્તાનામ અને પાસવર્ડ ને "
 "રૂપરેખાંકિત કરવુ જ પડશે."
 
-#: ../deskbar/handlers/twitter.py:295
+#: ../deskbar/handlers/twitter.py:296
 msgid "Visit identi.ca website"
 msgstr "identi.ca વેબસાઇટની મુલાકાત લો"
 
@@ -1483,7 +1498,7 @@ msgstr "રજૂ થયેલ ક્વેરી ને અનુલક્ષ�
 msgid "Configure Yahoo!"
 msgstr "Yahoo ને રૂપરેખાંકિત કરો!"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:66
 #, python-format
 msgid "URL of %s"
 msgstr "%s ની URL"
@@ -1500,7 +1515,7 @@ msgstr "%s સ્થાને જાવ"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:57
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) લાવો"
