@@ -10,10 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bn_IN\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=deskbar-applet&component=general\n"
-"POT-Creation-Date: 2009-02-01 20:27+0000\n"
-"PO-Revision-Date: 2009-03-09 14:41+0530\n"
+"POT-Creation-Date: 2009-05-01 18:03+0000\n"
+"PO-Revision-Date: 2009-08-31 16:51+0530\n"
 "Last-Translator: Runa Bhattacharjee <runab@redhat.com>\n"
-"Language-Team: Bengali INDIA <discuss@lists.ankur.org.in>\n"
+"Language-Team: Bengali INDIA <anubad@lists.ankur.org.in>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -129,7 +129,6 @@ msgstr ""
 "অন্তবর্তী অবকাশ, মিলিসেকেন্ডে ব্যক্ত"
 
 #: ../data/deskbar-applet.schemas.in.h:22
-#| msgid "This value only takes affect when \"ui_name\" is set to \"Button\""
 msgid "This value only takes effect when \"ui_name\" is set to \"Button\""
 msgstr "\"ui_name\"-র জন্য \"Button\" নির্ধারিত হলে এই মান কার্যকরী হবে"
 
@@ -419,7 +418,7 @@ msgstr "<i>পূর্ববর্তী তথ্য উপস্থিত ন
 msgid "Cannot execute program:"
 msgstr "প্রোগ্রাম সঞ্চালন করতে ব্যর্থ:"
 
-#: ../deskbar/core/Utils.py:256
+#: ../deskbar/core/Utils.py:272
 msgid "Cannot show URL:"
 msgstr "URL প্রদর্শনে ব্যর্থ:"
 
@@ -447,12 +446,12 @@ msgstr "ব্যবহারকারীর নাম:"
 msgid "Password:"
 msgstr "পাসওয়ার্ড:"
 
-#: ../deskbar/core/Web.py:264
+#: ../deskbar/core/Web.py:260
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>%s-র লগ-ইন প্রত্যাখ্যান করা হয়েছে</b></big>"
 
-#: ../deskbar/core/Web.py:265
+#: ../deskbar/core/Web.py:261
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "<b>%s</b>-র জন্য আপনার ব্যবহৃত পরিচয় পরীক্ষা করুন"
@@ -657,7 +656,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:63
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:39
 msgid "Location"
 msgstr "অবস্থান"
 
@@ -762,7 +761,6 @@ msgid "Shutdown the machine"
 msgstr "মেশিন বন্ধ করুন"
 
 #: ../deskbar/handlers/gdmactions.py:191
-#| msgid "Hibernate the machine"
 msgid "Reboot the machine"
 msgstr "মেশিন পুনরায় আরম্ভ করুন"
 
@@ -823,7 +821,6 @@ msgstr "<i>%(name)s</i> প্যাকেজ খুলুন"
 
 #: ../deskbar/handlers/googlecodesearch.py:141
 #, python-format
-#| msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
 msgstr "<b>Google Codesearch</b>-র মধ্যে <i>%(name)s</i> অনুসন্ধান করুন"
 
@@ -996,13 +993,11 @@ msgid "You can configure in which language the results should be."
 msgstr "ফলাফল প্রদর্শনের জন্য ব্যবহৃত ভাষা নির্ধারণ করা হচ্ছে।"
 
 #: ../deskbar/handlers/googlesearch.py:195
-#| msgid "Python module simplejson is not available"
 msgid "Python module json or simplejson are not available"
 msgstr "json অথবা simplejson নামক python মডিউল উপলব্ধ নেই"
 
 #: ../deskbar/handlers/googlesearch.py:235
 #, python-format
-#| msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgid "Search <b>Google</b> for <i>%(name)s</i>"
 msgstr "<b>Google</b>-র মধ্যে <i>%(name)s</i> অনুসন্ধান করুন"
 
@@ -1065,12 +1060,10 @@ msgstr "ওয়েব সংক্রান্ত পূর্ববর্তী 
 
 #: ../deskbar/handlers/opensearch.py:86
 #, python-format
-#| msgid "Open note <b>%(name)s</b>"
 msgid "Website: <b>%(name)s</b>"
 msgstr "ওয়েব-সাইট: <b>%(name)s</b>"
 
 #: ../deskbar/handlers/opensearch.py:92
-#| msgid "Web Search"
 msgid "OpenSearch"
 msgstr "OpenSearch"
 
@@ -1079,7 +1072,6 @@ msgid "Searches any OpenSearch compliant website"
 msgstr "OpenSearch-র সাথে সুসংগত যে কোনো ওয়েব-সাইটের মধ্যে অনুসন্ধান করা হয়"
 
 #: ../deskbar/handlers/opensearch.py:97
-#| msgid "You can customize which search engines are offered."
 msgid "You can configure the search engines you want to use."
 msgstr "ব্যবহারের জন্য সার্চ-ইঞ্জিন কনফিগার করা যাবে।"
 
@@ -1096,15 +1088,16 @@ msgid ""
 "Enter the location (URL) of the OpenSearch description document for this "
 "website. The name and description can be loaded automatically from this "
 "document or you can just enter your own values manually."
-msgstr "অনুগ্রহ করে, এই ওয়েব-সাইটের জন্য OpenSearch বর্ণনামূলক নথির অবস্থান (URL) লিখুন। এই নথির মধ্যে উপস্থিত তথ্য প্রয়োগ করে নাম ও বর্ণনা স্বয়ংক্রিয়ভাবে পূরণ করা যাবে অথবা প্রয়োজনে ব্যবহারকারী স্বয়ং তা লিখতে পারবেন।"
+msgstr ""
+"অনুগ্রহ করে, এই ওয়েব-সাইটের জন্য OpenSearch বর্ণনামূলক নথির অবস্থান (URL) লিখুন। এই "
+"নথির মধ্যে উপস্থিত তথ্য প্রয়োগ করে নাম ও বর্ণনা স্বয়ংক্রিয়ভাবে পূরণ করা যাবে অথবা "
+"প্রয়োজনে ব্যবহারকারী স্বয়ং তা লিখতে পারবেন।"
 
 #: ../deskbar/handlers/opensearch.py:427
-#| msgid "Location"
 msgid "_Location (URL):"
 msgstr "অবস্থ ন(URL): (_L)"
 
 #: ../deskbar/handlers/opensearch.py:442
-#| msgid "Name:"
 msgid "_Name:"
 msgstr "নাম: (_N)"
 
@@ -1117,7 +1110,6 @@ msgid "Edit OpenSearch Website"
 msgstr "OpenSearch ওয়েব-সাইট পরিবর্তন করুন"
 
 #: ../deskbar/handlers/opensearch.py:476
-#| msgid "Location"
 msgid "Location missing"
 msgstr "অবস্থান অনুপস্থিত"
 
@@ -1279,6 +1271,15 @@ msgstr "টেমপ্লেট"
 msgid "Create new files from your templates"
 msgstr "টেমপ্লেট সহযোগে নতুন ফাইল তৈরি করুন"
 
+#: ../deskbar/handlers/templates.py:230
+msgid "Could not retrieve templates directory"
+msgstr "টেমপ্লেটের ডিরেক্টরি উদ্ধার করতে ব্যর্থ"
+
+#: ../deskbar/handlers/templates.py:236
+#, python-format
+msgid "Templates directory %s does not exist"
+msgstr "টেমপ্লেটের ডিরেক্টরি %s বর্তমানে উপস্থিত নেই"
+
 #: ../deskbar/handlers/tomboy.py:41
 #, python-format
 msgid "Open note <b>%(name)s</b>"
@@ -1349,7 +1350,7 @@ msgstr ""
 "    সংযোগ স্থাপন করা সম্ভব হচ্ছে কি না\n"
 " • পছন্দসই মান নির্ধারণের ক্ষেত্রে আপনার পরিচয় সঠিকভাবে লেখা হয়েছে কি না"
 
-#: ../deskbar/handlers/twitter.py:97
+#: ../deskbar/handlers/twitter.py:95
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
@@ -1357,8 +1358,8 @@ msgstr ""
 "একটি বার্তা বর্তমানে জমা হওয়ার অপেক্ষায় রয়েছে। অনুগ্রহ করে আরেকটি বার্তা পোস্ট করার "
 "পূর্বে অপেক্ষা করুন"
 
-#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
-#: ../deskbar/handlers/twitter.py:153
+#: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
+#: ../deskbar/handlers/twitter.py:151
 #, python-format
 msgid "Error posting to %s"
 msgstr "%s-এ পোস্ট করতে সমস্যা"
@@ -1371,12 +1372,12 @@ msgstr "%s-এ পোস্ট করতে সমস্যা"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:165
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> পোস্ট <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:170
+#: ../deskbar/handlers/twitter.py:168
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1387,23 +1388,23 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:207
+#: ../deskbar/handlers/twitter.py:205
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:208
+#: ../deskbar/handlers/twitter.py:206
 msgid "Post updates to your Twitter account"
 msgstr "Twitter অ্যাকাউন্টে আপডের পোস্ট করুন"
 
-#: ../deskbar/handlers/twitter.py:278
+#: ../deskbar/handlers/twitter.py:279
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:279
+#: ../deskbar/handlers/twitter.py:280
 msgid "Post updates to your identi.ca account"
 msgstr "identi.ca অ্যাকাউন্টে আপডের পোস্ট করুন"
 
-#: ../deskbar/handlers/twitter.py:293
+#: ../deskbar/handlers/twitter.py:294
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
@@ -1413,7 +1414,7 @@ msgstr ""
 "ca</i> ওয়েব-সাইটে অ্যাকাউন্ট তৈরি না করা হলে, এই সাইটে ব্যবহারকারী অ্যাকাউন্টের "
 "নাম ও পাসওয়ার্ড কনফিগার করা আবশ্যক।"
 
-#: ../deskbar/handlers/twitter.py:295
+#: ../deskbar/handlers/twitter.py:296
 msgid "Visit identi.ca website"
 msgstr "identi.ca ওয়েব-সাইট পরিদর্শন করুন"
 
@@ -1487,7 +1488,7 @@ msgstr "প্রদত্ত প্রশ্নের সাথে যুক্
 msgid "Configure Yahoo!"
 msgstr "Yahoo! কনফিগার করুন"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:66
 #, python-format
 msgid "URL of %s"
 msgstr "%s-র URL"
@@ -1504,7 +1505,7 @@ msgstr "%s অবস্থান খুলুন"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:57
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) আরম্ভ করুন"
@@ -1561,7 +1562,7 @@ msgstr ""
 msgid "<b>Search:</b>"
 msgstr "<b>অনুসন্ধান:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:257
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
 msgid "Display additional actions"
 msgstr "অতিরিক্ত কর্ম প্রদর্শন করা হবে"
 
