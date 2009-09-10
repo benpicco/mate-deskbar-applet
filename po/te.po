@@ -1,4 +1,4 @@
-# translation of te.po to Telugu
+# translation of deskbar-applet.master.te.po to Telugu
 # Telugu translation of deskbar-applet
 # Copyright (C) Krishna Babu K <kkrothap@redhat.com>, 2008.
 # This file is distributed under the same license as the deskbar-applet package.
@@ -6,10 +6,10 @@
 # Krishna Babu K <kkrothap@redhat.com>, 2008, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: te\n"
+"Project-Id-Version: deskbar-applet.master.te\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=deskbar-applet&component=general\n"
-"POT-Creation-Date: 2009-02-01 20:27+0000\n"
-"PO-Revision-Date: 2009-03-04 12:32+0530\n"
+"POT-Creation-Date: 2009-05-01 18:03+0000\n"
+"PO-Revision-Date: 2009-09-10 13:32+0530\n"
 "Last-Translator: Krishna Babu K <kkrothap@redhat.com>\n"
 "Language-Team: Telugu <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -125,7 +126,6 @@ msgid ""
 msgstr "వాస్తవ శోధన జరుగుటకు మరియు శోధన ప్రవేశం కీస్ట్రోక్ కి మద్యగల సమయం మిల్లీసెకనులలో"
 
 #: ../data/deskbar-applet.schemas.in.h:22
-#| msgid "This value only takes affect when \"ui_name\" is set to \"Button\""
 msgid "This value only takes effect when \"ui_name\" is set to \"Button\""
 msgstr "\"ui_name\" అనునది \"Button\" అమర్చినప్పుడు మాత్రమే ఈవిలువ ప్రభావితమౌతుంది"
 
@@ -405,7 +405,7 @@ msgstr "<i>చరిత్రను ఖాళీచేయి</i>"
 msgid "Cannot execute program:"
 msgstr "ప్రోగ్రామ్ ను నిర్వర్తించలేదు"
 
-#: ../deskbar/core/Utils.py:256
+#: ../deskbar/core/Utils.py:272
 msgid "Cannot show URL:"
 msgstr "URL ను చూపలేదు:"
 
@@ -433,12 +433,12 @@ msgstr "వినియోగదారి నామము: "
 msgid "Password:"
 msgstr "సంకేతపము:"
 
-#: ../deskbar/core/Web.py:264
+#: ../deskbar/core/Web.py:260
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>%sకు లాగిన్ తిరస్కరించబడింది</b></big>"
 
-#: ../deskbar/core/Web.py:265
+#: ../deskbar/core/Web.py:261
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "<b>%s</b>కొరకు మీ ఆనవాళ్ళను దయచేసి నిర్ధారించుకోండి"
@@ -640,7 +640,7 @@ msgstr ""
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:63
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:39
 msgid "Location"
 msgstr "స్థానము"
 
@@ -743,7 +743,6 @@ msgid "Shutdown the machine"
 msgstr "మిషన్ ను మూసివేయి"
 
 #: ../deskbar/handlers/gdmactions.py:191
-#| msgid "Hibernate the machine"
 msgid "Reboot the machine"
 msgstr "మిషన్‌ను పునఃప్రారంభించుము"
 
@@ -804,7 +803,6 @@ msgstr "ప్యాకేజ్ <b>%(name)s</b> తెరువుము"
 
 #: ../deskbar/handlers/googlecodesearch.py:141
 #, python-format
-#| msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
 msgstr "<i>%(name)s</i> కొరకు <b>Google Codesearch</b> శోధించండి"
 
@@ -977,13 +975,11 @@ msgid "You can configure in which language the results should be."
 msgstr "ఫలితాలు యేభాషలో వుండాలో మీరు ఆకృతీకరించవచ్చు."
 
 #: ../deskbar/handlers/googlesearch.py:195
-#| msgid "Python module simplejson is not available"
 msgid "Python module json or simplejson are not available"
 msgstr "పైథాన్ మాడ్యూల్ jsonలేదా simplejson అందుబాటులోలేవు"
 
 #: ../deskbar/handlers/googlesearch.py:235
 #, python-format
-#| msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgid "Search <b>Google</b> for <i>%(name)s</i>"
 msgstr "<i>%(name)s</i> కొరకు <b>Google</b> శోధించుము"
 
@@ -1023,7 +1019,6 @@ msgstr "వెబ్ బుక్‌మార్కులు (మొజిల్
 #: ../deskbar/handlers/mozilla.py:220 ../deskbar/handlers/mozilla.py:301
 #: ../deskbar/handlers/mozilla.py:838
 #, python-format
-#| msgid "Firefox version must be between %s and %s"
 msgid "Firefox version must be at least %s and less than %s"
 msgstr "ఫైర్‌ఫాక్స్‍ వర్షన్ తప్పక %s లేదా %s కన్నా తక్కువవుండాలి"
 
@@ -1047,12 +1042,10 @@ msgstr "వెబ్ చరిత్ర (మొజిల్లా)"
 
 #: ../deskbar/handlers/opensearch.py:86
 #, python-format
-#| msgid "Open note <b>%(name)s</b>"
 msgid "Website: <b>%(name)s</b>"
 msgstr "వెబ్‌సైటు: <b>%(name)s</b>"
 
 #: ../deskbar/handlers/opensearch.py:92
-#| msgid "Web Search"
 msgid "OpenSearch"
 msgstr "వోపెన్‌సెర్చు"
 
@@ -1061,7 +1054,6 @@ msgid "Searches any OpenSearch compliant website"
 msgstr "ఏదేని వోపెన్‌లెర్చు మద్దతిచ్చు వెబ్‌సైటును శోధించుము"
 
 #: ../deskbar/handlers/opensearch.py:97
-#| msgid "You can customize which search engines are offered."
 msgid "You can configure the search engines you want to use."
 msgstr "మీరు వుపయోగించాలని అనుకొన్ని శోధనయంత్రములను మీరు ఆకృతీకరించుకొన వచ్చును."
 
@@ -1079,17 +1071,14 @@ msgid ""
 "website. The name and description can be loaded automatically from this "
 "document or you can just enter your own values manually."
 msgstr ""
-"ఈ వెబ్‌సైటుకొరకు వొపెన్‌సెర్చు వివరణ పత్రము యొక్క స్థానము (URL)ను ప్రవేశపెట్టుము. "
-"నామము మరియు వివరణ అనునవి స్వయంచాలకంగా ఈ పత్రమునుండి లోడవ్వుతాయి "
-"లేదా మీరు మీ స్వంత విలువలను మానవీయంగా ప్రవేశపెట్టవచ్చు."
+"ఈ వెబ్‌సైటుకొరకు వొపెన్‌సెర్చు వివరణ పత్రము యొక్క స్థానము (URL)ను ప్రవేశపెట్టుము. నామము మరియు వివరణ "
+"అనునవి స్వయంచాలకంగా ఈ పత్రమునుండి లోడవ్వుతాయి లేదా మీరు మీ స్వంత విలువలను మానవీయంగా ప్రవేశపెట్టవచ్చు."
 
 #: ../deskbar/handlers/opensearch.py:427
-#| msgid "Location"
 msgid "_Location (URL):"
 msgstr "స్థానము (URL) (_L):"
 
 #: ../deskbar/handlers/opensearch.py:442
-#| msgid "Name:"
 msgid "_Name:"
 msgstr "నామము (_N):"
 
@@ -1102,7 +1091,6 @@ msgid "Edit OpenSearch Website"
 msgstr "ఓపెన్‌సెర్చు వెబ్‌సైటును సరికూర్చుము"
 
 #: ../deskbar/handlers/opensearch.py:476
-#| msgid "Location"
 msgid "Location missing"
 msgstr "స్థానము తప్పిపోయినది"
 
@@ -1262,6 +1250,15 @@ msgstr "సోదాహరణలు"
 msgid "Create new files from your templates"
 msgstr "మీ సోదాహరణల నుండి కొత్త దస్త్రాన్ని సృష్టించు"
 
+#: ../deskbar/handlers/templates.py:230
+msgid "Could not retrieve templates directory"
+msgstr "టెంప్లేట్ల డైరెక్టరీను పొందలేక పోయింది"
+
+#: ../deskbar/handlers/templates.py:236
+#, python-format
+msgid "Templates directory %s does not exist"
+msgstr "టెంప్లేట్ల డైరెక్టరీ %s లేదు"
+
 #: ../deskbar/handlers/tomboy.py:41
 #, python-format
 msgid "Open note <b>%(name)s</b>"
@@ -1333,16 +1330,14 @@ msgstr ""
 "    అనుసంధానమవ్వగలగాలి\n"
 " • అభీష్టాలనందలి మీ ఆనవాళ్ళు సరైనవోలేదో సరిచూసుకోండి"
 
-#: ../deskbar/handlers/twitter.py:97
+#: ../deskbar/handlers/twitter.py:95
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
-msgstr ""
-"ఒక పోస్టు అప్పగింత కొరకు వేచివుంది, దయచేసి వేరొక సందేశమును పోస్టు చేయుటకు ముందు"
-"వేచివుండండి"
+msgstr "ఒక పోస్టు అప్పగింత కొరకు వేచివుంది, దయచేసి వేరొక సందేశమును పోస్టు చేయుటకు ముందువేచివుండండి"
 
-#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
-#: ../deskbar/handlers/twitter.py:153
+#: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
+#: ../deskbar/handlers/twitter.py:151
 #, python-format
 msgid "Error posting to %s"
 msgstr "%sకు పోస్టు చేయుటలో దోషము"
@@ -1355,12 +1350,12 @@ msgstr "%sకు పోస్టు చేయుటలో దోషము"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:165
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:170
+#: ../deskbar/handlers/twitter.py:168
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1371,33 +1366,32 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:207
+#: ../deskbar/handlers/twitter.py:205
 msgid "Twitter"
 msgstr "ట్విట్టర్"
 
-#: ../deskbar/handlers/twitter.py:208
+#: ../deskbar/handlers/twitter.py:206
 msgid "Post updates to your Twitter account"
 msgstr "మీ ట్విట్టర్ ఖాతాకు నవీకరణలను పోస్టుచేయుము"
 
-#: ../deskbar/handlers/twitter.py:278
+#: ../deskbar/handlers/twitter.py:279
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:279
+#: ../deskbar/handlers/twitter.py:280
 msgid "Post updates to your identi.ca account"
 msgstr "మీ identi.ca ఖాతాకు నవీకరణలను పోస్టుచేయుము"
 
-#: ../deskbar/handlers/twitter.py:293
+#: ../deskbar/handlers/twitter.py:294
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
 "if you haven't already."
 msgstr ""
-"డెస్కుబార్ ఆప్లెట్ అనునది ధృవీకరణను OpenID ద్వారా మద్దతీయదని గమనించండి. "
-"మీరు యిప్పటికే చేసివుండకపోతే మీరు తప్పక <i>identi.ca</i> వెబ్‌సైటునందు "
-"వినియోగదారినామము మరియు సంకేతపదమును ఆకృతీకరించవలెను."
+"డెస్కుబార్ ఆప్లెట్ అనునది ధృవీకరణను OpenID ద్వారా మద్దతీయదని గమనించండి. మీరు యిప్పటికే చేసివుండకపోతే "
+"మీరు తప్పక <i>identi.ca</i> వెబ్‌సైటునందు వినియోగదారినామము మరియు సంకేతపదమును ఆకృతీకరించవలెను."
 
-#: ../deskbar/handlers/twitter.py:295
+#: ../deskbar/handlers/twitter.py:296
 msgid "Visit identi.ca website"
 msgstr "identi.ca వెబ్‌సైటును దర్శించండి"
 
@@ -1469,7 +1463,7 @@ msgstr "ప్రవేశపెట్టిన క్వరీకి సంభ�
 msgid "Configure Yahoo!"
 msgstr "Yahoo! ఆకృతీకరించుము"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:66
 #, python-format
 msgid "URL of %s"
 msgstr "%s యొక్క URL"
@@ -1486,7 +1480,7 @@ msgstr "%s యొక్క స్థానమునకు వెళ్ళము"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:57
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) దించుము"
@@ -1540,7 +1534,7 @@ msgstr "KrishnaBabu K <kkrothap@redhat.com> 2008."
 msgid "<b>Search:</b>"
 msgstr "<b>శోధించు:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:257
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
 msgid "Display additional actions"
 msgstr "అదనపు చర్యలను ప్రదర్శించుము"
 
