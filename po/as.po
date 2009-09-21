@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: as\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
 "cgi?product=deskbar-applet&component=general\n"
-"POT-Creation-Date: 2009-02-01 20:27+0000\n"
-"PO-Revision-Date: 2009-03-03 14:49+0530\n"
-"Last-Translator: Amitakhya Phukan <aphukan@fedoraproject.org>\n"
-"Language-Team: Assamese <fedora-trans-as@redhat.com>\n"
+"POT-Creation-Date: 2009-05-01 18:03+0000\n"
+"PO-Revision-Date: 2009-09-20 13:19+0530\n"
+"Last-Translator: \n"
+"Language-Team: Assamese <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: Lokalize 0.2\n"
 "Plural-Forms: nplurals=2; plural=(n!=1)\n"
 
 #: ../data/deskbar-applet.schemas.in.h:1
@@ -201,7 +201,6 @@ msgid "<b>Loaded Extensions</b>"
 msgstr "<b>লোড কৰা সম্প্ৰসাৰণ</b>"
 
 #: ../data/prefs-dialog.ui.h:5
-#| msgid "<b>Window Behavior</b>"
 msgid "<b>Width</b>"
 msgstr "<b>প্ৰস্থ</b>"
 
@@ -214,7 +213,6 @@ msgid "Deskbar Preferences"
 msgstr "ডেস্কবাৰ সংক্ৰান্ত পছন্দ"
 
 #: ../data/prefs-dialog.ui.h:8
-#| msgid "Extensions with Errors"
 msgid "Display extensions with tag:"
 msgstr "টেগৰ সৈতে সম্প্ৰসাৰণ দেখুৱাওক:"
 
@@ -406,7 +404,7 @@ msgstr "<i>ৰিক্ত ইতিহাস</i>"
 msgid "Cannot execute program:"
 msgstr "অনুপ্ৰয়োগ সঞ্চালন কৰা ব্যৰ্থ:"
 
-#: ../deskbar/core/Utils.py:256
+#: ../deskbar/core/Utils.py:272
 msgid "Cannot show URL:"
 msgstr "URL প্ৰদৰ্শন ব্যৰ্থ:"
 
@@ -427,7 +425,6 @@ msgstr "%s ৰ বাবে পৰিচয়"
 
 #. Show '*' instead of text
 #: ../deskbar/core/Web.py:143
-#| msgid "Username: "
 msgid "User name:"
 msgstr "ব্যৱহাৰকৰোঁতাৰ নাম: "
 
@@ -435,12 +432,12 @@ msgstr "ব্যৱহাৰকৰোঁতাৰ নাম: "
 msgid "Password:"
 msgstr "গুপ্তশব্দ:"
 
-#: ../deskbar/core/Web.py:264
+#: ../deskbar/core/Web.py:260
 #, python-format
 msgid "<big><b>Login to %s rejected</b></big>"
 msgstr "<big><b>%s ত প্ৰৱেশ অগ্ৰাহ্য কৰা হ'ল</b></big>"
 
-#: ../deskbar/core/Web.py:265
+#: ../deskbar/core/Web.py:261
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
 msgstr "<b>%s</b> ৰ বাবে আপোনাৰ পৰিচয় প্ৰমাণ কৰক"
@@ -472,8 +469,8 @@ msgstr "বৰ্ষপঞ্জি: %s"
 
 #. translators: in this case the file (2nd) is part of an archive (1st)
 #. e.g. README is part of deskbar-applet.tar.gz
-#: ../deskbar/handlers/beagle-live.py:352, python-format
-#| msgid "Open location %s"
+#: ../deskbar/handlers/beagle-live.py:352
+#, python-format
 msgid "Open %s containing %s"
 msgstr "%s খোলক য'ত %s আছে"
 
@@ -490,8 +487,8 @@ msgid "Additional results for category <b>%s</b>"
 msgstr "<b>%s</b> বিভাগৰ বাবে অতিৰিক্ত নিৰ্গম"
 
 #: ../deskbar/handlers/beagle-live.py:424
-#: ../deskbar/handlers/beagle-live.py:427, python-format
-#| msgid "From %s"
+#: ../deskbar/handlers/beagle-live.py:427
+#, python-format
 msgid "From <i>%s</i>"
 msgstr "<i>%s</i> ৰ পৰা"
 
@@ -539,8 +536,8 @@ msgstr "সমস্ত আলেখ্যন (Beagle ৰ সাহায্য�
 msgid "Beagle does not seem to be installed."
 msgstr "Beagle সংস্থাপন কৰা হোৱা নাই যেন লাগিছে ।"
 
-#: ../deskbar/handlers/calculator.py:94, python-format
-#| msgid "Copy <b>%(name)s</b> to clipboard"
+#: ../deskbar/handlers/calculator.py:94
+#, python-format
 msgid "Copy <b>%(origtext)s = %(name)s</b> to clipboard"
 msgstr "<b>%(origtext)s = %(name)s</b> ক ক্লিপব'ৰ্ডলৈ নকল কৰক"
 
@@ -638,7 +635,7 @@ msgstr "প্ৰাপক পছন্দ."
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
 #: ../deskbar/handlers/files.py:63
-#: ../deskbar/handlers/actions/ActionsFactory.py:33
+#: ../deskbar/handlers/actions/ActionsFactory.py:39
 msgid "Location"
 msgstr "স্থান"
 
@@ -651,7 +648,6 @@ msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr "নাম অনুসাৰে নথিপত্ৰ, ফোল্ডাৰ, ড্ৰাইভ, নেটৱৰ্কৰ অৱস্থান চাওক"
 
 #: ../deskbar/handlers/gdmactions.py:40
-#| msgid "Shut down of this system now?"
 msgid "Shut down this system now?"
 msgstr "এই ব্যৱস্থাপ্ৰণালী এতিয়া বন্ধ কৰোঁ ?"
 
@@ -694,36 +690,36 @@ msgstr "নিদ্ৰিত অৱস্থায় ৰাখক?"
 msgid "Hibernate"
 msgstr "নিদ্ৰিত অৱস্থায় ৰাখক"
 
-#: ../deskbar/handlers/gdmactions.py:61, python-format
-#| msgid "This system will be automatically shut down in %s seconds."
+#: ../deskbar/handlers/gdmactions.py:61
+#, python-format
 msgid "This system will be automatically shut down in %s second."
 msgid_plural "This system will be automatically shut down in %s seconds."
 msgstr[0] "এই ব্যৱস্থাপ্ৰণালী %s ছেকেণ্ডত বন্ধ হ'ব ।"
 msgstr[1] "এই ব্যৱস্থাপ্ৰণালী %s ছেকেণ্ডত বন্ধ হ'ব ।"
 
-#: ../deskbar/handlers/gdmactions.py:65, python-format
-#| msgid "You will be automatically logged out in %s seconds."
+#: ../deskbar/handlers/gdmactions.py:65
+#, python-format
 msgid "You will be automatically logged out in %s second."
 msgid_plural "You will be automatically logged out in %s seconds."
 msgstr[0] "আপোনাক %s ছেকেণ্ডত বাহিৰ কৰা হ'ব ।"
 msgstr[1] "আপোনাক %s ছেকেণ্ডত বাহিৰ কৰা হ'ব ।"
 
-#: ../deskbar/handlers/gdmactions.py:69, python-format
-#| msgid "This system will be automatically restarted in %s seconds."
+#: ../deskbar/handlers/gdmactions.py:69
+#, python-format
 msgid "This system will be automatically restarted in %s second."
 msgid_plural "This system will be automatically restarted in %s seconds."
 msgstr[0] "%s ছেকেণ্ডত ব্যৱস্থাপ্ৰণালী পুনৰাৰম্ভ হ'ব ।"
 msgstr[1] "%s ছেকেণ্ডত ব্যৱস্থাপ্ৰণালী পুনৰাৰম্ভ হ'ব ।"
 
-#: ../deskbar/handlers/gdmactions.py:73, python-format
-#| msgid "This system will be automatically suspended in %s seconds."
+#: ../deskbar/handlers/gdmactions.py:73
+#, python-format
 msgid "This system will be automatically suspended in %s second."
 msgid_plural "This system will be automatically suspended in %s seconds."
 msgstr[0] "%s ছেকেণ্ডত এই ব্যৱস্থাপ্ৰণালী নিজেই স্থগিত হ'ব ।"
 msgstr[1] "%s ছেকেণ্ডত এই ব্যৱস্থাপ্ৰণালী নিজেই স্থগিত হ'ব ।"
 
-#: ../deskbar/handlers/gdmactions.py:77, python-format
-#| msgid "This system will be automatically hibernated in %s seconds."
+#: ../deskbar/handlers/gdmactions.py:77
+#, python-format
 msgid "This system will be automatically hibernated in %s second."
 msgid_plural "This system will be automatically hibernated in %s seconds."
 msgstr[0] "%s ছেকেণ্ডত এই ব্যৱস্থাপ্ৰণালী নিজেই স্থগিত হ'ব ।"
@@ -742,7 +738,6 @@ msgid "Shutdown the machine"
 msgstr "যন্ত্ৰ বন্ধ কৰক"
 
 #: ../deskbar/handlers/gdmactions.py:191
-#| msgid "Hibernate the machine"
 msgid "Reboot the machine"
 msgstr "যন্ত্ৰ পুনৰাৰম্ভ কৰক"
 
@@ -784,7 +779,6 @@ msgid "Reboot"
 msgstr "পুনৰাৰম্ভ কৰক"
 
 #: ../deskbar/handlers/googlecodesearch.py:28
-#| msgid "Files and Folders Search"
 msgid "Google Code Search"
 msgstr "Google Code Search"
 
@@ -792,18 +786,18 @@ msgstr "Google Code Search"
 msgid "Search public source code for function definitions and sample code"
 msgstr "আপেক্ষকৰ সংজ্ঞা আৰু উদাহৰণৰ কোডৰ কাৰণে সাৰ্বজনিন উৎসৰ কোড বিচাৰক"
 
-#: ../deskbar/handlers/googlecodesearch.py:118, python-format
-#| msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
+#: ../deskbar/handlers/googlecodesearch.py:118
+#, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
 msgstr "<i>%(name)s</i> ক <b>Google Code Search</b> ত চাওক"
 
-#: ../deskbar/handlers/googlecodesearch.py:126, python-format
-#| msgid "Open note <b>%(name)s</b>"
+#: ../deskbar/handlers/googlecodesearch.py:126
+#, python-format
 msgid "Open package <i>%(name)s</i>"
 msgstr "<i>%(name)s</i> সৰঞ্জাম খোলক"
 
-#: ../deskbar/handlers/googlecodesearch.py:141, python-format
-#| msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+#: ../deskbar/handlers/googlecodesearch.py:141
+#, python-format
 msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
 msgstr "<i>%(name)s</i> ৰ কাৰণে <b>Google Codesearch</b> বিচাৰক"
 
@@ -829,7 +823,6 @@ msgid "Chinese traditional"
 msgstr "পাৰম্পৰিক চীনা"
 
 #: ../deskbar/handlers/googlesearch.py:35 ../deskbar/handlers/yahoo.py:35
-#| msgid "Location"
 msgid "Croatian"
 msgstr "ক্ৰোয়েশিয়ান"
 
@@ -838,7 +831,6 @@ msgid "Czech"
 msgstr "চেখ"
 
 #: ../deskbar/handlers/googlesearch.py:37 ../deskbar/handlers/yahoo.py:37
-#| msgid "Details"
 msgid "Danish"
 msgstr "ডেনিশ্ব"
 
@@ -868,9 +860,8 @@ msgstr "ফৰাচী"
 
 #: ../deskbar/handlers/googlesearch.py:43
 #: ../deskbar/handlers/wikipedia-suggest.py:23 ../deskbar/handlers/yahoo.py:43
-#| msgid "General"
 msgid "German"
-msgstr "জার্মান"
+msgstr "জাৰ্মান"
 
 #: ../deskbar/handlers/googlesearch.py:44 ../deskbar/handlers/yahoo.py:44
 msgid "Greek"
@@ -907,7 +898,6 @@ msgid "Korean"
 msgstr "কোৰিয়ান"
 
 #: ../deskbar/handlers/googlesearch.py:52 ../deskbar/handlers/yahoo.py:52
-#| msgid "Location"
 msgid "Latvian"
 msgstr "লাট্‌ভিয়ান"
 
@@ -968,7 +958,6 @@ msgid "Turkish"
 msgstr "তুৰ্কি"
 
 #: ../deskbar/handlers/googlesearch.py:78
-#| msgid "Web Search"
 msgid "Google Search"
 msgstr "Google Search"
 
@@ -984,8 +973,8 @@ msgstr "আপুনি ফলাফল প্ৰদৰ্শন কৰা ভ�
 msgid "Python module json or simplejson are not available"
 msgstr "Python অংশ json বা simplejson নাই"
 
-#: ../deskbar/handlers/googlesearch.py:235, python-format
-#| msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+#: ../deskbar/handlers/googlesearch.py:235
+#, python-format
 msgid "Search <b>Google</b> for <i>%(name)s</i>"
 msgstr "<i>%(name)s</i> ৰ কাৰণে <b>Google</b> বিচাৰক"
 
@@ -1046,13 +1035,12 @@ msgstr "ব্যৱহাৰৰ বাবে বিচৰা কলঘৰৰ �
 msgid "Web History (Mozilla)"
 msgstr "ৱেব পূৰ্ববৰ্তী তথ্য"
 
-#: ../deskbar/handlers/opensearch.py:86, python-format
-#| msgid "Open note <b>%(name)s</b>"
+#: ../deskbar/handlers/opensearch.py:86
+#, python-format
 msgid "Website: <b>%(name)s</b>"
 msgstr "ৱেবছাইট: <b>%(name)s</b>"
 
 #: ../deskbar/handlers/opensearch.py:92
-#| msgid "Web Search"
 msgid "OpenSearch"
 msgstr "OpenSearch"
 
@@ -1061,7 +1049,6 @@ msgid "Searches any OpenSearch compliant website"
 msgstr "যি কোনো OpenSearch ৰ সৈতে একে ৱেবছাইট বিচাৰে"
 
 #: ../deskbar/handlers/opensearch.py:97
-#| msgid "You can customize which search engines are offered."
 msgid "You can configure the search engines you want to use."
 msgstr "ব্যৱহাৰৰ বাবে বিচৰা কলঘৰৰ বিন্যাস কৰিব পাৰে ।"
 
@@ -1079,16 +1066,14 @@ msgid ""
 "website. The name and description can be loaded automatically from this "
 "document or you can just enter your own values manually."
 msgstr ""
-"এই ৱেবছাইটৰ কাৰণে OpenSearch বিৱৰণৰ আলেখ্যনৰ স্থান (URL) দিয়ক । নাম আৰু বিৱৰণ এই আলেখ্যনৰ "
-"পৰা নিজেই তুলিব পৰা যাব বা আপুনি নিজেই সেই মান দিব পাৰে ।"
+"এই ৱেবছাইটৰ কাৰণে OpenSearch বিৱৰণৰ আলেখ্যনৰ স্থান (URL) দিয়ক । নাম আৰু বিৱৰণ "
+"এই আলেখ্যনৰ পৰা নিজেই তুলিব পৰা যাব বা আপুনি নিজেই সেই মান দিব পাৰে ।"
 
 #: ../deskbar/handlers/opensearch.py:427
-#| msgid "Location"
 msgid "_Location (URL):"
 msgstr "স্থান (_L) (URL):"
 
 #: ../deskbar/handlers/opensearch.py:442
-#| msgid "Name:"
 msgid "_Name:"
 msgstr "নাম (_N):"
 
@@ -1101,7 +1086,6 @@ msgid "Edit OpenSearch Website"
 msgstr "OpenSearch ৱেবছাইট সম্পাদন কৰক"
 
 #: ../deskbar/handlers/opensearch.py:476
-#| msgid "Location"
 msgid "Location missing"
 msgstr "স্থান নাই"
 
@@ -1261,6 +1245,15 @@ msgstr "Templates"
 msgid "Create new files from your templates"
 msgstr "Create new files from your templates"
 
+#: ../deskbar/handlers/templates.py:230
+msgid "Could not retrieve templates directory"
+msgstr "টেমপ্লেটৰ পঞ্জিকা উদ্ধাৰ কৰিবলৈ ব্যৰ্থস"
+
+#: ../deskbar/handlers/templates.py:236
+#, python-format
+msgid "Templates directory %s does not exist"
+msgstr "টেমপ্লেটৰ পঞ্জিকা %s বৰ্তমানে উপস্থিত নাই"
+
 #: ../deskbar/handlers/tomboy.py:41
 #, python-format
 msgid "Open note <b>%(name)s</b>"
@@ -1332,14 +1325,14 @@ msgstr ""
 "    সংযোগ কৰিব পাৰে\n"
 " • পছন্দত আপোনাৰ পৰিচয় শুদ্ধ"
 
-#: ../deskbar/handlers/twitter.py:97
+#: ../deskbar/handlers/twitter.py:95
 msgid ""
 "A post is already awaiting submission, please wait before you post another "
 "message"
 msgstr "এটা প্ৰতিবেদন জমা হ'বলৈ ৰখি আছে, অন্য এটা প্ৰতিবেদন দিয়াৰ আগতে অলপ ৰখিব"
 
-#: ../deskbar/handlers/twitter.py:98 ../deskbar/handlers/twitter.py:111
-#: ../deskbar/handlers/twitter.py:153
+#: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
+#: ../deskbar/handlers/twitter.py:151
 #, python-format
 msgid "Error posting to %s"
 msgstr "%s লৈ লিখোঁতে ভুল"
@@ -1352,12 +1345,12 @@ msgstr "%s লৈ লিখোঁতে ভুল"
 #. has left of the maximum message size. It should be at the start of
 #. the string as to not be hidden by ellipsation.
 #.
-#: ../deskbar/handlers/twitter.py:167
+#: ../deskbar/handlers/twitter.py:165
 #, python-format
 msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 msgstr "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
 
-#: ../deskbar/handlers/twitter.py:170
+#: ../deskbar/handlers/twitter.py:168
 #, python-format
 msgid ""
 "Update your %s account with the message:\n"
@@ -1368,33 +1361,33 @@ msgstr ""
 "\n"
 "\t<i>%s</i>"
 
-#: ../deskbar/handlers/twitter.py:207
-#| msgid "Title"
+#: ../deskbar/handlers/twitter.py:205
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../deskbar/handlers/twitter.py:208
+#: ../deskbar/handlers/twitter.py:206
 msgid "Post updates to your Twitter account"
 msgstr "আপোনাৰ Twitter হিচাপ উন্নত কৰক"
 
-#: ../deskbar/handlers/twitter.py:278
+#: ../deskbar/handlers/twitter.py:279
 msgid "identi.ca"
 msgstr "identi.ca"
 
-#: ../deskbar/handlers/twitter.py:279
+#: ../deskbar/handlers/twitter.py:280
 msgid "Post updates to your identi.ca account"
 msgstr "আপোনাৰ identi.ca হিচাপ উন্নত কৰক"
 
-#: ../deskbar/handlers/twitter.py:293
+#: ../deskbar/handlers/twitter.py:294
 msgid ""
 "Please note that Deskbar Applet does not support authentication via OpenID. "
 "You must configure a username and password on the <i>identi.ca</i> website "
 "if you haven't already."
 msgstr ""
-"মন কৰিব যে Deskbar Applet এ OpenID ৰ যোগেদি প্ৰমাণীকৰণৰ সমৰ্থন নকৰে । এতিয়ালৈকে নকৰা হ'লে "
-"আপুনি <i>identi.ca</i> ৱেবছাইটত ব্যৱহাৰকৰোঁতাৰ নাম আৰু গুপ্তশব্দ বিন্যাস কৰিব লাগিব ।"
+"মন কৰিব যে Deskbar Applet এ OpenID ৰ যোগেদি প্ৰমাণীকৰণৰ সমৰ্থন নকৰে । "
+"এতিয়ালৈকে নকৰা হ'লে আপুনি <i>identi.ca</i> ৱেবছাইটত ব্যৱহাৰকৰোঁতাৰ নাম আৰু "
+"গুপ্তশব্দ বিন্যাস কৰিব লাগিব ।"
 
-#: ../deskbar/handlers/twitter.py:295
+#: ../deskbar/handlers/twitter.py:296
 msgid "Visit identi.ca website"
 msgstr "identi.ca ৱেবছাইট চাওক"
 
@@ -1410,8 +1403,8 @@ msgstr "চীনা"
 msgid "Ukrainian"
 msgstr "ইউক্ৰেইনিয়েন"
 
-#: ../deskbar/handlers/wikipedia-suggest.py:48, python-format
-#| msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
+#: ../deskbar/handlers/wikipedia-suggest.py:48
+#, python-format
 msgid "Open article <i>%(name)s</i> in <b>Wikipedia</b>"
 msgstr "<i>%(name)s</i> প্ৰবন্ধক <b>Wikipedia</b> ত খোলক"
 
@@ -1434,7 +1427,6 @@ msgid ""
 msgstr "ব্যৱহাৰ কৰিব বিচৰা ভাষা নিৰ্ব্বাচন কৰক বা তাৰ কোড নিজেই লিখক"
 
 #: ../deskbar/handlers/yahoo.py:55
-#| msgid "Version:"
 msgid "Persian"
 msgstr "ফাৰ্সি"
 
@@ -1450,8 +1442,8 @@ msgstr "Yahoo! অনসদ্ধান"
 msgid "Search Yahoo! as you type"
 msgstr "লিখাৰ সময়ত Yahoo! ত অনুসন্ধান কৰক"
 
-#: ../deskbar/handlers/yahoo.py:308, python-format
-#| msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
+#: ../deskbar/handlers/yahoo.py:308
+#, python-format
 msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
 msgstr "<i>%(name)s</i> ৰ কাৰণে <b>Yahoo!</b> বিচাৰক"
 
@@ -1467,7 +1459,7 @@ msgstr "দিয়া অনুসন্ধানৰ সম্বন্ধীয় 
 msgid "Configure Yahoo!"
 msgstr "Yahoo! বিন্যাস কৰক"
 
-#: ../deskbar/handlers/actions/ActionsFactory.py:60
+#: ../deskbar/handlers/actions/ActionsFactory.py:66
 #, python-format
 msgid "URL of %s"
 msgstr "%s ৰ URL"
@@ -1484,7 +1476,7 @@ msgstr "Go to location of %s"
 
 #. translators: First %s is the programs full name, second is the executable name
 #. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:54
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:57
 #, python-format
 msgid "Launch <b>%(name)s</b> (%(prog)s)"
 msgstr "<b>%(name)s</b> (%(prog)s) আৰম্ভ কৰক"
@@ -1538,7 +1530,7 @@ msgstr "অমিতাক্ষ ফুকন (aphukan@fedoraproject.org)"
 msgid "<b>Search:</b>"
 msgstr "<b>অনুসন্ধান:</b>"
 
-#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:257
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
 msgid "Display additional actions"
 msgstr "অতিৰিক্ত কাৰ্য্য দেখুৱাওক"
 
@@ -1551,27 +1543,22 @@ msgid "Show search entry"
 msgstr "অনুসন্ধানৰ বস্তু প্ৰদৰ্শন কৰা হ'ব"
 
 #: ../deskbar/ui/DeskbarApplet.py:75
-#| msgid "Recognize previously used searches"
 msgid "Show previously used actions"
 msgstr "পূৰ্বে ব্যৱহৃত কাৰ্য্য দেখুৱাওক"
 
 #: ../deskbar/ui/DeskbarStatusIcon.py:65
-#| msgid "_Clear History"
 msgid "Clear History"
 msgstr "ইতিহাস আঁতৰাওঁক"
 
 #: ../deskbar/ui/DeskbarStatusIcon.py:69
-#| msgid "_Preferences"
 msgid "Preferences"
 msgstr "পছন্দ"
 
 #: ../deskbar/ui/DeskbarStatusIcon.py:73
-#| msgid "_Help"
 msgid "Help"
 msgstr "সহায়"
 
 #: ../deskbar/ui/DeskbarStatusIcon.py:77
-#| msgid "_About"
 msgid "About"
 msgstr "বিষয়ে"
 
@@ -1605,7 +1592,6 @@ msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr "<i><small>Drag and drop an extension to change its order.</small></i>"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:170
-#| msgid "New Extensions"
 msgid "All Extensions"
 msgstr "সকলো সম্প্ৰসাৰণ"
 
@@ -1614,12 +1600,10 @@ msgid "A problem occured"
 msgstr "A problem occured"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:239
-#| msgid "Handler has been installed successfully"
 msgid "Extension has been installed successfully"
 msgstr "সফলতাৰে সম্প্ৰসাৰণ সংস্থাপন কৰা হৈছে"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:534
-#| msgid "Reload all extensions"
 msgid "Installing extension"
 msgstr "সম্প্ৰসাৰণ সংস্থাপন কৰা হৈছে"
 
@@ -1628,7 +1612,6 @@ msgid "The extension will be downloaded and installed."
 msgstr "সম্প্ৰসাৰণক ডাউন্‌লোড কৰি সংস্থাপন কৰা হ'ব ।"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:537
-#| msgid "Reload all extensions"
 msgid "Retrieving list of extensions"
 msgstr "সম্প্ৰসাৰণৰ তালিকা উদ্ধাৰ কৰা হৈছে"
 
@@ -1641,7 +1624,6 @@ msgid "Retrieving the extension index"
 msgstr "extension index উদ্ধাৰ কৰা হৈছে"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:541
-#| msgid "Reload all extensions"
 msgid "Downloading extension"
 msgstr "সম্প্ৰসাৰণ ডাউন্‌লোড কৰা হৈছে"
 
@@ -1650,7 +1632,6 @@ msgid "Extracting archive"
 msgstr "আৰ্কাইভৰ পৰা উদ্ধাৰ কৰা হৈছে"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:596
-#| msgid "Handler could not be installed due a problem with the provided file"
 msgid "Extension could not be installed due to a problem with the provided file"
 msgstr "দিয়া নথিপত্ৰত থকা সমস্যাৰ কাৰণে সম্প্ৰসাৰণ সংস্থাপন কৰিব পৰা ন'গ'ল ।"
 
@@ -1695,3 +1676,4 @@ msgstr "উন্নয়ন উপলব্ধ"
 #~ msgstr ""
 #~ "Some potentially old modules that make use of an old Deskbar-Applet API "
 #~ "have been found. Remove these files for this warning to disappear.\n"
+
