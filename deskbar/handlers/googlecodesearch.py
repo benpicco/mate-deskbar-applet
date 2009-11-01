@@ -1,10 +1,9 @@
-from deskbar.core.Utils import strip_html, get_proxy
+from deskbar.core.Utils import strip_html, get_proxy, htmldecode
 from deskbar.defs import VERSION
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from gettext import gettext as _
 from os.path import basename
-from xml.sax.saxutils import unescape
 import deskbar
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
@@ -37,7 +36,7 @@ class GoogleCodeSearchModule(deskbar.interfaces.Module):
         Remove HTML tags and display only the first line
         that contains the search term
         """
-        content_lines = strip_html(content).split("\n")
+        content_lines = strip_html(htmldecode(content)).split("\n")
         pattern = re.escape(qstring)
         new_content = ""
         for content in content_lines:
@@ -47,9 +46,9 @@ class GoogleCodeSearchModule(deskbar.interfaces.Module):
                               content.strip(),
                               re.IGNORECASE | re.MULTILINE)
                 new_content += "\n"
-            
+        
         if len(new_content) > 0:
-            return new_content.strip()
+            return new_content.strip().replace("&", "&amp;")
         else:
             return None
         
@@ -125,6 +124,12 @@ class GoToPackageLocationAction(ShowUrlAction):
     def get_verb(self):
         return _("Open package <i>%(name)s</i>")
 
+    def is_valid(self):
+        if self._url.startswith("ftp://"):
+            return True
+        else:
+            return ShowUrlAction.is_valid(self)
+
 class SearchWithGoogleCodeAction(ShowUrlAction):
     """
     Open the Google Codesearch page with results
@@ -190,7 +195,7 @@ class GoogleCodeSearchFeedParser(xml.sax.handler.ContentHandler):
         value = self.__contents.strip()
         if len(value) == 0:
             value = None
-        self.__entry[key] = unescape(value)
+        self.__entry[key] = value
         self._reset_contents()
     
     def get_results(self):
@@ -235,4 +240,4 @@ class GoogleCodeSearchFeedParser(xml.sax.handler.ContentHandler):
     def characters(self, content):
         if not self.__not_interested:
             self.__contents += content
-    
+

@@ -1,5 +1,5 @@
 from deskbar.core.GconfStore import GconfStore
-from deskbar.core.Utils import strip_html, get_proxy, get_locale_lang
+from deskbar.core.Utils import strip_html, get_proxy, get_locale_lang, htmldecode
 from deskbar.defs import VERSION
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
@@ -208,9 +208,9 @@ class OpenGoogleAction(ShowUrlAction):
 class GoogleMatch(deskbar.interfaces.Match):
     def __init__(self, result=None, **args):
         deskbar.interfaces.Match.__init__(self, category="web", icon="google.png", **args)
-        self._name = result['titleNoFormatting']
+        self._name = htmldecode(result['titleNoFormatting'])
         self.url = result['url']
-        self.set_snippet(result['content'])
+        self.set_snippet(htmldecode(result['content']))
         
         self.add_action( OpenGoogleAction(self.get_name(), self.url) )
         self.add_action( CopyToClipboardAction( _("URL"), self.url) )
