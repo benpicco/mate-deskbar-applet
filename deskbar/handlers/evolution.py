@@ -1,6 +1,7 @@
 from deskbar.defs import VERSION
 from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicationAction
 from deskbar.handlers.actions.SendEmailToAction import SendEmailToAction
+from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from gettext import gettext as _
 import deskbar
 import deskbar.core.Indexer
@@ -37,6 +38,7 @@ class EvolutionMatch(deskbar.interfaces.Match):
         
         self.add_action( SendEmailToAction(name, email), True )
         self.add_action( EditEvolutionContactAction(name, email, uri) )
+        self.add_action( CopyToClipboardAction(name, email) )
     
     def get_hash(self):
         return self.get_name()
