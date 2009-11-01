@@ -205,7 +205,8 @@ class AbstractCuemiacView (deskbar.interfaces.View):
         self.actions_model.clear()
         self._show_actions()
         self.actions_model.add_actions(actions, qstring)
-        self.aview.grab_focus()
+        first_iter = self.actions_model.get_iter_first()
+        self.aview.get_selection().select_iter(first_iter)
     
     def set_sensitive (self, active):
         """
