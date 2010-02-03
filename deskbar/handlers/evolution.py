@@ -71,5 +71,5 @@ class EvolutionHandler(deskbar.interfaces.Module):
         if deskbar.handlers.evolution.num_address_books_with_completion() > 0:
             return True
         else:
-            EvolutionHandler.INSTRUCTIONS = _("Autocompletion Needs to be Enabled\nWe cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit - Preferences, and then Autocompletion.")
+            EvolutionHandler.INSTRUCTIONS = _("Autocompletion Needs to be Enabled\nWe cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit → Preferences, and then Autocompletion.")
             return False

@@ -90,7 +90,7 @@ class OpenSearchHandler(deskbar.interfaces.Module):
     INFOS = {
             "icon": deskbar.core.Utils.load_icon("web-search.png"),
             "name": _("OpenSearch"),
-            "description": _("Searches any OpenSearch compliant website"),
+            "description": _("Searches any OpenSearch-compliant website"),
             "version": VERSION,
     }
     

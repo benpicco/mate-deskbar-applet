@@ -143,7 +143,7 @@ class SearchWithGoogleCodeAction(ShowUrlAction):
         ShowUrlAction.__init__(self, term, url)
 
     def get_verb(self):
-        return _("Search <b>Google Codesearch</b> for <i>%(name)s</i>")
+        return _("Search <b>Google Code Search</b> for <i>%(name)s</i>")
 
 class GoogleCodeSearchForMatch(deskbar.interfaces.Match):
     """

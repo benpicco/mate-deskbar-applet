@@ -92,7 +92,7 @@ class TwitterClient :
             error = gtk.MessageDialog (None,
                                        type=gtk.MESSAGE_WARNING,
                                        buttons=gtk.BUTTONS_OK)
-            error.set_markup (_("A post is already awaiting submission, please wait before you post another message"))
+            error.set_markup (_("A post is already awaiting submission; please wait before you post another message"))
             error.set_title (_("Error posting to %s" % self._domain))
             error.show_all()
             error.run()
