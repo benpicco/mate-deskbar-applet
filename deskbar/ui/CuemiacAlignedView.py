@@ -46,6 +46,10 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
         self.set_role("deskbar-search-window")
         
         entry_width = self._model.get_entry_width()
+        # Account for previous default entry width of 20
+        if entry_width == 20:
+            entry_width = 40
+            self._model.set_entry_width(entry_width)
         self._change_entry_width(entry_width)
         
         # VBox
@@ -148,4 +152,4 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
         if entry_width < 10:
             entry_width = 10
         self.get_entry().set_width_chars(entry_width)
-    
+
