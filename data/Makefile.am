@@ -49,7 +49,7 @@ deskbarbindir = $(libexecdir)/deskbar-applet
 @INTLTOOL_SCHEMAS_RULE@
 
 $(server_in_files): $(server_in_files:.server.in=.server.in.in)
-	sed -e "s|\@LIBEXECDIR\@|$(deskbarbindir)|" $< > $@
+	$(AM_V_GEN)sed -e "s|\@LIBEXECDIR\@|$(deskbarbindir)|" $< > $@
 
 if GCONF_SCHEMAS_INSTALL
 install-data-local: install-schemas

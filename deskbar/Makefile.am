@@ -1,7 +1,7 @@
 SUBDIRS = core handlers interfaces osutils ui
 
 deskbar-applet: deskbar-applet.py
-	cp -f $< $@
+	$(AM_V_at)cp -f $< $@
 	
 deskbarbindir = $(libexecdir)/deskbar-applet
 deskbarbin_SCRIPTS = deskbar-applet

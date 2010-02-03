@@ -22,8 +22,8 @@ EXTRA_DIST = \
 
 _iconentry.c: _iconentry.defs _iconentry.override
 .defs.c:
-	(cd $(srcdir) \
-	 && $(PYGTK_CODEGEN) \
+	$(AM_V_GEN)(cd $(srcdir) \
+	&& $(PYGTK_CODEGEN) \
 	    --override $*.override \
 	    --register $(PYGTK_DEFSDIR)/gtk-types.defs \
 	    --register $(PYGTK_DEFSDIR)/gdk-types.defs \
