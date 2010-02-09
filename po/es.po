@@ -3,21 +3,21 @@
 # This file is distributed under the same license as the deskbar-applet package.
 #
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2005, 2006.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 200, 2009.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=deskbar-applet&component=general\n"
-"POT-Creation-Date: 2009-05-01 18:59+0000\n"
-"PO-Revision-Date: 2009-05-03 16:53+0200\n"
+"POT-Creation-Date: 2010-02-09 10:58+0000\n"
+"PO-Revision-Date: 2010-02-09 18:43+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/deskbar-applet.schemas.in.h:1
 msgid ""
@@ -47,7 +47,10 @@ msgstr ""
 "la búsqueda"
 
 #: ../data/deskbar-applet.schemas.in.h:6
-msgid "If enabled the window will be closed after an action has been activated"
+#| msgid ""
+#| "If enabled the window will be closed after an action has been activated"
+msgid ""
+"If enabled, the window will be closed after an action has been activated"
 msgstr "Si está activado la ventana se cerrará después de activar una acción"
 
 #: ../data/deskbar-applet.schemas.in.h:7
@@ -63,9 +66,9 @@ msgid "Minimum number of characters needed to start searching"
 msgstr "El mínimo número de caracteres necesarios para comenzar una búsqueda"
 
 #: ../data/deskbar-applet.schemas.in.h:10
-msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
-msgstr ""
-"Selecciona la interfaz de usuario que usar entre \"Window\" y \"Button\""
+#| msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
+msgid "Selects the user interface to use: one of \"Window\" or \"Button\""
+msgstr "Selecciona la interfaz de usuario que usar entre «Window» y «Button»"
 
 #: ../data/deskbar-applet.schemas.in.h:11
 msgid "The applet's entry width in number of characters"
@@ -76,12 +79,14 @@ msgid "The default height of the window in pixels"
 msgstr "La altura predeterminada de la ventana en píxeles"
 
 #: ../data/deskbar-applet.schemas.in.h:13
-msgid "The default position of the window on the screen (x-coordinate)"
-msgstr "La posición predeterminada de la ventana en la pantalla (coordenada x)"
+#| msgid "The default position of the window on the screen (x-coordinate)"
+msgid "The default position of the window on the screen (X coordinate)"
+msgstr "La posición predeterminada de la ventana en la pantalla (coordenada X)"
 
 #: ../data/deskbar-applet.schemas.in.h:14
-msgid "The default position of the window on the screen (y-coordinate)"
-msgstr "La posición predeterminada de la ventana en la pantalla (coordenada y)"
+#| msgid "The default position of the window on the screen (x-coordinate)"
+msgid "The default position of the window on the screen (Y coordinate)"
+msgstr "La posición predeterminada de la ventana en la pantalla (coordenada Y)"
 
 #: ../data/deskbar-applet.schemas.in.h:15
 msgid "The default width of the window in pixels"
@@ -104,12 +109,15 @@ msgstr ""
 "archivos, gente, lugares, acciones, web, búsqueda web, noticias y notas."
 
 #: ../data/deskbar-applet.schemas.in.h:18
+#| msgid ""
+#| "The list of exported class names of the enabled handlers sorted by "
+#| "priority. Leftmost has highest priority"
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
-"Leftmost has highest priority"
+"The leftmost has the highest priority."
 msgstr ""
 "La lista de nombres de las clases exportadas de los manejadores activados, "
-"ordenados por prioridad. Cuanto más a la izquierda más prioridad"
+"ordenados por prioridad. Cuanto más a la izquierda más prioridad."
 
 #: ../data/deskbar-applet.schemas.in.h:19
 msgid "The maximum number of items stored in history"
@@ -267,7 +275,8 @@ msgid "_Keyboard shortcut to focus:"
 msgstr "Combinación de _teclas para enfocar:"
 
 #: ../data/prefs-dialog.ui.h:19
-msgid "_More..."
+#| msgid "_More..."
+msgid "_More…"
 msgstr "_Más…"
 
 #: ../data/prefs-dialog.ui.h:20
@@ -301,7 +310,8 @@ msgid "<b>Search Engines</b>"
 msgstr "<b>Motores de búsqueda</b>"
 
 #: ../data/mozilla-search.ui.h:2
-msgid "Deskbar Preferences - Web Searches"
+#| msgid "Deskbar Preferences - Web Searches"
+msgid "Deskbar Preferences — Web Searches"
 msgstr "Preferencias de Deskbar: Búsquedas web"
 
 #: ../data/mozilla-search.ui.h:3
@@ -329,7 +339,7 @@ msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Buscar <i>%(text)s</i> en <b>%(name)s</b>"
 
 #: ../deskbar/core/BrowserMatch.py:111
-#: ../deskbar/handlers/googlecodesearch.py:107
+#: ../deskbar/handlers/googlecodesearch.py:106
 #: ../deskbar/handlers/googlesearch.py:216 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL"
@@ -411,11 +421,11 @@ msgstr "Imágenes"
 msgid "<i>Empty history</i>"
 msgstr "<i>Histórico vacío</i>"
 
-#: ../deskbar/core/Utils.py:185
+#: ../deskbar/core/Utils.py:184
 msgid "Cannot execute program:"
 msgstr "No se puede ejecutar el programa:"
 
-#: ../deskbar/core/Utils.py:272
+#: ../deskbar/core/Utils.py:271
 msgid "Cannot show URL:"
 msgstr "No se puede mostrar la URL:"
 
@@ -625,31 +635,36 @@ msgid "Open your web history by name"
 msgstr "Abra su histórico web por nombre"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:32
+#: ../deskbar/handlers/evolution.py:33
 #, python-format
 msgid "Edit contact <b>%(name)s</b> (%(email)s)"
 msgstr "Editar contacto <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:49
 msgid "Mail (Address Book)"
 msgstr "Correo (Libreta de direcciones)"
 
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:50
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr ""
 "Envíe correos-e a sus contactos tecleando su nombre o dirección de correo-e"
 
-#: ../deskbar/handlers/evolution.py:72
+#: ../deskbar/handlers/evolution.py:74
+#| msgid ""
+#| "Autocompletion Needs to be Enabled\n"
+#| "We cannot provide e-mail addresses from your address book unless "
+#| "autocompletion is enabled.  To do this, from your mail program's menu, "
+#| "choose Edit - Preferences, and then Autocompletion."
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit - Preferences, and then Autocompletion."
+"choose Edit → Preferences, and then Autocompletion."
 msgstr ""
 "El autocompletado debe estar activado\n"
 "No se pueden proporcionar direcciones de correo-e de sus libretas de "
-"direcciones a no ser que el autocompletado esté activado. Para hacer esto, "
-"vaya al menú de su programa de correo, elija Editar - Preferencias y después "
+"direcciones a no ser que el autocompletado esté activado. Para ello, vaya al "
+"menú de su programa de correo, elija Editar → Preferencias y después "
 "Autocompletado."
 
 #. FIXME:
@@ -668,160 +683,161 @@ msgid "View your files, folders, bookmarks, drives, network places by name"
 msgstr ""
 "Vea sus archivos, carpetas, marcadores, unidades, lugares de red por nombre"
 
-#: ../deskbar/handlers/gdmactions.py:40
+#: ../deskbar/handlers/gdmactions.py:41
 msgid "Shut down this system now?"
 msgstr "¿Apagar este sistema ahora?"
 
-#: ../deskbar/handlers/gdmactions.py:41 ../deskbar/handlers/gdmactions.py:290
-#: ../deskbar/handlers/gdmactions.py:356
+#: ../deskbar/handlers/gdmactions.py:42 ../deskbar/handlers/gdmactions.py:273
+#: ../deskbar/handlers/gdmactions.py:343
 msgid "Shut Down"
 msgstr "Apagar"
 
-#: ../deskbar/handlers/gdmactions.py:43
+#: ../deskbar/handlers/gdmactions.py:44
 msgid "Log out of this system now?"
 msgstr "¿Quiere salir de este sistema ahora?"
 
-#: ../deskbar/handlers/gdmactions.py:44 ../deskbar/handlers/gdmactions.py:307
-#: ../deskbar/handlers/gdmactions.py:311 ../deskbar/handlers/gdmactions.py:359
+#: ../deskbar/handlers/gdmactions.py:45 ../deskbar/handlers/gdmactions.py:292
+#: ../deskbar/handlers/gdmactions.py:296 ../deskbar/handlers/gdmactions.py:346
 msgid "Log Out"
 msgstr "Salir"
 
-#: ../deskbar/handlers/gdmactions.py:46
+#: ../deskbar/handlers/gdmactions.py:47
 msgid "Restart this system now?"
 msgstr "¿Reiniciar este sistema ahora?"
 
-#: ../deskbar/handlers/gdmactions.py:47 ../deskbar/handlers/gdmactions.py:332
-#: ../deskbar/handlers/gdmactions.py:358
+#: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:319
+#: ../deskbar/handlers/gdmactions.py:345
 msgid "Restart"
 msgstr "Reiniciar"
 
-#: ../deskbar/handlers/gdmactions.py:49
+#: ../deskbar/handlers/gdmactions.py:50
 msgid "Suspend this system now?"
 msgstr "¿Suspender este sistema ahora?"
 
-#: ../deskbar/handlers/gdmactions.py:50 ../deskbar/handlers/gdmactions.py:388
+#: ../deskbar/handlers/gdmactions.py:51 ../deskbar/handlers/gdmactions.py:375
 msgid "Suspend"
 msgstr "Suspender"
 
-#: ../deskbar/handlers/gdmactions.py:52
+#: ../deskbar/handlers/gdmactions.py:53
 msgid "Hibernate this system now?"
 msgstr "¿Hibernar este sistema ahora?"
 
-#: ../deskbar/handlers/gdmactions.py:53 ../deskbar/handlers/gdmactions.py:390
+#: ../deskbar/handlers/gdmactions.py:54 ../deskbar/handlers/gdmactions.py:377
 msgid "Hibernate"
 msgstr "Hibernar"
 
-#: ../deskbar/handlers/gdmactions.py:61
+#: ../deskbar/handlers/gdmactions.py:62
 #, python-format
 msgid "This system will be automatically shut down in %s second."
 msgid_plural "This system will be automatically shut down in %s seconds."
 msgstr[0] "Este sistema se apagará automáticamente en %s segundo."
 msgstr[1] "Este sistema se apagará automáticamente en %s segundos."
 
-#: ../deskbar/handlers/gdmactions.py:65
+#: ../deskbar/handlers/gdmactions.py:66
 #, python-format
 msgid "You will be automatically logged out in %s second."
 msgid_plural "You will be automatically logged out in %s seconds."
 msgstr[0] "Saldrá del sistema automáticamente en %s segundo."
 msgstr[1] "Saldrá del sistema automáticamente en %s segundos."
 
-#: ../deskbar/handlers/gdmactions.py:69
+#: ../deskbar/handlers/gdmactions.py:70
 #, python-format
 msgid "This system will be automatically restarted in %s second."
 msgid_plural "This system will be automatically restarted in %s seconds."
 msgstr[0] "Este sistema se reiniciará automáticamente en %s segundo."
 msgstr[1] "Este sistema se reiniciará automáticamente en %s segundos."
 
-#: ../deskbar/handlers/gdmactions.py:73
+#: ../deskbar/handlers/gdmactions.py:74
 #, python-format
 msgid "This system will be automatically suspended in %s second."
 msgid_plural "This system will be automatically suspended in %s seconds."
 msgstr[0] "Este sistema se suspenderá automáticamente en %s segundo."
 msgstr[1] "Este sistema se suspenderá automáticamente en %s segundos."
 
-#: ../deskbar/handlers/gdmactions.py:77
+#: ../deskbar/handlers/gdmactions.py:78
 #, python-format
 msgid "This system will be automatically hibernated in %s second."
 msgid_plural "This system will be automatically hibernated in %s seconds."
 msgstr[0] "Este sistema hibernará automáticamente en %s segundo."
 msgstr[1] "Este sistema hibernará automáticamente en %s segundos."
 
-#: ../deskbar/handlers/gdmactions.py:127
+#: ../deskbar/handlers/gdmactions.py:128
 msgid "Suspend the machine"
 msgstr "Suspende la máquina"
 
-#: ../deskbar/handlers/gdmactions.py:148
+#: ../deskbar/handlers/gdmactions.py:149
 msgid "Hibernate the machine"
 msgstr "Hiberna la máquina"
 
-#: ../deskbar/handlers/gdmactions.py:169
+#: ../deskbar/handlers/gdmactions.py:170
 msgid "Shutdown the machine"
 msgstr "Apaga la máquina"
 
-#: ../deskbar/handlers/gdmactions.py:191
+#: ../deskbar/handlers/gdmactions.py:192
 msgid "Reboot the machine"
 msgstr "Reiniciar la máquina"
 
-#: ../deskbar/handlers/gdmactions.py:213
+#: ../deskbar/handlers/gdmactions.py:214
 msgid "Lock the screen"
 msgstr "Bloquea la pantalla"
 
-#: ../deskbar/handlers/gdmactions.py:241 ../deskbar/handlers/gdmactions.py:377
+#: ../deskbar/handlers/gdmactions.py:242 ../deskbar/handlers/gdmactions.py:364
 msgid "Lock"
 msgstr "Bloquear"
 
-#: ../deskbar/handlers/gdmactions.py:286
+#: ../deskbar/handlers/gdmactions.py:269
 msgid "Turn off the computer"
 msgstr "Apaga el equipo"
 
-#: ../deskbar/handlers/gdmactions.py:328
+#: ../deskbar/handlers/gdmactions.py:315
 msgid "Restart the computer"
 msgstr "Reinicia el equipo"
 
-#: ../deskbar/handlers/gdmactions.py:343 ../deskbar/handlers/gdmactions.py:347
-#: ../deskbar/handlers/gdmactions.py:357
+#: ../deskbar/handlers/gdmactions.py:330 ../deskbar/handlers/gdmactions.py:334
+#: ../deskbar/handlers/gdmactions.py:344
 msgid "Switch User"
 msgstr "Cambiar de usuario"
 
-#: ../deskbar/handlers/gdmactions.py:353
+#: ../deskbar/handlers/gdmactions.py:340
 msgid "Computer Actions"
 msgstr "Acciones del equipo"
 
-#: ../deskbar/handlers/gdmactions.py:354
+#: ../deskbar/handlers/gdmactions.py:341
 msgid "Logoff, shutdown, restart, suspend and related actions."
 msgstr "Salir, apagar, reiniciar suspender y acciones de ese tipo."
 
-#: ../deskbar/handlers/gdmactions.py:392
+#: ../deskbar/handlers/gdmactions.py:379
 msgid "Shutdown"
 msgstr "Apagar"
 
-#: ../deskbar/handlers/gdmactions.py:394
+#: ../deskbar/handlers/gdmactions.py:381
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: ../deskbar/handlers/googlecodesearch.py:28
+#: ../deskbar/handlers/googlecodesearch.py:27
 msgid "Google Code Search"
 msgstr "Búsqueda en Google Code"
 
-#: ../deskbar/handlers/googlecodesearch.py:29
+#: ../deskbar/handlers/googlecodesearch.py:28
 msgid "Search public source code for function definitions and sample code"
 msgstr ""
 "Buscar en el código público definiciones de funciones y código de ejemplo"
 
-#: ../deskbar/handlers/googlecodesearch.py:118
+#: ../deskbar/handlers/googlecodesearch.py:117
 #, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
 msgstr "Ver <i>%(name)s</i> en la búsqueda de  <b>Google Code</b>"
 
-#: ../deskbar/handlers/googlecodesearch.py:126
+#: ../deskbar/handlers/googlecodesearch.py:125
 #, python-format
 msgid "Open package <i>%(name)s</i>"
 msgstr "Abrir el paquete <i>%(name)s</i>"
 
-#: ../deskbar/handlers/googlecodesearch.py:141
+#: ../deskbar/handlers/googlecodesearch.py:146
 #, python-format
-msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
-msgstr "Buscar <i>%(name)s</i> en <b>Google Codesearch</b>"
+#| msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
+msgid "Search <b>Google Code Search</b> for <i>%(name)s</i>"
+msgstr "Buscar <i>%(name)s</i> en <b>Google Code Search</b>"
 
 #: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:30
 msgid "Arabic"
@@ -837,12 +853,14 @@ msgid "Catalan"
 msgstr "Catalán"
 
 #: ../deskbar/handlers/googlesearch.py:33 ../deskbar/handlers/yahoo.py:33
-msgid "Chinese simplified"
-msgstr "Chino simplificado"
+#| msgid "Chinese Simplified"
+msgid "Chinese (Simplified)"
+msgstr "Chino (simplificado)"
 
 #: ../deskbar/handlers/googlesearch.py:34 ../deskbar/handlers/yahoo.py:34
-msgid "Chinese traditional"
-msgstr "Chino tradicional"
+#| msgid "Chinese Traditional"
+msgid "Chinese (Traditional)"
+msgstr "Chino (tradicional)"
 
 #: ../deskbar/handlers/googlesearch.py:35 ../deskbar/handlers/yahoo.py:35
 msgid "Croatian"
@@ -1067,7 +1085,8 @@ msgid "OpenSearch"
 msgstr "OpenSearch"
 
 #: ../deskbar/handlers/opensearch.py:93
-msgid "Searches any OpenSearch compliant website"
+#| msgid "Searches any OpenSearch compliant website"
+msgid "Searches any OpenSearch-compliant website"
 msgstr "Busca cualquier web que cumpla el estándar OpenSearch"
 
 #: ../deskbar/handlers/opensearch.py:97
@@ -1355,8 +1374,11 @@ msgstr ""
 " • Sus credenciales son correctas en las preferencias"
 
 #: ../deskbar/handlers/twitter.py:95
+#| msgid ""
+#| "A post is already awaiting submission, please wait before you post "
+#| "another message"
 msgid ""
-"A post is already awaiting submission, please wait before you post another "
+"A post is already awaiting submission; please wait before you post another "
 "message"
 msgstr ""
 "Ya hay una entrada esperando ser enviada, espere antes de publicar otro "
@@ -1559,12 +1581,8 @@ msgstr "Sitio web de Deskbar"
 #: ../deskbar/ui/About.py:36
 msgid "translator-credits"
 msgstr ""
-"Jorge González <jorgegonz@svn.gnome.org>, 2007-2009\n"
+"Jorge González <jorgegonz@svn.gnome.org>, 2007-2010\n"
 "Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2006"
-
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
-msgid "<b>Search:</b>"
-msgstr "<b>Buscar:</b>"
 
 #: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
 msgid "Display additional actions"
@@ -1609,7 +1627,8 @@ msgid "<i>Empty</i>"
 msgstr "<i>Vacío</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
-msgid "New accelerator..."
+#| msgid "New accelerator..."
+msgid "New accelerator…"
 msgstr "Acelerador nuevo…"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:154
@@ -1695,11 +1714,18 @@ msgstr "Versión:"
 msgid "Update Available"
 msgstr "Actualización disponible"
 
-#~ msgid "Croation"
-#~ msgstr "Croata"
+#~ msgid "The default position of the window on the screen (y-coordinate)"
+#~ msgstr ""
+#~ "La posición predeterminada de la ventana en la pantalla (coordenada y)"
 
-#~ msgid "Chinese Simplified"
+#~ msgid "Chinese simplified"
 #~ msgstr "Chino simplificado"
 
-#~ msgid "Chinese Traditional"
+#~ msgid "Chinese traditional"
 #~ msgstr "Chino tradicional"
+
+#~ msgid "<b>Search:</b>"
+#~ msgstr "<b>Buscar:</b>"
+
+#~ msgid "Croation"
+#~ msgstr "Croata"
