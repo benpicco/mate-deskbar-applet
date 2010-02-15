@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet 2.27.5\n"
+"Project-Id-Version: deskbar-applet 2.29.90\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-14 22:26+0800\n"
-"PO-Revision-Date: 2009-07-14 22:26+0800\n"
+"POT-Creation-Date: 2010-02-15 11:27+0800\n"
+"PO-Revision-Date: 2010-02-15 11:28+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "MIME-Version: 1.0\n"
@@ -40,8 +40,9 @@ msgid ""
 msgstr "如果啟用將在選定搜尋結果後清除該項目"
 
 #: ../data/deskbar-applet.schemas.in.h:6
-msgid "If enabled the window will be closed after an action has been activated"
-msgstr "如果啟用在進行一個動作時會關閉視窗"
+msgid ""
+"If enabled, the window will be closed after an action has been activated"
+msgstr "如果啟用，在進行一個動作時會關閉視窗"
 
 #: ../data/deskbar-applet.schemas.in.h:7
 msgid "Keybinding"
@@ -56,8 +57,8 @@ msgid "Minimum number of characters needed to start searching"
 msgstr "開始搜尋所需最少字符數"
 
 #: ../data/deskbar-applet.schemas.in.h:10
-msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
-msgstr "選擇想用的使用者介面，可以是「視窗」或「按鈕」"
+msgid "Selects the user interface to use: one of \"Window\" or \"Button\""
+msgstr "選擇想用的使用者介面：可以是「Window」(視窗)或「Button」(按鈕)"
 
 #: ../data/deskbar-applet.schemas.in.h:11
 msgid "The applet's entry width in number of characters"
@@ -68,12 +69,12 @@ msgid "The default height of the window in pixels"
 msgstr "視窗預設高度(像素)"
 
 #: ../data/deskbar-applet.schemas.in.h:13
-msgid "The default position of the window on the screen (x-coordinate)"
-msgstr "視窗在螢幕上的預設位置(x-坐標)"
+msgid "The default position of the window on the screen (X coordinate)"
+msgstr "視窗在螢幕上的預設位置 (X 坐標)"
 
 #: ../data/deskbar-applet.schemas.in.h:14
-msgid "The default position of the window on the screen (y-coordinate)"
-msgstr "視窗在螢幕上的預設位置(y-坐標)"
+msgid "The default position of the window on the screen (Y coordinate)"
+msgstr "視窗在螢幕上的預設位置 (Y 坐標)"
 
 #: ../data/deskbar-applet.schemas.in.h:15
 msgid "The default width of the window in pixels"
@@ -93,8 +94,8 @@ msgstr "顯示時摺疊的分類清單。可用的分類有：預設定值、歷
 #: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
-"Leftmost has highest priority"
-msgstr "根據優先權排序已啟用處理機制輸出的類別名稱清單。最左邊的有最高的優先權"
+"The leftmost has the highest priority."
+msgstr "根據優先權排序已啟用處理機制輸出的類別名稱清單。最左邊的有最高的優先權。"
 
 #: ../data/deskbar-applet.schemas.in.h:19
 msgid "The maximum number of items stored in history"
@@ -243,8 +244,8 @@ msgid "_Keyboard shortcut to focus:"
 msgstr "要監控的鍵盤捷徑(_K)："
 
 #: ../data/prefs-dialog.ui.h:19
-msgid "_More..."
-msgstr "更多(_M)..."
+msgid "_More…"
+msgstr "更多(_M)…"
 
 #: ../data/prefs-dialog.ui.h:20
 msgid "_Reload"
@@ -274,8 +275,8 @@ msgid "<b>Search Engines</b>"
 msgstr "<b>搜尋引擎</b>"
 
 #: ../data/mozilla-search.ui.h:2
-msgid "Deskbar Preferences - Web Searches"
-msgstr "Deskbar 偏好設定 - 網頁搜尋"
+msgid "Deskbar Preferences — Web Searches"
+msgstr "Deskbar 偏好設定 — 網頁搜尋"
 
 #: ../data/mozilla-search.ui.h:3
 msgid "Show all available search engines"
@@ -302,7 +303,7 @@ msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "在 <b>%(name)s</b> 搜尋 <i>%(text)s</i>"
 
 #: ../deskbar/core/BrowserMatch.py:111
-#: ../deskbar/handlers/googlecodesearch.py:107
+#: ../deskbar/handlers/googlecodesearch.py:106
 #: ../deskbar/handlers/googlesearch.py:216 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "網址"
@@ -596,25 +597,25 @@ msgid "Open your web history by name"
 msgstr "根據名稱開啟網頁記錄"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:32
+#: ../deskbar/handlers/evolution.py:33
 #, python-format
 msgid "Edit contact <b>%(name)s</b> (%(email)s)"
 msgstr "編輯聯絡人 <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:49
 msgid "Mail (Address Book)"
 msgstr "郵件（通訊錄）"
 
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:50
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "輸入聯絡人的名稱或電子郵件即可傳送郵件"
 
-#: ../deskbar/handlers/evolution.py:72
+#: ../deskbar/handlers/evolution.py:74
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit - Preferences, and then Autocompletion."
+"choose Edit → Preferences, and then Autocompletion."
 msgstr ""
 "需要啟用自動補齊功能\n"
 "除非啟用自動補齊功能否則無法從通訊錄提供電子郵件位址。要這麼做，從你的郵件程式選單選擇「編輯」→「偏好設定」→「自動完成」。"
@@ -760,27 +761,27 @@ msgstr "關機"
 msgid "Reboot"
 msgstr "重新開機"
 
-#: ../deskbar/handlers/googlecodesearch.py:28
+#: ../deskbar/handlers/googlecodesearch.py:27
 msgid "Google Code Search"
 msgstr "Google 程式碼搜尋"
 
-#: ../deskbar/handlers/googlecodesearch.py:29
+#: ../deskbar/handlers/googlecodesearch.py:28
 msgid "Search public source code for function definitions and sample code"
 msgstr "搜尋函數定義與樣本程式的公開原始程式碼"
 
-#: ../deskbar/handlers/googlecodesearch.py:118
+#: ../deskbar/handlers/googlecodesearch.py:117
 #, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
 msgstr "檢視在 <b>Google 程式碼搜尋</b> 中的 <i>%(name)s</i>"
 
-#: ../deskbar/handlers/googlecodesearch.py:126
+#: ../deskbar/handlers/googlecodesearch.py:125
 #, python-format
 msgid "Open package <i>%(name)s</i>"
 msgstr "開啟套件 <i>%(name)s</i>"
 
-#: ../deskbar/handlers/googlecodesearch.py:141
+#: ../deskbar/handlers/googlecodesearch.py:146
 #, python-format
-msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
+msgid "Search <b>Google Code Search</b> for <i>%(name)s</i>"
 msgstr "以 <b>Google 程式碼搜尋</b> 搜尋 <i>%(name)s</i>"
 
 #: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:30
@@ -797,12 +798,12 @@ msgid "Catalan"
 msgstr "加泰隆語"
 
 #: ../deskbar/handlers/googlesearch.py:33 ../deskbar/handlers/yahoo.py:33
-msgid "Chinese simplified"
-msgstr "簡體中文"
+msgid "Chinese (Simplified)"
+msgstr "中文（簡體）"
 
 #: ../deskbar/handlers/googlesearch.py:34 ../deskbar/handlers/yahoo.py:34
-msgid "Chinese traditional"
-msgstr "繁體中文"
+msgid "Chinese (Traditional)"
+msgstr "中文（繁體）"
 
 #: ../deskbar/handlers/googlesearch.py:35 ../deskbar/handlers/yahoo.py:35
 msgid "Croatian"
@@ -1027,7 +1028,7 @@ msgid "OpenSearch"
 msgstr "OpenSearch"
 
 #: ../deskbar/handlers/opensearch.py:93
-msgid "Searches any OpenSearch compliant website"
+msgid "Searches any OpenSearch-compliant website"
 msgstr "搜尋任何兼容於 OpenSearch 的網站"
 
 #: ../deskbar/handlers/opensearch.py:97
@@ -1308,9 +1309,9 @@ msgstr ""
 
 #: ../deskbar/handlers/twitter.py:95
 msgid ""
-"A post is already awaiting submission, please wait before you post another "
+"A post is already awaiting submission; please wait before you post another "
 "message"
-msgstr "一份貼文已在等候傳送，在你張貼另一篇訊息前請先等待"
+msgstr "一份貼文已在等候傳送：在你張貼另一篇訊息前請先等待"
 
 #: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
 #: ../deskbar/handlers/twitter.py:151
@@ -1509,10 +1510,6 @@ msgstr ""
 "\n"
 "Chao-Hsiung Liao <pesder.liao@msa.hinet.net>, 2006"
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
-msgid "<b>Search:</b>"
-msgstr "<b>搜尋：</b>"
-
 #: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
 msgid "Display additional actions"
 msgstr "顯示額外的動作"
@@ -1556,7 +1553,7 @@ msgid "<i>Empty</i>"
 msgstr "<i>空的</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
-msgid "New accelerator..."
+msgid "New accelerator…"
 msgstr "新增捷徑鍵..."
 
 #: ../deskbar/ui/preferences/AccelEntry.py:154
@@ -1638,15 +1635,21 @@ msgstr "版本:"
 msgid "Update Available"
 msgstr "有更新存在"
 
+#~ msgid "The default position of the window on the screen (y-coordinate)"
+#~ msgstr "視窗在螢幕上的預設位置(y-坐標)"
+
+#~ msgid "Chinese simplified"
+#~ msgstr "簡體中文"
+
+#~ msgid "Chinese traditional"
+#~ msgstr "正體中文"
+
+#~ msgid "<b>Search:</b>"
+#~ msgstr "<b>搜尋：</b>"
+
 #, fuzzy
 #~ msgid "Croation"
 #~ msgstr "克羅埃西亞語"
-
-#~ msgid "Chinese Simplified"
-#~ msgstr "簡體中文"
-
-#~ msgid "Chinese Traditional"
-#~ msgstr "正體中文"
 
 #~ msgid "<i>Choose action</i>"
 #~ msgstr "<i>選擇動作</i>"
