@@ -1,3 +1,4 @@
+# translation of deskbar-applet.master.ru.po to Russian
 # translation of deskbar-applet to Russian
 # Copyright (C) 2008 Free Software Foundation Inc.
 # This file is distributed under the same license as the deskbar-applet package.
@@ -6,19 +7,21 @@
 # Leonid Kanter <leon@asplinux.ru>, 2006.
 # Yuri Kozlov <kozlov.y@gmail.com>, 2008.
 # Vasiliy Faronov <qvvx@yandex.ru>, 2008.
+# Yuri Kozlov <yuray@komyakino.ru>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet gnome-2-22\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-20 12:41+0300\n"
-"PO-Revision-Date: 2009-10-06 22:08+0300\n"
-"Last-Translator: Dmitry Yacenko <d.yacenko@gmail.com>\n"
-"Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"POT-Creation-Date: 2010-03-03 18:03+0200\n"
+"PO-Revision-Date: 2010-02-22 17:22+0300\n"
+"Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
+"Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../data/deskbar-applet.schemas.in.h:1
 msgid ""
@@ -48,7 +51,8 @@ msgstr ""
 "содержимое поля поиска будет стёрто."
 
 #: ../data/deskbar-applet.schemas.in.h:6
-msgid "If enabled the window will be closed after an action has been activated"
+msgid ""
+"If enabled, the window will be closed after an action has been activated"
 msgstr ""
 "Если этот ключ установлен, после запуска действия окно поиска будет закрыто."
 
@@ -65,7 +69,7 @@ msgid "Minimum number of characters needed to start searching"
 msgstr "Минимальное число символов, необходимое для начала поиска"
 
 #: ../data/deskbar-applet.schemas.in.h:10
-msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
+msgid "Selects the user interface to use: one of \"Window\" or \"Button\""
 msgstr "Применяемый пользовательский интерфейс: «Window» или «Button»"
 
 #: ../data/deskbar-applet.schemas.in.h:11
@@ -77,11 +81,11 @@ msgid "The default height of the window in pixels"
 msgstr "Высота окна в пикселах по умолчанию"
 
 #: ../data/deskbar-applet.schemas.in.h:13
-msgid "The default position of the window on the screen (x-coordinate)"
-msgstr "Положение окна на экране по умолчанию (по оси x)"
+msgid "The default position of the window on the screen (X coordinate)"
+msgstr "Положение окна на экране по умолчанию (по оси X)"
 
 #: ../data/deskbar-applet.schemas.in.h:14
-msgid "The default position of the window on the screen (y-coordinate)"
+msgid "The default position of the window on the screen (Y coordinate)"
 msgstr "Положение окна на экране по умолчанию (по оси Y)"
 
 #: ../data/deskbar-applet.schemas.in.h:15
@@ -106,7 +110,7 @@ msgstr ""
 #: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
-"Leftmost has highest priority"
+"The leftmost has the highest priority."
 msgstr ""
 "Список имён экспортированных классов включённых обработчиков, упорядоченных "
 "по приоритету. Чем левее расположен класс, тем выше его приоритет."
@@ -266,7 +270,7 @@ msgid "_Keyboard shortcut to focus:"
 msgstr "_Комбинация клавиш:"
 
 #: ../data/prefs-dialog.ui.h:19
-msgid "_More..."
+msgid "_More…"
 msgstr "Подро_бнее..."
 
 #: ../data/prefs-dialog.ui.h:20
@@ -300,7 +304,7 @@ msgid "<b>Search Engines</b>"
 msgstr "<b>Поисковые системы</b>"
 
 #: ../data/mozilla-search.ui.h:2
-msgid "Deskbar Preferences - Web Searches"
+msgid "Deskbar Preferences — Web Searches"
 msgstr "Параметры Deskbar — Поисковые системы"
 
 #: ../data/mozilla-search.ui.h:3
@@ -328,7 +332,7 @@ msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Искать в <b>%(name)s</b> <i>%(text)s</i>"
 
 #: ../deskbar/core/BrowserMatch.py:111
-#: ../deskbar/handlers/googlecodesearch.py:107
+#: ../deskbar/handlers/googlecodesearch.py:106
 #: ../deskbar/handlers/googlesearch.py:216 ../deskbar/handlers/yahoo.py:85
 msgid "URL"
 msgstr "URL"
@@ -623,30 +627,30 @@ msgid "Open your web history by name"
 msgstr "Открывать сайты из истории веб-браузера по имени"
 
 #. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:32
+#: ../deskbar/handlers/evolution.py:33
 #, python-format
 msgid "Edit contact <b>%(name)s</b> (%(email)s)"
 msgstr "Изменить контакт <b>%(name)s</b> (%(email)s)"
 
-#: ../deskbar/handlers/evolution.py:47
+#: ../deskbar/handlers/evolution.py:49
 msgid "Mail (Address Book)"
 msgstr "Почта (по адресной книге)"
 
-#: ../deskbar/handlers/evolution.py:48
+#: ../deskbar/handlers/evolution.py:50
 msgid "Send mail to your contacts by typing their name or e-mail address"
 msgstr "Посылать письма вашим контактам, набрав их имя или электронный адрес"
 
-#: ../deskbar/handlers/evolution.py:72
+#: ../deskbar/handlers/evolution.py:74
 msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit - Preferences, and then Autocompletion."
+"choose Edit → Preferences, and then Autocompletion."
 msgstr ""
 "Нужно включить автозавершение\n"
-"Нельзя искать адреса из адресной книги, не включив автозаверешение. Чтобы "
-"его включить, откройте свою почтовую программу и выберите «Правка» → "
-"«Параметры», затем «Автозавершение»."
+"Нельзя искать адреса из адресной книги, не включив автозавершение. Чтобы его "
+"включить, откройте почтовую программу и выберите «Правка» → «Параметры», затем "
+"«Автозавершение»."
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
@@ -807,28 +811,28 @@ msgstr "Выключить"
 msgid "Reboot"
 msgstr "Перезагрузить"
 
-#: ../deskbar/handlers/googlecodesearch.py:28
+#: ../deskbar/handlers/googlecodesearch.py:27
 msgid "Google Code Search"
 msgstr "Поиск при помощи Google Code"
 
-#: ../deskbar/handlers/googlecodesearch.py:29
+#: ../deskbar/handlers/googlecodesearch.py:28
 msgid "Search public source code for function definitions and sample code"
 msgstr "Искать в открытом исходном коде определение функций и примеры кода"
 
-#: ../deskbar/handlers/googlecodesearch.py:118
+#: ../deskbar/handlers/googlecodesearch.py:117
 #, python-format
 msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
 msgstr "Просмотреть <b>%(name)s</b> в <b>Google Code Search</b>"
 
-#: ../deskbar/handlers/googlecodesearch.py:126
+#: ../deskbar/handlers/googlecodesearch.py:125
 #, python-format
 msgid "Open package <i>%(name)s</i>"
 msgstr "Открыть пакет <i>%(name)s</i>"
 
-#: ../deskbar/handlers/googlecodesearch.py:141
+#: ../deskbar/handlers/googlecodesearch.py:146
 #, python-format
-msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
-msgstr "Искать <i>%(name)s</i> в <b>Google Codesearch</b>"
+msgid "Search <b>Google Code Search</b> for <i>%(name)s</i>"
+msgstr "Искать <i>%(name)s</i> в <b>Google Code Search</b>"
 
 #: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:30
 msgid "Arabic"
@@ -844,12 +848,12 @@ msgid "Catalan"
 msgstr "Каталонский"
 
 #: ../deskbar/handlers/googlesearch.py:33 ../deskbar/handlers/yahoo.py:33
-msgid "Chinese simplified"
-msgstr "Китайский упрощенный "
+msgid "Chinese (Simplified)"
+msgstr "Китайский (упрощенный)"
 
 #: ../deskbar/handlers/googlesearch.py:34 ../deskbar/handlers/yahoo.py:34
-msgid "Chinese traditional"
-msgstr "Китайский традиционный"
+msgid "Chinese (Traditional)"
+msgstr "Китайский (традиционный)"
 
 #: ../deskbar/handlers/googlesearch.py:35 ../deskbar/handlers/yahoo.py:35
 msgid "Croatian"
@@ -1074,7 +1078,7 @@ msgid "OpenSearch"
 msgstr "OpenSearch"
 
 #: ../deskbar/handlers/opensearch.py:93
-msgid "Searches any OpenSearch compliant website"
+msgid "Searches any OpenSearch-compliant website"
 msgstr "Поиск на веб-сайтах, совместимых с OpenSearch"
 
 #: ../deskbar/handlers/opensearch.py:97
@@ -1363,10 +1367,10 @@ msgstr ""
 
 #: ../deskbar/handlers/twitter.py:95
 msgid ""
-"A post is already awaiting submission, please wait before you post another "
+"A post is already awaiting submission; please wait before you post another "
 "message"
 msgstr ""
-"Одна заметка ожидает публикации, подождите перед тем, как делать следующую."
+"Одна заметка ожидает публикации; подождите перед тем, как делать следующую"
 
 #: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
 #: ../deskbar/handlers/twitter.py:151
@@ -1567,10 +1571,6 @@ msgstr ""
 "Александр Прокудин <alexandre.prokoudine@gmail.com>\n"
 "Василий Фаронов <qvvx@yandex.ru>"
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
-msgid "<b>Search:</b>"
-msgstr "<b>Искать:</b>"
-
 #: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
 msgid "Display additional actions"
 msgstr "Показывать дополнительные действия"
@@ -1614,7 +1614,7 @@ msgid "<i>Empty</i>"
 msgstr "<i>Пусто</i>"
 
 #: ../deskbar/ui/preferences/AccelEntry.py:102
-msgid "New accelerator..."
+msgid "New accelerator…"
 msgstr "Новая комбинация клавиш..."
 
 #: ../deskbar/ui/preferences/AccelEntry.py:154
@@ -1698,38 +1698,3 @@ msgstr "Версия:"
 #: ../deskbar/ui/preferences/ModuleListView.py:58
 msgid "Update Available"
 msgstr "Доступно обновление"
-
-#~ msgid "Croation"
-#~ msgstr "Хорватский"
-
-#~ msgid "Chinese Simplified"
-#~ msgstr "Китайский упрощенный "
-
-#~ msgid "Chinese Traditional"
-#~ msgstr "Китайский традиционный"
-
-#~ msgid "<i>Choose action</i>"
-#~ msgstr "<i>Выбрать действие</i>"
-
-#, fuzzy
-#~ msgid "name"
-#~ msgstr "Имя:"
-
-#~ msgid "default"
-#~ msgstr "по умолчанию"
-
-#~ msgid "_History"
-#~ msgstr "_История"
-
-#~ msgid "News from %s"
-#~ msgstr "Новости от %s"
-
-#~ msgid ""
-#~ "Some potentially old modules that make use of an old Deskbar-Applet API "
-#~ "have been found. Remove these files for this warning to disappear.\n"
-#~ msgstr ""
-#~ "Обнаружены возможно старые модули, использующие устаревший механизм "
-#~ "Deskbar API. Удалите эти файлы, чтобы предупреждение о них исчезло.\n"
-
-#~ msgid "Reload all extensions"
-#~ msgstr "Перезагрузить все модули"
