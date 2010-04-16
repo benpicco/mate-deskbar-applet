@@ -1,4 +1,4 @@
-AC_INIT(deskbar-applet, 2.30.0,
+AC_INIT(deskbar-applet, 2.30.1,
     [http://bugzilla.gnome.org/browse.cgi?product=deskbar-applet])
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
@@ -65,7 +65,7 @@ dnl ****************************************************************************
 dnl * PyGTK & co for Gnome Streamer
 dnl ****************************************************************************
 PKG_CHECK_MODULES(DESKBAR,
-	gtk+-2.0				>= 2.12
+	gtk+-2.0				>= 2.20
 	pygtk-2.0				>= 2.12
 	pygobject-2.0			>= 2.15.3
 	gnome-desktop-2.0		>= 2.10
