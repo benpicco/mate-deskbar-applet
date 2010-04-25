@@ -2,829 +2,1662 @@
 # Copyright (C) 2006 THE deskbar-applet'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the deskbar-applet package.
 # ahmad riza h nst <rizahnst@gnome.org>, 2006.
-# 
-# 
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: deskbar-applet HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-08 11:40+0700\n"
-"PO-Revision-Date: 2006-08-08 11:39+0700\n"
-"Last-Translator: ahmad riza h nst <rizahnst@gnome.org>\n"
-"Language-Team: Indonesian <kontak@id.gnome.org>\n"
+"Project-Id-Version: deskbar-applet master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=deskbar-applet&component=general\n"
+"POT-Creation-Date: 2010-04-22 21:48+0000\n"
+"PO-Revision-Date: 2010-04-25 10:55+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"Language-Team: GNOME Indonesian Translation Team <gnome@i15n.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Language: Indonesian\n"
+"X-Poedit-Country: Indonesia\n"
+
+#: ../data/deskbar-applet.schemas.in.h:1
+msgid "Choose whether triggering the keyboard shortcut also pastes the current selection in the search box."
+msgstr "Pilih apakah memicu pintasan papan tik juga menempelkan pilihan kini ke kotak pencarian."
+
+#: ../data/deskbar-applet.schemas.in.h:2
+msgid "Clear entry after match has been selected"
+msgstr "Bersihkan entri setelah yang cocok telah dipilih"
+
+#: ../data/deskbar-applet.schemas.in.h:3
+msgid "Collapsed categories"
+msgstr "Kategori yang diruntuhkan"
+
+#: ../data/deskbar-applet.schemas.in.h:4
+msgid "Enabled handlers"
+msgstr "Penangan yang diaktifkan"
+
+#: ../data/deskbar-applet.schemas.in.h:5
+msgid "If enabled it will clear the entry after a search result has been selected"
+msgstr "Bila diaktifkan akan membersihkan entri setelah suatu hasil pencarian telah dipilih"
+
+#: ../data/deskbar-applet.schemas.in.h:6
+msgid "If enabled, the window will be closed after an action has been activated"
+msgstr "Bila diaktifkan, jendela akan ditutup setelah suatu aksi telah diaktifkan"
+
+#: ../data/deskbar-applet.schemas.in.h:7
+msgid "Keybinding"
+msgstr "Keybinding"
+
+#: ../data/deskbar-applet.schemas.in.h:8
+msgid "Milliseconds to wait before starting to search"
+msgstr "Menunggu sekian milidetik sebelum mulai mencari"
+
+#: ../data/deskbar-applet.schemas.in.h:9
+msgid "Minimum number of characters needed to start searching"
+msgstr "Cacah karakter minimum yang diperlukan untuk memulai pencarian"
+
+#: ../data/deskbar-applet.schemas.in.h:10
+msgid "Selects the user interface to use: one of \"Window\" or \"Button\""
+msgstr "Pilih antarmuka pengguna untuk dipakai: satu dari \"Window\" (jendela) atau \"Button\" (tombol)"
+
+#: ../data/deskbar-applet.schemas.in.h:11
+msgid "The applet's entry width in number of characters"
+msgstr "Lebar entri aplet dalam cacah karakter"
+
+#: ../data/deskbar-applet.schemas.in.h:12
+msgid "The default height of the window in pixels"
+msgstr "Tinggi baku jendela dalam piksel"
+
+#: ../data/deskbar-applet.schemas.in.h:13
+msgid "The default position of the window on the screen (X coordinate)"
+msgstr "Posisi baku jendela di layar (koordinat X)"
+
+#: ../data/deskbar-applet.schemas.in.h:14
+msgid "The default position of the window on the screen (Y coordinate)"
+msgstr "Posisi baku jendela di layar (koordinat Y)"
+
+#: ../data/deskbar-applet.schemas.in.h:15
+msgid "The default width of the window in pixels"
+msgstr "Lebar baku jendela dalam piksel"
+
+#: ../data/deskbar-applet.schemas.in.h:16
+msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
+msgstr "Urutan kunci akan memfokuskan Aplet-Deskbar, memungkinkan mengetik dengan cepat"
+
+#: ../data/deskbar-applet.schemas.in.h:17
+msgid "The list of categories to be collapsed when displayed. Valid categories are: default, history, documents, emails, conversations, files, people, places, actions, web, websearch, news and notes."
+msgstr "Daftar kategori untuk diruntuhkan ketika ditampilkan. Kategori yang valid adalah: baku, riwayat, dokumen, surel, percakapan, berkas, orang, tempat, aksi, web, pencarian web, berita, dan catatan."
+
+#: ../data/deskbar-applet.schemas.in.h:18
+msgid "The list of exported class names of the enabled handlers sorted by priority. The leftmost has the highest priority."
+msgstr "Daftar dari nama kelas yang diekspor dari penangan yang diaktifkan diurut berdasarkan prioritas. Paling kiri memiliki prioritas tertinggi."
+
+#: ../data/deskbar-applet.schemas.in.h:19
+msgid "The maximum number of items stored in history"
+msgstr "Cacah maksimum objek tersimpan di riwayat"
+
+#: ../data/deskbar-applet.schemas.in.h:20
+msgid "The minimum number of characters that need to be typed before the applet starts showing matches"
+msgstr "Cacah minimum karakter yang perlu diketikkan sebelum aplet mulai menampilkan kecocokan"
+
+#: ../data/deskbar-applet.schemas.in.h:21
+msgid "The time in milliseconds between a keystroke in the search entry and the actual search being performed"
+msgstr "Waktu dalam mili detik antara suatu ketukan kunci pada entri pencarian dan pencarian sebenarnya dilakukan"
+
+#: ../data/deskbar-applet.schemas.in.h:22
+msgid "This value only takes effect when \"ui_name\" is set to \"Button\""
+msgstr "Nilai ini hanya berdampak ketika \"ui_name\" ditata ke \"Button\" (tombol)"
+
+#: ../data/deskbar-applet.schemas.in.h:23
+msgid "Whether to close the window after an action has been activated"
+msgstr "Apakah menutup jendela setelah suatu aksi telah diaktifkan"
+
+#: ../data/deskbar-applet.schemas.in.h:24
+msgid "Whether to show only the preferred search engine, rather than all available engines. This only affects Mozilla-based web browsers such as Firefox."
+msgstr "Apakah menampilkan mesin pencari yang disukai, bukan semua mesin yang tersedia. Ini hanya mempengaruhi peramban web berbasis Mozilla seperti Firefox."
+
+#: ../data/deskbar-applet.schemas.in.h:25
+msgid "Whether triggering Deskbar-Applet pastes the current selection"
+msgstr "Apakah memicu Aplet-Deskbar menempelkan pilihan kini"
+
+#: ../data/deskbar-applet.schemas.in.h:26
+msgid "Window height"
+msgstr "Tinggi jendela"
+
+#: ../data/deskbar-applet.schemas.in.h:27
+msgid "Window width"
+msgstr "Lebar jendela"
+
+#: ../data/deskbar-applet.schemas.in.h:28
+msgid "X-coordinate of window"
+msgstr "Koordinat-x dari jendela"
+
+#: ../data/deskbar-applet.schemas.in.h:29
+msgid "Y-coordinate of window"
+msgstr "Koordinat-y dari jendela"
+
+#: ../data/Deskbar_Applet.xml.h:1
+msgid "_About"
+msgstr "Tent_ang"
+
+#: ../data/Deskbar_Applet.xml.h:2
+msgid "_Clear History"
+msgstr "_Bersihkan Riwayat"
+
+#: ../data/Deskbar_Applet.xml.h:3
+msgid "_Help"
+msgstr "_Bantu"
+
+#: ../data/Deskbar_Applet.xml.h:4
+msgid "_Preferences"
+msgstr "_Ketentuan"
 
 # "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
 #: ../data/Deskbar_Applet.server.in.in.h:1
 msgid "An all-in-one action bar"
-msgstr "Batang aksi smuanya"
+msgstr "Batang aksi semuanya"
 
-#: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:22
+#: ../data/Deskbar_Applet.server.in.in.h:2
+#: ../deskbar/ui/About.py:29
 msgid "Deskbar"
 msgstr "Deskbar"
 
-#: ../data/Deskbar_Applet.xml.h:1 ../deskbar/ui/window/CuemiacWindowUI.py:56
-msgid "_About"
-msgstr "Tent_ang"
+#: ../data/prefs-dialog.ui.h:1
+msgid "<b>Available Extensions</b>"
+msgstr "<b>Ekstensi yang Tersedia</b>"
 
-#: ../data/Deskbar_Applet.xml.h:2 ../deskbar/ui/window/CuemiacWindowUI.py:52
-msgid "_Clear History"
-msgstr "_Bersihkan Riwayat"
+#: ../data/prefs-dialog.ui.h:2
+msgid "<b>Extensions with Errors</b>"
+msgstr "<b>Ekstensi dengan Galat</b>"
 
-#: ../data/Deskbar_Applet.xml.h:3 ../deskbar/ui/window/CuemiacWindowUI.py:53
-msgid "_Preferences"
-msgstr "_Ketentuan"
-
-#: ../data/prefs-dialog.glade.h:1
+#: ../data/prefs-dialog.ui.h:3
 msgid "<b>Focus</b>"
 msgstr "<b>Fokus</b>"
 
-#: ../data/prefs-dialog.glade.h:2
-msgid "<b>Layout</b>"
-msgstr "<b>Susunan</b>"
+#: ../data/prefs-dialog.ui.h:4
+msgid "<b>Loaded Extensions</b>"
+msgstr "<b>Ekstensi Aktif</b>"
 
-#: ../data/prefs-dialog.glade.h:3
+#: ../data/prefs-dialog.ui.h:5
 msgid "<b>Width</b>"
 msgstr "<b>Lebar</b>"
 
-#: ../data/prefs-dialog.glade.h:4
-msgid ""
-"<i><small><b>Note:</b> Drag and drop an extension to change its order.</"
-"small></i>"
-msgstr ""
-"<i><small><b>Catat:</b>Seret dan jatuhkan ekstensi untuk merubah perintahnya."
-"</small></i>"
+#: ../data/prefs-dialog.ui.h:6
+msgid "<b>Window Behavior</b>"
+msgstr "<b>Perilaku Jendela</b>"
 
-#: ../data/prefs-dialog.glade.h:5
-msgid "Button in panel"
-msgstr "Tombol pada panel"
-
-#: ../data/prefs-dialog.glade.h:6
+#: ../data/prefs-dialog.ui.h:7
 msgid "Deskbar Preferences"
 msgstr "Ketetapan Deskbar"
 
-#: ../data/prefs-dialog.glade.h:7
-msgid "Entry in panel"
-msgstr "Masukan pada panel"
+#: ../data/prefs-dialog.ui.h:8
+msgid "Display extensions with tag:"
+msgstr "Tampilkan ekstensi dengan tag:"
 
-#: ../data/prefs-dialog.glade.h:8
-msgid "Extensions"
-msgstr "Ekstensi"
+#: ../data/prefs-dialog.ui.h:9
+msgid "Extensions with Errors"
+msgstr "Ekstensi dengan Galat"
 
-#: ../data/prefs-dialog.glade.h:9
-msgid "Fixed _width:"
-msgstr "_Lebar tetap:"
+#: ../data/prefs-dialog.ui.h:10
+msgid "General"
+msgstr "Umum"
 
-#: ../data/prefs-dialog.glade.h:10
+#: ../data/prefs-dialog.ui.h:11
+msgid "New Extensions"
+msgstr "Ekstensi Baru"
+
+#: ../data/prefs-dialog.ui.h:12
 msgid "Search selection when triggering the shortcut"
 msgstr "Cari pilihan ketika memicu jalan pintas"
 
-#: ../data/prefs-dialog.glade.h:11
-msgid "Use _all available space"
-msgstr "Gun_akan seluruh spasi tersedia"
+#: ../data/prefs-dialog.ui.h:13
+msgid "Searches"
+msgstr "Pencarian"
 
-#: ../data/prefs-dialog.glade.h:12
-msgid "View"
-msgstr "Tampil"
+#: ../data/prefs-dialog.ui.h:14
+msgid "Stick to panel"
+msgstr "Menempel pada panel"
 
-#: ../data/prefs-dialog.glade.h:13
+#: ../data/prefs-dialog.ui.h:15
+msgid "_Check For Updates"
+msgstr "_Periksa Pemutakhiran"
+
+#: ../data/prefs-dialog.ui.h:16
+msgid "_Check for new extensions"
+msgstr "_Periksa ekstensi baru"
+
+#: ../data/prefs-dialog.ui.h:17
+msgid "_Install"
+msgstr "_Pasang"
+
+#: ../data/prefs-dialog.ui.h:18
 msgid "_Keyboard shortcut to focus:"
 msgstr "_Keyboard shortcut untuk fokus:"
 
-#: ../data/prefs-dialog.glade.h:14
-msgid "_More..."
+#: ../data/prefs-dialog.ui.h:19
+msgid "_More…"
 msgstr "_Lebih..."
 
-#: ../data/prefs-dialog.glade.h:15
+#: ../data/prefs-dialog.ui.h:20
+msgid "_Reload"
+msgstr "_Muat Ulang"
+
+#: ../data/prefs-dialog.ui.h:21
+msgid "_Update"
+msgstr "M_utakhirkan"
+
+#: ../data/prefs-dialog.ui.h:22
 msgid "characters"
 msgstr "karakter"
 
-#: ../data/smart-bookmarks.glade.h:1
-msgid ""
-"<i><small><b>Note: </b>If that shortcut is a single letter (like <b>t</b>) "
-"you can also just type \"<b>something</b>\" and then press <b>Alt-t</b> in "
-"the deskbar.</small></i>"
-msgstr ""
-"<i><small><b>Catat: </b>Jika shortcutnya huruf tunggal (seperti <b>t</b>)"
-"·anda bisa langsung menekan \"<b>sesuatu</b>\" dan lalu tekan <b>Alt-t</b> "
-"pada·deskbar.</small></i>"
+#: ../data/smart-bookmarks.ui.h:1
+msgid "<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></i>."
+msgstr "<i><small><b>Catat: </b> Untuk menggunakan shortcut (contohnya <b>wp</b>) untuk mencari <b>sesuatu</b>, tekan \"<b>wp sesuatu</b>\" pada deskbar</small></i>."
 
-#: ../data/smart-bookmarks.glade.h:2
-msgid ""
-"<i><small><b>Note:</b> To use a shortcut (for example <b>wp</b>) to search "
-"for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
-"i>."
-msgstr ""
-"<i><small><b>Catat: </b> Untuk menggunakan shortcut (contohnya <b>wp</b>) "
-"untuk mencari <b>sesuatu</b>, tekan \"<b>wp sesuatu</b>\" pada deskbar</"
-"small></i>."
-
-#: ../data/smart-bookmarks.glade.h:3
+#: ../data/smart-bookmarks.ui.h:2
 msgid "Shortcuts for Bookmarked Searches"
 msgstr "Shortcut untuk Pencarian Dibookmark"
 
-#: ../deskbar/BrowserMatch.py:46 ../deskbar/handlers/beagle-live.py:140
+#: ../data/mozilla-search.ui.h:1
+msgid "<b>Search Engines</b>"
+msgstr "<b>Mesin Pencari</b>"
+
+#: ../data/mozilla-search.ui.h:2
+msgid "Deskbar Preferences — Web Searches"
+msgstr "Preferensi Deskbar — Pencarian Web"
+
+#: ../data/mozilla-search.ui.h:3
+msgid "Show all available search engines"
+msgstr "Tampilkan seluruh mesin pencari yang ada"
+
+#: ../data/mozilla-search.ui.h:4
+msgid "Show only the primary search engine"
+msgstr "Tampilkan mesin pencari utama saja"
+
+#: ../deskbar/core/BrowserMatch.py:67
+#: ../deskbar/handlers/beagle-live.py:326
 #, python-format
 msgid "Open History Item %s"
 msgstr "Buka Riwayat Objek %s"
 
-#: ../deskbar/BrowserMatch.py:48
+#: ../deskbar/core/BrowserMatch.py:69
 #, python-format
 msgid "Open Bookmark %s"
 msgstr "Buka Penanda %s"
 
 #. translators: First %s is the search engine name, second %s is the search term
-#: ../deskbar/BrowserMatch.py:97
+#: ../deskbar/core/BrowserMatch.py:85
+#: ../deskbar/handlers/opensearch.py:75
 #, python-format
 msgid "Search <b>%(name)s</b> for <i>%(text)s</i>"
 msgstr "Cari <b>%(name)s</b> untuk <i>%(text)s</i>"
 
-#: ../deskbar/BrowserMatch.py:206
+#: ../deskbar/core/BrowserMatch.py:111
+#: ../deskbar/handlers/googlecodesearch.py:106
+#: ../deskbar/handlers/googlesearch.py:216
+#: ../deskbar/handlers/yahoo.py:85
+msgid "URL"
+msgstr "URL"
+
+#: ../deskbar/core/BrowserMatch.py:247
 msgid "Shortcut"
 msgstr "Shortcut"
 
-#: ../deskbar/BrowserMatch.py:214
+#: ../deskbar/core/BrowserMatch.py:255
 msgid "Bookmark Name"
 msgstr "Nama Penanda"
 
-#: ../deskbar/Categories.py:7
+#: ../deskbar/core/Categories.py:7
 msgid "Uncategorized"
 msgstr "Tiada kategori"
 
-#: ../deskbar/Categories.py:10 ../deskbar/handlers/history.py:9
+#: ../deskbar/core/Categories.py:11
+#: ../deskbar/handlers/history.py:27
+#: ../deskbar/ui/DeskbarStatusIcon.py:56
 msgid "History"
 msgstr "Riwayat"
 
-#: ../deskbar/Categories.py:15
+#: ../deskbar/core/Categories.py:17
 msgid "Documents"
 msgstr "Dokumen"
 
-#: ../deskbar/Categories.py:18
+#: ../deskbar/core/Categories.py:21
 msgid "Emails"
 msgstr "Surat"
 
-#: ../deskbar/Categories.py:21
+#: ../deskbar/core/Categories.py:25
 msgid "Conversations"
 msgstr "Percakapan"
 
-#: ../deskbar/Categories.py:24
+#: ../deskbar/core/Categories.py:29
 msgid "Files"
 msgstr "Berkas"
 
-#: ../deskbar/Categories.py:27
+#: ../deskbar/core/Categories.py:33
 msgid "People"
 msgstr "Orang"
 
-#: ../deskbar/Categories.py:30
+#: ../deskbar/core/Categories.py:37
 msgid "Places"
 msgstr "Tempat"
 
-#: ../deskbar/Categories.py:33
+#: ../deskbar/core/Categories.py:41
 msgid "Actions"
 msgstr "Aksi"
 
-#: ../deskbar/Categories.py:36 ../deskbar/handlers/web_address.py:11
+#: ../deskbar/core/Categories.py:45
+#: ../deskbar/handlers/web_address.py:44
 msgid "Web"
 msgstr "Web"
 
-#: ../deskbar/Categories.py:39
+#: ../deskbar/core/Categories.py:49
 msgid "Web Search"
 msgstr "Pencarian Web"
 
-#: ../deskbar/Categories.py:42
+#: ../deskbar/core/Categories.py:53
 msgid "News"
 msgstr "Berita"
 
-#: ../deskbar/Categories.py:45
+#: ../deskbar/core/Categories.py:57
 msgid "Notes"
 msgstr "Catatan"
 
-#: ../deskbar/DeskbarHistory.py:37
-msgid "No History"
-msgstr "Tanpa Riwayat"
+#: ../deskbar/core/Categories.py:61
+msgid "Audio"
+msgstr "Suara"
 
-#: ../deskbar/gtkexcepthook.py:21
-msgid "A programming error has been detected"
-msgstr "Kesalahan pemrograman telah diketahui"
+#: ../deskbar/core/Categories.py:65
+msgid "Video"
+msgstr "Video"
 
-#: ../deskbar/gtkexcepthook.py:22
-msgid ""
-"It probably isn't fatal, but should be reported to the developers "
-"nonetheless. The program may behave erratically from now on."
-msgstr ""
-"Kemungkinan tidak fatal, tapi harus dilaporkan ke pengembangnya.Program ini "
-"kemungkinan tidak akan stabil mulai dari sekarang."
+#: ../deskbar/core/Categories.py:69
+msgid "Images"
+msgstr "Gambar"
 
-#: ../deskbar/gtkexcepthook.py:24
-msgid "Bug Detected"
-msgstr "Kesalahan Dikenali"
+#: ../deskbar/core/DeskbarHistory.py:22
+msgid "<i>Empty history</i>"
+msgstr "<b>Riwayat kosong</b>"
 
-#: ../deskbar/handlers/beagle-live.py:18
-msgid "Start Beagle Daemon?"
-msgstr "Jalankan Daemon Beagle?"
+#: ../deskbar/core/Utils.py:184
+msgid "Cannot execute program:"
+msgstr "Tak bisa menjalankan program:"
 
-#: ../deskbar/handlers/beagle-live.py:22
-msgid "Start Beagle Daemon"
-msgstr "Jalankan Daemon Beagle"
+#: ../deskbar/core/Utils.py:271
+msgid "Cannot show URL:"
+msgstr "Tak bisa menampilkan URL:"
 
-#: ../deskbar/handlers/beagle-live.py:24
-msgid ""
-"The Beagle daemon does not appear to be running.\n"
-" You need to start it to use the Beagle Live handler."
-msgstr ""
-"Daemon Beagle kelihatannya tidak jalan.\n"
-" Anda harus menjalankannya untuk menggunakan Beagle Live handler."
+#: ../deskbar/core/Web.py:135
+#, python-format
+msgid "<big><b>Login for %s</b></big>"
+msgstr "<big><b>Log masuk bagi %s</b></big>"
 
-#: ../deskbar/handlers/beagle-live.py:53
-msgid "Beagle Live"
-msgstr "Beagle Live"
+#: ../deskbar/core/Web.py:136
+#, python-format
+msgid "Please provide your credentials for <b>%s</b>"
+msgstr "Silakan sediakan kredensial Anda bagi <b>%s</b>"
 
-#: ../deskbar/handlers/beagle-live.py:54
-msgid "Search all of your documents (using Beagle), as you type"
-msgstr ""
-"Cari seluruh dokumen anda (menggunakan Beagle), seperti yang anda tulis"
+#: ../deskbar/core/Web.py:137
+#, python-format
+msgid "Credentials for %s"
+msgstr "Kredensial bagi %s"
 
-#: ../deskbar/handlers/beagle-live.py:82
+#. Show '*' instead of text
+#: ../deskbar/core/Web.py:143
+msgid "User name:"
+msgstr "Nama pengguna:"
+
+#: ../deskbar/core/Web.py:144
+msgid "Password:"
+msgstr "Kata sandi:"
+
+#: ../deskbar/core/Web.py:260
+#, python-format
+msgid "<big><b>Login to %s rejected</b></big>"
+msgstr "<big><b>Log masuk ke %s ditolak</b></big>"
+
+#: ../deskbar/core/Web.py:261
+#, python-format
+msgid "Please verify your credentials for <b>%s</b>"
+msgstr "Silakan periksa kredensial Anda bagi <b>%s</b>"
+
+#. translators: This is the window title.
+#: ../deskbar/deskbar-applet.py:17
+msgid "Deskbar Applet"
+msgstr "Applet Deskbar"
+
+#: ../deskbar/handlers/beagle-live.py:248
 #, python-format
 msgid "Edit contact %s"
 msgstr "Sunting alamat %s"
 
-#: ../deskbar/handlers/beagle-live.py:91
-#, python-format
-msgid "From %s"
-msgstr "Dari %s"
-
-#. translators: This is a file.
-#: ../deskbar/handlers/beagle-live.py:99 ../deskbar/handlers/files.py:46
-#, python-format
-msgid "Open %s"
-msgstr "Buka %s"
-
-#: ../deskbar/handlers/beagle-live.py:107
-#, python-format
-msgid "News from %s"
-msgstr "Berita dari %s"
-
-#: ../deskbar/handlers/beagle-live.py:116
+#: ../deskbar/handlers/beagle-live.py:289
 #, python-format
 msgid "Note: %s"
 msgstr "Catat: %s"
 
-#: ../deskbar/handlers/beagle-live.py:125
+#: ../deskbar/handlers/beagle-live.py:301
 #, python-format
 msgid "With %s"
 msgstr "Dengan %s"
 
-#: ../deskbar/handlers/beagle-live.py:133
+#: ../deskbar/handlers/beagle-live.py:315
 #, python-format
 msgid "Calendar: %s"
 msgstr "Kalender: %s"
 
+#. translators: in this case the file (2nd) is part of an archive (1st)
+#. e.g. README is part of deskbar-applet.tar.gz
+#: ../deskbar/handlers/beagle-live.py:352
+#, python-format
+msgid "Open %s containing %s"
+msgstr "Buka %s yang memuat %s"
+
+#: ../deskbar/handlers/beagle-live.py:354
+#: ../deskbar/handlers/actions/OpenFileAction.py:52
+#: ../deskbar/handlers/actions/ShowUrlAction.py:25
+#, python-format
+msgid "Open %s"
+msgstr "Buka %s"
+
+#: ../deskbar/handlers/beagle-live.py:387
+#, python-format
+msgid "Additional results for category <b>%s</b>"
+msgstr "Hasil tambahan bagi kategori <b>%s</b>"
+
+#: ../deskbar/handlers/beagle-live.py:424
+#: ../deskbar/handlers/beagle-live.py:427
+#, python-format
+msgid "From <i>%s</i>"
+msgstr "Dari <i>%s</i>"
+
+#: ../deskbar/handlers/beagle-live.py:486
+msgid "Beagle Live"
+msgstr "Beagle Live"
+
+#: ../deskbar/handlers/beagle-live.py:487
+msgid "Search all of your documents (using Beagle), as you type"
+msgstr "Cari seluruh dokumen anda (menggunakan Beagle), seperti yang anda tulis"
+
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
-#: ../deskbar/handlers/beagle-live.py:310
-#: ../deskbar/handlers/beagle-live.py:336
+#: ../deskbar/handlers/beagle-live.py:732
+#: ../deskbar/handlers/beagle-live.py:749
 msgid "?"
 msgstr "?"
 
-#: ../deskbar/handlers/beagle-static.py:20
-msgid "Beagle"
-msgstr "Beagle"
+#: ../deskbar/handlers/beagle-live.py:783
+msgid "Could not load beagle, libbeagle has been compiled without python bindings."
+msgstr "Tak bisa memuat beagle, libbeagle telah dikompail tanpa binding python."
 
-#: ../deskbar/handlers/beagle-static.py:21
-msgid "Search all of your documents (using Beagle)"
-msgstr "Cari seluruh dokumen anda (menggunakan Beagle)"
+#: ../deskbar/handlers/beagle-live.py:789
+msgid "Beagle daemon is not running."
+msgstr "Daemon beagle tidak sedang berjalan."
 
-#: ../deskbar/handlers/beagle-static.py:38
+#: ../deskbar/handlers/beagle-live.py:792
+msgid "Beagled could not be found in your $PATH."
+msgstr "Beagled tak bisa ditemukan pada $PATH Anda."
+
+#: ../deskbar/handlers/beagle-static.py:22
 #, python-format
 msgid "Search for %s using Beagle"
 msgstr "Cari %s menggunakan Beagle"
 
-#: ../deskbar/handlers/desklicious.py:16
-msgid "You need to configure your del.icio.us account."
-msgstr "Anda perlu mengatur account del.icio.us anda."
+#: ../deskbar/handlers/beagle-static.py:38
+msgid "Beagle"
+msgstr "Beagle"
 
-#: ../deskbar/handlers/desklicious.py:18
-msgid "You can modify your del.icio.us account."
-msgstr "Anda dapat mengubah account del.icio.us anda."
+#: ../deskbar/handlers/beagle-static.py:39
+msgid "Search all of your documents (using Beagle)"
+msgstr "Cari seluruh dokumen anda (menggunakan Beagle)"
 
-#: ../deskbar/handlers/desklicious.py:22
+#: ../deskbar/handlers/beagle-static.py:55
+msgid "Beagle does not seem to be installed."
+msgstr "Beagle sepertinya tidak terpasang."
+
+#: ../deskbar/handlers/calculator.py:94
+#, python-format
+msgid "Copy <b>%(origtext)s = %(name)s</b> to clipboard"
+msgstr "Salin <b>%(origtext)s = %(name)s</b> ke clipboard"
+
+#: ../deskbar/handlers/calculator.py:121
+#: ../deskbar/handlers/calculator.py:124
+msgid "Calculator"
+msgstr "Kalkulator"
+
+#: ../deskbar/handlers/calculator.py:122
+msgid "Calculate simple equations"
+msgstr "Hitung persamaan sederhana"
+
+#: ../deskbar/handlers/desklicious.py:52
 msgid "del.icio.us Bookmarks"
 msgstr "Penanda del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:23
+#: ../deskbar/handlers/desklicious.py:53
 msgid "Search your del.icio.us bookmarks by tag name"
 msgstr "Cari penanda del.icio.us anda dengan nama"
 
-#: ../deskbar/handlers/desklicious.py:30
+#: ../deskbar/handlers/desklicious.py:78
 msgid "del.icio.us Account"
 msgstr "Account del.icio.us"
 
-#: ../deskbar/handlers/desklicious.py:37
+#: ../deskbar/handlers/desklicious.py:85
 msgid "Enter your del.icio.us username below"
 msgstr "Berikan nama pengguna del.icio.us anda"
 
-#: ../deskbar/handlers/desklicious.py:43
+#: ../deskbar/handlers/desklicious.py:91
 msgid "Username: "
 msgstr "Nama pengguna: "
 
-#: ../deskbar/handlers/epiphany.py:27
-msgid "You can set shortcuts for your searches."
-msgstr "Anda dapat menentukan shortcut untuk pencarian anda."
+#: ../deskbar/handlers/desklicious.py:107
+msgid "You need to configure your del.icio.us account."
+msgstr "Anda perlu mengatur account del.icio.us anda."
 
-#: ../deskbar/handlers/epiphany.py:33 ../deskbar/handlers/galeon.py:24
-#: ../deskbar/handlers/mozilla.py:129
-msgid "Web Bookmarks"
-msgstr "Penanda Web"
+#: ../deskbar/handlers/desklicious.py:112
+msgid "You can modify your del.icio.us account."
+msgstr "Anda dapat mengubah account del.icio.us anda."
 
-#: ../deskbar/handlers/epiphany.py:34 ../deskbar/handlers/galeon.py:25
-#: ../deskbar/handlers/mozilla.py:130
+#: ../deskbar/handlers/epiphany.py:53
+msgid "Web Bookmarks (Epiphany)"
+msgstr "Penanda Web (Epiphany)"
+
+#: ../deskbar/handlers/epiphany.py:54
+#: ../deskbar/handlers/mozilla.py:160
 msgid "Open your web bookmarks by name"
 msgstr "Buka penanda web anda sesuai nama"
 
-#: ../deskbar/handlers/epiphany.py:39 ../deskbar/handlers/galeon.py:30
-#: ../deskbar/handlers/mozilla.py:141
-msgid "Web History"
-msgstr "Riwayat Web"
+#: ../deskbar/handlers/epiphany.py:84
+#: ../deskbar/handlers/epiphany.py:129
+#: ../deskbar/handlers/epiphany.py:163
+msgid "Epiphany is not your preferred browser."
+msgstr "Epiphany bukan peramban kesukaan Anda."
 
-#: ../deskbar/handlers/epiphany.py:40 ../deskbar/handlers/galeon.py:31
-#: ../deskbar/handlers/mozilla.py:142
-msgid "Open your web history by name"
-msgstr "Buka riwayat web anda sesuai nama"
+#: ../deskbar/handlers/epiphany.py:90
+msgid "Web Searches (Epiphany)"
+msgstr "Pencarian Web (Epiphany)"
 
-#: ../deskbar/handlers/epiphany.py:45 ../deskbar/handlers/galeon.py:36
-#: ../deskbar/handlers/mozilla.py:135
-msgid "Web Searches"
-msgstr "Pencarian Web"
-
-#: ../deskbar/handlers/epiphany.py:46 ../deskbar/handlers/galeon.py:37
-#: ../deskbar/handlers/mozilla.py:136
+#: ../deskbar/handlers/epiphany.py:91
+#: ../deskbar/handlers/mozilla.py:238
 msgid "Search the web via your browser's search settings"
 msgstr "Cari web melalui setingan pencarian browser anda"
 
-#: ../deskbar/handlers/evolution.py:12
-msgid "You need to enable autocomplete in your mail preferences"
-msgstr "Autokomplit harus diaktifkan pada setingan surat anda"
+#: ../deskbar/handlers/epiphany.py:126
+msgid "You can set shortcuts for your searches."
+msgstr "Anda dapat menentukan shortcut untuk pencarian anda."
 
-#: ../deskbar/handlers/evolution.py:15
-msgid "Autocompletion Needs to be Enabled"
-msgstr "Autokomplit Perlu Diaktifkan"
+#: ../deskbar/handlers/epiphany.py:136
+msgid "Web History (Epiphany)"
+msgstr "Riwayat Web (Epiphany)"
 
-#: ../deskbar/handlers/evolution.py:16
-msgid ""
-"We cannot provide e-mail addresses from your address book unless "
-"autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit - Preferences, and then Autocompletion."
-msgstr ""
-"Kami tidak dapat memberikan alamat surat dari buku alamat anda terkecuali "
-"autokomplit diaktifkan.  Caranya, dari menu program surat anda, pilih Edit - "
-"Preferences, dan kemudian Autocompletion."
+#: ../deskbar/handlers/epiphany.py:137
+#: ../deskbar/handlers/mozilla.py:793
+msgid "Open your web history by name"
+msgstr "Buka riwayat web anda sesuai nama"
 
-#: ../deskbar/handlers/evolution.py:21
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/evolution.py:33
+#, python-format
+msgid "Edit contact <b>%(name)s</b> (%(email)s)"
+msgstr "Sunting kontak <b>%(name)s</b> (%(email)s)"
+
+#: ../deskbar/handlers/evolution.py:49
 msgid "Mail (Address Book)"
 msgstr "Surat (Alamat Buku)"
 
-#: ../deskbar/handlers/evolution.py:22
+#: ../deskbar/handlers/evolution.py:50
 msgid "Send mail to your contacts by typing their name or e-mail address"
+msgstr "Kirim surat ke alamat yang ada dengan mengetik nama mereka atau alamat surat"
+
+#: ../deskbar/handlers/evolution.py:74
+msgid ""
+"Autocompletion Needs to be Enabled\n"
+"We cannot provide e-mail addresses from your address book unless autocompletion is enabled.  To do this, from your mail program's menu, choose Edit → Preferences, and then Autocompletion."
 msgstr ""
-"Kirim surat ke alamat yang ada dengan mengetik nama mereka atau alamat surat"
+"Melengkapi-Sendiri Perlu Diaktifkan\n"
+"Kami tidak dapat memberikan alamat surat dari buku alamat anda terkecuali melengkapi-sendiri diaktifkan.  Caranya, dari menu program surat anda, pilih Sunting → Preferensi, dan kemudian Melengkapi Sendiri."
 
-#. translators: First %s is the contact full name, second %s is the email address
-#: ../deskbar/handlers/evolution.py:48
-#, python-format
-msgid "Send Email to <b>%(name)s</b> (%(email)s)"
-msgstr "Kirim Surat ke <b>%(name)s</b> (%(email)s)"
+#. FIXME:
+#. _("Location") should be _("Location of %s") % name
+#: ../deskbar/handlers/files.py:63
+#: ../deskbar/handlers/actions/ActionsFactory.py:39
+msgid "Location"
+msgstr "Lokasi"
 
-#: ../deskbar/handlers/files.py:17
+#: ../deskbar/handlers/files.py:71
 msgid "Files, Folders and Places"
 msgstr "Berkas, Folder dan Tempat"
 
-#: ../deskbar/handlers/files.py:18
+#: ../deskbar/handlers/files.py:72
 msgid "View your files, folders, bookmarks, drives, network places by name"
-msgstr ""
-"Tampilkan berkas anda, folder, penanda, drive, tempat jaringan sesuai nama"
+msgstr "Tampilkan berkas anda, folder, penanda, drive, tempat jaringan sesuai nama"
 
-#: ../deskbar/handlers/files.py:68
-#, python-format
-msgid "Open folder %s"
-msgstr "Buka folder %s"
+#: ../deskbar/handlers/gdmactions.py:41
+msgid "Shut down this system now?"
+msgstr "Matikan sistem ini sekarang?"
 
-#: ../deskbar/handlers/files.py:88 ../deskbar/handlers/files.py:118
-#, python-format
-msgid "Open location %s"
-msgstr "Buka lokasi %s"
-
-#: ../deskbar/handlers/files.py:114
-#, python-format
-msgid "Open network place %s"
-msgstr "Buka jaringan %s"
-
-#: ../deskbar/handlers/files.py:116
-#, python-format
-msgid "Open audio disc %s"
-msgstr "Buka disk audio %s"
-
-#: ../deskbar/handlers/gdmactions.py:10
-msgid "Computer Actions"
-msgstr "Aksi Komputer"
-
-#: ../deskbar/handlers/gdmactions.py:11
-msgid "Logoff, shutdown, restart, suspend and related actions."
-msgstr "Keluar, matikan, restart, tunda dan aksi yang berhubungan."
-
-#: ../deskbar/handlers/gdmactions.py:39
-msgid "Suspend the machine"
-msgstr "Tunda mesin"
-
-#: ../deskbar/handlers/gdmactions.py:50
-msgid "Hibernate the machine"
-msgstr "Hibernasi mesin"
-
-#: ../deskbar/handlers/gdmactions.py:61
-msgid "Shutdown the machine"
-msgstr "Matikan mesin"
-
-#: ../deskbar/handlers/gdmactions.py:80
-msgid "Lock the screen"
-msgstr "Kunci layar"
-
-#: ../deskbar/handlers/gdmactions.py:106
+#: ../deskbar/handlers/gdmactions.py:42
+#: ../deskbar/handlers/gdmactions.py:273
+#: ../deskbar/handlers/gdmactions.py:343
 msgid "Shut Down"
 msgstr "Matikan"
 
-#: ../deskbar/handlers/gdmactions.py:113
-msgid "Turn off the computer"
-msgstr "Matikan komputer"
+#: ../deskbar/handlers/gdmactions.py:44
+msgid "Log out of this system now?"
+msgstr "Keluar dari sistem ini sekarang?"
 
-#: ../deskbar/handlers/gdmactions.py:117
+#: ../deskbar/handlers/gdmactions.py:45
+#: ../deskbar/handlers/gdmactions.py:292
+#: ../deskbar/handlers/gdmactions.py:296
+#: ../deskbar/handlers/gdmactions.py:346
 msgid "Log Out"
-msgstr "Keluar"
+msgstr "Log Keluar"
 
-#: ../deskbar/handlers/gdmactions.py:124
-msgid "Log out"
-msgstr "Keluar"
+#: ../deskbar/handlers/gdmactions.py:47
+msgid "Restart this system now?"
+msgstr "Start ulang sistem sekarang?"
 
-#: ../deskbar/handlers/gdmactions.py:128
+#: ../deskbar/handlers/gdmactions.py:48
+#: ../deskbar/handlers/gdmactions.py:319
+#: ../deskbar/handlers/gdmactions.py:345
 msgid "Restart"
-msgstr "Restart"
+msgstr "Start ulang"
 
-#: ../deskbar/handlers/gdmactions.py:135
-msgid "Restart the computer"
-msgstr "Restart komputer"
+#: ../deskbar/handlers/gdmactions.py:50
+msgid "Suspend this system now?"
+msgstr "Suspensikan sistem ini sekarang?"
 
-#: ../deskbar/handlers/gdmactions.py:139 ../deskbar/handlers/gdmactions.py:145
-msgid "Switch User"
-msgstr "Pindah Pengguna"
-
-#: ../deskbar/handlers/gdmactions.py:165
-msgid "Lock"
-msgstr "Kunci"
-
-#: ../deskbar/handlers/gdmactions.py:176
+#: ../deskbar/handlers/gdmactions.py:51
+#: ../deskbar/handlers/gdmactions.py:375
 msgid "Suspend"
-msgstr "Tunda"
+msgstr "Suspensi"
 
-#: ../deskbar/handlers/gdmactions.py:178
+#: ../deskbar/handlers/gdmactions.py:53
+msgid "Hibernate this system now?"
+msgstr "Hibernasikan mesin ini sekarang?"
+
+#: ../deskbar/handlers/gdmactions.py:54
+#: ../deskbar/handlers/gdmactions.py:377
 msgid "Hibernate"
 msgstr "Hibernasi"
 
-#: ../deskbar/handlers/gdmactions.py:180
+#: ../deskbar/handlers/gdmactions.py:62
+#, python-format
+msgid "This system will be automatically shut down in %s second."
+msgid_plural "This system will be automatically shut down in %s seconds."
+msgstr[0] "Sistem ini akan otomatis dimatikan dalam %s detik."
+
+#: ../deskbar/handlers/gdmactions.py:66
+#, python-format
+msgid "You will be automatically logged out in %s second."
+msgid_plural "You will be automatically logged out in %s seconds."
+msgstr[0] "Anda akan log keluar otomatis dalam %s detik.		"
+
+#: ../deskbar/handlers/gdmactions.py:70
+#, python-format
+msgid "This system will be automatically restarted in %s second."
+msgid_plural "This system will be automatically restarted in %s seconds."
+msgstr[0] "Sistem ini akan otomatis dimulai ulang dalam %s detik."
+
+#: ../deskbar/handlers/gdmactions.py:74
+#, python-format
+msgid "This system will be automatically suspended in %s second."
+msgid_plural "This system will be automatically suspended in %s seconds."
+msgstr[0] "Sistem ini akan otomatis disuspensi dalam %s detik."
+
+#: ../deskbar/handlers/gdmactions.py:78
+#, python-format
+msgid "This system will be automatically hibernated in %s second."
+msgid_plural "This system will be automatically hibernated in %s seconds."
+msgstr[0] "Sistem ini akan otomatis dihibernasi dalam %s detik."
+
+#: ../deskbar/handlers/gdmactions.py:128
+msgid "Suspend the machine"
+msgstr "Suspensikan mesin"
+
+#: ../deskbar/handlers/gdmactions.py:149
+msgid "Hibernate the machine"
+msgstr "Hibernasikan mesin"
+
+#: ../deskbar/handlers/gdmactions.py:170
+msgid "Shutdown the machine"
+msgstr "Matikan mesin"
+
+#: ../deskbar/handlers/gdmactions.py:192
+msgid "Reboot the machine"
+msgstr "Boot ulang mesin"
+
+#: ../deskbar/handlers/gdmactions.py:214
+msgid "Lock the screen"
+msgstr "Kunci layar"
+
+#: ../deskbar/handlers/gdmactions.py:242
+#: ../deskbar/handlers/gdmactions.py:364
+msgid "Lock"
+msgstr "Kunci"
+
+#: ../deskbar/handlers/gdmactions.py:269
+msgid "Turn off the computer"
+msgstr "Matikan komputer"
+
+#: ../deskbar/handlers/gdmactions.py:315
+msgid "Restart the computer"
+msgstr "Restart komputer"
+
+#: ../deskbar/handlers/gdmactions.py:330
+#: ../deskbar/handlers/gdmactions.py:334
+#: ../deskbar/handlers/gdmactions.py:344
+msgid "Switch User"
+msgstr "Pindah Pengguna"
+
+#: ../deskbar/handlers/gdmactions.py:340
+msgid "Computer Actions"
+msgstr "Aksi Komputer"
+
+#: ../deskbar/handlers/gdmactions.py:341
+msgid "Logoff, shutdown, restart, suspend and related actions."
+msgstr "Keluar, matikan, restart, tunda dan aksi yang berhubungan."
+
+#: ../deskbar/handlers/gdmactions.py:379
 msgid "Shutdown"
 msgstr "Matikan"
 
-#: ../deskbar/handlers/google-live.py:20
-msgid ""
-"You need a Google account to use Google Live.  To get one, go to http://api."
-"google.com/\n"
-"\n"
-"When you have created your account, you should recieve a Google API key by "
-"mail.  Place this key in the file\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"If you do not receive an API key (or you have lost it) in your account "
-"verification mail, then go to www.google.com/accounts and log in.  Go to api."
-"google.com, click \"Create Account\" and enter your e-mail address and "
-"password.  Your API key will be re-sent.\n"
-"\n"
-"Now download the developers kit and extract the GoogleSearch.wsdl file from "
-"it.  Copy this file to\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
-msgstr ""
-"Anda perlu account Google untuk menggunakan Google Live.  Caranya, buka "
-"http://api.google.com/\n"
-"\n"
-"Setelah account anda dibuat, anda akan menerima kunci Google API melalui "
-"surat.  Tempat kunci ini pada berkas\n"
-"\n"
-"~/.gnome2/deskbar-applet/Google.key\n"
-"\n"
-"Jika anda tidak menerima kunci API (atau kehilangan) pada pemeriksaan surat "
-"anda, coba ke www.google.com/accounts dan log in.  Ke api.google.com, klik "
-"\"Create Account\" dan masukkan alamat surat anda dan kata sandinya.  Kunci "
-"API anda akan dikirimkan ulang.\n"
-"\n"
-"Kemudian ambil developers kit dan uraikan berkas GoogleSearch.wsdl dari "
-"situ.  Sali berkas ini ke\n"
-"\n"
-"~/.gnome2/deskbar-applet/GoogleSearch.wsdl"
+#: ../deskbar/handlers/gdmactions.py:381
+msgid "Reboot"
+msgstr "Boot ulang"
 
-#: ../deskbar/handlers/google-live.py:33
-msgid "Setting Up Google Live"
-msgstr "Aktifkan Google Live"
+#: ../deskbar/handlers/googlecodesearch.py:27
+msgid "Google Code Search"
+msgstr "Pencarian Google Code"
 
-#: ../deskbar/handlers/google-live.py:39
-msgid "You need to install the SOAPpy python module."
-msgstr "Anda perlu memasang modul python SOAPpy."
+#: ../deskbar/handlers/googlecodesearch.py:28
+msgid "Search public source code for function definitions and sample code"
+msgstr "Cari kode sumber publik bagi definisi fungsi dan kode contoh"
 
-#: ../deskbar/handlers/google-live.py:41
-msgid "You need the Google WSDL file."
-msgstr "Anda perlu berkas Google WSDL."
+#: ../deskbar/handlers/googlecodesearch.py:117
+#, python-format
+msgid "View <i>%(name)s</i> at <b>Google Code Search</b>"
+msgstr "Tilik <i>%(name)s<.i> di <b>Pencarian Google Code</b>"
 
-#: ../deskbar/handlers/google-live.py:43
-msgid "You need a Google API key."
-msgstr "Anda perlu kunci Google API."
+#: ../deskbar/handlers/googlecodesearch.py:125
+#, python-format
+msgid "Open package <i>%(name)s</i>"
+msgstr "Buka paket <i>%(name)s</i>"
 
-#: ../deskbar/handlers/google-live.py:49
+#: ../deskbar/handlers/googlecodesearch.py:146
+#, python-format
+msgid "Search <b>Google Code Search</b> for <i>%(name)s</i>"
+msgstr "Cari <b>Pencarian Google Code</b> untuk <i>%(name)s</i>"
+
+#: ../deskbar/handlers/googlesearch.py:30
+#: ../deskbar/handlers/yahoo.py:30
+msgid "Arabic"
+msgstr "Arab"
+
+#: ../deskbar/handlers/googlesearch.py:31
+#: ../deskbar/handlers/yahoo.py:31
+msgid "Bulgarian"
+msgstr "Bulgaria"
+
+#: ../deskbar/handlers/googlesearch.py:32
+#: ../deskbar/handlers/wikipedia-suggest.py:36
+#: ../deskbar/handlers/yahoo.py:32
+msgid "Catalan"
+msgstr "Catalan"
+
+#: ../deskbar/handlers/googlesearch.py:33
+#: ../deskbar/handlers/yahoo.py:33
+msgid "Chinese (Simplified)"
+msgstr "Cina (Disederhanakan)"
+
+#: ../deskbar/handlers/googlesearch.py:34
+#: ../deskbar/handlers/yahoo.py:34
+msgid "Chinese (Traditional)"
+msgstr "Cina (Tradisional)"
+
+#: ../deskbar/handlers/googlesearch.py:35
+#: ../deskbar/handlers/yahoo.py:35
+msgid "Croatian"
+msgstr "Kroasia"
+
+#: ../deskbar/handlers/googlesearch.py:36
+#: ../deskbar/handlers/yahoo.py:36
+msgid "Czech"
+msgstr "Ceko"
+
+#: ../deskbar/handlers/googlesearch.py:37
+#: ../deskbar/handlers/yahoo.py:37
+msgid "Danish"
+msgstr "Denmark"
+
+#: ../deskbar/handlers/googlesearch.py:38
+#: ../deskbar/handlers/wikipedia-suggest.py:28
+#: ../deskbar/handlers/yahoo.py:38
+msgid "Dutch"
+msgstr "Belanda"
+
+#: ../deskbar/handlers/googlesearch.py:39
+#: ../deskbar/handlers/wikipedia-suggest.py:22
+#: ../deskbar/handlers/yahoo.py:39
+msgid "English"
+msgstr "Inggris"
+
+#: ../deskbar/handlers/googlesearch.py:40
+#: ../deskbar/handlers/yahoo.py:40
+msgid "Estonian"
+msgstr "Estonia"
+
+#: ../deskbar/handlers/googlesearch.py:41
+#: ../deskbar/handlers/wikipedia-suggest.py:35
+#: ../deskbar/handlers/yahoo.py:41
+msgid "Finnish"
+msgstr "Finlandia"
+
+#: ../deskbar/handlers/googlesearch.py:42
+#: ../deskbar/handlers/wikipedia-suggest.py:24
+#: ../deskbar/handlers/yahoo.py:42
+msgid "French"
+msgstr "Perancis"
+
+#: ../deskbar/handlers/googlesearch.py:43
+#: ../deskbar/handlers/wikipedia-suggest.py:23
+#: ../deskbar/handlers/yahoo.py:43
+msgid "German"
+msgstr "Jerman"
+
+#: ../deskbar/handlers/googlesearch.py:44
+#: ../deskbar/handlers/yahoo.py:44
+msgid "Greek"
+msgstr "Yunani"
+
+#: ../deskbar/handlers/googlesearch.py:45
+#: ../deskbar/handlers/yahoo.py:45
+msgid "Hebrew"
+msgstr "Ibrani"
+
+#: ../deskbar/handlers/googlesearch.py:46
+#: ../deskbar/handlers/yahoo.py:46
+msgid "Hungarian"
+msgstr "Hungaria"
+
+#: ../deskbar/handlers/googlesearch.py:47
+#: ../deskbar/handlers/yahoo.py:47
+msgid "Icelandic"
+msgstr "Islandia"
+
+#: ../deskbar/handlers/googlesearch.py:48
+#: ../deskbar/handlers/yahoo.py:48
+msgid "Indonesian"
+msgstr "Indonesia"
+
+#: ../deskbar/handlers/googlesearch.py:49
+#: ../deskbar/handlers/wikipedia-suggest.py:27
+#: ../deskbar/handlers/yahoo.py:49
+msgid "Italian"
+msgstr "Italia"
+
+#: ../deskbar/handlers/googlesearch.py:50
+#: ../deskbar/handlers/wikipedia-suggest.py:26
+#: ../deskbar/handlers/yahoo.py:50
+msgid "Japanese"
+msgstr "Jepang"
+
+#: ../deskbar/handlers/googlesearch.py:51
+#: ../deskbar/handlers/yahoo.py:51
+msgid "Korean"
+msgstr "Korea"
+
+#: ../deskbar/handlers/googlesearch.py:52
+#: ../deskbar/handlers/yahoo.py:52
+msgid "Latvian"
+msgstr "Latvia"
+
+#: ../deskbar/handlers/googlesearch.py:53
+#: ../deskbar/handlers/yahoo.py:53
+msgid "Lithuanian"
+msgstr "Lithuania"
+
+#: ../deskbar/handlers/googlesearch.py:54
+#: ../deskbar/handlers/wikipedia-suggest.py:34
+#: ../deskbar/handlers/yahoo.py:54
+msgid "Norwegian"
+msgstr "Norwegia"
+
+#: ../deskbar/handlers/googlesearch.py:55
+#: ../deskbar/handlers/wikipedia-suggest.py:25
+#: ../deskbar/handlers/yahoo.py:56
+msgid "Polish"
+msgstr "Polandia"
+
+#: ../deskbar/handlers/googlesearch.py:56
+#: ../deskbar/handlers/wikipedia-suggest.py:29
+#: ../deskbar/handlers/yahoo.py:57
+msgid "Portuguese"
+msgstr "Portugis"
+
+#: ../deskbar/handlers/googlesearch.py:57
+#: ../deskbar/handlers/wikipedia-suggest.py:38
+#: ../deskbar/handlers/yahoo.py:58
+msgid "Romanian"
+msgstr "Rumania"
+
+#: ../deskbar/handlers/googlesearch.py:58
+#: ../deskbar/handlers/wikipedia-suggest.py:31
+#: ../deskbar/handlers/yahoo.py:59
+msgid "Russian"
+msgstr "Rusia"
+
+#: ../deskbar/handlers/googlesearch.py:59
+#: ../deskbar/handlers/yahoo.py:61
+msgid "Serbian"
+msgstr "Serbia"
+
+#: ../deskbar/handlers/googlesearch.py:60
+#: ../deskbar/handlers/yahoo.py:60
+msgid "Slovak"
+msgstr "Slovakia"
+
+#: ../deskbar/handlers/googlesearch.py:61
+#: ../deskbar/handlers/yahoo.py:62
+msgid "Slovenian"
+msgstr "Slovenia"
+
+#: ../deskbar/handlers/googlesearch.py:62
+#: ../deskbar/handlers/wikipedia-suggest.py:30
+#: ../deskbar/handlers/yahoo.py:63
+msgid "Spanish"
+msgstr "Spanyol"
+
+#: ../deskbar/handlers/googlesearch.py:63
+#: ../deskbar/handlers/wikipedia-suggest.py:32
+#: ../deskbar/handlers/yahoo.py:64
+msgid "Swedish"
+msgstr "Swedia"
+
+#: ../deskbar/handlers/googlesearch.py:64
+#: ../deskbar/handlers/wikipedia-suggest.py:39
+#: ../deskbar/handlers/yahoo.py:66
+msgid "Turkish"
+msgstr "Turki"
+
+#: ../deskbar/handlers/googlesearch.py:78
 msgid "Google Search"
 msgstr "Pencarian Google"
 
-#: ../deskbar/handlers/google-live.py:50
-msgid "Search Google as you type"
-msgstr "Cari Google seperti yang diketik"
+#: ../deskbar/handlers/googlesearch.py:79
+msgid "Search terms through Google Search engine."
+msgstr "Cari istilah melalui mesin Pencarian Google."
 
-#: ../deskbar/handlers/history.py:10
+#: ../deskbar/handlers/googlesearch.py:82
+#: ../deskbar/handlers/yahoo.py:96
+msgid "You can configure in which language the results should be."
+msgstr "Anda dapat menata dalam bahasa mana hasil mesti diberikan."
+
+#: ../deskbar/handlers/googlesearch.py:195
+msgid "Python module json or simplejson are not available"
+msgstr "Modul Python json atau simplejson tak tersedia"
+
+#: ../deskbar/handlers/googlesearch.py:235
+#, python-format
+msgid "Search <b>Google</b> for <i>%(name)s</i>"
+msgstr "Cari <i>%(name)s</i> dengan <b>Google</b>"
+
+#: ../deskbar/handlers/googlesearch.py:258
+msgid "Configure Google"
+msgstr "Tata Google"
+
+#: ../deskbar/handlers/googlesearch.py:268
+#: ../deskbar/handlers/yahoo.py:419
+msgid "<b>Choose the language the results should be in:</b>"
+msgstr "<b>Pilih bahasa yang dipakai untuk menampilkan hasil:</b>"
+
+#: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
 msgstr "Kenali pencarian yang digunakan sebelumnya"
 
-#: ../deskbar/handlers/iswitch-window.py:11
-msgid "Window Switcher"
-msgstr "Pengganti Jendela"
-
-#: ../deskbar/handlers/iswitch-window.py:12
-msgid "Switch to an existing window by name."
-msgstr "Ganti ke jendela yang ada sesuai nama."
-
-#: ../deskbar/handlers/iswitch-window.py:16
-msgid "Windows"
-msgstr "Jendela"
-
-#: ../deskbar/handlers/iswitch-window.py:32
+#: ../deskbar/handlers/iswitch-window.py:21
 #, python-format
 msgid "Switch to <b>%(name)s</b>"
 msgstr "Pindah ke <b>%(name)s</b>"
 
-#: ../deskbar/handlers/mozilla.py:120
+#: ../deskbar/handlers/iswitch-window.py:59
+msgid "Window Switcher"
+msgstr "Pengganti Jendela"
+
+#: ../deskbar/handlers/iswitch-window.py:60
+msgid "Switch to an existing window by name."
+msgstr "Ganti ke jendela yang ada sesuai nama."
+
+#: ../deskbar/handlers/iswitch-window.py:63
+msgid "Windows"
+msgstr "Jendela"
+
+#: ../deskbar/handlers/mozilla.py:159
+msgid "Web Bookmarks (Mozilla)"
+msgstr "Penanda Web (Mozilla)"
+
+#: ../deskbar/handlers/mozilla.py:220
+#: ../deskbar/handlers/mozilla.py:301
+#: ../deskbar/handlers/mozilla.py:838
+#, python-format
+msgid "Firefox version must be at least %s and less than %s"
+msgstr "Versi Firefox mesti paling tidak %s dan kurang dari %s"
+
+#: ../deskbar/handlers/mozilla.py:223
+#: ../deskbar/handlers/mozilla.py:311
+#: ../deskbar/handlers/mozilla.py:841
+msgid "Mozilla/Firefox is not your preferred browser."
+msgstr "Mozilla/Firefox bukan peramban yang Anda sukai."
+
+#: ../deskbar/handlers/mozilla.py:237
+msgid "Web Searches (Mozilla)"
+msgstr "Pencarian Web (Mozilla)"
+
+#. Correct firefox version or iceweasel
+#: ../deskbar/handlers/mozilla.py:305
 msgid "You can customize which search engines are offered."
 msgstr "Anda dapat menyesuaikan mesin pencari mana yang ditawarkan."
 
-#: ../deskbar/handlers/programs.py:14
-msgid "Programs"
-msgstr "Program"
+#: ../deskbar/handlers/mozilla.py:792
+msgid "Web History (Mozilla)"
+msgstr "Riwayat Web (Mozilla)"
 
-#: ../deskbar/handlers/programs.py:15
-msgid "Launch a program by its name and/or description"
-msgstr "Jalankan program sesuai nama atau penjelasannya"
-
-#: ../deskbar/handlers/programs.py:19
-msgid "Dictionary"
-msgstr "Kamus"
-
-#: ../deskbar/handlers/programs.py:20
-msgid "Look up word definitions in the dictionary"
-msgstr "Cari arti kata dikamus kata"
-
-#: ../deskbar/handlers/programs.py:24
-msgid "Files and Folders Search"
-msgstr "Pencarian Berkas dan Folder"
-
-#: ../deskbar/handlers/programs.py:25
-msgid "Find files and folders by searching for a name pattern"
-msgstr "Temukan berkas dan folder dengan mencari bentuk nama"
-
-#: ../deskbar/handlers/programs.py:29
-msgid "Developer Documentation"
-msgstr "Dokumentasi Pengembang"
-
-#: ../deskbar/handlers/programs.py:30
-msgid "Search Devhelp for a function name"
-msgstr "Cari Devhelp untuk nama fungsi"
-
-#. translators: First %s is the programs full name, second is the executable name
-#. translators: For example: Launch Text Editor (gedit)
-#: ../deskbar/handlers/programs.py:84
+#: ../deskbar/handlers/opensearch.py:86
 #, python-format
-msgid "Launch <b>%(name)s</b> (%(prog)s)"
-msgstr "Jalankan <b>%(name)s</b> (%(prog)s)"
+msgid "Website: <b>%(name)s</b>"
+msgstr "Situs web: <b>%(name)s</b>"
 
-#: ../deskbar/handlers/programs.py:98
+#: ../deskbar/handlers/opensearch.py:92
+msgid "OpenSearch"
+msgstr "OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:93
+msgid "Searches any OpenSearch-compliant website"
+msgstr "Cari sebarang situs web yang patuh ke OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:97
+msgid "You can configure the search engines you want to use."
+msgstr "Anda dapat menata mesin pencari mana yang ingin Anda pakai."
+
+#: ../deskbar/handlers/opensearch.py:211
+msgid "OpenSearch Settings"
+msgstr "Tatanan OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:218
+msgid "You can manage the list of websites used by the OpenSearch module here."
+msgstr "Anda dapat mengelola daftar situs web yang dipakai oleh modul OpenSearch disini."
+
+#: ../deskbar/handlers/opensearch.py:410
+msgid "Enter the location (URL) of the OpenSearch description document for this website. The name and description can be loaded automatically from this document or you can just enter your own values manually."
+msgstr "Masukkan lokasi (URL) dari dokumen keterangan OpenSearch bagi situs web ini. Nama dan keterangan dapat dimuat secara otomatis dari dokumen ini atau Anda dapat memasukkan nilai Anda sendiri secara manual."
+
+#: ../deskbar/handlers/opensearch.py:427
+msgid "_Location (URL):"
+msgstr "_Lokasi (URL):"
+
+#: ../deskbar/handlers/opensearch.py:442
+msgid "_Name:"
+msgstr "_Nama:"
+
+#: ../deskbar/handlers/opensearch.py:453
+msgid "_Description:"
+msgstr "Ke_terangan:"
+
+#: ../deskbar/handlers/opensearch.py:469
+msgid "Edit OpenSearch Website"
+msgstr "Sunting Situs Web OpenSearch"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Location missing"
+msgstr "Lokasi tidak diisi"
+
+#: ../deskbar/handlers/opensearch.py:476
+msgid "Please enter a valid location (URL) for this website"
+msgstr "Silakan masukkan suatu lokasi (URL) yang valid untuk situs web ini"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Name missing"
+msgstr "Nama tidak diisi"
+
+#: ../deskbar/handlers/opensearch.py:479
+msgid "Please enter a name for this website"
+msgstr "Silakan masukkan suatu nama bagi situs web ini"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Description missing"
+msgstr "Keterangan belum ada"
+
+#: ../deskbar/handlers/opensearch.py:482
+msgid "Please enter a description for this website"
+msgstr "Silakan masukkan suatu keterangan bagi situs web ini"
+
+#: ../deskbar/handlers/opensearch.py:529
+msgid "Unable to load description document"
+msgstr "Tak bisa memuat dokumen keterangan"
+
+#: ../deskbar/handlers/opensearch.py:530
+msgid "Make sure the URL points to a valid OpenSearch description document."
+msgstr "Pastikan bahwa URL mengacu ke suatu dokumen keterangan OpenSearch yang valid."
+
+#: ../deskbar/handlers/opensearch.py:546
+msgid "Add OpenSearch Website"
+msgstr "Tambahkan Situs Web OpenSearch"
+
+#: ../deskbar/handlers/programs.py:86
 #, python-format
 msgid "Lookup %s in dictionary"
 msgstr "Cari %s pada kamus kata"
 
-#: ../deskbar/handlers/programs.py:106
+#: ../deskbar/handlers/programs.py:93
 #, python-format
 msgid "Search for file names like %s"
 msgstr "Cari nama berkas mirip %s"
 
-#: ../deskbar/handlers/programs.py:114
+#: ../deskbar/handlers/programs.py:99
 #, python-format
 msgid "Search in Devhelp for %s"
 msgstr "Cari %s dalam Devhelp"
 
-#: ../deskbar/handlers/programs.py:218
+#: ../deskbar/handlers/programs.py:133
+msgid "Dictionary"
+msgstr "Kamus"
+
+#: ../deskbar/handlers/programs.py:134
+msgid "Look up word definitions in the dictionary"
+msgstr "Cari arti kata dikamus kata"
+
+#: ../deskbar/handlers/programs.py:150
+msgid "GNOME dictionary is not installed"
+msgstr "Kamus GNOME tidak terpasang"
+
+#: ../deskbar/handlers/programs.py:157
+msgid "Files and Folders Search"
+msgstr "Pencarian Berkas dan Folder"
+
+#: ../deskbar/handlers/programs.py:158
+msgid "Find files and folders by searching for a name pattern"
+msgstr "Temukan berkas dan folder dengan mencari bentuk nama"
+
+#: ../deskbar/handlers/programs.py:174
+msgid "GNOME search tool is not installed"
+msgstr "Perkakas pencarian GNOME tidak terpasang"
+
+#: ../deskbar/handlers/programs.py:181
+msgid "Developer Documentation"
+msgstr "Dokumentasi Pengembang"
+
+#: ../deskbar/handlers/programs.py:182
+msgid "Search Devhelp for a function name"
+msgstr "Cari Devhelp untuk nama fungsi"
+
+#: ../deskbar/handlers/programs.py:201
+msgid "Devhelp is not installed"
+msgstr "Devhelp tidak terpasang"
+
+#: ../deskbar/handlers/programs.py:250
+#, python-format
+msgid "Execute %s in terminal"
+msgstr "Jalankan %s di terminal"
+
+#: ../deskbar/handlers/programs.py:252
 #, python-format
 msgid "Execute %s"
 msgstr "Jalankan %s"
 
-#: ../deskbar/handlers/web_address.py:12
+#: ../deskbar/handlers/programs.py:279
+msgid "Programs"
+msgstr "Program"
+
+#: ../deskbar/handlers/programs.py:280
+msgid "Launch a program by its name and/or description"
+msgstr "Jalankan program sesuai nama atau penjelasannya"
+
+#: ../deskbar/handlers/recent.py:38
+msgid "Recent Documents"
+msgstr "Dokumen Terkini"
+
+#: ../deskbar/handlers/recent.py:39
+msgid "Retrieve your recently accessed files and locations"
+msgstr "Ambil berkas dan lokasi yang baru-baru ini diakses"
+
+#: ../deskbar/handlers/recent.py:58
+msgid "This handler requires a more recent gtk version (2.9.0 or newer)."
+msgstr "Penangan ini memerlukan versi gtk yang lebih baru (2.9.0 atau lebih baru)."
+
+#: ../deskbar/handlers/templates.py:44
+#, python-format
+msgid "Create %s"
+msgstr "Buat %s"
+
+#: ../deskbar/handlers/templates.py:47
+msgid "Create Document"
+msgstr "Buat Dokumen"
+
+#: ../deskbar/handlers/templates.py:60
+msgid "Name:"
+msgstr "Nama:"
+
+#: ../deskbar/handlers/templates.py:67
+msgid "Folder:"
+msgstr "Folder:"
+
+#: ../deskbar/handlers/templates.py:71
+msgid "Choose Folder"
+msgstr "Pilih Folder"
+
+#: ../deskbar/handlers/templates.py:126
+#, python-format
+msgid "A file named \"%s\" already exists.  Do you want to replace it?"
+msgstr "Berkas \"%s\" sudah ada. Anda ingin menimpanya?"
+
+#: ../deskbar/handlers/templates.py:130
+#, python-format
+msgid "The file already exists in \"%s\".  Replacing it will overwrite its contents."
+msgstr "Berkas sudah ada dalam \"%s\". Berkas lama akan diganti dengan yang baru bila Anda menimpanya."
+
+#: ../deskbar/handlers/templates.py:137
+msgid "Replace"
+msgstr "Timpa"
+
+#: ../deskbar/handlers/templates.py:173
+msgid "Templates"
+msgstr "Templat"
+
+#: ../deskbar/handlers/templates.py:174
+msgid "Create new files from your templates"
+msgstr "Buat berkas baru dari templat Anda"
+
+#: ../deskbar/handlers/templates.py:230
+msgid "Could not retrieve templates directory"
+msgstr "Tak bisa mengambil direktori templat"
+
+#: ../deskbar/handlers/templates.py:236
+#, python-format
+msgid "Templates directory %s does not exist"
+msgstr "Direktori templat %s tak ada"
+
+#: ../deskbar/handlers/tomboy.py:41
+#, python-format
+msgid "Open note <b>%(name)s</b>"
+msgstr "Buka catatan <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:62
+msgid "Really delete this note?"
+msgstr "Benar-benar menghapus catatan ini?"
+
+#: ../deskbar/handlers/tomboy.py:63
+msgid "If you delete a note it is permanently lost."
+msgstr "Bila Anda menghapusnya dia akan hilang selamanya."
+
+#: ../deskbar/handlers/tomboy.py:75
+#, python-format
+msgid "Delete note <b>%(name)s</b>"
+msgstr "Hapus catatan <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:104
+#, python-format
+msgid "Create note <b>%(name)s</b>"
+msgstr "Buat catatan <b>%(name)s</b>"
+
+#: ../deskbar/handlers/tomboy.py:130
+msgid "Title"
+msgstr "Judul"
+
+#: ../deskbar/handlers/tomboy.py:131
+msgid "Contents"
+msgstr "Isi"
+
+#: ../deskbar/handlers/tomboy.py:150
+msgid "Tomboy Notes"
+msgstr "Catatan Tomboy"
+
+#: ../deskbar/handlers/tomboy.py:151
+msgid "Search your Tomboy notes"
+msgstr "Cari catatan Tomboy Anda"
+
+#: ../deskbar/handlers/tomboy.py:238
+msgid "Tomboy does not seem to be installed."
+msgstr "Tomboy sepertinya tidak terpasang."
+
+#: ../deskbar/handlers/tomboy.py:278
+#, python-format
+msgid ""
+"Tomboy does not seem to be the correct version.\n"
+"Tomboy %s or greater must be installed."
+msgstr ""
+"Tomboy sepertinya tidak memiliki versi yang benar.\n"
+"Tomboy %s atau lebih baru mesti dipasang."
+
+#: ../deskbar/handlers/twitter.py:36
+#, python-format
+msgid ""
+"Failed to post update to %(domain)s.\n"
+"Please make sure that:\n"
+"\n"
+" • Your internet connection is working\n"
+" • You can connect to <i>http://%(domain)s</i> in\n"
+"    your web browser\n"
+" • Your credentials in the preferences are correct"
+msgstr ""
+"Gagal untuk mengirim pemutakhiran ke %(domain)s.\n"
+"Pastikan bahwa:\n"
+"\n"
+" • Sambungan internet Anda bekerja\n"
+" • Anda dapat menyambung ke <i>http://%(domain)s</i>\n"
+"    di peramban web Anda\n"
+" • Kredensial Anda pada preferensi benar"
+
+#: ../deskbar/handlers/twitter.py:95
+msgid "A post is already awaiting submission; please wait before you post another message"
+msgstr "Suatu posting telah menunggu pengiriman; silakan tunggu sebelum Anda memposting pesan lain"
+
+#: ../deskbar/handlers/twitter.py:96
+#: ../deskbar/handlers/twitter.py:109
+#: ../deskbar/handlers/twitter.py:151
+#, python-format
+msgid "Error posting to %s"
+msgstr "Galat mengirim ke %s"
+
+#. TRANSLATORS: An example display of the below string:
+#.
+#. (125) Post "I can eat glass"
+#.
+#. The number in the parens indicates how many characters the user
+#. has left of the maximum message size. It should be at the start of
+#. the string as to not be hidden by ellipsation.
+#.
+#: ../deskbar/handlers/twitter.py:165
+#, python-format
+msgid "<small>(%(remain)s)</small> Post <i>\"%(msg)s\"</i>"
+msgstr "<small>(%(remain)s)</small> Posting <i>\"%(msg)s\"</i>"
+
+#: ../deskbar/handlers/twitter.py:168
+#, python-format
+msgid ""
+"Update your %s account with the message:\n"
+"\n"
+"\t<i>%s</i>"
+msgstr ""
+"Mutakhirkan akun %s Anda dengan pesan:\n"
+"\n"
+"\t<i>%s</i>"
+
+#: ../deskbar/handlers/twitter.py:205
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../deskbar/handlers/twitter.py:206
+msgid "Post updates to your Twitter account"
+msgstr "Kirim pemutakhiran ke akun Twitter Anda"
+
+#: ../deskbar/handlers/twitter.py:279
+msgid "identi.ca"
+msgstr "identi.ca"
+
+#: ../deskbar/handlers/twitter.py:280
+msgid "Post updates to your identi.ca account"
+msgstr "Kirim pemutakhiran ke akun identi.ca Anda"
+
+#: ../deskbar/handlers/twitter.py:294
+msgid "Please note that Deskbar Applet does not support authentication via OpenID. You must configure a username and password on the <i>identi.ca</i> website if you haven't already."
+msgstr "Mohon dicatat bahwa Aplet Deskbar tidak mendukung otentikasi melalui OpenID. Anda mesti menata suatu nama pengguna dan kata sandi pada situs <i>identi.ca</i> bila belum memiliki."
+
+#: ../deskbar/handlers/twitter.py:296
+msgid "Visit identi.ca website"
+msgstr "Kunjungi situs web identi.ca"
+
+#: ../deskbar/handlers/web_address.py:45
 msgid "Open web pages and send emails by typing a complete address"
 msgstr "Buka halaman web dan kirim surat dengan mengetik alamat surat lengkap"
 
-#: ../deskbar/handlers/web_address.py:40
-#, python-format
-msgid "Open the web page %s"
-msgstr "Buka halaman web %s"
+#: ../deskbar/handlers/wikipedia-suggest.py:33
+msgid "Chinese"
+msgstr "Cina"
 
-#: ../deskbar/handlers/web_address.py:42
-#, python-format
-msgid "Open the location %s"
-msgstr "Buka lokasi %s"
+#: ../deskbar/handlers/wikipedia-suggest.py:37
+msgid "Ukrainian"
+msgstr "Ukrania"
 
-#: ../deskbar/handlers/web_address.py:58
+#: ../deskbar/handlers/wikipedia-suggest.py:48
 #, python-format
-msgid "Send Email to %s"
-msgstr "Kirim Surat ke %s"
+msgid "Open article <i>%(name)s</i> in <b>Wikipedia</b>"
+msgstr "Buka artikel <i>%(name)s</i> di <b>Wikipedia</b>"
 
-#: ../deskbar/handlers/yahoo.py:16
+#: ../deskbar/handlers/wikipedia-suggest.py:63
+msgid "Wikipedia Suggest"
+msgstr "Saran Wikipedia"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:64
+msgid "As you type, Wikipedia will offer suggestions."
+msgstr "Sembari Anda mengetik, Wikipedia akan menawarkan saran-saran."
+
+#: ../deskbar/handlers/wikipedia-suggest.py:137
+msgid "Wikipedia Suggest settings"
+msgstr "Tatanan Saran Wikipedia"
+
+#: ../deskbar/handlers/wikipedia-suggest.py:144
+msgid "Choose the language you want to use or enter the code of your language manually"
+msgstr "Pilih bahasa yang ingin Anda pakai atau masukkan kode bahasa Anda secara manual"
+
+#: ../deskbar/handlers/yahoo.py:55
+msgid "Persian"
+msgstr "Persia"
+
+#: ../deskbar/handlers/yahoo.py:65
+msgid "Thai"
+msgstr "Thailand"
+
+#: ../deskbar/handlers/yahoo.py:93
 msgid "Yahoo! Search"
 msgstr "Pencarian Yahoo!"
 
-#: ../deskbar/handlers/yahoo.py:17
+#: ../deskbar/handlers/yahoo.py:94
 msgid "Search Yahoo! as you type"
 msgstr "Cari Yahoo! seperti diketik"
+
+#: ../deskbar/handlers/yahoo.py:308
+#, python-format
+msgid "Search <b>Yahoo!</b> for <i>%(name)s</i>"
+msgstr "Cari <i>%(name)s</i> dengan <b>Yahoo</b>"
+
+#: ../deskbar/handlers/yahoo.py:326
+msgid "Yahoo! Suggestions"
+msgstr "Saran Yahoo!"
+
+#: ../deskbar/handlers/yahoo.py:327
+msgid "Provides suggestions for queries related to the submitted query"
+msgstr "Menyediakan saran bagi query yang terkait dengan query yang dikirim"
+
+#: ../deskbar/handlers/yahoo.py:409
+msgid "Configure Yahoo!"
+msgstr "Tata Yahoo!"
+
+#: ../deskbar/handlers/actions/ActionsFactory.py:66
+#, python-format
+msgid "URL of %s"
+msgstr "URL dari %s"
+
+#: ../deskbar/handlers/actions/CopyToClipboardAction.py:18
+#, python-format
+msgid "Copy <b>%(name)s</b> to clipboard"
+msgstr "Salin <b>%(name)s</b> ke clipboard"
+
+#: ../deskbar/handlers/actions/GoToLocationAction.py:23
+#, python-format
+msgid "Go to location of %s"
+msgstr "Pergi ke lokasi %s"
+
+#. translators: First %s is the programs full name, second is the executable name
+#. translators: For example: Launch Text Editor (gedit)
+#: ../deskbar/handlers/actions/OpenDesktopFileAction.py:57
+#, python-format
+msgid "Launch <b>%(name)s</b> (%(prog)s)"
+msgstr "Jalankan <b>%(name)s</b> (%(prog)s)"
+
+#: ../deskbar/handlers/actions/OpenWithApplicationAction.py:48
+#, python-format
+msgid "Open <b>%(name)s</b> with <b>%(program)s</b>"
+msgstr "Buka <b>%(name)s</b> dengan <b>%(program)s</b>"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:28
+#, python-format
+msgid "Open network place %s"
+msgstr "Buka jaringan %s"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:30
+#, python-format
+msgid "Open audio disc %s"
+msgstr "Buka disk audio %s"
+
+#: ../deskbar/handlers/actions/OpenWithNautilusAction.py:32
+#, python-format
+msgid "Open location %s"
+msgstr "Buka lokasi %s"
+
+#. translators: First %s is the contact full name, second %s is the email address
+#: ../deskbar/handlers/actions/SendEmailToAction.py:24
+#, python-format
+msgid "Send Email to <b>%(name)s</b> (%(email)s)"
+msgstr "Kirim Surat ke <b>%(name)s</b> (%(email)s)"
+
+#. translators: %s is a filename
+#: ../deskbar/handlers/actions/SendFileViaEmailAction.py:44
+#, python-format
+msgid "Send %s via e-mail"
+msgstr "Kirim %s melalui surel"
 
 #: ../deskbar/ui/About.py:25
 msgid "An all-in-one action bar."
 msgstr "Batang aksi semua."
 
-#: ../deskbar/ui/About.py:28
+#: ../deskbar/ui/About.py:32
 msgid "Deskbar Website"
 msgstr "Website Deskbar"
 
-#. about.set_artists([])
-#. about.set_documenters([])
 #. translators: These appear in the About dialog, usual format applies.
 #: ../deskbar/ui/About.py:36
 msgid "translator-credits"
 msgstr ""
-"Ahmad Riza H Nst  <rizahnst@gnome.org>\n"
-"http://id.gnome.org"
+"Ahmad Riza H Nst  <rizahnst@gnome.org>, 2006.\n"
+"Andika Triwidada <andika@gmail.com>, 2010."
 
-#: ../deskbar/ui/DeskbarPreferencesUI.py:18
-msgid "New accelerator..."
-msgstr "Akselerator baru..."
+#: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
+msgid "Display additional actions"
+msgstr "Tampilkan aksi tambahan"
 
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:85
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:85
+#: ../deskbar/ui/AbstractCuemiacView.py:146
+msgid "Back to Matches"
+msgstr "Kembali ke Yang Cocok"
+
+#: ../deskbar/ui/DeskbarApplet.py:74
+#: ../deskbar/ui/DeskbarStatusIcon.py:160
 msgid "Show search entry"
 msgstr "Tampilkan masukan pencarian"
 
-#: ../deskbar/ui/cuemiac/DeskbarAppletButton.py:86
-#: ../deskbar/ui/cuemiac/CuemiacAppletButton.py:86
-#: ../deskbar/ui/entriac/CuemiacEntryUI.py:54
+#: ../deskbar/ui/DeskbarApplet.py:75
 msgid "Show previously used actions"
 msgstr "Tampilkan aksi yang dipergunakan sebelumnya"
 
-#: ../data/mozilla-search.glade.h:1
-msgid "<b>Search Engines</b>"
-msgstr "<b>Mesin Pencari</b>"
+#: ../deskbar/ui/DeskbarStatusIcon.py:65
+msgid "Clear History"
+msgstr "Hapus Riwayat"
 
-#: ../data/mozilla-search.glade.h:2
-msgid "Deskbar Preferences - Web Searches"
-msgstr "Ketentuan Deskbar - Pencarian Web"
+#: ../deskbar/ui/DeskbarStatusIcon.py:69
+msgid "Preferences"
+msgstr "Preferensi"
 
-#: ../data/mozilla-search.glade.h:3
-msgid "Show all available search engines"
-msgstr "Tampilkan seluruh mesin pencari yang ada"
+#: ../deskbar/ui/DeskbarStatusIcon.py:73
+msgid "Help"
+msgstr "Bantuan"
 
-#: ../data/mozilla-search.glade.h:4
-msgid "Show only the primary search engine"
-msgstr "Tampilkan mesin pencari utama saja"
+#: ../deskbar/ui/DeskbarStatusIcon.py:77
+msgid "About"
+msgstr "Tentang"
 
-#: ../data/deskbar-applet.desktop.in.in.h:1
-msgid "Deskbar Applet"
-msgstr "Applet Deskbar"
+#: ../deskbar/ui/DeskbarStatusIcon.py:83
+msgid "Quit"
+msgstr "Keluar"
 
-#: ../data/deskbar-applet.desktop.in.in.h:2
-msgid "Desktop search"
-msgstr "Pencari desktop"
+#. TRANSLATORS: Below "Empty" is an adjective. As in
+#. the state of being empty
+#: ../deskbar/ui/DeskbarStatusIcon.py:112
+msgid "<i>Empty</i>"
+msgstr "<i>Kosong</i>"
 
-#: ../data/deskbar-applet.desktop.in.in.h:3
-msgid "Search your computer and the internet quickly"
-msgstr "Cari komputer anda dan internet dengan cepat"
+#: ../deskbar/ui/preferences/AccelEntry.py:103
+msgid "New accelerator…"
+msgstr "Akselerator baru..."
 
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:16
-msgid "<b>Search:</b>"
-msgstr "<b>Cari:</b>"
+#: ../deskbar/ui/preferences/AccelEntry.py:155
+#, python-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will prevent correct operation of your keyboard.\n"
+"Please try with a key such as Control, Alt or Shift at the same time.\n"
+msgstr ""
+"Pintasan \"%s\" tak dapat dipakai karena akan menghalangi operasi yang benar dari papan tik Anda.\n"
+"Silakan mencoba dengan suatu kunci seperti Control, Alt, atau Shift pada saat yang sama.\n"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:49
-msgid "_File"
-msgstr "_Berkas"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:96
+msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
+msgstr "<i><small>Seret dan jatuhkan ekstensi untuk mengubah urutannya.</small></i>"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:50
-msgid "_Quit"
-msgstr "_Keluar"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:170
+msgid "All Extensions"
+msgstr "Semua Ekstensi"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:51
-msgid "_Edit"
-msgstr "_Ubah"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:231
+msgid "A problem occured"
+msgstr "Terjadi suatu masalah"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:54
-msgid "_View"
-msgstr "_Tampil"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:239
+msgid "Extension has been installed successfully"
+msgstr "Ekstensi telah terpasang dengan sukses"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:55
-msgid "_Help"
-msgstr "_Bantu"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:534
+msgid "Installing extension"
+msgstr "Memasang ekstensi"
 
-#: ../deskbar/ui/window/CuemiacWindowUI.py:58
-msgid "_History"
-msgstr "_Riwayat"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:535
+msgid "The extension will be downloaded and installed."
+msgstr "Ekstensi akan diunduh dan dipasang."
 
-#. History TreeView
-#: ../deskbar/ui/window/CuemiacWindowUI.py:84
-msgid "<b>History</b>"
-msgstr "<b>Riwayat</b>"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:537
+msgid "Retrieving list of extensions"
+msgstr "Mengambil daftar ekstensi"
 
-#, fuzzy
-#~ msgid "<b>Available Extensions</b>"
-#~ msgstr "<b>Ekstensi Aktif</b>"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:538
+msgid "A list of available extensions is downloaded."
+msgstr "Suatu daftar ekstensi yang tersedia telah diunduh."
 
-#~ msgid "<b>Loaded Extensions</b>"
-#~ msgstr "<b>Ekstensi Aktif</b>"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:539
+msgid "Retrieving the extension index"
+msgstr "Mengambil indeks ekstensi"
 
-#~ msgid "Searches"
-#~ msgstr "Pencarian"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:541
+msgid "Downloading extension"
+msgstr "Mengunduh ekstensi"
 
-#, fuzzy
-#~ msgid "%s more result"
-#~ msgid_plural "%s more results"
-#~ msgstr[0] "%s hasil lebih"
-#~ msgstr[1] "%s hasil lebih"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:543
+msgid "Extracting archive"
+msgstr "Mengekstrak arsip"
 
-#, fuzzy
-#~ msgid "%s more document"
-#~ msgid_plural "%s more documents"
-#~ msgstr[0] "%s lebih dokumen"
-#~ msgstr[1] "%s lebih dokumen"
+#: ../deskbar/ui/preferences/DeskbarPreferences.py:596
+msgid "Extension could not be installed due to a problem with the provided file"
+msgstr "Ekstensi tak dapat dipasang karena ada masalah dengan berkas yang diberikan"
 
-#, fuzzy
-#~ msgid "%s more file"
-#~ msgid_plural "%s more files"
-#~ msgstr[0] "%s lebih berkas"
-#~ msgstr[1] "%s lebih berkas"
+#: ../deskbar/ui/preferences/ErrorDialog.py:8
+msgid "Error"
+msgstr "Galat"
 
-#, fuzzy
-#~ msgid "%s more place"
-#~ msgid_plural "%s more places"
-#~ msgstr[0] "%s lebih tempat"
-#~ msgstr[1] "%s lebih tempat"
+#: ../deskbar/ui/preferences/ErrorDialog.py:27
+msgid "Check the description beneath for further details."
+msgstr "Periksa keterangan di bawah untuk rincian lebih lanjut."
 
-#, fuzzy
-#~ msgid "%s more action"
-#~ msgid_plural "%s more actions"
-#~ msgstr[0] "%s lebih aksi"
-#~ msgstr[1] "%s lebih aksi"
+#: ../deskbar/ui/preferences/ErrorDialog.py:33
+msgid "Details"
+msgstr "Rincian"
 
-#~ msgid "Mail"
-#~ msgstr "Surat"
+#: ../deskbar/ui/preferences/ModuleListView.py:55
+msgid "Version:"
+msgstr "Versi:"
 
-#~ msgid "Send mail by typing a complete e-mail address"
-#~ msgstr "Kirim surat dengan menuliskan alamat surat lengkap"
+#: ../deskbar/ui/preferences/ModuleListView.py:58
+msgid "Update Available"
+msgstr "Pemutakhiran Tersedia"
 
-#~ msgid "Files and Folders"
-#~ msgstr "Berkas dan Folder"
-
-#~ msgid "Open your files and folders by name"
-#~ msgstr "Buka berkas anda dan folder dengan nama"
-
-#~ msgid "Files and Folders Bookmarks"
-#~ msgstr "Penandaan Berkas dan Folder"
-
-#~ msgid "Programs (Advanced)"
-#~ msgstr "Program (Lebih Lanjut)"
-
-#~ msgid "Launch any program present in your $PATH"
-#~ msgstr "Jalanan program apa saja yang ada di $PATH anda"
-
-#~ msgid "Disks and Network Places"
-#~ msgstr "Disk dan Jaringan"
-
-#~ msgid ""
-#~ "Open disk drives, shared network places and similar resources by name"
-#~ msgstr "Buka drive disk, bagikan jaringan dan sumber yang mirip sesuai nama"
