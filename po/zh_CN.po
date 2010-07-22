@@ -3,15 +3,17 @@
 # Funda Wang <fundawang@linux.net.cn>, 2005.
 # 甘露(Lu Gan) <rhythm.gan@gmail.com>, 2008.
 # Deng Xiyue <manphiz@gmail.com>, 2009.
+# Tao Wei <weitao1979@gmail.com>, 2009.
+# Tao Wang <dancefire@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: deskbar-applet\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=deskbar-applet&component=general\n"
-"POT-Creation-Date: 2009-11-13 11:13+0000\n"
-"PO-Revision-Date: 2009-11-29 09:24+0100\n"
-"Last-Translator: Tao Wei <weitao1979@gmail.com>\n"
+"POT-Creation-Date: 2010-07-20 12:46+0000\n"
+"PO-Revision-Date: 2010-07-21 07:58+1000\n"
+"Last-Translator: Tao Wang <dancefire@gmail.com>\n"
 "Language-Team: Chinese i18n <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,8 +44,9 @@ msgid ""
 msgstr "如果启用，它将在一个搜索结果被选择后清除输入"
 
 #: ../data/deskbar-applet.schemas.in.h:6
-msgid "If enabled the window will be closed after an action has been activated"
-msgstr "如果启用，在动作被激活后窗口将被关闭"
+msgid ""
+"If enabled, the window will be closed after an action has been activated"
+msgstr "如果启用，将在激活动作后关闭窗口"
 
 #: ../data/deskbar-applet.schemas.in.h:7
 msgid "Keybinding"
@@ -58,8 +61,8 @@ msgid "Minimum number of characters needed to start searching"
 msgstr "开始搜索所需要的最小字符数"
 
 #: ../data/deskbar-applet.schemas.in.h:10
-msgid "Selects the user interface to use, one of \"Window\" or \"Button\""
-msgstr "选择待使用的用户界面，“Window”或“Button”其中之一"
+msgid "Selects the user interface to use: one of \"Window\" or \"Button\""
+msgstr "选择要使用的用户界面：“Window”或“Button”其中之一"
 
 #: ../data/deskbar-applet.schemas.in.h:11
 msgid "The applet's entry width in number of characters"
@@ -70,12 +73,12 @@ msgid "The default height of the window in pixels"
 msgstr "以像素计的默认窗口高度"
 
 #: ../data/deskbar-applet.schemas.in.h:13
-msgid "The default position of the window on the screen (x-coordinate)"
-msgstr "窗口在屏幕上的默认位置(x 坐标)"
+msgid "The default position of the window on the screen (X coordinate)"
+msgstr "窗口在屏幕上的默认位置(X 坐标)"
 
 #: ../data/deskbar-applet.schemas.in.h:14
-msgid "The default position of the window on the screen (y-coordinate)"
-msgstr "窗口在屏幕上的默认位置(y 坐标)"
+msgid "The default position of the window on the screen (Y coordinate)"
+msgstr "窗口在屏幕上的默认位置(Y 坐标)"
 
 #: ../data/deskbar-applet.schemas.in.h:15
 msgid "The default width of the window in pixels"
@@ -83,7 +86,7 @@ msgstr "以像素计的默认的窗口宽度"
 
 #: ../data/deskbar-applet.schemas.in.h:16
 msgid "The key sequence will focus Deskbar-Applet, allowing to type quickly"
-msgstr "使 Deskbar-Applet 获得焦点以快速输入的键序列"
+msgstr "使 Deskbar 小程序获得焦点以快速输入的键序列"
 
 #: ../data/deskbar-applet.schemas.in.h:17
 msgid ""
@@ -97,8 +100,9 @@ msgstr ""
 #: ../data/deskbar-applet.schemas.in.h:18
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
-"Leftmost has highest priority"
-msgstr "按优先级排序的所启用的处理器所输出的类名称的列表，最左端的优先级最高"
+"The leftmost has the highest priority."
+msgstr ""
+"所启用的处理程序的导出的类名称的列表(按优先级排列)。最左端的优先级最高。"
 
 #: ../data/deskbar-applet.schemas.in.h:19
 msgid "The maximum number of items stored in history"
@@ -134,7 +138,7 @@ msgstr ""
 
 #: ../data/deskbar-applet.schemas.in.h:25
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
-msgstr "是否触发 Deskbar-Applet 粘贴当前选择"
+msgstr "是否触发 Deskbar 小程序粘贴当前选择"
 
 #: ../data/deskbar-applet.schemas.in.h:26
 msgid "Window height"
@@ -174,7 +178,7 @@ msgstr "全能动作栏"
 
 #: ../data/Deskbar_Applet.server.in.in.h:2 ../deskbar/ui/About.py:29
 msgid "Deskbar"
-msgstr "桌面栏"
+msgstr "桌面工具栏"
 
 #: ../data/prefs-dialog.ui.h:1
 msgid "<b>Available Extensions</b>"
@@ -202,7 +206,7 @@ msgstr "<b>窗口行为</b>"
 
 #: ../data/prefs-dialog.ui.h:7
 msgid "Deskbar Preferences"
-msgstr "桌面栏首选项"
+msgstr "Deskbar 首选项"
 
 #: ../data/prefs-dialog.ui.h:8
 msgid "Display extensions with tag:"
@@ -249,7 +253,7 @@ msgid "_Keyboard shortcut to focus:"
 msgstr "聚焦的键盘快捷键(_K)："
 
 #: ../data/prefs-dialog.ui.h:19
-msgid "_More..."
+msgid "_More…"
 msgstr "更多(_M)..."
 
 #: ../data/prefs-dialog.ui.h:20
@@ -270,8 +274,8 @@ msgid ""
 "for <b>something</b>, type \"<b>wp something</b>\" in the deskbar</small></"
 "i>."
 msgstr ""
-"<i><small><b>注意：</b>要使用快捷键(如 <b>wp</b>) 搜索<b>内容</b>，请在桌面中"
-"输入“<b>wp 内容</b>”。</small></i>"
+"<i><small><b>注意：</b>要使用快捷键(如 <b>wp</b>) 搜索<b>内容</b>，请在 "
+"Deskbar 中输入“<b>wp 内容</b>”。</small></i>"
 
 #: ../data/smart-bookmarks.ui.h:2
 msgid "Shortcuts for Bookmarked Searches"
@@ -282,8 +286,8 @@ msgid "<b>Search Engines</b>"
 msgstr "<b>搜索引擎</b>"
 
 #: ../data/mozilla-search.ui.h:2
-msgid "Deskbar Preferences - Web Searches"
-msgstr "桌面栏首选项 - Web 搜索"
+msgid "Deskbar Preferences — Web Searches"
+msgstr "Deskbar 首选项 - Web 搜索"
 
 #: ../data/mozilla-search.ui.h:3
 msgid "Show all available search engines"
@@ -437,7 +441,7 @@ msgstr "请检查您在 <b>%s</b> 的个人信息"
 #. translators: This is the window title.
 #: ../deskbar/deskbar-applet.py:17
 msgid "Deskbar Applet"
-msgstr "Deskbar 面板小程序"
+msgstr "Deskbar 小程序"
 
 #: ../deskbar/handlers/beagle-live.py:248
 #, python-format
@@ -622,11 +626,11 @@ msgid ""
 "Autocompletion Needs to be Enabled\n"
 "We cannot provide e-mail addresses from your address book unless "
 "autocompletion is enabled.  To do this, from your mail program's menu, "
-"choose Edit - Preferences, and then Autocompletion."
+"choose Edit → Preferences, and then Autocompletion."
 msgstr ""
 "需要启用自动补全\n"
 "除非您启用自动补全，否则我们无法从您的地址簿中提供电子邮件地址。要启用这一功"
-"能，请从您邮件程序的菜单中选择 编辑 - 首选项，然后设置自动补全功能。"
+"能，请从您邮件程序的菜单中选择“编辑”→“首选项”，然后设置自动补全功能。"
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
@@ -789,8 +793,8 @@ msgstr "打开<b>%(name)s</b>包"
 
 #: ../deskbar/handlers/googlecodesearch.py:146
 #, python-format
-msgid "Search <b>Google Codesearch</b> for <i>%(name)s</i>"
-msgstr "在 <b>Google 代码搜索</b>中搜索<i>%(name)s</i>"
+msgid "Search <b>Google Code Search</b> for <i>%(name)s</i>"
+msgstr "在<b> Google 代码搜索</b>中搜索 <i>%(name)s</i>"
 
 #: ../deskbar/handlers/googlesearch.py:30 ../deskbar/handlers/yahoo.py:30
 msgid "Arabic"
@@ -806,11 +810,11 @@ msgid "Catalan"
 msgstr "加泰罗尼亚语"
 
 #: ../deskbar/handlers/googlesearch.py:33 ../deskbar/handlers/yahoo.py:33
-msgid "Chinese simplified"
+msgid "Chinese (Simplified)"
 msgstr "简体中文"
 
 #: ../deskbar/handlers/googlesearch.py:34 ../deskbar/handlers/yahoo.py:34
-msgid "Chinese traditional"
+msgid "Chinese (Traditional)"
 msgstr "繁体中文"
 
 #: ../deskbar/handlers/googlesearch.py:35 ../deskbar/handlers/yahoo.py:35
@@ -1036,7 +1040,7 @@ msgid "OpenSearch"
 msgstr "开放搜索(OpenSearch)"
 
 #: ../deskbar/handlers/opensearch.py:93
-msgid "Searches any OpenSearch compliant website"
+msgid "Searches any OpenSearch-compliant website"
 msgstr "搜索任何 OpenSearch 兼容网站"
 
 #: ../deskbar/handlers/opensearch.py:97
@@ -1316,9 +1320,9 @@ msgstr ""
 
 #: ../deskbar/handlers/twitter.py:95
 msgid ""
-"A post is already awaiting submission, please wait before you post another "
+"A post is already awaiting submission; please wait before you post another "
 "message"
-msgstr "已经有正在等候提交的文章，请稍后再提交新消息"
+msgstr "已经有正在等候提交的消息，请稍后再提交其它消息"
 
 #: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
 #: ../deskbar/handlers/twitter.py:151
@@ -1507,18 +1511,17 @@ msgstr "全能动作栏。"
 
 #: ../deskbar/ui/About.py:32
 msgid "Deskbar Website"
-msgstr "桌面栏网站"
+msgstr "Deskbar 网站"
 
 #. translators: These appear in the About dialog, usual format applies.
 #: ../deskbar/ui/About.py:36
 msgid "translator-credits"
 msgstr ""
 "Funda Wang <fundawang@linux.net.cn>, 2005\n"
-"甘露(Lu Gan) <rhythm.gan@gmail.com>，2008"
-
-#: ../deskbar/ui/cuemiac/CuemiacHeader.py:26
-msgid "<b>Search:</b>"
-msgstr "<b>搜索：</b>"
+"甘露(Lu Gan) <rhythm.gan@gmail.com>, 2008\n"
+"Deng Xiyue <manphiz@gmail.com>, 2009\n"
+"Tao Wei <weitao1979@gmail.com>, 2009\n"
+"Tao Wang <dancefire@gmail.com>, 2010"
 
 #: ../deskbar/ui/cuemiac/CuemiacTreeView.py:259
 msgid "Display additional actions"
@@ -1562,11 +1565,11 @@ msgstr "退出"
 msgid "<i>Empty</i>"
 msgstr "<i>空</i>"
 
-#: ../deskbar/ui/preferences/AccelEntry.py:102
-msgid "New accelerator..."
-msgstr "新建加速器..."
+#: ../deskbar/ui/preferences/AccelEntry.py:103
+msgid "New accelerator…"
+msgstr "新建快捷键..."
 
-#: ../deskbar/ui/preferences/AccelEntry.py:154
+#: ../deskbar/ui/preferences/AccelEntry.py:155
 #, python-format
 msgid ""
 "The shortcut \"%s\" cannot be used because it will prevent correct operation "
@@ -1644,3 +1647,9 @@ msgstr "版本："
 #: ../deskbar/ui/preferences/ModuleListView.py:58
 msgid "Update Available"
 msgstr "有更新"
+
+#~ msgid "The default position of the window on the screen (y-coordinate)"
+#~ msgstr "窗口在屏幕上的默认位置(y 坐标)"
+
+#~ msgid "<b>Search:</b>"
+#~ msgstr "<b>搜索：</b>"
