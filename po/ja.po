@@ -1,5 +1,5 @@
 # deskbar-applet ja.po.
-# Copyright (C) 2005-2009 Free Software Foundation, Inc.
+# Copyright (C) 2005-2010 Free Software Foundation, Inc.
 # This file is distributed under the same license as the deskbar-applet package.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2005-2009.
 # Satoru SATOH <ss@gnome.gr.jp>, 2006.
@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: deskbar-applet trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=deskbar-applet&component=general\n"
-"POT-Creation-Date: 2010-02-23 10:05+0000\n"
-"PO-Revision-Date: 2010-02-24 00:07+0900\n"
+"POT-Creation-Date: 2010-09-15 10:39+0000\n"
+"PO-Revision-Date: 2010-09-18 01:04+0900\n"
 "Last-Translator: Hideki Yamane (Debian-JP) <henrich@debian.or.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -46,10 +46,9 @@ msgid ""
 msgstr "検索結果を選択した後に入力フィールドの内容をクリアするかどうかです。"
 
 #: ../data/deskbar-applet.schemas.in.h:6
-#, fuzzy
 msgid ""
 "If enabled, the window will be closed after an action has been activated"
-msgstr "アクションを実行した後に検索ボックスを閉じるかどうかです。"
+msgstr "有効化すると、アクションを実行した後にウィンドウを閉じます。"
 
 #: ../data/deskbar-applet.schemas.in.h:7
 msgid "Keybinding"
@@ -64,9 +63,9 @@ msgid "Minimum number of characters needed to start searching"
 msgstr "検索を開始するのに必要な文字数の最小値"
 
 #: ../data/deskbar-applet.schemas.in.h:10
-#, fuzzy
 msgid "Selects the user interface to use: one of \"Window\" or \"Button\""
-msgstr "使用するユーザ・インタフェース"
+msgstr ""
+"使用するユーザ・インタフェース: \"Window\" または \"Button\" のどちらか"
 
 #: ../data/deskbar-applet.schemas.in.h:11
 msgid "The applet's entry width in number of characters"
@@ -77,14 +76,12 @@ msgid "The default height of the window in pixels"
 msgstr "検索ボックスのデフォルトの高さ (ピクセル単位) です。"
 
 #: ../data/deskbar-applet.schemas.in.h:13
-#, fuzzy
 msgid "The default position of the window on the screen (X coordinate)"
-msgstr "検索ボックスのデフォルトの位置 (Ｘ座標) です。"
+msgstr "ウィンドウの画面上でのデフォルトの位置 (X座標)"
 
 #: ../data/deskbar-applet.schemas.in.h:14
-#, fuzzy
 msgid "The default position of the window on the screen (Y coordinate)"
-msgstr "検索ボックスのデフォルトの位置 (Ｘ座標) です。"
+msgstr "ウィンドウの画面上でのデフォルトの位置 (Y座標)"
 
 #: ../data/deskbar-applet.schemas.in.h:15
 msgid "The default width of the window in pixels"
@@ -107,7 +104,6 @@ msgstr ""
 "actions、web、websearch、news、notes"
 
 #: ../data/deskbar-applet.schemas.in.h:18
-#, fuzzy
 msgid ""
 "The list of exported class names of the enabled handlers sorted by priority. "
 "The leftmost has the highest priority."
@@ -146,9 +142,9 @@ msgid ""
 "Whether to show only the preferred search engine, rather than all available "
 "engines. This only affects Mozilla-based web browsers such as Firefox."
 msgstr ""
-"利用可能な検索エンジンを全て表示するのではなく、お気に入りの検索エンジンだけ"
-"を表示するかどうかです。これは Firefox のような Mozilla 系のウェブブラウザに"
-"のみ適用されます。"
+"利用可能な検索エンジンをすべて表示するのではなく、お気に入りの検索エンジンだ"
+"けを表示するかどうかです。これは Firefox のような Mozilla 系のウェブブラウザ"
+"にのみ適用されます。"
 
 #: ../data/deskbar-applet.schemas.in.h:25
 msgid "Whether triggering Deskbar-Applet pastes the current selection"
@@ -164,11 +160,11 @@ msgstr "検索ボックスの幅"
 
 #: ../data/deskbar-applet.schemas.in.h:28
 msgid "X-coordinate of window"
-msgstr "ウィンドウのＸ座標"
+msgstr "ウィンドウのX座標"
 
 #: ../data/deskbar-applet.schemas.in.h:29
 msgid "Y-coordinate of window"
-msgstr "ウィンドウのＹ座標"
+msgstr "ウィンドウのY座標"
 
 #: ../data/Deskbar_Applet.xml.h:1
 msgid "_About"
@@ -256,7 +252,7 @@ msgstr "アップデートの確認(_C)"
 
 #: ../data/prefs-dialog.ui.h:16
 msgid "_Check for new extensions"
-msgstr "新しい拡張機能の確認(C)"
+msgstr "新しい拡張機能の確認(_C)"
 
 #: ../data/prefs-dialog.ui.h:17
 msgid "_Install"
@@ -267,13 +263,12 @@ msgid "_Keyboard shortcut to focus:"
 msgstr "ショートカット・キー(_K):"
 
 #: ../data/prefs-dialog.ui.h:19
-#, fuzzy
 msgid "_More…"
-msgstr "詳細(_M)..."
+msgstr "詳細(_M)…"
 
 #: ../data/prefs-dialog.ui.h:20
 msgid "_Reload"
-msgstr "再読込み(_R)"
+msgstr "再読み込み(_R)"
 
 #: ../data/prefs-dialog.ui.h:21
 msgid "_Update"
@@ -291,7 +286,7 @@ msgid ""
 msgstr ""
 "<i><small><b>Note:</b> ショートカットを利用する場合、例えば <b>something</b> "
 "を検索するショートカットが <b>wp</b> ならば、デスクバーの中に \"<b>wp "
-"something</b>\" と入力して下さい。</small></i>"
+"something</b>\" と入力してください。</small></i>"
 
 #: ../data/smart-bookmarks.ui.h:2
 msgid "Shortcuts for Bookmarked Searches"
@@ -302,13 +297,12 @@ msgid "<b>Search Engines</b>"
 msgstr "<b>検索エンジン</b>"
 
 #: ../data/mozilla-search.ui.h:2
-#, fuzzy
 msgid "Deskbar Preferences — Web Searches"
 msgstr "デスクバーの設定 - ウェブ検索"
 
 #: ../data/mozilla-search.ui.h:3
 msgid "Show all available search engines"
-msgstr "利用可能な全ての検索エンジンを表示する"
+msgstr "利用可能なすべての検索エンジンを表示する"
 
 #: ../data/mozilla-search.ui.h:4
 msgid "Show only the primary search engine"
@@ -429,7 +423,7 @@ msgstr "<big><b>%s へのログイン</b></big>"
 #: ../deskbar/core/Web.py:136
 #, python-format
 msgid "Please provide your credentials for <b>%s</b>"
-msgstr "<b>%s</b> に対する認証情報を入力して下さい"
+msgstr "<b>%s</b> に対する認証情報を入力してください"
 
 #: ../deskbar/core/Web.py:137
 #, python-format
@@ -453,7 +447,7 @@ msgstr "<big><b>%s へのログインが拒否されました</b></big>"
 #: ../deskbar/core/Web.py:261
 #, python-format
 msgid "Please verify your credentials for <b>%s</b>"
-msgstr "<b>%s</b> に対する認証情報を確認して下さい"
+msgstr "<b>%s</b> に対する認証情報を確認してください"
 
 #. translators: This is the window title.
 #: ../deskbar/deskbar-applet.py:17
@@ -511,7 +505,7 @@ msgstr "Beagle ライブ"
 
 #: ../deskbar/handlers/beagle-live.py:487
 msgid "Search all of your documents (using Beagle), as you type"
-msgstr "Beagle で入力しながら該当するドキュメントを全て検索します"
+msgstr "Beagle で入力しながら該当するドキュメントをすべて検索します"
 
 #. translators: This is used for unknown values returned by beagle
 #. translators: for example unknown email sender, or unknown note title
@@ -546,7 +540,7 @@ msgstr "Beagle"
 
 #: ../deskbar/handlers/beagle-static.py:39
 msgid "Search all of your documents (using Beagle)"
-msgstr "(Beagle を利用して) 該当するドキュメントを全て検索します"
+msgstr "(Beagle を利用して) 該当するドキュメントをすべて検索します"
 
 #: ../deskbar/handlers/beagle-static.py:55
 msgid "Beagle does not seem to be installed."
@@ -579,7 +573,7 @@ msgstr "del.icio.us のアカウント"
 
 #: ../deskbar/handlers/desklicious.py:85
 msgid "Enter your del.icio.us username below"
-msgstr "ユーザ名を入力して下さい:"
+msgstr "ユーザ名を入力してください:"
 
 #: ../deskbar/handlers/desklicious.py:91
 msgid "Username: "
@@ -587,7 +581,7 @@ msgstr "ユーザ名: "
 
 #: ../deskbar/handlers/desklicious.py:107
 msgid "You need to configure your del.icio.us account."
-msgstr "del.icio.us のアカウントを設定して下さい。"
+msgstr "del.icio.us のアカウントを設定してください。"
 
 #: ../deskbar/handlers/desklicious.py:112
 msgid "You can modify your del.icio.us account."
@@ -650,7 +644,7 @@ msgstr ""
 "自動補完を有効にしてください。\n"
 "自動補完が有効になっていないと、アドレス帳からE-メール・アドレスを取得するこ"
 "とはできません。お使いのメールクライアントの [編集] メニューにある [設定] の "
-"[自動補完] を指定して下さい。"
+"[自動補完] を指定してください。"
 
 #. FIXME:
 #. _("Location") should be _("Location of %s") % name
@@ -670,7 +664,7 @@ msgstr ""
 
 #: ../deskbar/handlers/gdmactions.py:41
 msgid "Shut down this system now?"
-msgstr "このシステムを今すぐシャットダウンしますか？"
+msgstr "このシステムを今すぐシャットダウンしますか?"
 
 #: ../deskbar/handlers/gdmactions.py:42 ../deskbar/handlers/gdmactions.py:273
 #: ../deskbar/handlers/gdmactions.py:343
@@ -679,7 +673,7 @@ msgstr "シャットダウン"
 
 #: ../deskbar/handlers/gdmactions.py:44
 msgid "Log out of this system now?"
-msgstr "このシステムから今すぐログアウトしますか？"
+msgstr "このシステムから今すぐログアウトしますか?"
 
 #: ../deskbar/handlers/gdmactions.py:45 ../deskbar/handlers/gdmactions.py:292
 #: ../deskbar/handlers/gdmactions.py:296 ../deskbar/handlers/gdmactions.py:346
@@ -688,7 +682,7 @@ msgstr "ログアウト"
 
 #: ../deskbar/handlers/gdmactions.py:47
 msgid "Restart this system now?"
-msgstr "このシステムを今すぐ再起動しますか？"
+msgstr "このシステムを今すぐ再起動しますか?"
 
 #: ../deskbar/handlers/gdmactions.py:48 ../deskbar/handlers/gdmactions.py:319
 #: ../deskbar/handlers/gdmactions.py:345
@@ -697,7 +691,7 @@ msgstr "再起動"
 
 #: ../deskbar/handlers/gdmactions.py:50
 msgid "Suspend this system now?"
-msgstr "このシステムを今すぐサスペンドしますか？"
+msgstr "このシステムを今すぐサスペンドしますか?"
 
 #: ../deskbar/handlers/gdmactions.py:51 ../deskbar/handlers/gdmactions.py:375
 msgid "Suspend"
@@ -705,7 +699,7 @@ msgstr "サスペンド"
 
 #: ../deskbar/handlers/gdmactions.py:53
 msgid "Hibernate this system now?"
-msgstr "このシステムを今すぐハイバネートしますか？"
+msgstr "このシステムを今すぐハイバネートしますか?"
 
 #: ../deskbar/handlers/gdmactions.py:54 ../deskbar/handlers/gdmactions.py:377
 msgid "Hibernate"
@@ -813,7 +807,7 @@ msgid "Open package <i>%(name)s</i>"
 msgstr "<b>%(name)s</b> というパッケージを開く"
 
 #: ../deskbar/handlers/googlecodesearch.py:146
-#, fuzzy, python-format
+#, python-format
 msgid "Search <b>Google Code Search</b> for <i>%(name)s</i>"
 msgstr "<b>Google ソースコード検索</b>から <i>%(name)s</i> を検索する"
 
@@ -831,12 +825,10 @@ msgid "Catalan"
 msgstr "カタロニア語"
 
 #: ../deskbar/handlers/googlesearch.py:33 ../deskbar/handlers/yahoo.py:33
-#, fuzzy
 msgid "Chinese (Simplified)"
 msgstr "中国語 (簡体字)"
 
 #: ../deskbar/handlers/googlesearch.py:34 ../deskbar/handlers/yahoo.py:34
-#, fuzzy
 msgid "Chinese (Traditional)"
 msgstr "中国語 (繁体字)"
 
@@ -1002,7 +994,7 @@ msgstr "Google 検索の設定"
 
 #: ../deskbar/handlers/googlesearch.py:268 ../deskbar/handlers/yahoo.py:419
 msgid "<b>Choose the language the results should be in:</b>"
-msgstr "<b>検索結果で優先する言語を選択して下さい:</b>"
+msgstr "<b>検索結果で優先する言語を選択してください:</b>"
 
 #: ../deskbar/handlers/history.py:28
 msgid "Recognize previously used searches"
@@ -1063,7 +1055,6 @@ msgid "OpenSearch"
 msgstr "OpenSearch"
 
 #: ../deskbar/handlers/opensearch.py:93
-#, fuzzy
 msgid "Searches any OpenSearch-compliant website"
 msgstr "OpenSearch 準拠のウェブサイトを使って検索します"
 
@@ -1087,8 +1078,8 @@ msgid ""
 "document or you can just enter your own values manually."
 msgstr ""
 "このウェブサイトで OpenSearch の記述ファイル (Description Document) が格納さ"
-"れている場所 (URL) を入力して下さい。更新ボタンをクリックすると｢名前｣と｢説明｣"
-"が自動的にセットされます。あるいは手動で入力しても構いません:"
+"れている場所 (URL) を入力してください。更新ボタンをクリックすると「名前」と"
+"「説明」が自動的にセットされます。あるいは手動で入力しても構いません:"
 
 #: ../deskbar/handlers/opensearch.py:427
 msgid "_Location (URL):"
@@ -1112,7 +1103,7 @@ msgstr "場所が不明です"
 
 #: ../deskbar/handlers/opensearch.py:476
 msgid "Please enter a valid location (URL) for this website"
-msgstr "このウェブサイトの妥当な URL を入力して下さい。"
+msgstr "このウェブサイトの妥当な URL を入力してください。"
 
 #: ../deskbar/handlers/opensearch.py:479
 msgid "Name missing"
@@ -1120,7 +1111,7 @@ msgstr "名前がありません"
 
 #: ../deskbar/handlers/opensearch.py:479
 msgid "Please enter a name for this website"
-msgstr "このウェブサイトの名前を入力して下さい。"
+msgstr "このウェブサイトの名前を入力してください。"
 
 #: ../deskbar/handlers/opensearch.py:482
 msgid "Description missing"
@@ -1128,7 +1119,7 @@ msgstr "説明がありません"
 
 #: ../deskbar/handlers/opensearch.py:482
 msgid "Please enter a description for this website"
-msgstr "このウェブサイトの説明を入力して下さい。"
+msgstr "このウェブサイトの説明を入力してください。"
 
 #: ../deskbar/handlers/opensearch.py:529
 msgid "Unable to load description document"
@@ -1137,7 +1128,8 @@ msgstr "記述ファイルを取得できません"
 #: ../deskbar/handlers/opensearch.py:530
 msgid "Make sure the URL points to a valid OpenSearch description document."
 msgstr ""
-"指定した URL が正しい OpenSearch の記述ファイルを指しているか確認して下さい。"
+"指定した URL が正しい OpenSearch の記述ファイルを指しているか確認してくださ"
+"い。"
 
 #: ../deskbar/handlers/opensearch.py:546
 msgid "Add OpenSearch Website"
@@ -1248,7 +1240,7 @@ msgstr "フォルダの選択"
 #: ../deskbar/handlers/templates.py:126
 #, python-format
 msgid "A file named \"%s\" already exists.  Do you want to replace it?"
-msgstr "\"%s\" というファイルは既に存在していますが、置き換えますか？"
+msgstr "\"%s\" というファイルは既に存在していますが、置き換えますか?"
 
 #: ../deskbar/handlers/templates.py:130
 #, python-format
@@ -1286,7 +1278,7 @@ msgstr "<b>%(name)s</b> というメモを開く"
 
 #: ../deskbar/handlers/tomboy.py:62
 msgid "Really delete this note?"
-msgstr "このメモを本当に削除しますか？"
+msgstr "このメモを本当に削除しますか?"
 
 #: ../deskbar/handlers/tomboy.py:63
 msgid "If you delete a note it is permanently lost."
@@ -1329,7 +1321,7 @@ msgid ""
 "Tomboy %s or greater must be installed."
 msgstr ""
 "Tomboy のバージョンが古いようです。\n"
-"Tomboy のバージョン %s 以上をインストールして下さい。"
+"Tomboy のバージョン %s 以上をインストールしてください。"
 
 #: ../deskbar/handlers/twitter.py:36
 #, python-format
@@ -1343,7 +1335,7 @@ msgid ""
 " • Your credentials in the preferences are correct"
 msgstr ""
 "%(domain)s の更新を投稿できませんでした。\n"
-"次の内容を確認してみて下さい:\n"
+"次の内容を確認してみてください:\n"
 "\n"
 " •お使いのマシンからインターネットに正しく接続できているか\n"
 " •お使いのウェブブラウザから <i>http://%(domain)s</i>\n"
@@ -1351,13 +1343,12 @@ msgstr ""
 " •設定で指定した認証情報が間違っていないか"
 
 #: ../deskbar/handlers/twitter.py:95
-#, fuzzy
 msgid ""
 "A post is already awaiting submission; please wait before you post another "
 "message"
 msgstr ""
-"既に投稿確認待ちに入っています (少し待ってから別のメッセージを投稿してみて下"
-"さい)"
+"投稿は送信待ちに入っています。別のメッセージを投稿するにはしばらくお待ちくだ"
+"さい"
 
 #: ../deskbar/handlers/twitter.py:96 ../deskbar/handlers/twitter.py:109
 #: ../deskbar/handlers/twitter.py:151
@@ -1411,7 +1402,7 @@ msgid ""
 "You must configure a username and password on the <i>identi.ca</i> website "
 "if you haven't already."
 msgstr ""
-"このアプレットは OpenID を使った認証方法をサポートしていないのでご注意下さ"
+"このアプレットは OpenID を使った認証方法をサポートしていないのでご注意くださ"
 "い。<i>identi.ca</i> のウェブサイトにおける設定を未だ行っていないのであれば"
 "ユーザ名とパスワードを指定してアカウントを取得しておく必要があります。"
 
@@ -1452,7 +1443,7 @@ msgstr "Wikipedia Suggest の設定"
 msgid ""
 "Choose the language you want to use or enter the code of your language "
 "manually"
-msgstr "使用する言語を選択するか、または言語コードを入力して下さい:"
+msgstr "使用する言語を選択するか、または言語コードを入力してください:"
 
 #: ../deskbar/handlers/yahoo.py:55
 msgid "Persian"
@@ -1601,12 +1592,11 @@ msgstr "終了"
 msgid "<i>Empty</i>"
 msgstr "<i>空の</i>"
 
-#: ../deskbar/ui/preferences/AccelEntry.py:102
-#, fuzzy
+#: ../deskbar/ui/preferences/AccelEntry.py:103
 msgid "New accelerator…"
-msgstr "新しいアクセラレータ..."
+msgstr "新しいアクセラレータ…"
 
-#: ../deskbar/ui/preferences/AccelEntry.py:154
+#: ../deskbar/ui/preferences/AccelEntry.py:155
 #, python-format
 msgid ""
 "The shortcut \"%s\" cannot be used because it will prevent correct operation "
@@ -1615,18 +1605,18 @@ msgid ""
 msgstr ""
 "妥当なキーボード操作ができなくなるため \"%s\" というショートカット・キーは利"
 "用できません。\n"
-"[Control] や [Alt] または [Shift] キーといった修飾キーと一緒に指定してみて下"
-"さい。\n"
+"[Control] や [Alt] または [Shift] キーといった修飾キーと一緒に指定してみてく"
+"ださい。\n"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:96
 msgid "<i><small>Drag and drop an extension to change its order.</small></i>"
 msgstr ""
-"<i><small>順番を変更する時はモジュールをドラッグ＆ドロップして入れ替えて下さ"
-"い</small></i>"
+"<i><small>順番を変更する時はモジュールをドラッグ&amp;ドロップして入れ替えてく"
+"ださい</small></i>"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:170
 msgid "All Extensions"
-msgstr "全ての拡張機能"
+msgstr "すべての拡張機能"
 
 #: ../deskbar/ui/preferences/DeskbarPreferences.py:231
 msgid "A problem occured"
@@ -1676,7 +1666,7 @@ msgstr "エラー"
 
 #: ../deskbar/ui/preferences/ErrorDialog.py:27
 msgid "Check the description beneath for further details."
-msgstr "詳細については次の内容を確認してみて下さい"
+msgstr "詳細については次の内容を確認してみてください"
 
 #: ../deskbar/ui/preferences/ErrorDialog.py:33
 msgid "Details"
@@ -1691,7 +1681,7 @@ msgid "Update Available"
 msgstr "アップデートできます"
 
 #~ msgid "The default position of the window on the screen (y-coordinate)"
-#~ msgstr "検索ボックスのデフォルトの位置 (Ｙ座標) です。"
+#~ msgstr "検索ボックスのデフォルトの位置 (Y座標) です。"
 
 #~ msgid "<b>Search:</b>"
 #~ msgstr "<b>検索:</b>"
