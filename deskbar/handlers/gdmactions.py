@@ -6,7 +6,6 @@ import dbus.glib
 import deskbar
 import deskbar.core.Indexer
 import deskbar.core.Utils
-import deskbar.handlers.gdmclient
 import deskbar.interfaces.Action
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
@@ -324,7 +323,7 @@ class GdmSwitchUserAction(deskbar.interfaces.Action):
         deskbar.interfaces.Action.__init__(self, name)
         
     def activate(self, text=None):
-        deskbar.handlers.gdmclient.new_login()
+        glib.spawn_async(["gdmflexiserver", "--startnew"], flags=glib.SPAWN_SEARCH_PATH)
         
     def get_verb(self):
         return _("Switch User")
