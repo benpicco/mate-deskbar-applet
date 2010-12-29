@@ -100,7 +100,7 @@ class AccelEntry( gobject.GObject ):
 
     def __on_button_press_event(self, entry, event):
         self.__old_value = self.entry.get_text()
-        entry.set_text( _('New accelerator…') )
+        entry.set_text( _(u'New accelerator…') )
         entry.grab_focus()
         return True
 
