@@ -216,7 +216,7 @@ class TomboyNotesModule (deskbar.interfaces.Module):
 def get_tomboy_connection():
     dbus_loop = DBusGMainLoop()
     bus = dbus.SessionBus( mainloop=dbus_loop )
-    tomboy_obj = bus.get_object( "org.gnome.Tomboy", "/org/gnome/Tomboy/RemoteControl" )
+    tomboy_obj = bus.get_object( "org.mate.Tomboy", "/org/gnome/Tomboy/RemoteControl" )
     return dbus.Interface( tomboy_obj, "org.gnome.Tomboy.RemoteControl" )
 
 # Make it easier to use the Tomboy connection

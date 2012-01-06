@@ -29,7 +29,7 @@ class SendFileViaEmailAction (deskbar.interfaces.Action):
         return "stock_mail-compose"
     
     def activate(self, text=None):
-        exe = GconfStore.get_instance().get_client().get_string("/desktop/gnome/url-handlers/mailto/command")
+        exe = GconfStore.get_instance().get_client().get_string("/desktop/mate/url-handlers/mailto/command")
         exe = exe.replace(" %s", "") 
         if "thunderbird" in exe:
             cmd = ["--compose", "attachment=%s" % self._uri]

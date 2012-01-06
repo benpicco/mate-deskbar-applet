@@ -1,4 +1,4 @@
-2009-04-16  Sebastian Pölsterl  <sebp@cvs.gnome.org>
+2009-04-16  Sebastian Pölsterl  <sebp@cvs.mate.org>
 
     * deskbar/handlers/templates.py:
     Fixed bug #575185: Scan directories in templates folder
@@ -31,7 +31,7 @@
 2009-04-13  Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
 	* deskbar/handlers/evolution/Makefile.am
-	* deskbar/handlers/gdmclient/Makefile.am
+	* deskbar/handlers/mdmclient/Makefile.am
 	* deskbar/osutils/Makefile.am
 	* deskbar/core/_userdirs/Makefile.am
 	* deskbar/core/keybinder/Makefile.am
@@ -50,7 +50,7 @@
     * deskbar/core/Web.py:
     * deskbar/handlers/twitter.py:
     Fixed bug #577649: deskbar-applet crashes
-    because of GnomeURLopener in deskbar.core.Web
+    because of MateURLopener in deskbar.core.Web
     on x86_64
 
 2009-04-02  Sebastian Pölsterl  <sebp@cvs.gnome.org>
@@ -403,7 +403,7 @@
     * deskbar/handlers/mozilla.py
     * deskbar/handlers/actions/ActionsFactory.py
     * deskbar/handlers/actions/OpenFileAction.py
-    * deskbar/handlers/actions/OpenWithNautilusAction.py
+    * deskbar/handlers/actions/OpenWithCajaAction.py
     * deskbar/handlers/beagle-live.py
     * deskbar/handlers/yahoo.py
     * deskbar/core/Watcher.py
@@ -516,7 +516,7 @@
 
     * data/deskbar-applet.schemas.in:
     Changed default UI "Button".
-    Added RecentHandler, CalculatorModule, GdmHandler
+    Added RecentHandler, CalculatorModule, MdmHandler
     and TemplateHandler to default list of enabled modules.
     Removed MozillaBookmarksHandler and MozillaSearchHandler
     from default list of enabled modules.
@@ -1022,7 +1022,7 @@
     * deskbar/ui/preferences/DeskbarPreferences.py:
     Removed unused method on_use_newstyleui_toggled
     
-    * deskbar/core/GConfStore.py:
+    * deskbar/core/MateConfStore.py:
     Removed unused use-newstyleui-changed signal and
     get_use_newstyleui method
 
@@ -2595,7 +2595,7 @@
 2007-09-29	Sebastian Pölsterl  <sebp@cvs.gnome.org>
 
     * data/deskbar-applet.schemas.in:
-    Fixed bug #478067: gconf schema problem.
+    Fixed bug #478067: mateconf schema problem.
     String freeze break approval by Johannes Schmid and
     Claude Paroz
 
@@ -4485,7 +4485,7 @@
 	This closes #338828.
 	
 	I found a valuable hint here:
-	http://mail.gnome.org/archives/metacity-devel-list/2006-July/msg00039.html
+	http://mail.gnome.org/archives/marco-devel-list/2006-July/msg00039.html
 
 2006-07-30  Mikkel Kamstrup Erlandsen  <kamstrup@cvs.gnome.org>
 
@@ -5008,7 +5008,7 @@
 
 	The plugin updater is generic and can be hopefully made useful in some
 	ways for other applications using python or non-compiled files, like
-	gedit, rhythmbox, epiphany, gnumeric, the theme/icons/metacity dialog, etc
+	pluma, rhythmbox, epiphany, gnumeric, the theme/icons/metacity dialog, etc
 
 2006-06-10  Mikkel Kamstrup Erlandsen   <kamstrup@cvs.gnome.org>
 
@@ -5476,7 +5476,7 @@
 2006-03-12  Raphael Slinckx  <rslinckx@cvs.gnome.org>
 
 	* deskbar/deskbar-applet.py:
-	Fix problems when using a latin locale with bonobo crashing.
+	Fix problems when using a latin locale with matecomponent crashing.
 	Fixes bug #332545
 
 2006-03-11  Duarte Loreto <happyguy_pt@hotmail.com>
@@ -5986,7 +5986,7 @@
 	* deskbar/ui/cuemiac/CuemiacHistory.py:
 	* po/POTFILES.in:
 	Fixes gnome-dictionary 2.13 launching
-	Workaround problem with gnome-open not opening saved nautilus searches
+	Workaround problem with gnome-open not opening saved caja searches
 	correctly
 	Remove focus-with-hover feature of cuemiac
 	Add yahoo to translation list
@@ -6806,7 +6806,7 @@
 
 	Create an appropriate API for receiving key-combos in handlers
 
-	Add output view in zenity when hitting ctrl-t with a program name in the
+	Add output view in matedialog when hitting ctrl-t with a program name in the
 	entry
 
 2006-01-16  Raphael Slinckx  <rslinckx@cvs.gnome.org>
@@ -7109,7 +7109,7 @@
 	Correct a bug that evolution.py wasn't installed because it checked for
 	beagle support instead of checking for evolution support.
 	Add preliminary and probably garbage transparency stuff. A new API is in
-	the make to have this in a cleaner way in libpanel-applet
+	the make to have this in a cleaner way in libmate-panel-applet
 
 2005-11-20  Kjartan Maraas  <kmaraas@gnome.org>
 
@@ -7794,7 +7794,7 @@
 
 	* data/Deskbar_Applet.server.in.in: Do not expose "Applet" terminology 
 	to user.
-	* data/prefs-dialog.glade:  GNOME HIG changes: fix typo; fix
+	* data/prefs-dialog.glade:  MATE HIG changes: fix typo; fix
 	border width; rephrase and move handler comment; fix a broken
 	mnemonic.
 	* deskbar/about.py:  Do not expose "Applet" terminology  to user.

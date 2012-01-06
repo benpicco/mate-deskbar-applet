@@ -79,7 +79,7 @@ class CuemiacCellRendererAction (CuemiacCellRenderer):
     def _calculate_arrow_geometry (self, x, y, width, height):
         """
         Stolen from calculate_arrow_geometry at
-        http://svn.gnome.org/svn/gtk+/trunk/gtk/gtkstyle.c
+        http://svn.mate.org/svn/gtk+/trunk/gtk/gtkstyle.c
         """
         # For right arrows only
         h = height + (height % 2) - 1

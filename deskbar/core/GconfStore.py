@@ -1,13 +1,13 @@
-import gconf
+import mateconf
 import gobject
 
 class GconfStore(gobject.GObject):
     """
-    Handles storing to and retrieving values from GConf 
+    Handles storing to and retrieving values from MateConf 
     """
 
     # GConf directory for deskbar in window mode and shared settings
-    GCONF_DIR = "/apps/deskbar"
+    MATECONF_DIR = "/apps/deskbar"
     
     # GConf key to the setting for the minimum number of chars of a query
     GCONF_MINCHARS = GCONF_DIR + "/minchars"
@@ -45,7 +45,7 @@ class GconfStore(gobject.GObject):
     
     GCONF_ENTRY_WIDTH = GCONF_DIR + "/entry_width"
 
-    GCONF_DEFAULT_BROWSER = "/desktop/gnome/url-handlers/http/command"
+    GCONF_DEFAULT_BROWSER = "/desktop/mate/url-handlers/http/command"
     
     __gsignals__ = {
         "keybinding-changed" : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, [gobject.TYPE_STRING]),

@@ -7,7 +7,7 @@ from os.path import join, expanduser, isdir
 from os import stat
 import deskbar, deskbar.core.Indexer
 import deskbar.core.Utils
-import gnomedesktop
+import matedesktop
 import deskbar.interfaces.Action
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
@@ -20,7 +20,7 @@ import time
 
 HANDLERS = [
     "ProgramsHandler",
-    "GnomeDictHandler",
+    "MateDictHandler",
     "GnomeSearchHandler",
     "DevhelpHandler"]
 
@@ -147,7 +147,7 @@ class GnomeDictHandler(SpecialProgramHandler):
     @staticmethod
     def has_requirements():
         if not SpecialProgramHandler.desktop_file_exists("gnome-dictionary.desktop"):
-            DevhelpHandler.INSTRUCTIONS = _("GNOME dictionary is not installed")
+            DevhelpHandler.INSTRUCTIONS = _("MATE dictionary is not installed")
             return False
         return True
         
@@ -221,7 +221,7 @@ class OpenPathProgramAction(deskbar.interfaces.Action):
                     stdout=subprocess.PIPE,
                     stderr=subprocess.STDOUT)
                 
-                zenity = subprocess.Popen(
+                matedialog = subprocess.Popen(
                     ["zenity", "--title="+self._name,
                         "--window-icon="+join(deskbar.ART_DATA_DIR, "generic.png"),
                         "--width=700",

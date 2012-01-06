@@ -5,7 +5,7 @@ from htmlentitydefs import name2codepoint
 from os.path import *
 import cgi
 import deskbar
-import gnomedesktop
+import matedesktop
 import gio
 import glib
 import gtk

@@ -2,7 +2,7 @@ from deskbar.handlers.actions.OpenWithApplicationAction import OpenWithApplicati
 from gettext import gettext as _
 import gio
 
-class OpenWithNautilusAction(OpenWithApplicationAction):
+class OpenWithCajaAction(OpenWithApplicationAction):
     """
     Open URI with Nautilus
     """
@@ -15,7 +15,7 @@ class OpenWithNautilusAction(OpenWithApplicationAction):
         @param url: URL including protocol
         (e.g. file://, http://, ftp://)
         """
-        OpenWithApplicationAction.__init__(self, name, "nautilus", [url])
+        OpenWithApplicationAction.__init__(self, name, "caja", [url])
         self._url = url
     
     def get_icon(self):

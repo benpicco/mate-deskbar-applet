@@ -1,7 +1,7 @@
 from deskbar.core.Utils import get_xdg_data_dirs
 from gettext import gettext as _
 from os.path import join, exists
-import gnomedesktop
+import matedesktop
 import deskbar.interfaces.Action
 import logging
 
@@ -53,7 +53,7 @@ class OpenDesktopFileAction(deskbar.interfaces.Action):
     
     def get_verb(self):
         #translators: First %s is the programs full name, second is the executable name
-        #translators: For example: Launch Text Editor (gedit)
+        #translators: For example: Launch Text Editor (pluma)
         return _("Launch <b>%(name)s</b> (%(prog)s)")
     
     def activate(self, text=None):

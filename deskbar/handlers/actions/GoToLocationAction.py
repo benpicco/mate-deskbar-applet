@@ -1,10 +1,10 @@
-from deskbar.handlers.actions.OpenWithNautilusAction import OpenWithNautilusAction
+from deskbar.handlers.actions.OpenWithCajaAction import OpenWithNautilusAction
 from os.path import dirname, isdir
 from gettext import gettext as _
 
 class GoToLocationAction(OpenWithNautilusAction):
     """
-    Open given location in nautilus
+    Open given location in caja
     """
     
     def __init__(self, name, file_dir_path):

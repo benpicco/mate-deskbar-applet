@@ -7,7 +7,7 @@ import logging
 import gettext
 import locale
 from gettext import gettext as _
-import gnomeapplet
+import mateapplet
 from optparse import OptionParser
 
 # Return a standalone window that holds the applet
@@ -107,7 +107,7 @@ elif options.window:
 else:
     from deskbar.ui.DeskbarApplet import DeskbarApplet
     
-    gnomeapplet.bonobo_factory(
+    gnomeapplet.matecomponent_factory(
             "OAFIID:Deskbar_Applet_Factory",
             DeskbarApplet.__gtype__,
             deskbar.defs.PACKAGE,

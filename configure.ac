@@ -1,12 +1,12 @@
 AC_INIT(deskbar-applet, 2.32.0,
-    [http://bugzilla.gnome.org/browse.cgi?product=deskbar-applet])
+    [http://bugzilla.mate.org/browse.cgi?product=deskbar-applet])
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
 
 AM_INIT_AUTOMAKE
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
-GNOME_COMMON_INIT
+MATE_COMMON_INIT
 
 AM_MAINTAINER_MODE
 AM_DISABLE_STATIC
@@ -33,12 +33,12 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [The gettext package])
 AM_GLIB_GNU_GETTEXT
 
 dnl ****************************************************************************
-dnl * Gnome Doc Utils
+dnl * Mate Doc Utils
 dnl ****************************************************************************
 GNOME_DOC_INIT
 
 dnl ****************************************************************************
-dnl * GConf support
+dnl * MateConf support
 dnl ****************************************************************************
 AC_PATH_PROG(GCONFTOOL, gconftool-2)
 AM_GCONF_SOURCE_2

@@ -44,7 +44,7 @@ if UNINSTALLED_DESKBAR:
 
 HANDLERS_DIR += [join(LIB_DIR, "deskbar-applet", "modules-2.20-compatible")]
 
-OLD_USER_DESKBAR_DIR = expanduser("~/.gnome2/deskbar-applet")
+OLD_USER_DESKBAR_DIR = expanduser("~/.mate2/deskbar-applet")
 USER_CONFIG_DIR = join(XDG_CONFIG_HOME, "deskbar-applet")
         
 USER_DATA_DIR = join(XDG_DATA_HOME, "deskbar-applet")

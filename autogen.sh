@@ -20,7 +20,7 @@ REQUIRED_MACROS="python.m4"
 
 DIE=0
 
-gnome_autogen=
+mate_autogen=
 gnome_datadir=
 
 ifs_save="$IFS"; IFS=":"
@@ -40,4 +40,4 @@ if test -z "$gnome_autogen" ; then
   exit 1
 fi
 
-GNOME_DATADIR="$gnome_datadir" USE_GNOME2_MACROS=1 . $gnome_autogen
+MATE_DATADIR="$gnome_datadir" USE_GNOME2_MACROS=1 . $gnome_autogen

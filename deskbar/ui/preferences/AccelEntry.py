@@ -144,7 +144,7 @@ class AccelEntry( gobject.GObject ):
                       or (accel_keyval >= gtk.keysyms.hebrew_doublelowline and accel_keyval <= gtk.keysyms.hebrew_taf)
                       or (accel_keyval >= gtk.keysyms.Thai_kokai and accel_keyval <= gtk.keysyms.Thai_lekkao)
                       or (accel_keyval >= gtk.keysyms.Hangul and accel_keyval <= gtk.keysyms.Hangul_Special)
-                      or (accel_keyval >= gtk.keysyms.Hangul_Kiyeog and accel_keyval <= gtk.keysyms.Hangul_J_YeorinHieuh)
+                      or (accel_keyval >= gtk.keysyms.Hangul_Kiyeom and accel_keyval <= gtk.keysyms.Hangul_J_YeorinHieuh)
                   ))
             or (accel_mods == 0 and accel_keyval in self.FORBIDDEN_KEYS)
             or (accel_keyval == 0 and accel_mods != 0) ):

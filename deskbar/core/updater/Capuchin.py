@@ -5,7 +5,7 @@ import logging
 
 LOGGER = logging.getLogger(__name__)
 
-CAPUCHIN_DBUS_SERVICE = "org.gnome.Capuchin"
+CAPUCHIN_DBUS_SERVICE = "org.mate.Capuchin"
 APP_OBJECT_MANAGER_DBUS_INTERFACE = "org.gnome.Capuchin"
 APP_OBJECT_MANAGER_DBUS_PATH = "/org/gnome/Capuchin/AppObjectManager"
 APP_OBJECT_DBUS_INTERFACE = "org.gnome.Capuchin.AppObject"

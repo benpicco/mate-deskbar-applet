@@ -22,7 +22,7 @@ HANDLERS = ["YahooHandler", "YahooSuggestHandler"]
 YAHOO_API_KEY = 'deskbar-applet'
 MAX_RESULTS = 15
     
-GCONF_YAHOO_LANG = GconfStore.GCONF_DIR+"/yahoo/language"
+MATECONF_YAHOO_LANG = GconfStore.GCONF_DIR+"/yahoo/language"
 
 # Languages supported by Yahoo
 # see http://developer.yahoo.com/search/languages.html
@@ -110,7 +110,7 @@ class YahooHandler(deskbar.interfaces.Module):
         self.server = None
         self._lang = None
         self._format_regex = re.compile("format:(\w+)")
-        self._gconf = GconfStore.get_instance().get_client()
+        self._mateconf = GconfStore.get_instance().get_client()
         self._gconf.notify_add(GCONF_YAHOO_LANG, self._on_language_changed)
         self._set_lang()
         

@@ -92,11 +92,11 @@ def get_firefox_version():
 
 # Whether we offer all of the browser's search engines, or only the primary
 # one (since by default Firefox seems to come with at least half a dozen)            
-GCONF_SHOW_ONLY_PRIMARY_KEY = GconfStore.GCONF_DIR + "/mozilla/show_only_primary_search"
+MATECONF_SHOW_ONLY_PRIMARY_KEY = GconfStore.GCONF_DIR + "/mozilla/show_only_primary_search"
 SHOW_ONLY_PRIMARY = GconfStore.get_instance().get_client().get_bool(GCONF_SHOW_ONLY_PRIMARY_KEY)
 if SHOW_ONLY_PRIMARY == None:
     SHOW_ONLY_PRIMARY = False
-def _on_gconf_show_only_primary(value):
+def _on_mateconf_show_only_primary(value):
     global SHOW_ONLY_PRIMARY
     SHOW_ONLY_PRIMARY = value
 GconfStore.get_instance().get_client().notify_add(GCONF_SHOW_ONLY_PRIMARY_KEY, lambda x, y, z, a: _on_gconf_show_only_primary(z.value.get_bool()))
@@ -562,7 +562,7 @@ class MozillaSmartBookmarksParser:
         infos["description"] = self.infos["search"]["description"]
 
         # FIXME: If we don't have a real fallback url, doing this will most probably
-        # result in some error. Ideally, we should use gnomevfs to extract the
+        # result in some error. Ideally, we should use matevfs to extract the
         # simple hostname, for example: https://www.amazon.com/obidos/blah/q=%s&ie=7753829
         # should be trimmed to https://www.amazon.com
         if not "url" in self.infos["search"]:
@@ -840,4 +840,3 @@ class MozillaHistoryHandler(deskbar.interfaces.Module):
         else:
             MozillaHistoryHandler.INSTRUCTIONS = _("Mozilla/Firefox is not your preferred browser.")
             return False
-

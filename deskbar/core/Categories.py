@@ -39,7 +39,7 @@ CATEGORIES = {
     },
     "actions"    : {    
         "name": _("Actions"),
-        "icon": load_icon("gnome-system"),
+        "icon": load_icon("mate-system"),
     },
     "web"    : {    
         "name": _("Web"),

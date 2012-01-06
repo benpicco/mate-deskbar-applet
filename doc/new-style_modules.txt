@@ -3,7 +3,7 @@ Writing new-style modules for Deskbar-Applet
 Sebastian Pölsterl
 v1.2.9, September 9th, 2008
 
-In this article I give an introduction to the new module interface of GNOME Deskbar-Applet.
+In this article I give an introduction to the new module interface of MATE Deskbar-Applet.
 The module interface changed for various reasons. One of them was the very slow startup time.
 With the new interface the startup is significantly faster, because the modules are checked
 before an instance is created.
@@ -307,7 +307,7 @@ Despite writing your own action you can make use of the basic actions shipped wi
 - OpenDesktopFileAction
 - OpenFileAction
 - OpenWithApplicationAction
-- OpenWithNautilusAction
+- OpenWithCajaAction
 - SendEmailToAction
 - SendFileViaEmailAction
 - ShowUrlAction
@@ -483,7 +483,7 @@ You have to do two things in your <<class-module,Module>> sub-class:
 1. Override `has_config` method that it returns `True`
 2. Override `show_config` method where you create your dialog
 
-You can store the values of the options in a plain text file, in <<advanced-gconf,GConf>> or
+You can store the values of the options in a plain text file, in <<advanced-mateconf,MateConf>> or
 using one of the Python modules http://docs.python.org/lib/module-pickle.html[pickle] and 
 http://docs.python.org/lib/module-cPickle.html[cPickle].
 
@@ -592,4 +592,3 @@ def __setstate__(self, state):
 	self.__dict__ = state
 	self.object = EvilObject( self.file_location )
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-

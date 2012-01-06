@@ -8,7 +8,7 @@ import deskbar
 import deskbar.core.Utils
 import deskbar.interfaces.Match
 import deskbar.interfaces.Module
-import gconf
+import mateconf
 import gtk
 import logging
 import re
@@ -17,7 +17,7 @@ import xml.dom.minidom
 
 LOGGER = logging.getLogger(__name__)
 
-GCONF_DELICIOUS_USER  = GconfStore.GCONF_DIR+"/desklicious/user"
+MATECONF_DELICIOUS_USER  = GconfStore.GCONF_DIR+"/desklicious/user"
 
 DEFAULT_QUERY_TAG = 'http://feeds.delicious.com/rss/%s/%s'
 
@@ -196,4 +196,3 @@ class DeliciousTagQueryEngine:
             dom.unlink()
         
         return posts
-

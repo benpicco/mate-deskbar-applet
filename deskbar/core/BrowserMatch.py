@@ -18,7 +18,7 @@ import urllib
 LOGGER = logging.getLogger(__name__)
 
 def get_preferred_browser():
-    http_handler = GconfStore.get_instance().get_client().get_string("/desktop/gnome/url-handlers/http/command")
+    http_handler = GconfStore.get_instance().get_client().get_string("/desktop/mate/url-handlers/http/command")
     if http_handler == None:
         return None
         

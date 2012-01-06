@@ -9,14 +9,14 @@ import logging
 import threading
 import re
 import urllib
-import gnomekeyring
+import matekeyring
 
 LOGGER = logging.getLogger(__name__)
 
 class Account :
     """
     This is an abstraction used to make it easier to move
-    away from a GConf password storage solution (Seahorse anyone?)
+    away from a MateConf password storage solution (Seahorse anyone?)
     
     WARNING: This API is synchronous. This does not matter much to deskbar since
              web based modules will likely run in threads anyway.
@@ -193,7 +193,7 @@ class AccountDialog (gtk.MessageDialog):
         
 class ConcurrentRequestsException (Exception):
     """
-    Raised by L{GnomeURLopener} if there are multiple concurrent
+    Raised by L{MateURLopener} if there are multiple concurrent
     requests to L{GnomeURLopener.open_async}.
     """
     def __init__ (self):
@@ -366,4 +366,3 @@ class GnomeURLopener (urllib.FancyURLopener):
         if callback != None and callable(callback):
             callback(self, info)
         gtk.gdk.threads_leave()
-

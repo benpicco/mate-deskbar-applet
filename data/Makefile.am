@@ -1,7 +1,7 @@
 SUBDIRS = art
 
 # ******************************************************************************
-# Panel applet bonobo stuff
+# Panel applet matecomponent stuff
 # ******************************************************************************
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_in_files = deskbar-applet.pc.in
@@ -15,10 +15,10 @@ server_in_files = Deskbar_Applet.server.in
 server_DATA = $(server_in_files:.server.in=.server)
 
 # ******************************************************************************
-# GConf Schemas
+# MateConf Schemas
 # ******************************************************************************
 # GConf Preference Schemas
-schemadir = $(GCONF_SCHEMA_FILE_DIR)
+schemadir = $(MATECONF_SCHEMA_FILE_DIR)
 schema_in_files = deskbar-applet.schemas.in
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 

@@ -3,7 +3,7 @@ from deskbar.defs import VERSION
 from deskbar.handlers.actions.ActionsFactory import get_actions_for_uri
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.handlers.actions.OpenFileAction import OpenFileAction
-from deskbar.handlers.actions.OpenWithNautilusAction import OpenWithNautilusAction
+from deskbar.handlers.actions.OpenWithCajaAction import OpenWithNautilusAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from gettext import gettext as _
 from os.path import join, basename, normpath, abspath, dirname
@@ -209,6 +209,6 @@ def filesystem_possible_completions(prefix, is_file=False):
         LOGGER.exception(e)
         return ([], prefix, relative)
 
-#FIXME: gross hack to detect .savedSearches from nautilus as folders
+#FIXME: gross hack to detect .savedSearches from caja as folders
 def my_isfile(path):
     return isfile(path) and not path.endswith(".savedSearch")

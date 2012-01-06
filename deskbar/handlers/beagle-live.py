@@ -460,7 +460,7 @@ class BeagleLiveMatch (deskbar.interfaces.Match):
         # Load the correct icon
         
         #
-        # There is bug http://bugzilla.gnome.org/show_bug.cgi?id=319549
+        # There is bug http://bugzilla.mate.org/show_bug.cgi?id=319549
         # which has been fixed and comitted, so we re-enable this snippet
         #
         

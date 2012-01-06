@@ -22,7 +22,7 @@ except:
 LOGGER = logging.getLogger(__name__)
     
 HANDLERS = ["GoogleHandler"]
-GCONF_GOOGLE_LANG = GconfStore.GCONF_DIR+"/google/language"
+MATECONF_GOOGLE_LANG = GconfStore.GCONF_DIR+"/google/language"
 
 # Languages supported by Google
 # see: http://www.google.com/coop/docs/cse/resultsxml.html#languageCollections
@@ -90,7 +90,7 @@ class GoogleHandler(deskbar.interfaces.Module):
         deskbar.interfaces.Module.__init__(self)
         self.server = None
         self._lang = None
-        self._gconf = GconfStore.get_instance().get_client()
+        self._mateconf = GconfStore.get_instance().get_client()
         self._gconf.notify_add(GCONF_GOOGLE_LANG, self._on_language_changed)
         self._set_lang()
     
@@ -300,5 +300,3 @@ class GoogleConfigDialog(gtk.Dialog):
     def _on_combobox_changed(self, combobox):
         lang = combobox.get_model()[combobox.get_active_iter()][1]
         GconfStore.get_instance().get_client().set_string(GCONF_GOOGLE_LANG, lang)
-
-

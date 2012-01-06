@@ -198,7 +198,7 @@ init (void)
 	GSList *list, *l;
 	ESourceList *source_list;
 
-	source_list = e_source_list_new_for_gconf_default ("/apps/evolution/addressbook/sources");
+	source_list = e_source_list_new_for_mateconf_default ("/apps/evolution/addressbook/sources");
 	if (source_list == NULL) {
 		return;
 	}
@@ -305,7 +305,7 @@ search_async (const char         *query,
 /*
  * Note: you may get a message "WARNING **: FIXME: wait for completion unimplemented"
  * if you call search_sync but are not running the gobject main loop.
- * This appears to be harmless: http://bugzilla.gnome.org/show_bug.cgi?id=314544
+ * This appears to be harmless: http://bugzilla.mate.org/show_bug.cgi?id=314544
  */
 GList *
 search_sync (const char *query,

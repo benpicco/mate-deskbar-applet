@@ -55,7 +55,7 @@ class ISwitchWindowMatch(deskbar.interfaces.Match):
     
 class ISwitchWindowHandler(deskbar.interfaces.Module):
     
-    INFOS = {'icon': deskbar.core.Utils.load_icon("gnome-panel-window-menu.png"),
+    INFOS = {'icon': deskbar.core.Utils.load_icon("mate-panel-window-menu.png"),
              "name": _("Window Switcher"),
              "description": _("Switch to an existing window by name."),
              "version": VERSION,

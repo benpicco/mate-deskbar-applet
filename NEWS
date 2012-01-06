@@ -4,7 +4,7 @@ deskbar-applet 2.32.0
 
 - Use accessor functions so it compiles with -DGSEAL_ENABLE
 - AccelEntry: Specify UTF-8 encoding at the top of the file
-- Removed gdmclient import and fixed switch user action
+- Removed mdmclient import and fixed switch user action
 
 Translations:
 - Updated ar: Khaled Hosny 
@@ -176,7 +176,7 @@ Translations:
 =====================
 deskbar-applet 2.27.4
 =====================
-In this release the dependency on deprecated libgnomeui has been removed.
+In this release the dependency on deprecated libmateui has been removed.
 
 - Fixed bug in files handler that uppercase querys never showed up
 - Use gio instead gnome.ui to retrieve thumbnails
@@ -479,7 +479,7 @@ Changes:
 	- Add support for embedding an extra widget into AccountDialog (Mikkel Kamstrup Erlandsen)
 	- Fixed #550297, Identi.ca module does not support OpenId causes confussion (Mikkel Kamstrup Erlandsen)
 	- Changed default UI "Button" (Sebastian Pölsterl)
-    - Added RecentHandler, CalculatorModule, GdmHandler and TemplateHandler to default list of enabled modules. Removed MozillaBookmarksHandler and MozillaSearchHandler from default list of enabled modules (Sebastian Pölsterl)
+    - Added RecentHandler, CalculatorModule, MdmHandler and TemplateHandler to default list of enabled modules. Removed MozillaBookmarksHandler and MozillaSearchHandler from default list of enabled modules (Sebastian Pölsterl)
 
 Translations:
 	- Updated bg: Alexander Shopov
@@ -1011,7 +1011,7 @@ Changes:
     * Added action to edit evolution contacts
     * Changed icon for category people to stock_people
     * Added icons for matches of gdmactions module
-    * Added has_requirements method for GnomeDictHandler, GnomeSearchHandler and DevhelpHandler
+    * Added has_requirements method for MateDictHandler, GnomeSearchHandler and DevhelpHandler
     * Load icons from user's modules dir, too
     * Fixed bug #479091: KeyError in _on_snippet_closed
     * Fixed bug #471672: 'NoneType' object has no attribute 'get_actions'
@@ -1232,7 +1232,7 @@ Changes:
 	* Select last match when up is pressed in entry.
 	* Select entry on CuemiacTreeView's "pressed-up-at-top"	and "pressed-down-at-bottom" signals.
 	* Only restore small window if it has been saved before.
-	* Removed "show_history" from GConf schema.
+	* Removed "show_history" from MateConf schema.
 	* Removed obsolote code to show/hide history
 	* Fixed: Missing transparency
 	* Fixed: Doesn't close window after history action has been selected
@@ -1823,7 +1823,7 @@ Changes:
 	* Add a gconf key to set delay between writing something in search entry and performing the search.
 	* Fix #346760: "Text in text entry from previous use is not highlighted when entry is brought up".
 	* Patch by Travis B. Hartwell <nafai@travishartwell.net> for bug #346813 – "All handlers don't explicitly import deskbar.Match".
-	* Keep the window above others when /apps/metacity/general/disable_workarounds is False. (it only worked for True).
+	* Keep the window above others when /apps/marco/general/disable_workarounds is False. (it only worked for True).
 	* Add window mode. You can launch it with -p or --popup. You need to regenerate deskbar/deskbar-applet. This work is mostly due to Sebastian Pölsterl. Things that obviously needs fixing: - Cannot gain focus on shortcut after first show. - UI polish.
 	* Fix middle-click paste.
 	* Do proper popup positioning when the gconf key /apps/metacity/general/disable_workarounds is TRUE. This required setting the gtk.gdk.WINDOW_TYPE_HINT_MENU on the popup. This fixes bug #335243. Re-enable + and ' for expand collapse in the tree. Only recalculate the popup postion when the window is hidden, and don't update_position() on resize events in CuemiacAlignedWindow (see fixme on line 34). Make the history popup of the button ui behave as a normal popup with regards to focus loss. Normal result popup is still toggle-style.
@@ -1867,7 +1867,7 @@ deskbar-applet 2.15.3
 
 Changes:
 	* Fix CuemiacPopupEntry navigation with an evil hack. The hack is encapsulated in the method CuemiacTreeView.move_cursor_up_down. Loads of general polish to the cuemiac stack. I think the history popup is still broken a bit. I plan to make it use some xgrab magic (like the popupentry). Don't popup a lingering selection when we activate something that has children in the treeview.
-	* Introduction of the plugin updater/downloader, so it will be possible to update and download new plugins from internet, right in deskbar. Current commit includes build system patches (with dbus dependency, if someone can't build because of that, it can be made optional, but no updater) Also included is first raw patch for updates to work in the preference panel. The plugin updater is generic and can be hopefully made useful in some ways for other applications using python or non-compiled files, like gedit, rhythmbox, epiphany, gnumeric, the theme/icons/metacity dialog, etc
+	* Introduction of the plugin updater/downloader, so it will be possible to update and download new plugins from internet, right in deskbar. Current commit includes build system patches (with dbus dependency, if someone can't build because of that, it can be made optional, but no updater) Also included is first raw patch for updates to work in the preference panel. The plugin updater is generic and can be hopefully made useful in some ways for other applications using python or non-compiled files, like pluma, rhythmbox, epiphany, gnumeric, the theme/icons/metacity dialog, etc
 	* Moved web-repository to the official website repository, added testing modules to the remote repository. Allow the downloader to handle compressed tarballs as well as single-file python scripts. 
 	* There is a second tab presenting available handlers that you don't have already installed, you can choose one of them, and install it. It will be downloaded and unpacked in the deskbar user directory. Normally every action should require no restart or anything, the buttons should be sensitive when possible, the plugins should be unloaded/reloaded without problems, etc. Anything else is a big. This needs heavy love, and probably an UI discussion..
 	* WARNING: Breakage introduced as agreed on IRC. Mainly in entriac ui. Merge the Cuemiac rework. Highlights: - Introduce a CuemiacUIManager to handle the common tasks for uis using the C. - Introduce a CuemiacLayoutProvider abstract class to provide hooks for the common layout tasks. - Introductory work on a CuemiacPopupEntry in the style of gtk.EntryCompletion, problems in the navigational model relating to bug #326254 breaks entriac ui. - Add a LingeringSelectionWindow that leaves a "shadow" behind when a match is selected. See fixme in CuemiacTreeView.__on_button_press.
@@ -2014,7 +2014,7 @@ Changes:
 	* Fix the applet resizing itself every time the icon in the entry is changed
 	* Fixes bug #330103 icon in entry clips after a query
 	* Fixes gnome-dictionary 2.13 launching
-	* Workaround problem with gnome-open not opening saved nautilus searches correctly
+	* Workaround problem with gnome-open not opening saved caja searches correctly
 	* Add yahoo plugin, similar to google live, but using yahoo
 
 Contributors to this release: Raphael Slinckx, Mikkel Kamstrup Erlandsen, Nigel Tao, Davyd Madeley
@@ -2317,7 +2317,7 @@ Changes:
 	* Add the Google Live Async handler, it has a little more requirements than other plugins and as such an UI to see error messages will be introduced, in the meantime it prints help file on stdout in the terminal, when an error occurs because of misconfiguration
 	* Mess around with The Big Sucking Python Lock, hopefully fixes all the problems in the world, universe, and everything
 	* Add timeout support for threaded async handlers
-	* GNOME HIG changes: fix typo; fix border width; rephrase and move handler comment; fix a broken mnemonic.
+	* MATE HIG changes: fix typo; fix border width; rephrase and move handler comment; fix a broken mnemonic.
 	* Toggle sensitivity of the width label, spinner, and units when needed.
 	* Add new files for translation, and use caracters instead of pixels for entry width
 	* Handlers API rework, now a single file can have multiple handlers. HANDLER variable is exported containing the class name, and an info dictionary with name, description, and an optional requirements function, allowing to check if the handler can be loaded. As a side effect, browser handlers are now more fine grained, allowing to order independently bookmarks, history and search engines. The preference dialog is a bit bigger and has an extra blurb to hint the reordering prioritization.
@@ -2340,4 +2340,3 @@ Translations:
 	* Added Japanese translation.
 
 Contributors to this release: Takeshi AIHANA, Funda Wang
-

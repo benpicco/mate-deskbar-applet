@@ -1,5 +1,5 @@
 import gtk
-import gnomeapplet
+import mateapplet
 import gobject
 import logging
 

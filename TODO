@@ -21,7 +21,7 @@ Would be really really nice:
 
 Bonus features/Ideas
 - (HARD) Detach the search window to "save" the search
-- (MEDIUM) Drag hits onto desktop/nautilus to create links (likely to require additional Match api)
+- (MEDIUM) Drag hits onto desktop/caja to create links (likely to require additional Match api)
 - Go into shortcur mode when alt is pressed (with entry focus) and show flat list of avail
  shortcuts. When match list is focussed bind shortcuts when user hits ctrl-*. 
  Give visual clue like : http://raphael.slinckx.net/mocku.png
@@ -46,8 +46,8 @@ UI TODOs:
 	* Translucency handling in applet mode, see mini-commander patch in bugzilla
 
 * Cache/Pickle indexes
-* Move indexing in a bonobo factory whatever that means
-* Hidden gconf key for alt-f2 dialog replacement
+* Move indexing in a matecomponent factory whatever that means
+* Hidden mateconf key for alt-f2 dialog replacement
 
 Backends TODOs:
 	General:
@@ -59,7 +59,7 @@ Backends TODOs:
 	* Index Thunderbird address book
 
 	Programs [programs.py, pathprograms.py]
-	* Monitor changes with gnome vfs
+	* Monitor changes with mate vfs
 	
 	Beagle [beagle.py, beagle-live.py]
 	* Use beagle to retreive metadata about files, for example in recent-files ?

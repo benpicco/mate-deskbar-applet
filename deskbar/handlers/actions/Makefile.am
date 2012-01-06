@@ -7,7 +7,7 @@ deskbar_actions_PYTHON = \
 	OpenDesktopFileAction.py \
 	OpenFileAction.py \
 	OpenWithApplicationAction.py \
-	OpenWithNautilusAction.py \
+	OpenWithCajaAction.py \
 	SendEmailToAction.py \
 	SendFileViaEmailAction.py \
 	ShowUrlAction.py

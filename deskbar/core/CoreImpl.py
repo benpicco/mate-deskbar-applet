@@ -29,7 +29,7 @@ class CoreImpl(deskbar.interfaces.Core):
         self._stop_queries = True
         
         self._threadpool = ThreadPool(5)
-        self._gconf = GconfStore.get_instance()
+        self._mateconf = GconfStore.get_instance()
         self._history = DeskbarHistory.get_instance(self._gconf.get_max_history_items())
         self._gconf.connect("max-history-items-changed", lambda s, num: self._history.set_max_history_items(num))
         
@@ -105,7 +105,7 @@ class CoreImpl(deskbar.interfaces.Core):
         @type name: list of class names 
         """
         if not self._gconf.set_enabled_modules(name):
-            LOGGER.error("Unable to save enabled modules list to GConf")
+            LOGGER.error("Unable to save enabled modules list to MateConf")
 
     def get_keybinding(self):
         """

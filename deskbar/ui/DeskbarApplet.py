@@ -1,4 +1,4 @@
-import gnomeapplet
+import mateapplet
 import gtk
 import deskbar
 import os.path

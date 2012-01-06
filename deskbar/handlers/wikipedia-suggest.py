@@ -15,7 +15,7 @@ HANDLERS = ["WikipediaSuggestHandler"]
     
 WIKIPEDIA_SUGGEST_URL = "http://www.wikipedia.de/suggest.php"
 WIKIPEDIA_ARTICLE_URL = "http://www.wikipedia.de/go"
-GCONF_KEY = GconfStore.GCONF_DIR + "/wikipedia-suggest/lang"
+MATECONF_KEY = GconfStore.GCONF_DIR + "/wikipedia-suggest/lang"
 
 # From http://meta.wikimedia.org/wiki/List_of_Wikipedias
 LANGUAGES = (
@@ -69,7 +69,7 @@ class WikipediaSuggestHandler(deskbar.interfaces.Module):
     def __init__(self):
         deskbar.interfaces.Module.__init__(self)
         self._lang = None
-        self._gconf = GconfStore.get_instance().get_client()
+        self._mateconf = GconfStore.get_instance().get_client()
         self._gconf.notify_add(GCONF_KEY, self._on_language_changed)
         self._set_lang()
     

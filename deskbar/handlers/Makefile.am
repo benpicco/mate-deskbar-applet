@@ -15,7 +15,7 @@ deskbar_handlers_PYTHON = \
 	desklicious.py \
 	epiphany.py \
 	files.py \
-	gdmactions.py \
+	mdmactions.py \
 	googlecodesearch.py \
 	googlesearch.py \
 	history.py \
@@ -36,4 +36,3 @@ deskbar_handlers_PYTHON += evolution.py
 endif
 
 EXTRA_DIST = 
-

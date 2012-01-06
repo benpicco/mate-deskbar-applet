@@ -185,7 +185,7 @@ class DeskbarStatusIcon (gtk.StatusIcon, AbstractCuemiacDeskbarIcon):
                          gtk.status_icon_position_menu,
                          button, activate_time, self)
     
-    def _on_ui_name_changed(self, gconfstore, name):
+    def _on_ui_name_changed(self, mateconfstore, name):
         if name != deskbar.WINDOW_UI_NAME:
             LOGGER.info ("Only window UI is supported in tray mode")
             

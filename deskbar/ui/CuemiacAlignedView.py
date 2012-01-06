@@ -1,7 +1,7 @@
 import gtk
 import gtk.gdk
 import glib
-import gnomeapplet
+import mateapplet
 from deskbar.core.GconfStore import GconfStore
 from deskbar.ui.AbstractCuemiacView import AbstractCuemiacView
 from deskbar.ui.cuemiac.CuemiacAlignedWindow import CuemiacAlignedWindow
@@ -152,4 +152,3 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
         if entry_width < 10:
             entry_width = 10
         self.get_entry().set_width_chars(entry_width)
-

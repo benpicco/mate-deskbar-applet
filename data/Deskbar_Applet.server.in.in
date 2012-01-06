@@ -1,14 +1,14 @@
 <oaf_info>
 	<oaf_server iid="OAFIID:Deskbar_Applet_Factory" type="exe" location="@LIBEXECDIR@/deskbar-applet">
 		<oaf_attribute name="repo_ids" type="stringv">
-			<item value="IDL:Bonobo/GenericFactory:1.0"/>
+			<item value="IDL:MateComponent/GenericFactory:1.0"/>
 			<item value="IDL:Bonobo/Unknown:1.0"/>
 		</oaf_attribute>
 		<oaf_attribute name="name" type="string" _value="Deskbar"/>
 		<oaf_attribute name="description" type="string" _value="An all-in-one action bar"/>
-		<oaf_attribute name="bonobo:environment" type="stringv">
+		<oaf_attribute name="matecomponent:environment" type="stringv">
 			<item value="DBUS_SESSION_BUS_ADDRESS"/>
-			<item value="GNOME_KEYRING_SOCKET"/>
+			<item value="MATE_KEYRING_SOCKET"/>
 			<item value="GPG_AGENT_INFO"/>
 			<item value="SESSION_MANAGER"/>
 			<item value="SSH_AGENT_PID"/>
@@ -18,7 +18,7 @@
 
 	<oaf_server iid="OAFIID:Deskbar_Applet" type="factory" location="OAFIID:Deskbar_Applet_Factory">
 		<oaf_attribute name="repo_ids" type="stringv">
-			<item value="IDL:GNOME/Vertigo/PanelAppletShell:1.0"/>
+			<item value="IDL:GNOME/Vertigo/MatePanelAppletShell:1.0"/>
 			<item value="IDL:Bonobo/Control:1.0"/>
 			<item value="IDL:Bonobo/Unknown:1.0"/>
 		</oaf_attribute>

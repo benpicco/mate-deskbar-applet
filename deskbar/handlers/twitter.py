@@ -1,5 +1,5 @@
 from deskbar.core.Utils import load_base64_icon
-from deskbar.core.Web import GnomeURLopener, Account, AccountDialog, ConcurrentRequestsException
+from deskbar.core.Web import MateURLopener, Account, AccountDialog, ConcurrentRequestsException
 from deskbar.defs import VERSION
 from gettext import gettext as _
 import deskbar

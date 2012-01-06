@@ -14,7 +14,7 @@ import dbus
 import time
 import dbus.glib
     
-DESKBAR_CAPUCHIN_REPO = "http://www.gnome.org/~sebp/deskbar/deskbar-applet-2.24.xml"
+DESKBAR_CAPUCHIN_REPO = "http://www.mate.org/~sebp/deskbar/deskbar-applet-2.24.xml"
 
 class InfoBox(gtk.HBox):
     
@@ -266,7 +266,7 @@ class DeskbarPreferences:
         self.dialog.connect("response", self.on_dialog_response)
     
     def on_dialog_response(self, dialog, response):
-        self._model.update_gconf()
+        self._model.update_mateconf()
         self.dialog.destroy()
         # Check if capuchin service is available and if actually used it
         if self.has_capuchin and self.__capuchin != None:

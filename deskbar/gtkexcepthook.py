@@ -22,7 +22,7 @@ BUG_BUDDY_MODULES_WHITELIST = set(
      "epiphany.py",
      "evolution.py",
      "files.py",
-     "gdmactions.py",
+     "mdmactions.py",
      "history.py",
      "iswitch-window.py",
      "mozilla.py",
@@ -35,7 +35,7 @@ BUG_BUDDY_MODULES_WHITELIST = set(
 )
     
 def bug_buddy_exception(type, value, tb):
-    # Shamelessly stolen from /gnome-python/examples/bug-buddy-integration.py
+    # Shamelessly stolen from /mate-python/examples/bug-buddy-integration.py
     # Original credit to Fernando Herrera
     msg = "".join(traceback.format_exception(type, value, tb))
     fd, name = tempfile.mkstemp()

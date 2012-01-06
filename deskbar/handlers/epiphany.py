@@ -12,7 +12,7 @@ import xml.sax
 
 LOGGER = logging.getLogger(__name__)
 
-EPHY_BOOKMARKS_FILE = expanduser("~/.gnome2/epiphany/bookmarks.rdf")
+EPHY_BOOKMARKS_FILE = expanduser("~/.mate2/epiphany/bookmarks.rdf")
 EPHY_HISTORY_FILE   = expanduser("~/.gnome2/epiphany/ephy-history.xml")
 
 favicon_cache = None

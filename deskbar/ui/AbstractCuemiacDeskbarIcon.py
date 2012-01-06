@@ -45,7 +45,7 @@ class AbstractCuemiacDeskbarIcon (object):
         # Select the view based on user choice. CuemiacWindowView is
         # the new style UI,
         # CuemiacAlignedView is the older UI as seen in the
-        # Deskbar gnome-2-18 branch.
+        # Deskbar mate-2-18 branch.
         if window_type == deskbar.WINDOW_UI_NAME:
             self.create_window_ui()
         else:
@@ -70,7 +70,7 @@ class AbstractCuemiacDeskbarIcon (object):
     def _show_toggle(self, widget, time):
         self._controller.on_keybinding_activated(widget, time, False)
         
-    def _on_ui_name_changed(self, gconfstore, name):
+    def _on_ui_name_changed(self, mateconfstore, name):
         if name != self._active_view:
             self._view.destroy()
             if name == deskbar.WINDOW_UI_NAME:

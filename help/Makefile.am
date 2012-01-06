@@ -1,4 +1,4 @@
-include $(top_srcdir)/gnome-doc-utils.make
+include $(top_srcdir)/mate-doc-utils.make
 dist-hook: doc-dist-hook
 
 # The basename of the docbook file.  Generally, you want it to be the same 

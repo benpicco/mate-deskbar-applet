@@ -6,7 +6,7 @@ DISTCLEANFILES = \
 	intltool-extract \
 	intltool-merge \
 	intltool-update \
-	gnome-doc-utils.make
+	mate-doc-utils.make
 
 EXTRA_DIST = \
 	MAINTAINERS \

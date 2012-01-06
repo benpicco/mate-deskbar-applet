@@ -3,7 +3,7 @@ import re
 import deskbar.interfaces.Module
 import deskbar.interfaces.Match
 from deskbar.defs import VERSION
-from deskbar.handlers.actions.OpenWithNautilusAction import OpenWithNautilusAction
+from deskbar.handlers.actions.OpenWithCajaAction import OpenWithNautilusAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from deskbar.handlers.actions.SendEmailToAction import SendEmailToAction
 

@@ -12,7 +12,7 @@ import deskbar.interfaces.Module
 import glib
 import gtk
 
-HANDLERS = ["GdmHandler"]
+HANDLERS = ["MdmHandler"]
 
 ( PROMPT_SHUTDOWN,
   PROMPT_LOGOUT,
@@ -22,7 +22,7 @@ HANDLERS = ["GdmHandler"]
 ) = range(5)
 
 TIMEOUT = 60
-SESSION_MANAGER_PATH = '/org/gnome/SessionManager'
+SESSION_MANAGER_PATH = '/org/mate/SessionManager'
 SESSION_MANAGER_SERVICE = 'org.gnome.SessionManager'
 
 class LogoutPrompt(gtk.MessageDialog):
@@ -323,7 +323,7 @@ class GdmSwitchUserAction(deskbar.interfaces.Action):
         deskbar.interfaces.Action.__init__(self, name)
         
     def activate(self, text=None):
-        glib.spawn_async(["gdmflexiserver", "--startnew"], flags=glib.SPAWN_SEARCH_PATH)
+        glib.spawn_async(["mdmflexiserver", "--startnew"], flags=glib.SPAWN_SEARCH_PATH)
         
     def get_verb(self):
         return _("Switch User")
