@@ -1,5 +1,5 @@
 AC_INIT(deskbar-applet, 2.32.0,
-    [http://bugzilla.mate.org/browse.cgi?product=deskbar-applet])
+    [http://bugzilla.gnome.org/browse.cgi?product=deskbar-applet])
 AC_CONFIG_SRCDIR(deskbar/__init__.py)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
@@ -68,7 +68,7 @@ PKG_CHECK_MODULES(DESKBAR,
 	gtk+-2.0				>= 2.20
 	pygtk-2.0				>= 2.12
 	pygobject-2.0			>= 2.15.3
-	mate-desktop-2.0		>= 2.10
+	mate-desktop-2.0		>= 1.1
 	dbus-python				>= 0.80.2
 )
 AC_SUBST(DESKBAR_CFLAGS)
