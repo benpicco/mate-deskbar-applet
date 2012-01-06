@@ -2,7 +2,7 @@
 	<oaf_server iid="OAFIID:Deskbar_Applet_Factory" type="exe" location="@LIBEXECDIR@/deskbar-applet">
 		<oaf_attribute name="repo_ids" type="stringv">
 			<item value="IDL:MateComponent/GenericFactory:1.0"/>
-			<item value="IDL:Bonobo/Unknown:1.0"/>
+			<item value="IDL:MateComponent/Unknown:1.0"/>
 		</oaf_attribute>
 		<oaf_attribute name="name" type="string" _value="Deskbar"/>
 		<oaf_attribute name="description" type="string" _value="An all-in-one action bar"/>
@@ -18,15 +18,15 @@
 
 	<oaf_server iid="OAFIID:Deskbar_Applet" type="factory" location="OAFIID:Deskbar_Applet_Factory">
 		<oaf_attribute name="repo_ids" type="stringv">
-			<item value="IDL:GNOME/Vertigo/MatePanelAppletShell:1.0"/>
-			<item value="IDL:Bonobo/Control:1.0"/>
-			<item value="IDL:Bonobo/Unknown:1.0"/>
+			<item value="IDL:MATE/Vertigo/MatePanelAppletShell:1.0"/>
+			<item value="IDL:MateComponent/Control:1.0"/>
+			<item value="IDL:MateComponent/Unknown:1.0"/>
 		</oaf_attribute>
 		<oaf_attribute name="name" type="string" _value="Deskbar"/>
 		<oaf_attribute name="description" type="string" _value="An all-in-one action bar"/>
 		<oaf_attribute name="panel:category" type="string" value="Accessories"/>
 		<oaf_attribute name="panel:icon" type="string" value="deskbar-applet.png"/>
-		<oaf_attribute name="bugzilla:bugzilla" type="string" value="GNOME"/>
+		<oaf_attribute name="bugzilla:bugzilla" type="string" value="MATE"/>
 		<oaf_attribute name="bugzilla:product" type="string" value="deskbar-applet"/>
 		<oaf_attribute name="bugzilla:component" type="string" value="general"/>
 		<oaf_attribute name="bugzilla:other_binaries" type="string" value="deskbar-applet"/>

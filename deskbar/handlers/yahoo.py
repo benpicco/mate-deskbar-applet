@@ -22,7 +22,7 @@ HANDLERS = ["YahooHandler", "YahooSuggestHandler"]
 YAHOO_API_KEY = 'deskbar-applet'
 MAX_RESULTS = 15
     
-MATECONF_YAHOO_LANG = GconfStore.GCONF_DIR+"/yahoo/language"
+MATECONF_YAHOO_LANG = GconfStore.MATECONF_DIR+"/yahoo/language"
 
 # Languages supported by Yahoo
 # see http://developer.yahoo.com/search/languages.html
@@ -111,7 +111,7 @@ class YahooHandler(deskbar.interfaces.Module):
         self._lang = None
         self._format_regex = re.compile("format:(\w+)")
         self._mateconf = GconfStore.get_instance().get_client()
-        self._gconf.notify_add(GCONF_YAHOO_LANG, self._on_language_changed)
+        self._mateconf.notify_add(MATECONF_YAHOO_LANG, self._on_language_changed)
         self._set_lang()
         
     def _on_language_changed(self, client, cnxn_id, entry, data):
@@ -121,10 +121,10 @@ class YahooHandler(deskbar.interfaces.Module):
             self._lang = entry.value.get_string()
             
     def _set_lang(self):
-        self._lang = self._gconf.get_string(GCONF_YAHOO_LANG)
+        self._lang = self._mateconf.get_string(MATECONF_YAHOO_LANG)
         if self._lang == None:
             localelang = self._guess_lang()
-            self._gconf.set_string(GCONF_YAHOO_LANG, localelang)
+            self._mateconf.set_string(MATECONF_YAHOO_LANG, localelang)
     
     def _guess_lang(self):
         """ Try to guess lang """
@@ -432,7 +432,7 @@ class YahooSearchConfigDialog(gtk.Dialog):
         self.combobox.show()
         self.vbox2.pack_start(self.combobox, False, False, 0)
         
-        lang = GconfStore.get_instance().get_client().get_string(GCONF_YAHOO_LANG)
+        lang = GconfStore.get_instance().get_client().get_string(MATECONF_YAHOO_LANG)
         if lang != None:
             self._select_lang(lang)
         
@@ -450,4 +450,4 @@ class YahooSearchConfigDialog(gtk.Dialog):
         
     def _on_combobox_changed(self, combobox):
         lang = combobox.get_model()[combobox.get_active_iter()][1]
-        GconfStore.get_instance().get_client().set_string(GCONF_YAHOO_LANG, lang)
+        GconfStore.get_instance().get_client().set_string(MATECONF_YAHOO_LANG, lang)

@@ -14,4 +14,4 @@ EXTRA_DIST = \
 	intltool-update.in \
 	intltool-extract.in	\
 	intltool-merge.in \
-	gnome-doc-utils.make
+	mate-doc-utils.make

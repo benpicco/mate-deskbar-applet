@@ -4,7 +4,7 @@ import gio
 
 class OpenWithCajaAction(OpenWithApplicationAction):
     """
-    Open URI with Nautilus
+    Open URI with Caja
     """
     
     NETWORK_URIS = ["http", "ftp", "smb", "sftp"]

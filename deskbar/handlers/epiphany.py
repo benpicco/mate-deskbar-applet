@@ -13,7 +13,7 @@ import xml.sax
 LOGGER = logging.getLogger(__name__)
 
 EPHY_BOOKMARKS_FILE = expanduser("~/.mate2/epiphany/bookmarks.rdf")
-EPHY_HISTORY_FILE   = expanduser("~/.gnome2/epiphany/ephy-history.xml")
+EPHY_HISTORY_FILE   = expanduser("~/.mate2/epiphany/ephy-history.xml")
 
 favicon_cache = None
 bookmarks = None
@@ -243,7 +243,7 @@ class EpiphanyBookmarksParser(xml.sax.ContentHandler):
 class EpiphanyFaviconCacheParser(xml.sax.ContentHandler):
     def __init__(self):
         xml.sax.ContentHandler.__init__(self)
-        self.ephy_dir = expanduser("~/.gnome2/epiphany")
+        self.ephy_dir = expanduser("~/.mate2/epiphany")
         self.filename = join(self.ephy_dir, "ephy-favicon-cache.xml")
         
         self.cache = None

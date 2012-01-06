@@ -17,7 +17,7 @@ import xml.dom.minidom
 
 LOGGER = logging.getLogger(__name__)
 
-MATECONF_DELICIOUS_USER  = GconfStore.GCONF_DIR+"/desklicious/user"
+MATECONF_DELICIOUS_USER  = GconfStore.MATECONF_DIR+"/desklicious/user"
 
 DEFAULT_QUERY_TAG = 'http://feeds.delicious.com/rss/%s/%s'
 
@@ -85,7 +85,7 @@ class DeliciousHandler(deskbar.interfaces.Module):
         table.attach(gtk.Label(_("Enter your del.icio.us username below")), 0, 2, 0, 1)
     
         user_entry = gtk.Entry()
-        t = GconfStore.get_instance().get_client().get_string(GCONF_DELICIOUS_USER)
+        t = GconfStore.get_instance().get_client().get_string(MATECONF_DELICIOUS_USER)
         if t != None:
             user_entry.set_text(t)
         table.attach(gtk.Label(_("Username: ")), 0, 1, 1, 2)
@@ -98,12 +98,12 @@ class DeliciousHandler(deskbar.interfaces.Module):
         dialog.destroy()
         
         if response == gtk.RESPONSE_ACCEPT and user_entry.get_text() != "":
-            GconfStore.get_instance().get_client().set_string(GCONF_DELICIOUS_USER, user_entry.get_text())
+            GconfStore.get_instance().get_client().set_string(MATECONF_DELICIOUS_USER, user_entry.get_text())
 
     @staticmethod
     def has_requirements():
         #We need user and password
-        if not GconfStore.get_instance().get_client().get_string(GCONF_DELICIOUS_USER):
+        if not GconfStore.get_instance().get_client().get_string(MATECONF_DELICIOUS_USER):
             DeliciousHandler.INSTRUCTIONS = _("You need to configure your del.icio.us account.")
             # TODO
             #_on_config_account()
@@ -119,12 +119,12 @@ class DeliciousTagQueryEngine:
         """We need use the globals DELICIOUS_USER and DELICIOUS_PASS"""
         self.handler = handler
         
-        self._user = GconfStore.get_instance().get_client().get_string(GCONF_DELICIOUS_USER)
+        self._user = GconfStore.get_instance().get_client().get_string(MATECONF_DELICIOUS_USER)
             
-        GconfStore.get_instance().get_client().notify_add(GCONF_DELICIOUS_USER, lambda x, y, z, a: self.on_username_change(z.value))
+        GconfStore.get_instance().get_client().notify_add(MATECONF_DELICIOUS_USER, lambda x, y, z, a: self.on_username_change(z.value))
         
     def on_username_change(self, value):
-        if value != None and value.type == gconf.VALUE_STRING:
+        if value != None and value.type == mateconf.VALUE_STRING:
             self._user = value.get_string()
             
     def get_posts_by_tag(self, tag):

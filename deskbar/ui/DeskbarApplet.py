@@ -40,7 +40,7 @@ class CuemiacAppletButton (gtk.HBox):
     with a gtk.Arrow.
     
     It automatically arranges itself according to one of 
-    gnomeapplet.ORIENT_UP,gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}.
+    mateapplet.ORIENT_UP,mateapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}.
     
     Signals:
         toggled-main: The main button has been toggled
@@ -91,24 +91,24 @@ class CuemiacAppletButton (gtk.HBox):
     def set_button_image_from_pixbuf (self, pixbuf):
         self.image.set_from_pixbuf (pixbuf)
         
-    def gnomeapplet_dir_to_arrow_dir (self, gnomeapplet_dir):
+    def mateapplet_dir_to_arrow_dir (self, mateapplet_dir):
         """
         Returns the appropriate gtk.ARROW_{UP,DOWN,LEFT,RIGHT} corresponding
-        to gnomeapplet_dir; which can be one of
-        gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}
+        to mateapplet_dir; which can be one of
+        mateapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}
         """
-        if gnomeapplet_dir == gnomeapplet.ORIENT_DOWN:
+        if mateapplet_dir == mateapplet.ORIENT_DOWN:
             return gtk.ARROW_DOWN
-        elif gnomeapplet_dir == gnomeapplet.ORIENT_UP:
+        elif mateapplet_dir == mateapplet.ORIENT_UP:
             return gtk.ARROW_UP
-        elif gnomeapplet_dir == gnomeapplet.ORIENT_LEFT:
+        elif mateapplet_dir == mateapplet.ORIENT_LEFT:
             return gtk.ARROW_LEFT
         else:
             return gtk.ARROW_RIGHT
     
     def set_layout_by_orientation (self, orientation):
         """
-        @param orientation: should be a gnomeapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}.
+        @param orientation: should be a mateapplet.ORIENT_{UP,DOWN,LEFT,RIGHT}.
         
         This method calls self.show_all()
         """
@@ -119,12 +119,12 @@ class CuemiacAppletButton (gtk.HBox):
         if self.arrow != None:
             self.button_arrow.remove (self.arrow)
         
-        if orientation in [gnomeapplet.ORIENT_UP,gnomeapplet.ORIENT_DOWN]:
+        if orientation in [mateapplet.ORIENT_UP,mateapplet.ORIENT_DOWN]:
             self.box = gtk.HBox ()
         else:
             self.box = gtk.VBox ()
                 
-        self.arrow = gtk.Arrow (self.gnomeapplet_dir_to_arrow_dir(orientation), gtk.SHADOW_IN)
+        self.arrow = gtk.Arrow (self.mateapplet_dir_to_arrow_dir(orientation), gtk.SHADOW_IN)
         
         self.add (self.box)
         self.button_arrow.add (self.arrow)
@@ -135,16 +135,16 @@ class CuemiacAppletButton (gtk.HBox):
         self.show_all ()
     
     
-class DeskbarApplet (gnomeapplet.Applet, AbstractCuemiacDeskbarIcon):
+class DeskbarApplet (mateapplet.Applet, AbstractCuemiacDeskbarIcon):
     
     def __init__(self, applet):
-        gnomeapplet.Applet.__init__(self)
+        mateapplet.Applet.__init__(self)
         AbstractCuemiacDeskbarIcon.__init__(self)
         
         self.applet = applet
         
         self.handler_size_allocate_id = self.applet.connect ("size-allocate", self.on_allocate)
-        self.applet.set_applet_flags (gnomeapplet.EXPAND_MINOR)
+        self.applet.set_applet_flags (mateapplet.EXPAND_MINOR)
         self.applet.set_background_widget(self.applet)
         
         self.tray = CuemiacAppletButton(applet)
@@ -189,7 +189,7 @@ class DeskbarApplet (gnomeapplet.Applet, AbstractCuemiacDeskbarIcon):
                             self.hview)
 
     def on_allocate(self, applet, alloc):
-        if self.applet.get_orient () in [gnomeapplet.ORIENT_UP, gnomeapplet.ORIENT_DOWN]:
+        if self.applet.get_orient () in [mateapplet.ORIENT_UP, mateapplet.ORIENT_DOWN]:
             size_alloc = alloc.height
         else:
             size_alloc = alloc.width

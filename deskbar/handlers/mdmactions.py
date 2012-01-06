@@ -23,7 +23,7 @@ HANDLERS = ["MdmHandler"]
 
 TIMEOUT = 60
 SESSION_MANAGER_PATH = '/org/mate/SessionManager'
-SESSION_MANAGER_SERVICE = 'org.gnome.SessionManager'
+SESSION_MANAGER_SERVICE = 'org.mate.SessionManager'
 
 class LogoutPrompt(gtk.MessageDialog):
     
@@ -197,9 +197,9 @@ class LockScreenAction(deskbar.interfaces.Action):
         deskbar.interfaces.Action.__init__(self, "")
         
         bus = dbus.Bus(dbus.Bus.TYPE_SESSION)
-        obj = bus.get_object('org.gnome.ScreenSaver', '/org/gnome/ScreenSaver')
+        obj = bus.get_object('org.mate.ScreenSaver', '/org/mate/ScreenSaver')
         # FIXME : This timeouts ?
-        self._scrsvr = dbus.Interface (obj, "org.gnome.ScreenSaver")
+        self._scrsvr = dbus.Interface (obj, "org.mate.ScreenSaver")
 
     def activate(self, text=None):
         try:
@@ -228,7 +228,7 @@ class HibernateMatch(GpmMatch):
 
 class ShutdownMatch(GpmMatch):
     def __init__(self, **args):
-        GpmMatch.__init__(self, icon = "gnome-shutdown")
+        GpmMatch.__init__(self, icon = "mate-shutdown")
         self.add_action( ShutdownAction() )
 
 class RebootMatch(GpmMatch):
@@ -244,11 +244,11 @@ class LockScreenMatch(deskbar.interfaces.Match):
     def get_category(self):
         return "actions"
 
-class GdmMatch(deskbar.interfaces.Match):
+class MdmMatch(deskbar.interfaces.Match):
     def __init__(self, **args):
         deskbar.interfaces.Match.__init__(self, category="actions", **args)
     
-class GdmShutdownAction(deskbar.interfaces.Action):
+class MdmShutdownAction(deskbar.interfaces.Action):
     
     def __init__(self, name):
         deskbar.interfaces.Action.__init__(self, name)
@@ -267,12 +267,12 @@ class GdmShutdownAction(deskbar.interfaces.Action):
     def get_verb(self):
         return _("Turn off the computer")
             
-class GdmShutdownMatch(GdmMatch):
+class MdmShutdownMatch(MdmMatch):
     def __init__(self, **args):
-        GdmMatch.__init__(self, name=_("Shut Down"), icon = "gnome-shutdown", **args)
-        self.add_action( GdmShutdownAction(self.get_name()) )
+        MdmMatch.__init__(self, name=_("Shut Down"), icon = "mate-shutdown", **args)
+        self.add_action( MdmShutdownAction(self.get_name()) )
     
-class GdmLogoutAction(deskbar.interfaces.Action):
+class MdmLogoutAction(deskbar.interfaces.Action):
     def __init__(self, name):
         deskbar.interfaces.Action.__init__(self, name)
         
@@ -290,12 +290,12 @@ class GdmLogoutAction(deskbar.interfaces.Action):
     def get_verb(self):
         return _("Log Out")
         
-class GdmLogoutMatch(GdmMatch):
+class MdmLogoutMatch(MdmMatch):
     def __init__(self, **args):
-        GdmMatch.__init__(self, name=_("Log Out"), icon = "system-log-out", **args)
-        self.add_action( GdmLogoutAction(self.get_name()) )
+        MdmMatch.__init__(self, name=_("Log Out"), icon = "system-log-out", **args)
+        self.add_action( MdmLogoutAction(self.get_name()) )
     
-class GdmRebootAction(deskbar.interfaces.Action):
+class MdmRebootAction(deskbar.interfaces.Action):
     def __init__(self, name):
         deskbar.interfaces.Action.__init__(self, name)
         
@@ -313,12 +313,12 @@ class GdmRebootAction(deskbar.interfaces.Action):
     def get_verb(self):
         return _("Restart the computer")
     
-class GdmRebootMatch(GdmMatch):
+class MdmRebootMatch(MdmMatch):
     def __init__(self, **args):
-        GdmMatch.__init__(self, name=_("Restart"), icon = "gtk-refresh", **args)
-        self.add_action( GdmRebootAction(self.get_name()) )
+        MdmMatch.__init__(self, name=_("Restart"), icon = "gtk-refresh", **args)
+        self.add_action( MdmRebootAction(self.get_name()) )
     
-class GdmSwitchUserAction(deskbar.interfaces.Action):
+class MdmSwitchUserAction(deskbar.interfaces.Action):
     def __init__(self, name):
         deskbar.interfaces.Action.__init__(self, name)
         
@@ -328,21 +328,21 @@ class GdmSwitchUserAction(deskbar.interfaces.Action):
     def get_verb(self):
         return _("Switch User")
                     
-class GdmSwitchUserMatch(GdmMatch):
+class MdmSwitchUserMatch(MdmMatch):
     def __init__(self, **args):
-        GdmMatch.__init__(self, name=_("Switch User"), **args)
-        self.add_action( GdmSwitchUserAction(self.get_name()) )
+        MdmMatch.__init__(self, name=_("Switch User"), **args)
+        self.add_action( MdmSwitchUserAction(self.get_name()) )
     
-class GdmHandler(deskbar.interfaces.Module):
+class MdmHandler(deskbar.interfaces.Module):
     
     INFOS = {'icon':  deskbar.core.Utils.load_icon("gpm-suspend-to-ram.png"),
              "name": _("Computer Actions"),
              "description": _("Logoff, shutdown, restart, suspend and related actions."),
              "version": VERSION}
-    ACTIONS = ((GdmShutdownMatch, _("Shut Down")),
-            (GdmSwitchUserMatch, _("Switch User")),
-            (GdmRebootMatch, _("Restart")),
-            (GdmLogoutMatch, _("Log Out")))
+    ACTIONS = ((MdmShutdownMatch, _("Shut Down")),
+            (MdmSwitchUserMatch, _("Switch User")),
+            (MdmRebootMatch, _("Restart")),
+            (MdmLogoutMatch, _("Log Out")))
     def __init__(self):
         deskbar.interfaces.Module.__init__(self)    
         self.indexer = deskbar.core.Indexer.Indexer()
@@ -358,8 +358,8 @@ class GdmHandler(deskbar.interfaces.Module):
     def init_screensaver_matches(self):
         try:
             bus = dbus.Bus(dbus.Bus.TYPE_SESSION)
-            obj = bus.get_object('org.gnome.ScreenSaver', '/org/gnome/ScreenSaver')
-            scrsvr = dbus.Interface (obj, "org.gnome.ScreenSaver")
+            obj = bus.get_object('org.mate.ScreenSaver', '/org/mate/ScreenSaver')
+            scrsvr = dbus.Interface (obj, "org.mate.ScreenSaver")
             self.indexer.add(_("Lock"), LockScreenMatch())
             return True
         except dbus.DBusException:

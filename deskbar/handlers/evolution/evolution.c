@@ -235,7 +235,7 @@ num_address_books_with_completion (void)
 	GSList *list, *l;
 	ESourceList *source_list;
 
-	source_list = e_source_list_new_for_gconf_default ("/apps/evolution/addressbook/sources");
+	source_list = e_source_list_new_for_mateconf_default ("/apps/evolution/addressbook/sources");
 	if (source_list == NULL) {
 		return 0;
 	}

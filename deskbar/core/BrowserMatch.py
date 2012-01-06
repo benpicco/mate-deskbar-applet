@@ -23,7 +23,7 @@ def get_preferred_browser():
         return None
         
     http_handler = http_handler.strip().lower()
-    if not GconfStore.get_instance().get_client().get_bool("/desktop/gnome/url-handlers/http/enabled"):
+    if not GconfStore.get_instance().get_client().get_bool("/desktop/mate/url-handlers/http/enabled"):
         return None
     
     return http_handler.split(" ")[0]

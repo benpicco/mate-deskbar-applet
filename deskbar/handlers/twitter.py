@@ -67,7 +67,7 @@ class TwitterClient :
     Client capable of talking to a twitter-like API.
     
     Note on proxies: The URLopener used here will not reflect changes done
-                     to the Gnome proxy configuration. Therefore preferably
+                     to the Mate proxy configuration. Therefore preferably
                      use the TwitterClientFactory and create a new TwitterClient
                      instance each time you need it
     """
@@ -77,7 +77,7 @@ class TwitterClient :
                   realm="Twitter API",
                   extra_widget_factory=None):
         self._account = Account (domain, realm)
-        self._opener = GnomeURLopener (self._account,
+        self._opener = MateURLopener (self._account,
                                        extra_widget_factory=extra_widget_factory)
         self._thread = None
         self._update_url = update_url

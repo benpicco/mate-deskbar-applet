@@ -8,16 +8,16 @@ pkgconfig_in_files = deskbar-applet.pc.in
 pkgconfig_DATA = $(pkgconfig_in_files:.pc.in=.pc)
 
 # ******************************************************************************
-# Panel applet bonobo stuff
+# Panel applet matecomponent stuff
 # ******************************************************************************
-serverdir = $(libdir)/bonobo/servers
+serverdir = $(libdir)/matecomponent/servers
 server_in_files = Deskbar_Applet.server.in
 server_DATA = $(server_in_files:.server.in=.server)
 
 # ******************************************************************************
 # MateConf Schemas
 # ******************************************************************************
-# GConf Preference Schemas
+# MateConf Preference Schemas
 schemadir = $(MATECONF_SCHEMA_FILE_DIR)
 schema_in_files = deskbar-applet.schemas.in
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
@@ -51,11 +51,11 @@ deskbarbindir = $(libexecdir)/deskbar-applet
 $(server_in_files): $(server_in_files:.server.in=.server.in.in)
 	$(AM_V_GEN)sed -e "s|\@LIBEXECDIR\@|$(deskbarbindir)|" $< > $@
 
-if GCONF_SCHEMAS_INSTALL
+if MATECONF_SCHEMAS_INSTALL
 install-data-local: install-schemas
 install-schemas:
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) \
-		$(GCONFTOOL) --makefile-install-rule $(schema_DATA)
+	MATECONF_CONFIG_SOURCE=$(MATECONF_SCHEMA_CONFIG_SOURCE) \
+		$(MATECONFTOOL) --makefile-install-rule $(schema_DATA)
 endif
 
 DISTCLEANFILES = \

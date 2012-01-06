@@ -28,7 +28,7 @@ class Account :
         self._realm = realm
         self._host = host
         self._protocol = "http"
-        self._keyring = gnomekeyring.get_default_keyring_sync()
+        self._keyring = matekeyring.get_default_keyring_sync()
 
     def has_credentials(self):
         """
@@ -36,16 +36,16 @@ class Account :
         """
         try:
             attrs = {"server": self._host, "protocol": self._protocol}
-            items = gnomekeyring.find_items_sync(gnomekeyring.ITEM_NETWORK_PASSWORD, attrs)
+            items = matekeyring.find_items_sync(matekeyring.ITEM_NETWORK_PASSWORD, attrs)
             if len(items) > 0 :
                 if items[0].attributes["user"] != "" and \
                    items[0].secret != "" :
                    return True
                 else :
                     return False
-        except gnomekeyring.DeniedError:
+        except matekeyring.DeniedError:
             return False
-        except gnomekeyring.NoMatchError:
+        except matekeyring.NoMatchError:
             return False
     
     def get_host (self):
@@ -60,7 +60,7 @@ class Account :
             credentials for the account are not known
         """
         attrs = {"server": self._host, "protocol": self._protocol}
-        items = gnomekeyring.find_items_sync(gnomekeyring.ITEM_NETWORK_PASSWORD, attrs)
+        items = matekeyring.find_items_sync(matekeyring.ITEM_NETWORK_PASSWORD, attrs)
         
         if (len(items) > 1):
             LOGGER.warn ("More than one account found for %s" % self._host)
@@ -79,27 +79,27 @@ class Account :
         
         LOGGER.debug ("Updating credentials for %s" % self._host)
         
-        keyring = gnomekeyring.get_default_keyring_sync()
+        keyring = matekeyring.get_default_keyring_sync()
         
         # Look up all accounts registered for this service and realm and delete
         # them. We get weird errors if more than one account is present
         try:
-            items = gnomekeyring.find_items_sync (gnomekeyring.ITEM_NETWORK_PASSWORD,
+            items = matekeyring.find_items_sync (matekeyring.ITEM_NETWORK_PASSWORD,
                                               attrs)
-        except gnomekeyring.NoMatchError:
+        except matekeyring.NoMatchError:
             LOGGER.debug ("No existing accounts for %s" % self._host)
             items = []
             
         for item in items:
             LOGGER.debug ("Purging account %s@%s" % 
                           (item.attributes["user"], item.attributes["server"]))
-            gnomekeyring.item_delete_sync (keyring, item.item_id)
+            matekeyring.item_delete_sync (keyring, item.item_id)
         
         # Add the 'user' attribute to attrs and commit it to the keyring
         LOGGER.debug ("Creating new account %s@%s" % (user, self._host))
         attrs["user"] = user
-        gnomekeyring.item_create_sync(keyring,
-                                      gnomekeyring.ITEM_NETWORK_PASSWORD,
+        matekeyring.item_create_sync(keyring,
+                                      matekeyring.ITEM_NETWORK_PASSWORD,
                                       self._realm, attrs, pw, True)
         
         LOGGER.debug ("Credential update success")
@@ -194,29 +194,29 @@ class AccountDialog (gtk.MessageDialog):
 class ConcurrentRequestsException (Exception):
     """
     Raised by L{MateURLopener} if there are multiple concurrent
-    requests to L{GnomeURLopener.open_async}.
+    requests to L{MateURLopener.open_async}.
     """
     def __init__ (self):
         Exception.__init__ (self)
 
 class AuthenticationAborted (Exception):
     """
-    Raised by L{GnomeURLopener} if the user cancels a request for
+    Raised by L{MateURLopener} if the user cancels a request for
     providing credentials
     """
     def __init__ (self):
         Exception.__init__ (self)
 
 
-class GnomeURLopener (urllib.FancyURLopener):
+class MateURLopener (urllib.FancyURLopener):
     """
     A subclass of C{urllib.URLopener} able to intercept user/password requests
     and pass them through an L{Account}, displaying a L{AccountDialog} if
     necessary.
     
-    Note on proxies: The GnomeURLopener will not react to any subsequent changes
-                     to the Gnome proxy settings. Therefore preferably create
-                     a new fresh GnomeURLopener each time you need one
+    Note on proxies: The MateURLopener will not react to any subsequent changes
+                     to the Mate proxy settings. Therefore preferably create
+                     a new fresh MateURLopener each time you need one
     """
     
     def __init__ (self, account, extra_widget_factory=None):
@@ -336,7 +336,7 @@ class GnomeURLopener (urllib.FancyURLopener):
         
         self._thread = threading.Thread (target=self._do_open_async,
                                          args=async_args,
-                                         name="GnomeURLopener")
+                                         name="MateURLopener")
         
         self._thread.start()
     

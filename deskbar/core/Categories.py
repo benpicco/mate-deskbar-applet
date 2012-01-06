@@ -43,7 +43,7 @@ CATEGORIES = {
     },
     "web"    : {    
         "name": _("Web"),
-        "icon": load_icon("gnome-globe"),
+        "icon": load_icon("mate-globe"),
     },
     "websearch"    : {    
         "name": _("Web Search"),

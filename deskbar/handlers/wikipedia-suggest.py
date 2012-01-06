@@ -15,7 +15,7 @@ HANDLERS = ["WikipediaSuggestHandler"]
     
 WIKIPEDIA_SUGGEST_URL = "http://www.wikipedia.de/suggest.php"
 WIKIPEDIA_ARTICLE_URL = "http://www.wikipedia.de/go"
-MATECONF_KEY = GconfStore.GCONF_DIR + "/wikipedia-suggest/lang"
+MATECONF_KEY = GconfStore.MATECONF_DIR + "/wikipedia-suggest/lang"
 
 # From http://meta.wikimedia.org/wiki/List_of_Wikipedias
 LANGUAGES = (
@@ -70,14 +70,14 @@ class WikipediaSuggestHandler(deskbar.interfaces.Module):
         deskbar.interfaces.Module.__init__(self)
         self._lang = None
         self._mateconf = GconfStore.get_instance().get_client()
-        self._gconf.notify_add(GCONF_KEY, self._on_language_changed)
+        self._mateconf.notify_add(MATECONF_KEY, self._on_language_changed)
         self._set_lang()
     
     def _set_lang(self):
-        self._lang = self._gconf.get_string(GCONF_KEY)
+        self._lang = self._mateconf.get_string(MATECONF_KEY)
         if self._lang == None:
             localelang = self._guess_lang()
-            self._gconf.set_string(GCONF_KEY, localelang)
+            self._mateconf.set_string(MATECONF_KEY, localelang)
             
     def _guess_lang(self):
         """ Try to guess lang """
@@ -128,7 +128,7 @@ class WikipediaSuggestHandler(deskbar.interfaces.Module):
     def show_config(self, parent):
         dialog = ConfigDialog (parent)
         if dialog.run() == gtk.RESPONSE_ACCEPT:
-            self._gconf.set_string(GCONF_KEY, dialog.get_lang())
+            self._mateconf.set_string(MATECONF_KEY, dialog.get_lang())
         dialog.destroy()
         
 class ConfigDialog (gtk.Dialog):
@@ -164,8 +164,8 @@ class ConfigDialog (gtk.Dialog):
         hbox.pack_start(self.entry, False, False, 0)
         vbox.show_all()
         
-        self._gconf = GconfStore.get_instance().get_client()
-        lang = self._gconf.get_string(GCONF_KEY)
+        self._mateconf = GconfStore.get_instance().get_client()
+        lang = self._mateconf.get_string(MATECONF_KEY)
         if lang != None:
             self.entry.set_text (lang)
         

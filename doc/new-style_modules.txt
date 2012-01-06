@@ -487,20 +487,20 @@ You can store the values of the options in a plain text file, in <<advanced-mate
 using one of the Python modules http://docs.python.org/lib/module-pickle.html[pickle] and 
 http://docs.python.org/lib/module-cPickle.html[cPickle].
 
-[[advanced-gconf]]
-Make use of GConf
+[[advanced-mateconf]]
+Make use of MateConf
 ~~~~~~~~~~~~~~~~~
-If you want to write a module that reads or writes modules to GConf you can use the `GconfStore` class.
+If you want to write a module that reads or writes modules to MateConf you can use the `GconfStore` class.
 
 [python]
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 from deskbar.core.GconfStore import GconfStore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-After importing the Class you get a normal GConf client with `GconfStore.get_instance().get_client()`.
+After importing the Class you get a normal MateConf client with `GconfStore.get_instance().get_client()`.
 
 [NOTE]
 ================
-You can only create and modify GConf keys in `/apps/deskbar/`.
+You can only create and modify MateConf keys in `/apps/deskbar/`.
 ================
 
 [[advanced-internet]]

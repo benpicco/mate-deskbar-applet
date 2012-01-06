@@ -3,7 +3,7 @@ import re
 import deskbar.interfaces.Module
 import deskbar.interfaces.Match
 from deskbar.defs import VERSION
-from deskbar.handlers.actions.OpenWithCajaAction import OpenWithNautilusAction
+from deskbar.handlers.actions.OpenWithCajaAction import OpenWithCajaAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from deskbar.handlers.actions.SendEmailToAction import SendEmailToAction
 
@@ -24,7 +24,7 @@ class WebAddressMatch(deskbar.interfaces.Match):
         if self.url.startswith("http"):
             self.add_action( ShowUrlAction(name, self.url) )
         else:
-            self.add_action( OpenWithNautilusAction(name, self.url) )
+            self.add_action( OpenWithCajaAction(name, self.url) )
     
     def get_hash(self):
         return self.url

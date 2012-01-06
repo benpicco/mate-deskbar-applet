@@ -21,7 +21,7 @@ import time
 HANDLERS = [
     "ProgramsHandler",
     "MateDictHandler",
-    "GnomeSearchHandler",
+    "MateSearchHandler",
     "DevhelpHandler"]
 
 EXACT_MATCH_PRIO = 50
@@ -79,14 +79,14 @@ class GenericProgramMatch(deskbar.interfaces.Match):
     def get_program(self):
         return self._display_prog
         
-class GnomeDictMatch(GenericProgramMatch):
+class MateDictMatch(GenericProgramMatch):
     def __init__(self, **args):
         GenericProgramMatch.__init__(self,
             arguments = ["--look-up"],
             verb=_("Lookup %s in dictionary") % "<b>%(text)s</b>",
             **args) 
 
-class GnomeSearchMatch(GenericProgramMatch):
+class MateSearchMatch(GenericProgramMatch):
     def __init__(self, **args):
         GenericProgramMatch.__init__(self,
             arguments=["--start", "--path", expanduser("~"), "--named"],
@@ -127,7 +127,7 @@ class SpecialProgramHandler(deskbar.interfaces.Module):
                 return True
         return False
         
-class GnomeDictHandler(SpecialProgramHandler):
+class MateDictHandler(SpecialProgramHandler):
     
     INFOS = {'icon': deskbar.core.Utils.load_icon('accessories-dictionary'),
              'name': _("Dictionary"),
@@ -135,23 +135,23 @@ class GnomeDictHandler(SpecialProgramHandler):
              'version': VERSION}
     
     def __init__(self):
-        SpecialProgramHandler.__init__(self, "gnome-dictionary.desktop")
+        SpecialProgramHandler.__init__(self, "mate-dictionary.desktop")
     
     def create_match(self, desktop, f):
-        return GnomeDictMatch(
-                    name=desktop.get_localestring(gnomedesktop.KEY_NAME),
-                    icon=desktop.get_string(gnomedesktop.KEY_ICON),
+        return MateDictMatch(
+                    name=desktop.get_localestring(matedesktop.KEY_NAME),
+                    icon=desktop.get_string(matedesktop.KEY_ICON),
                     desktop=desktop,
                     desktop_file=f)
         
     @staticmethod
     def has_requirements():
-        if not SpecialProgramHandler.desktop_file_exists("gnome-dictionary.desktop"):
+        if not SpecialProgramHandler.desktop_file_exists("mate-dictionary.desktop"):
             DevhelpHandler.INSTRUCTIONS = _("MATE dictionary is not installed")
             return False
         return True
         
-class GnomeSearchHandler(SpecialProgramHandler):
+class MateSearchHandler(SpecialProgramHandler):
     
     INFOS = {'icon': deskbar.core.Utils.load_icon('system-search'),
              'name': _("Files and Folders Search"),
@@ -159,19 +159,19 @@ class GnomeSearchHandler(SpecialProgramHandler):
              'version': VERSION}
     
     def __init__(self):
-        SpecialProgramHandler.__init__(self, "gnome-search-tool.desktop")
+        SpecialProgramHandler.__init__(self, "mate-search-tool.desktop")
     
     def create_match(self, desktop, f):
-        return GnomeSearchMatch(
-                    name=desktop.get_localestring(gnomedesktop.KEY_NAME),
-                    icon=desktop.get_string(gnomedesktop.KEY_ICON),
+        return MateSearchMatch(
+                    name=desktop.get_localestring(matedesktop.KEY_NAME),
+                    icon=desktop.get_string(matedesktop.KEY_ICON),
                     desktop=desktop,
                     desktop_file=f)
         
     @staticmethod
     def has_requirements():
-        if not SpecialProgramHandler.desktop_file_exists("gnome-search-tool.desktop"):
-            DevhelpHandler.INSTRUCTIONS = _("GNOME search tool is not installed")
+        if not SpecialProgramHandler.desktop_file_exists("mate-search-tool.desktop"):
+            DevhelpHandler.INSTRUCTIONS = _("MATE search tool is not installed")
             return False
         return True
         
@@ -186,18 +186,18 @@ class DevhelpHandler(SpecialProgramHandler):
         if SpecialProgramHandler.desktop_file_exists("devhelp.desktop"):
         	SpecialProgramHandler.__init__(self, "devhelp.desktop")
         else:
-      		SpecialProgramHandler.__init__(self, "gnome-devhelp.desktop")
+      		SpecialProgramHandler.__init__(self, "mate-devhelp.desktop")
     
     def create_match(self, desktop, f):
         return DevhelpMatch(
-                    name=desktop.get_localestring(gnomedesktop.KEY_NAME),
-                    icon=desktop.get_string(gnomedesktop.KEY_ICON),
+                    name=desktop.get_localestring(matedesktop.KEY_NAME),
+                    icon=desktop.get_string(matedesktop.KEY_ICON),
                     desktop=desktop,
                     desktop_file=f)
         
     @staticmethod
     def has_requirements():
-        if not (SpecialProgramHandler.desktop_file_exists("devhelp.desktop") or SpecialProgramHandler.desktop_file_exists("gnome-devhelp.desktop")):
+        if not (SpecialProgramHandler.desktop_file_exists("devhelp.desktop") or SpecialProgramHandler.desktop_file_exists("mate-devhelp.desktop")):
             DevhelpHandler.INSTRUCTIONS = _("Devhelp is not installed")
             return False
         return True
@@ -222,7 +222,7 @@ class OpenPathProgramAction(deskbar.interfaces.Action):
                     stderr=subprocess.STDOUT)
                 
                 matedialog = subprocess.Popen(
-                    ["zenity", "--title="+self._name,
+                    ["matedialog", "--title="+self._name,
                         "--window-icon="+join(deskbar.ART_DATA_DIR, "generic.png"),
                         "--width=700",
                         "--height=500",
@@ -230,11 +230,11 @@ class OpenPathProgramAction(deskbar.interfaces.Action):
                     stdin=prog.stdout)
     
                 # Reap the processes when they have done
-                glib.child_watch_add(zenity.pid, lambda pid, code: None)
+                glib.child_watch_add(matedialog.pid, lambda pid, code: None)
                 glib.child_watch_add(prog.pid, lambda pid, code: None)
                 return
             except:
-                #No zenity, get out of the if, and launch without GUI
+                #No matedialog, get out of the if, and launch without GUI
                 pass
         
         spawn_async(self._name.split(" "))
@@ -373,16 +373,16 @@ class ProgramsHandler(deskbar.interfaces.Module):
                     result = parse_desktop_file(f)
                     if result != None:
                         match = GenericProgramMatch(
-                                    name=result.get_localestring(gnomedesktop.KEY_NAME),
-                                    icon=result.get_string(gnomedesktop.KEY_ICON),
+                                    name=result.get_localestring(matedesktop.KEY_NAME),
+                                    icon=result.get_string(matedesktop.KEY_ICON),
                                     desktop=result,
                                     desktop_file=f)
                         self._indexer.add("%s %s %s %s %s" % (
                                     result.get_string("Exec"),
-                                    result.get_localestring(gnomedesktop.KEY_NAME),
-                                    result.get_localestring(gnomedesktop.KEY_COMMENT),
-                                    result.get_string(gnomedesktop.KEY_NAME),
-                                    result.get_string(gnomedesktop.KEY_COMMENT),
+                                    result.get_localestring(matedesktop.KEY_NAME),
+                                    result.get_localestring(matedesktop.KEY_COMMENT),
+                                    result.get_string(matedesktop.KEY_NAME),
+                                    result.get_string(matedesktop.KEY_COMMENT),
                                 ), match)
 
 def get_priority_for_name(query, name):

@@ -402,7 +402,7 @@ class DeskbarPreferences:
             self._model.stop_module (module, False)
         else:
             self._model.initialize_module (module, False)
-        self._model.update_gconf()
+        self._model.update_mateconf()
     
     def on_check_handlers(self, button):
         """

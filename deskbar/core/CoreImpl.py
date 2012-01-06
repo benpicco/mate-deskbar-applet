@@ -30,8 +30,8 @@ class CoreImpl(deskbar.interfaces.Core):
         
         self._threadpool = ThreadPool(5)
         self._mateconf = GconfStore.get_instance()
-        self._history = DeskbarHistory.get_instance(self._gconf.get_max_history_items())
-        self._gconf.connect("max-history-items-changed", lambda s, num: self._history.set_max_history_items(num))
+        self._history = DeskbarHistory.get_instance(self._mateconf.get_max_history_items())
+        self._mateconf.connect("max-history-items-changed", lambda s, num: self._history.set_max_history_items(num))
         
         self._setup_module_loader(modules_dir)
         self._setup_module_list()
@@ -41,7 +41,7 @@ class CoreImpl(deskbar.interfaces.Core):
         
         self._module_installer = ModuleInstaller(self._module_loader)
         
-        self._gconf.connect("default-browser-changed", self._on_default_browser_changed)
+        self._mateconf.connect("default-browser-changed", self._on_default_browser_changed)
         #prevent double notifications
         self.browser = None
         
@@ -62,13 +62,13 @@ class CoreImpl(deskbar.interfaces.Core):
     
     def _setup_module_list(self):
         self._module_list = ModuleList ()
-        self._gconf.connect("enabled-modules-changed", self._on_enabled_modules_changed)
+        self._mateconf.connect("enabled-modules-changed", self._on_enabled_modules_changed)
         self._module_loader.connect ("module-loaded", self._module_list.update_row_cb)
         self._module_loader.connect ("module-initialized", self._module_list.module_toggled_cb)
         self._module_loader.connect ("module-stopped", self._module_list.module_toggled_cb)
         
     def _setup_keybinder(self):
-        self._gconf.connect("keybinding-changed", self._on_keybinding_changed)
+        self._mateconf.connect("keybinding-changed", self._on_keybinding_changed)
         
         self._keybinder = Keybinder()
         keybinding = self.get_keybinding()
@@ -96,7 +96,7 @@ class CoreImpl(deskbar.interfaces.Core):
         """
         Get a list of class names of enabled modules
         """
-        return self._gconf.get_enabled_modules()
+        return self._mateconf.get_enabled_modules()
     
     def set_enabled_modules(self, name):
         """
@@ -104,7 +104,7 @@ class CoreImpl(deskbar.interfaces.Core):
         
         @type name: list of class names 
         """
-        if not self._gconf.set_enabled_modules(name):
+        if not self._mateconf.set_enabled_modules(name):
             LOGGER.error("Unable to save enabled modules list to MateConf")
 
     def get_keybinding(self):
@@ -113,62 +113,62 @@ class CoreImpl(deskbar.interfaces.Core):
         
         @return: str
         """
-        return self._gconf.get_keybinding()
+        return self._mateconf.get_keybinding()
     
     def get_min_chars(self):
-        return self._gconf.get_min_chars()
+        return self._mateconf.get_min_chars()
     
     def get_type_delay(self):
-        return self._gconf.get_type_delay()
+        return self._mateconf.get_type_delay()
     
     def get_use_selection(self):
-        return self._gconf.get_use_selection()
+        return self._mateconf.get_use_selection()
 
     def get_clear_entry(self):
-        return self._gconf.get_clear_entry()
+        return self._mateconf.get_clear_entry()
     
     def get_use_http_proxy(self):
-        return self._gconf.get_use_http_proxy()
+        return self._mateconf.get_use_http_proxy()
     
     def get_proxy_host(self):
-        return self._gconf.get_proxy_host()
+        return self._mateconf.get_proxy_host()
     
     def get_proxy_port(self):
-        return self._gconf.get_proxy_port()
+        return self._mateconf.get_proxy_port()
     
     def get_collapsed_cat(self):
-        return self._gconf.get_collapsed_cat()
+        return self._mateconf.get_collapsed_cat()
     
     def get_window_width(self):
-        return self._gconf.get_window_width()
+        return self._mateconf.get_window_width()
     
     def get_window_height(self):
-        return self._gconf.get_window_height()
+        return self._mateconf.get_window_height()
     
     def get_window_x(self):      
-        return self._gconf.get_window_x()      
+        return self._mateconf.get_window_x()      
        
     def get_window_y(self):      
-        return self._gconf.get_window_y()
+        return self._mateconf.get_window_y()
     
     def get_hide_after_action(self):
-        return self._gconf.get_hide_after_action()
+        return self._mateconf.get_hide_after_action()
     
     def get_max_history_items(self):
-        return self._gconf.get_max_history_items()
+        return self._mateconf.get_max_history_items()
     
     def get_ui_name(self):
-        return self._gconf.get_ui_name()
+        return self._mateconf.get_ui_name()
     
     def get_entry_width(self):
-        return self._gconf.get_entry_width()
+        return self._mateconf.get_entry_width()
 
     def set_keybinding(self, binding):
         """
         Store keybinding
         """
-        if not self._gconf.set_keybinding(binding):
-            LOGGER.error("Unable to save keybinding setting to GConf")
+        if not self._mateconf.set_keybinding(binding):
+            LOGGER.error("Unable to save keybinding setting to MateConf")
 
     def bind_keybinding(self, binding):
         """
@@ -180,67 +180,67 @@ class CoreImpl(deskbar.interfaces.Core):
             LOGGER.info("Successfully binded Deskbar to %s", binding)
     
     def set_min_chars(self, number):
-        if not self._gconf.set_min_chars(number):
-            LOGGER.error("Unable to save min chars setting to GConf")
+        if not self._mateconf.set_min_chars(number):
+            LOGGER.error("Unable to save min chars setting to MateConf")
     
     def set_type_delay(self, seconds):
-        if not self._gconf.set_type_delay(seconds):
-            LOGGER.error("Unable to save type delay setting to GConf")
+        if not self._mateconf.set_type_delay(seconds):
+            LOGGER.error("Unable to save type delay setting to MateConf")
     
     def set_use_selection(self, val):
-        if not self._gconf.set_use_selection(val):
-            LOGGER.error("Unable to save use selection setting to GConf")
+        if not self._mateconf.set_use_selection(val):
+            LOGGER.error("Unable to save use selection setting to MateConf")
 
     def set_clear_entry(self, val):
-        if not self._gconf.set_clear_entry(val):
-            LOGGER.error("Unable to save clear entry setting to GConf")
+        if not self._mateconf.set_clear_entry(val):
+            LOGGER.error("Unable to save clear entry setting to MateConf")
     
     def set_use_http_proxy(self, val):
-        if not self._gconf.set_use_http_proxy(val):
-            LOGGER.error("Unable to save http proxy setting to GConf")
+        if not self._mateconf.set_use_http_proxy(val):
+            LOGGER.error("Unable to save http proxy setting to MateConf")
     
     def set_proxy_host(self, host):
-        if not self._gconf.set_proxy_host(host):
-            LOGGER.error("Unable to save http proxy host setting to GConf")
+        if not self._mateconf.set_proxy_host(host):
+            LOGGER.error("Unable to save http proxy host setting to MateConf")
     
     def set_proxy_port(self, port):
-        if not self._gconf.set_proxy_port(port):
-            LOGGER.error("Unable to save proxy port setting to GConf")
+        if not self._mateconf.set_proxy_port(port):
+            LOGGER.error("Unable to save proxy port setting to MateConf")
     
     def set_collapsed_cat(self, cat):
-        if not self._gconf.set_collapsed_cat(cat):
-            LOGGER.error("Unable to save collapsed cat setting to GConf")
+        if not self._mateconf.set_collapsed_cat(cat):
+            LOGGER.error("Unable to save collapsed cat setting to MateConf")
     
     def set_window_width(self, width):
-        if not self._gconf.set_window_width(width):
-            LOGGER.error("Unable to save window width setting to GConf")
+        if not self._mateconf.set_window_width(width):
+            LOGGER.error("Unable to save window width setting to MateConf")
     
     def set_window_height(self, height):
-        if not self._gconf.set_window_height(height):
-            LOGGER.error("Unable to save window height setting to GConf")
+        if not self._mateconf.set_window_height(height):
+            LOGGER.error("Unable to save window height setting to MateConf")
     
     def set_window_x(self, x):      
-        if not self._gconf.set_window_x(x):     
-            LOGGER.error("Unable to save window x position setting to GConf")
+        if not self._mateconf.set_window_x(x):     
+            LOGGER.error("Unable to save window x position setting to MateConf")
        
     def set_window_y(self, y):      
-        if not self._gconf.set_window_y(y):
-            LOGGER.error("Unable to save window y position setting to GConf")
+        if not self._mateconf.set_window_y(y):
+            LOGGER.error("Unable to save window y position setting to MateConf")
     
     def set_hide_after_action(self, width):
-        if not self._gconf.set_hide_after_action(width):
-            LOGGER.error("Unable to save hide after action setting to GConf")
+        if not self._mateconf.set_hide_after_action(width):
+            LOGGER.error("Unable to save hide after action setting to MateConf")
     
     def set_max_history_items(self, amount):
-        if not self._gconf.set_max_history_items(amount):
-            LOGGER.error("Unable to save max history items setting to GConf")
+        if not self._mateconf.set_max_history_items(amount):
+            LOGGER.error("Unable to save max history items setting to MateConf")
         
     def set_ui_name(self, name):
-        if not self._gconf.set_ui_name(name):
-            LOGGER.error("Unable to save ui name setting to GConf")
+        if not self._mateconf.set_ui_name(name):
+            LOGGER.error("Unable to save ui name setting to MateConf")
     
     def set_entry_width(self, width):
-        return self._gconf.set_entry_width(width)
+        return self._mateconf.set_entry_width(width)
 
     def get_history(self):
         """
@@ -336,11 +336,11 @@ class CoreImpl(deskbar.interfaces.Core):
         # Compute the highest priority
         high_prio = (len(enabled_modules)-1)*100
         
-        # Now we enable each gconf-enabled handler, and set it's priority according to gconf ordering
+        # Now we enable each mateconf-enabled handler, and set it's priority according to mateconf ordering
         for i, modname in enumerate(enabled_modules):
             mod = [mod for mod in self._module_list if mod.__class__.__name__ == modname]
             if len(mod) != 1:
-                # We have a gconf handler not on disk anymore..
+                # We have a mateconf handler not on disk anymore..
                 continue
                 
             mod = mod[0]
@@ -361,7 +361,7 @@ class CoreImpl(deskbar.interfaces.Core):
             self._history.load()
             self._emit_initialized()
             
-    def _on_enabled_modules_changed(self, gconfstore, enabled_modules):
+    def _on_enabled_modules_changed(self, mateconfstore, enabled_modules):
         # Stop all unneeded modules
         enabled_modules_set = set(enabled_modules)
         current_modules_set = set()
@@ -386,12 +386,12 @@ class CoreImpl(deskbar.interfaces.Core):
                     raise TypeError("Handler %r returned an invalid match: %r", handler,  match)
             self._emit_query_ready(matches)
     
-    def update_gconf(self):
-         # Update the gconf enabled modules settings
+    def update_mateconf(self):
+         # Update the mateconf enabled modules settings
         enabled_modules = [mod.__class__.__name__ for mod in self._module_list if mod.is_enabled()]
         self.set_enabled_modules(enabled_modules)
     
-    def _on_default_browser_changed(self, gconfstore, new_browser):
+    def _on_default_browser_changed(self, mateconfstore, new_browser):
         new_browser = new_browser.split(" ")[0]
         
         if new_browser.find("firefox") != -1 or new_browser.find("iceweasel") != -1 \
@@ -444,10 +444,10 @@ class CoreImpl(deskbar.interfaces.Core):
             
             # If new_module is None the module has missing requirements
             if new_module != None:
-                # If async is True then self.update_gconf() may be run before the modules were initialized
+                # If async is True then self.update_mateconf() may be run before the modules were initialized
                 self.initialize_module(new_module, async=False)
         
-        self.update_gconf()
+        self.update_mateconf()
         
     def _on_keybinding_changed(self, store, keybinding):
         if gtk.accelerator_parse(keybinding) != (0,0):

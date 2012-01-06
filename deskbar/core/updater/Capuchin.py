@@ -6,9 +6,9 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 CAPUCHIN_DBUS_SERVICE = "org.mate.Capuchin"
-APP_OBJECT_MANAGER_DBUS_INTERFACE = "org.gnome.Capuchin"
-APP_OBJECT_MANAGER_DBUS_PATH = "/org/gnome/Capuchin/AppObjectManager"
-APP_OBJECT_DBUS_INTERFACE = "org.gnome.Capuchin.AppObject"
+APP_OBJECT_MANAGER_DBUS_INTERFACE = "org.mate.Capuchin"
+APP_OBJECT_MANAGER_DBUS_PATH = "/org/mate/Capuchin/AppObjectManager"
+APP_OBJECT_DBUS_INTERFACE = "org.mate.Capuchin.AppObject"
 
 (ACTION_UPDATING_REPO,
 ACTION_DOWNLOADING_PLUGIN,

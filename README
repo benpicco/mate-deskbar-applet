@@ -8,12 +8,12 @@ And our development wiki:
 http://live.mate.org/DeskbarApplet
 
 You can also download additional plugins on:
-http://live.gnome.org/DeskbarApplet/Extending
+http://live.mate.org/DeskbarApplet/Extending
 
 =============
 Known issues
 =============
-* When using gnome-python-extras-2.10, you will be able to use deskbar-applet only in window-mode, not in the panel, because you won't be able to focus and type in it.
+* When using mate-python-extras-2.10, you will be able to use deskbar-applet only in window-mode, not in the panel, because you won't be able to focus and type in it.
 
 ============
 Requirements
@@ -22,10 +22,10 @@ Required dependencies:
  * Python 2.4 or above
  * pygtk-2.10 (modules: gtk, gtk.gdk, gtk.glade, pango)
  * pygobject-2.10 (modules: gobject)
- * gnome-python-2.10 (modules: mateconf, gnome, gnome.ui, gnomevfs)
- * gnome-python-extras-2.10 (module: gnomeapplet)
+ * mate-python-2.10 (modules: mateconf, mate, mate.ui, matevfs)
+ * mate-python-extras-2.10 (module: mateapplet)
  * gtk+-2.10 to compile global hotkey and icon entry
- * gnome-desktop-2.10 to compile .desktop parsing
+ * mate-desktop-2.10 to compile .desktop parsing
 
 Optional dependencies:
  * Compile time:
@@ -46,7 +46,7 @@ make
 Now you can either install it on your system:
 sudo make install (or run make install as root)
 
-Then you are able to add the applet through the gnome-panel applet manager.
+Then you are able to add the applet through the mate-panel applet manager.
 
 Or you can try it without installation, by running
 ./deskbar/deskbar-applet -w

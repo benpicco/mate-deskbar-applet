@@ -3,7 +3,7 @@ from deskbar.defs import VERSION
 from deskbar.handlers.actions.ActionsFactory import get_actions_for_uri
 from deskbar.handlers.actions.CopyToClipboardAction import CopyToClipboardAction
 from deskbar.handlers.actions.OpenFileAction import OpenFileAction
-from deskbar.handlers.actions.OpenWithCajaAction import OpenWithNautilusAction
+from deskbar.handlers.actions.OpenWithCajaAction import OpenWithCajaAction
 from deskbar.handlers.actions.ShowUrlAction import ShowUrlAction
 from gettext import gettext as _
 from os.path import join, basename, normpath, abspath, dirname
@@ -47,7 +47,7 @@ class GtkBookmarkMatch(deskbar.interfaces.Match):
     def __init__(self, name=None, path=None, **args):
         deskbar.interfaces.Match.__init__(self, icon="gtk-open", name=name, category="places", **args)
         self.path = path
-        self.add_action( OpenWithNautilusAction(name, path) )
+        self.add_action( OpenWithCajaAction(name, path) )
         self.add_all_actions( get_actions_for_uri(path) )
     
     def get_hash(self):
@@ -57,7 +57,7 @@ class VolumeMatch (deskbar.interfaces.Match):
     def __init__(self, name=None, drive=None, icon=None, **args):
         deskbar.interfaces.Match.__init__(self, name=name, category="places", icon=icon, **args)
         self.drive = drive
-        self.add_action( OpenWithNautilusAction(name, drive) )
+        self.add_action( OpenWithCajaAction(name, drive) )
         # FIXME:
         # _("Location") should be _("Location of %s") % name
         self.add_action( CopyToClipboardAction(_("Location"), drive) )

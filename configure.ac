@@ -35,13 +35,13 @@ AM_GLIB_GNU_GETTEXT
 dnl ****************************************************************************
 dnl * Mate Doc Utils
 dnl ****************************************************************************
-GNOME_DOC_INIT
+MATE_DOC_INIT
 
 dnl ****************************************************************************
 dnl * MateConf support
 dnl ****************************************************************************
-AC_PATH_PROG(GCONFTOOL, gconftool-2)
-AM_GCONF_SOURCE_2
+AC_PATH_PROG(MATECONFTOOL, mateconftool-2)
+AM_MATECONF_SOURCE_2
 
 dnl ****************************************************************************
 dnl * Python 2.4
@@ -62,27 +62,27 @@ AS_AC_EXPAND(LIBEXECDIR, $libexecdir)
 AC_SUBST(LIBEXECDIR)
 
 dnl ****************************************************************************
-dnl * PyGTK & co for Gnome Streamer
+dnl * PyGTK & co for Mate Streamer
 dnl ****************************************************************************
 PKG_CHECK_MODULES(DESKBAR,
 	gtk+-2.0				>= 2.20
 	pygtk-2.0				>= 2.12
 	pygobject-2.0			>= 2.15.3
-	gnome-desktop-2.0		>= 2.10
+	mate-desktop-2.0		>= 2.10
 	dbus-python				>= 0.80.2
 )
 AC_SUBST(DESKBAR_CFLAGS)
 AC_SUBST(DESKBAR_LIBS)
 
-AC_MSG_CHECKING([for gnomeapplet module])
+AC_MSG_CHECKING([for mateapplet module])
 if AC_RUN_LOG([DISPLAY= $PYTHON -c '
 import pygtk
 pygtk.require("2.0")
 
 try:
-    import gnomeapplet
+    import mateapplet
 except ImportError, e:
-    if str(e).find("gnomeapplet") >= 0:
+    if str(e).find("mateapplet") >= 0:
           raise
 except:
     pass
@@ -90,18 +90,18 @@ except:
   AC_MSG_RESULT([yes])
 else
   AC_MSG_RESULT([no])
-  AC_MSG_ERROR([gnomeapplet Python module required to build deskbar])
+  AC_MSG_ERROR([mateapplet Python module required to build deskbar])
 fi
 
 dnl ******************
 dnl * Python modules
 dnl ******************
 AM_CHECK_PYMOD(dbus)
-AM_CHECK_PYMOD(gconf)
+AM_CHECK_PYMOD(mateconf)
 AM_CHECK_PYMOD(gio)
 AM_CHECK_PYMOD(glib)
-AM_CHECK_PYMOD(gnomedesktop)
-AM_CHECK_PYMOD(gnomekeyring)
+AM_CHECK_PYMOD(matedesktop)
+AM_CHECK_PYMOD(matekeyring)
 AM_CHECK_PYMOD(gobject)
 AM_CHECK_PYMOD(gtk)
 AM_CHECK_PYMOD(gtk.gdk)

@@ -17,8 +17,8 @@ def build_window():
     app.set_title(_("Deskbar Applet"))
     app.connect("destroy", gtk.main_quit)
     
-    applet = gnomeapplet.Applet()
-    applet.get_orient = lambda: gnomeapplet.ORIENT_DOWN
+    applet = mateapplet.Applet()
+    applet.get_orient = lambda: mateapplet.ORIENT_DOWN
     applet_factory(applet, None)
     applet.reparent(app)
         
@@ -107,7 +107,7 @@ elif options.window:
 else:
     from deskbar.ui.DeskbarApplet import DeskbarApplet
     
-    gnomeapplet.matecomponent_factory(
+    mateapplet.matecomponent_factory(
             "OAFIID:Deskbar_Applet_Factory",
             DeskbarApplet.__gtype__,
             deskbar.defs.PACKAGE,

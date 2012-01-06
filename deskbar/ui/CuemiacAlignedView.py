@@ -10,7 +10,7 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
     """
     This class is responsible for setting up the GUI.
     It displays the older version of deskbar's GUI, where the
-    results window is aligned to the gnome panel.
+    results window is aligned to the mate panel.
     """
     
     VBOX_MAIN_SPACING = 12
@@ -26,7 +26,7 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
                                           lambda s, w: self._change_entry_width(w))
         
         self.set_type_hint (gtk.gdk.WINDOW_TYPE_HINT_MENU)
-        self.applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
+        self.applet.set_applet_flags(mateapplet.EXPAND_MINOR)
         self.applet.set_flags(gtk.CAN_FOCUS)
         self.applet.connect("change-orient", self._on_change_orient)
         
@@ -116,10 +116,10 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
         orientation.
         
         @param orient: The orientation to switch to. 
-                    Must be one of C{gnomeapplet.ORIENT_UP}, C{gnomeapplet.ORIENT_DOWN},
-                    C{gnomeapplet.ORIENT_LEFT}, C{gnomeapplet.ORIENT_RIGHT}.
+                    Must be one of C{mateapplet.ORIENT_UP}, C{mateapplet.ORIENT_DOWN},
+                    C{mateapplet.ORIENT_LEFT}, C{mateapplet.ORIENT_RIGHT}.
         """
-        if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
+        if orient in [mateapplet.ORIENT_LEFT, mateapplet.ORIENT_RIGHT, mateapplet.ORIENT_DOWN]:
             self.vbox_main.pack_start(self.header, False)
             self.vbox_main.pack_start(self.results_box)
         else:
@@ -130,7 +130,7 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
         self._on_change_orient(self.applet, orient)
         
     def __set_sort_order_by_orientation(self, orient):
-        if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
+        if orient in [mateapplet.ORIENT_LEFT, mateapplet.ORIENT_RIGHT, mateapplet.ORIENT_DOWN]:
             self.treeview_model.set_sort_order (gtk.SORT_ASCENDING)
             self.actions_model.set_sort_order (gtk.SORT_ASCENDING)
             self._model.get_history().set_sort_order (gtk.SORT_DESCENDING)
@@ -141,7 +141,7 @@ class CuemiacAlignedView(AbstractCuemiacView, CuemiacAlignedWindow):
 
     def _on_change_orient(self, applet, orient):
         self.__set_sort_order_by_orientation(orient)
-        if orient in [gnomeapplet.ORIENT_LEFT, gnomeapplet.ORIENT_RIGHT, gnomeapplet.ORIENT_DOWN]:
+        if orient in [mateapplet.ORIENT_LEFT, mateapplet.ORIENT_RIGHT, mateapplet.ORIENT_DOWN]:
             self.vbox_main.reorder_child(self.header, 0)
             self.vbox_main.reorder_child(self.results_box, 2)
         else:

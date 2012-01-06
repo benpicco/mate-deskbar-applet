@@ -22,7 +22,7 @@ except:
 LOGGER = logging.getLogger(__name__)
     
 HANDLERS = ["GoogleHandler"]
-MATECONF_GOOGLE_LANG = GconfStore.GCONF_DIR+"/google/language"
+MATECONF_GOOGLE_LANG = GconfStore.MATECONF_DIR+"/google/language"
 
 # Languages supported by Google
 # see: http://www.google.com/coop/docs/cse/resultsxml.html#languageCollections
@@ -91,7 +91,7 @@ class GoogleHandler(deskbar.interfaces.Module):
         self.server = None
         self._lang = None
         self._mateconf = GconfStore.get_instance().get_client()
-        self._gconf.notify_add(GCONF_GOOGLE_LANG, self._on_language_changed)
+        self._mateconf.notify_add(MATECONF_GOOGLE_LANG, self._on_language_changed)
         self._set_lang()
     
     def _on_language_changed(self, client, cnxn_id, entry, data):
@@ -101,10 +101,10 @@ class GoogleHandler(deskbar.interfaces.Module):
             self._lang = entry.value.get_string()
             
     def _set_lang(self):
-        self._lang = self._gconf.get_string(GCONF_GOOGLE_LANG)
+        self._lang = self._mateconf.get_string(MATECONF_GOOGLE_LANG)
         if self._lang == None:
             localelang = self._guess_lang()
-            self._gconf.set_string(GCONF_GOOGLE_LANG, localelang)
+            self._mateconf.set_string(MATECONF_GOOGLE_LANG, localelang)
     
     def _guess_lang(self):
         """ 
@@ -281,7 +281,7 @@ class GoogleConfigDialog(gtk.Dialog):
         self.combobox.show()
         self.vbox2.pack_start(self.combobox, False, False, 0)
         
-        lang = GconfStore.get_instance().get_client().get_string(GCONF_GOOGLE_LANG)
+        lang = GconfStore.get_instance().get_client().get_string(MATECONF_GOOGLE_LANG)
         if lang != None:
             self._select_lang(lang)
         
@@ -299,4 +299,4 @@ class GoogleConfigDialog(gtk.Dialog):
         
     def _on_combobox_changed(self, combobox):
         lang = combobox.get_model()[combobox.get_active_iter()][1]
-        GconfStore.get_instance().get_client().set_string(GCONF_GOOGLE_LANG, lang)
+        GconfStore.get_instance().get_client().set_string(MATECONF_GOOGLE_LANG, lang)

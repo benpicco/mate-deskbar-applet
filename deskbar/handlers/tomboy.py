@@ -216,8 +216,8 @@ class TomboyNotesModule (deskbar.interfaces.Module):
 def get_tomboy_connection():
     dbus_loop = DBusGMainLoop()
     bus = dbus.SessionBus( mainloop=dbus_loop )
-    tomboy_obj = bus.get_object( "org.mate.Tomboy", "/org/gnome/Tomboy/RemoteControl" )
-    return dbus.Interface( tomboy_obj, "org.gnome.Tomboy.RemoteControl" )
+    tomboy_obj = bus.get_object( "org.mate.Tomboy", "/org/mate/Tomboy/RemoteControl" )
+    return dbus.Interface( tomboy_obj, "org.mate.Tomboy.RemoteControl" )
 
 # Make it easier to use the Tomboy connection
 # Otherwise, we would have to do TomboyNotesModule.tomboy() all the time
@@ -232,7 +232,7 @@ def tomboy_installed():
         _dbus = dbus.Interface(proxy, 'org.freedesktop.DBus')
         _dbus.ReloadConfig()
         bus_names = _dbus.ListActivatableNames()
-        if "org.gnome.Tomboy" in bus_names:
+        if "org.mate.Tomboy" in bus_names:
             return True
         else:
             TomboyNotesModule.INSTRUCTIONS = _("Tomboy does not seem to be installed.")

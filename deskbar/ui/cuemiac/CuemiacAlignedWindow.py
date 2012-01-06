@@ -13,7 +13,7 @@ class CuemiacAlignedWindow (gtk.Window):
     def __init__(self, widgetToAlignWith, applet, window_type=gtk.WINDOW_TOPLEVEL):
         """
         alignment should be one of
-            gnomeapplet.ORIENT_{DOWN,UP,LEFT,RIGHT}
+            mateapplet.ORIENT_{DOWN,UP,LEFT,RIGHT}
         
         Call CuemiacWindow.update_position () to position the window.
         """
@@ -82,7 +82,7 @@ class CuemiacAlignedWindow (gtk.Window):
         monitor = screen.get_monitor_geometry (screen.get_monitor_at_window (self.applet.window))
         alignment = self.applet.get_orient()
         
-        if alignment == gnomeapplet.ORIENT_LEFT:
+        if alignment == mateapplet.ORIENT_LEFT:
             x = ax - ww
             y = ay
             
@@ -97,7 +97,7 @@ class CuemiacAlignedWindow (gtk.Window):
             else:
                 gravity = gtk.gdk.GRAVITY_NORTH_WEST
                     
-        elif alignment == gnomeapplet.ORIENT_RIGHT:
+        elif alignment == mateapplet.ORIENT_RIGHT:
             x = ax + aw
             y = ay
             
@@ -112,7 +112,7 @@ class CuemiacAlignedWindow (gtk.Window):
             else:
                 gravity = gtk.gdk.GRAVITY_NORTH_EAST
 
-        elif alignment == gnomeapplet.ORIENT_DOWN:
+        elif alignment == mateapplet.ORIENT_DOWN:
             x = ax
             y = ay + ah
             
@@ -123,7 +123,7 @@ class CuemiacAlignedWindow (gtk.Window):
                 x = 0
             
             gravity = gtk.gdk.GRAVITY_NORTH_WEST
-        elif alignment == gnomeapplet.ORIENT_UP:
+        elif alignment == mateapplet.ORIENT_UP:
             x = ax
             y = ay - wh
             

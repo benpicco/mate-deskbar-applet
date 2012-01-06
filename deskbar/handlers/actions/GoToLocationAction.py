@@ -1,8 +1,8 @@
-from deskbar.handlers.actions.OpenWithCajaAction import OpenWithNautilusAction
+from deskbar.handlers.actions.OpenWithCajaAction import OpenWithCajaAction
 from os.path import dirname, isdir
 from gettext import gettext as _
 
-class GoToLocationAction(OpenWithNautilusAction):
+class GoToLocationAction(OpenWithCajaAction):
     """
     Open given location in caja
     """
@@ -11,7 +11,7 @@ class GoToLocationAction(OpenWithNautilusAction):
         """
         @param file_dir_path: URI of file or directory
         """
-        OpenWithNautilusAction.__init__(self, name, self.__get_dir(file_dir_path))
+        OpenWithCajaAction.__init__(self, name, self.__get_dir(file_dir_path))
        
     def __get_dir(self, file_dir_path):
         if isdir(file_dir_path):

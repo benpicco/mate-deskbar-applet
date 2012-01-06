@@ -15,7 +15,7 @@ class OpenDesktopFileAction(deskbar.interfaces.Action):
     
     def __init__(self, name, desktop, desktop_file, executable):
         """
-        @type desktop: L{gnomedesktop.DesktopItem}
+        @type desktop: L{matedesktop.DesktopItem}
         @type desktop_file: path pointing to .desktop file
         @param executeable: Name of the executeable for display 
         """
@@ -38,7 +38,7 @@ class OpenDesktopFileAction(deskbar.interfaces.Action):
     
     def get_icon(self):
         if self._desktop != None:
-            return self._desktop.get_string(gnomedesktop.KEY_ICON)
+            return self._desktop.get_string(matedesktop.KEY_ICON)
         else:
             return "gtk-open"
     
@@ -77,17 +77,17 @@ def parse_desktop_filename(desktop, only_if_visible=True):
 
 def parse_desktop_file(desktop, only_if_visible=True):
     try:
-        desktop = gnomedesktop.item_new_from_file(desktop, gnomedesktop.LOAD_ONLY_IF_EXISTS)
+        desktop = matedesktop.item_new_from_file(desktop, matedesktop.LOAD_ONLY_IF_EXISTS)
     except Exception, e:
         LOGGER.warning('Couldn\'t read desktop file %s:', desktop)
         LOGGER.exception(e)
         return None
     
-    if desktop == None or desktop.get_entry_type() != gnomedesktop.TYPE_APPLICATION:
+    if desktop == None or desktop.get_entry_type() != matedesktop.TYPE_APPLICATION:
         return None
-    if desktop.get_boolean(gnomedesktop.KEY_TERMINAL):
+    if desktop.get_boolean(matedesktop.KEY_TERMINAL):
         return None
-    if only_if_visible and desktop.get_boolean(gnomedesktop.KEY_NO_DISPLAY):
+    if only_if_visible and desktop.get_boolean(matedesktop.KEY_NO_DISPLAY):
         return None
         
     return desktop

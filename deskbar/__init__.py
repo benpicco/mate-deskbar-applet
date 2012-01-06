@@ -68,7 +68,7 @@ if not (exists(USER_DATA_DIR) and exists(USER_CONFIG_DIR)):
             error = True
             
     if not error and exists(OLD_USER_DESKBAR_DIR):
-        # Move files from old ~/.gnome2 directory to fd.o compliant dirs
+        # Move files from old ~/.mate2 directory to fd.o compliant dirs
         for root, dirs, files in os.walk(OLD_USER_DESKBAR_DIR):
             if "modules-2.20-compatible" in root:
                 destdir = USER_HANDLERS_DIR

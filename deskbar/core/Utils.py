@@ -78,7 +78,7 @@ def get_xdg_data_dirs():
 
 def load_icon_for_desktop_icon(icon):
     if icon != None:
-        icon = gnomedesktop.find_icon(ICON_THEME, icon, deskbar.ICON_HEIGHT, 0)
+        icon = matedesktop.find_icon(ICON_THEME, icon, deskbar.ICON_HEIGHT, 0)
         if icon != None:
             return load_icon(icon)
         
