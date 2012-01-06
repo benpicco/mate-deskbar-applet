@@ -14,7 +14,7 @@ import dbus
 import time
 import dbus.glib
     
-DESKBAR_CAPUCHIN_REPO = "http://www.mate.org/~sebp/deskbar/deskbar-applet-2.24.xml"
+DESKBAR_CAPUCHIN_REPO = "http://www.gnome.org/~sebp/deskbar/deskbar-applet-2.24.xml"
 
 class InfoBox(gtk.HBox):
     

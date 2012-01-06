@@ -28,7 +28,7 @@ def show_about(parent):
         "logo-icon-name" : "deskbar-applet",
         "name" : _("Deskbar"),
         "version" : VERSION,
-        "website" : "http://projects.mate.org/deskbar-applet/",
+        "website" : "http://projects.gnome.org/deskbar-applet/",
         "website-label" : _("Deskbar Website"),   
     }
     

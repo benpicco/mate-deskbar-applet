@@ -305,7 +305,7 @@ search_async (const char         *query,
 /*
  * Note: you may get a message "WARNING **: FIXME: wait for completion unimplemented"
  * if you call search_sync but are not running the gobject main loop.
- * This appears to be harmless: http://bugzilla.mate.org/show_bug.cgi?id=314544
+ * This appears to be harmless: http://bugzilla.gnome.org/show_bug.cgi?id=314544
  */
 GList *
 search_sync (const char *query,
