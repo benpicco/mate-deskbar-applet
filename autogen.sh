@@ -26,8 +26,8 @@ mate_datadir=
 ifs_save="$IFS"; IFS=":"
 for dir in $PATH ; do
   test -z "$dir" && dir=.
-  if test -f $dir/mate-autogen.sh ; then
-    mate_autogen="$dir/mate-autogen.sh"
+  if test -f $dir/mate-autogen ; then
+    mate_autogen="$dir/mate-autogen"
     mate_datadir=`echo $dir | sed -e 's,/bin$,/share,'`
     break
   fi
@@ -36,7 +36,7 @@ IFS="$ifs_save"
 
 if test -z "$mate_autogen" ; then
   echo "You need to install the mate-common module and make"
-  echo "sure the mate-autogen.sh script is in your \$PATH."
+  echo "sure the mate-autogen script is in your \$PATH."
   exit 1
 fi
 
