@@ -1,5 +1,4 @@
 #include <glib.h>
-#include <glib/gstring.h>
 #include <libebook/e-book.h>
 #include <pango/pango.h>
 #include <string.h>
