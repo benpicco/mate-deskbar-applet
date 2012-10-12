@@ -6,7 +6,7 @@ import deskbar.interfaces.Action
 import deskbar
 import gtk
 import logging
-import wnck
+import matewnck
 
 LOGGER = logging.getLogger(__name__)
 HANDLERS = ["ISwitchWindowHandler"]
@@ -70,7 +70,7 @@ class ISwitchWindowHandler(deskbar.interfaces.Module):
     def query(self, query):
         results = []
         query = query.lower()
-        for w in wnck.screen_get_default().get_windows_stacked():
+        for w in matewnck.screen_get_default().get_windows_stacked():
                 if w.is_skip_tasklist():
                         continue
                 

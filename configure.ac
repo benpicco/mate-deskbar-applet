@@ -106,7 +106,7 @@ AM_CHECK_PYMOD(gobject)
 AM_CHECK_PYMOD(gtk)
 AM_CHECK_PYMOD(gtk.gdk)
 AM_CHECK_PYMOD(pango)
-AM_CHECK_PYMOD(wnck)
+AM_CHECK_PYMOD(matewnck)
 
 dnl ****************************************************************************
 dnl * Check for evolution's libebook to build the evolution handler
